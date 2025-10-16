@@ -1,0 +1,82 @@
+name: Sync Gitee to GitHub
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 每天 0 点触发
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Deployment environment"
+        required: true
+        default: "production"
+      branch_name:
+        description: "Branch to sync"
+        required: true
+        default: "master"
+      source_repo:
+        description: "Source Repository (Gitee repo name)"
+        required: true
+        default: "clougence-official-site-and-docs"
+      target_repo:
+        description: "Target Repository (GitHub repo name)"
+        required: true
+        default: "clougence-official-site-and-docs"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set default inputs for scheduled runs
+      if: github.event_name == 'schedule'
+      run: |
+        echo "BRANCH_NAME=dev" >> $GITHUB_ENV
+        echo "ENVIRONMENT=production" >> $GITHUB_ENV
+        # 定时任务也要给默认的源/目标仓库
+        echo "SOURCE_REPO=clougence-official-site-and-docs" >> $GITHUB_ENV
+        echo "TARGET_REPO=clougence-official-site-and-docs" >> $GITHUB_ENV
+    - name: Set inputs from workflow_dispatch
+      if: github.event_name == 'workflow_dispatch'
+      run: |
+        echo "BRANCH_NAME=${{ github.event.inputs.branch_name }}" >> $GITHUB_ENV
+        echo "ENVIRONMENT=${{ github.event.inputs.environment }}" >> $GITHUB_ENV
+        echo "SOURCE_REPO=${{ github.event.inputs.source_repo }}" >> $GITHUB_ENV
+        echo "TARGET_REPO=${{ github.event.inputs.target_repo }}" >> $GITHUB_ENV
+    - name: Debug input values
+      run: |
+        echo "Environment: $ENVIRONMENT"
+        echo "Branch Name: $BRANCH_NAME"
+        echo "Source Repository: $SOURCE_REPO"
+        echo "Target Repository: $TARGET_REPO"
+    - name: Clone GitHub target repository
+      run: |
+        set -e
+        git clone "https://${{ secrets.TOKEN }}@github.com/bladepipe/${TARGET_REPO}.git" repo-target
+        cd repo-target
+        git fetch origin "$BRANCH_NAME" || true
+        git checkout "$BRANCH_NAME" 2>/dev/null || git checkout -b "$BRANCH_NAME"
+        git config user.email "bladepipe.ltd@gmail.com"
+        git config user.name "BladePipe"
+        git config pull.rebase false
+    - name: Clone Gitee source repository (shallow)
+      run: |
+        set -e
+        git clone --depth 1 "https://oauth2:${{ secrets.GITEE_TOKEN }}@gitee.com/clougence/${SOURCE_REPO}.git" repo-source
+        cd repo-source
+        git fetch origin "$BRANCH_NAME" || true
+        git checkout "$BRANCH_NAME" 2>/dev/null || true
+        cd ..
+    - name: Sync files from Gitee -> GitHub (rsync)
+      run: |
+        rsync -a --delete --exclude=".git" --exclude='.github/***' repo-source/ repo-target/
+    - name: Commit changes if any
+      working-directory: repo-target
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          git add .
+          TIMESTAMP=$(date +"%Y-%m-%d %H:%M:%S")
+          git commit -m "Sync from Gitee to GitHub on $TIMESTAMP"
+          git push origin "$BRANCH_NAME"
+        else
+          echo "No changes to commit"
+        fi
