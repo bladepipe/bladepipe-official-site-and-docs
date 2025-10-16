@@ -5,7 +5,7 @@ title: Building a Real-Time Lakehouse from Scratch with BladePipe, Paimon, and S
 date: 2025-09-25
 authors: mumu
 tags:
-  - tech_share
+  - data_insights
 image: /img/blog/data_insights/paimon_selectdb_lakehouse.png
 ---
 Why are so many teams still juggling both a data lake and a warehouse, only to end up with slow pipelines, stale dashboards, and skyrocketing costs? 
