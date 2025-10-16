@@ -1,0 +1,14 @@
+tutorials:
+  label: 使用教程
+  permalink: /tutorials
+  description: About CloudDM tutorials
+
+data_management:
+  label: 数据管理
+  permalink: /management
+  description: About database management
+
+announcement:
+  label: 产品动态
+  permalink: /announcement
+  description: Announcement

@@ -1,0 +1,468 @@
+.jte-section-title {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.2em; /* H3-like size */
+    color: #333333; /* Dark heading color */
+    border-bottom: 2px solid #51459e; /* Purple accent */
+    padding-bottom: 8px;
+    font-weight: 600;
+}
+
+/* --- Input & Buttons --- */
+.jte-textarea {
+    width: 100%;
+    min-height: 150px;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #cccccc; /* Medium gray border */
+    border-radius: 4px;
+    font-size: 0.95em;
+    font-family: monospace; /* Monospace for JSON */
+    line-height: 1.6;
+    background-color: #f8f9fa; /* Very light gray background */
+    color: #333333;
+    resize: vertical;
+}
+
+.jte-textarea--disabled {
+    background-color: #e9ecef; /* Disabled look */
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.jte-textarea--output {
+    min-height: 200px;
+}
+
+.jte-button-container {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 12px;
+}
+
+.jte-button {
+    padding: 9px 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+    text-align: center;
+    line-height: 1.5; /* Ensure text vertical alignment */
+}
+
+.jte-button:hover {
+    opacity: 0.85;
+}
+
+.jte-button--primary {
+    background-color: #51459e; /* Purple */
+    color: white;
+}
+
+.jte-button--primary:disabled,
+.jte-button--primary[disabled] {
+    background-color: #51459e;
+    border-color: #white;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.jte-button--danger {
+    background-color: #d9534f; /* Red */
+    color: white;
+}
+
+.jte-button--secondary-action {
+    background-color: #f0f0f0; /* Light gray */
+    color: #333333;
+    border: 1px solid #cccccc;
+    font-size: 0.9em;
+}
+
+.jte-button--secondary-action:hover {
+    background-color: #e0e0e0; /* Darker gray on hover */
+}
+
+.jte-error {
+    color: #a94442; /* Dark red text for error */
+    margin-bottom: 15px;
+    font-weight: 600;
+    background-color: #f2dede; /* Light red background */
+    border: 1px solid #ebccd1; /* Reddish border */
+    padding: 10px 12px;
+    border-radius: 4px;
+}
+
+/* --- Search & Results --- */
+.jte-search-container {
+    margin-bottom: 20px;
+}
+
+.jte-search-input {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    color: #333333;
+}
+
+.jte-results-info {
+    margin: 15px 0;
+    font-size: 0.95em;
+    color: #333333;
+}
+
+.jte-prompt-text {
+    text-align: center;
+    color: #6c757d; /* Medium gray */
+    font-size: 1.1em;
+    padding: 30px 15px;
+    border: 1px dashed #ced4da; /* Dashed light border */
+    border-radius: 8px;
+    background-color: #f8f9fa; /* Light surface color */
+    margin-top: 15px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Item Listing --- */
+.jte-item {
+    border: 1px solid #a399d4;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    min-height: 120px;
+}
+
+.jte-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.jte-item-title {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #41377e; /* Darker Purple */
+}
+
+.jte-details-toggle {
+    color: #51459e; /* Purple link color */
+    cursor: pointer;
+    font-size: 0.9em;
+    background: none;
+    border: none;
+    padding: 6px 8px;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.jte-details-toggle:hover {
+    background-color: rgba(81, 69, 158, 0.1); /* Light purple hover */
+}
+
+.jte-item-details-section {
+    padding-top: 12px;
+    background-color: #f8f9fa; /* Light surface for details */
+    margin: 10px -15px -15px -15px;
+    padding: 15px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top: 1px solid #eeeeee;
+}
+
+.jte-field-entry {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 0.95em;
+}
+
+.jte-field-entry:last-child {
+    margin-bottom: 0;
+}
+
+.jte-label {
+    font-weight: 600;
+    margin-right: 10px;
+    min-width: 100px;
+    color: #555555; /* Dark gray for labels */
+    white-space: nowrap;
+    text-align: right;
+    font-size: 0.9em;
+}
+
+.jte-value-display {
+    color: #333333;
+    word-break: break-all;
+    background-color: #f0f0f0; /* Lighter gray for value background */
+    padding: 5px 8px;
+    border-radius: 4px;
+    flex-grow: 1;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.jte-timestamp-display-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.jte-edit-button {
+    background: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    color: #51459e; /* Purple */
+    padding: 5px 8px;
+    font-size: 0.9em;
+    margin-left: auto;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.jte-edit-button:hover {
+    background-color: rgba(81, 69, 158, 0.1); /* Light purple hover */
+    border-color: #d2cbe8; /* Lighter purple border on hover */
+}
+
+.jte-edit-icon-text { /* For the "✏️ Edit" text in the intro paragraph */
+    font-family: monospace;
+    color: #51459e; /* Purple */
+    font-weight: bold;
+}
+
+/* --- Pagination --- */
+.jte-pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.jte-page-button {
+    padding: 8px 12px;
+    border: 1px solid #51459e; /* Purple border */
+    color: #51459e; /* Purple text */
+    background-color: transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.jte-page-button:hover:not([disabled]) {
+    background-color: #51459e; /* Purple background on hover */
+    color: white;
+}
+
+.jte-page-button--disabled {
+    color: #adb5bd; /* Disabled text color */
+    border-color: #ced4da; /* Disabled border color */
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.jte-current-page-info {
+    font-weight: 700;
+    padding: 0 5px;
+    color: #333333;
+}
+
+/* --- Changes Table --- */
+.jte-changes-table-container {
+    margin: 25px 0;
+    border: 1px solid #a399d4; /* Lighter purple border */
+    border-radius: 8px;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.jte-changes-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.jte-changes-table-title {
+    margin: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+    font-size: 1.2rem;
+    color: #333333;
+    font-weight: 600;
+}
+
+.jte-changes-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    margin-top: 15px;
+}
+
+.jte-changes-table th, .jte-changes-table td {
+    border: 1px solid #cccccc; /* Medium gray border */
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top; /* Better for rowspan */
+}
+
+.jte-changes-table-th {
+    background-color: #d2cbe8; /* Lighter purple for header */
+    font-weight: 700;
+    color: #2b245f; /* Darkest purple for text */
+}
+
+.jte-changes-table-td--identifier {
+    font-weight: 600;
+    color: #41377e; /* Darker purple for identifier */
+    background-color: #f8f9fa; /* Slightly different bg for this cell */
+}
+
+.jte-changes-table-td-value {
+    font-family: monospace;
+    font-size: 0.95em;
+    background-color: #f0f0f0; /* Lighter gray for value background */
+    border-radius: 3px;
+    padding: 3px 5px;
+    display: inline-block;
+    word-break: break-all;
+}
+
+/* --- Final Output Section --- */
+.jte-output-section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.jte-output-title {
+    margin: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+    font-size: 1.5rem;
+    color: #333333;
+    font-weight: 600;
+}
+
+.jte-copy-button {
+    padding: 8px 15px;
+    font-size: 12px;
+    background-color: #51459e; /* Neutral gray */
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.jte-copy-button:hover {
+    opacity: 0.85;
+}
+
+.jte-copy-status-text {
+    margin-left: 10px;
+    font-size: 12px;
+    color: #51459e; /* Purple for status */
+    font-weight: 600;
+}
+
+/* --- Modal Styles --- */
+.jte-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.55); /* Standard overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+}
+
+.jte-modal-content {
+    background-color: #ffffff;
+    padding: 20px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: auto;
+    min-width: 400px;
+    max-width: 550px;
+}
+
+.jte-modal-title {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #41377e; /* Darker purple */
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.jte-modal-input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #bbbbbb; /* Slightly darker border for input */
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 1em;
+    background-color: #f8f9fa;
+    color: #333333;
+}
+
+.jte-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+/* Modal buttons use .jte-button--primary and .jte-button--secondary-action */
+
+.jte-modal-current-value-label,
+.jte-modal-new-value-label {
+    font-size: 0.9em;
+    color: #555555; /* Darker gray */
+    margin-bottom: 5px;
+    display: block;
+    font-weight: 600;
+}
+
+.jte-modal-new-value-label {
+    margin-top: 15px;
+}
+
+.jte-modal-current-value {
+    font-size: 0.95em;
+    color: #333333;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: block;
+    background-color: #f0f0f0; /* Lighter gray */
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: 1px solid #eeeeee;
+    font-family: monospace;
+}

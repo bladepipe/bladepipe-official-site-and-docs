@@ -1,0 +1,100 @@
+.datasource-link .ant-table-wrapper {
+    margin-bottom: 14px;
+    border-bottom: 1px solid  #dadde1;
+    border-right: 1px solid  #dadde1 ;
+}
+.datasource-link .ant-table-wrapper table {
+    border-radius: 0;
+    font-size: 14px;
+}
+
+
+.datasource-link .ant-table-wrapper .ant-table-container table > thead > tr:first-child > *:last-child {
+    border-start-end-radius: 0px;
+}
+
+.datasource-link .ant-table-wrapper .ant-table-container table>thead>tr:first-child >*:first-child {
+    border-start-start-radius: 0px;
+}
+
+.datasource-link .ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody>tr.ant-table-row:hover>td:first-child,
+.datasource-link .ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody>tr >td.ant-table-cell-row-hover:first-child,
+.datasource-link .ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody>tr.ant-table-row.ant-table-row-selected>td:first-child{
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+}
+
+.datasource-link .ant-table-wrapper .ant-table-thead>tr>th,
+.datasource-link .ant-table-wrapper .ant-table-tbody>tr>td,
+.datasource-link .ant-table-wrapper tfoot>tr>th,
+.datasource-link .ant-table-wrapper tfoot>tr>td {
+    padding: 0.6rem 0.75rem;
+}
+
+.datasource-link h2 {
+    font-weight: 500;
+}
+
+.datasource-link .ant-table {
+    line-height: normal;
+}
+
+.datasource-link .ant-table table {
+    /*border-left: 1px solid #dadde1;*/
+    margin-bottom: 0;
+}
+
+.datasource-link .ant-table-cell-row-hover{
+    /*background: unset!important;*/
+    border-radius: unset!important;
+}
+
+.datasource-link .ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody>tr.ant-table-row:last-child:hover>td,
+.datasource-link .ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody>tr.ant-table-row.ant-table-row-selected:last-child>td {
+    border-top-color: #dadde1;
+    border-bottom-color: #dadde1;
+}
+
+.datasource-link .ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody>tr.ant-table-row:hover>td,
+.datasource-link .ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody>tr >td.ant-table-cell-row-hover,
+.datasource-link .ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody>tr.ant-table-row.ant-table-row-selected>td {
+    border-top-color: #dadde1;
+}
+
+.datasource-link .ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody>tr.ant-table-row:hover +tr.ant-table-row>td,
+.datasource-link .ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody>tr.ant-table-row.ant-table-row-selected +tr.ant-table-row>td {
+    border-top-color: #dadde1;
+}
+
+.datasource-link .ant-table-wrapper .ant-table-thead >tr>th, .ant-table-wrapper .ant-table-thead >tr>td {
+    /*border-bottom: 1px solid var(--ifm-table-border-color);*/
+    /*border-left: none;*/
+}
+
+
+.datasource-link .ant-table-thead >tr>th,.ant-table-thead >tr>td {
+    /*background: inherit!important;*/
+}
+
+.datasource-link .ant-table-wrapper .ant-table:not(.ant-table-bordered) .ant-table-tbody >tr >td {
+    /*border-top: 1px solid #dadde1;*/
+    /*border-left: none;*/
+}
+
+.datasource-link table p {
+    margin-bottom: 0;
+}
+
+.datasource-link .ant-table-thead .ant-table-cell:first-child {
+    width: 30%;
+}
+
+.datasource-link .ant-collapse-header {
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+
+.datasource-link .ant-collapse-content-box {
+    padding-left: 0!important;
+    padding-right: 0!important;
+}

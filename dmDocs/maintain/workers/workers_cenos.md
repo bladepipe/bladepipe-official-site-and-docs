@@ -1,0 +1,15 @@
+---
+id: workers_cenos
+title: CentOS Linux
+description: 本文档主要介绍如何在 Linux/MacOS 系统下，全新安装 CloudDM Team docker 版。
+---
+
+...(略)...
+
+## 扩容
+
+...(略)...
+
+## 缩容
+
+...(略)...

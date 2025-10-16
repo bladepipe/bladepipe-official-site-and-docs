@@ -1,0 +1,130 @@
+<svg width="714" height="376" viewBox="0 0 714 376" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- 渐变定义 -->
+    <radialGradient id="glowGradient1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0087C7" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#0087C7" stop-opacity="0"/>
+    </radialGradient>
+    
+    <radialGradient id="glowGradient2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0087C7" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#0087C7" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- 线条渐变 -->
+    <linearGradient id="lineGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C8DEF7" stop-opacity="0"/>
+      <stop offset="45%" stop-color="#C8DEF7" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#2464FF" stop-opacity="1"/>
+    </linearGradient>
+
+    <linearGradient id="lineGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2464FF" stop-opacity="1"/>
+      <stop offset="55%" stop-color="#C8DEF7" stop-opacity="1"/>
+      <stop offset="98%" stop-color="#C8DEF7" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- 动画路径 -->
+    <path id="path1" d="M149,76 L180,76 L149,76 Z"/>
+    <path id="path2" d="M187,236 L220,236 L187,236 Z"/>
+    <path id="path3" d="M525,121 L560,121 L525,121 Z"/>
+    <path id="path4" d="M537,225 L570,225 L537,225 Z"/>
+    <path id="path5" d="M604,335 L640,335 L604,335 Z"/>
+    <path id="linePath1" d="M176,199 L212,199 L176,199 Z"/>
+    <path id="linePath2" d="M187,163 L223,163 L187,163 Z"/>
+    <path id="linePath3" d="M506,163 L551,187 L506,163 Z"/>
+
+    <!-- 阴影滤镜 -->
+    <filter id="centerShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="offset"/>
+      <feFlood flood-color="#4C49E4" flood-opacity="0.1"/>
+      <feComposite in2="offset" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 背景装饰线条 -->
+  <path d="M735,-17 Q900,50 1200,100 Q1300,120 1500,200" stroke="url(#lineGradient1)" stroke-width="2" fill="none" opacity="0.6"/>
+
+  <!-- 外层光晕圆圈 - 呼吸动画 -->
+  <circle cx="356" cy="188" r="134" fill="url(#glowGradient2)">
+    <animate attributeName="r" values="130;140;130" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.03;0.08;0.03" dur="4s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- 内层光晕圆圈 - 呼吸动画 -->
+  <circle cx="356" cy="188" r="112" fill="url(#glowGradient1)">
+    <animate attributeName="r" values="108;118;108" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+    <animate attributeName="opacity" values="0.08;0.15;0.08" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+  </circle>
+
+  <!-- 中心蓝色圆角矩形 -->
+  <rect x="261" y="93" width="192" height="190" rx="95" ry="95" fill="#0087C7" filter="url(#centerShadow)">
+    <animate attributeName="opacity" values="1;0.95;1" dur="2s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- BladePipe Logo 占位 -->
+  <rect x="288" y="175" width="138" height="27" fill="none"/>
+  <text x="357" y="192" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">BladePipe</text>
+
+  <!-- 流动线条 -->
+  <line x1="176" y1="199" x2="212" y2="199" stroke="url(#lineGradient1)" stroke-width="2"/>
+  <line x1="187" y1="163" x2="223" y2="163" stroke="url(#lineGradient1)" stroke-width="2"/>
+  <line x1="506" y1="163" x2="551" y2="187" stroke="url(#lineGradient2)" stroke-width="2"/>
+
+  <!-- 短线条装饰 -->
+  <line x1="198" y1="182" x2="202" y2="182" stroke="#49B2E1" stroke-width="2"/>
+  <line x1="622" y1="41" x2="645" y2="41" stroke="#20B9AF" stroke-width="2"/>
+
+  <!-- 流动的圆点 -->
+  <circle r="4.5" fill="white" stroke="#0037FF" stroke-width="1">
+    <animateMotion dur="3s" repeatCount="indefinite" path="M149,76 L180,76 L149,76"/>
+  </circle>
+
+  <circle r="4.5" fill="white" stroke="#0037FF" stroke-width="1">
+    <animateMotion dur="3s" repeatCount="indefinite" begin="1s" path="M187,236 L220,236 L187,236"/>
+  </circle>
+
+  <circle r="4.5" fill="white" stroke="#EE5096" stroke-width="1">
+    <animateMotion dur="4s" repeatCount="indefinite" path="M525,121 L560,121 L525,121"/>
+  </circle>
+
+  <circle r="4.5" fill="white" stroke="#0037FF" stroke-width="1">
+    <animateMotion dur="3.5s" repeatCount="indefinite" begin="0.5s" path="M537,225 L570,225 L537,225"/>
+  </circle>
+
+  <circle r="4.5" fill="white" stroke="#58AA50" stroke-width="1">
+    <animateMotion dur="4.5s" repeatCount="indefinite" begin="1.5s" path="M604,335 L640,335 L604,335"/>
+  </circle>
+
+  <!-- 沿线条流动的光点 -->
+  <circle r="2" fill="#2464FF">
+    <animateMotion dur="2s" repeatCount="indefinite" path="M176,199 L212,199 L176,199"/>
+    <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <circle r="2" fill="#2464FF">
+    <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.3s" path="M187,163 L223,163 L187,163"/>
+    <animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite" begin="0.3s"/>
+  </circle>
+
+  <circle r="2" fill="#C8DEF7">
+    <animateMotion dur="3s" repeatCount="indefinite" begin="0.8s" path="M506,163 L551,187 L506,163"/>
+    <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin="0.8s"/>
+  </circle>
+
+  <!-- 装饰粒子效果 -->
+  <circle cx="400" cy="100" r="1" fill="#0087C7">
+    <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin="2s"/>
+    <animateTransform attributeName="transform" type="translate" values="0,0;10,-5;0,0" dur="3s" repeatCount="indefinite" begin="2s"/>
+  </circle>
+  
+  <circle cx="300" cy="280" r="1" fill="#49B2E1">
+    <animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite" begin="1s"/>
+    <animateTransform attributeName="transform" type="translate" values="0,0;-8,8;0,0" dur="4s" repeatCount="indefinite" begin="1s"/>
+  </circle>
+</svg>

@@ -1,0 +1,16 @@
+/* 博客布局容器 - 只针对博客页面 */
+.blog-layout .container {
+  max-width: 1320px !important;
+  padding: 2rem 1rem;
+}
+
+/* 主内容区域 - 只针对博客页面 */
+.blog-layout .col--9 {
+  padding-right: 3rem !important;
+}
+
+/* 右侧目录区域 - 只针对博客页面 */
+.blog-layout .col--2 {
+  padding-left: 1rem !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}

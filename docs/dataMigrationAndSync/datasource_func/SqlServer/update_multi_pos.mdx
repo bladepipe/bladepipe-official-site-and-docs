@@ -1,0 +1,49 @@
+---
+id: update_multi_pos
+title: Modify SQL Server Offsets
+description: Explain how to modify SQL Server Change Data Capture (CDC) offsets, specifically timestamps, and simplify the process with interactive tools. 
+---
+
+import JsonTimestampEditorEn from '@site/src/components/JsonTimestampEditorEn';
+
+## Overview
+This page explains how to modify the timestamps in multiple offsets to adjust the start time of data sync in the static mode of SQL Server CDC.
+
+BladePipe supports two ways to modify the offsets: 
+- Manual way
+- Interactive way
+
+## Manual Way
+### Original Offset
+
+```json
+[
+  {
+    "db": "my_db",
+    "schema": "dbo",
+    "table": "my_table",
+    "commitLsn": "002b083b:0002269:0008",
+    "seqVal": "002b083b:00022212:0005",
+    "timestamp": "1747800371676"
+  }
+]
+```
+
+If you only want to modify the data sync time, you can manually update the value in the timestamp field to the new one and change commitLsn and seqVal to null:
+
+### Modified Offset
+```json
+[
+  {
+    "db": "my_db",
+    "schema": "dbo",
+    "table": "my_table",
+    "commitLsn": null,
+    "seqVal": null,
+    "timestamp": "1747800471676"
+  }
+]
+```
+
+## Interactive Way
+<JsonTimestampEditorEn preserved_fields_lowercase={["db", "schema", "table", "timestamp"]} />

@@ -1,0 +1,24 @@
+ai:
+  label: Data & AI
+  permalink: /ai
+  description: About AI
+
+data_insights:
+  label: Data insights
+  permalink: /insights
+  description: Data insights
+
+user_stories:
+  label: User stories
+  permalink: /stories
+  description: User stories
+
+announcement:
+  label: Announcement
+  permalink: /announcement
+  description: Announcement
+
+tutorials:
+  label: Tutorials
+  permalink: /tech_share
+  description: Tutorials

@@ -1,0 +1,205 @@
+/* 博客内容中的图片样式 */
+.markdown img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* 标题下方的特色图片样式 */
+.theme-blog-post-title + div img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .theme-blog-post-title + div img {
+    height: 300px;
+    border-radius: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .theme-blog-post-title + div img {
+    height: 400px;
+  }
+}
+
+/* 内容区域的图片容器 */
+.markdown p:has(> img) {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .markdown p:has(> img) {
+    margin: 2rem 0;
+  }
+}
+
+/* 内容区域的图片 */
+.markdown p > img {
+  max-height: 300px;
+}
+
+@media (min-width: 640px) {
+  .markdown p > img {
+    max-height: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .markdown p > img {
+    max-height: 800px;
+  }
+}
+
+/* 博客内容区域的响应式样式 */
+.markdown {
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+@media (min-width: 640px) {
+  .markdown {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 1024px) {
+  .markdown {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+}
+
+/* 标题响应式 */
+.markdown h1 {
+  font-size: 24px;
+  line-height: 1.4;
+  margin: 1.5rem 0;
+}
+
+.markdown h2 {
+  font-size: 20px;
+  line-height: 1.4;
+  margin: 1.5rem 0;
+}
+
+.markdown h3 {
+  font-size: 18px;
+  line-height: 1.4;
+  margin: 1.25rem 0;
+}
+
+@media (min-width: 640px) {
+  .markdown h1 {
+    font-size: 28px;
+    margin: 2rem 0;
+  }
+
+  .markdown h2 {
+    font-size: 24px;
+    margin: 1.75rem 0;
+  }
+
+  .markdown h3 {
+    font-size: 20px;
+    margin: 1.5rem 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .markdown h1 {
+    font-size: 32px;
+    margin: 2.5rem 0;
+  }
+
+  .markdown h2 {
+    font-size: 28px;
+    margin: 2rem 0;
+  }
+
+  .markdown h3 {
+    font-size: 24px;
+    margin: 1.75rem 0;
+  }
+}
+
+/* 段落和列表响应式间距 */
+.markdown p,
+.markdown ul,
+.markdown ol {
+  margin: 1rem 0;
+}
+
+@media (min-width: 640px) {
+  .markdown p,
+  .markdown ul,
+  .markdown ol {
+    margin: 1.25rem 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .markdown p,
+  .markdown ul,
+  .markdown ol {
+    margin: 1.5rem 0;
+  }
+}
+
+/* 代码块响应式 */
+.markdown pre {
+  margin: 1rem -1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 13px;
+}
+
+@media (min-width: 640px) {
+  .markdown pre {
+    margin: 1.25rem 0;
+    padding: 1.25rem;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .markdown pre {
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    font-size: 15px;
+  }
+}
+
+/* 表格响应式 */
+.markdown table {
+  display: block;
+  overflow-x: auto;
+  font-size: 14px;
+  margin: 1rem 0;
+}
+
+/* 表格表头左对齐 */
+.markdown table th {
+  text-align: left;
+}
+
+@media (min-width: 640px) {
+  .markdown table {
+    font-size: 15px;
+    margin: 1.25rem 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .markdown table {
+    font-size: 16px;
+    margin: 1.5rem 0;
+  }
+}
