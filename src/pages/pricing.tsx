@@ -7,7 +7,7 @@ import PriceCalculator from '@site/src/components/PriceCalculator';
 import FAQ from '@site/src/components/FAQ';
 import Footer from '@site/src/components/Footer';
 import FadeInSection from '@site/src/components/FadeInSection';
-import { getApiBaseUrl } from '@site/src/utils/api';
+import { getCloudUrl } from '@site/src/utils/api';
 import { loginCheckAndRedirect } from '@site/src/utils';
 import { isUserLogin } from '@site/src/store/user';
 import { listDownloadProduct, queryPriceMeta } from '@site/src/apis/constant';
@@ -232,12 +232,12 @@ const PricingCard = ({ plan, onDownloadClick, siteBrand }) => {
             } else if (plan.id === 2) {
               // CloudCanal Cloud 版本 - 开始免费试用
               loginCheckAndRedirect(() => {
-                window.location.href = getApiBaseUrl();
+                window.location.href = getCloudUrl();
               }, 'try_cloud_free');
             } else if (plan.id === 3) {
               // CloudCanal Enterprise 版本 - 试用 90 天
               loginCheckAndRedirect(() => {
-                window.location.href = getApiBaseUrl();
+                window.location.href = getCloudUrl();
               }, 'try_enterprise_free');
             }
           } else if (siteBrand === 'clouddm') {
@@ -246,18 +246,18 @@ const PricingCard = ({ plan, onDownloadClick, siteBrand }) => {
               onDownloadClick();
             } else if (plan.id === 2) {
               // CloudDM 商业版购买逻辑
-              window.location.href = getApiBaseUrl() + '/#/system/license';
+              window.location.href = getCloudUrl() + '/#/system/license';
             }
           } else {
             if (plan.id === 1) {
               // BladePipe Cloud 版本 - 开始免费试用
               loginCheckAndRedirect(() => {
-                window.location.href = getApiBaseUrl();
+                window.location.href = getCloudUrl();
               }, 'try_cloud_free');
             } else if (plan.id === 2) {
               // BladePipe Enterprise 版本 - 购买许可证
               loginCheckAndRedirect(() => {
-                window.location.href = getApiBaseUrl() + '/#/system/license';
+                window.location.href = getCloudUrl() + '/#/system/license';
               }, 'buy_a_license');
             }
           }

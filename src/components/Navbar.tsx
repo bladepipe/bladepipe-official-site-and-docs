@@ -3,7 +3,7 @@ import { ChevronDownIcon } from '@heroicons/react/24/solid';
 import { Dropdown } from 'antd';
 import { MenuProps } from 'antd';
 import Link from '@docusaurus/Link';
-import { getApiBaseUrl } from '@site/src/utils/api';
+import { getCloudUrl } from '@site/src/utils/api';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { useHistory, useLocation } from '@docusaurus/router';
 import Translate, { translate } from '@docusaurus/Translate';
@@ -34,7 +34,7 @@ export default function Navbar() {
     {
       key: 'usercenter',
       label: (
-        <a href={`${getApiBaseUrl()}/#/system/profile`} rel="noopener noreferrer" className="flex items-center py-2 px-4 text-gray-700 hover:bg-gray-100 transition-colors">
+        <a href={`${getCloudUrl()}/#/system/profile`} rel="noopener noreferrer" className="flex items-center py-2 px-4 text-gray-700 hover:bg-gray-100 transition-colors">
           <span className="text-[16px] font-medium">
             <Translate id="navbar.userCenter">Profile</Translate>
           </span>
@@ -45,7 +45,7 @@ export default function Navbar() {
       key: 'billing',
       label: (
         <a 
-          href={siteBrand === 'clouddm' ? `${getApiBaseUrl()}/#/system/order` : `${getApiBaseUrl()}/#/system/billing`} 
+          href={siteBrand === 'clouddm' ? `${getCloudUrl()}/#/system/order` : `${getCloudUrl()}/#/system/billing`}
           rel="noopener noreferrer" 
           className="flex items-center py-2 px-4 text-gray-700 hover:bg-gray-100 transition-colors"
         >
@@ -551,7 +551,7 @@ export default function Navbar() {
                   className='flex items-center px-5 h-10 rounded-full bg-[#0087c7] text-white cursor-pointer hover:bg-[#0070a6]'
                   onClick={() =>
                     loginCheckAndRedirect(() => {
-                      window.location.href = getApiBaseUrl();
+                      window.location.href = getCloudUrl();
                     }, 'try_cloud_free')
                   }>
                   <span className='text-[16px] font-bold'>
@@ -836,7 +836,7 @@ export default function Navbar() {
                 {/* 用户菜单项 */}
                 <div className="flex flex-col gap-2">
                   <a 
-                    href={`${getApiBaseUrl()}/usercenter`} 
+                    href={`${getCloudUrl()}/usercenter`}
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center justify-center px-5 h-[40px] rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors no-underline"
@@ -847,7 +847,7 @@ export default function Navbar() {
                     </span>
                   </a>
                   <a 
-                    href={`${getApiBaseUrl()}/billing`} 
+                    href={`${getCloudUrl()}/billing`}
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center justify-center px-5 h-[40px] rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors no-underline"
@@ -893,7 +893,7 @@ export default function Navbar() {
               onClick={() => {
                 setMobileOpen(false);
                 loginCheckAndRedirect(() => {
-                  window.location.href = getApiBaseUrl();
+                  window.location.href = getCloudUrl();
                 }, 'try_cloud_free');
               }}
             >

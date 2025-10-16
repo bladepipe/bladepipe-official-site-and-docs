@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Translate from '@docusaurus/Translate';
-import { getApiBaseUrl } from '@site/src/utils/api';
+import { getCloudUrl } from '@site/src/utils/api';
 import { isUserLogin } from '@site/src/store/user';
 
 export default function UserGuide() {
@@ -97,7 +97,7 @@ export default function UserGuide() {
             style={{ boxShadow: '0px 2px 8px 0px rgba(0,135,199,0.10)' }}
             onClick={() => {
               if (isUserLogin()) {
-                window.location.href = getApiBaseUrl();
+                window.location.href = getCloudUrl();
               } else {
                 localStorage.setItem('loginSource', 'try_cloud_free');
                 window.location.href = '/login';

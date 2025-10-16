@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Translate, { translate } from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { getApiBaseUrl } from '@site/src/utils/api';
+import { getCloudUrl } from '@site/src/utils/api';
 import { loginCheckAndRedirect } from '@site/src/utils';
 import { isUserLogin } from '@site/src/store/user';
 import { listDownloadProduct } from '@site/src/apis/constant';
@@ -51,7 +51,7 @@ export default function Banner() {
   // Try Cloud Free 按钮点击逻辑
   const handleTryCloudFree = () => {
     loginCheckAndRedirect(() => {
-      window.location.href = getApiBaseUrl();
+      window.location.href = getCloudUrl();
     }, 'try_cloud_free');
   };
 
@@ -149,7 +149,7 @@ export default function Banner() {
                   onClick={(e) => {
                     e.preventDefault();
                     loginCheckAndRedirect(() => {
-                      window.location.href = getApiBaseUrl() + '/#/system/license';
+                      window.location.href = getCloudUrl() + '/#/system/license';
                     }, 'buy_a_license');
                   }}>
                   <Translate id="banner.buyLicense">Buy a License</Translate>
