@@ -1,0 +1,246 @@
+/* Connector 页面自定义样式 */
+
+/* 搜索框样式 */
+.search-container {
+  position: relative;
+  transition: all 0.15s ease;
+  border: 1px solid #d1d5db !important;
+  border-radius: 100px !important;
+}
+
+.search-container:hover {
+  border-color: #9ca3af !important;
+}
+
+.search-container:focus-within {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
+}
+
+.search-input {
+  background: transparent !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: #000000 !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.search-input::placeholder {
+  color: rgba(0, 0, 0, 0.8) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+}
+
+.search-input:focus {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Source 和 Target 下拉框样式 */
+.source-select,
+.target-select {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+.source-select .ant-select-selector,
+.target-select .ant-select-selector {
+  height: 56px !important;
+  border: 1px solid rgba(0, 0, 0, 0.3) !important;
+  border-radius: 100px !important;
+  background: white !important;
+  padding: 16px 20px !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.source-select .ant-select-selection-placeholder,
+.target-select .ant-select-selection-placeholder {
+  color: rgba(0, 0, 0, 0.8) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 24px !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.ant-select-selection-placeholder {
+  color: rgba(0, 0, 0, 0.8) !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 24px !important;
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.source-select .ant-select-selection-item,
+.target-select .ant-select-selection-item {
+  color: #000000 !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  line-height: 24px !important;
+}
+
+.source-select .ant-select-arrow,
+.target-select .ant-select-arrow {
+  color: #000000 !important;
+  right: 20px !important;
+}
+
+/* Business ONLY 筛选样式 */
+.business-filter {
+  transition: all 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.3) !important;
+  border-radius: 100px !important;
+  min-width: 200px !important;
+  white-space: nowrap !important;
+}
+
+.business-filter:hover {
+  background-color: #f5f5f5 !important;
+}
+
+.business-filter.bg-\[\#f3f9fe\] {
+  background-color: #f3f9fe !important;
+}
+
+.business-filter.border-\[\#0087c7\] {
+  border-color: #0087c7 !important;
+}
+
+/* 未选中状态的圆形边框 */
+.business-filter .w-\[20px\].h-\[20px\].border-2 {
+  border-width: 2px !important;
+  border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 确保文本不换行 */
+.business-filter span {
+  white-space: nowrap !important;
+}
+
+/* 筛选标签样式 */
+.filter-tag {
+  transition: all 0.2s ease;
+  border: none !important;
+}
+
+.filter-tag:hover {
+  background-color: #e6f3ff !important;
+}
+
+.filter-tag .anticon {
+  transition: color 0.2s ease;
+}
+
+.filter-tag .anticon:hover {
+  color: #666666 !important;
+}
+
+/* 清除筛选按钮样式 */
+.clear-filters {
+  transition: color 0.2s ease;
+  background: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.clear-filters:hover {
+  color: #666666 !important;
+}
+
+/* 下拉菜单样式 */
+.ant-select-dropdown {
+  border-radius: 8px !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  background: white !important;
+  padding: 4px 0 !important;
+  margin-top: 4px !important;
+}
+
+.ant-select-item {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  padding: 8px 16px !important;
+  color: #374151 !important;
+  transition: all 0.15s ease !important;
+  border-radius: 4px !important;
+  margin: 0 4px !important;
+}
+
+.ant-select-item:hover {
+  background-color: #f9fafb !important;
+  color: #111827 !important;
+}
+
+.ant-select-item-option-selected {
+  background-color: #eff6ff !important;
+  color: #2563eb !important;
+  font-weight: 500 !important;
+}
+
+.ant-select-item-option-active {
+  background-color: #f3f4f6 !important;
+  color: #111827 !important;
+}
+
+/* 下拉框搜索输入框样式 */
+.ant-select-dropdown .ant-select-selection-search-input {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: #374151 !important;
+}
+
+.ant-select-dropdown .ant-select-selection-search-input::placeholder {
+  color: #9ca3af !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+/* 确保 Plus Jakarta Sans 字体可用 */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* 响应式设计 */
+@media (max-width: 1400px) {
+  .search-container {
+    width: 500px !important;
+  }
+  
+  .source-select {
+    width: 200px !important;
+  }
+  
+  .target-select {
+    width: 180px !important;
+  }
+  
+  .business-filter {
+    width: 180px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .search-container {
+    width: 400px !important;
+  }
+  
+  .source-select,
+  .target-select {
+    width: 150px !important;
+  }
+  
+  .business-filter {
+    width: 160px !important;
+  }
+} 

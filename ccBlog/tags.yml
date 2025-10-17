@@ -1,0 +1,24 @@
+ai:
+  label: AI
+  permalink: /ai
+  description: About AI
+
+data_sync_sample:
+  label: 同步链路演示
+  permalink: /sync
+  description: Data pipeline demonstration
+
+usecase:
+  label: 用户案例
+  permalink: /stories
+  description: User stories
+
+tech_share:
+  label: 技术分享
+  permalink: /techshare
+  description: Tech share
+
+announcement:
+  label: 公司动态
+  permalink: /announcement
+  description: Announcement

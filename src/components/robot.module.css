@@ -1,0 +1,96 @@
+
+.robotPanel {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 25vw;
+  height: 70vh;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 10;
+  overflow: hidden;
+  animation: slideInFromRight 0.3s ease forwards;
+  transition: width 0.4s ease, height 0.4s ease, top 0.4s ease, right 0.4s ease, border-radius 0.4s ease;
+}
+
+.robotPanel.expanded {
+  width: 90vw;
+  height: calc(100% - 100px);
+  bottom: 20px;
+  right: 20px;
+  border-radius: 15px;
+}
+
+.robotPanel.closing {
+  animation: slideOutToRight 0.3s ease forwards;
+}
+
+.robotWrap {
+  position: fixed;
+  bottom: 100px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffcc70, #ef8e39);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(239, 142, 57, 0.6), 0 0 20px rgba(239, 142, 57, 0.4);
+  animation: robotBouncePulse 2.5s infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.robotWrap:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 18px rgba(239, 142, 57, 0.8), 0 0 28px rgba(239, 142, 57, 0.5);
+}
+
+/* 渐进出动画 */
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* 机器人按钮的呼吸弹跳动画 */
+@keyframes robotBouncePulse {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  25% {
+    transform: scale(1.05) translateY(-5px);
+  }
+  50% {
+    transform: scale(1.1) translateY(0);
+  }
+  75% {
+    transform: scale(1.05) translateY(-3px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+.reactApp {
+  height: 100%;
+}

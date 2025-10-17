@@ -1,0 +1,65 @@
+/* 自定义Ant Design Tabs样式 */
+.price-calculator-tabs {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.price-calculator-tabs .ant-tabs-nav {
+  margin-bottom: 40px !important;
+  border: none !important;
+  width: 1320px !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.price-calculator-tabs .ant-tabs-nav-list {
+  width: 1320px !important;
+  display: flex !important;
+  justify-content: center !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.price-calculator-tabs .ant-tabs-tab {
+  font-size: 20px !important;
+  font-weight: bold !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+  padding: 14px 28px !important;
+  margin: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  width: 440px !important;
+  height: 58px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+}
+
+.price-calculator-tabs .ant-tabs-tab:hover {
+  color: #0087c7 !important;
+}
+
+.price-calculator-tabs .ant-tabs-tab.ant-tabs-tab-active {
+  color: #0087c7 !important;
+  border: 1px solid #0087c7 !important;
+  border-bottom: none !important;
+  background: white !important;
+}
+
+.price-calculator-tabs .ant-tabs-ink-bar {
+  display: none !important;
+}
+
+.price-calculator-tabs .ant-tabs-content-holder {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+.price-calculator-tabs .ant-tabs-tabpane {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+} 

@@ -1,0 +1,49 @@
+---
+id: update_multi_pos
+title: SQL Server 多位点修改说明
+description: 了解如何修改 SQL Server 变更数据捕获 (CDC) 的位点信息，特别是时间戳，并通过交互式工具简化操作。
+---
+
+import JsonTimestampEditor from '@site/src/components/JsonTimestampEditor';
+
+## 简述
+本文用于说明：在 **SQL Server CDC 的静态模式** 下，如何修改多个位点中的时间戳字段（timestamp），以调整数据同步的起始时间。
+
+支持两种方式修改位点：
+- 手动编辑位点
+- 交互式编辑位点
+
+## 手动编辑位点
+### 原始位点位点
+
+```json
+[
+  {
+    "db": "my_db",
+    "schema": "dbo",
+    "table": "my_table",
+    "commitLsn": "002b083b:0002269:0008",
+    "seqVal": "002b083b:00022212:0005",
+    "timestamp": "1747800371676"
+  }
+]
+```
+
+如果你只想修改同步时间，可以手动将 timestamp 字段更新为新的时间戳，同时将 commitLsn 和 seqVal 改为 null：
+
+### 修改后示例：
+```json
+[
+  {
+    "db": "my_db",
+    "schema": "dbo",
+    "table": "my_table",
+    "commitLsn": null,
+    "seqVal": null,
+    "timestamp": "1747800471676"
+  }
+]
+```
+
+## 交互式编辑位点
+<JsonTimestampEditor preserved_fields_lowercase={["db", "schema", "table", "timestamp"]} />

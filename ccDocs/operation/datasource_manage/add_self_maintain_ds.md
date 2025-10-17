@@ -1,0 +1,26 @@
+---
+id: add_self_maintain_ds
+title: 添加自建数据源
+---
+
+CloudCanal 支持 **自建数据源** 和 **云托管数据源**，本文简要介绍如何添加 **自建数据源** 到 CloudCanal 中。
+
+## 支持的数据库
+目前支持的数据库包括：  
+AutoMQ、ClickHouse、Dameng（达梦）、Db2、Doris、ElasticSearch、GaussDBForOpenGauss、Greenplum、Hana、Hive、Hudi、Kafka、Kudu、MariaDB、MongoDB、MySQL、OceanBase、Oracle、PolarDB-X、PostgreSQL、RabbitMQ、Redis、RocketMQ、SQL Server、SelectDB、StarRocks、TiDB、Tunnel
+
+## 操作步骤
+1. 登录 CloudCanal 控制台。
+2. 点击 **数据源管理** > **新增数据源**。
+3. **部署类型** 选择 **自建数据库**，并完成以下配置。
+     - 数据库类型：选择所需的数据库。
+     - 环境：默认为 Test Environment。支持 [自定义环境](../system_manage/env_manage.md)。
+     - 获取方式：默认为手动。
+     - 网络地址：可选择 **内网** 或 **外网**，并输入连接地址。
+     - 认证方式：选择相应的认证方式，并填写所需内容，如账号密码等。点击 **测试连接**。
+     - 描述：填写便于识别的名称。
+     - 物理位置：选择 **不限** 或根据实际情况选择（非强依赖属性）。
+     - 额外参数：不同的数据源可设置不同的参数。鼠标放置在 ![](../../assets/add_datasource/self_maintain/1.png) 图标即可查看参数说明。如需修改，点击 **修改后的参数值** 一列中的 ![](../../assets/add_datasource/self_maintain/2.png) 图标，并输入相应参数值，点击 **确定**。
+4. 点击 **新增数据源** 添加数据源。
+5. 返回数据源列表中，该数据源的 **创建状态** 为 **创建完成**。
+  

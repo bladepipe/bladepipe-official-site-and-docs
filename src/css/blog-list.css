@@ -1,0 +1,40 @@
+.blog-category-select-dropdown .ant-select-item {
+  font-family: 'Plus Jakarta Sans';
+  font-size: 16px;
+  line-height: 24px;
+  padding: 12px 16px;
+}
+
+.blog-category-select-dropdown .ant-select-item-option-selected {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+.blog-category-select-dropdown .ant-select-item-option-active {
+  background-color: #f5f5f5;
+}
+
+/* 自定义 Select 组件样式 */
+.ant-select.ant-select-lg {
+  font-family: 'Plus Jakarta Sans';
+}
+
+.ant-select.ant-select-lg .ant-select-selector {
+  height: 50px !important;
+  border-radius: 9999px !important;
+  border-color: rgba(17, 16, 26, 0.1) !important;
+  padding: 0 20px !important;
+}
+
+.ant-select.ant-select-lg .ant-select-selection-item {
+  line-height: 48px !important;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.ant-select.ant-select-lg .ant-select-arrow {
+  color: #131316;
+  font-size: 16px;
+  margin-right: 8px;
+  margin-top: 2px;
+}

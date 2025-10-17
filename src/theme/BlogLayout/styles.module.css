@@ -1,0 +1,38 @@
+.blogContainer {
+  display: flex;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 1rem;
+  gap: 3rem;
+}
+
+.blogMainContent {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
+.blogTableOfContents {
+  display: none;
+  flex: 2;
+  position: sticky;
+  top: var(--ifm-navbar-height);
+  max-height: calc(100vh - var(--ifm-navbar-height));
+  overflow-y: auto;
+  padding-left: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .blogContainer {
+    padding: 2rem 1rem;
+  }
+
+  .blogMainContent {
+    flex: 9;
+    width: auto;
+  }
+
+  .blogTableOfContents {
+    display: block;
+  }
+}

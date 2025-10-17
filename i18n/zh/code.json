@@ -1,0 +1,3188 @@
+{
+  "banner.keyword.incremental": {
+    "message": "增量的"
+  },
+  "banner.keyword.endtoend": {
+    "message": "端对端的"
+  },
+  "banner.keyword.secure": {
+    "message": "安全的"
+  },
+  "banner.title": {
+    "message": "实时同步数据，"
+  },
+  "banner.subtitle": {
+    "message": "仅需几分钟，即可构建涵盖 60 多种数据源的端到端数据管道，轻松支撑实时分析与 AI 应用。无论您的数据位于云端还是本地，都能以低于 3 秒的超低延迟，实现极速、顺畅的数据流转。"
+  },
+  "banner.tryCloudBtn": {
+    "message": "试用云服务"
+  },
+  "banner.quickstartBtn": {
+    "message": "快速开始"
+  },
+  "banner.enterpriseEdition": {
+    "message": "私有部署版"
+  },
+  "banner.download": {
+    "message": "下载"
+  },
+  "banner.loading": {
+    "message": "加载中..."
+  },
+  "banner.buyLicense": {
+    "message": "免费获取许可证"
+  },
+  "banner.downloadError": {
+    "message": "获取下载信息失败，请稍后重试"
+  },
+  "business.clients": {
+    "message": "客户数"
+  },
+  "business.downloads": {
+    "message": "下载和激活数"
+  },
+  "business.members": {
+    "message": "活跃的社区用户数"
+  },
+  "datasource.title": {
+    "message": "已经支持的数据源"
+  },
+  "datasource.subtitle": {
+    "message": "更多的数据源正在被支持中"
+  },
+  "datasource.cards.title": {
+    "message": "数据源支持"
+  },
+  "datasource.cards.subtitle": {
+    "message": "支持多种数据源，满足不同业务需求"
+  },
+  "pagination.previous": {
+    "message": "上一页"
+  },
+  "pagination.next": {
+    "message": "下一页"
+  },
+  "pricing.title": {
+    "message": "找到适合您的方案"
+  },
+  "pricing.subtitle": {
+    "message": "BladePipe 提供不同部署模式的方案。选择最适合您需求的方案。"
+  },
+  "pricing.subtitle.clougence": {
+    "message": "CloudCanal 提供不同部署模式的方案。选择最适合您需求的方案。"
+  },
+  "pricing.cloud.title": {
+    "message": "云版本"
+  },
+  "pricing.cloud.subtitle": {
+    "message": "(全托管 或 BYOC)"
+  },
+  "pricing.cloud.price": {
+    "message": "$0.01"
+  },
+  "pricing.cloud.priceUnit": {
+    "message": "元/百万行数据"
+  },
+  "pricing.cloud.priceUnit.en": {
+    "message": "/million rows of data"
+  },
+  "pricing.cloud.button": {
+    "message": "立即开始"
+  },
+  "pricing.cloud.linkText": {
+    "message": "评估您的成本"
+  },
+  "pricing.cloud.extraText": {
+    "message": "包含所有社区版的功能特性，额外："
+  },
+  "pricing.features.noActive": {
+    "message": "无需定期激活"
+  },
+  "pricing.features.deployment": {
+    "message": "无需部署和运维"
+  },
+  "pricing.features.advance": {
+    "message": "更多的高级功能"
+  },
+  "pricing.enterprise.title": {
+    "message": "企业版"
+  },
+  "pricing.enterprise.subtitle": {
+    "message": "(私有部署)"
+  },
+  "pricing.enterprise.extraText": {
+    "message": "包含所有商业试用版功能，额外："
+  },
+  "pricing.enterprise.button": {
+    "message": "获取许可证"
+  },
+  "pricing.enterprise.button.cc": {
+    "message": "试用 90 天"
+  },
+  "pricing.enterprise.linkText": {
+    "message": "查看定价"
+  },
+  "pricing.badge.mostPopular": {
+    "message": "最受欢迎"
+  },
+  "pricing.features.allDataSources": {
+    "message": "所有 60+ 数据源，包含商业数据源"
+  },
+  "pricing.features.realtimeCdc": {
+    "message": "实时 CDC"
+  },
+  "pricing.features.visualizedEtl": {
+    "message": "可视化、自定义 ETL"
+  },
+  "pricing.features.schemaMigration": {
+    "message": "Schema 迁移"
+  },
+  "pricing.features.verificationCorrection": {
+    "message": "验证和订正"
+  },
+  "pricing.features.ddlSync": {
+    "message": "DDL 同步"
+  },
+  "pricing.features.cloudSupport": {
+    "message": "云服务支持与 SLA"
+  },
+  "pricing.features.selfHosting": {
+    "message": "完全在您自己的 VPC 中自托管"
+  },
+  "pricing.features.multitenancy": {
+    "message": "多租户（多用户）"
+  },
+  "pricing.features.rbac": {
+    "message": "基于角色的细粒度权限控制 (RBAC)"
+  },
+  "pricing.features.auditLogging": {
+    "message": "审计日志"
+  },
+  "pricing.features.enterpriseSupport": {
+    "message": "企业级支持"
+  },
+  "pricing.features.enterpriseSupportWithSla": {
+    "message": "企业级支持与 SLA"
+  },
+  "pricing.features.unlimitedDuration": {
+    "message": "无限制，根据合同期限"
+  },
+  "pricing.features.unlimitedLinks": {
+    "message": "无限制，根据合同中的链路数量"
+  },
+  "pricing.features.availability": {
+    "message": "任务高可用性"
+  },
+  "pricing.downloadError": {
+    "message": "获取下载信息失败，请稍后重试"
+  },
+  "pricing.community.title": {
+    "message": "社区版"
+  },
+  "pricing.community.price": {
+    "message": "免费"
+  },
+  "pricing.community.button": {
+    "message": "立即下载"
+  },
+  "pricing.community.feature1": {
+    "message": "50+ 数据源"
+  },
+  "pricing.community.feature2": {
+    "message": "实时 CDC"
+  },
+  "pricing.community.feature3": {
+    "message": "Schema 迁移"
+  },
+  "pricing.community.feature4": {
+    "message": "验证和订正"
+  },
+  "pricing.community.feature5": {
+    "message": "DDL 同步"
+  },
+  "pricing.community.feature6": {
+    "message": "社区支持"
+  },
+  "pricing.trial.title": {
+    "message": "商业试用版"
+  },
+  "pricing.trial.price": {
+    "message": "免费"
+  },
+  "pricing.trial.priceUnit": {
+    "message": "（3 个月试用期）"
+  },
+  "pricing.trial.button": {
+    "message": "立即开始"
+  },
+  "pricing.trial.feature1": {
+    "message": "所有社区版功能"
+  },
+  "pricing.trial.feature2": {
+    "message": "可视化、自定义 ETL"
+  },
+  "pricing.trial.feature3": {
+    "message": "多租户（多用户）"
+  },
+  "pricing.trial.feature4": {
+    "message": "基于角色的访问控制"
+  },
+  "pricing.trial.feature5": {
+    "message": "企业级支持"
+  },
+  "pricing.trial.feature6": {
+    "message": "优先支持"
+  },
+  "pricing.trial.extraText": {
+    "message": "包含所有云服务 (BYOC) 功能，额外："
+  },
+  "pricing.featureComparison.title": {
+    "message": "功能特性"
+  },
+  "pricing.featureComparison.resources": {
+    "message": "资源"
+  },
+  "pricing.featureComparison.syncTaskCount": {
+    "message": "同步任务数"
+  },
+  "pricing.featureComparison.contractOrderAgreement": {
+    "message": "合同/订单约定"
+  },
+  "pricing.featureComparison.singleTaskTableLimit": {
+    "message": "单任务表数量限制"
+  },
+  "pricing.featureComparison.unlimited": {
+    "message": "无限制"
+  },
+  "pricing.featureComparison.bidirectionalSync": {
+    "message": "双向同步"
+  },
+  "pricing.featureComparison.visualizedWideTable": {
+    "message": "可视化打宽表"
+  },
+  "pricing.featureComparison.metadataLineageQuery": {
+    "message": "元数据(血缘)查询"
+  },
+  "pricing.featureComparison.systemMigration": {
+    "message": "系统迁移"
+  },
+  "pricing.featureComparison.security": {
+    "message": "安全"
+  },
+  "pricing.featureComparison.mfaLogin": {
+    "message": "MFA 登录验证"
+  },
+  "pricing.featureComparison.taskHighAvailability": {
+    "message": "任务高可用"
+  },
+  "pricing.featureComparison.wechatDingtalkSso": {
+    "message": "微信登录 / 钉钉登录"
+  },
+  "pricing.featureComparison.cloudTitle": {
+    "message": "云服务"
+  },
+  "pricing.featureComparison.enterpriseTitle": {
+    "message": "企业版"
+  },
+  "pricing.featureComparison.mostPopular": {
+    "message": "最受欢迎"
+  },
+  "pricing.featureComparison.dataIngestion": {
+    "message": "数据同步"
+  },
+  "pricing.featureComparison.dataSourceAvailability": {
+    "message": "支持的数据源"
+  },
+  "pricing.featureComparison.changeDataCapture": {
+    "message": "变更数据捕获 (CDC)"
+  },
+  "pricing.featureComparison.latency": {
+    "message": "延迟"
+  },
+  "pricing.featureComparison.schemaMigration": {
+    "message": "结构迁移"
+  },
+  "pricing.featureComparison.verificationCorrection": {
+    "message": "校验和订正"
+  },
+  "pricing.featureComparison.cronScheduling": {
+    "message": "定时迁移"
+  },
+  "pricing.featureComparison.ddlSync": {
+    "message": "DDL 同步"
+  },
+  "pricing.featureComparison.visualizedTransformation": {
+    "message": "可视化数据清洗"
+  },
+  "pricing.featureComparison.parallelJobs": {
+    "message": "任务组"
+  },
+  "pricing.featureComparison.extensibleAccess": {
+    "message": "可扩展访问"
+  },
+  "pricing.featureComparison.openApi": {
+    "message": "开放 API"
+  },
+  "pricing.featureComparison.customCode": {
+    "message": "自定义代码"
+  },
+  "pricing.featureComparison.dataGovernance": {
+    "message": "数据治理"
+  },
+  "pricing.featureComparison.monitoringIntegrations": {
+    "message": "监控集成"
+  },
+  "pricing.featureComparison.multitenancy": {
+    "message": "多租户（多用户）"
+  },
+  "pricing.featureComparison.roleBasedAccess": {
+    "message": "基于角色的访问控制"
+  },
+  "pricing.featureComparison.singleSignOn": {
+    "message": "单点登录 (SSO)"
+  },
+  "pricing.featureComparison.auditLogging": {
+    "message": "审计日志"
+  },
+  "pricing.featureComparison.supportReliability": {
+    "message": "支持与可靠性"
+  },
+  "pricing.featureComparison.slaLevel": {
+    "message": "SLA 级别和支持"
+  },
+  "pricing.featureComparison.expertLevel": {
+    "message": "专家级别（最高）"
+  },
+  "pricing.featureComparison.fixFeaturePriority": {
+    "message": "修复或功能优先级"
+  },
+  "pricing.featureComparison.customization": {
+    "message": "定制化"
+  },
+  "pricing.featureComparison.emailWebhookAlerting": {
+    "message": "邮件和 Webhook 告警"
+  },
+  "pricing.featureComparison.oneUser": {
+    "message": "单用户"
+  },
+  "pricing.featureComparison.cloud": {
+    "message": "云服务"
+  },
+  "pricing.featureComparison.enterprise": {
+    "message": "企业级"
+  },
+  "pricing.featureComparison.engineer": {
+    "message": "工程师"
+  },
+  "pricing.featureComparison.architect": {
+    "message": "架构师"
+  },
+  "pricing.featureComparison.middle": {
+    "message": "中等"
+  },
+  "pricing.featureComparison.high": {
+    "message": "高"
+  },
+  "pricing.featureComparison.accordingToContract": {
+    "message": "根据合同"
+  },
+  "pricing.featureComparison.lessThan5Seconds": {
+    "message": "< 5 秒"
+  },
+  "pricing.featureComparison.googleSso": {
+    "message": "Google SSO"
+  },
+  "pricing.featureComparison.passwordLdapAdMore": {
+    "message": "密码 / LDAP / AD / 更多"
+  },
+  "pricing.featureComparison.community": {
+    "message": "社区"
+  },
+  "pricing.featureComparison.low": {
+    "message": "低"
+  },
+  "pricing.calculator.title": {
+    "message": "估算您的成本"
+  },
+  "pricing.calculator.cloudByoc": {
+    "message": "云服务"
+  },
+  "pricing.calculator.enterprise": {
+    "message": "企业版"
+  },
+  "pricing.calculator.etlRows": {
+    "message": "要复制的行数 (ETL)"
+  },
+  "pricing.calculator.etlPrice": {
+    "message": "* $0.01/百万行"
+  },
+  "pricing.calculator.cdcRows": {
+    "message": "要复制的行数 (CDC)"
+  },
+  "pricing.calculator.cdcPrice": {
+    "message": "* $10/百万行，包括添加、编辑或删除的行"
+  },
+  "pricing.calculator.additionalDiscounts": {
+    "message": "*我们将在此基础上提供额外折扣。使用量越大，折扣越大。"
+  },
+  "pricing.calculator.worker": {
+    "message": "工作节点"
+  },
+  "pricing.calculator.workerSpecs": {
+    "message": "4 核 CPU，16GB 内存，100 GB 磁盘"
+  },
+  "pricing.calculator.workerPrice": {
+    "message": "$0.1856/小时"
+  },
+  "pricing.calculator.awsReference": {
+    "message": "*此 AWS EC2 参考价格包含在总成本估算中。要仅查看 BladePipe 成本，请将数量设置为 0。"
+  },
+  "pricing.calculator.aliyunReference": {
+    "message": "*此 阿里云 ECS 参考价格包含在总成本估算中，一台ECS大约可以创建5条同步链路。要仅查看 CloudCanal 成本，请将数量设置为 0。"
+  },
+  "pricing.calculator.totalPrice": {
+    "message": "/月"
+  },
+  "pricing.calculator.month": {
+    "message": "月"
+  },
+  "pricing.calculator.hour": {
+    "message": "小时"
+  },
+  "pricing.calculator.millionRows": {
+    "message": "百万行"
+  },
+  "pricing.calculator.includesRows": {
+    "message": "包括添加、编辑或删除的行"
+  },
+  "pricing.currency.yuan": {
+    "message": "元"
+  },
+  "pricing.clouddm.title": {
+    "message": "选择适合您的版本"
+  },
+  "pricing.clouddm.subtitle": {
+    "message": "CloudDM 提供社区版和商业版两种版本，满足不同用户的需求。"
+  },
+  "pricing.clouddm.community.title": {
+    "message": "社区版"
+  },
+  "pricing.clouddm.community.price": {
+    "message": "免费"
+  },
+  "pricing.clouddm.community.button": {
+    "message": "立即下载"
+  },
+  "pricing.clouddm.community.feature1": {
+    "message": "所有的16种数据源"
+  },
+  "pricing.clouddm.community.feature2": {
+    "message": "数据库访问"
+  },
+  "pricing.clouddm.community.feature3": {
+    "message": "数据库 CI/CD"
+  },
+  "pricing.clouddm.community.feature4": {
+    "message": "数据脱敏"
+  },
+  "pricing.clouddm.community.feature5": {
+    "message": "工单流程"
+  },
+  "pricing.clouddm.community.feature6": {
+    "message": "SQL 规范"
+  },
+  "pricing.clouddm.community.feature7": {
+    "message": "支持小团队的协作"
+  },
+  "pricing.clouddm.enterprise.title": {
+    "message": "商业版"
+  },
+  "pricing.clouddm.enterprise.priceUnit": {
+    "message": "包含所有社区版的功能特性，额外："
+  },
+  "pricing.clouddm.enterprise.button": {
+    "message": "购买许可证"
+  },
+  "pricing.clouddm.enterprise.feature1": {
+    "message": "更多的数据源实例和账号数"
+  },
+  "pricing.clouddm.enterprise.feature2": {
+    "message": "企业级的支持和 SLA 服务"
+  },
+  "pricing.calculator.numberOfLinks": {
+    "message": "链路数量"
+  },
+  "pricing.calculator.linksDiscount": {
+    "message": "*我们将在此基础上提供额外折扣。链路越多，折扣越大。"
+  },
+  "pricing.calculator.console": {
+    "message": "控制台"
+  },
+  "pricing.calculator.consoleSpecs": {
+    "message": "2 核 CPU，8 GB 内存，100 GB 存储"
+  },
+  "pricing.calculator.consolePrice": {
+    "message": "$0.1014/小时"
+  },
+  "pricing.calculator.consoleWorkerMetadb": {
+    "message": "控制台，工作节点，元数据库"
+  },
+  "pricing.calculator.workerSpecsEnterprise": {
+    "message": "4 核 CPU，16GB 内存，100 GB 存储"
+  },
+  "pricing.calculator.workerPriceEnterprise": {
+    "message": "$0.3712/小时"
+  },
+  "pricing.calculator.metadb": {
+    "message": "元数据库"
+  },
+  "pricing.calculator.metadbSpecs": {
+    "message": "2 核 CPU，4 GB 内存，100 GB 存储"
+  },
+  "pricing.calculator.metadbPrice": {
+    "message": "$0.3012/小时"
+  },
+  "faq.title": {
+    "message": "常见问题"
+  },
+  "faq.subtitle": {
+    "message": "找不到您要的答案？"
+  },
+  "faq.contact_support": {
+    "message": "联系我们的支持团队。"
+  },
+  "faq.credits": {
+    "message": "什么是 BladePipe 积分？"
+  },
+  "faq.creditsAnswer": {
+    "message": "每个新注册用户将获得一定量的积分代金券（1 积分 = 1 元），在每个计费周期中会首先扣除。因此，您可以在没有信用卡的情况下开始免费试用。如果您有特殊情况并希望申请更多积分，请联系我们。"
+  },
+  "faq.creditsAnswer.clougence": {
+    "message": "每个新注册用户将获得一定量的积分代金券（1 积分 = 1 元），此代金券用于云服务，在每个计费周期中会首先扣除。因此，您可以在没有充值和绑卡的情况下开始免费试用。如果您有特殊情况并希望申请更多积分代金券，请联系我们。"
+  },
+  "faq.link": {
+    "message": "什么是链路？"
+  },
+  "faq.linkAnswer": {
+    "message": "链路是两个数据源之间的连接，允许数据从一个流向另一个。它代表一个数据管道，可以根据您的特定要求配置转换和传输数据。"
+  },
+  "faq.discounts": {
+    "message": "量大是否提供折扣？"
+  },
+  "faq.discountsAnswer": {
+    "message": "是的，我们为企业客户提供批量折扣。您处理的数据越多，获得的折扣越高。请根据您的特定容量要求联系我们的销售团队以获取定制化的定价。"
+  },
+  "faq.architecture": {
+    "message": "BladePipe 的架构是什么？"
+  },
+  "faq.architectureAnswer": {
+    "message": "BladePipe 的架构信息可以在{{link:架构:/docs/intro/product_arch}}中找到。我们也欢迎有机会与您交流以分享更多详细信息。"
+  },
+  "faq.credits.clougence": {
+    "message": "什么是 CloudCanal 代金券？"
+  },
+  "faq.architecture.clougence": {
+    "message": "CloudCanal 的架构是什么？"
+  },
+  "faq.architectureAnswer.clougence": {
+    "message": "CloudCanal 的架构信息可以在{{link:架构:/docs/intro/product_arch}}中找到。我们也欢迎有机会与您交流以分享更多详细信息。"
+  },
+  "faq.clouddm.communityExpiry": {
+    "message": "社区版会到期吗，到期后怎么办？"
+  },
+  "faq.clouddm.communityExpiryAnswer": {
+    "message": "社区版到期后可到官网续期，具体请参考：{{link:许可证获取:/docs/license/license_use}}。"
+  },
+  "customBlog.title": {
+    "message": "更多关于 BladePipe"
+  },
+  "customBlog.subtitle": {
+    "message": "发现 BladePipe 的巨大潜力。"
+  },
+  "customBlog.title.clougence": {
+    "message": "了解更多"
+  },
+  "customBlog.subtitle.clougence": {
+    "message": "发现 CloudCanal 的巨大潜力"
+  },
+  "customBlog.tags.ai": {
+    "message": "数据与 AI"
+  },
+  "customBlog.tags.data_insights": {
+    "message": "数据洞察"
+  },
+  "customBlog.tags.user_stories": {
+    "message": "用户故事"
+  },
+  "customBlog.tags.announcement": {
+    "message": "公告"
+  },
+  "customBlog.tags.tutorials": {
+    "message": "教程"
+  },
+  "customBlog.tags.tech_share": {
+    "message": "技术分享"
+  },
+  "deploy.cloud.title": {
+    "message": "云版本"
+  },
+  "deploy.cloud.h1": {
+    "message": "快速开始易上手，有利于关注核心业务。"
+  },
+  "deploy.cloud.h2": {
+    "message": "高可用部署，确保数据流动不间断。"
+  },
+  "deploy.cloud.h3": {
+    "message": "专业的支持团队，确保问题得到解决"
+  },
+  "deploy.cloud.btn": {
+    "message": "查看更多"
+  },
+  "deploy.onprem.title": {
+    "message": "企业版 (私有部署模式)"
+  },
+  "deploy.onprem.h1": {
+    "message": "完全自建，高度可控。"
+  },
+  "deploy.onprem.h2": {
+    "message": "所有数据均掌握在自己手里，且无需连接外网。"
+  },
+  "deploy.onprem.h3": {
+    "message": "支持高可用部署，确保系统可靠性。"
+  },
+  "deploy.onprem.btn": {
+    "message": "查看更多"
+  },
+  "deploy.title": {
+    "message": "适合你的部署模式"
+  },
+  "deploy.subtitle": {
+    "message": "满足不同场景和需求"
+  },
+  "product.feature1.title": {
+    "message": "实时同步"
+  },
+  "product.feature1.desc": {
+    "message": "低延迟，小于 3 秒，实时同步和更新，让数据更有价值，业务具有更多可能性。"
+  },
+  "product.feature2.title": {
+    "message": "数据安全"
+  },
+  "product.feature2.desc": {
+    "message": "数据不出用户网络，无需连接外网，避免数据泄露风险。"
+  },
+  "product.feature2.desc.prefix": {
+    "message": "快速创建无代码数据管道，部署标准化。详情请见："
+  },
+  "product.feature2.desc.quickstart": {
+    "message": "快速开始。"
+  },
+  "login.title": {
+    "message": "登录 "
+  },
+  "login.badge.noCreditCard": {
+    "message": "无需信用卡"
+  },
+  "login.badge.freeTrial": {
+    "message": "立即免费试用"
+  },
+  "login.googleButton": {
+    "message": "使用 Google 继续"
+  },
+  "login.wechatButton": {
+    "message": "微信登录"
+  },
+  "login.dingtalkButton": {
+    "message": "钉钉登录"
+  },
+  "login.tab.account": {
+    "message": "账号密码"
+  },
+  "login.tab.sms": {
+    "message": "短信验证"
+  },
+  "login.form.account.label": {
+    "message": "账号"
+  },
+  "login.form.account.placeholder": {
+    "message": "请输入账号"
+  },
+  "login.form.phone.label": {
+    "message": "手机号"
+  },
+  "login.form.phone.placeholder": {
+    "message": "请输入手机号"
+  },
+  "login.form.smsCode.label": {
+    "message": "短信验证码"
+  },
+  "login.form.smsCode.placeholder": {
+    "message": "请输入短信验证码"
+  },
+  "login.form.emailCode.label": {
+    "message": "邮箱验证码"
+  },
+  "login.form.emailCode.placeholder": {
+    "message": "请输入邮箱验证码"
+  },
+  "login.divider.or": {
+    "message": "或"
+  },
+  "login.form.email.label": {
+    "message": "邮箱"
+  },
+  "login.form.email.placeholder": {
+    "message": "请输入您的邮箱地址"
+  },
+  "login.form.email.required": {
+    "message": "邮箱是必填项"
+  },
+  "login.form.password.label": {
+    "message": "密码"
+  },
+  "login.form.password.placeholder": {
+    "message": "请输入密码"
+  },
+  "login.form.password.required": {
+    "message": "密码是必填项"
+  },
+  "login.form.account.required": {
+    "message": "账号是必填项"
+  },
+  "login.form.verifyCode.required": {
+    "message": "验证码是必填项"
+  },
+  "login.error.system": {
+    "message": "系统错误"
+  },
+  "login.error.failed": {
+    "message": "登录失败"
+  },
+  "login.button.login": {
+    "message": "登录"
+  },
+  "login.link.noAccount": {
+    "message": "还没有账户？"
+  },
+  "login.link.signUp": {
+    "message": "注册"
+  },
+  "login.link.forgotPassword": {
+    "message": "忘记密码？"
+  },
+  "login.policy.agreement": {
+    "message": "注册并继续即表示您同意我们的"
+  },
+  "login.policy.termsOfService": {
+    "message": "服务条款"
+  },
+  "login.policy.and": {
+    "message": "和"
+  },
+  "login.policy.privacyPolicy": {
+    "message": "隐私政策"
+  },
+  "login.policy.period": {
+    "message": "。"
+  },
+  "login.sidebar.title": {
+    "message": "商业版 90 天免费试用"
+  },
+  "login.sidebar.description": {
+    "message": "专注于实时增量更新的数据复制工具，让您更深入地了解数据。"
+  },
+  "login.sidebar.description.clouddm": {
+    "message": "专注于多数据源安全访问与管控，提高协作效率，让您更放心地使用数据。"
+  },
+  "login.sidebar.feature1": {
+    "message": "$300 积分"
+  },
+  "login.sidebar.feature2": {
+    "message": "云端和私有部署可选"
+  },
+  "login.sidebar.feature3": {
+    "message": "所有数据源都可用"
+  },
+  "login.sidebar.feature4": {
+    "message": "SOC 2、GDPR 和 ISO 27001 认证"
+  },
+  "about.banner.tag.bladepipe": {
+    "message": "BladePipe"
+  },
+  "about.banner.tag.clougence": {
+    "message": "CloudCanal"
+  },
+  "about.banner.tag.clouddm": {
+    "message": "CloudDM"
+  },
+  "about.banner.title.clouddm.line1": {
+    "message": "让团队使用数据"
+  },
+  "about.banner.title.clouddm.line2.prefix": {
+    "message": "更"
+  },
+  "about.banner.title.prefix": {
+    "message": "驱动"
+  },
+  "about.banner.title.middle1": {
+    "message": "更智能的"
+  },
+  "about.banner.title.middle2": {
+    "message": "数据"
+  },
+  "about.banner.title.middle3": {
+    "message": "流动"
+  },
+  "about.banner.rotating.simple": {
+    "message": "简单"
+  },
+  "about.banner.rotating.precise": {
+    "message": "精确"
+  },
+  "about.banner.rotating.stable": {
+    "message": "稳定"
+  },
+  "about.banner.rotating.realtime": {
+    "message": "实时"
+  },
+  "about.banner.title.clouddm.prefix": {
+    "message": "让团队使用数据更"
+  },
+  "about.banner.rotating.clouddm.safe": {
+    "message": "安全"
+  },
+  "about.banner.rotating.clouddm.efficient": {
+    "message": "高效"
+  },
+  "about.banner.title.clougence.line1": {
+    "message": "让用户高效使用数据，"
+  },
+  "about.banner.title.clougence.line2": {
+    "message": "用好数据"
+  },
+  "about.timeline.clougence.2019.year": {
+    "message": "2019"
+  },
+  "about.timeline.clougence.2019.title": {
+    "message": "创立"
+  },
+  "about.timeline.clougence.2019.description": {
+    "message": "ClouGence 公司成立，标志着故事的开始"
+  },
+  "about.timeline.clougence.2021.year": {
+    "message": "2021"
+  },
+  "about.timeline.clougence.2021.title": {
+    "message": "CloudCanal社区"
+  },
+  "about.timeline.clougence.2021.description": {
+    "message": "为了完善我们的产品，我们建立了 CloudCanal 社区。"
+  },
+  "about.timeline.clougence.2023a.year": {
+    "message": "2023"
+  },
+  "about.timeline.clougence.2023a.title": {
+    "message": "更多活跃用户"
+  },
+  "about.timeline.clougence.2023a.description": {
+    "message": "累计近百个客户，10k 次下载激活使用"
+  },
+  "about.timeline.clougence.2023b.year": {
+    "message": "2023"
+  },
+  "about.timeline.clougence.2023b.title": {
+    "message": "新产品 CloudDM"
+  },
+  "about.timeline.clougence.2023b.description": {
+    "message": "推出全新的一站式多数据源开发管理工具 CloudDM"
+  },
+  "about.timeline.clougence.2024.year": {
+    "message": "2024"
+  },
+  "about.timeline.clougence.2024.title": {
+    "message": "设立香港公司"
+  },
+  "about.timeline.clougence.2024.description": {
+    "message": "开启海外全新品牌 BladePipe"
+  },
+  "about.timeline.clougence.2025a.year": {
+    "message": "2025"
+  },
+  "about.timeline.clougence.2025a.title": {
+    "message": "Saas 化"
+  },
+  "about.timeline.clougence.2025a.description": {
+    "message": "推出 CloudCanal 云服务，朝着更便利的方向发展"
+  },
+  "about.timeline.clougence.2025b.year": {
+    "message": "2025"
+  },
+  "about.timeline.clougence.2025b.title": {
+    "message": "未完待续（至今）"
+  },
+  "about.timeline.clougence.2025b.description": {
+    "message": "故事仍在继续。让我们一起期待下一个里程碑。"
+  },
+  "about.contact.clougence.business.title": {
+    "message": "商业洽谈和咨询"
+  },
+  "about.contact.clougence.business.phone": {
+    "message": "0571-88603096"
+  },
+  "about.contact.clougence.email.title": {
+    "message": "邮箱"
+  },
+  "about.contact.clougence.email.sales": {
+    "message": "【商务合作】sales@clougence.com"
+  },
+  "about.contact.clougence.email.support": {
+    "message": "【技术支持】cloudcanal_support@clougence.com"
+  },
+  "about.contact.clougence.email.hr": {
+    "message": "【人才招聘】hr@clougence.com"
+  },
+  "about.contact.clougence.wechat.title": {
+    "message": "官微"
+  },
+  "about.contact.clougence.wechat.scan": {
+    "message": "扫码关注 ClouGence 官微"
+  },
+  "about.contact.clougence.wechat.view": {
+    "message": "查看二维码"
+  },
+  "about.contact.clougence.company.title": {
+    "message": "公司名称"
+  },
+  "about.contact.clougence.company.name": {
+    "message": "杭州开云集致科技有限公司"
+  },
+  "footer.intro.clougence": {
+    "message": "让用户高效使用数据，用好数据。"
+  },
+  "footer.product.what.cloudcanal": {
+    "message": "什么是 CloudCanal"
+  },
+  "footer.product.why.cloudcanal": {
+    "message": "为什么选择 CloudCanal"
+  },
+  "footer.copyright.clougence": {
+    "message": "Copyright © 2025 杭州开云集致科技有限公司 备案号："
+  },
+  "footer.copyright.clouddm": {
+    "message": "Copyright © 2025 杭州开云集致科技有限公司 备案号："
+  },
+  "footer.wechat.scan": {
+    "message": "扫码添加小助手微信"
+  },
+  "footer.wechat.official.scan": {
+    "message": "扫码关注 ClouGence 微信公众号"
+  },
+  "footer.phone.title": {
+    "message": "联系电话"
+  },
+  "footer.phone.number": {
+    "message": "0571-88603096"
+  },
+  "about.timeline.2019.year": {
+    "message": "2019"
+  },
+  "about.timeline.2019.title": {
+    "message": "创立"
+  },
+  "about.timeline.2019.description": {
+    "message": "BladePipe 成立，标志着故事的开始。"
+  },
+  "about.timeline.2021.year": {
+    "message": "2021"
+  },
+  "about.timeline.2021.title": {
+    "message": "BladePipe 社区"
+  },
+  "about.timeline.2021.description": {
+    "message": "为了完善我们的产品，我们建立了 BladePipe 社区。"
+  },
+  "about.timeline.2023.year": {
+    "message": "2023"
+  },
+  "about.timeline.2023.title": {
+    "message": "更多活跃用户"
+  },
+  "about.timeline.2023.description": {
+    "message": "我们有超过 1000+ 用户正在积极使用我们的产品，越来越多的用户加入我们。"
+  },
+  "about.timeline.2024.year": {
+    "message": "2024"
+  },
+  "about.timeline.2024.title": {
+    "message": "BladePipe 云服务"
+  },
+  "about.timeline.2024.description": {
+    "message": "BladePipe 提供云部署选项，给用户更大的灵活性。"
+  },
+  "about.timeline.2024b.year": {
+    "message": "2025"
+  },
+  "about.timeline.2024b.title": {
+    "message": "未完待续（至今）"
+  },
+  "about.timeline.2024b.description": {
+    "message": "故事仍在继续。让我们一起期待下一个里程碑。"
+  },
+  "about.timeline.clouddm.2019.year": {
+    "message": "2019"
+  },
+  "about.timeline.clouddm.2019.title": {
+    "message": "创立"
+  },
+  "about.timeline.clouddm.2019.description": {
+    "message": "ClouGence 公司成立，标志着故事的开始。"
+  },
+  "about.timeline.clouddm.2021.year": {
+    "message": "2021"
+  },
+  "about.timeline.clouddm.2021.title": {
+    "message": "V1 版本问世"
+  },
+  "about.timeline.clouddm.2021.description": {
+    "message": "经过一段时间的思考和打磨，我们迎来了CloudDM 1.0版本。"
+  },
+  "about.timeline.clouddm.2023.year": {
+    "message": "2023"
+  },
+  "about.timeline.clouddm.2023.title": {
+    "message": "更多活跃用户"
+  },
+  "about.timeline.clouddm.2023.description": {
+    "message": "我们有超过 1000+ 用户正在积极使用我们的产品，越来越多的用户加入我们。"
+  },
+  "about.timeline.clouddm.2023a.year": {
+    "message": "2023"
+  },
+  "about.timeline.clouddm.2023a.title": {
+    "message": "CloudDM 社区"
+  },
+  "about.timeline.clouddm.2023a.description": {
+    "message": "为了完善我们的产品，我们建立了 CloudDM 社区。"
+  },
+  "about.timeline.clouddm.2023b.year": {
+    "message": "2023"
+  },
+  "about.timeline.clouddm.2023b.title": {
+    "message": "个人版问世"
+  },
+  "about.timeline.clouddm.2023b.description": {
+    "message": "CloudDM for Desktop 诞生，在随后的几个月内达到几百的日活"
+  },
+  "about.timeline.clouddm.2024.year": {
+    "message": "2024"
+  },
+  "about.timeline.clouddm.2024.title": {
+    "message": "V2版本问世"
+  },
+  "about.timeline.clouddm.2024.description": {
+    "message": "面向团队化提供更多的数据源更安全的数据库访问，深受企业用户喜爱。"
+  },
+  "about.timeline.clouddm.2025.year": {
+    "message": "2025"
+  },
+  "about.timeline.clouddm.2025.title": {
+    "message": "未完待续（至今）"
+  },
+  "about.timeline.clouddm.2025.description": {
+    "message": "故事仍在继续。让我们一起期待下一个里程碑。"
+  },
+  
+  "about.team.title": {
+    "message": "认识我们的团队"
+  },
+  "about.team.john.name": {
+    "message": "John Li"
+  },
+  "about.team.john.title": {
+    "message": "首席执行官"
+  },
+  "about.team.john.quote": {
+    "message": "BladePipe 专注于数据基础设施解决方案，优先考虑客户交付，同时认识到服务与产品卓越性同等重要。"
+  },
+  "about.team.barry.name": {
+    "message": "Barry"
+  },
+  "about.team.barry.title": {
+    "message": "首席技术官"
+  },
+  "about.team.barry.quote": {
+    "message": "在 BladePipe，我们充满活力和探索精神的团队在充满活力的工作环境中促进持续学习。"
+  },
+  "about.team.meta.name": {
+    "message": "Meta Luo"
+  },
+  "about.team.meta.title": {
+    "message": "联合创始人兼首席产品官"
+  },
+  "about.team.meta.quote": {
+    "message": "见证 BladePipe 发展成为一个成熟的解决方案，我们充满成就感和无限可能。我们致力于使其成为行业中最可靠的实时数据复制工具。"
+  },
+  "about.team.lei.name": {
+    "message": "Lei Zhang"
+  },
+  "about.team.lei.title": {
+    "message": "全球副总裁兼销售"
+  },
+  "about.team.lei.quote": {
+    "message": "BladePipe 现在被多个国家的用户使用，我们渴望在未来扩大我们的全球足迹。"
+  },
+  "about.team.liqiang.name": {
+    "message": "励强"
+  },
+  "about.team.liqiang.title": {
+    "message": "创始人 & CEO"
+  },
+  "about.team.liqiang.quote": {
+    "message": "CloudDM 专注于团队化一站式数据库开发管理工具，通过语句级别权限、数据库 CI/CD、SQL 工单、审核流程等功能在保障数据库安全情况下提升团队协作效率。"
+  },
+  "about.team.zhaoyongchun.name": {
+    "message": "赵永春"
+  },
+  "about.team.zhaoyongchun.title": {
+    "message": "首席架构师"
+  },
+  "about.team.zhaoyongchun.quote": {
+    "message": "在 CloudDM，我们的团队充满活力和探索精神，在充满活力的工作环境中促进持续学习。"
+  },
+  "about.team.luomengting.name": {
+    "message": "罗梦婷"
+  },
+  "about.team.luomengting.title": {
+    "message": "联合创始人 & 产品总监"
+  },
+  "about.team.luomengting.quote": {
+    "message": "见证 CloudDM 发展成为一个成熟的解决方案，我们充满成就感和无限可能。我们致力于使其成为行业中最可靠的数据库管理工具。"
+  },
+  "about.team.zhanglei.name": {
+    "message": "张磊"
+  },
+  "about.team.zhanglei.title": {
+    "message": "商务总监"
+  },
+  "about.team.zhanglei.quote": {
+    "message": "CloudDM 现在被多个国家的用户使用，我们渴望在未来扩大我们的全球足迹。"
+  },
+  "about.dm.team.liqiang.quote": {
+    "message": "我们专注于保护用户数据的安全，深耕数据防护。无论团队化协作还是作为个人用户，CloudDM 带来的不仅是便利更是对数据安全的思考。"
+  },
+  "about.dm.team.zhaoyongchun.quote": {
+    "message": "我们是产品提供者同时也是开发者，作为双重身份我们深知在保证安全的同时用户体验对效率提升也至关重要。因此 CloudDM 在保证安全的前提下，也注重用户体验的提升。"
+  },
+  "about.dm.team.luomengting.quote": {
+    "message": "见证 CloudDM 发展成为一个成熟的解决方案，我们充满成就感和无限可能。我们致力于使其成为行业中最可靠的数据库管理工具。"
+  },
+  "about.dm.team.zhanglei.quote": {
+    "message": "CloudDM 正在被更多业界的人熟知与使用，我们渴望在未来扩大我们的影响力和足迹。"
+  },
+  "about.contact.clouddm.wechat.title": {
+    "message": "公众号"
+  },
+  "about.contact.clouddm.wechat.name": {
+    "message": "CloudDM"
+  },
+  "about.contact.clouddm.wechat.assistant.title": {
+    "message": "微信交流群"
+  },
+  "about.contact.clouddm.qq.title": {
+    "message": "QQ 群"
+  },
+  "about.contact.clouddm.qq.number": {
+    "message": "984263002"
+  },
+  "about.contact.clouddm.qq.link": {
+    "message": "链接"
+  },
+  "about.contact.clouddm.email.title": {
+    "message": "邮箱"
+  },
+  "about.contact.clouddm.email.address": {
+    "message": "clouddm_support@clougence.com"
+  },
+  "about.contact.clouddm.phone.title": {
+    "message": "电话"
+  },
+  "about.contact.clouddm.phone.number": {
+    "message": "0571-88603096"
+  },
+  "about.contact.clouddm.other.title": {
+    "message": "其他方式"
+  },
+  "about.contact.clouddm.wechat.assistant.scan": {
+    "message": "扫描二维码添加微信小助手"
+  },
+  "about.team.quote.icon": {
+    "message": "引号"
+  },
+  "about.careers.title": {
+    "message": "我们的职业发展"
+  },
+  "about.careers.description": {
+    "message": "我们相信专注的团队可以打造精致的产品。每个成员都是必不可少的，我们希望这里的每个人都能茁壮成长。"
+  },
+  "about.careers.subtitle.line1": {
+    "message": "工作生活平衡。"
+  },
+  "about.careers.subtitle.line2": {
+    "message": "创造美好旅程。"
+  },
+  "about.careers.onsite.line1": {
+    "message": "现场办公"
+  },
+  "about.careers.onsite.line2": {
+    "message": "（办公室）"
+  },
+  "about.careers.remote.line1": {
+    "message": "远程"
+  },
+  "about.careers.remote.line2": {
+    "message": "工作"
+  },
+  "about.careers.customer.line1": {
+    "message": "面向客户"
+  },
+  "about.careers.customer.line2": {
+    "message": "的研发"
+  },
+  "about.careers.support.line1": {
+    "message": "远程"
+  },
+  "about.careers.support.line2": {
+    "message": "支持"
+  },
+  "about.careers.support.alt": {
+    "message": "远程支持"
+  },
+  "about.careers.life1.alt": {
+    "message": "工作生活1"
+  },
+  "about.careers.life2.alt": {
+    "message": "工作生活2"
+  },
+  "about.careers.life3.alt": {
+    "message": "工作生活3"
+  },
+  "about.contact.map.alt": {
+    "message": "世界地图"
+  },
+  "about.contact.email.alt": {
+    "message": "邮箱"
+  },
+  "about.contact.title": {
+    "message": "联系我们"
+  },
+  "about.contact.technical.title": {
+    "message": "技术支持"
+  },
+  "about.contact.technical.email": {
+    "message": "support@bladepipe.com"
+  },
+  "about.careers.talent.title": {
+    "message": "人才招聘"
+  },
+  "about.careers.talent.email": {
+    "message": "hire@bladepipe.com"
+  },
+  "about.contact.other.title": {
+    "message": "其他联系方式"
+  },
+  "about.contact.social.title": {
+    "message": "社交媒体"
+  },
+  "about.contact.social.linkedin": {
+    "message": "LinkedIn"
+  },
+  "about.contact.social.twitter": {
+    "message": "Twitter"
+  },
+  "product.feature3.title": {
+    "message": "可视化，自动化"
+  },
+  "product.feature3.desc": {
+    "message": "操作便捷，门槛更低。自动化的任务流转减少了手动操作。"
+  },
+  "product.feature4.title": {
+    "message": "精准传输"
+  },
+  "product.feature4.desc": {
+    "message": "数据高度一致，精准异构数据转化，并内置校验与订正功能。"
+  },
+  "product.feature5.title": {
+    "message": "端到端架构"
+  },
+  "solution1.banner.title": {
+    "message": "高性能、低成本且灵活的数据管道，支持数百 TB 数据"
+  },
+  "solution1.banner.tag1": {
+    "message": "关系型数据库"
+  },
+  "solution1.banner.tag2": {
+    "message": "实时数据仓库"
+  },
+  "solution1.feature1.title": {
+    "message": "实时准备与分析"
+  },
+  "solution1.feature1.description": {
+    "message": "为多样化的数据驱动应用提供动力。"
+  },
+  "solution1.feature2.title": {
+    "message": "统一数据集成"
+  },
+  "solution1.feature2.description": {
+    "message": "连接您的所有业务系统和数据源。"
+  },
+  "solution1.feature3.title": {
+    "message": "资源高效"
+  },
+  "solution1.feature3.description": {
+    "message": "通过增量数据重放节省带宽。"
+  },
+  "solution1.feature4.title": {
+    "message": "无缝集成"
+  },
+  "solution1.feature4.description": {
+    "message": "适配您现有的数据标准（ODS / DW / DWM）。"
+  },
+  "solution1.architecture.title": {
+    "message": "方案架构"
+  },
+  "solution1.architecture.feature1": {
+    "message": "核心仓库：利用 StarRocks 实现数百 TB 规模的分析"
+  },
+  "solution1.architecture.feature2": {
+    "message": "实时摄入：BladePipe 使用 CDC 和流式加载实现高性能、低延迟的增量更新"
+  },
+  "solution1.architecture.feature2.cc": {
+    "message": "实时摄入：CloudCanal 使用 CDC 和流式加载实现高性能、低延迟的增量更新"
+  },
+  "solution1.architecture.feature3": {
+    "message": "数据仓库层：使用视图或主键表对数据进行清洗、聚合和组合"
+  },
+  "solution1.architecture.feature4": {
+    "message": "应用/数据仓库集市层：基于业务需求使用物化视图或主键表构建数据服务"
+  },
+  "solution1.user.title": {
+    "message": "典型用户场景"
+  },
+  "solution1.user.scenario1": {
+    "message": "管理数千个数据同步任务。"
+  },
+  "solution1.user.scenario2": {
+    "message": "使用主动-主动同步进行跨区域数据聚合。"
+  },
+  "solution1.user.scenario3": {
+    "message": "集成开放API以满足内部数据治理需求。"
+  },
+  "solution1.user.testimonial": {
+    "message": "BladePipe让数据集成到现代实时数据仓库变得简单，无延迟，确保数据新鲜度"
+  },
+  "solution1.user.name": {
+    "message": "Kaven han"
+  },
+  "solution1.user.company": {
+    "message": "百度公司"
+  },
+  "solution2.banner.title": {
+    "message": "将非结构化数据转化为 AI 驱动的 RAG API"
+  },
+  "solution2.feature1.title": {
+    "message": "从原始数据到 RAG API，瞬间完成"
+  },
+  "solution2.feature1.description": {
+    "message": "端到端解决方案，从向量嵌入到对话式 API，一站式完成。"
+  },
+  "solution2.feature2.title": {
+    "message": "与您的技术栈兼容"
+  },
+  "solution2.feature2.description": {
+    "message": "兼容主流大语言模型和向量数据库，适配您现有的基础设施。"
+  },
+  "solution2.feature3.title": {
+    "message": "实时更新"
+  },
+  "solution2.feature3.description": {
+    "message": "通过实时数据摄入，保持您的知识库始终最新。"
+  },
+  "solution2.feature4.title": {
+    "message": "回答准确、感知上下文"
+  },
+  "solution2.feature4.description": {
+    "message": "超越关键词搜索，获得基于您数据的可信赖响应。"
+  },
+  "solution2.architecture.title": {
+    "message": "方案架构"
+  },
+  "solution2.architecture.feature1": {
+    "message": "支持嵌入的多源、多格式文本摄入"
+  },
+  "solution2.architecture.feature2": {
+    "message": "自动分块和清理数据，通过基于LLM的元数据丰富化提升检索质量"
+  },
+  "solution2.architecture.feature3": {
+    "message": "兼容领先的 LLM，包括 OpenAI、Anthropic、Qwen、Cohere 等"
+  },
+  "solution2.architecture.feature4": {
+    "message": "支持 PostgreSQL、Elasticsearch、MongoDB、StarRocks 等向量数据库"
+  },
+  "solution2.steps.dataSources": {
+    "message": "数据源"
+  },
+  "solution2.steps.step1.title": {
+    "message": "连接您的向量数据库"
+  },
+  "solution2.steps.step1.description": {
+    "message": "使用 PostgreSQL、Elasticsearch、MongoDB、StarRocks 等作为您的知识库基础。"
+  },
+  "solution2.steps.step2.title": {
+    "message": "导入非结构化数据"
+  },
+  "solution2.steps.step2.description": {
+    "message": "通过多个管道处理来自不同来源和格式的文本。"
+  },
+  "solution2.steps.step3.title": {
+    "message": "自动化数据准备"
+  },
+  "solution2.steps.step3.description": {
+    "message": "自动分块、清理和向量化您的文本。通过领先的 LLM（如OpenAI 和 Anthropic）丰富元数据，提升检索质量。"
+  },
+  "solution2.steps.step3.title.cc": {
+    "message": "自动化数据准备"
+  },
+  "solution2.steps.step3.description.cc": {
+    "message": "自动分块、清理和向量化您的文本。通过领先的 LLM（如 Deepseek 和 Qwen）丰富元数据，提升检索质量。"
+  },
+  "solution2.steps.step4.title": {
+    "message": "构建您的知识库"
+  },
+  "solution2.steps.step4.description": {
+    "message": "将生成的向量和元数据存储在您选择的数据库中。"
+  },
+  "solution2.steps.step5.title": {
+    "message": "通过 RAG API 提供服务"
+  },
+  "solution2.steps.step5.description": {
+    "message": "通过结合向量检索和LLM推理的 RAG API 提供智能答案，为任何下游应用做好准备。"
+  },
+  "solution2.steps.ragApi": {
+    "message": "RAG API"
+  },
+  "solution2.scenarios.title": {
+    "message": "典型应用场景"
+  },
+  "solution2.scenarios.scenario1.title": {
+    "message": "内部聊天机器人"
+  },
+  "solution2.scenarios.scenario1.description": {
+    "message": "允许员工用自然语言提问，从内部政策、流程文档和会议记录中获得即时答案。"
+  },
+  "solution2.scenarios.scenario2.title": {
+    "message": "AI驱动的客户支持"
+  },
+  "solution2.scenarios.scenario2.description": {
+    "message": "基于您的产品文档和常见问题构建自动化助手，提供即时支持并减少人工工作量。"
+  },
+  "solution2.scenarios.scenario3.title": {
+    "message": "AI数据准备"
+  },
+  "solution2.scenarios.scenario3.description": {
+    "message": "从非结构化文本中提取结构化信息，为模型训练和微调创建高质量数据集。"
+  },
+  "solution2.scenarios.scenario4.title": {
+    "message": "智能语义搜索"
+  },
+  "solution2.scenarios.scenario4.description": {
+    "message": "从关键词搜索升级到理解上下文的系统，提供更准确和相关的结果。"
+  },
+  "solution2.related.title": {
+    "message": "相关博客"
+  },
+  "product.feature5.desc": {
+    "message": "结构简单，问题排查便利，低延迟，满足大部分场景。"
+  },
+  "product.feature6.title": {
+    "message": "60+ 数据源"
+  },
+  "product.feature6.desc": {
+    "message": "支持主流数据库、实时仓库、消息队列、搜索引擎和缓存 — 更多数据源正在被支持中。"
+  },
+  "product.features.title": {
+    "message": "产品特性"
+  },
+  "product.features.subtitle": {
+    "message": "CloudCanal 的关键特性"
+  },
+  "product.function.incremental": {
+    "message": "增量同步"
+  },
+  "product.function.full": {
+    "message": "全量迁移"
+  },
+  "product.function.cleaning": {
+    "message": "数据处理 & 清洗"
+  },
+  "product.function.schema": {
+    "message": "结构迁移和同步"
+  },
+  "product.function.verify": {
+    "message": "数据校验和订正"
+  },
+  "product.function.genai": {
+    "message": "GenAI 服务"
+  },
+  "product.function.bidirectional": {
+    "message": "双向同步"
+  },
+  "product.function.monitor": {
+    "message": "监控告警"
+  },
+  "product.function.incremental.title": {
+    "message": "增量同步"
+  },
+  "product.function.full.title": {
+    "message": "全量迁移"
+  },
+  "product.function.cleaning.title": {
+    "message": "数据处理 & 清洗"
+  },
+  "product.function.schema.title": {
+    "message": "结构迁移和同步"
+  },
+  "product.function.verify.title": {
+    "message": "数据校验和订正"
+  },
+  "product.function.genai.title": {
+    "message": "GenAI 服务"
+  },
+  "product.function.bidirectional.title": {
+    "message": "双向同步"
+  },
+  "product.function.monitor.title": {
+    "message": "监控告警"
+  },
+  "product.function.detailTitle": {
+    "message": "数据处理 & 清洗"
+  },
+  "product.function.detail1": {
+    "message": "根据需要过滤、修剪和映射表及列。"
+  },
+  "product.function.detail2": {
+    "message": "内置虚拟列、数据清洗和宽表创建 — 所有功能均可视化"
+  },
+  "product.function.detail3": {
+    "message": "支持异构数据源。"
+  },
+  "product.function.incremental.detail1": {
+    "message": "实时捕获和传递数据变更。"
+  },
+  "product.function.incremental.detail2": {
+    "message": "调整最大速率以防止峰值压力。"
+  },
+  "product.function.incremental.detail3": {
+    "message": "支持异构数据源。"
+  },
+  "product.function.full.detail1": {
+    "message": "扫描现有数据进行一次性或定期全量迁移。"
+  },
+  "product.function.full.detail2": {
+    "message": "可在迁移前清空目标数据或表。"
+  },
+  "product.function.full.detail3": {
+    "message": "支持异构数据源。"
+  },
+  "product.function.cleaning.detail1": {
+    "message": "根据需要过滤、修剪和映射表及列。"
+  },
+  "product.function.cleaning.detail2": {
+    "message": "内置虚拟列、数据清洗和宽表创建 — 所有功能均可视化。"
+  },
+  "product.function.cleaning.detail3": {
+    "message": "上传自定义代码处理复杂的数据处理和转换。"
+  },
+  "product.function.schema.detail1": {
+    "message": "为同构或异构数据库初始化表和模式。"
+  },
+  "product.function.schema.detail2": {
+    "message": "在数据同步过程中实时同步模式变更（DDL）。"
+  },
+  "product.function.verify.detail1": {
+    "message": "逐行逐字段比较完整或采样数据集，可一次性或定期进行。"
+  },
+  "product.function.verify.detail2": {
+    "message": "识别并纠正缺失或不一致的数据。"
+  },
+  "product.function.genai.detail1": {
+    "message": "支持流行的 LLM 和相关模型服务 API。"
+  },
+  "product.function.genai.detail2": {
+    "message": "对数据库和文件数据进行分块和向量化，并将向量同步到向量数据库。"
+  },
+  "product.function.genai.detail3": {
+    "message": "基于企业私有数据提供 RAG API 服务。"
+  },
+  "product.function.bidirectional.detail1": {
+    "message": "在组内多个数据库之间启用数据同步，具有循环预防功能。"
+  },
+  "product.function.bidirectional.detail2": {
+    "message": "模式变更也可以在多个数据库之间同步。"
+  },
+  "product.function.monitor.detail1": {
+    "message": "内置数十个监控指标，实时跟踪任务状态。"
+  },
+  "product.function.monitor.detail2": {
+    "message": "收集 Console 和 Workers 的指标，用于系统健康检查和资源监控。"
+  },
+  "product.function.title": {
+    "message": "产品功能"
+  },
+  "product.function.title.cc": {
+    "message": "产品功能"
+  },
+  "product.function.subtitle": {
+    "message": "丰富的功能，简单的操作"
+  },
+  "product.function.schema.cc": {
+    "message": "结构迁移和同步"
+  },
+  "product.function.incremental.cc.detail1": {
+    "message": "支持大部分数据链路，秒级别延迟"
+  },
+  "product.function.incremental.cc.detail2": {
+    "message": "支持库表列等元数据映射"
+  },
+  "product.function.incremental.cc.detail3": {
+    "message": "内置虚拟列、数据清洗、宽表构建、过滤条件等可视化能力"
+  },
+  "product.function.full.cc.detail1": {
+    "message": "支持一次性、定时迁移"
+  },
+  "product.function.full.cc.detail2": {
+    "message": "支持库表列等元数据映射"
+  },
+  "product.function.full.cc.detail3": {
+    "message": "内置虚拟列、数据清洗、宽表构建、过滤条件等可视化能力"
+  },
+  "product.function.schema.cc.detail1": {
+    "message": "支持异构数据源结构转换"
+  },
+  "product.function.schema.cc.detail2": {
+    "message": "支持 DDL 同步"
+  },
+  "product.function.schema.cc.detail3": {
+    "message": "支持对端结构防重探测"
+  },
+  "product.function.schema.cc.detail4": {
+    "message": "支持 gh-ost , pt-osc 等第三方工具 DDL"
+  },
+  "product.function.verify.cc.detail1": {
+    "message": "支持一次性 或 定时校验和订正"
+  },
+  "product.function.verify.cc.detail2": {
+    "message": "支持库表列等元数据映射"
+  },
+  "product.function.verify.cc.detail3": {
+    "message": "符合 DBA 校验、确认再订正的数据修复策略"
+  },
+  "product.function.genai.cc.detail1": {
+    "message": "支持众多来源数据的向量化"
+  },
+  "product.function.genai.cc.detail2": {
+    "message": "支持从向量数据到 API 服务的一站式能力"
+  },
+  "product.function.genai.cc.detail3": {
+    "message": "预留多种 AI 效果调优参数和策略"
+  },
+  "product.function.monitor.cc.detail1": {
+    "message": "支持多类型数据迁移同步链路的指标体系"
+  },
+  "product.function.monitor.cc.detail2": {
+    "message": "支持清晰分类的可视化指标展现"
+  },
+  "product.function.monitor.cc.detail3": {
+    "message": "支持流行的监控指标系统 promethues"
+  },
+  "product.function.monitor.cc.detail4": {
+    "message": "支持 IM，短信，邮件，电话多种级别告警"
+  },
+  "product.scene.subtitle": {
+    "message": "让我展示一些典型的场景"
+  },
+  "scene.card1.title": {
+    "message": "重构传统大数据，实现实时数据分析"
+  },
+  "scene.card1.desc": {
+    "message": "BladePipe 让数据能够无缝集成到现代化的实时数据仓库，确保数据的时效性，发挥更大的数据价值。"
+  },
+  "scene.card1.btn": {
+    "message": "查看更多"
+  },
+  "scene.card2.title": {
+    "message": "构建更智能的 AI 聊天机器人"
+  },
+  "scene.card2.desc": {
+    "message": "将文档、数据库数据和其他私有知识库嵌入到领先的 LLM 中，使您的聊天机器人更专业、更智能。"
+  },
+  "scene.card2.btn": {
+    "message": "查看更多"
+  },
+  "scene.title": {
+    "message": "使用场景"
+  },
+  "scene.subtitle": {
+    "message": "Subtitle Space Occupation Display"
+  },
+  "scene.card1.desc.clougence": {
+    "message": "CloudCanal 让数据能够无缝集成到现代化的实时数据仓库，确保数据的时效性，发挥更大的数据价值。"
+  },
+  "userguide.title.line1": {
+    "message": "打通数据孤岛，丰富数据应用"
+  },
+  "userguide.title.line2": {
+    "message": "高效利用数据"
+  },
+  "userguide.subtitle": {
+    "message": "解锁您的数据的巨大潜力。"
+  },
+  "userguide.tryCloudBtn": {
+    "message": "试用云服务"
+  },
+  "userguide.downloadBtn": {
+    "message": "下载企业版"
+  },
+  "homepage.tutorialBtn": {
+    "message": "快速开始 - 5分钟 ⏱️"
+  },
+  "features.easy": {
+    "message": "易上手"
+  },
+  "features.easy.desc": {
+    "message": "BladePipe 设计之初就考虑到了易用性，安装和使用都非常简单。"
+  },
+  "features.focus": {
+    "message": "专注核心业务"
+  },
+  "features.focus.desc": {
+    "message": "专注于核心业务，无需关注数据同步的细节。"
+  },
+  "features.react": {
+    "message": "支持高可用部署"
+  },
+  "features.react.desc": {
+    "message": "支持高可用部署，确保数据流动不间断。"
+  },
+  "theme.ErrorPageContent.title": {
+    "message": "页面已崩溃。",
+    "description": "The title of the fallback page when the page crashed"
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "回到顶部",
+    "description": "The ARIA label for the back to top button"
+  },
+  "theme.blog.archive.title": {
+    "message": "历史博文",
+    "description": "The page & hero title of the blog archive page"
+  },
+  "theme.blog.archive.description": {
+    "message": "历史博文",
+    "description": "The page & hero description of the blog archive page"
+  },
+  "theme.blog.paginator.navAriaLabel": {
+    "message": "博文列表分页导航",
+    "description": "The ARIA label for the blog pagination"
+  },
+  "theme.blog.paginator.newerEntries": {
+    "message": "较新的博文",
+    "description": "The label used to navigate to the newer blog posts page (previous page)"
+  },
+  "theme.blog.paginator.olderEntries": {
+    "message": "较旧的博文",
+    "description": "The label used to navigate to the older blog posts page (next page)"
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "message": "博文分页导航",
+    "description": "The ARIA label for the blog posts pagination"
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "message": "较新一篇",
+    "description": "The blog post button label to navigate to the newer/previous post"
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "message": "较旧一篇",
+    "description": "The blog post button label to navigate to the older/next post"
+  },
+  "theme.tags.tagsPageLink": {
+    "message": "查看所有标签",
+    "description": "The label of the link targeting the tag list page"
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "message": "页面路径",
+    "description": "The ARIA label for the breadcrumbs"
+  },
+  "theme.colorToggle.ariaLabel.mode.system": {
+    "message": "系统模式",
+    "description": "The name for the system color mode"
+  },
+  "theme.colorToggle.ariaLabel.mode.light": {
+    "message": "浅色模式",
+    "description": "The name for the light color mode"
+  },
+  "theme.colorToggle.ariaLabel.mode.dark": {
+    "message": "暗黑模式",
+    "description": "The name for the dark color mode"
+  },
+  "theme.colorToggle.ariaLabel": {
+    "message": "切换浅色/暗黑模式（当前为{mode}）",
+    "description": "The ARIA label for the color mode toggle"
+  },
+  "theme.docs.DocCard.categoryDescription.plurals": {
+    "message": "{count} 个项目",
+    "description": "The default description for a category card in the generated index about how many items this category includes"
+  },
+  "theme.docs.paginator.navAriaLabel": {
+    "message": "文件选项卡",
+    "description": "The ARIA label for the docs pagination"
+  },
+  "theme.docs.paginator.previous": {
+    "message": "上一页",
+    "description": "The label used to navigate to the previous doc"
+  },
+  "theme.docs.paginator.next": {
+    "message": "下一页",
+    "description": "The label used to navigate to the next doc"
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "版本：{versionLabel}"
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "{count} 篇文档带有标签",
+    "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": "{nDocsTagged}「{tagName}」",
+    "description": "The title of the page for a docs tag"
+  },
+  "theme.common.editThisPage": {
+    "message": "编辑此页",
+    "description": "The link label to edit the current page"
+  },
+  "theme.docs.versions.unreleasedVersionLabel": {
+    "message": "此为 {siteTitle} {versionLabel} 版尚未发行的文档。",
+    "description": "The label used to tell the user that he's browsing an unreleased doc version"
+  },
+  "theme.docs.versions.unmaintainedVersionLabel": {
+    "message": "此为 {siteTitle} {versionLabel} 版的文档，现已不再积极维护。",
+    "description": "The label used to tell the user that he's browsing an unmaintained doc version"
+  },
+  "theme.docs.versions.latestVersionSuggestionLabel": {
+    "message": "最新的文档请参阅 {latestVersionLink} ({versionLabel})。",
+    "description": "The label used to tell the user to check the latest version"
+  },
+  "theme.docs.versions.latestVersionLinkLabel": {
+    "message": "最新版本",
+    "description": "The label used for the latest version suggestion link label"
+  },
+  "theme.lastUpdated.atDate": {
+    "message": "于 {date} ",
+    "description": "The words used to describe on which date a page has been last updated"
+  },
+  "theme.lastUpdated.byUser": {
+    "message": "由 {user} ",
+    "description": "The words used to describe by who the page has been last updated"
+  },
+  "theme.lastUpdated.lastUpdatedAtBy": {
+    "message": "最后{byUser}{atDate}更新",
+    "description": "The sentence used to display when a page has been last updated, and by who"
+  },
+  "theme.common.headingLinkTitle": {
+    "message": "{heading}的直接链接",
+    "description": "Title for link to heading"
+  },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "message": "选择版本",
+    "description": "The label for the navbar versions dropdown on mobile view"
+  },
+  "theme.NotFound.title": {
+    "message": "页面未找到",
+    "description": "404 page title"
+  },
+  "theme.NotFound.description": {
+    "message": "抱歉，我们找不到您要访问的页面。",
+    "description": "404 page description"
+  },
+  "theme.NotFound.goBackHome": {
+    "message": "返回首页",
+    "description": "Go back home button text"
+  },
+  "theme.NotFound.contactSupport": {
+    "message": "联系支持",
+    "description": "Contact support link text"
+  },
+  "theme.tags.tagsListLabel": {
+    "message": "标签：",
+    "description": "The label alongside a tag list"
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "关闭",
+    "description": "The ARIA label for close button of announcement bar"
+  },
+  "theme.admonition.caution": {
+    "message": "警告",
+    "description": "The default label used for the Caution admonition (:::caution)"
+  },
+  "theme.admonition.danger": {
+    "message": "危险",
+    "description": "The default label used for the Danger admonition (:::danger)"
+  },
+  "theme.admonition.info": {
+    "message": "信息",
+    "description": "The default label used for the Info admonition (:::info)"
+  },
+  "theme.admonition.note": {
+    "message": "备注",
+    "description": "The default label used for the Note admonition (:::note)"
+  },
+  "theme.admonition.tip": {
+    "message": "提示",
+    "description": "The default label used for the Tip admonition (:::tip)"
+  },
+  "theme.admonition.warning": {
+    "message": "注意",
+    "description": "The default label used for the Warning admonition (:::warning)"
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": "最近博文导航",
+    "description": "The ARIA label for recent posts in the blog sidebar"
+  },
+  "theme.DocSidebarItem.expandCategoryAriaLabel": {
+    "message": "展开侧边栏分类 '{label}'",
+    "description": "The ARIA label to expand the sidebar category"
+  },
+  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
+    "message": "折叠侧边栏分类 '{label}'",
+    "description": "The ARIA label to collapse the sidebar category"
+  },
+  "theme.NavBar.navAriaLabel": {
+    "message": "主导航",
+    "description": "The ARIA label for the main navigation"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "选择语言",
+    "description": "The label for the mobile language switcher dropdown"
+  },
+  "theme.NotFound.p1": {
+    "message": "我们找不到您要找的页面。",
+    "description": "The first paragraph of the 404 page"
+  },
+  "theme.NotFound.p2": {
+    "message": "请联系原始链接来源网站的所有者，并告知他们链接已损坏。",
+    "description": "The 2nd paragraph of the 404 page"
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "本页总览",
+    "description": "The label used by the button on the collapsible TOC component"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "阅读需 {readingTime} 分钟",
+    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.CodeBlock.copy": {
+    "message": "复制",
+    "description": "The copy button label on code blocks"
+  },
+  "theme.CodeBlock.copied": {
+    "message": "复制成功",
+    "description": "The copied button label on code blocks"
+  },
+  "theme.CodeBlock.copyButtonAriaLabel": {
+    "message": "复制代码到剪贴板",
+    "description": "The ARIA label for copy code blocks button"
+  },
+  "theme.CodeBlock.wordWrapToggle": {
+    "message": "切换自动换行",
+    "description": "The title attribute for toggle word wrapping button of code block lines"
+  },
+  "theme.docs.breadcrumbs.home": {
+    "message": "主页面",
+    "description": "The ARIA label for the home page in the breadcrumbs"
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "message": "文档侧边栏",
+    "description": "The ARIA label for the sidebar navigation"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": "收起侧边栏",
+    "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.collapseButtonAriaLabel": {
+    "message": "收起侧边栏",
+    "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
+    "message": "关闭导航栏",
+    "description": "The ARIA label for close button of mobile sidebar"
+  },
+  "theme.blog.post.readMore": {
+    "message": "阅读更多",
+    "description": "The label used in blog post item excerpts to link to full blog posts"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": "阅读 {title} 的全文",
+    "description": "The ARIA label for the link to full blog posts from excerpts"
+  },
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
+    "message": "切换导航栏",
+    "description": "The ARIA label for hamburger menu button of mobile navigation"
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "message": "← 回到主菜单",
+    "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
+    "message": "Expand the dropdown",
+    "description": "The ARIA label of the button to expand the mobile dropdown navbar item"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
+    "message": "Collapse the dropdown",
+    "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "展开侧边栏",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "message": "展开侧边栏",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.blog.post.plurals": {
+    "message": "{count} 篇博文",
+    "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.blog.tagTitle": {
+    "message": "{nPosts} 含有标签「{tagName}」",
+    "description": "The title of the page for a blog tag"
+  },
+  "theme.blog.author.pageTitle": {
+    "message": "{authorName} - {nPosts}",
+    "description": "The title of the page for a blog author"
+  },
+  "theme.blog.authorsList.pageTitle": {
+    "message": "作者",
+    "description": "The title of the authors page"
+  },
+  "theme.blog.authorsList.viewAll": {
+    "message": "查看所有作者",
+    "description": "The label of the link targeting the blog authors page"
+  },
+  "theme.blog.author.noPosts": {
+    "message": "该作者尚未撰写任何文章。",
+    "description": "The text for authors with 0 blog post"
+  },
+  "theme.contentVisibility.unlistedBanner.title": {
+    "message": "未列出页",
+    "description": "The unlisted content banner title"
+  },
+  "theme.contentVisibility.unlistedBanner.message": {
+    "message": "此页面未列出。搜索引擎不会对其索引，只有拥有直接链接的用户才能访问。",
+    "description": "The unlisted content banner message"
+  },
+  "theme.contentVisibility.draftBanner.title": {
+    "message": "草稿页",
+    "description": "The draft content banner title"
+  },
+  "theme.contentVisibility.draftBanner.message": {
+    "message": "此页面是草稿，仅在开发环境中可见，不会包含在正式版本中。",
+    "description": "The draft content banner message"
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "重试",
+    "description": "The label of the button to try again rendering when the React error boundary captures an error"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "跳到主要内容",
+    "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "标签",
+    "description": "The title of the tag list page"
+  },
+  "compare.brand.bladepipe": {
+    "message": "BladePipe"
+  },
+  "compare.brand.cloudcanal": {
+    "message": "CloudCanal"
+  },
+  "compare.note.byoc": {
+    "message": "(BYOC)"
+  },
+  "compare.brand.airbyte": {
+    "message": "Airbyte"
+  },
+  "compare.note.cloud": {
+    "message": "(Cloud)"
+  },
+  "compare.brand.fivetran": {
+    "message": "Fivetran"
+  },
+  "compare.note.standard": {
+    "message": "(Standard)"
+  },
+  "compare.latency.bladepipe": {
+    "message": "<= 10 秒 *"
+  },
+  "compare.latency.cloudcanal": {
+    "message": "<= 10 秒 *"
+  },
+  "compare.latency.others": {
+    "message": ">= 1 分钟"
+  },
+  "compare.why": {
+    "message": "为什么选择 BladePipe"
+  },
+  "compare.why.cloudcanal": {
+    "message": "为什么选择 CloudCanal"
+  },
+  "compare.subtitle": {
+    "message": "Subtitle Space Occupation Display"
+  },
+  "compare.millionRows": {
+    "message": "百万行数据/月"
+  },
+  "compare.learnMore": {
+    "message": "了解更多"
+  },
+  "compare.note": {
+    "message": "*: 包含一个 AWS EC2 t2.xlarge 用于 worker，200 美元/月"
+  },
+  "compare.syncLatency": {
+    "message": "秒级同步"
+  },
+  "compare.rows.1M": {
+    "message": "1M 行/月"
+  },
+  "compare.rows.10M": {
+    "message": "10M 行/月"
+  },
+  "compare.rows.100M": {
+    "message": "100M 行/月"
+  },
+  "compare.rows.1000M": {
+    "message": "1000M 行/月"
+  },
+  "compare.note.usd": {
+    "message": "*: 包含一个 AWS EC2 t2.xlarge 工作节点，200 美元/月"
+  },
+  "compare.note.cny": {
+    "message": "*: 包含一个阿里云 ECS t2.xlarge 工作节点，¥483/月"
+  },
+  "deploy.title.line1": {
+    "message": "选择适合你的部署模式"
+  },
+  "deploy.title.line2": {
+    "message": "deploy.title.line2"
+  },
+  "deploy.subtitle.line1": {
+    "message": " 提供云版本（全托管 和 BYOC）和企业版（On-Premise）两种模式，"
+  },
+  "deploy.subtitle.line2": {
+    "message": "满足不同场景和需求"
+  },
+  "footer.product": {
+    "message": "产品"
+  },
+  "footer.product.what": {
+    "message": "什么是 BladePipe"
+  },
+  "footer.product.why": {
+    "message": "为什么选择 BladePipe"
+  },
+  "footer.product.connectors": {
+    "message": "数据源"
+  },
+  "footer.product.pricing": {
+    "message": "定价"
+  },
+  "footer.resources": {
+    "message": "资源"
+  },
+  "footer.resources.intro": {
+    "message": "介绍"
+  },
+  "footer.resources.quickstart": {
+    "message": "快速开始"
+  },
+  "footer.resources.license": {
+    "message": "如何获取许可证"
+  },
+  "footer.resources.spec": {
+    "message": "粒度和规格"
+  },
+  "footer.resources.blog": {
+    "message": "博客"
+  },
+  "footer.partners": {
+    "message": "合作伙伴"
+  },
+  "footer.partners.starrocks": {
+    "message": "StarRocks"
+  },
+  "footer.partners.oceanbase": {
+    "message": "OceanBase"
+  },
+  "footer.partners.automq": {
+    "message": "AutoMQ"
+  },
+  "footer.partners.doris": {
+    "message": "Doris"
+  },
+  "footer.partners.greptime": {
+    "message": "Greptime"
+  },
+  "footer.company": {
+    "message": "公司"
+  },
+  "footer.company.about": {
+    "message": "关于我们"
+  },
+  "footer.company.contact": {
+    "message": "联系我们"
+  },
+  "footer.company.terms": {
+    "message": "服务条款"
+  },
+  "footer.company.privacy": {
+    "message": "隐私政策"
+  },
+  "footer.intro": {
+    "message": "BladePipe 是一个专注于实时端到端数据流动的数据集成平台，让数据始终保持可靠且随时可用。"
+  },
+  "footer.copyright": {
+    "message": "© 2025 CloudDM Co., Ltd. All rights reserved."
+  },
+  "navbar.product": {
+    "message": "产品"
+  },
+  "clouddm.solution.banner.title": {
+    "message": "团队数据库协作"
+  },
+  "clouddm.solution.banner.subtitle": {
+    "message": "让团队化的数据库访问和管理变得安全可控。"
+  },
+  "clouddm.solution.features.title": {
+    "message": "方案价值"
+  },
+  "clouddm.solution.features.feature1.title": {
+    "message": "基于角色的访问权限控制，细粒度的资源和功能划分"
+  },
+  "clouddm.solution.features.feature2.title": {
+    "message": "支持内置及多种第三方审批流的标准化工单流程"
+  },
+  "clouddm.solution.features.feature3.title": {
+    "message": "内置多种 SQL 规则，提前预防不符合规范的或风险的操作"
+  },
+  "clouddm.solution.features.feature4.title": {
+    "message": "灵活可自定义的数据脱敏规则，可设置作用范围"
+  },
+  "clouddm.solution.architecture.title": {
+    "message": "方案架构"
+  },
+  "clouddm.solution.architecture.feature1": {
+    "message": "通过资源和功能权限控制，支持团队与组织的共同协作"
+  },
+  "clouddm.solution.architecture.feature2": {
+    "message": "通过不同级别的敏感数据脱敏，降低信息泄露的风险"
+  },
+  "clouddm.solution.architecture.feature3": {
+    "message": "通过 SQL 规则，确认并提高组织协作的规范性，提前预防风险"
+  },
+  "clouddm.solution.architecture.feature4": {
+    "message": "通过需由组织相关人员审批的工单流程，使数据库操作更可控"
+  },
+  "clouddm.solution.scenes.title": {
+    "message": "典型场景"
+  },
+  "clouddm.solution.scenes.scene1.title": {
+    "message": "构建生产数据库访问平台"
+  },
+  "clouddm.solution.scenes.scene2.title": {
+    "message": "跨地域一站式数据访问"
+  },
+  "clouddm.solution.scenes.scene3.title": {
+    "message": "生产数据库管理"
+  },
+  "clouddm.solution.scenes.scene4.title": {
+    "message": "敏感数据访问脱敏展示"
+  },
+  "navbar.solutions": {
+    "message": "解决方案"
+  },
+  "navbar.resources": {
+    "message": "资源"
+  },
+  "navbar.blog": {
+    "message": "博客"
+  },
+  "navbar.documents": {
+    "message": "文档"
+  },
+  "navbar.pricing": {
+    "message": "定价"
+  },
+  "navbar.about": {
+    "message": "关于我们"
+  },
+  "navbar.signin": {
+    "message": "登录"
+  },
+  "navbar.tryCloud": {
+    "message": "试用云服务"
+  },
+  "navbar.userCenter": {
+    "message": "个人中心"
+  },
+  "navbar.myBilling": {
+    "message": "我的账单"
+  },
+  "navbar.myOrder": {
+    "message": "我的订单"
+  },
+  "navbar.logout": {
+    "message": "退出登录"
+  },
+  "navbar.hello": {
+    "message": "您好"
+  },
+  "navbar.home": {
+    "message": "首页"
+  },
+  "navbar.learnMore": {
+    "message": "了解更多"
+  },
+  "navbar.learnMore.bladepipe": {
+    "message": "CloudCanal 海外版"
+  },
+  "navbar.learnMore.clouddm": {
+    "message": "数据库协同管理工具"
+  },
+  "navbar.bladepipe": {
+    "message": "BladePipe"
+  },
+  "navbar.clouddm": {
+    "message": "CloudDM"
+  },
+  "navbar.whyBladepipe": {
+    "message": "为什么选择 BladePipe"
+  },
+  "navbar.whyClouddm": {
+    "message": "为什么选择 CloudDM"
+  },
+  "navbar.connectors": {
+    "message": "已支持的数据源"
+  },
+  "navbar.realtimeAnalytics": {
+    "message": "实时数据分析"
+  },
+  "navbar.aiRag": {
+    "message": "AI & RAG"
+  },
+  "navbar.teamDatabaseCollaboration": {
+    "message": "团队数据库协作"
+  },
+  "navbar.cloudcanal": {
+    "message": "CloudCanal"
+  },
+  "navbar.whyCloudcanal": {
+    "message": "为什么选择 CloudCanal"
+  },
+  "navbar.whatIsCloudcanal": {
+    "message": "什么是 CloudCanal"
+  },
+  "navbar.whatIsClouddm": {
+    "message": "什么是 CloudDM"
+  },
+  "connector.title": {
+    "message": "支持 60+ 数据源"
+  },
+  "connector.subtitle": {
+    "message": "更多数据源即将推出。"
+  },
+  "connector.contact.prefix": {
+    "message": "没有找到所需的数据源？"
+  },
+  "connector.contact.link": {
+    "message": "联系我们。"
+  },
+  "connector.search.placeholder": {
+    "message": "搜索"
+  },
+  "connector.filter.source": {
+    "message": "源"
+  },
+  "connector.filter.target": {
+    "message": "目标"
+  },
+  "connector.filter.businessOnly": {
+    "message": "仅限商业版"
+  },
+  "connector.filter.clearAll": {
+    "message": "清除所有筛选"
+  },
+  "connector.filter.searchPrefix": {
+    "message": "搜索："
+  },
+  "connector.filter.sourcePrefix": {
+    "message": "源："
+  },
+  "connector.filter.targetPrefix": {
+    "message": "目标："
+  },
+  "connector.filter.true": {
+    "message": "是"
+  },
+  "connector.datasource.mysql.description": {
+    "message": "MySQL 是世界上最受欢迎的开源关系型数据库管理系统，以高性能、可靠性和易用性著称。"
+  },
+  "connector.datasource.oracle.description": {
+    "message": "Oracle 数据库是业界领先的企业级关系型数据库，提供强大的事务处理、数据安全和高可用性。"
+  },
+  "connector.datasource.postgresql.description": {
+    "message": "PostgreSQL 是一个功能强大的开源对象关系型数据库，以其先进的功能和标准合规性而闻名。"
+  },
+  "connector.datasource.sqlserver.description": {
+    "message": "Microsoft SQL Server 是一个企业级关系型数据库管理系统，具有强大的分析和报告功能。"
+  },
+  "connector.datasource.rdsformysql.description": {
+    "message": "Amazon RDS for MySQL 是一个托管的 MySQL 云数据库服务，提供自动备份、监控和扩展功能。"
+  },
+  "connector.datasource.elasticsearch.description": {
+    "message": "Elasticsearch 是一个分布式搜索和分析引擎，专为大规模数据的实时搜索和分析而设计。"
+  },
+  "connector.datasource.hive.description": {
+    "message": "Apache Hive 是基于 Hadoop 构建的数据仓库软件，支持大数据查询和分析。"
+  },
+  "connector.datasource.kafka.description": {
+    "message": "Apache Kafka 是一个高吞吐量的分布式发布-订阅消息系统，用于构建实时数据管道。"
+  },
+  "connector.datasource.rocketmq.description": {
+    "message": "Apache RocketMQ 是阿里巴巴的开源分布式消息中间件，具有低延迟和高可靠性特点。"
+  },
+  "connector.datasource.rdsforpostgresql.description": {
+    "message": "Amazon RDS for PostgreSQL 提供完全托管的 PostgreSQL 数据库服务，具有高可用性和安全性。"
+  },
+  "connector.datasource.adbforpg.description": {
+    "message": "AnalyticDB for PostgreSQL 是阿里云基于开源 Greenplum 的大规模并行处理数据仓库服务。"
+  },
+  "connector.datasource.greenplum.description": {
+    "message": "Greenplum 是一个专为大数据分析和数据仓库应用而设计的大规模并行处理数据库。"
+  },
+  "connector.datasource.rabbitmq.description": {
+    "message": "RabbitMQ 是一个功能丰富的消息代理，支持多种消息协议，广泛用于微服务架构。"
+  },
+  "connector.datasource.tidb.description": {
+    "message": "TiDB 是一个开源分布式 NewSQL 数据库，支持水平扩展、强一致性和高可用性。"
+  },
+  "connector.datasource.polardbmysql.description": {
+    "message": "PolarDB for MySQL 是阿里云的云原生关系型数据库，与 MySQL 兼容且性能更高。"
+  },
+  "connector.datasource.clickhouse.description": {
+    "message": "ClickHouse 是一个专为 OLAP 工作负载和实时分析查询而优化的列式数据库管理系统。"
+  },
+  "connector.datasource.polardbx.description": {
+    "message": "PolarDB-X 是阿里云的云原生分布式数据库，提供水平扩展和 MySQL 兼容性。"
+  },
+  "connector.datasource.redis.description": {
+    "message": "Redis 是一个开源的内存数据结构存储，用作数据库、缓存和消息代理。"
+  },
+  "connector.datasource.kudu.description": {
+    "message": "Apache Kudu 是为 Apache Hadoop 生态系统开发的列式存储管理器，支持快速分析。"
+  },
+  "connector.datasource.mongodb.description": {
+    "message": "MongoDB 是一个流行的 NoSQL 文档数据库，提供灵活的数据模型和水平扩展能力。"
+  },
+  "connector.datasource.dameng.description": {
+    "message": "达梦数据库是一个国产关系型数据库管理系统，具有高安全性和稳定性，支持国产化替代。"
+  },
+  "connector.datasource.starrocks.description": {
+    "message": "StarRocks 是新一代高速全场景 MPP 数据库，专为实时分析而设计，支持多种数据模型。"
+  },
+  "connector.datasource.oceanbase.description": {
+    "message": "OceanBase 是蚂蚁集团自主研发的企业级分布式关系型数据库，具有高可用性和高性能。"
+  },
+  "connector.datasource.doris.description": {
+    "message": "Apache Doris 是一个现代化的 MPP 分析数据库，支持实时数据分析和高并发查询。"
+  },
+  "connector.datasource.selectdb.description": {
+    "message": "SelectDB 是基于 Apache Doris 的云原生实时数据仓库，提供超快查询和简化操作。"
+  },
+  "connector.datasource.hana.description": {
+    "message": "SAP HANA 是一个内存计算平台，结合了数据库、数据处理和应用平台功能。"
+  },
+  "connector.datasource.mariadb.description": {
+    "message": "MariaDB 是 MySQL 的一个分支，提供更多存储引擎和功能，同时保持 MySQL 兼容性。"
+  },
+  "connector.datasource.auroramysql.description": {
+    "message": "Amazon Aurora MySQL 是一个完全托管的 MySQL 兼容数据库，具有云原生性能和高可用性。"
+  },
+  "connector.datasource.redshift.description": {
+    "message": "Amazon Redshift 是一个完全托管的 PB 级数据仓库服务，专为大规模数据分析而设计。"
+  },
+  "connector.datasource.db2.description": {
+    "message": "IBM Db2 是一个企业级关系型数据库，提供 AI 增强的数据管理和高级分析功能。"
+  },
+  "connector.datasource.gaussdbforopengauss.description": {
+    "message": "GaussDB for openGauss 是华为云基于开源 openGauss 内核的企业级数据库服务。"
+  },
+  "connector.datasource.obfororacle.description": {
+    "message": "OceanBase for Oracle 提供 Oracle 兼容模式，支持 Oracle 应用无缝迁移到分布式架构。"
+  },
+  "connector.datasource.tunnel.description": {
+    "message": "MaxCompute Tunnel 是阿里云的大数据计算服务数据通道，支持高速数据上传和下载。"
+  },
+  "connector.datasource.documentdb.description": {
+    "message": "Amazon DocumentDB 是一个完全托管的 MongoDB 兼容文档数据库服务，具有高可用性和安全性。"
+  },
+  "connector.datasource.iceberg.description": {
+    "message": "Apache Iceberg 是一个开放表格式标准，为大型分析数据集提供可靠的数据湖存储。"
+  },
+  "connector.datasource.gaussdbformysql.description": {
+    "message": "GaussDB for MySQL 是华为云的企业级云原生数据库，完全兼容 MySQL 生态系统。"
+  },
+  "connector.datasource.hudi.description": {
+    "message": "Apache Hudi 是一个数据湖存储框架，支持实时数据摄取、更新和删除操作。"
+  },
+  "connector.datasource.adbformysql.description": {
+    "message": "AnalyticDB for MySQL 是阿里云的云原生数据仓库，MySQL 协议兼容，支持实时分析。"
+  },
+  "connector.datasource.aurorapostgresql.description": {
+    "message": "Amazon Aurora PostgreSQL 是一个完全托管的 PostgreSQL 兼容数据库，具有云原生架构。"
+  },
+  "connector.datasource.automq.description": {
+    "message": "AutoMQ 是一个云原生 Kafka 服务，提供更低成本和更高弹性的消息队列解决方案。"
+  },
+  "connector.datasource.pulsar.description": {
+    "message": "Apache Pulsar 是一个云原生分布式消息和流平台，支持多租户和地理复制。"
+  },
+  "connector.datasource.greptimedb.description": {
+    "message": "GreptimeDB 是一个云原生时序数据库，专为 IoT、监控和实时分析场景而设计。"
+  },
+  "connector.datasource.tdengine.description": {
+    "message": "TDengine 是一个专为 IoT 设计的高性能时序数据库，具有极高的写入和查询性能。"
+  },
+  "connector.datasource.sshfile.description": {
+    "message": "SSH 文件传输支持通过安全的 SSH 协议进行远程文件访问和数据传输。"
+  },
+  "connector.datasource.ossfile.description": {
+    "message": "阿里云对象存储服务 (OSS) 提供海量、安全、低成本、高可靠的云存储服务。"
+  },
+  "connector.datasource.s3file.description": {
+    "message": "Amazon S3 是一个对象存储服务，提供业界领先的可扩展性、数据可用性和安全性。"
+  },
+  "connector.datasource.openai.description": {
+    "message": "OpenAI API 提供先进的 AI 模型服务，包括 GPT 系列、DALL-E 和 Whisper。"
+  },
+  "connector.datasource.huggingface.description": {
+    "message": "Hugging Face 是一个机器学习社区平台，提供预训练模型、数据集和 ML 工具。"
+  },
+  "connector.datasource.cohere.description": {
+    "message": "Cohere 提供企业级大语言模型 API 服务，专注于自然语言理解和生成。"
+  },
+  "connector.datasource.ragapi.description": {
+    "message": "RAG API 提供检索增强生成服务，结合知识库检索和大模型生成能力。"
+  },
+  "connector.datasource.deepseek.description": {
+    "message": "DeepSeek 是一个国产大语言模型服务，提供高质量的中文理解和生成能力。"
+  },
+  "connector.datasource.ollama.description": {
+    "message": "Ollama 是一个在本地运行大语言模型的工具，支持在个人设备上部署和使用 AI 模型。"
+  },
+  "connector.datasource.anthropic.description": {
+    "message": "Anthropic Claude 是一个安全有用的 AI 助手，专注于可靠和可解释的 AI 系统。"
+  },
+  "connector.datasource.bedrock.description": {
+    "message": "Amazon Bedrock 是一个完全托管的服务，提供来自多个 AI 公司的基础模型。"
+  },
+  "connector.datasource.duckdb.description": {
+    "message": "DuckDB 是一个嵌入式分析数据库，专为 OLAP 查询而设计，具有极快的查询性能。"
+  },
+  "connector.datasource.googledrive.description": {
+    "message": "Google Drive 是一个云存储服务，提供文件存储、同步和协作功能。"
+  },
+  "connector.datasource.dynamodb.description": {
+    "message": "Amazon DynamoDB 是一个完全托管的 NoSQL 数据库服务，提供快速和可预测的性能。"
+  },
+  "connector.datasource.paimon.description": {
+    "message": "Apache Paimon 是一个流式数据湖存储，支持高吞吐量实时数据更新和 OLAP 查询。"
+  },
+  "connector.datasource.yuque.description": {
+    "message": "语雀是一个知识管理平台，帮助团队高效地组织和分享知识。"
+  },
+  "connector.datasource.elasticache.description": {
+    "message": "Amazon ElastiCache 是一个 Web 服务，可以轻松在云中部署、操作和扩展内存缓存。"
+  },
+  "downloadModal.termsOfService": {
+    "message": "服务条款"
+  },
+  "downloadModal.title": {
+    "message": "下载私有部署版"
+  },
+  "downloadModal.title.personal": {
+    "message": "下载 CloudDM 个人版"
+  },
+  "downloadModal.title.enterprise": {
+    "message": "下载 CloudDM 私有部署版"
+  },
+  "downloadModal.agreementPrefix": {
+    "message": "在下载私有部署版时，您同意"
+  },
+  "downloadModal.agreementPrefix.personal": {
+    "message": "在下载 CloudDM 个人版时，您同意"
+  },
+  "downloadModal.agreementPrefix.enterprise": {
+    "message": "在下载 CloudDM 私有部署版时，您同意"
+  },
+  "downloadModal.downloadVersionBtn": {
+    "message": "{version}"
+  },
+  "downloadModal.noProducts": {
+    "message": "暂无可下载的产品"
+  },
+  "downloadModal.contactAdmin": {
+    "message": "请联系管理员或稍后重试"
+  },
+  "downloadModal.loadingInfo": {
+    "message": "正在获取下载信息..."
+  },
+  "downloadModal.noData": {
+    "message": "暂无数据"
+  },
+  "downloadModal.copy": {
+    "message": "复制"
+  },
+  "downloadModal.downloadTitle": {
+    "message": "下载私有部署版"
+  },
+  "downloadModal.linkExpiry": {
+    "message": "此下载链接有效期为1小时，请及时下载。"
+  },
+  "downloadModal.version": {
+    "message": "版本："
+  },
+  "downloadModal.md5": {
+    "message": "MD5："
+  },
+  "downloadModal.downloadUrl": {
+    "message": "下载地址："
+  },
+  "downloadModal.wgetCommand": {
+    "message": "Wget 方式："
+  },
+  "downloadModal.curlCommand": {
+    "message": "Curl 方式："
+  },
+  "downloadModal.directDownload": {
+    "message": "下载"
+  },
+  "downloadModal.downloadInfoError": {
+    "message": "获取下载信息失败"
+  },
+  "downloadModal.tip": {
+    "message": "提示"
+  },
+  "downloadModal.howToInstall": {
+    "message": "如何安装与部署？"
+  },
+  "clouddm.more": {
+    "message": "更多"
+  },
+  "clouddm.more.downloadPersonal": {
+    "message": "下载 CloudDM 个人版"
+  },
+  "clouddm.more.viewPersonalVersion": {
+    "message": "查看个人版版本信息"
+  },
+  "clouddm.userGuide.downloadInstall": {
+    "message": "下载安装"
+  },
+  "clouddm.userGuide.quickStart": {
+    "message": "快速开始"
+  },
+  "resetPwd.title": {
+    "message": "重置密码"
+  },
+  "resetPwd.form.email": {
+    "message": "邮箱"
+  },
+  "resetPwd.form.email.required": {
+    "message": "邮箱是必填项"
+  },
+  "resetPwd.form.email.placeholder": {
+    "message": "邮箱"
+  },
+  "resetPwd.form.phone": {
+    "message": "手机号"
+  },
+  "resetPwd.form.phone.required": {
+    "message": "手机号是必填项"
+  },
+  "resetPwd.form.phone.placeholder": {
+    "message": "请输入手机号"
+  },
+  "resetPwd.form.verifyCode": {
+    "message": "验证码"
+  },
+  "resetPwd.form.verifyCode.required": {
+    "message": "请输入验证码"
+  },
+  "resetPwd.form.verifyCode.placeholder": {
+    "message": "验证码"
+  },
+  "resetPwd.form.password": {
+    "message": "密码"
+  },
+  "resetPwd.form.password.required": {
+    "message": "密码是必填项"
+  },
+  "resetPwd.form.password.placeholder": {
+    "message": "密码"
+  },
+  "resetPwd.form.password.error": {
+    "message": "密码格式不正确"
+  },
+  "resetPwd.form.password.length": {
+    "message": "长度应为 8-32 个字符"
+  },
+  "resetPwd.form.password.format": {
+    "message": "必须包含字母和数字"
+  },
+  "resetPwd.form.password.special": {
+    "message": "必须包含特殊字符($%^&#_)"
+  },
+  "docSearch.configRequired.title": {
+    "message": "配置搜索服务"
+  },
+  "docSearch.configRequired.description": {
+    "message": "要启用搜索功能，需要申请 Algolia DocSearch 服务。请访问 Algolia DocSearch 提交申请，或联系开发者配置搜索服务。"
+  },
+  "docSearch.configRequired.close": {
+    "message": "关闭"
+  },
+  "resetPwd.form.confirmPassword": {
+    "message": "确认密码"
+  },
+  "resetPwd.form.confirmPassword.required": {
+    "message": "确认密码是必填项"
+  },
+  "resetPwd.form.confirmPassword.placeholder": {
+    "message": "确认密码"
+  },
+  "resetPwd.form.confirmPassword.error": {
+    "message": "请输入相同的密码"
+  },
+  "resetPwd.form.backTo": {
+    "message": "返回"
+  },
+  "resetPwd.form.backToLogin": {
+    "message": "登录"
+  },
+  "resetPwd.form.submit": {
+    "message": "重置密码"
+  },
+  "resetPwd.form.agreement.prefix": {
+    "message": "继续即表示您同意我们的"
+  },
+  "resetPwd.form.terms": {
+    "message": "服务条款"
+  },
+  "resetPwd.form.agreement.and": {
+    "message": "和"
+  },
+  "resetPwd.form.privacy": {
+    "message": "隐私政策"
+  },
+  "resetPwd.form.success": {
+    "message": "密码重置成功"
+  },
+  "resetPwd.form.error": {
+    "message": "重置失败"
+  },
+  "resetPwd.sidebar.title": {
+    "message": "您的 90 天免费试用包括"
+  },
+  "resetPwd.sidebar.title.clougence": {
+    "message": "商业版 90 天免费试用"
+  },
+  "wechatFloat.title": {
+    "message": "联系我们"
+  },
+  "wechatFloat.description": {
+    "message": "扫码添加微信，获取技术支持"
+  },
+  "resetPwd.sidebar.description": {
+    "message": "专注于实时增量更新的数据复制工具，让您更深入地了解数据。"
+  },
+  "resetPwd.sidebar.description.clouddm": {
+    "message": "专注于多数据源安全访问与管控，提高协作效率，让您更放心地使用数据。"
+  },
+  "resetPwd.sidebar.feature1": {
+    "message": "$300 积分"
+  },
+  "resetPwd.sidebar.feature2": {
+    "message": "云端和私有部署可选"
+  },
+  "resetPwd.sidebar.feature3": {
+    "message": "所有数据源都可用"
+  },
+  "resetPwd.sidebar.feature4": {
+    "message": "SOC 2、GDPR 和 ISO 27001 认证"
+  },
+  "countdownButton.error.enterEmail": {
+    "message": "请输入您的邮箱"
+  },
+  "countdownButton.error.enterPhone": {
+    "message": "请输入您的手机号"
+  },
+  "countdownButton.success.sent": {
+    "message": "验证码发送成功"
+  },
+  "countdownButton.error.sendFailed": {
+    "message": "验证码发送失败"
+  },
+  "countdownButton.button.getCode": {
+    "message": "获取验证码"
+  },
+  "register.title": {
+    "message": "创建您的 BladePipe 账户"
+  },
+  "register.dm.title": {
+    "message": "创建您的 CloudDM 账户"
+  },
+  "register.cc.title": {
+    "message": "创建您的 ClouGence 账户"
+  },
+  "register.badge.noCreditCard": {
+    "message": "无需信用卡"
+  },
+  "register.badge.freeTrial": {
+    "message": "立即免费试用"
+  },
+  "register.googleButton": {
+    "message": "使用 Google 注册"
+  },
+  "register.wechatButton": {
+    "message": "使用微信注册"
+  },
+  "register.dingtalkButton": {
+    "message": "使用钉钉注册"
+  },
+  "register.divider.or": {
+    "message": "或"
+  },
+  "register.form.username.label": {
+    "message": "用户名"
+  },
+  "register.form.username.required": {
+    "message": "用户名是必填项"
+  },
+  "register.form.username.placeholder": {
+    "message": "请输入您的用户名"
+  },
+  "register.form.company.label": {
+    "message": "公司"
+  },
+  "register.form.company.required": {
+    "message": "公司是必填项"
+  },
+  "register.form.company.placeholder": {
+    "message": "公司"
+  },
+  "register.form.email.label": {
+    "message": "邮箱"
+  },
+  "register.form.email.required": {
+    "message": "邮箱是必填项"
+  },
+  "register.form.email.placeholder": {
+    "message": "邮箱"
+  },
+  "register.form.verifyCode.label": {
+    "message": "验证码"
+  },
+  "register.form.verifyCode.required": {
+    "message": "请输入验证码"
+  },
+  "register.form.verifyCode.placeholder": {
+    "message": "验证码"
+  },
+  "register.form.password.label": {
+    "message": "密码"
+  },
+  "register.form.password.required": {
+    "message": "密码是必填项"
+  },
+  "register.form.password.placeholder": {
+    "message": "密码"
+  },
+  "register.button.signUp": {
+    "message": "注册"
+  },
+  "register.policy.agreement": {
+    "message": "注册并继续即表示您同意我们的"
+  },
+  "register.policy.termsOfService": {
+    "message": "服务条款"
+  },
+  "register.policy.and": {
+    "message": "和"
+  },
+  "register.policy.privacyPolicy": {
+    "message": "隐私政策"
+  },
+  "register.policy.period": {
+    "message": "。"
+  },
+  "register.link.alreadyHaveAccount": {
+    "message": "已有账户？"
+  },
+  "register.link.logIn": {
+    "message": "登录"
+  },
+  "register.message.success": {
+    "message": "注册成功"
+  },
+  "register.message.failed": {
+    "message": "注册失败"
+  },
+  "register.sidebar.title": {
+    "message": "您的 90 天免费试用包括"
+  },
+  "register.sidebar.title.clougence": {
+    "message": "商业版 90 天免费试用"
+  },
+  "register.sidebar.description": {
+    "message": "专注于实时增量更新的数据复制工具，让您更深入地了解数据。"
+  },
+  "register.sidebar.description.clouddm": {
+    "message": "专注于多数据源安全访问与管控，提高协作效率，让您更放心地使用数据。"
+  },
+  "register.sidebar.feature1": {
+    "message": "$300 积分"
+  },
+  "register.sidebar.feature2": {
+    "message": "云端和私有部署可选"
+  },
+  "register.sidebar.feature3": {
+    "message": "所有数据源都可用"
+  },
+  "register.sidebar.feature4": {
+    "message": "SOC 2、GDPR 和 ISO 27001 认证"
+  },
+  "register.form.phone.label": {
+    "message": "手机号"
+  },
+  "register.form.phone.required": {
+    "message": "手机号是必填项"
+  },
+  "register.form.phone.placeholder": {
+    "message": "请输入您的手机号"
+  },
+  "register.form.emailCode.label": {
+    "message": "邮箱验证码"
+  },
+  "register.form.emailCode.required": {
+    "message": "请输入邮箱验证码"
+  },
+  "register.form.emailCode.placeholder": {
+    "message": "邮箱验证码"
+  },
+  "register.form.smsCode.label": {
+    "message": "短信验证码"
+  },
+  "register.form.smsCode.required": {
+    "message": "请输入短信验证码"
+  },
+  "register.form.smsCode.placeholder": {
+    "message": "短信验证码"
+  },
+  "loading.authenticating": {
+    "message": "登录验证中..."
+  },
+  "loading.modal.title": {
+    "message": "注册信息补充"
+  },
+  "loading.form.companyName.label": {
+    "message": "公司名称"
+  },
+  "loading.form.companyName.required": {
+    "message": "公司名不能为空"
+  },
+  "loading.form.companyName.placeholder": {
+    "message": "请输入公司名称"
+  },
+  "loading.form.phone.label": {
+    "message": "手机号码"
+  },
+  "loading.form.phone.required": {
+    "message": "手机号不能为空"
+  },
+  "loading.form.phone.placeholder": {
+    "message": "请输入手机号码"
+  },
+  "loading.form.verifyCode.label": {
+    "message": "短信验证码"
+  },
+  "loading.form.verifyCode.required": {
+    "message": "验证码不能为空"
+  },
+  "loading.form.verifyCode.placeholder": {
+    "message": "请输入验证码"
+  },
+  "loading.form.submit": {
+    "message": "继续注册"
+  },
+  "compare.feature.title": {
+    "message": "功能特性"
+  },
+  "compare.scenarios.title": {
+    "message": "关键数据同步场景"
+  },
+  "compare.feature.syncMode": {
+    "message": "同步模式"
+  },
+  "compare.feature.sourceDataFetch": {
+    "message": "源数据获取"
+  },
+  "compare.feature.connectors": {
+    "message": "数据源"
+  },
+  "compare.feature.extensibility": {
+    "message": "可扩展性"
+  },
+  "compare.feature.schemaChange": {
+    "message": "Schema 变更"
+  },
+  "compare.feature.openSource": {
+    "message": "开源"
+  },
+  "compare.feature.deployment": {
+    "message": "部署方式"
+  },
+  "compare.feature.customerSupport": {
+    "message": "客户支持"
+  },
+  "compare.scenario.relationalDatabases": {
+    "message": "关系型数据库间数据同步"
+  },
+  "compare.scenario.onlineBusinessDatabases": {
+    "message": "在线业务数据库间数据同步（关系型数据库、数据仓库、消息队列、缓存、搜索引擎）"
+  },
+  "compare.scenario.dataLakehouse": {
+    "message": "数据湖仓支持"
+  },
+  "compare.scenario.saasSources": {
+    "message": "SaaS 数据源支持"
+  },
+  "compare.scenario.multiCloud": {
+    "message": "多云数据同步"
+  },
+  "compare.rating.excellent": {
+    "message": "优秀"
+  },
+  "compare.rating.average": {
+    "message": "一般"
+  },
+  "compare.note.feature": {
+    "message": "*: 适用于最流行的关系型数据库、数据仓库、搜索引擎、缓存和消息队列"
+  },
+  "compare.feature.syncMode.cdcFirst": {
+    "message": "CDC优先 / ETL"
+  },
+  "compare.feature.syncMode.eltFirst": {
+    "message": "ELT优先"
+  },
+  "compare.feature.syncMode.hybrid": {
+    "message": "ELT/ETL 混合"
+  },
+  "compare.feature.sourceDataFetch.hybrid": {
+    "message": "拉取和推送混合"
+  },
+  "compare.feature.sourceDataFetch.pullBased": {
+    "message": "基于拉取"
+  },
+  "compare.feature.connectors.bladepipe": {
+    "message": "60+ (企业级)"
+  },
+  "compare.feature.connectors.cloudcanal": {
+    "message": "60+ (企业级)"
+  },
+  "compare.feature.connectors.airbyte": {
+    "message": "300+(社区和管理)"
+  },
+  "compare.feature.connectors.fivetran": {
+    "message": "~200+(企业级)"
+  },
+  "compare.feature.extensibility.bladepipe": {
+    "message": "中等 - 上传业务代码进行数据转换"
+  },
+  "compare.feature.extensibility.cloudcanal": {
+    "message": "中等 - 上传业务代码进行数据转换"
+  },
+  "compare.feature.extensibility.airbyte": {
+    "message": "高 - 使用 CDK 构建新连接器"
+  },
+  "compare.feature.extensibility.fivetran": {
+    "message": "低 - 封闭生态系统"
+  },
+  "compare.feature.schemaChange.strong": {
+    "message": "强支持"
+  },
+  "compare.feature.schemaChange.limited": {
+    "message": "有限"
+  },
+  "compare.feature.openSource.yes": {
+    "message": "是"
+  },
+  "compare.feature.openSource.no": {
+    "message": "否"
+  },
+  "compare.feature.deployment.bladepipe": {
+    "message": "云(BYOC) / 自托管"
+  },
+  "compare.feature.deployment.cloudcanal": {
+    "message": "云(BYOC) / 自托管"
+  },
+  "compare.feature.deployment.airbyte": {
+    "message": "自托管(OSS) / 云(托管)"
+  },
+  "compare.feature.deployment.fivetran": {
+    "message": "云(托管)"
+  },
+  "compare.feature.customerSupport.bladepipe": {
+    "message": "企业支持"
+  },
+  "compare.feature.customerSupport.cloudcanal": {
+    "message": "社区(免费)或商业支持"
+  },
+  "compare.feature.customerSupport.airbyte": {
+    "message": "社区(免费)或商业支持"
+  },
+  "compare.feature.customerSupport.fivetran": {
+    "message": "分层支持(入门版、高级版、企业版)"
+  },
+  "404.title": {
+    "message": "页面未找到"
+  },
+  "404.description": {
+    "message": "抱歉，我们找不到您要访问的页面。"
+  },
+  "404.goBackHome": {
+    "message": "返回首页"
+  },
+  "404.contactSupport": {
+    "message": "联系支持"
+  },
+  "loading.authenticating": {
+    "message": "登录验证中..."
+  }
+}
