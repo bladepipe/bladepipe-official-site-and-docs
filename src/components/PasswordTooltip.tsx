@@ -32,10 +32,11 @@ export default function PasswordTooltip({
     }
   }, [showPassError]);
 
-  return (showPassError ? (
+  return (
     <Tooltip
       placement={placement}
       trigger="focus"
+      open={showPassError}
       title={
         <div className="w-56">
           <div className="flex items-center">
@@ -70,5 +71,5 @@ export default function PasswordTooltip({
         {children}
       </div>
     </Tooltip>
-  ) : children);
+  );
 }
