@@ -202,6 +202,7 @@ export default function Register() {
                                             window.location.replace(ssoTypesObj.google);
                                         }
                                     }}
+                                    style={{ display: 'flex' }}
                                     loading={googleLoading}
                                 >
                                     <div className="flex gap-[16px] justify-center items-center">
@@ -221,6 +222,7 @@ export default function Register() {
                                             window.location.replace(ssoTypesObj.wechat);
                                         }
                                     }}
+                                    style={{ display: 'flex' }}
                                     loading={wechatLoading}
                                 >
                                     <div className="flex gap-[16px] justify-center items-center">
@@ -240,6 +242,7 @@ export default function Register() {
                                             window.location.replace(ssoTypesObj.dingtalk);
                                         }
                                     }}
+                                    style={{ display: 'flex' }}
                                     loading={dingtalkLoading}
                                 >
                                     <div className="flex gap-[16px] justify-center items-center">

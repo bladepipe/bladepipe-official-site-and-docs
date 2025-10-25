@@ -2,8 +2,22 @@
   display: flex;
   max-width: 1320px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 1rem 1rem;
   gap: 3rem;
+}
+
+/* 中等屏幕尺寸的边距优化 */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .blogContainer {
+    padding: 2rem 2rem;
+  }
+}
+
+/* 大屏幕的边距 */
+@media (min-width: 1025px) {
+  .blogContainer {
+    padding: 2rem 3rem;
+  }
 }
 
 .blogMainContent {

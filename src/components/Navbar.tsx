@@ -113,13 +113,13 @@ export default function Navbar() {
       {/* 占位容器 - 当 navbar fixed 时防止页面跳跃 */}
       {isScrolled && <div className="w-full h-[70px]" />}
       
-      <nav className={`navbar w-full h-[70px] flex items-center justify-between px-[24px] md:px-[60px] py-5 z-50 transition-all duration-300 ${
+      <nav className={`navbar w-full h-[70px] flex items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-5 z-50 transition-all duration-300 ${
         isScrolled 
           ? 'fixed top-0 left-0 right-0 shadow-lg navbar-blur' 
           : 'relative bg-white'
       }`}>
       {/* 左侧 Logo 区域 */}
-        <div className='flex items-center gap-12 h-full min-w-[220px]'>
+        <div className='flex items-center gap-12 h-full min-w-[220px] flex-shrink-0'>
         <Link to='/' className='flex items-center h-full'>
           <img src={logoSrc} alt='Logo' className={`${siteBrand === 'bladepipe' ? 'w-[220px] h-[48px]' : siteBrand === 'clouddm' ? 'h-[30px]' : 'w-[180px] h-[40px]'} object-contain`} />
         </Link>
@@ -136,100 +136,194 @@ export default function Navbar() {
           <img src="/img/home/icon/expand.svg" alt="Menu" className='w-[22px] h-[22px]' />
         )}
       </button>
-      {/* 中间导航栏（大屏显示） */}
-      <div className='hidden lg:flex items-center gap-4 ml-[60px]'>
+      {/* 中间导航栏 - 使用flex布局，自动隐藏溢出项（大屏显示） */}
+      <div className='hidden lg:flex items-center gap-2 xl:gap-4 ml-4 xl:ml-8 flex-1 min-w-0 overflow-hidden'>
         {/* Product 下拉 - clouddm 时显示为简单链接 */}
         {siteBrand === 'clouddm' ? (
-          <Link to="/" className="no-underline" onClick={() => setActiveNav('product')}>
+          <Link to="/" className="no-underline flex-shrink-0" onClick={() => setActiveNav('product')}>
             <div
-              className={`flex items-center px-5 h-10 rounded-full cursor-pointer transition-all duration-200 ${
+              data-menu-item
+              className={`flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full cursor-pointer transition-all duration-200 ${
                 activeNav === 'product' 
                   ? 'bg-[#0087c7]/10 px-[20px]' 
                   : 'hover:bg-gray-100'
               }`}
             >
-              <span className="text-[16px] font-bold text-[#262728]">
+              <span className="text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#262728]">
                 <Translate id="navbar.home">首页</Translate>
               </span>
             </div>
           </Link>
         ) : (
+          <div className="flex-shrink-0">
+            <Dropdown
+              menu={{
+                items: siteBrand === 'clougence' ? [
+                {
+                  key: 'cloudcanal',
+                  label: (
+                    <Link 
+                      to="/" 
+                      className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                      onClick={() => setActiveNav('product')}
+                    >
+                      <Translate id="navbar.whatIsCloudcanal">What is CloudCanal</Translate>
+                    </Link>
+                  ),
+                },
+                {
+                  key: 'why-cloudcanal',
+                  label: (
+                    <Link 
+                      to="/why" 
+                      className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                      onClick={() => setActiveNav('product')}
+                    >
+                      <Translate id="navbar.whyCloudcanal">Why CloudCanal</Translate>
+                    </Link>
+                  ),
+                },
+                {
+                  key: 'connectors',
+                  label: (
+                    <Link 
+                      to="/connector" 
+                      className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                      onClick={() => setActiveNav('product')}
+                    >
+                      <Translate id="navbar.connectors">Data Sources</Translate>
+                    </Link>
+                  ),
+                },
+              ] : [
+                {
+                  key: 'bladepipe',
+                  label: (
+                    <Link 
+                      to="/" 
+                      className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                      onClick={() => setActiveNav('product')}
+                    >
+                      <Translate id="navbar.bladepipe">BladePipe</Translate>
+                    </Link>
+                  ),
+                },
+                {
+                  key: 'why-bladepipe',
+                  label: (
+                    <Link 
+                      to="/why" 
+                      className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                      onClick={() => setActiveNav('product')}
+                    >
+                      <Translate id="navbar.whyBladepipe">Why BladePipe</Translate>
+                    </Link>
+                  ),
+                },
+                {
+                  key: 'connectors',
+                  label: (
+                    <Link 
+                      to="/connector" 
+                      className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                      onClick={() => setActiveNav('product')}
+                    >
+                      <Translate id="navbar.connectors">Connectors</Translate>
+                    </Link>
+                  ),
+                },
+                ],
+              }}
+              trigger={['hover']}
+              placement="bottomLeft"
+              overlayClassName="navbar-dropdown"
+              destroyPopupOnHide={true}
+              getPopupContainer={(trigger) => trigger.parentElement || document.body}
+            >
+              <div
+                data-menu-item
+                className={`flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full gap-1 cursor-pointer transition-all duration-200 ${
+                  activeNav === 'product' 
+                    ? 'bg-[#0087c7]/10 px-[20px]' 
+                    : 'hover:bg-gray-100'
+                }`}
+                onClick={() => setActiveNav('product')}
+              >
+                <span className="text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#262728]">
+                  <Translate id="navbar.product">Product</Translate>
+                </span>
+                <ChevronDownIcon className="ml-[6px] w-4 h-4 text-[#262728]" />
+              </div>
+            </Dropdown>
+          </div>
+        )}
+        {/* Solutions 下拉 */}
+        <div className="flex-shrink-0">
           <Dropdown
             menu={{
-              items: siteBrand === 'clougence' ? [
-              {
-                key: 'cloudcanal',
-                label: (
-                  <Link 
-                    to="/" 
-                    className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                    onClick={() => setActiveNav('product')}
-                  >
-                    <Translate id="navbar.whatIsCloudcanal">What is CloudCanal</Translate>
-                  </Link>
-                ),
-              },
-              {
-                key: 'why-cloudcanal',
-                label: (
-                  <Link 
-                    to="/why" 
-                    className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                    onClick={() => setActiveNav('product')}
-                  >
-                    <Translate id="navbar.whyCloudcanal">Why CloudCanal</Translate>
-                  </Link>
-                ),
-              },
-              {
-                key: 'connectors',
-                label: (
-                  <Link 
-                    to="/connector" 
-                    className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                    onClick={() => setActiveNav('product')}
-                  >
-                    <Translate id="navbar.connectors">Data Sources</Translate>
-                  </Link>
-                ),
-              },
-            ] : [
-              {
-                key: 'bladepipe',
-                label: (
-                  <Link 
-                    to="/" 
-                    className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                    onClick={() => setActiveNav('product')}
-                  >
-                    <Translate id="navbar.bladepipe">BladePipe</Translate>
-                  </Link>
-                ),
-              },
-              {
-                key: 'why-bladepipe',
-                label: (
-                  <Link 
-                    to="/why" 
-                    className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                    onClick={() => setActiveNav('product')}
-                  >
-                    <Translate id="navbar.whyBladepipe">Why BladePipe</Translate>
-                  </Link>
-                ),
-              },
-              {
-                key: 'connectors',
-                label: (
-                  <Link 
-                    to="/connector" 
-                    className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                    onClick={() => setActiveNav('product')}
-                  >
-                    <Translate id="navbar.connectors">Connectors</Translate>
-                  </Link>
-                ),
-              },
+              items: siteBrand === 'clouddm' ? [
+                {
+                  key: 'team-database-collaboration',
+                  label: (
+                    <Link 
+                      to="/clouddm_solution" 
+                      className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                      onClick={() => setActiveNav('solutions')}
+                    >
+                      <Translate id="navbar.teamDatabaseCollaboration">团队数据库协作</Translate>
+                    </Link>
+                  ),
+                },
+              ] : siteBrand === 'clougence' ? [
+                {
+                  key: 'solution1',
+                  label: (
+                    <Link 
+                      to="/solution1" 
+                      className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                      onClick={() => setActiveNav('solutions')}
+                    >
+                      <Translate id="navbar.realtimeAnalytics">Real-time Analytics</Translate>
+                    </Link>
+                  ),
+                },
+                {
+                  key: 'solution2',
+                  label: (
+                    <Link 
+                      to="/solution2" 
+                      className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                      onClick={() => setActiveNav('solutions')}
+                    >
+                      <Translate id="navbar.aiRag">AI & RAG</Translate>
+                    </Link>
+                  ),
+                },
+              ] : [
+                {
+                  key: 'solution1',
+                  label: (
+                    <Link 
+                      to="/solution1" 
+                      className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                      onClick={() => setActiveNav('solutions')}
+                    >
+                      <Translate id="navbar.realtimeAnalytics">Real-time Analytics</Translate>
+                    </Link>
+                  ),
+                },
+                {
+                  key: 'solution2',
+                  label: (
+                    <Link 
+                      to="/solution2" 
+                      className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                      onClick={() => setActiveNav('solutions')}
+                    >
+                      <Translate id="navbar.aiRag">AI & RAG</Translate>
+                    </Link>
+                  ),
+                },
               ],
             }}
             trigger={['hover']}
@@ -239,268 +333,191 @@ export default function Navbar() {
             getPopupContainer={(trigger) => trigger.parentElement || document.body}
           >
             <div
-              className={`flex items-center px-5 h-10 rounded-full gap-1 cursor-pointer transition-all duration-200 ${
-                activeNav === 'product' 
+              data-menu-item
+              className={`flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full gap-1 cursor-pointer transition-all duration-200 ${
+                activeNav === 'solutions' 
                   ? 'bg-[#0087c7]/10 px-[20px]' 
                   : 'hover:bg-gray-100'
               }`}
-              onClick={() => setActiveNav('product')}
+              onClick={() => setActiveNav('solutions')}
             >
-              <span className="text-[16px] font-bold text-[#262728]">
-                <Translate id="navbar.product">Product</Translate>
+              <span className="text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#262728]">
+                <Translate id="navbar.solutions">Solutions</Translate>
               </span>
-              <ChevronDownIcon className="ml-[6px] w-4 h-4 text-[#262728]" />
+              <ChevronDownIcon className='ml-[6px] w-4 h-4 text-[#262728]' />
             </div>
           </Dropdown>
-        )}
-        {/* Solutions 下拉 */}
-        <Dropdown
-          menu={{
-            items: siteBrand === 'clouddm' ? [
-              {
-                key: 'team-database-collaboration',
-                label: (
-                  <Link 
-                    to="/clouddm_solution" 
-                    className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                    onClick={() => setActiveNav('solutions')}
-                  >
-                    <Translate id="navbar.teamDatabaseCollaboration">团队数据库协作</Translate>
-                  </Link>
-                ),
-              },
-            ] : siteBrand === 'clougence' ? [
-              {
-                key: 'solution1',
-                label: (
-                  <Link 
-                    to="/solution1" 
-                    className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                    onClick={() => setActiveNav('solutions')}
-                  >
-                    <Translate id="navbar.realtimeAnalytics">Real-time Analytics</Translate>
-                  </Link>
-                ),
-              },
-              {
-                key: 'solution2',
-                label: (
-                  <Link 
-                    to="/solution2" 
-                    className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                    onClick={() => setActiveNav('solutions')}
-                  >
-                    <Translate id="navbar.aiRag">AI & RAG</Translate>
-                  </Link>
-                ),
-              },
-            ] : [
-              {
-                key: 'solution1',
-                label: (
-                  <Link 
-                    to="/solution1" 
-                    className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                    onClick={() => setActiveNav('solutions')}
-                  >
-                    <Translate id="navbar.realtimeAnalytics">Real-time Analytics</Translate>
-                  </Link>
-                ),
-              },
-              {
-                key: 'solution2',
-                label: (
-                  <Link 
-                    to="/solution2" 
-                    className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                    onClick={() => setActiveNav('solutions')}
-                  >
-                    <Translate id="navbar.aiRag">AI & RAG</Translate>
-                  </Link>
-                ),
-              },
-            ],
-          }}
-          trigger={['hover']}
-          placement="bottomLeft"
-          overlayClassName="navbar-dropdown"
-          destroyPopupOnHide={true}
-          getPopupContainer={(trigger) => trigger.parentElement || document.body}
-        >
-          <div
-            className={`flex items-center px-5 h-10 rounded-full gap-1 cursor-pointer transition-all duration-200 ${
-              activeNav === 'solutions' 
-                ? 'bg-[#0087c7]/10 px-[20px]' 
-                : 'hover:bg-gray-100'
-            }`}
-            onClick={() => setActiveNav('solutions')}
-          >
-            <span className="text-[16px] font-bold text-[#262728]">
-              <Translate id="navbar.solutions">Solutions</Translate>
-            </span>
-            <ChevronDownIcon className='ml-[6px] w-4 h-4 text-[#262728]' />
-          </div>
-        </Dropdown>
+        </div>
         {/* Resources 下拉 */}
-        <Dropdown
-          menu={{
-            items: siteBrand === 'clougence' ? [
-              {
-                key: 'blog',
-                label: (
-                  <Link 
-                    to="/blog" 
-                    className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                    onClick={() => setActiveNav('resources')}
-                  >
-                    <Translate id="navbar.blog">Blog</Translate>
-                  </Link>
-                ),
-              },
-              {
-                key: 'documents',
-                label: (
-                  <Link 
-                    to="/docs/intro/product_intro" 
-                    className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                    onClick={() => setActiveNav('resources')}
-                  >
-                    <Translate id="navbar.documents">Documents</Translate>
-                  </Link>
-                ),
-              },
-            ] : [
-              {
-                key: 'blog',
-                label: (
-                  <Link 
-                    to="/blog" 
-                    className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                    onClick={() => setActiveNav('resources')}
-                  >
-                    <Translate id="navbar.blog">Blog</Translate>
-                  </Link>
-                ),
-              },
-              {
-                key: 'documents',
-                label: (
-                  <Link 
-                    to="/docs/intro/product_intro" 
-                    className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                    onClick={() => setActiveNav('resources')}
-                  >
-                    <Translate id="navbar.documents">Documents</Translate>
-                  </Link>
-                ),
-              },
-            ],
-          }}
-          trigger={['hover']}
-          placement="bottomLeft"
-          overlayClassName="navbar-dropdown"
-          destroyPopupOnHide={true}
-          getPopupContainer={(trigger) => trigger.parentElement || document.body}
-        >
-          <div
-            className={`flex items-center px-5 h-10 rounded-full gap-1 cursor-pointer transition-all duration-200 ${
-              activeNav === 'resources' 
-                ? 'bg-[#0087c7]/10 px-[20px]' 
-                : 'hover:bg-gray-100'
-            }`}
-            onClick={() => setActiveNav('resources')}
+        <div className="flex-shrink-0">
+          <Dropdown
+            menu={{
+              items: siteBrand === 'clougence' ? [
+                {
+                  key: 'blog',
+                  label: (
+                    <Link 
+                      to="/blog" 
+                      className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                      onClick={() => setActiveNav('resources')}
+                    >
+                      <Translate id="navbar.blog">Blog</Translate>
+                    </Link>
+                  ),
+                },
+                {
+                  key: 'documents',
+                  label: (
+                    <Link 
+                      to="/docs/intro/product_intro" 
+                      className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                      onClick={() => setActiveNav('resources')}
+                    >
+                      <Translate id="navbar.documents">Documents</Translate>
+                    </Link>
+                  ),
+                },
+              ] : [
+                {
+                  key: 'blog',
+                  label: (
+                    <Link 
+                      to="/blog" 
+                      className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                      onClick={() => setActiveNav('resources')}
+                    >
+                      <Translate id="navbar.blog">Blog</Translate>
+                    </Link>
+                  ),
+                },
+                {
+                  key: 'documents',
+                  label: (
+                    <Link 
+                      to="/docs/intro/product_intro" 
+                      className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                      onClick={() => setActiveNav('resources')}
+                    >
+                      <Translate id="navbar.documents">Documents</Translate>
+                    </Link>
+                  ),
+                },
+              ],
+            }}
+            trigger={['hover']}
+            placement="bottomLeft"
+            overlayClassName="navbar-dropdown"
+            destroyPopupOnHide={true}
+            getPopupContainer={(trigger) => trigger.parentElement || document.body}
           >
-            <span className='text-[16px] font-bold text-[#262728]'>
-              <Translate id='navbar.resources'>Resources</Translate>
-            </span>
-            <ChevronDownIcon className='ml-[6px] w-4 h-4 text-[#262728]' />
-          </div>
-        </Dropdown>
+            <div
+              data-menu-item
+              className={`flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full gap-1 cursor-pointer transition-all duration-200 ${
+                activeNav === 'resources' 
+                  ? 'bg-[#0087c7]/10 px-[20px]' 
+                  : 'hover:bg-gray-100'
+              }`}
+              onClick={() => setActiveNav('resources')}
+            >
+              <span className='text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#262728]'>
+                <Translate id='navbar.resources'>Resources</Translate>
+              </span>
+              <ChevronDownIcon className='ml-[6px] w-4 h-4 text-[#262728]' />
+            </div>
+          </Dropdown>
+        </div>
         {/* Pricing */}
-        <Link to="/pricing" className="no-underline">
+        <Link to="/pricing" className="no-underline flex-shrink-0">
           <div
-            className={`flex items-center px-5 h-10 rounded-full cursor-pointer transition-all duration-200 ${
+            data-menu-item
+            className={`flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full cursor-pointer transition-all duration-200 ${
               activeNav === 'pricing' 
                 ? 'bg-[#0087c7]/10 px-[20px]' 
                 : 'hover:bg-gray-100'
             }`}
             onClick={() => setActiveNav('pricing')}
           >
-            <span className="text-[16px] font-bold text-[#262728]">
+            <span className="text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#262728]">
               <Translate id="navbar.pricing">Pricing</Translate>
             </span>
           </div>
         </Link>
         {/* About */}
-        <Link to="/about" className="no-underline">
+        <Link to="/about" className="no-underline flex-shrink-0">
           <div
-            className={`flex items-center px-5 h-10 rounded-full cursor-pointer transition-all duration-200 ${
+            data-menu-item
+            className={`flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full cursor-pointer transition-all duration-200 ${
               activeNav === 'about' 
                 ? 'bg-[#0087c7]/10 px-[20px]' 
                 : 'hover:bg-gray-100'
             }`}
             onClick={() => setActiveNav('about')}
           >
-            <span className="text-[16px] font-bold text-[#262728]">
+            <span className="text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#262728]">
               <Translate id="navbar.about">About</Translate>
             </span>
           </div>
         </Link>
         {/* 了解更多 - 仅 clougence 显示 */}
         {siteBrand === 'clougence' && (
-          <Dropdown
-            menu={{
-              items: [
-                {
-                  key: 'bladepipe',
-                  label: (
-                    <a 
-                      href="https://www.bladepipe.com" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                    >
-                      <Translate id="navbar.learnMore.bladepipe">CloudCanal Overseas Edition</Translate>
-                    </a>
-                  ),
-                },
-                {
-                  key: 'clouddm',
-                  label: (
-                    <a 
-                      href="https://www.cdmgr.com" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                    >
-                      <Translate id="navbar.learnMore.clouddm">Database Collaboration Management Tool</Translate>
-                    </a>
-                  ),
-                },
-              ]
-            }}
-            placement="bottomLeft"
-            trigger={['hover']}
-            overlayClassName="navbar-dropdown"
-          >
-            <div
-              className={`flex items-center px-5 h-10 rounded-full cursor-pointer transition-all duration-200 ${
-                activeNav === 'learnmore' 
-                  ? 'bg-[#0087c7]/10 px-[20px]' 
-                  : 'hover:bg-gray-100'
-              }`}
-              onClick={() => setActiveNav('learnmore')}
+          <div className="flex-shrink-0">
+            <Dropdown
+              menu={{
+                items: [
+                  {
+                    key: 'bladepipe',
+                    label: (
+                      <a 
+                        href="https://www.bladepipe.com" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                      >
+                        <Translate id="navbar.learnMore.bladepipe">CloudCanal Overseas Edition</Translate>
+                      </a>
+                    ),
+                  },
+                  {
+                    key: 'clouddm',
+                    label: (
+                      <a 
+                        href="https://www.cdmgr.com" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                      >
+                        <Translate id="navbar.learnMore.clouddm">Database Collaboration Management Tool</Translate>
+                      </a>
+                    ),
+                  },
+                ]
+              }}
+              placement="bottomLeft"
+              trigger={['hover']}
+              overlayClassName="navbar-dropdown"
+              destroyPopupOnHide={true}
+              getPopupContainer={(trigger) => trigger.parentElement || document.body}
             >
-              <span className="text-[16px] font-bold text-[#262728]">
-                <Translate id="navbar.learnMore">Learn More</Translate>
-              </span>
-              <ChevronDownIcon className="ml-[6px] w-4 h-4 text-[#262728]" />
-            </div>
-          </Dropdown>
+              <div
+                data-menu-item
+                className={`flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full cursor-pointer transition-all duration-200 ${
+                  activeNav === 'learnmore' 
+                    ? 'bg-[#0087c7]/10 px-[20px]' 
+                    : 'hover:bg-gray-100'
+                }`}
+                onClick={() => setActiveNav('learnmore')}
+              >
+                <span className="text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#262728]">
+                  <Translate id="navbar.learnMore">Learn More</Translate>
+                </span>
+                <ChevronDownIcon className="ml-[6px] w-4 h-4 text-[#262728]" />
+              </div>
+            </Dropdown>
+          </div>
         )}
       </div>
       {/* 右侧操作区（大屏显示） */}
-      <div className='hidden lg:flex items-center gap-5'>
+      <div className='hidden lg:flex items-center gap-2 xl:gap-4 flex-shrink-0'>
         {/* 搜索框 - 仅在文档相关页面显示 */}
         {/*{(location.pathname.startsWith('/docs') || */}
         {/*  location.pathname.startsWith('/ccDocs') || */}
@@ -523,8 +540,8 @@ export default function Navbar() {
             destroyPopupOnHide={true}
             getPopupContainer={(trigger) => trigger.parentElement || document.body}
           >
-            <div className='flex items-center px-5 h-10 rounded-full border border-black/20 cursor-pointer hover:bg-gray-100 transition-colors'>
-              <span className='text-[16px] font-bold text-[#131316] mr-2'>
+            <div className='flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full border border-black/20 cursor-pointer hover:bg-gray-100 transition-colors'>
+              <span className='text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#131316] mr-2'>
                 <Translate id='navbar.hello'>Hello</Translate>, {userInfo?.username || userInfo?.email || 'User'}
               </span>
               <ChevronDownIcon className="w-4 h-4 text-gray-600" />
@@ -538,8 +555,8 @@ export default function Navbar() {
               localStorage.setItem('loginSource', 'sign_in');
             }}
           >
-            <div className='flex items-center px-5 h-10 rounded-full border border-black/20 cursor-pointer hover:bg-gray-100'>
-              <span className='text-[16px] font-bold text-[#131316]'>
+            <div className='flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full border border-black/20 cursor-pointer hover:bg-gray-100'>
+              <span className='text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#131316]'>
                 <Translate id='navbar.signin'>Log In</Translate>
               </span>
             </div>
@@ -548,13 +565,13 @@ export default function Navbar() {
         {/* Try Cloud Free */}
         { siteBrand!=='clouddm' && (
                   <div
-                  className='flex items-center px-5 h-10 rounded-full bg-[#0087c7] text-white cursor-pointer hover:bg-[#0070a6]'
+                  className='flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full bg-[#0087c7] text-white cursor-pointer hover:bg-[#0070a6]'
                   onClick={() =>
                     loginCheckAndRedirect(() => {
                       window.location.href = getCloudUrl();
                     }, 'try_cloud_free')
                   }>
-                  <span className='text-[16px] font-bold'>
+                  <span className='text-sm lg:text-[15px] xl:text-[16px] font-bold'>
                     <Translate id='navbar.tryCloud'>Try Cloud Free</Translate>
                   </span>
                 </div>

@@ -1217,6 +1217,78 @@ article img {
 }
 
 /* 响应式设计 */
+
+/* 全局容器响应式边距 */
+.container,
+.max-w-\[1320px\] {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+/* 中等屏幕尺寸的边距优化 */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .container,
+  .max-w-\[1320px\] {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+  
+  /* 页面内容区域边距 */
+  .w-full.max-w-\[1320px\] {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+}
+
+/* 大屏幕的边距 */
+@media (min-width: 1025px) {
+  .container,
+  .max-w-\[1320px\] {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
+}
+
+/* 导航栏响应式优化 */
+@media (min-width: 1024px) and (max-width: 1280px) {
+  /* 导航菜单项字体大小调整 */
+  .navbar .text-\[16px\] {
+    font-size: 14px !important;
+  }
+  
+  /* 导航菜单项间距调整 */
+  .navbar .gap-4 {
+    gap: 0.5rem !important;
+  }
+  
+  /* 导航菜单项内边距调整 */
+  .navbar .px-5 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+}
+
+/* 导航栏flex布局优化 */
+.navbar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.navbar .flex-1 {
+  flex: 1 !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+/* 小屏幕导航栏优化 - 显示汉堡菜单 */
+@media (max-width: 1023px) {
+  .navbar .hidden.lg\\:flex {
+    display: none !important;
+  }
+}
+
+/* 移动端响应式设计 */
 @media (max-width: 768px) {
   .version-card {
     padding: 12px;
@@ -1229,6 +1301,13 @@ article img {
   
   .generated-index-page {
     padding: 15px;
+  }
+  
+  /* 移动端容器边距 */
+  .container,
+  .max-w-\[1320px\] {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 }
 
