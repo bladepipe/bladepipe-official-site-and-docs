@@ -88,11 +88,11 @@ export default function Banner() {
 
   return (
     <section className='w-full min-h-[420px] md:h-[708px] py-12 md:py-36 flex justify-center items-start bg-gradient-to-b from-white to-[#eaf6ff]'>
-      <div className='w-full max-w-[1320px] min-h-[420px] flex flex-col md:flex-row justify-between items-center gap-8 md:gap-[140px] px-4 md:px-0'>
+      <div className='w-full max-w-[1320px] min-h-[420px] flex flex-col md:flex-row justify-between items-center gap-8 md:gap-[140px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16'>
         {/* 左侧内容 */}
-        <div className='flex flex-col gap-8 md:gap-[60px] w-full md:w-[730px] min-h-[320px] md:h-[420px] justify-start items-start'>
-          <div className='flex flex-col gap-4 md:gap-[30px] w-full min-h-[180px] md:h-[306px] justify-start items-start'>
-            <h1 className="text-[32px] md:text-[64px] font-bold leading-[110%] md:leading-[100%] text-left font-['Plus Jakarta Sans']">
+        <div className='flex flex-col gap-6 md:gap-8 lg:gap-[60px] w-full md:w-[730px] min-h-[320px] md:h-[420px] justify-start items-start'>
+          <div className='flex flex-col gap-3 md:gap-4 lg:gap-[30px] w-full min-h-[180px] md:h-[306px] justify-start items-start'>
+            <h1 className="text-[28px] sm:text-[32px] md:text-[48px] lg:text-[64px] font-bold leading-[110%] md:leading-[100%] text-left font-['Plus Jakarta Sans']">
               <Translate id='banner.title'>Replicate Data in Real-time,</Translate>
               <br />
               <span
@@ -105,7 +105,7 @@ export default function Banner() {
                 {keywords[current]}
               </span>
             </h1>
-            <p className="text-[15px] md:text-[18px] font-medium leading-[24px] md:leading-[28px] text-left opacity-80 font-['Plus Jakarta Sans']">
+            <p className="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] font-medium leading-[20px] sm:leading-[24px] md:leading-[26px] lg:leading-[28px] text-left opacity-80 font-['Plus Jakarta Sans'] max-w-full">
               <Translate id='banner.subtitle'>
                 Build end-to-end data pipelines between 60+ datasources for analytics or AI in minutes. Move data faster and easier than ever in Cloud
                 or On-Premise, with ultra-low latency less than 3 seconds.
@@ -113,30 +113,30 @@ export default function Banner() {
             </p>
           </div>
           {/* 按钮组 */}
-          <div className='flex flex-col sm:flex-row gap-4 md:gap-[21px] w-full h-auto md:h-[54px] items-center'>
+          <div className='flex flex-col sm:flex-row gap-3 md:gap-4 lg:gap-[21px] w-full h-auto md:h-[54px] items-start sm:items-center'>
             {/* Try Cloud Free 主按钮 */}
             <button
-              className="cursor-pointer h-[48px] md:h-[54px] flex items-center justify-center gap-[10px] rounded-full bg-[#0087c7] text-white text-[15px] md:text-[16px] font-bold font-['Plus Jakarta Sans'] px-6 md:px-7 py-3 md:py-[15px] shadow-none border-none transition hover:bg-[#0070a6] focus:outline-none w-full sm:w-auto"
+              className="cursor-pointer h-[48px] md:h-[54px] flex items-center justify-center gap-[10px] rounded-full bg-[#0087c7] text-white text-[14px] sm:text-[15px] md:text-[16px] font-bold font-['Plus Jakarta Sans'] px-4 sm:px-6 md:px-7 py-3 md:py-[15px] shadow-none border-none transition hover:bg-[#0070a6] focus:outline-none w-full sm:w-auto whitespace-nowrap"
               style={{ boxShadow: '0px 2px 8px 0px rgba(0,135,199,0.10)' }}
               onClick={handleTryCloudFree}>
               <Translate id='banner.tryCloudBtn'>Try Cloud Free</Translate>
             </button>
             {/* Quickstart 描边按钮 */}
             <button
-              className="cursor-pointer h-[48px] md:h-[54px] flex items-center justify-center gap-[10px] rounded-full border border-1 border-solid border-[#0087c7] text-[#0087c7] text-[15px] md:text-[16px] font-bold font-['Plus Jakarta Sans'] bg-white px-6 md:px-7 py-3 md:py-[15px] shadow-none transition hover:bg-[#f0faff] focus:outline-none w-full sm:w-auto sm:ml-[12px]"
+              className="cursor-pointer h-[48px] md:h-[54px] flex items-center justify-center gap-[10px] rounded-full border border-1 border-solid border-[#0087c7] text-[#0087c7] text-[14px] sm:text-[15px] md:text-[16px] font-bold font-['Plus Jakarta Sans'] bg-white px-4 sm:px-6 md:px-7 py-3 md:py-[15px] shadow-none transition hover:bg-[#f0faff] focus:outline-none w-full sm:w-auto sm:ml-[12px] whitespace-nowrap"
               style={{ boxShadow: '0px 2px 8px 0px rgba(0,135,199,0.10)' }}
               onClick={() => window.location.href = '/docs/quick/quick_start_byoc'}>
               <Translate id='banner.quickstartBtn'>Quick Start</Translate>
             </button>
             {/* Enterprise Edition 竖直分组 */}
-            <div className='flex flex-col justify-center items-start h-full ml-[12px]'>
-              <span className="text-[16px] md:text-[16px] font-bold font-['Plus Jakarta Sans'] text-[#222] mb-1">
+            <div className='flex flex-col justify-center items-start h-full ml-[8px] sm:ml-[12px]'>
+              <span className="text-[12px] sm:text-[14px] md:text-[16px] font-bold font-['Plus Jakarta Sans'] text-[#222] mb-1 whitespace-nowrap">
                 <Translate id="banner.enterpriseEdition">Enterprise Edition</Translate>
               </span>
-              <div className='flex flex-row items-center gap-[20px]'>
+              <div className='flex flex-row items-center gap-[12px] sm:gap-[16px] md:gap-[20px]'>
                 <a
                   href='#'
-                  className={`text-[14px] md:text-[14px] font-medium font-['Plus Jakarta Sans'] text-[#222] hover:text-[#0087c7] transition cursor-pointer banner-link-underline ${downloadLoading ? 'opacity-50 pointer-events-none' : ''}`}
+                  className={`text-[12px] sm:text-[13px] md:text-[14px] font-medium font-['Plus Jakarta Sans'] text-[#222] hover:text-[#0087c7] transition cursor-pointer banner-link-underline whitespace-nowrap ${downloadLoading ? 'opacity-50 pointer-events-none' : ''}`}
                   onClick={(e) => {
                     e.preventDefault();
                     handleDownloadClick();
@@ -145,7 +145,7 @@ export default function Banner() {
                 </a>
                 <a
                   href="#"
-                  className="text-[14px] md:text-[14px] font-medium font-['Plus Jakarta Sans'] text-[#222] hover:text-[#0087c7] transition cursor-pointer banner-link-underline"
+                  className="text-[12px] sm:text-[13px] md:text-[14px] font-medium font-['Plus Jakarta Sans'] text-[#222] hover:text-[#0087c7] transition cursor-pointer banner-link-underline whitespace-nowrap"
                   onClick={(e) => {
                     e.preventDefault();
                     loginCheckAndRedirect(() => {

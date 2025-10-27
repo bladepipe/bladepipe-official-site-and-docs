@@ -260,6 +260,7 @@ export default function Login() {
               {ssoTypesObj.google && (
                 <Button
                   className="w-full h-[52px] bg-white border border-solid border-[#11101a] border-opacity-10 rounded-full flex justify-center items-center hover:bg-gray-50 transition !text-[#262A2B]"
+                  style={{ display: 'flex' }}
                   onClick={() => {
                     if (ssoTypesObj.google) {
                       setGoogleLoading(true);
@@ -281,6 +282,7 @@ export default function Login() {
               {ssoTypesObj.wechat && (
                 <Button
                   className="w-full h-[52px] bg-white border border-solid border-[#11101a] border-opacity-10 rounded-full flex justify-center items-center hover:bg-gray-50 transition !text-[#262A2B]"
+                  style={{ display: 'flex' }}
                   onClick={() => {
                     if (ssoTypesObj.wechat) {
                       setWechatLoading(true);
@@ -302,6 +304,7 @@ export default function Login() {
               {ssoTypesObj.dingtalk && (
                 <Button
                   className="w-full h-[52px] bg-white border border-solid border-[#11101a] border-opacity-10 rounded-full flex justify-center items-center hover:bg-gray-50 transition !text-[#262A2B]"
+                  style={{ display: 'flex' }}
                   onClick={() => {
                     if (ssoTypesObj.dingtalk) {
                       setDingtalkLoading(true);

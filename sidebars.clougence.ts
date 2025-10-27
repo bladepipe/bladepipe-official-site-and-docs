@@ -97,7 +97,8 @@ const sidebars: SidebarsConfig = {
                 "operation/job_manage/job_op/job_group",
                 "operation/job_manage/job_op/change_job_setting",
                 "operation/job_manage/job_op/data_transform",
-                "operation/job_manage/job_op/visual_widetable_create"
+                "operation/job_manage/job_op/visual_widetable_create",
+                "operation/job_manage/job_op/param_template"
               ]
             }
           ]
