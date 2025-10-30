@@ -69,6 +69,10 @@ export const StarRocks = {
         {
             key: 'timezone',
             desc: 'Timezone in the Target, e.g., +08:00 Asia/Shanghai America/New_York.'
+        },
+        {
+            key: 'maxInSizePerQuery',
+            desc: 'Maximum number of IN clause values per query during secondary verification. Queries exceeding this limit will be automatically split.'
         }
     ],
     faq: [

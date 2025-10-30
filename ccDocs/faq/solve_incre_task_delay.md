@@ -28,8 +28,8 @@ description: 本文介绍使用CloudCanal创建同步任务后增量任务延迟
 - **任务详情** > **查看日志**，观察文本中 real 值
   - 如长时间为0，则源端没有增量以及心跳(参考[open_mysql_heartbeat](../dataMigrationAndSync/datasource_func/MySQL/open_mysql_heartbeat.md))
   - 如几百上千，则说明流量较大，需要进行性能调优
-
- ![incre_log_rel_zero](../assets/faq/incre_log_rel_zero.png)
+ 
+  ![incre_log_rel_zero](../assets/faq/incre_log_rel_zero.png)
 
 #### 排除性能不给力
 - **任务详情** > **任务资源监控** > **任务 JVM GC 数**。如果曲线观察到 FullGC 数量常常大于 2～3，表明任务内存比较紧张。

@@ -88,7 +88,7 @@ CloudDM 是 CloudCanal 同一个厂商推出的在线数据管理产品， Team 
 ### 添加产品集群
 
 - 主账号登录 CloudCanal 控制台
-- **系统设置** > **产品集群管理**
+- **配置** > **产品集群管理**
 
   ![](../../assets/extend_clouddm_team/product_cluster_manage.png)
 

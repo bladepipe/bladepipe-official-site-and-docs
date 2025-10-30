@@ -22,7 +22,7 @@ description: Docker 版安装失败
 4. [修改 Console 容器配置](../productOP/dailyOP/change_mysql.md#修改-console-容器中-springboot-配置文件中配置)。
 
 #### Console 容器启动失败，导致无法拉起 Sidecar、Prometheus 容器
-1. 执行以下命令，手动拉起容器。
+执行以下命令，手动拉起容器。
   ```shell
   ## docker-compose v1
   docker-compose up -d sidecar

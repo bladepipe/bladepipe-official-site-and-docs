@@ -64,6 +64,10 @@ const Doris = {
             key: 'timezone',
             desc: '目标端 Doris/SelectDB 时区，例如 +08:00 Asia/Shanghai America/New_York'
         },
+        {
+            key: 'maxInSizePerQuery',
+            desc: '校验任务中，对目标端二次校验时，单次查询的最大 IN 条件值数量，大于该值会自动拆分多次查询'
+        },
     ],
     faq: [
         '[Doris / SelectDB 目标端写入报错](../../faq/solve_sr_dr_dst_writer_http_host)',

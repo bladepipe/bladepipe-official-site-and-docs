@@ -98,7 +98,7 @@ const sidebars: SidebarsConfig = {
                 "operation/job_manage/job_op/change_job_setting",
                 "operation/job_manage/job_op/data_transform",
                 "operation/job_manage/job_op/visual_widetable_create",
-                "operation/job_manage/job_op/param_template"
+                //"operation/job_manage/job_op/param_template"
               ]
             }
           ]
@@ -160,7 +160,7 @@ const sidebars: SidebarsConfig = {
                 'operation/system_manage/sso/sso_ldap',
                 'operation/system_manage/sso/sso_oidc',
                 'operation/system_manage/sso/sso_ad',
-                //'operation/system_manage/sso/sso_dingtalk',
+                'operation/system_manage/sso/sso_dingtalk',
                 'operation/system_manage/sso/sso_feishu',
                 'operation/system_manage/sso/sso_wechat',
               ]

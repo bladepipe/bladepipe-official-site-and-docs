@@ -350,7 +350,7 @@ Bytebase 支持同一个工单的 SQL 同时在多个数据库作为执行目标
 ## Archery
 [Archery](https://archerydms.com/) 是开源免费的数据库审核工具，它对数据库的操作分为 **SQL 查询** 和 **SQL 上线**，并且包含一定的 **数据库运维** 能力。查询控制台只支持查询类语句，并且不支持查看数据库对象。所有 DDL、DML 语句都需要通过工单才能执行。
 
-![](../assets/sql_review_tool_vs/23.png)
+![](../assets/sql_review_tool_vs/22.png)
 
 ### 创建工单
 在 Archery 中工单递交允许 DDL/DML 混合使用。
@@ -399,7 +399,7 @@ Archery 不能调试工单，也不具备事务模式，这意味着在处理强
 ## Yearning
 在 [Yearning](https://yearning.io/) 中，对数据库的操作都通过工单来实现，包括数据库的查询。
 
-![](../assets/sql_review_tool_vs/31.png)
+![](../assets/sql_review_tool_vs/30.png)
 
 ### 创建工单
 Yearning 默认限制每个 DDL 工单只能包含一条语句，需要在规则中将这个限制改为允许执行多条 DDL，否则实际使用中会比较麻烦。
