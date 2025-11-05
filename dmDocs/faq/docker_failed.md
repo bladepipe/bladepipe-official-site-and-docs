@@ -3,6 +3,7 @@
 ## 错误现象
 
 在执行 “install.sh” 安装脚本执行中有 check_docker_is_permission 阶段报错，如下：
+
 ![common](../assets/faq/docker_failed/docker_sock.png)
 
 ```text title='报错关键信息'

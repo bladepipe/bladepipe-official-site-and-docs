@@ -26,7 +26,7 @@ title: 4.3.0.0
 - 支持 任务监控指标更多 tag, 包括 task_name (e.g.,canalxxxx_INCREMENT), job_desc (任务描述)，job_level(任务级别)
 - 支持 [配置任务 Grafana 监控仪表盘](../productOP/platform/add_job_grafana_dashbord.md)，方便用户对接其他告警方式
 - 支持 审计页面展示修改前后的参数变化
-- 支持 系统偏好按标签筛选参数
+- 支持 个人偏好按标签筛选参数
 - 支持 系统配置变更进行审计记录
 - 支持 主账号级别的手机告警设置，包括 alterVoiceType、taskErrorVoiceTc、taskRecoverVoiceTc、voiceAccessKey、voiceSecretKey 用户偏好参数
 - 支持 主账号级别的短信告警设置，包括 alterSmsType、smsSignName、sysErrorSmsTc、taskErrorSmsTc、taskRecoverSmsTc、smsAccessKey、smsSecretKey 用户偏好参数
@@ -51,8 +51,8 @@ title: 4.3.0.0
 
 - 修复 MySQL -> OceanBase enum 类型设置为 '0' 时同步失败的问题
 - 修复 Kafka -> MariaDB 链路创建任务时提示不支持的问题
-- 修复 系统偏好设置参数后无法撤销的问题
-- 修复 系统偏好点击编辑按钮弹框中取值错误的问题
+- 修复 个人偏好设置参数后无法撤销的问题
+- 修复 个人偏好点击编辑按钮弹框中取值错误的问题
 - 修复 Docker 版添加机器，任务重启出现僵尸进程的问题
 - 修复 Oracle -> Oracle 链路表中存在联合索引导致数据校验结果有误的问题
 - 修复 PostgreSQL 不支持 vector 数据类型导致任务创建失败的问题

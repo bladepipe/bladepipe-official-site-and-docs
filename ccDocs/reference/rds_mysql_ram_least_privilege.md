@@ -7,7 +7,7 @@ CloudCanal 在新增和同步阿里云数据源时需要填入 AK/SK，涉及到
 
 ## 以阿里云方式添加
 
-采用阿里云方式新增RDS for MySQL 可以参考[新增阿里云数据源](../operation/datasource_manage/add_aliyun_ds.md)，
+采用阿里云方式新增 RDS for MySQL 可以参考[新增阿里云数据源](../operation/datasource_manage/add_aliyun_ds.md)，
 阿里云 RAM 权限配置可由主账号到 [RAM 权限配置](https://ram.console.aliyun.com/policies/edit) 进行配置。
 
 所需 RAM 权限如下表所示：
@@ -50,9 +50,14 @@ CloudCanal 在新增和同步阿里云数据源时需要填入 AK/SK，涉及到
 
 ## 操作方式
 ### 配置阿里云 OpenAPI 调用使用的 AccessKey ID 和 AccessKey Secret
-点击控制台右上角的用户设置，选择 **阿里云访问权限**，然后输入有数据源 OpenAPI 调用权限的 AccessKey ID 和 AccessKey Secret。
-
+1. 点击 **配置** > **个人资料**。
+2. 选择 **安全** 页签。
+3. 在 **阿里云访问权限** 下，点击 **授权访问**。
+4. 输入有数据源 OpenAPI 调用权限的 AccessKey ID (AK) 和 AccessKey Secret（SK）。
+5. 点击 **确定**，配置成功。
+:::info
 如果用户不希望 CloudCanal 保存 AccessKey ID 和 AccessKey Secret，在修改完数据源以后可以再次打开该窗口，解除授权访问，避免 CloudCanal 存储该授权信息。
+:::
 
 
 ### 修改数据库内容
@@ -69,7 +74,7 @@ CloudCanal 在新增和同步阿里云数据源时需要填入 AK/SK，涉及到
 4. 获取邮箱和手机号信息。
 ![](../assets/ram_least_privilege/4.png)
    
-5. 获取阿里云 AK SK 信息。
+5. 获取阿里云 AK/SK 信息。
    
     执行 SQL 获取加密后的阿里云 AK 和 SK：
     ```sql

@@ -215,7 +215,7 @@ CloudCanal 目前提供四种版本的产品，分别为 **社区版**、**SaaS 
     <td align="center">✔️</td>
   </tr>
   <tr>
-    <th><a href="../operation/system_manage/preference">系统偏好设置</a></th>
+    <th><a href="../operation/system_manage/preference">个人偏好设置</a></th>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>

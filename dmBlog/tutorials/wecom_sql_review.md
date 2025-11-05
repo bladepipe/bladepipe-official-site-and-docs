@@ -27,13 +27,13 @@ CloudDM 是一个专为团队协同工作打造的数据库数据管控平台。
 ## 配置回调信息
 1. 点击 **设置 API 接收**。 
    ![](../assets/wecom_sql_review/3.png)
-2. 在 CloudDM 登入主账号。在 **系统设置** > **操作审计** 中找到主账号的 uid 并复制。 
+2. 在 CloudDM 登入主账号。在 **配置** > **操作审计** 中找到主账号的 uid 并复制。 
    ![](../assets/wecom_sql_review/4.png)
 3. 回到企业微信后台管理平台，随机获取 **Token**，**EncodingAESKey**。设置 URL 为 CloudDM Console 部署机器域名+/callback/event?puid=`上一步操作中复制的puid`&platform=WECHAT&eventType=APPROVAL 
    ![](../assets/wecom_sql_review/5.png)
 4. 在上方导航栏中点击 **我的企业**。获取 **企业ID**。 
    ![](../assets/wecom_sql_review/6.png)
-5. 回到 CloudDM 界面。在 **系统设置** > **系统偏好** 中将之前获取的 **Token** 填入 **wechatApprovalToken**，**EncodingAESKey** 填入 **EncodingAESKey**，**企业ID** 填入 **wechatApprovalCorpId**，并开启 **wechatEnableApprovalService**。 
+5. 回到 CloudDM 界面。在 **配置** > **个人偏好** 中将之前获取的 **Token** 填入 **wechatApprovalToken**，**EncodingAESKey** 填入 **EncodingAESKey**，**企业ID** 填入 **wechatApprovalCorpId**，并开启 **wechatEnableApprovalService**。 
    ![](../assets/wecom_sql_review/7.png)
 6. 返回企业微信后台管理平台的 **API 接收消息** 页面，点击 **保存**。 
    ![](../assets/wecom_sql_review/8.png)
@@ -63,7 +63,7 @@ CloudDM 是一个专为团队协同工作打造的数据库数据管控平台。
 ## 配置 API 调用信息
 1. 回到创建的应用，获取 **AgentId**、**Secret**。 
    ![](../assets/wecom_sql_review/16.png)
-2. 回到 CloudDM 界面。在 **系统设置** > **系统偏好** 中将 **AgentId** 复制到 **wechatApprovalCorpId**，**Secret** 复制到 **wechatApprovalSecret**，**审批模版码** 复制到 **wechatApprovalTemplateList**（如有多个审批模版码，使用`,`分隔），点击 **保存**。
+2. 回到 CloudDM 界面。在 **配置** > **个人偏好** 中将 **AgentId** 复制到 **wechatApprovalCorpId**，**Secret** 复制到 **wechatApprovalSecret**，**审批模版码** 复制到 **wechatApprovalTemplateList**（如有多个审批模版码，使用`,`分隔），点击 **保存**。
 3. 在企业微信应用管理页面最下方，将部署 CloudDM Console 的服务器配置 **企业可信IP**。 
    ![](../assets/wecom_sql_review/17.png)
 

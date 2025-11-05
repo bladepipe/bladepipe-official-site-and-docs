@@ -15,13 +15,14 @@ ADB for MySQL、ClickHouse、ElasticSearch、ADB for PG、Kafka、MongoDB、RDS 
 - 通过阿里云 OpenAPI 添加数据源白名单权限。
 
 ### 配置阿里云 OpenAPI 调用使用的 AccessKey ID 和 AccessKey Secret
-1. 点击 **系统设置** > **第三方配置**。
-2. 输入有数据源 OpenAPI 调用权限的 AccessKey ID 和 AccessKey Secret。
-3. 点击 **授权访问**，配置成功。
+1. 点击 **配置** > **个人资料** > **安全**。
+2. 在 **阿里云访问权限** 下， 点击 **授权访问**。
+3. 输入有数据源 OpenAPI 调用权限的 AccessKey ID 和 AccessKey Secret。
+4. 点击 **确定**，配置成功。
    :::info
    若原本已授权过，则将覆盖原来的配置，更新成当前的配置。
    :::
-4. 如果用户不希望 CloudCanal 保存 AccessKey ID 和 AccessKey Secret，可在添加完数据源以后再次打开该窗口，点击 **解除访问权限** 来避免 CloudCanal 存储该授权信息。
+5. 如果用户不希望 CloudCanal 保存 AccessKey ID 和 AccessKey Secret，可在添加完数据源以后再次打开该窗口，点击 **解除访问权限** 来避免 CloudCanal 存储该授权信息。
 
 ### 新增数据源
 1. 点击 **数据源管理** > **新增数据源**。
@@ -29,7 +30,7 @@ ADB for MySQL、ClickHouse、ElasticSearch、ADB for PG、Kafka、MongoDB、RDS 
      - 数据库类型：选择所需的数据库。
      - 地区：根据实际情况选择（非强依赖属性）。
      - 环境：默认为 Test Environment。支持 [自定义环境](../system_manage/env_manage.md)。
-     - 获取方式：AccessKey。如之前并未在 **第三方配置** 中配置 AccessKey ID 和 AccessKey Secret，将显示对话框要求输入相应信息。
+     - 获取方式：AccessKey。如之前并未配置 AccessKey ID 和 AccessKey Secret，将显示对话框要求输入相应信息。
 3. 下方列表会展示子账号有权限查看的数据源列表。
 4. 勾选左侧需要添加的数据源，点击 ![](../../assets/add_datasource/aliyun_rds/1.png) 图标，将数据源添加到右侧，确认无误后点击 **下一步**。
 5. 选择 **数据库认证方式**，并输入账号、密码等信息。

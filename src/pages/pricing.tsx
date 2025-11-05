@@ -346,7 +346,7 @@ export default function Pricing() {
       setDownloadType('enterprise'); // 设置为企业版下载
       // 调用 listDownloadProduct 接口
       const response = await listDownloadProduct({
-        orderProductType: 'CloudDM'
+        orderProductType: siteBrand === 'clougence' ? 'CloudCanal' : 'CloudDM'
       });
       console.log('Download products:', response);
       // 保存接口返回的产品数据

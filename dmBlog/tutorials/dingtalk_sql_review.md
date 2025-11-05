@@ -36,7 +36,7 @@ CloudDM 是一个专为团队协同工作打造的数据库数据管控平台，
   ![](../assets/dingtalk_sql_review/3.png)
 2. 点击 **凭证与基础信息信息**，复制 **AgentId**, **Client ID**, **Client Secret**。  
   ![](../assets/dingtalk_sql_review/4.png)
-3. 回到 CloudDM 平台，点击 **系统设置** > **系统偏好**。填写参数 **dingApprovalConfigAk**, **dingApprovalConfigSk**, **dingAgentId**，并修改 **dingEnableApprovalService** 参数值为 true。  
+3. 回到 CloudDM 平台，点击 **配置** > **个人偏好**。填写参数 **dingApprovalConfigAk**, **dingApprovalConfigSk**, **dingAgentId**，并修改 **dingEnableApprovalService** 参数值为 true。  
   ![](../assets/dingtalk_sql_review/5.png)
 4. 回到钉钉开放平台，点击 **事件订阅** > **已完成接入，验证连接通道**。在 **审批事件** 中，通过 [订阅设置](https://open.dingtalk.com/document/orgapp/event-subscription-overview#8dcdbb72adhxy) 只订阅对应模版的事件。  
   ![](../assets/dingtalk_sql_review/6.png)
@@ -68,7 +68,7 @@ CloudDM 是一个专为团队协同工作打造的数据库数据管控平台，
 #### 可能遇到的问题
 + 网络异常：请检查部署 CloudDM 的服务器能否连接到外网。
   ![](../assets/dingtalk_sql_review/13.png)
-+ 配置错误：请检查 **系统设置** -> **系统偏好** 的配置是否正确。
++ 配置错误：请检查 **配置** -> **个人偏好** 的配置是否正确。
   ![](../assets/dingtalk_sql_review/14.png)
 
 ## 创建工单

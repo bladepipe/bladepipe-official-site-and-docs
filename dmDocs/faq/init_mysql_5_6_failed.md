@@ -5,6 +5,7 @@
 用 MySQL 5.6 版本作为 CloudDM 的元信息数据库时，初始化安装 CloudDM 过程中发生该问题。例如使用 tgz 版本部署 CloudDM 并指定数据库时。
 
 当通过 **init.sh** 脚本初始化元信息数据库时，发生如下报错：
+
 ![common](../assets/faq/init_mysql_5_6_failed/error1.png)
 
 ```text title='报错关键信息'

@@ -19,7 +19,7 @@ description: 在 CloudDM Team 中变更时一次 SQL 发布的最小组成单位
 ![w20_h20](../assets/devops/devops_change/1.png) 初始化 >
 ![w20_h20](../assets/devops/devops_change/2.png) SQL 检查 >
 ![w20_h20](../assets/devops/devops_change/3.png) 审批 >
-![w20_h20](../assets/devops/devops_change/3.png) 执行    
+![w20_h20](../assets/devops/devops_change/4.png) 执行    
 
 
 - ![w20_h20](../assets/devops/devops_change/1.png) **初始化**：从源端源码仓库中获取 SQL 变更内容并与已有快照做对比，确定需要发布的 SQL 内容。    
