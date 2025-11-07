@@ -82,7 +82,7 @@ export default function Connector() {
               {/* 主标题和副标题 */}
               <div className="w-full max-w-[863px] flex flex-col gap-[12px] sm:gap-[16px] justify-start items-center">
                 {/* 主标题 */}
-                <h1 className="w-full text-[32px] sm:text-[48px] lg:text-[60px] font-bold leading-[40px] sm:leading-[56px] lg:leading-[70px] text-black text-center">
+                <h1 className="w-full text-[32px] sm:text-[48px] lg:text-[60px] font-bold leading-[40px] sm:leading-[56px] lg:leading-[70px] text-black text-center whitespace-nowrap">
                   <Translate id="connector.title">
                     60+ connectors are supported
                   </Translate>
@@ -101,11 +101,13 @@ export default function Connector() {
                 <Translate id="connector.contact.prefix">
                   Didn't find the desired connectors?
                 </Translate>{' '}
-                <a href="/about#contactUs" className="text-[#0087c7] font-medium hover:underline cursor-pointer">
+                  <span className="!text-[#0087c7]">
+                      <a href="/about#contactUs" className="font-medium hover:underline cursor-pointer">
                   <Translate id="connector.contact.link">
                     Contact us.
                   </Translate>
                 </a>
+                  </span>
               </p>
             </div>
           </div>
@@ -210,7 +212,7 @@ export default function Connector() {
 
         {/* 数据源卡片组件 */}
         <FadeInSection>
-          <DataSourceCards 
+          <DataSourceCards
             searchFilter={searchFilter}
             sourceFilter={sourceValue}
             targetFilter={targetValue}
@@ -221,4 +223,4 @@ export default function Connector() {
       <Footer />
     </Layout>
   );
-} 
+}

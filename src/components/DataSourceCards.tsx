@@ -569,6 +569,38 @@ const DataSourceCards: React.FC<DataSourceCardsProps> = ({
       supportsSource: true,
       supportsTarget: true
     },
+    {
+      name: 'Amazon MSK',
+      icon: 'AmazonMSK',
+      description: 'Amazon Managed Streaming for Apache Kafka (MSK) is a fully managed service that makes it easy to build and run applications that use Apache Kafka.',
+      isBusinessOnly: false,
+      supportsSource: true,
+      supportsTarget: true
+    },
+    {
+      name: 'PolarDb for PostgreSQL',
+      icon: 'PolarDBPg',
+      description: 'PolarDB for PostgreSQL is Alibaba Cloud\'s cloud-native relational database, PostgreSQL-compatible with enhanced performance and scalability.',
+      isBusinessOnly: false,
+      supportsSource: true,
+      supportsTarget: true
+    },
+    {
+      name: 'DeltaLake',
+      icon: 'DeltaLake',
+      description: 'Delta Lake is an open-source storage layer that brings ACID transactions to Apache Spark and big data workloads.',
+      isBusinessOnly: false,
+      supportsSource: false,
+      supportsTarget: true
+    },
+    {
+      name: 'TDSQL-C',
+      icon: 'TdsqlCMySQL',
+      description: 'TDSQL-C is Tencent Cloud\'s enterprise-grade cloud-native database, MySQL-compatible with high availability and elasticity.',
+      isBusinessOnly: false,
+      supportsSource: true,
+      supportsTarget: true
+    }
     // {
     //   name: 'ZhipuAI',
     //   icon: 'ZhipuAI',

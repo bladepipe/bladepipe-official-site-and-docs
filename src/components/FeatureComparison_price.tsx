@@ -519,8 +519,8 @@ const FeatureComparison_price: React.FC = () => {
                     <div className={`w-full h-[60px] sm:h-[66px] lg:h-[72px] ${version.headerStyle}`} style={{ borderStyle: 'solid', borderWidth: '1px' }}>
                       <span className={`text-[16px] sm:text-[18px] lg:text-[20px] font-bold ${version.id === 'enterprise' ? 'text-white' : 'text-[#0087c7]'}`}>{version.title}</span>
                       {version.badge && (
-                        <div className="absolute top-[12px] sm:top-[16px] lg:top-[20px] right-[12px] sm:right-[16px] lg:right-[20px] bg-white border border-[#0087c7] rounded-full px-[8px] sm:px-[10px] lg:px-[12px] py-[2px] sm:py-[3px] lg:py-[4px]" style={{ borderStyle: 'solid', borderWidth: '1px' }}>
-                          <span className="text-[12px] sm:text-[13px] lg:text-[14px] font-bold text-[#0087c7]">{version.badge.text}</span>
+                        <div className="absolute top-[6px] sm:top-[8px] lg:top-[10px] right-[6px] sm:right-[8px] lg:right-[10px] bg-white border border-[#0087c7] rounded-full px-[6px] sm:px-[8px] py-[1px] sm:py-[2px] whitespace-nowrap" style={{ borderStyle: 'solid', borderWidth: '1px' }}>
+                          <span className="text-[10px] sm:text-[11px] lg:text-[12px] font-bold text-[#0087c7]">{version.badge.text}</span>
                         </div>
                       )}
                     </div>

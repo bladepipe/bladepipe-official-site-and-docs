@@ -1510,3 +1510,20 @@ a:active {
   text-decoration: underline !important;
   color: #0087c7 !important;
 }
+
+/* 按钮链接强制白色文字 */
+.button-link-white {
+  color: #fff !important;
+}
+
+.button-link-white:hover {
+  color: #fff !important;
+}
+
+.button-link-white:visited {
+  color: #fff !important;
+}
+
+.button-link-white:active {
+  color: #fff !important;
+}

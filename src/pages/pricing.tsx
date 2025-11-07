@@ -45,7 +45,7 @@ const getPricingPlans = (siteBrand: string, priceMeta?: any) => {
         buttonType: "outline", // outline 或 solid
         badge: null,
         features: [
-          translate({ id: 'pricing.clouddm.community.feature1', message: '所有的16种数据源' }),
+          translate({ id: 'pricing.clouddm.community.feature1', message: '所有的 20+ 种数据源' }),
           translate({ id: 'pricing.clouddm.community.feature2', message: '数据库访问' }),
           translate({ id: 'pricing.clouddm.community.feature3', message: '数据库 CI/CD' }),
           translate({ id: 'pricing.clouddm.community.feature4', message: '数据脱敏' }),

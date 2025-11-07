@@ -18,11 +18,11 @@ const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true })
   const { siteConfig } = useDocusaurusContext();
   const siteBrand = siteConfig.customFields?.siteBrand;
   const [barAnimated, setBarAnimated] = useState(false);
-  
+
   // 根据 siteBrand 动态设置品牌名称
   const brandName = siteBrand === 'clougence' ? 'CloudCanal' : 'BladePipe';
   const brandTranslateId = siteBrand === 'clougence' ? 'compare.brand.cloudcanal' : 'compare.brand.bladepipe';
-  
+
   // 汇率转换函数
   const convertToCNY = (usdPrice: string) => {
     const usdAmount = parseInt(usdPrice.replace(/[^\d]/g, ''));
@@ -35,7 +35,7 @@ const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true })
   const getCloudCanalPrice = (rowCount: string) => {
     const prices = {
       '1M': '¥483',
-      '10M': '¥484', 
+      '10M': '¥484',
       '100M': '¥493',
       '1000M': '¥583'
     };
@@ -83,7 +83,7 @@ const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true })
     { name: translate({id: 'compare.brand.airbyte', message: 'Airbyte'}), label: translate({id: 'compare.latency.others', message: '>= 1 minutes'}), color: '#0087c7', width: 'w-24', highlight: false },
     { name: translate({id: 'compare.brand.fivetran', message: 'Fivetran'}), label: translate({id: 'compare.latency.others', message: '>= 1 minutes'}), color: '#0087c7', width: 'w-24', highlight: false },
   ];
-  
+
   useEffect(() => {
     setTimeout(() => setBarAnimated(true), 100); // 延迟触发动画，避免SSR闪烁
   }, []);
@@ -105,7 +105,10 @@ const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true })
             <Translate id="compare.millionRows">Higher Performance.Lower Costs</Translate>
           </div>
           {showLearnMore && (
-            <a href="/why" className="inline-flex items-center gap-2 px-7 py-3 bg-[#0087c7] text-white rounded-full text-[18px] font-bold shadow hover:bg-[#0070a6] transition-all">
+            <a 
+              href="/why" 
+              className="button-link-white inline-flex items-center gap-2 px-7 py-3 bg-[#0087c7] rounded-full text-[18px] font-bold shadow hover:bg-[#0070a6] transition-all"
+            >
               <Translate id="compare.learnMore">Learn More</Translate>
               <svg className="inline-block w-5 h-5 ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 16 16"><path d="M4 8h8m0 0-3-3m3 3-3 3" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </a>
@@ -131,22 +134,22 @@ const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true })
                     }));
                     return (
                       <div key={item.name} className="flex flex-col items-center" style={{width: 60}}>
-                        <span 
-                          className={`mb-2 px-2 py-1 rounded-full text-white text-[11px] sm:text-[11px] lg:text-[12px] font-bold ${item.highlight ? 'bg-[#0087C7] shadow' : ''}`} 
+                        <span
+                          className={`mb-2 px-2 py-1 rounded-full text-white text-[11px] sm:text-[11px] lg:text-[12px] font-bold ${item.highlight ? 'bg-[#0087C7] shadow' : ''}`}
                           style={{
-                            display: item.price === '/' ? 'none' : 'inline-block', 
-                            background: item.highlight ? undefined : 'transparent', 
+                            display: item.price === '/' ? 'none' : 'inline-block',
+                            background: item.highlight ? undefined : 'transparent',
                             color: item.highlight ? '#fff' : '#18181B'
                           }}
                         >
                           {item.price}
                         </span>
-                        <div 
-                          className={`rounded-lg ${item.highlight ? 'bg-[#4BCD6B]' : 'bg-gradient-to-t from-[#f8fafc] to-[#e5e7eb]'} w-full flex items-end justify-center relative transition-all mb-2`} 
+                        <div
+                          className={`rounded-lg ${item.highlight ? 'bg-[#4BCD6B]' : 'bg-gradient-to-t from-[#f8fafc] to-[#e5e7eb]'} w-full flex items-end justify-center relative transition-all mb-2`}
                           style={{
-                            height: getBarHeight(item.price, groupMaxPrice), 
-                            minHeight: 32, 
-                            maxHeight: 120, 
+                            height: getBarHeight(item.price, groupMaxPrice),
+                            minHeight: 32,
+                            maxHeight: 120,
                             width: 60
                           }}
                         >
@@ -250,4 +253,4 @@ const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true })
   );
 };
 
-export default CompareSection; 
+export default CompareSection;

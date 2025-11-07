@@ -72,7 +72,7 @@
     "message": "CloudCanal 提供不同部署模式的方案。选择最适合您需求的方案。"
   },
   "pricing.cloud.title": {
-    "message": "云版本"
+    "message": "SaaS"
   },
   "pricing.cloud.subtitle": {
     "message": "(全托管 或 BYOC)"
@@ -105,7 +105,7 @@
     "message": "更多的高级功能"
   },
   "pricing.enterprise.title": {
-    "message": "企业版"
+    "message": "商业版"
   },
   "pricing.enterprise.subtitle": {
     "message": "(私有部署)"
@@ -282,7 +282,7 @@
     "message": "云服务"
   },
   "pricing.featureComparison.enterpriseTitle": {
-    "message": "企业版"
+    "message": "商业版"
   },
   "pricing.featureComparison.mostPopular": {
     "message": "最受欢迎"
@@ -408,7 +408,7 @@
     "message": "云服务"
   },
   "pricing.calculator.enterprise": {
-    "message": "企业版"
+    "message": "商业版"
   },
   "pricing.calculator.etlRows": {
     "message": "要复制的行数 (ETL)"
@@ -474,7 +474,7 @@
     "message": "立即下载"
   },
   "pricing.clouddm.community.feature1": {
-    "message": "所有的16种数据源"
+    "message": "所有的 20+ 种数据源"
   },
   "pricing.clouddm.community.feature2": {
     "message": "数据库访问"
@@ -624,7 +624,7 @@
     "message": "技术分享"
   },
   "deploy.cloud.title": {
-    "message": "云版本"
+    "message": "SaaS"
   },
   "deploy.cloud.h1": {
     "message": "快速开始易上手，有利于关注核心业务。"
@@ -639,7 +639,7 @@
     "message": "查看更多"
   },
   "deploy.onprem.title": {
-    "message": "企业版 (私有部署模式)"
+    "message": "商业版 (私有部署模式)"
   },
   "deploy.onprem.h1": {
     "message": "完全自建，高度可控。"
@@ -1750,7 +1750,7 @@
     "message": "试用云服务"
   },
   "userguide.downloadBtn": {
-    "message": "下载企业版"
+    "message": "下载商业版"
   },
   "homepage.tutorialBtn": {
     "message": "快速开始 - 5分钟 ⏱️"
@@ -2184,7 +2184,7 @@
     "message": "deploy.title.line2"
   },
   "deploy.subtitle.line1": {
-    "message": " 提供云版本（全托管 和 BYOC）和企业版（On-Premise）两种模式，"
+    "message": " 提供 SaaS（全托管 和 BYOC）和商业版（On-Premise）两种模式，"
   },
   "deploy.subtitle.line2": {
     "message": "满足不同场景和需求"
@@ -2620,6 +2620,18 @@
   },
   "connector.datasource.elasticache.description": {
     "message": "Amazon ElastiCache 是一个 Web 服务，可以轻松在云中部署、操作和扩展内存缓存。"
+  },
+  "connector.datasource.amazonmsk.description": {
+    "message": "Amazon Managed Streaming for Apache Kafka (MSK) 是一个完全托管的服务，可以轻松构建和运行使用 Apache Kafka 的应用程序。"
+  },
+  "connector.datasource.polardbpg.description": {
+    "message": "PolarDB for PostgreSQL 是阿里云的云原生关系型数据库，与 PostgreSQL 兼容，具有更高的性能和可扩展性。"
+  },
+  "connector.datasource.deltalake.description": {
+    "message": "Delta Lake 是一个开源存储层，为 Apache Spark 和大数据工作负载带来 ACID 事务支持。"
+  },
+  "connector.datasource.tdsqlcmysql.description": {
+    "message": "TDSQL-C 是腾讯云的企业级云原生数据库，与 MySQL 兼容，具有高可用性和弹性。"
   },
   "downloadModal.termsOfService": {
     "message": "服务条款"
@@ -3168,7 +3180,7 @@
     "message": "社区(免费)或商业支持"
   },
   "compare.feature.customerSupport.fivetran": {
-    "message": "分层支持(入门版、高级版、企业版)"
+    "message": "分层支持(入门版、高级版、商业版)"
   },
   "404.title": {
     "message": "页面未找到"
