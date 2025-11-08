@@ -541,6 +541,16 @@ export default function Navbar() {
 
         {/* 语言选择器 */}
         {/* <LanguageDropdown /> */}
+        
+        {/* clouddm 品牌下的占位元素 - 不可见，用于保持布局平衡 */}
+        {siteBrand === 'clouddm' && (
+          <div className='flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full invisible pointer-events-none'>
+            <span className='text-sm lg:text-[15px] xl:text-[16px] font-bold whitespace-nowrap'>
+              Try Cloud Free
+            </span>
+          </div>
+        )}
+        
         {/* 用户认证区域 */}
         {isLoggedIn ? (
           <Dropdown

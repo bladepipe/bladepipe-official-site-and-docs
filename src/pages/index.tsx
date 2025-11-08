@@ -55,7 +55,7 @@ export default function Home(): ReactNode {
   if (siteBrand === 'clouddm') {
     return <CloudDM />;
   }
-  
+
   // 否则渲染原有的首页内容
   return (
     <Layout>
