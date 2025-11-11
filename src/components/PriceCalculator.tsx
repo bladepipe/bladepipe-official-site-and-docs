@@ -23,6 +23,56 @@ interface PriceCalculatorProps {
   };
 }
 
+// 数值输入框组件 - 移到组件外部以避免重新渲染时失焦
+const NumberInput = ({ value, onChange, className = "" }: { value: number, onChange: (value: number) => void, className?: string }) => {
+  const [inputValue, setInputValue] = React.useState(value.toString());
+
+  // 当外部value变化时，同步到内部状态
+  React.useEffect(() => {
+    setInputValue(value.toString());
+  }, [value]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    setInputValue(newValue);
+
+    // 只有当输入是有效数字时才更新父组件
+    const numValue = Number(newValue);
+    if (newValue === '' || newValue === '-') {
+      // 允许临时为空或只有负号，传递0给父组件
+      onChange(0);
+    } else if (!isNaN(numValue) && numValue >= 0) {
+      onChange(Math.floor(numValue)); // 确保是整数
+    }
+  };
+
+  const handleBlur = () => {
+    // 失焦时，如果输入无效或为空，重置为当前有效值
+    const numValue = Number(inputValue);
+    if (inputValue === '' || isNaN(numValue) || numValue < 0) {
+      setInputValue(value.toString());
+    } else {
+      // 格式化为整数
+      const formattedValue = Math.floor(numValue).toString();
+      setInputValue(formattedValue);
+      onChange(Math.floor(numValue));
+    }
+  };
+
+  return (
+    <div className={`w-[70px] h-[40px] sm:h-[44px] bg-white border border-black/10 border-solid rounded-[6px] flex items-center justify-center flex-shrink-0 ${className}`}>
+      <input
+        type="text"
+        inputMode="numeric"
+        value={inputValue}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        className="w-full h-full text-center text-[14px] sm:text-[16px] font-medium text-black bg-transparent border-none outline-none"
+      />
+    </div>
+  );
+};
+
 const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
   const siteBrand = siteConfig.customFields?.siteBrand as string;
   const [activeTab, setActiveTab] = useState('cloud-byoc');
@@ -142,19 +192,6 @@ const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
     const currentValue = Math.round((val / 100) * maxValue);
     return `${currentValue}M/${translate({ id: 'pricing.calculator.month', message: 'month' })}`;
   };
-
-  // 数值输入框组件
-  const NumberInput = ({ value, onChange, className = "" }: { value: number, onChange: (value: number) => void, className?: string }) => (
-    <div className={`w-[70px] h-[40px] sm:h-[44px] bg-white border border-black/10 border-solid rounded-[6px] flex items-center justify-center flex-shrink-0 ${className}`}>
-      <input
-        type="number"
-        value={value}
-        onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full h-full text-center text-[14px] sm:text-[16px] font-medium text-black bg-transparent border-none outline-none"
-        min="0"
-      />
-    </div>
-  );
 
   const items = [
     // {

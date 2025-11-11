@@ -25,13 +25,25 @@ const dataSources = [
   { name: 'MariaDB', icon: 'MariaDB' },
   { name: 'PostgreSQL', icon: 'PostgreSQL' },
   { name: 'IBM Db2', icon: 'Db2' },
+  { name: 'IBM Db2 i', icon: 'Db2Fori' },
   { name: 'Gitee', icon: 'Gitee' },
   { name: 'SQL Server', icon: 'SQLServer' },
   { name: 'OceanBase', icon: 'OceanBase' },
   { name: 'PolarDB-X', icon: 'PolarDbX' },
   { name: 'TiDB', icon: 'TiDB' },
   { name: 'Greenplum', icon: 'Greenplum' },
-  { name: 'Jenkins', icon: 'Jenkins' }
+  { name: 'Jenkins', icon: 'Jenkins' },
+  { name: 'OceanBase for Oracle', icon: 'ObForOracle' },
+  { name: 'StarRocks', icon: 'Doris' },
+  { name: 'Greenplum', icon: 'Greenplum' },
+  { name: 'SelectDB', icon: 'SelectDB' },
+  { name: 'Doris', icon: 'Doris' },
+  { name: 'PolarDb for MySQL', icon: 'PolarDbMySQL' },
+  { name: 'ADB for MySQL', icon: 'AdbForMySQL' },
+  { name: 'GuassDB for MySQL', icon: 'GaussDBForMySQL' },
+  { name: 'GaussDB for OpenGauss', icon: 'GaussDBForOpenGauss' },
+  { name: 'PolarDb for PostgreSQL', icon: 'PolarDBPg' },
+  { name: 'MaxCompute', icon: 'MaxCompute' }
 ];
 
 // 合作伙伴配置

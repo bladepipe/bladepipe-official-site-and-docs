@@ -110,7 +110,15 @@ const config: Config = {
         alt: 'BladePipe Logo',
         src: 'img/home/BladePipe.png',
         href: '/'
-      }
+      },
+        items: [
+          {
+            type: 'doc',
+            docId: 'intro',
+            position: 'left',
+            label: 'Docs'
+          }
+        ]
     },
     // 注释掉 Algolia 配置，准备申请真实的 API key
     // algolia: {
@@ -118,12 +126,12 @@ const config: Config = {
     //   appId: 'YOUR_APP_ID',
     //   apiKey: 'YOUR_SEARCH_API_KEY',
     //   indexName: 'YOUR_INDEX_NAME',
-    //   
+    //
     //   // 可选配置
     //   contextualSearch: true,
     //   searchParameters: {},
     //   searchPagePath: 'search',
-    //   
+    //
     //   // 国际化配置
     //   translations: {
     //     button: {

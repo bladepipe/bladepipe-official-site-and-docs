@@ -10,7 +10,6 @@ import Translate, { translate } from '@docusaurus/Translate';
 import { loginCheckAndRedirect } from '@site/src/utils';
 import { useUserStore } from '@site/src/store/user';
 import { isUserLogin } from '@site/src/store/user';
-import DocSearch from '@site/src/components/DocSearch';
 
 export default function Navbar() {
   const { siteConfig } = useDocusaurusContext();
@@ -19,11 +18,24 @@ export default function Navbar() {
   const location = useLocation();
 
   const [mobileOpen, setMobileOpen] = useState(false);
+  // const [SearchBarComponent, setSearchBarComponent] = useState<any>(null);
+  //
+  // // 动态加载 SearchBar
+  // useEffect(() => {
+  //   import('@theme/SearchBar')
+  //     .then((module) => {
+  //       setSearchBarComponent(() => module.default);
+  //     })
+  //     .catch((error) => {
+  //       console.error('Failed to load SearchBar:', error);
+  //       setSearchBarComponent(() => null);
+  //     });
+  // }, []);
   const [activeNav, setActiveNav] = useState(''); // 初始为空，根据路径自动设置
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuExpanded, setMobileMenuExpanded] = useState('');
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
-  
+
   // 获取用户信息
   const userInfo = useUserStore((state) => state.userInfo);
   const logout = useUserStore((state) => state.logout);
@@ -44,9 +56,9 @@ export default function Navbar() {
     {
       key: 'billing',
       label: (
-        <a 
+        <a
           href={siteBrand === 'clouddm' ? `${getCloudUrl()}/#/system/order` : `${getCloudUrl()}/#/system/billing`}
-          rel="noopener noreferrer" 
+          rel="noopener noreferrer"
           className="flex items-center py-2 px-4 text-gray-700 hover:bg-gray-100 transition-colors"
         >
           <span className="text-[16px] font-medium">
@@ -112,7 +124,7 @@ export default function Navbar() {
     <>
       {/* 占位容器 - 当 navbar fixed 时防止页面跳跃 */}
       {isScrolled && <div className="w-full h-[70px]" />}
-      
+
       <nav className={`navbar w-full h-[70px] flex items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-5 z-50 transition-all duration-300 ${
         isScrolled 
           ? 'fixed top-0 left-0 right-0 shadow-lg navbar-blur' 
@@ -124,20 +136,26 @@ export default function Navbar() {
           <img src={logoSrc} alt='Logo' className={`${siteBrand === 'bladepipe' ? 'w-[220px] h-[48px]' : siteBrand === 'clouddm' ? 'h-[30px]' : 'w-[180px] h-[40px]'} object-contain`} />
         </Link>
       </div>
-      {/* 汉堡按钮（小屏显示） */}
-      <button 
-        className='lg:hidden flex items-center justify-center w-[38px] h-[38px] rounded-lg p-2 ml-auto hover:bg-gray-100 transition-colors border-0 outline-none focus:outline-none' 
-        onClick={() => setMobileOpen((v) => !v)} 
-        aria-label='Open menu'
-      >
-        {mobileOpen ? (
-          <img src="/img/home/icon/close.svg" alt="Close" className='w-[22px] h-[22px]' />
-        ) : (
-          <img src="/img/home/icon/expand.svg" alt="Menu" className='w-[22px] h-[22px]' />
-        )}
-      </button>
+      {/* 移动端右侧按钮区 */}
+      <div className='xl:hidden flex items-center gap-2 ml-auto'>
+        {/*/!* 搜索图标（移动端） *!/*/}
+        {/*{SearchBarComponent && <SearchBarComponent />}*/}
+
+        {/* 汉堡按钮 */}
+        <button
+          className='flex items-center justify-center w-[38px] h-[38px] rounded-lg p-2 hover:bg-gray-100 transition-colors border-0 outline-none focus:outline-none'
+          onClick={() => setMobileOpen((v) => !v)}
+          aria-label='Open menu'
+        >
+          {mobileOpen ? (
+            <img src="/img/home/icon/close.svg" alt="Close" className='w-[22px] h-[22px]' />
+          ) : (
+            <img src="/img/home/icon/expand.svg" alt="Menu" className='w-[22px] h-[22px]' />
+          )}
+        </button>
+      </div>
       {/* 中间导航栏 - 使用flex布局，自动隐藏溢出项（大屏显示） */}
-      <div className='hidden lg:flex items-center gap-2 xl:gap-4 ml-4 xl:ml-8 flex-1 min-w-0 overflow-hidden'>
+      <div className='hidden xl:flex items-center justify-center gap-2 xl:gap-4 ml-4 xl:ml-8 flex-1 min-w-0 overflow-hidden'>
         {/* Product 下拉 - clouddm 时显示为简单链接 */}
         {siteBrand === 'clouddm' ? (
           <Link to="/" className="no-underline flex-shrink-0" onClick={() => setActiveNav('product')}>
@@ -162,8 +180,8 @@ export default function Navbar() {
                 {
                   key: 'cloudcanal',
                   label: (
-                    <Link 
-                      to="/" 
+                    <Link
+                      to="/"
                       className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                       onClick={() => setActiveNav('product')}
                     >
@@ -174,8 +192,8 @@ export default function Navbar() {
                 {
                   key: 'why-cloudcanal',
                   label: (
-                    <Link 
-                      to="/why" 
+                    <Link
+                      to="/why"
                       className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                       onClick={() => setActiveNav('product')}
                     >
@@ -186,8 +204,8 @@ export default function Navbar() {
                 {
                   key: 'connectors',
                   label: (
-                    <Link 
-                      to="/connector" 
+                    <Link
+                      to="/connector"
                       className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                       onClick={() => setActiveNav('product')}
                     >
@@ -199,8 +217,8 @@ export default function Navbar() {
                 {
                   key: 'bladepipe',
                   label: (
-                    <Link 
-                      to="/" 
+                    <Link
+                      to="/"
                       className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                       onClick={() => setActiveNav('product')}
                     >
@@ -211,8 +229,8 @@ export default function Navbar() {
                 {
                   key: 'why-bladepipe',
                   label: (
-                    <Link 
-                      to="/why" 
+                    <Link
+                      to="/why"
                       className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                       onClick={() => setActiveNav('product')}
                     >
@@ -223,8 +241,8 @@ export default function Navbar() {
                 {
                   key: 'connectors',
                   label: (
-                    <Link 
-                      to="/connector" 
+                    <Link
+                      to="/connector"
                       className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                       onClick={() => setActiveNav('product')}
                     >
@@ -265,8 +283,8 @@ export default function Navbar() {
                 {
                   key: 'team-database-collaboration',
                   label: (
-                    <Link 
-                      to="/clouddm_solution" 
+                    <Link
+                      to="/clouddm_solution"
                       className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                       onClick={() => setActiveNav('solutions')}
                     >
@@ -278,8 +296,8 @@ export default function Navbar() {
                 {
                   key: 'solution1',
                   label: (
-                    <Link 
-                      to="/solution1" 
+                    <Link
+                      to="/solution1"
                       className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                       onClick={() => setActiveNav('solutions')}
                     >
@@ -290,8 +308,8 @@ export default function Navbar() {
                 {
                   key: 'solution2',
                   label: (
-                    <Link 
-                      to="/solution2" 
+                    <Link
+                      to="/solution2"
                       className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                       onClick={() => setActiveNav('solutions')}
                     >
@@ -303,8 +321,8 @@ export default function Navbar() {
                 {
                   key: 'solution1',
                   label: (
-                    <Link 
-                      to="/solution1" 
+                    <Link
+                      to="/solution1"
                       className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                       onClick={() => setActiveNav('solutions')}
                     >
@@ -315,8 +333,8 @@ export default function Navbar() {
                 {
                   key: 'solution2',
                   label: (
-                    <Link 
-                      to="/solution2" 
+                    <Link
+                      to="/solution2"
                       className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                       onClick={() => setActiveNav('solutions')}
                     >
@@ -356,8 +374,8 @@ export default function Navbar() {
                 {
                   key: 'blog',
                   label: (
-                    <Link 
-                      to="/blog" 
+                    <Link
+                      to="/blog"
                       className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                       onClick={() => setActiveNav('resources')}
                     >
@@ -368,8 +386,8 @@ export default function Navbar() {
                 {
                   key: 'documents',
                   label: (
-                    <Link 
-                      to="/docs/intro/product_intro" 
+                    <Link
+                      to="/docs/intro/product_intro"
                       className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                       onClick={() => setActiveNav('resources')}
                     >
@@ -381,8 +399,8 @@ export default function Navbar() {
                 {
                   key: 'blog',
                   label: (
-                    <Link 
-                      to="/blog" 
+                    <Link
+                      to="/blog"
                       className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                       onClick={() => setActiveNav('resources')}
                     >
@@ -393,8 +411,8 @@ export default function Navbar() {
                 {
                   key: 'documents',
                   label: (
-                    <Link 
-                      to="/docs/intro/product_intro" 
+                    <Link
+                      to="/docs/intro/product_intro"
                       className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                       onClick={() => setActiveNav('resources')}
                     >
@@ -467,9 +485,9 @@ export default function Navbar() {
                   {
                     key: 'bladepipe',
                     label: (
-                      <a 
-                        href="https://www.bladepipe.com" 
-                        target="_blank" 
+                      <a
+                        href="https://www.bladepipe.com"
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                       >
@@ -480,9 +498,9 @@ export default function Navbar() {
                   {
                     key: 'clouddm',
                     label: (
-                      <a 
-                        href="https://www.cdmgr.com" 
-                        target="_blank" 
+                      <a
+                        href="https://www.cdmgr.com"
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                       >
@@ -517,19 +535,22 @@ export default function Navbar() {
         )}
       </div>
       {/* 右侧操作区（大屏显示） */}
-      <div className='hidden lg:flex items-center gap-2 xl:gap-4 flex-shrink-0'>
-        {/* 搜索框 - 仅在文档相关页面显示 */}
-        {/*{(location.pathname.startsWith('/docs') || */}
-        {/*  location.pathname.startsWith('/ccDocs') || */}
-        {/*  location.pathname.startsWith('/dmDocs') ||*/}
-        {/*  location.pathname.includes('blog')) && (*/}
-        {/*  <div className="flex items-center">*/}
-        {/*    <DocSearch />*/}
-        {/*  </div>*/}
-        {/*)}*/}
-        
+      <div className='hidden xl:flex items-center gap-2 xl:gap-4 flex-shrink-0'>
+        {/*/!* 搜索图标 *!/*/}
+        {/*{siteBrand !== 'clougence' && SearchBarComponent && <SearchBarComponent />}*/}
+
         {/* 语言选择器 */}
         {/* <LanguageDropdown /> */}
+        
+        {/* clouddm 品牌下的占位元素 - 不可见，用于保持布局平衡 */}
+        {siteBrand === 'clouddm' && (
+          <div className='flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full invisible pointer-events-none'>
+            <span className='text-sm lg:text-[15px] xl:text-[16px] font-bold whitespace-nowrap'>
+              Try Cloud Free
+            </span>
+          </div>
+        )}
+        
         {/* 用户认证区域 */}
         {isLoggedIn ? (
           <Dropdown
@@ -548,8 +569,8 @@ export default function Navbar() {
             </div>
           </Dropdown>
         ) : (
-          <Link 
-            to="/login" 
+          <Link
+            to="/login"
             className="no-underline"
             onClick={() => {
               localStorage.setItem('loginSource', 'sign_in');
@@ -579,7 +600,7 @@ export default function Navbar() {
       </div>
       {/* 移动端抽屉菜单 */}
       {mobileOpen && (
-        <div className='fixed inset-0 top-[70px] bg-white z-50 flex flex-col shadow-lg lg:hidden' style={{height: 'calc(100vh - 70px)'}}>
+        <div className='fixed inset-0 top-[70px] bg-white z-50 flex flex-col shadow-lg xl:hidden' style={{height: 'calc(100vh - 70px)'}}>
           {/* 导航栏目区域 */}
           <div className='flex flex-col flex-1 overflow-y-auto'>
             {/* Product 展开菜单 - clouddm 时显示为简单链接 */}
@@ -592,7 +613,7 @@ export default function Navbar() {
                 </div>
               </Link>
             ) : (
-              <div 
+              <div
                 className={`flex flex-col ${mobileMenuExpanded === 'product' ? 'bg-[#0087c7]/10' : ''}`}
                 onClick={() => setMobileMenuExpanded(mobileMenuExpanded === 'product' ? '' : 'product')}
               >
@@ -600,10 +621,10 @@ export default function Navbar() {
                     <span className="text-[16px] font-bold text-[#262728]">
                       <Translate id='navbar.product'>Product</Translate>
                     </span>
-                    <ChevronDownIcon 
+                    <ChevronDownIcon
                       className={`w-4 h-4 text-black/40 transition-transform ${
                         mobileMenuExpanded === 'product' ? 'rotate-180' : ''
-                      }`} 
+                      }`}
                     />
                   </div>
                   {mobileMenuExpanded === 'product' && (
@@ -665,16 +686,16 @@ export default function Navbar() {
             )}
             {/* 分割线 */}
             <div className='h-px bg-black/[0.08] w-full' />
-            
+
             {/* CloudDM */}
             {/* <div className="flex items-center justify-between px-5 h-[50px] cursor-pointer">
               <span className="text-[16px] font-bold text-[#262728]">CloudDM</span>
               <ChevronDownIcon className="w-4 h-4 text-black/40" />
             </div>
             <div className='h-px bg-black/[0.08] w-full' /> */}
-            
+
             {/* Solutions */}
-            <div 
+            <div
               className={`flex flex-col ${mobileMenuExpanded === 'solutions' ? 'bg-[#0087c7]/10' : ''}`}
               onClick={() => setMobileMenuExpanded(mobileMenuExpanded === 'solutions' ? '' : 'solutions')}
             >
@@ -682,10 +703,10 @@ export default function Navbar() {
                 <span className="text-[16px] font-bold text-[#262728]">
                   <Translate id='navbar.solutions'>Solutions</Translate>
                 </span>
-                <ChevronDownIcon 
+                <ChevronDownIcon
                   className={`w-4 h-4 text-black/40 transition-transform ${
                     mobileMenuExpanded === 'solutions' ? 'rotate-180' : ''
-                  }`} 
+                  }`}
                 />
               </div>
               {mobileMenuExpanded === 'solutions' && (
@@ -722,9 +743,9 @@ export default function Navbar() {
               )}
             </div>
             <div className='h-px bg-black/[0.08] w-full' />
-            
+
             {/* Resources */}
-            <div 
+            <div
               className={`flex flex-col ${mobileMenuExpanded === 'resources' ? 'bg-[#0087c7]/10' : ''}`}
               onClick={() => setMobileMenuExpanded(mobileMenuExpanded === 'resources' ? '' : 'resources')}
             >
@@ -732,10 +753,10 @@ export default function Navbar() {
                 <span className="text-[16px] font-bold text-[#262728]">
                   <Translate id='navbar.resources'>Resources</Translate>
                 </span>
-                <ChevronDownIcon 
+                <ChevronDownIcon
                   className={`w-4 h-4 text-black/40 transition-transform ${
                     mobileMenuExpanded === 'resources' ? 'rotate-180' : ''
-                  }`} 
+                  }`}
                 />
               </div>
               {mobileMenuExpanded === 'resources' && (
@@ -760,7 +781,7 @@ export default function Navbar() {
               )}
             </div>
             <div className='h-px bg-black/[0.08] w-full' />
-            
+
             {/* Pricing */}
             <Link to="/pricing" onClick={() => setMobileOpen(false)} className="no-underline">
               <div className="flex items-center justify-between px-5 h-[50px] cursor-pointer">
@@ -770,7 +791,7 @@ export default function Navbar() {
               </div>
             </Link>
             <div className='h-px bg-black/[0.08] w-full' />
-            
+
             {/* About */}
             <Link to="/about" onClick={() => setMobileOpen(false)} className="no-underline">
               <div className="flex items-center justify-between px-5 h-[50px] cursor-pointer">
@@ -780,11 +801,11 @@ export default function Navbar() {
               </div>
             </Link>
             <div className='h-px bg-black/[0.08] w-full' />
-            
+
             {/* 了解更多 - 仅 clougence 显示 */}
             {siteBrand === 'clougence' && (
               <>
-                <div 
+                <div
                   className={`flex flex-col ${mobileMenuExpanded === 'learnmore' ? 'bg-[#0087c7]/10' : ''}`}
                   onClick={() => setMobileMenuExpanded(mobileMenuExpanded === 'learnmore' ? '' : 'learnmore')}
                 >
@@ -792,18 +813,18 @@ export default function Navbar() {
                     <span className="text-[16px] font-bold text-[#262728]">
                       <Translate id="navbar.learnMore">Learn More</Translate>
                     </span>
-                    <ChevronDownIcon 
+                    <ChevronDownIcon
                       className={`w-4 h-4 text-black/40 transition-transform ${
                         mobileMenuExpanded === 'learnmore' ? 'rotate-180' : ''
-                      }`} 
+                      }`}
                     />
                   </div>
                   {mobileMenuExpanded === 'learnmore' && (
                     <div className="bg-white px-[10px] py-[10px]">
                       <div className="flex flex-col gap-[3px]">
-                        <a 
-                          href="https://www.bladepipe.com" 
-                          target="_blank" 
+                        <a
+                          href="https://www.bladepipe.com"
+                          target="_blank"
                           rel="noopener noreferrer"
                           onClick={() => setMobileOpen(false)}
                           className="no-underline"
@@ -814,9 +835,9 @@ export default function Navbar() {
                             </span>
                           </div>
                         </a>
-                        <a 
-                          href="https://www.cdmgr.com" 
-                          target="_blank" 
+                        <a
+                          href="https://www.cdmgr.com"
+                          target="_blank"
                           rel="noopener noreferrer"
                           onClick={() => setMobileOpen(false)}
                           className="no-underline"
@@ -835,12 +856,12 @@ export default function Navbar() {
               </>
             )}
           </div>
-          
+
           {/* 底部按钮区域 */}
           <div className="mt-auto px-5 py-[30px] flex items-center justify-end gap-[2px] flex-shrink-0">
             {/* 语言切换按钮 */}
             {/* <MobileLanguageDropdown /> */}
-            
+
             {/* 用户认证区域 */}
             {isLoggedIn ? (
               <div className="flex flex-col gap-3 w-full">
@@ -852,9 +873,9 @@ export default function Navbar() {
                 </div>
                 {/* 用户菜单项 */}
                 <div className="flex flex-col gap-2">
-                  <a 
-                    href={`${getCloudUrl()}/usercenter`}
-                    target="_blank" 
+                  <a
+                    href={`${getCloudUrl()}/#/system/profile`}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center px-5 h-[40px] rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors no-underline"
                     onClick={() => setMobileOpen(false)}
@@ -863,9 +884,9 @@ export default function Navbar() {
                       <Translate id="navbar.userCenter">Profile</Translate>
                     </span>
                   </a>
-                  <a 
-                    href={`${getCloudUrl()}/billing`}
-                    target="_blank" 
+                  <a
+                    href={`${getCloudUrl()}/#/system/order`}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center px-5 h-[40px] rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors no-underline"
                     onClick={() => setMobileOpen(false)}
@@ -888,12 +909,12 @@ export default function Navbar() {
                 </div>
               </div>
             ) : (
-              <Link 
-                to="/login" 
+              <Link
+                to="/login"
                 onClick={() => {
                   setMobileOpen(false);
                   localStorage.setItem('loginSource', 'sign_in');
-                }} 
+                }}
                 className="no-underline"
               >
                 <div className='flex items-center justify-center px-5 h-[50px] w-[91px] rounded-lg border border-black/20 cursor-pointer hover:bg-gray-100'>
@@ -903,7 +924,7 @@ export default function Navbar() {
                 </div>
               </Link>
             )}
-            
+
             {/* Try Cloud Free 按钮 */}
             <div
               className='flex items-center justify-center px-5 h-[50px] w-[172px] rounded-lg bg-[#0087c7] text-white cursor-pointer hover:bg-[#0070a6]'
@@ -951,7 +972,7 @@ function LanguageDropdown() {
   const menuItems: MenuProps['items'] = locales.map((locale) => ({
     key: locale,
     label: (
-      <div 
+      <div
         className={`text-[16px] font-medium transition-colors ${
           locale === currentLocale 
             ? 'text-[#0087c7]' 
@@ -1021,7 +1042,7 @@ function MobileLanguageDropdown() {
             </div>
           )}
         </div>
-        <span 
+        <span
           className={`text-[14px] font-medium ${
             locale === currentLocale ? 'text-black' : 'text-gray-600'
           }`}

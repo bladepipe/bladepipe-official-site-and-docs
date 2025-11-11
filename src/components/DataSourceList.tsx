@@ -64,6 +64,10 @@ const dataSources = [
   { name: 'Paimon', icon: 'Paimon' },
   { name: 'Yuque', icon: 'Yuque' },
   { name: 'ElastiCache', icon: 'ElastiCache' },
+  { name: 'Amazon MSK', icon: 'AmazonMSK' },
+  { name: 'PolarDb for PostgreSQL', icon: 'PolarDBPg' },
+  { name: 'DeltaLake', icon: 'DeltaLake' },
+  { name: 'TDSQL-C', icon: 'TdsqlCMySQL' }
   // { name: 'ZhipuAI', icon: 'ZhipuAI' }
 ];
 
