@@ -116,9 +116,20 @@ export default function Login() {
 
   // 表单校验
   const validate = () => {
-    if (!loginModel.account) return { field: 'account', message: translate({ id: 'login.form.account.required', message: 'Account is required' }) };
-    if (activeLoginType === LOGIN_TYPES.ACCOUNT && !loginModel.password) return { field: 'password', message: translate({ id: 'login.form.password.required', message: 'Password is required' }) };
-    if ((activeLoginType === LOGIN_TYPES.SMS || activeLoginType === LOGIN_TYPES.EMAIL) && !loginModel.verifyCode) return { field: 'verifyCode', message: translate({ id: 'login.form.verifyCode.required', message: 'Verification code is required' }) };
+    if (!loginModel.account) {
+      return { field: 'account', message: translate({ id: 'login.form.account.required', message: 'Account is required' }) };
+    }
+
+    const needPassword = activeLoginType === LOGIN_TYPES.ACCOUNT || siteBrand === 'bladepipe';
+    if (needPassword && !loginModel.password) {
+      return { field: 'password', message: translate({ id: 'login.form.password.required', message: 'Password is required' }) };
+    }
+
+    const needVerifyCode = siteBrand !== 'bladepipe' && (activeLoginType === LOGIN_TYPES.SMS || activeLoginType === LOGIN_TYPES.EMAIL);
+    if (needVerifyCode && !loginModel.verifyCode) {
+      return { field: 'verifyCode', message: translate({ id: 'login.form.verifyCode.required', message: 'Verification code is required' }) };
+    }
+
     return null;
   };
 
@@ -148,8 +159,14 @@ export default function Login() {
         noModal: true,
       };
 
+      if (siteBrand === 'bladepipe') {
+        params.loginType = LOGIN_TYPE_LIST.LOGIN_PASSWORD;
+        params.verifyCode = '';
+        params.verifyType = '';
+      }
+
       // 如果是密码登录，需要加密密码
-      if (activeLoginType === LOGIN_TYPES.ACCOUNT) {
+      if (activeLoginType === LOGIN_TYPES.ACCOUNT || siteBrand === 'bladepipe') {
         params.password = passwordEncrypt(loginModel.password);
       }
       const res: any = await userLogin(params);
@@ -158,7 +175,7 @@ export default function Login() {
         console.log('Login successful');
         // 跳转逻辑已在userLogin中处理，这里不需要额外处理
       } else if (!res) {
-        const errorField = activeLoginType === LOGIN_TYPES.ACCOUNT ? 'password' : 'verifyCode';
+        const errorField = (activeLoginType === LOGIN_TYPES.ACCOUNT || siteBrand === 'bladepipe') ? 'password' : 'verifyCode';
         form.setFields([
           {
             name: errorField,
@@ -166,7 +183,7 @@ export default function Login() {
           }
         ]);
       } else {
-        const errorField = activeLoginType === LOGIN_TYPES.ACCOUNT ? 'password' : 'verifyCode';
+        const errorField = (activeLoginType === LOGIN_TYPES.ACCOUNT || siteBrand === 'bladepipe') ? 'password' : 'verifyCode';
         form.setFields([
           {
             name: errorField,
@@ -176,7 +193,7 @@ export default function Login() {
       }
     } catch (e) {
       setLoginLoading(false);
-      const errorField = activeLoginType === LOGIN_TYPES.ACCOUNT ? 'password' : 'verifyCode';
+      const errorField = (activeLoginType === LOGIN_TYPES.ACCOUNT || siteBrand === 'bladepipe') ? 'password' : 'verifyCode';
       form.setFields([
         {
           name: errorField,
