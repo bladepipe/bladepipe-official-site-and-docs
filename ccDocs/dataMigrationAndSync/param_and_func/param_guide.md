@@ -1,6 +1,6 @@
 ---
 id: param_guide
-title: 通用参数说明
+title: 通用参数
 description: CloudCanal 通用参数与功能
 ---
 CloudCanal 支持[配置任务参数](../../operation/job_manage/job_op/job_params.md)，用于控制任务配置、并发、错误处理等。合理配置任务参数能够提升数据同步效率。

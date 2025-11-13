@@ -145,5 +145,4 @@ description: 本文档主要介绍如何在 Linux/MacOS 系统下，全新安装
    也可登录官网获取免费社区版许可证。
    :::
 
-3. [添加任务运行机器](./ha_install.md)。
-4. [添加自建数据源](../../operation/datasource_manage/add_self_maintain_ds.md) 并 [创建一条数据同步任务](../../operation/job_manage/create_job/create_full_incre_task.md)。
+3. [添加自建数据源](../../operation/datasource_manage/add_self_maintain_ds.md) 并 [创建一条数据同步任务](../../operation/job_manage/create_job/create_full_incre_task.md)。

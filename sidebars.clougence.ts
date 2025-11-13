@@ -70,7 +70,8 @@ const sidebars: SidebarsConfig = {
                 "operation/job_manage/create_job/create_full_incre_task",
                 "operation/job_manage/create_job/create_process_job",
                 "operation/job_manage/create_job/create_data_filter_job",
-                "operation/job_manage/create_job/create_db_sync_job",
+                // "operation/job_manage/create_job/create_db_sync_job",
+                "operation/job_manage/create_job/create_regex_table_job",
                 "operation/job_manage/create_job/create_period_full_job",
                 "operation/job_manage/create_job/create_verification_correction_job"
               ]
@@ -182,25 +183,7 @@ const sidebars: SidebarsConfig = {
         "dataMigrationAndSync/datasource_version",
         {
           "type": "category",
-          "label": "通用参数与功能",
-          "items": [
-            "dataMigrationAndSync/param_and_func/param_guide",
-            "dataMigrationAndSync/param_and_func/print_message_detail",
-            "dataMigrationAndSync/param_and_func/zero_time_replace",
-            "dataMigrationAndSync/param_and_func/full_write_rps_limit",
-            "dataMigrationAndSync/param_and_func/perf_param",
-            "dataMigrationAndSync/param_and_func/skip_write_error",
-            "dataMigrationAndSync/param_and_func/skip_ddl_error",
-            "dataMigrationAndSync/param_and_func/adjust_task_spec",
-            "dataMigrationAndSync/param_and_func/sync_online_ddl",
-            "dataMigrationAndSync/param_and_func/job_no_autoreboot",
-            "dataMigrationAndSync/param_and_func/float_check"
-          ]
-        },
-        "dataMigrationAndSync/monitor",
-        {
-          "type": "category",
-          "label": "源端数据源",
+          "label": "链路特性",
           "items": [
             "dataMigrationAndSync/connection/mysql2",
             "dataMigrationAndSync/connection/mariadb2",
@@ -230,54 +213,12 @@ const sidebars: SidebarsConfig = {
             "dataMigrationAndSync/connection/googledrive2",
             "dataMigrationAndSync/connection/dameng2",
             "dataMigrationAndSync/connection/gaussdb2",
-            "dataMigrationAndSync/connection/dynamodb2",
-            // "dataMigrationAndSync/source/postgresql",
-            // "dataMigrationAndSync/source/sqlserver",
-            // "dataMigrationAndSync/source/greenplum",
-            // "dataMigrationAndSync/source/kafka",
-            // "dataMigrationAndSync/source/rocketmq",
-            // "dataMigrationAndSync/source/rabbitmq",
-            // "dataMigrationAndSync/source/mongodb",
-            // "dataMigrationAndSync/source/tunnel",
-            // "dataMigrationAndSync/source/starrocks",
-            // "dataMigrationAndSync/source/tidb",
-            // "dataMigrationAndSync/source/db2"
+            "dataMigrationAndSync/connection/dynamodb2"
           ]
         },
-        // },
-        // {
-        //     "type": "category",
-        //     "label": "对端数据源",
-        //     "items": [
-        //         "dataMigrationAndSync/target/MySQL",
-        //         "dataMigrationAndSync/target/TiDB",
-        //         "dataMigrationAndSync/target/PostgreSQL",
-        //         "dataMigrationAndSync/target/Greenplum",
-        //         "dataMigrationAndSync/target/ElasticSearch",
-        //         "dataMigrationAndSync/target/ClickHouse",
-        //         "dataMigrationAndSync/target/Kafka",
-        //         "dataMigrationAndSync/target/RocketMQ",
-        //         "dataMigrationAndSync/target/RabbitMQ",
-        //         "dataMigrationAndSync/target/Hive",
-        //         "dataMigrationAndSync/target/Oracle",
-        //         "dataMigrationAndSync/target/Kudu",
-        //         "dataMigrationAndSync/target/MongoDB",
-        //         "dataMigrationAndSync/target/SQLServer",
-        //         "dataMigrationAndSync/target/Redis",
-        //         "dataMigrationAndSync/target/StarRocks",
-        //         "dataMigrationAndSync/target/Doris",
-        //         "dataMigrationAndSync/target/OceanBase",
-        //         "dataMigrationAndSync/target/PolarDB-X",
-        //         "dataMigrationAndSync/target/Tunnel",
-        //         "dataMigrationAndSync/target/ADB for MySQL",
-        //         "dataMigrationAndSync/target/PolarDB for MySQL",
-        //         "dataMigrationAndSync/target/GaussDB for OpenGauss",
-        //         "dataMigrationAndSync/target/GaussDB for MySQL"
-        //     ]
-        // }
         {
           "type": "category",
-          "label": "数据源配置与功能",
+          "label": "权限、配置与功能",
           "items": [
             {
               "type": "category",
@@ -294,6 +235,7 @@ const sidebars: SidebarsConfig = {
                 "dataMigrationAndSync/datasource_func/Oracle/privs_for_oracle",
                 "dataMigrationAndSync/datasource_func/Oracle/oracle_dg_mode",
                 "dataMigrationAndSync/datasource_func/Oracle/prepare_for_oracle_logminer",
+                "dataMigrationAndSync/datasource_func/Oracle/prepare_for_aws_oracle",
                 "dataMigrationAndSync/datasource_func/Oracle/prepare_for_oracle_olr"
               ]
             },
@@ -427,7 +369,25 @@ const sidebars: SidebarsConfig = {
               ]
           },
           ]
-        }
+        },
+        {
+          "type": "category",
+          "label": "任务参数",
+          "items": [
+            "dataMigrationAndSync/param_and_func/param_guide",
+            "dataMigrationAndSync/param_and_func/print_message_detail",
+            "dataMigrationAndSync/param_and_func/zero_time_replace",
+            "dataMigrationAndSync/param_and_func/full_write_rps_limit",
+            "dataMigrationAndSync/param_and_func/perf_param",
+            "dataMigrationAndSync/param_and_func/skip_write_error",
+            "dataMigrationAndSync/param_and_func/skip_ddl_error",
+            "dataMigrationAndSync/param_and_func/adjust_task_spec",
+            "dataMigrationAndSync/param_and_func/sync_online_ddl",
+            "dataMigrationAndSync/param_and_func/job_no_autoreboot",
+            "dataMigrationAndSync/param_and_func/float_check"
+          ]
+        },
+        "dataMigrationAndSync/monitor"
       ]
     },
     {
@@ -772,11 +732,12 @@ const sidebars: SidebarsConfig = {
         "reference/file_schema_format",
         "reference/db2_incr_ddl_notice",
         "reference/rds_mysql_ram_least_privilege",
-        "reference/java_jdbc_types"
+        "reference/java_jdbc_types",
+        "reference/connect_private_db"
       ]
     }
   ],
-  
+
 };
 
 export default sidebars;

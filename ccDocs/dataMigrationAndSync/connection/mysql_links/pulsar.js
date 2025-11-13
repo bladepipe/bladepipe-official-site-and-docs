@@ -34,10 +34,10 @@ const Pulsar = {
             key: '表级别 Topic',
             desc: '最小按照源端表级别设置对应的 Topic，支持自动获取表分区'
         },
-        {
-            key: '全库同步',
-            desc: '支持源端新建、删除、修改表的 DDL 和数据同步，文档：[创建全库同步任务](../../operation/job_manage/create_job/create_db_sync_job)'
-        },
+        // {
+        //     key: '全库同步',
+        //     desc: '支持源端新建、删除、修改表的 DDL 和数据同步，文档：[创建全库同步任务](../../operation/job_manage/create_job/create_db_sync_job)'
+        // },
         {
             key: '定时全量迁移',
             desc: '文档1：[创建定时全量任务](../../operation/job_manage/create_job/create_period_full_job) <br /> 文档2：[定时全量实现增量数据迁移](../../bestPractice/time_schedule_full)'

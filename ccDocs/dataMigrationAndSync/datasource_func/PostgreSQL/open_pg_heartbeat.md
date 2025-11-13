@@ -32,11 +32,13 @@ PostgreSQL 作为源端的数据同步场景中，如果长时间无变更，会
 
    INSERT INTO public.__cc_hb_tab (gmt_modified) VALUES (CURRENT_TIMESTAMP);
    ```
+   
 2. 添加心跳表至对应任务的复制槽，并设置表复制属性，其中 **任务ID** 可在任务列表的 **任务ID&描述** 栏查看。
     ```sql
     ALTER PUBLICATION {任务ID}_increment ADD TABLE "public"."__cc_hb_tab";
     ALTER TABLE "public"."__cc_hb_tab" REPLICA IDENTITY FULL;
     ``` 
+   
 3. 进入任务详情页，点击 **功能列表** > **修改任务参数**。
 4. 选择 **源数据源配置** 页签，修改以下参数值：
      - 参数 **dbHeartbeatEnable** 设置为 true。

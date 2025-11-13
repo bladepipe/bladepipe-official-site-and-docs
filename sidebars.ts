@@ -62,7 +62,7 @@ const sidebars: SidebarsConfig = {
                 "operation/job_manage/create_job/create_full_incre_task",
                 "operation/job_manage/create_job/create_process_job",
                 "operation/job_manage/create_job/create_data_filter_job",
-                "operation/job_manage/create_job/create_db_sync_job",
+                // "operation/job_manage/create_job/create_db_sync_job",
                 "operation/job_manage/create_job/create_period_full_job",
                 "operation/job_manage/create_job/create_period_verification_correction_job"
               ]

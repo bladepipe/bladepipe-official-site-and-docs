@@ -34,10 +34,10 @@ const GreptimeDB = {
         }
     ],
     master_function: [
-        {
-            key: 'Whole Database Sync',
-            desc: 'Support sync of DDLs to create, delete, and modify tables as well as the data. For more information, see [Sync Whole Database](../../operation/job_manage/create_job/create_db_sync_job).'
-        },
+        // {
+        //     key: 'Whole Database Sync',
+        //     desc: 'Support sync of DDLs to create, delete, and modify tables as well as the data. For more information, see [Sync Whole Database](../../operation/job_manage/create_job/create_db_sync_job).'
+        // },
         {
             key: 'Scheduled Full Data Migration',
             desc: 'For more information, see [Create Scheduled Full Data DataJob](../../operation/job_manage/create_job/create_period_full_job).'
