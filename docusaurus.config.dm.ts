@@ -5,12 +5,12 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 const current_env = process.env.DEPLOYMENT_ENV || 'development';
 const SERVICE_URL = {
-  development: 'http://localhost:8111',
+  development: 'http://192.168.0.137:8222',
   staging: 'https://console.cdmgr.com',
   production: 'https://console.cdmgr.com'
 };
 const CLOUD_URL = {
-  development: 'http://localhost:8111',
+  development: 'http://localhost:8080',
   staging: 'https://console.cdmgr.com',
   production: 'https://console.cdmgr.com'
 };

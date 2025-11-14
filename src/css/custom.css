@@ -733,6 +733,14 @@ article a:hover,
   color: #000 !important;
 }
 
+.theme-doc-markdown p:last-child, .theme-doc-markdown pre {
+  margin-bottom: 0 !important;
+}
+
+.theme-doc-markdown li {
+    margin-bottom: 1em!important;
+}
+
 /* 代码块背景颜色 */
 /* 更全面的代码块选择器 */
 .prism-code,
@@ -851,14 +859,14 @@ button[title*="Copy"]:hover {
     background-color: #F3F6FE !important;
     border-radius: 6px !important;
   }
-  
+
   /* 普通菜单项的悬停效果 */
   .menu__list-item:not(.menu__list-item--collapsible) > .menu__link:hover,
   .menu__list-item:not([class*="collapsible"]) > .menu__link:hover {
     background-color: rgba(0, 135, 199, 0.05) !important;
     border-radius: 6px !important;
   }
-  
+
   /* 确保子菜单项始终透明背景 */
   .menu__list .menu__list-item > .menu__link:hover {
     background-color: transparent !important;
@@ -933,7 +941,7 @@ input:focus {
 .theme-doc-toc-mobile {
   display: none!important;
 }
-/* 
+/*
 .ant-table-wrapper .ant-table.ant-table-bordered >.ant-table-container {
   border-top: none!important;
 } */
@@ -1232,7 +1240,7 @@ article img {
     padding-left: 2rem !important;
     padding-right: 2rem !important;
   }
-  
+
   /* 页面内容区域边距 */
   .w-full.max-w-\[1320px\] {
     padding-left: 2rem !important;
@@ -1255,12 +1263,12 @@ article img {
   .navbar .text-\[16px\] {
     font-size: 14px !important;
   }
-  
+
   /* 导航菜单项间距调整 */
   .navbar .gap-4 {
     gap: 0.5rem !important;
   }
-  
+
   /* 导航菜单项内边距调整 */
   .navbar .px-5 {
     padding-left: 0.75rem !important;
@@ -1293,16 +1301,16 @@ article img {
   .version-card {
     padding: 12px;
   }
-  
+
   .version-tag {
     font-size: 11px;
     padding: 3px 6px;
   }
-  
+
   .generated-index-page {
     padding: 15px;
   }
-  
+
   /* 移动端容器边距 */
   .container,
   .max-w-\[1320px\] {

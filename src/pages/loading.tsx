@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Spin, message, Form, Input, Button } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
-import Layout from '@theme/Layout';
 import { ssoAuth } from '@site/src/apis/user';
 import { useCookies } from 'react-cookie';
 import { useLocation, useHistory } from '@docusaurus/router';
@@ -183,8 +182,7 @@ export default function Loading() {
   };
 
   return (
-    <Layout>
-      <div className='w-full min-h-screen flex justify-center items-center bg-white' style={{ minHeight: 'calc(100vh - 80px)' }}>
+    <div className='w-full min-h-screen flex justify-center items-center bg-white'>
         {!showAddPhone ? (
           /* Loading 效果 */
           <div className='flex flex-col items-center gap-6'>
@@ -195,7 +193,7 @@ export default function Loading() {
           </div>
         ) : (
           /* 注册信息补充表单 - 借鉴 login 页面样式 */
-          <div className='w-[416px] flex flex-col gap-[40px] justify-center items-center px-4 sm:px-0 py-8 sm:py-0' style={{ marginTop: '-40px' }}>
+        <div className='w-[416px] flex flex-col gap-[40px] justify-center items-center px-4 sm:px-0 py-8 sm:py-0'>
             {/* 标题 */}
             <h2 className='h-[32px] text-[24px] font-bold leading-[32px] text-[#131316]'>
               <Translate id='loading.form.title'>注册信息补充</Translate>
@@ -300,6 +298,5 @@ export default function Loading() {
           </div>
         )}
       </div>
-    </Layout>
   );
 }
