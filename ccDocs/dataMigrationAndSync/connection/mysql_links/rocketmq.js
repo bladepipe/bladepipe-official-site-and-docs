@@ -34,10 +34,10 @@ const RocketMQ = {
             key: 'DDL 专用 Topic',
             desc: '支持指定 Topic 发送 DDL, 如未指定，则放置 DDL 时间在对应表 Topic 分区 0 中'
         },
-        {
-            key: '全库同步',
-            desc: '支持源端新建、删除、修改表的 DDL 和数据同步，文档：[创建全库同步任务](../../operation/job_manage/create_job/create_db_sync_job)'
-        },
+        // {
+        //     key: '全库同步',
+        //     desc: '支持源端新建、删除、修改表的 DDL 和数据同步，文档：[创建全库同步任务](../../operation/job_manage/create_job/create_db_sync_job)'
+        // },
         {
             key: '定时全量迁移',
             desc: '文档1：[创建定时全量任务](../../operation/job_manage/create_job/create_period_full_job) <br /> 文档2：[定时全量实现增量数据迁移](../../bestPractice/time_schedule_full)'

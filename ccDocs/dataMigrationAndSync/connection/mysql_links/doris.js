@@ -51,8 +51,8 @@ const Doris = {
             desc: '文档1：[创建定时全量任务](../../operation/job_manage/create_job/create_period_full_job) <br /> 文档2：[定时全量实现增量数据迁移](../../bestPractice/time_schedule_full)'
         },
         {
-            key: '全库同步',
-            desc: '支持源端新建、删除、修改表的 DDL 和数据同步，文档：[创建全库同步任务](../../operation/job_manage/create_job/create_db_sync_job)'
+            key: '表达式表名',
+            desc: '支持按正则表达式表名迁移同步数据，实现全库同步、分表汇聚等功能中自动增减表需求，文档：[表达式任务](../../operation/job_manage/create_job/create_regex_table_job)'
         },
         {
             key: '自定义代码',

@@ -43,6 +43,10 @@ const PostgreSQL = {
             desc: '文档1：[创建自定义代码任务](../../operation/job_manage/create_job/create_process_job) <br />文档2：[自定义代码任务 debug](../../operation/job_manage/job_op/debug_customer_code) <br />文档3：[在自定义代码中打日志](../../operation/job_manage/job_op/log_in_customer_code)'
         },
         {
+            key: '表达式表名',
+            desc: '支持按正则表达式表名迁移同步数据，实现全库同步、分表汇聚等功能中自动增减表需求，文档：[表达式任务](../../operation/job_manage/create_job/create_regex_table_job)'
+        },
+        {
             key: '添加虚拟列',
             desc: '支持添加自定义的虚拟列，指定的值为固定值，如区域、编号等'
         },

@@ -39,20 +39,31 @@ description: 本文档主要介绍如何以 TGZ 方式来安装部署 CloudCanal
 
     passwd clougence
     ```
+    
+    :::info
+    可通过 **修改用户主目录** 达成变更软件安装目录的目的。
 
-3. 给用户赋 sudo 权限。
+    如已修改，在执行后续命令时请手动修改默认目录(/home/clougence)。
+   
+    示例
+    - **useradd -d /app/clougence -m clougence**
+    - **useradd -d /u01/clougence -m clougence**
+    - **...**
+    :::
+
+4. 给用户赋 sudo 权限。
     ```bash
     echo "clougence ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
     ```
 
-4. 创建业务目录。
+5. 创建业务目录。
     ```bash
     mkdir -p /home/clougence/{logs,backup,tar_gz}
     
     chown clougence:clougence /home/clougence/*
     ```
 
-5. （可选）关闭系统防火墙, 并设置 selinux=disabled。
+6. （可选）关闭系统防火墙, 并设置 selinux=disabled。
     ```bash
     firewall-cmd --state
 
@@ -63,7 +74,7 @@ description: 本文档主要介绍如何以 TGZ 方式来安装部署 CloudCanal
     firewall-cmd --state
     ```
 
-6. 调整内核参数。
+7. 调整内核参数。
     ```bash
     vim /etc/security/limits.conf
 

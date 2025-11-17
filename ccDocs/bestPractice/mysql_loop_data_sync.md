@@ -72,7 +72,7 @@ DML 在 binlog 中正常的事件顺序依次为 QueryEvent(TxBegin)、TableMapE
 ### 创建反向同步任务
 1. 点击 **同步任务** > **创建任务**。
 2. 进入源&目标设置页面，选择源端和目标端数据源（**请和正向任务所选数据源对调**）和相关信息，点击**下一步**。
-  ![loop_sync_5](../assets/loop_data_sync/5.png)
+   ![loop_sync_5](../assets/loop_data_sync/5.png)
 
 3. 进入功能配置页面，进行以下配置：
     1. 任务类型选择 **增量同步**，并去除 **全量初始化** 勾选。

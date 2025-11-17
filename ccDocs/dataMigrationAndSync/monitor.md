@@ -1,6 +1,6 @@
 ---
 id: monitor
-title: 通用监控指标
+title: 任务监控指标
 description: CloudCanal任务运行时根据源对端数据源类型不同可以展示不同的监控指标
 ---
 

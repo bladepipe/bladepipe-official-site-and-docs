@@ -1,6 +1,6 @@
 ---
 id: datasource_version
-title: 数据源种类和版本支持
+title: 数据库版本
 description: CloudCanal 支持的数据源版本支持
 ---
 
