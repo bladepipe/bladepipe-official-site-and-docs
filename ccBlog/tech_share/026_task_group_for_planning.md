@@ -6,7 +6,7 @@ date: 2025-07-10
 authors: mumu
 tags:
   - tech_share
-image: /img/ccBlog/tech_share/task_group_for_planning.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/tech_share/task_group_for_planning.png
 slug: /data_insights/task_group_for_planning
 ---
 

@@ -6,7 +6,7 @@ date: 2024-11-20
 authors: mumu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/oracle_es_sync.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/oracle_es_sync.png 
 slug: /data_sync_sample/oracle_es_sync
 ---
 

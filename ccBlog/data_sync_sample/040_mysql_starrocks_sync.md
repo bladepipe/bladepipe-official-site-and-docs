@@ -6,7 +6,7 @@ date: 2024-11-13
 authors: mumu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/mysql_starrocks_sync.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/mysql_starrocks_sync.png
 slug: /data_sync_sample/mysql_starrocks_sync
 ---
 ## 简述

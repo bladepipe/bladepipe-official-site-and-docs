@@ -6,7 +6,7 @@ date: 2022-06-14
 authors: juantu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/sqlserver_mysql_sync_basic.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/sqlserver_mysql_sync_basic.png 
 slug: /data_sync_sample/sqlserver_mysql_sync_basic
 ---
 ## 简述
@@ -58,29 +58,29 @@ CloudCanal 对 SQLServer DDL 同步解决了第一点，但是对于第二点，
 - 登录 CloudCanal 平台
 - **数据源管理**->**新增数据源**
 - 将源端**SQLServer**和目标端**MySQL** 分别添加
-  ![截屏2021-12-28 上午11.25.43.png](../assets/blog/wufenzhong/0011/1.png)
+  ![截屏2021-12-28 上午11.25.43.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0011/1.png)
 
 ### 任务创建
 - **任务管理**->**任务创建**
 - 选择 **源** 和 **目标** 数据源
-  ![截屏2021-12-28 下午12.12.48.png](../assets/blog/wufenzhong/0011/2.png)
+  ![截屏2021-12-28 下午12.12.48.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0011/2.png)
 - 选择 **数据同步**，勾选 **全量数据初始化**, 勾选 DDL **不同步**
-  ![截屏2021-12-28 下午12.14.38.png](../assets/blog/wufenzhong/0011/3.png)
+  ![截屏2021-12-28 下午12.14.38.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0011/3.png)
 - 选择需要迁移同步的表
 - 选择列,默认全选
 - 确认创建
-  ![截屏2021-12-28 下午12.15.51.png](../assets/blog/wufenzhong/0011/4.png)
+  ![截屏2021-12-28 下午12.15.51.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0011/4.png)
 - 查看异步任务，确认创建步骤正常
-  ![截屏2021-12-28 下午12.16.34.png](../assets/blog/wufenzhong/0011/5.png)
+  ![截屏2021-12-28 下午12.16.34.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0011/5.png)
 - 任务自动运行
-  ![截屏2021-12-28 下午12.17.26.png](../assets/blog/wufenzhong/0011/6.png)
+  ![截屏2021-12-28 下午12.17.26.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0011/6.png)
 
 ### 校验数据
 - 持续造增量数据，INSERT & UPDATE & DELETE 比例 2:7:1
-  ![截屏2021-12-28 下午12.18.12.png](../assets/blog/wufenzhong/0011/7.png)
+  ![截屏2021-12-28 下午12.18.12.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0011/7.png)
 -  停止增量造数据
 -  创建校验任务，并校验任务结果
-   ![截屏2021-12-28 下午12.24.38.png](../assets/blog/wufenzhong/0011/8.png)
+   ![截屏2021-12-28 下午12.24.38.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0011/8.png)
 
 ## 常见问题
 

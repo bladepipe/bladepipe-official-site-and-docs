@@ -5,11 +5,11 @@ description: Docker 版安装失败
 ---
 ## 现象
 * 初次安装 CloudCanal 安装脚本有如下提示
-  ![install_script_fail.png](../assets/faq/solve_install_fail_image_01.png)
+  ![install_script_fail.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/faq/solve_install_fail_image_01.png)
 * 进入 CloudCanal Web 页面有如下报错
-  ![solve_install_fail_image_02.png](../assets/faq/solve_install_fail_image_02.png)
+  ![solve_install_fail_image_02.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/faq/solve_install_fail_image_02.png)
 * 执行 `docker ps -a | grep cloudcanal` 命令，正在运行的容器只有 Console 和 MySQL 
-  ![solve_install_fail_image_03.png](../assets/faq/solve_install_fail_image_03.png)
+  ![solve_install_fail_image_03.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/faq/solve_install_fail_image_03.png)
 ## 排查
 ### 原因
 * 初次安装时修改 MySQL 容器密码，导致 Console 容器连接不上 MySQL 容器。

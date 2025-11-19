@@ -6,7 +6,7 @@ date: 2024-01-04
 authors: juantu
 tags:
   - tech_share
-image: /img/ccBlog/tech_share/redis_change_data_capture_optimize.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/tech_share/redis_change_data_capture_optimize.png
 slug: /data_insights/redis_change_data_capture_optimize
 ---
 ## 简述
@@ -36,7 +36,7 @@ Redis 到 Redis 数据同步在原先支持 **Set、Hset、Del、Hdel、Expire**
 
 对于 **Expire** 指令，数据同步如果直接应用到目标端，会导致目标端数据过期晚于源端，因此 CloudCanal 在处理这类命令时，将 Expire 转换为绝对时间命令 **PExpireAt**，从而实现源对端 Key 同时过期。
 
-![image.png](../assets/blog/tech_share/0015/1.png)
+![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0015/1.png)
 
 ### 双向同步防循环优化
 优化前，Redis -> Redis 双向同步防循环策略采用 **辅助指令进行判定**，当收到正常指令，计算 hash 值，构建辅助指令，以反查辅助指令 key 是否存在进行数据过滤。
@@ -52,7 +52,7 @@ Redis 到 Redis 数据同步在原先支持 **Set、Hset、Del、Hdel、Expire**
 - 无需考虑辅助指令过期问题
 - 能支持大部分指令防循环（Incr、IncrBy等）
 
-![image.png](../assets/blog/tech_share/0015/2.png)
+![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0015/2.png)
 
 ### 指令解析 / 处理优化
 

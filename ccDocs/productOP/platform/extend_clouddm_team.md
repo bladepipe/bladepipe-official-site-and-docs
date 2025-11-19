@@ -73,7 +73,7 @@ CloudDM 是 CloudCanal 同一个厂商推出的在线数据管理产品， Team 
   vi /home/clougence/clouddm/console/conf/console.properties
   ```
   
-  ![](../../assets/extend_clouddm_team/replace_rdp_meta_db_addr.png)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/extend_clouddm_team/replace_rdp_meta_db_addr.png)
 
 - 重启 clouddm-console ,并查看 console.log 确认元数据库链接正常
 
@@ -90,15 +90,15 @@ CloudDM 是 CloudCanal 同一个厂商推出的在线数据管理产品， Team 
 - 主账号登录 CloudCanal 控制台
 - **配置** > **产品集群管理**
 
-  ![](../../assets/extend_clouddm_team/product_cluster_manage.png)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/extend_clouddm_team/product_cluster_manage.png)
 
 - 添加 CloudCanal 产品集群
 
-  ![](../../assets/extend_clouddm_team/add_cloudcanal_cluster.png)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/extend_clouddm_team/add_cloudcanal_cluster.png)
 
 - 添加 CloudDM Team 产品集群
 
-  ![](../../assets/extend_clouddm_team/add_clouddm_cluster.png)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/extend_clouddm_team/add_clouddm_cluster.png)
 
 ### 完成安装 
 
@@ -107,11 +107,11 @@ CloudDM 是 CloudCanal 同一个厂商推出的在线数据管理产品， Team 
 - 从 CloudCanal 控制台进入，可访问两个产品所有能力
 - 对数据源进行 **数据查询**
 
-  ![](../../assets/extend_clouddm_team/validate_clouddm.png)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/extend_clouddm_team/validate_clouddm.png)
 
 - 对数据源进行 **数据迁移同步**
   
-  ![](../../assets/extend_clouddm_team/validate_cloudcanal.png)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/extend_clouddm_team/validate_cloudcanal.png)
 
 ### FAQ
 **Q: CloudDM 不断登录怎么办？**

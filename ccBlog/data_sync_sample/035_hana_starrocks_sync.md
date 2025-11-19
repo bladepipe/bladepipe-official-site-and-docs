@@ -6,7 +6,7 @@ date: 2024-04-26
 authors: juantu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/hana_starrocks_sync.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/hana_starrocks_sync.png 
 slug: /data_sync_sample/hana_starrocks_sync
 ---
 
@@ -24,7 +24,7 @@ HANA 一般内置在 SAP ERP 系统中提供服务，在制造业应用广泛。
 ## 技术要点
 ### 数据同步整体流程
 CloudCanal 实现 HANA 增量数据同步主要使用其触发器捕获变更事件，整体流程如下：
-![](../assets/blog/tech_share/0012/overall_process.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0012/overall_process.png)
 - 安装触发器，通过触发器捕获增量变更数据 
 - 记录位点，记录增量数据数据同步的起点
 - 执行全量数据迁移
@@ -39,7 +39,7 @@ CloudCanal 实现 HANA 增量数据同步主要使用其触发器捕获变更事
 安装触发器的方式与创建存储过程类似，即通过执行 SQL 创建触发器。
 
 通过触发器实现增量数据同步，需要触发器捕获数据的I/U/D变更事件并写入**增量 CDC 数据表**，数据的变更事件最终都会写到**增量 CDC 数据表**,执行流程如下：
-![](../assets/blog/tech_share/0012/trigger_exec.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0012/trigger_exec.png)
 
 ### 其他 HANA 同步方案
 目前支持同步 HANA 数据的产品还有 Informatica、Qlik 等，实现方案也是通过触发器。
@@ -55,49 +55,49 @@ CloudCanal 实现 HANA 增量数据同步主要使用其触发器捕获变更事
 ### 添加数据源
 
 - 登录 CloudCanal ,**数据源管理**->**添加数据源**
-  ![添加数据源](../assets/blog/wufenzhong/0035/ds_list.png)
+  ![添加数据源](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0035/ds_list.png)
 
 - 创建源端数据源, 选择**自建数据源**，选择 HANA 并填写相关信息
   > **默认数据库**: 即需要同步的数据所在数据库，常见默认数据库：SYSTEMDB、HXE、DB0
   
-  ![image.png](../assets/blog/wufenzhong/0035/add_hana.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0035/add_hana.png)
 
 - 创建目标端数据源，选择**自建数据源**，选择StarRocks，并填写相关信息
   > **Client地址**: CloudCanal 用其查询库表表的元数据信息，对应 StarRocks QueryPort，默认端口为 9030
 
   > 额外参数 **Http地址**: StarRocks 接收 streamload 的 http 请求，此处可填写 BE 节点地址，默认端口为 8040 , 如需负载均衡也可直接填写 FE节点 地址和端口，FE节点默认端口 8030
 
-  ![image.png](../assets/blog/wufenzhong/0035/add_sr.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0035/add_sr.png)
 
 - 数据源创建成功
-  ![image.png](../assets/blog/wufenzhong/0035/add_success.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0035/add_success.png)
 
 ### 任务创建
 
 - **任务管理** > **创建任务**
-  ![image.png](../assets/blog/wufenzhong/0035/create_task.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0035/create_task.png)
 
 - 源端选择 **HANA** 数据源，目标端选择 **StarRocks** 数据源，分别点击**测试连接**按钮并设置数据库映射关系
 - 点击下一步
-  ![image.png](../assets/blog/wufenzhong/0035/create_task_select_hana.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0035/create_task_select_hana.png)
 
 - 选择 **增量同步**，并且勾选 **全量初始化**
 - 点击下一步
-  ![image.png](../assets/blog/wufenzhong/0035/create_task_type.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0035/create_task_type.png)
 
 - 选择订阅的表
 - 点击下一步
-  ![image.png](../assets/blog/wufenzhong/0035/create_task_map_table.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0035/create_task_map_table.png)
 
 - 配置列映射
 - 点击下一步
-  ![image.png](../assets/blog/wufenzhong/0035/create_task_map_column.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0035/create_task_map_column.png)
 
 - 点击创建任务
-  ![image.png](../assets/blog/wufenzhong/0035/create_task_last_step.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0035/create_task_last_step.png)
 
 - 任务创建成功并启动后，会自动执行结构迁移、全量迁移、增量同步
-  ![image.png](../assets/blog/wufenzhong/0035/hana_syncing.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0035/hana_syncing.png)
 
 ## 总结
 本文简单介绍了如何使用 [CloudCanal](https://www.clougence.com?src=cc-doc-blog-hana-starrocks-syn) 进行 HANA 到 StarRocks 数据迁移同步。

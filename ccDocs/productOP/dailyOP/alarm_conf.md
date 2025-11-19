@@ -112,7 +112,7 @@ CloudCanal 任务告警、机器告警均需要先完成系统的告警配置才
 1. 点击 **同步设置** > **告警日志**，打开告警详情页面。
 2. 调整时间范围并点击 **查询**。
 3. 若有发送结果为失败的记录，可将鼠标悬停在“失败”上查看错误明细。
-![alarm_conf_1.png](../../assets/alarm_conf/alarm_conf_1.png)
+![alarm_conf_1.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/alarm_conf/alarm_conf_1.png)
 
 
 

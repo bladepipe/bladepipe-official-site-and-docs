@@ -6,7 +6,7 @@ date: 2025-06-05
 authors: mumu
 tags:
   - tech_share
-image: /img/ccBlog/tech_share/best_practice_in_intercontinental_data_sync.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/tech_share/best_practice_in_intercontinental_data_sync.png
 slug: /data_insights/intercontinental_data_sync
 ---
 
@@ -66,7 +66,7 @@ CloudCanal 数据同步过程中，获取增量数据的方式因源端数据库
 
 从 CloudCanal 技术实现来看，**目标端写入优化措施比源端更多且更可控**。因此，我们通常建议将 CloudCanal 与源端数据库部署在同一区域，以降低网络延迟、网络质量等因素对数据获取的影响。
 
-![](../assets/blog/tech_share/intercontinental_data_sync/1.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/intercontinental_data_sync/1.png)
 
 但这一理论假设是否成立？我们通过 MySQL 到 MySQL 的跨洲际迁移同步进行了实际验证。
 
@@ -81,21 +81,21 @@ CloudCanal 数据同步过程中，获取增量数据的方式因源端数据库
 
 **实验计划**：进行两次相同的数据迁移和同步，对比数据迁移和数据同步的性能。
 
-![](../assets/blog/tech_share/intercontinental_data_sync/2.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/intercontinental_data_sync/2.png)
 
 
 ### 实验过程
 
 1. 在 **新加坡 MySQL** 上新造 130 万行数据。
 2. 使用部署在 **新加坡虚拟机上的 CloudCanal** 任务迁移 **新加坡 MySQL** 数据到 **硅谷 MySQL**，记录新加坡迁移任务的性能。  
-![](../assets/blog/tech_share/intercontinental_data_sync/3.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/intercontinental_data_sync/3.png)
 3. 在 **新加坡 MySQL** 上变更一批数据（UPDATE 和 INSERT），记录新加坡同步任务的性能。 
-![](../assets/blog/tech_share/intercontinental_data_sync/4.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/intercontinental_data_sync/4.png)
 4. 停止新加坡迁移同步任务，删除 **硅谷 MySQL** 上的数据。
 5. 使用部署在 **硅谷虚拟机上的 CloudCanal** 任务迁移 **新加坡 MySQL** 数据到 **硅谷 MySQL**，记录硅谷迁移任务的性能。 
-![](../assets/blog/tech_share/intercontinental_data_sync/5.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/intercontinental_data_sync/5.png)
 6. 在 **新加坡 MySQL** 上变更一批数据（UPDATE 和 INSERT），记录硅谷同步任务的性能。
-![](../assets/blog/tech_share/intercontinental_data_sync/6.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/intercontinental_data_sync/6.png)
 
 ### 实验结果与分析
 
@@ -106,7 +106,7 @@ CloudCanal 数据同步过程中，获取增量数据的方式因源端数据库
 | 新加坡   |  数据同步  | 8k records/sec |
 | 硅谷    |  数据同步  | 32k records/sec |
 
-![](../assets/blog/tech_share/intercontinental_data_sync/7.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/intercontinental_data_sync/7.png)
 
 从实际操作结果来看，**将 CloudCanal 部署在目标端（硅谷）环境时，数据迁移同步性能显著优于部署在源端（新加坡）的方案**，这与我们的初始假设相悖。
 

@@ -31,48 +31,48 @@ title: 单集群 1300 个实时同步任务验证
 ### 安装 console
 - 根据 [tgz 安装文档](../productOP/tgz/firstinstall_with_tgz.md)初始化环境并安装
 - [激活 CloudCanal](../license/license_use.md),因社区版任务数限制,我们临时申请了一个 2000 个同步任务的 license
-  ![console](../assets/13k/console.png)
+  ![console](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/13k/console.png)
 
 ### 安装节点
 - **机器管理** > **机器列表** > **添加机器**，选择自动安装
-  ![auto_install](../assets/13k/auto_install.png)
+  ![auto_install](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/13k/auto_install.png)
 - 等待节点安装完成
-  ![auto_install_result](../assets/13k/auto_install_result.png)
+  ![auto_install_result](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/13k/auto_install_result.png)
 
 ### 业务数据库准备
 - 两个  RDS 分别创建源端 src_test_a 和 src_test_b 库，以及 **target_db_0~target_db_999 1000个目标库**。
 - 一个任务源端和目标分别是 src_test_a/src_test_b -> target_db_(i)
-  ![target_1](../assets/13k/target_1.png)
-  ![target_2](../assets/13k/target_2.png)
+  ![target_1](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/13k/target_1.png)
+  ![target_2](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/13k/target_2.png)
 - 源端各创建 1 张表，并各生成 1000 条数据
-  ![source_1](../assets/13k/source_1.png)
-  ![source_2](../assets/13k/source_2.png)
+  ![source_1](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/13k/source_1.png)
+  ![source_2](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/13k/source_2.png)
 
 ### 基于 OpenAPI 创建任务
 - 设置任务参数模版 **LE_256MB_TASK** ，以便生成任务时自动调整
-  ![task_config_template](../assets/13k/task_config_template.png)
+  ![task_config_template](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/13k/task_config_template.png)
 
 - 获取 AccessKey 和 SecretKey 以便调用 API 创建任务
-  ![ak_sk_fetch](../assets/13k/ak_sk_fetch.png)
+  ![ak_sk_fetch](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/13k/ak_sk_fetch.png)
 
 - 向元数据库插入 **128MB 规格**数据
-  ![prepare_spec_data](../assets/13k/prepare_spec_data.png)
+  ![prepare_spec_data](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/13k/prepare_spec_data.png)
 
 - 编写调用 OpenAPI 代码，1 次 100 个任务创建, [代码参考](https://gitee.com/clougence/cloudcanal-openapi-sdk/blob/master/src/test/java/com/clougence/cloudcanal/openapi/sdk/DataJobApiHugeJobAction.java)
-  ![data_job_create_base_api](../assets/13k/data_job_create_base_api.png)
+  ![data_job_create_base_api](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/13k/data_job_create_base_api.png)
 
 ## 健康状况
 - 任务正常运行，任务查看/新建/启停/删除、任务调度、监控告警、页面功能查看均表现正常顺滑
-  ![datajob_status](../assets/13k/datajob_status.png)
+  ![datajob_status](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/13k/datajob_status.png)
 
 - 控制台负载偏高，因为只用了 2 core 节点，需提升为 4 core
-  ![console_status](../assets/13k/console_status.png)
+  ![console_status](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/13k/console_status.png)
 
 - 节点负载正常
-  ![worker_status](../assets/13k/worker_status.png)
+  ![worker_status](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/13k/worker_status.png)
 
 - 元数据库负载正常，qps 偏高，需要优化任务数据（状态、位点等）上传频率和方式
-  ![db_status](../assets/13k/db_status.png)
+  ![db_status](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/13k/db_status.png)
 
 ## 可改进点
 - 任务数据（状态/位点等）上报频率、种类需要优化，对元数据库压力较高

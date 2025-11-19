@@ -18,5 +18,5 @@ Invalid JSON text: The document root must not be followed by other values.
 
 ### 步骤
 1. **任务详情** > **更多功能** > **参数修改** > **源数据源配置**，设置参数 **needJsonEscape** 为 true
-   ![](../assets/faq/invalid_json_src_mysql.png)
+   ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/faq/invalid_json_src_mysql.png)
 2. 点击右上角 **生效配置** 并确认

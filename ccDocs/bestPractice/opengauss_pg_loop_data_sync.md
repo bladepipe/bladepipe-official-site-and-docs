@@ -41,11 +41,11 @@ create table "your_schema"."__cc_tx_de_cycle" (
 - 本案例采用阿里云上搭建 openGauss 作为源对端，可根据 [PostgreSQL 链路文档](https://www.clougence.com/cc-doc/dataMigrationAndSync/connection/postgresql2) 做增量设置。
 - 登录 CloudCanal 平台 ，**数据源管理** -> **添加数据源**  , 将准备的数据库逐步添加进来
   
-  ![pg_loop_data_sync_1](../assets/pg_loop_data_sync/pg_loop_data_sync_1.png)
+  ![pg_loop_data_sync_1](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_1.png)
 
 - 创建标记表
 
-  ![pg_loop_data_sync_2](../assets/pg_loop_data_sync/pg_loop_data_sync_2.png)
+  ![pg_loop_data_sync_2](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_2.png)
 
 ### 创建正向同步任务
 - **任务管理**->**新建任务**
@@ -53,13 +53,13 @@ create table "your_schema"."__cc_tx_de_cycle" (
 - 选择源端和目标端数据源
 - 点击下一步
   
-  ![pg_loop_data_sync_3](../assets/pg_loop_data_sync/pg_loop_data_sync_3.png)
+  ![pg_loop_data_sync_3](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_3.png)
 
 - 选择 **数据同步**，并且勾选 **全量数据初始化**
 - **置灰自动启动**，以便创建任务后设置双向同步参数
 - 点击下一步
 
-  ![pg_loop_data_sync_4](../assets/pg_loop_data_sync/pg_loop_data_sync_4.png)
+  ![pg_loop_data_sync_4](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_4.png)
  
 - 选表、列映射裁剪...省略，点击下一步
 - **确认创建**
@@ -69,20 +69,20 @@ create table "your_schema"."__cc_tx_de_cycle" (
   - 生效配置
   - 启动任务
 
-  ![pg_loop_data_sync_5](../assets/pg_loop_data_sync/pg_loop_data_sync_5.png)
+  ![pg_loop_data_sync_5](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_5.png)
 
 ### 创建反向同步任务
 - **任务管理**->**新建任务**
 - 选择源端和目标端选择数据源（**请和正向任务所选数据源对调**）和相关信息
 - 点击下一步
 
-  ![pg_loop_data_sync_6](../assets/pg_loop_data_sync/pg_loop_data_sync_6.png)
+  ![pg_loop_data_sync_6](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_6.png)
 
 - 选择 **数据同步**，并去除**全量数据初始化**勾选
 - **置灰自动启动**，以便创建任务后设置双向同步参数
 - 点击下一步
 
-  ![pg_loop_data_sync_7](../assets/pg_loop_data_sync/pg_loop_data_sync_7.png)
+  ![pg_loop_data_sync_7](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_7.png)
 
 - 选表、列映射裁剪...省略，点击下一步
 - **确认创建**
@@ -92,24 +92,24 @@ create table "your_schema"."__cc_tx_de_cycle" (
   - 生效配置
   - 启动任务
 
-  ![pg_loop_data_sync_8](../assets/pg_loop_data_sync/pg_loop_data_sync_8.png)
+  ![pg_loop_data_sync_8](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_8.png)
 
 - 任务正常运行
-  ![pg_loop_data_sync_9](../assets/pg_loop_data_sync/pg_loop_data_sync_9.png)
+  ![pg_loop_data_sync_9](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_9.png)
 
 ### 测试
 - 源端数据库做数据变更，正向任务监控有变更，反向任务没有(即无循环)
-  ![pg_loop_data_sync_9](../assets/pg_loop_data_sync/pg_loop_data_sync_10.png)
-  ![pg_loop_data_sync_9](../assets/pg_loop_data_sync/pg_loop_data_sync_11.png)
-  ![pg_loop_data_sync_9](../assets/pg_loop_data_sync/pg_loop_data_sync_12.png)
+  ![pg_loop_data_sync_9](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_10.png)
+  ![pg_loop_data_sync_9](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_11.png)
+  ![pg_loop_data_sync_9](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_12.png)
 
 - 目标端数据库做数据变更，反向任务监控有变更，正向任务没有(即无循环)
-  ![pg_loop_data_sync_9](../assets/pg_loop_data_sync/pg_loop_data_sync_13.png)
-  ![pg_loop_data_sync_9](../assets/pg_loop_data_sync/pg_loop_data_sync_14.png)
-  ![pg_loop_data_sync_9](../assets/pg_loop_data_sync/pg_loop_data_sync_15.png)
+  ![pg_loop_data_sync_9](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_13.png)
+  ![pg_loop_data_sync_9](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_14.png)
+  ![pg_loop_data_sync_9](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_15.png)
 
 - 最后做下校验
-  ![pg_loop_data_sync_9](../assets/pg_loop_data_sync/pg_loop_data_sync_16.png)
+  ![pg_loop_data_sync_9](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_16.png)
 
 ## 总结
 本文即以 [openGauss](https://opengauss.org/zh/) 为示例介绍如何使用 [CloudCanal](https://www.clougence.com?src=cc-doc-pg-loop-sync) 做 PostgreSQL 双向同步并防循环，助力用户实现异地多活、灾备业务目标。

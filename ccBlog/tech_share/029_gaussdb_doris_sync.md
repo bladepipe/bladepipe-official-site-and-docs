@@ -6,7 +6,7 @@ date: 2025-08-21
 authors: junyu
 tags:
   - tech_share
-image: /img/ccBlog/tech_share/gaussdb_doris_sync.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/tech_share/gaussdb_doris_sync.png
 slug: /data_insights/gaussdb_doris_sync
 ---
 随着信创的加速推进，GaussDB 等国产数据库已经进入越来越多的核心业务系统。但新的问题也随之而来：数据该怎么流动？
@@ -29,7 +29,7 @@ slug: /data_insights/gaussdb_doris_sync
 ## CloudCanal 实时同步解决方案
 针对 GaussDB 数据入仓中的五大挑战，CloudCanal 提供了完善的解决方案：
 
-![](../assets/blog/tech_share/0029/1.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0029/1.png)
 
 + **高效的实时增量捕获**
 
@@ -68,29 +68,29 @@ CloudCanal 支持 **并行全量导入 + 实时增量同步** 的无缝衔接。
 ### 步骤 1: 添加数据源
 登录 **CloudCanal 平台**，点击 **数据源管理** > **添加数据源**，分别添加 GaussDB 和 Doris 数据源。
 
-![](../assets/blog/tech_share/0029/2.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0029/2.png)
 
 ### 步骤 2: 创建任务
 1. 点击 **同步任务** > [创建任务](https://www.clougence.com/cc-doc/operation/job_manage/create_job/create_full_incre_task)。
 2. 选择源和目标实例，并分别点击 **测试连接**。
 
-![](../assets/blog/tech_share/0029/3.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0029/3.png)
 
 3. 在 **功能配置** 页面，选择 **增量同步**，并勾选 **全量初始化**。
 
-![](../assets/blog/tech_share/0029/4.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0029/4.png)
 
 4. 在 **表和操作过滤** 页面，选择需要迁移同步的表，可同时选择多张。
 
-![](../assets/blog/tech_share/0029/5.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0029/5.png)
 
 5. 在 **数据处理** 页面，保持默认配置。
 
-![](../assets/blog/tech_share/0029/6.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0029/6.png)
 
 6. 在 **创建确认** 页面，点击 **创建任务**，开始运行。
 
-![](../assets/blog/tech_share/0029/7.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0029/7.png)
 
 CloudCanal 将自动完成 GaussDB 的结构迁移、全量数据迁移等工作，并实时捕捉并传输增量数据至 Doris。
 

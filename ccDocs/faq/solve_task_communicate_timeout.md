@@ -6,15 +6,15 @@ description: 迁移同步的任务使用较小规格,或者单条数据过大、
 ## 现象
 
 - 任务日志中出现通信超时相关信息,如下图:
-  ![oom](../assets/faq/oom_pic.png)
+  ![oom](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/faq/oom_pic.png)
 
 ## 排查
 
 - **CloudCanal控制台** > **任务详情** > **更多** (监控图表页)。
-  ![image.png](../assets/faq/incre_update_velocity.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/faq/incre_update_velocity.png)
 
 - **任务资源监控** > **任务JVM GC数** , 如 FullGC 数较大 (>5)，说明任务内存紧张。
-  ![image.png](../assets/faq/task_fgc_dashboard.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/faq/task_fgc_dashboard.png)
 
 ## 解决
 
@@ -22,7 +22,7 @@ description: 迁移同步的任务使用较小规格,或者单条数据过大、
 
 ### 调整任务规格
 - **CloudCanal控制台** > **任务详情** > **功能列表** > **参数修改**，搜索参数 **specId**，选择更大的规格。
-  ![image.png](../assets/faq/task_spece_id.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/faq/task_spece_id.png)
 
 ### 优化任务参数
 - **CloudCanal控制台** > **任务详情** > **功能列表** > **参数修改**。

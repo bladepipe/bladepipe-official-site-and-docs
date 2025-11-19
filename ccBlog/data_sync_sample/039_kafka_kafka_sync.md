@@ -6,7 +6,7 @@ date: 2024-10-29
 authors: juantu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/kafka_kafka_sync.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/kafka_kafka_sync.png 
 slug: /data_sync_sample/kafka_kafka_sync
 ---
 ## 简述

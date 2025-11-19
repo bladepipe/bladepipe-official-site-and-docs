@@ -27,7 +27,7 @@ CloudCanal 使用统一身份认证功能时具有如下约束限制：
 
 ## 工作原理
 
-![w600_h200](../../../assets/sso/sso_ldap/use-ldap-cn.png)
+![w600_h200](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_ldap/use-ldap-cn.png)
 
 - 在登录页面选择 **子账号登录**，输入 OpenLDAP 中定义用户的用户名和密码。
 - 在点击登录按钮后，CloudCanal 会和 OpenLDAP 通信以验证用户身份。

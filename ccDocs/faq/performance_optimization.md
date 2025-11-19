@@ -34,7 +34,7 @@ CloudCanal 任务卡顿超时，需要优化性能，提高效率。
 
   2. 若修改参数后写入效率并未提升，可能存在 **对端写入瓶颈**，可按以下步骤查看：    
    进入任务详情页，点击 **增量同步** 页签下的 **查看日志** > **apply_commit.log**，其中最后一列是写入对端耗时（毫秒）。如耗时为将近 10s，可能对端处理能力存在瓶颈。
-  ![writeParallel](../assets/task_and_performance/10.png)
+  ![writeParallel](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/task_and_performance/10.png)
 
   1. 查看是否存在 **机器资源瓶颈**，确认节点 **CPU 使用率**、**CPU 负载** 等信息。如资源利用率较高，考虑升配节点。
 

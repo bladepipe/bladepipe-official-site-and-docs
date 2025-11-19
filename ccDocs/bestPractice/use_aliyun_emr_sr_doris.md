@@ -15,38 +15,38 @@ CloudCanal 在早期即支持此两种实时数仓，并且经过多次迭代，
 ## 云资源入口
 
 - [阿里云官网](https://www.aliyun.com) > **产品** > **大数据计算** > **开源大数据平台 E-MapReduce**
-  ![aliyun_emr_entry](../assets/emr_sr_doris/aliyun_emr_entry.png)
+  ![aliyun_emr_entry](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/emr_sr_doris/aliyun_emr_entry.png)
 
 - **EMR on ECS** > **创建集群** , 选择数据分析 tab
-  ![aliyun_emr_entry_2](../assets/emr_sr_doris/aliyun_emr_entry_2.png)
+  ![aliyun_emr_entry_2](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/emr_sr_doris/aliyun_emr_entry_2.png)
 
 ## 创建并添加 Aliyun EMR for StarRocks
 - 选择一个 StarRocks 版本，点击下一步
-  ![create_sr_1](../assets/emr_sr_doris/create_sr_1.png)
+  ![create_sr_1](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/emr_sr_doris/create_sr_1.png)
 
 - 各个节点都挂载公网（如 VPC 内使用，则忽略），点击下一步
-  ![doris_sr_pub_net](../assets/emr_sr_doris/doris_sr_pub_net.png)
+  ![doris_sr_pub_net](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/emr_sr_doris/doris_sr_pub_net.png)
 
 - 查看 StarRocks be/fe 节点和端口, 和默认有所区别, 其中 fe 端口名称为 **query_port**, 走 MySQL 协议, be 端口 **webserver_port**, 可走 HTTP 协议(stream load)
-  ![sr_fe](../assets/emr_sr_doris/sr_fe.png)
-  ![sr_be](../assets/emr_sr_doris/sr_be.png)
+  ![sr_fe](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/emr_sr_doris/sr_fe.png)
+  ![sr_be](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/emr_sr_doris/sr_be.png)
 
 - **CloudCanal 控制台** > **数据源管理** > **添加数据源**, 选择添加 **自建 StarRocks**
-  ![add_sr](../assets/emr_sr_doris/add_sr.png)
+  ![add_sr](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/emr_sr_doris/add_sr.png)
 
 ## 创建并添加 Aliyun EMR for Doris
 - 选择一个 Doris 版本，点击下一步
-  ![create_doris_1](../assets/emr_sr_doris/create_doris_1.png)
+  ![create_doris_1](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/emr_sr_doris/create_doris_1.png)
 
 - 各个节点都挂载公网（如 VPC 内使用，则忽略），点击下一步
-  ![doris_sr_pub_net](../assets/emr_sr_doris/doris_sr_pub_net.png)
+  ![doris_sr_pub_net](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/emr_sr_doris/doris_sr_pub_net.png)
 
 - 查看 Doris be/fe 节点和端口, 和默认有所区别, 其中 fe 端口名称为 **query_port**, 走 MySQL 协议, be 端口 **webserver_port**, 可走 HTTP 协议(stream load)
-  ![doris_fe](../assets/emr_sr_doris/doris_fe.png)
-  ![doris_be](../assets/emr_sr_doris/doris_be.png)
+  ![doris_fe](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/emr_sr_doris/doris_fe.png)
+  ![doris_be](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/emr_sr_doris/doris_be.png)
 
 - **CloudCanal 控制台** > **数据源管理** > **添加数据源**
-  ![add_doris](../assets/emr_sr_doris/add_doris.png)
+  ![add_doris](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/emr_sr_doris/add_doris.png)
 
 ## 使用
 

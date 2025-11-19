@@ -6,7 +6,7 @@ date: 2024-01-18
 authors: juantu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/oracle_pg.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/oracle_pg.png 
 slug: /data_sync_sample/oracle_pg
 ---
 
@@ -59,10 +59,10 @@ slug: /data_sync_sample/oracle_pg
 
 - 登录 **CloudCanal** 平台
 - **数据源管理** -> **新增数据源**
-  ![image.png](../assets/blog/wufenzhong/0032/1.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0032/1.png)
 
 - **选择自建数据库** -> **选择对应数据库** -> **输入相关信息** -> **测试连接**-> **新增数据源**
-  ![image.png](../assets/blog/wufenzhong/0032/2.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0032/2.png)
 
 :::info
 **Oracle** 相较于其他数据源有一些额外的参数可以调整
@@ -73,29 +73,29 @@ slug: /data_sync_sample/oracle_pg
 :::
 
 - 添加 **Oracle** 和 **PostgreSQL** 之后可以在数据源列表中看到新增的数据源
-  ![image.png](../assets/blog/wufenzhong/0032/3.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0032/3.png)
 
 ### 创建同步任务
 
 - **任务管理** -> **创建任务**
 - 源端选择 **Oracle** 数据源，对端选择 **PostgreSQL**数据源
 - 分别点击测试连接，选择源端和对端需要订阅的数据库，选择下一步
-  ![image.png](../assets/blog/wufenzhong/0032/4.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0032/4.png)
 
 - 选择 **全量迁移** -> 勾选 **增量同步** -> 根据自身机器配置选择 **任务规格**
 - 选择 **下一步**
-  ![image.png](../assets/blog/wufenzhong/0032/5.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0032/5.png)
 
 - 选择源端需要同步的表，如果目标表显示橙色表示对端不存在该表，任务创建之后，会自动生成该表
 - 点击 **下一步**
-  ![image.png](../assets/blog/wufenzhong/0032/6.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0032/6.png)
 
 - 可以在左侧选择添加 **数据过滤条件**
 - 点击 **下一步**
-  ![image.png](../assets/blog/wufenzhong/0032/7.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0032/7.png)
 
 - 点击 **创建任务**
-  ![image.png](../assets/blog/wufenzhong/0032/8.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0032/8.png)
 
 ### 任务执行
 任务创建并且启动后，会自动进行如下的三个阶段：
@@ -103,8 +103,8 @@ slug: /data_sync_sample/oracle_pg
 - **结构迁移**：任务创建之后，如果对端没有表结构，那么 **CloudCanal** 会去自动在对端创建表结构
 - **全量迁移**：将源端存量数据整体迁移到对端
 - **增量同步**：全量迁移期间以及全量完成以后的源端增量数据变更会实时同步到对端
-  ![image.png](../assets/blog/wufenzhong/0032/9.png)
-  ![image.png](../assets/blog/wufenzhong/0032/10.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0032/9.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0032/10.png)
 
 ## 总结
 

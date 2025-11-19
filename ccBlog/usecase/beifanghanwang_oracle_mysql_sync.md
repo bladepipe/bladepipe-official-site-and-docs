@@ -6,7 +6,7 @@ date: 2023-03-16
 authors: junyu
 tags:
   - usecase
-image: /img/ccBlog/usecase/beifanghanwang_oracle_mysql_sync.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/usecase/beifanghanwang_oracle_mysql_sync.png
 slug: /usecase/beifanghanwang_oracle_mysql_sync
 ---
 
@@ -21,12 +21,12 @@ slug: /usecase/beifanghanwang_oracle_mysql_sync
 
 在企业要求下，需要对人事管理系统在功能上进行新增和升级，其中涉及对老系统原有数据的重构。
 
-![](../assets/blog/examples/beifanghanwang/image.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/examples/beifanghanwang/image.png)
 
 
 ## 技术架构
 老系统数据库为 ORACLE，新系统的数据库为 MySQL，新老系统通过一台 ORACLE 数据库进行数据交换。
-![](../assets/blog/examples/beifanghanwang/image2.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/examples/beifanghanwang/image2.png)
 
 考虑到老系统存在如下客观问题 , 我们决定采用中间库形式进行数据交互。
 - 网络环境复杂
@@ -36,7 +36,7 @@ slug: /usecase/beifanghanwang_oracle_mysql_sync
 老系统 ORACLE、中间库 ORACLE、新系统 MySQL 之间的数据流转方向和生命周期如下
 - 老系统将现有的数据表 转换格式 放入中间库，并将新产生的数据 实时同步 到中间库
 - 新系统将老系统需要的数据 实时同步 到中间库，再将中间库的数据 实时同步 回老系统数据库
-![](../assets/blog/examples/beifanghanwang/image3.jpeg)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/examples/beifanghanwang/image3.jpeg)
 
 
 ## 数据同步方案对比

@@ -24,12 +24,12 @@ CloudCanal 允许用户上传业务代码到数据任务中，完成数据迁移
 
 ### 脱敏代码开发
 - 数据脱敏逻辑开发。[Gitee 上完整代码](https://gitee.com/clougence/cloudcanal-data-process/blob/master/data-transform/src/main/java/com/clougence/cloudcanal/dataprocess/datatransform/MaskColumn.java)
-  ![custom_code_1](../assets/encrypt_data_when_sync/custom_code_1.png)
-  ![custom_code_2](../assets/encrypt_data_when_sync/custom_code_2.png)
+  ![custom_code_1](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/encrypt_data_when_sync/custom_code_1.png)
+  ![custom_code_2](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/encrypt_data_when_sync/custom_code_2.png)
 - 代码打包
-  ![custom_code_3](../assets/encrypt_data_when_sync/custom_code_3.png)
+  ![custom_code_3](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/encrypt_data_when_sync/custom_code_3.png)
 - 代码包位置
-  ![custom_code_4](../assets/encrypt_data_when_sync/custom_code_4.png)
+  ![custom_code_4](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/encrypt_data_when_sync/custom_code_4.png)
 
 ### 安装 CloudCanal
 - 下载、安装并激活 [CloudCanal 私有部署版本](https://www.clougence.com?src=cc-doc-data-sync-masking)
@@ -37,24 +37,24 @@ CloudCanal 允许用户上传业务代码到数据任务中，完成数据迁移
 ### 任务创建
 - **任务管理** > **创建任务**
 - 选择源和目标数据库
-  ![custom_task_1](../assets/encrypt_data_when_sync/custom_task_1.png)
+  ![custom_task_1](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/encrypt_data_when_sync/custom_task_1.png)
 - 选择增量同步，并勾选数据初始化
-  ![custom_task_2](../assets/encrypt_data_when_sync/custom_task_2.png)
+  ![custom_task_2](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/encrypt_data_when_sync/custom_task_2.png)
 - 选择同步表
-  ![custom_task_3](../assets/encrypt_data_when_sync/custom_task_3.png)
+  ![custom_task_3](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/encrypt_data_when_sync/custom_task_3.png)
 - 选择列，右上角 **上传自定义代码** jar 包
-  ![custom_task_4](../assets/encrypt_data_when_sync/custom_task_4.png)
+  ![custom_task_4](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/encrypt_data_when_sync/custom_task_4.png)
 - 创建任务
-  ![custom_task_5](../assets/encrypt_data_when_sync/custom_task_5.png)
+  ![custom_task_5](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/encrypt_data_when_sync/custom_task_5.png)
 - 任务结构迁移、全量迁移、增量同步，正常运行
-  ![custom_task_6](../assets/encrypt_data_when_sync/custom_task_6.png)
+  ![custom_task_6](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/encrypt_data_when_sync/custom_task_6.png)
 ### 验证数据
 - 源端与目标端数据
-  ![custom_data_1](../assets/encrypt_data_when_sync/custom_data_1.png)
-  ![custom_data_1](../assets/encrypt_data_when_sync/custom_data_2.png)
+  ![custom_data_1](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/encrypt_data_when_sync/custom_data_1.png)
+  ![custom_data_1](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/encrypt_data_when_sync/custom_data_2.png)
 - 对测试表造一些 DML 操作后，源端和目标端数据
-  ![custom_data_1](../assets/encrypt_data_when_sync/custom_data_3.png)
-  ![custom_data_1](../assets/encrypt_data_when_sync/custom_data_4.png)
+  ![custom_data_1](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/encrypt_data_when_sync/custom_data_3.png)
+  ![custom_data_1](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/encrypt_data_when_sync/custom_data_4.png)
 
 ## 常见问题
 

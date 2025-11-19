@@ -28,7 +28,7 @@ CloudCanal 版在使用统一身份认证功能时具有如下约束限制：
 
 ## 工作原理
 
-![w600_h200](../../../assets/sso/sso_oidc/use-oidc-cn.png)
+![w600_h200](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_oidc/use-oidc-cn.png)
 
 - 在登录页面的 **子账号登录** 选项卡中点击 **OIDC 登录**，跳转到 OP 登录页面
 - 登录完成后 OP 会将浏览器跳转回 CloudCanal 并携带 Authorization code 代码。

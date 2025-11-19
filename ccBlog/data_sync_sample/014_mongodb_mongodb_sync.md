@@ -6,7 +6,7 @@ date: 2022-10-16
 authors: junyu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/mongodb_mongodb_sync.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/mongodb_mongodb_sync.png 
 slug: /data_sync_sample/mongodb_mongodb_sync
 ---
 ## 简述

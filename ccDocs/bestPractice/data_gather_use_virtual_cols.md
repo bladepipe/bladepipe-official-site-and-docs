@@ -81,22 +81,22 @@ CloudCanal 针对不同数据源，提供以下几种表名拼接规则，在结
 - 选择库表，点击库表映射，选择 **按 SCHEMA_TABLE 拼接(元数据镜像)**，可看到对端表名按规则拼接
 - 点击下一步
 
-  ![gather_data_3](../assets/gather_data/gather_data_3.png)
+  ![gather_data_3](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/gather_data/gather_data_3.png)
 
 - 选择列页面
 - **批量操作** > **批量设置虚拟列**
 
-  ![gather_data_4](../assets/gather_data/gather_data_4.png)
+  ![gather_data_4](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/gather_data/gather_data_4.png)
 
 - **批量操作** > **批量设置对端主键**，此例选择 `vir_instid_sche_tab_pk` 作为对端主键
 - 点击下一步
 
-  ![gather_data_5](../assets/gather_data/gather_data_5.png)
+  ![gather_data_5](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/gather_data/gather_data_5.png)
 
 - 确认任务创建
 - 结构迁移，全量迁移，增量同步正常运行
 
-  ![gather_data_6](../assets/gather_data/gather_data_6.png)
+  ![gather_data_6](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/gather_data/gather_data_6.png)
 
 ### 功能验证
 
@@ -104,14 +104,14 @@ CloudCanal 针对不同数据源，提供以下几种表名拼接规则，在结
 
 - 使用 [CloudDM](https://www.clougence.com/clouddm-personal) 查询对端表数据，结构正确（主键），虚拟列数据按规则生成
   
-  ![gather_data_7](../assets/gather_data/gather_data_7.png)
+  ![gather_data_7](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/gather_data/gather_data_7.png)
 
-  ![gather_data_8](../assets/gather_data/gather_data_8.png)
+  ![gather_data_8](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/gather_data/gather_data_8.png)
 
 - 源端插入和更新数据，对端虚拟列数据按规则插入或更新(pk字段更新，暂未支持）
 
-  ![gather_data_9](../assets/gather_data/gather_data_9.png)
-  ![gather_data_10](../assets/gather_data/gather_data_10.png)
+  ![gather_data_9](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/gather_data/gather_data_9.png)
+  ![gather_data_10](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/gather_data/gather_data_10.png)
 
 - 源端删除数据，对端则删除对应数据
 

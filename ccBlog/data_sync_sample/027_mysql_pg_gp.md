@@ -6,7 +6,7 @@ date: 2023-09-26
 authors: junyu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/mysql_pg_gp.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/mysql_pg_gp.png 
 slug: /data_sync_sample/mysql_pg_gp
 ---
 
@@ -95,33 +95,33 @@ slug: /data_sync_sample/mysql_pg_gp
 
 -  登录 **CloudCanal** 平台
 -  **数据源管理** -> **新增数据源** -> **自建数据库**
-  ![image.png](../assets/blog/wufenzhong/0027/1.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0027/1.png)
 
 - 添加 **Greenplum** 或者 **PostgreSQL**后可以在数据源列表看到新增的数据源。
-  ![image.png](../assets/blog/wufenzhong/0027/2.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0027/2.png)
 
 ### 创建同步任务
 
 - 任务管理 -> 创建任务
 - 源端选择 **MySQL** 数据源，对端选择 **Greenplum** / **PostgreSQL**
 - 分别点击 **测试连接**，选择**源端**和**对端**需要订阅的库，选择 **下一步**
-  ![image.png](../assets/blog/wufenzhong/0027/3.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0027/3.png)
 
 - 选择 **增量同步** -> 选择 **全量初始化**
 - 根据自身机器配置选择 **规格**
 - 选择 **下一步**
-  ![image.png](../assets/blog/wufenzhong/0027/4.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0027/4.png)
 
 - 选择源端需要同步的表，如果目标表显示橙色表示对端不存在该表，任务创建之后，会自动生成该表
 - 点击**下一步**
-  ![image.png](../assets/blog/wufenzhong/0027/5.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0027/5.png)
 
 - 可以在左侧，添加 **数据过滤条件**
 - 选择 **下一步**
-  ![image.png](../assets/blog/wufenzhong/0027/6.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0027/6.png)
 
 - 选择 **创建任务**
-  ![image.png](../assets/blog/wufenzhong/0027/7.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0027/7.png)
 
 ### 任务执行
 
@@ -130,8 +130,8 @@ slug: /data_sync_sample/mysql_pg_gp
 - **结构迁移**：任务创建之后，如果对端没有表结构，那么 **CloudCanal** 会去自动在对端创建表结构
 - **数据初始化**：将源端存量数据整体迁移到对端
 - **数据同步**：全量迁移期间以及全量完成以后的源端增量数据变更会实时同步到对端
-  ![image.png](../assets/blog/wufenzhong/0027/8.png)
-  ![image.png](../assets/blog/wufenzhong/0027/9.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0027/8.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0027/9.png)
 
 ## 总结
 本文简单介绍了如何使用 [CloudCanal](https://www.clougence.com?src=cc-doc-blog-mysql-pg-gp-sync) 进行 **MySQL** -> **Greenplum** 数据迁移同步。各位读者朋友，如果你觉得还不错，请点赞、评论加转发吧。

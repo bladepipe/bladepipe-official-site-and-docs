@@ -19,29 +19,29 @@ CloudCanal 私有部署版 **将完整产品安装于用户私有环境中**。
 
 ## 添加数据源
 1. 登录 CloudCanal 控制台，选择 **数据源管理** > **新增数据源**。
-  ![add datasource](../assets/quick_start/quick_start_1.png)
+  ![add datasource](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/quick_start/quick_start_1.png)
 
 ## 创建任务
 1. CloudCanal 控制台，选择 **同步任务** > **创建任务**。
 
 2. 选择已添加的数据源作为 **源实例** 和 **目标实例** 并点击 **测试连接**，点击 **下一步**。
-  ![create data job 1](../assets/quick_start/quick_start_3.png)
+  ![create data job 1](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/quick_start/quick_start_2.png)
 
-3. 选择任务类型为 **增量同步**，并勾选 **全量初始化**，点击 **下一步**。
-  ![create data job 2](../assets/quick_start/quick_start_4.png)
+1. 选择任务类型为 **增量同步**，并勾选 **全量初始化**，点击 **下一步**。
+  ![create data job 2](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/quick_start/quick_start_3.png)
 
-4. 选择需要订阅的源端表，并点击 **下一步**。
-  ![create data job 3](../assets/quick_start/quick_start_5.png)
+1. 选择需要订阅的源端表，并点击 **下一步**。
+  ![create data job 3](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/quick_start/quick_start_4.png)
 
-5. 选择全部列，并点击 **下一步**。
-  ![create data job 4](../assets/quick_start/quick_start_6.png)
+1. 选择全部列，并点击 **下一步**。
+  ![create data job 4](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/quick_start/quick_start_5.png)
 
-6. 点击 **创建任务**。
-  ![create data job 5](../assets/quick_start/quick_start_7.png)
+1. 点击 **创建任务**。
+  ![create data job 5](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/quick_start/quick_start_6.png)
 
-7. 任务正常运行，自动进行数据初始化、数据迁移和同步，进度条逐步发生变化。
-  ![create data job 8](../assets/quick_start/quick_start_8.png)
+1. 任务正常运行，自动进行数据初始化、数据迁移和同步，进度条逐步发生变化。
+  ![create data job 8](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/quick_start/quick_start_7.png)
 
-8. 进行验证。
+1. 进行验证。
 若在源端表增加、删除、修改数据，可在对端表中查到一致的数据变动。
 

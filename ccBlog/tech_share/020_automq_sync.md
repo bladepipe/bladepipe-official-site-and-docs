@@ -6,7 +6,7 @@ date: 2024-08-08
 authors: junyu
 tags:
   - tech_share
-image: /img/ccBlog/tech_share/automq_sync.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/tech_share/automq_sync.png
 slug: /data_insights/automq_sync
 ---
 
@@ -16,7 +16,7 @@ slug: /data_insights/automq_sync
 
 [CloudCanal](https://www.clougence.com?src=mysql-automq-sync) 最近接入了 AutoMQ，打通了多个数据同步链路，为用户使用 AutoMQ 助一臂之力。
 
-![](../assets/blog/data_sync_sample/mysql_automq_sync/1.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/mysql_automq_sync/1.png)
 
 本文将首先简要介绍 AutoMQ 的技术背景，然后通过 **MySQL -> AutoMQ** 链路展示其功能和优势。
 
@@ -73,19 +73,19 @@ CloudCanal 目前实现了多个关键数据同步链路：
 
 - 登陆 CloudCanal 平台，选择 **数据源管理** -> **新增数据源**。
 - 将源端 **MySQL** 和目标端 **AutoMQ** 分别添加；Docker 创建的 AutoMQ 集群，网络地址填写 **broker1:9092** 或 **broker2:9092**。
-  ![](../assets/blog/data_sync_sample/mysql_automq_sync/2.png)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/mysql_automq_sync/2.png)
 
 ### 创建同步任务
 
 - **同步任务** -> **创建任务**，选择对应的数据源，进行连接测试。
-  ![](../assets/blog/data_sync_sample/mysql_automq_sync/3.png)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/mysql_automq_sync/3.png)
 - 点击下一步，选择任务类型以及规格，规格建议 2G 及以上。
-  ![](../assets/blog/data_sync_sample/mysql_automq_sync/4.png)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/mysql_automq_sync/4.png)
 - 点击下一步，选择希望进行同步的表。
-  ![](../assets/blog/data_sync_sample/mysql_automq_sync/5.png)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/mysql_automq_sync/5.png)
 - 继续点击下一步，直到创建任务。
 - 任务结构迁移、全量迁移、增量同步，正常运行.
-  ![](../assets/blog/data_sync_sample/mysql_automq_sync/6.png)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/mysql_automq_sync/6.png)
 
 ## 常见问题
 

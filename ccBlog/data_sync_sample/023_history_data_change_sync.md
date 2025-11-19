@@ -6,7 +6,7 @@ date: 2023-07-22
 authors: junyu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/history_data_change_sync.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/history_data_change_sync.png 
 slug: /data_sync_sample/history_data_change_sync
 ---
 
@@ -91,31 +91,31 @@ CREATE TABLE "public"."worker_stats" (
 - 登录 CloudCanal 平台
 - **数据源管理**->**新增数据源**
 - 将源端**MySQL**和目标端**Greenplum** 分别添加
-  ![截屏2022-01-10 下午3.22.57.png](../assets/blog/data_sync_sample/23_history_data_change_sync/截屏2022-01-10-下午3.22.57.png)
+  ![截屏2022-01-10 下午3.22.57.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/23_history_data_change_sync/%E6%88%AA%E5%B1%8F2022-01-10-%E4%B8%8B%E5%8D%883.22.57.png)
 
 ### 任务创建
 - **任务管理**->**任务创建**
 - 选择 **源** 和 **目标** 数据源
 - 选择 **数据同步**，不勾选 **全量数据初始化**, DDL 选择 **不同步**,并且选择 **不自动启动**任务（为了修改参数）
-  ![截屏2022-01-10 下午3.25.29.png](../assets/blog/data_sync_sample/23_history_data_change_sync/截屏2022-01-10-下午3.25.29.png)
+  ![截屏2022-01-10 下午3.25.29.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/23_history_data_change_sync/%E6%88%AA%E5%B1%8F2022-01-10-%E4%B8%8B%E5%8D%883.25.29.png)
 - 选择需要做历史同步的表
-  ![截屏2022-01-10 下午3.28.25.png](../assets/blog/data_sync_sample/23_history_data_change_sync/截屏2022-01-10-下午3.28.25.png)
+  ![截屏2022-01-10 下午3.28.25.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/23_history_data_change_sync/%E6%88%AA%E5%B1%8F2022-01-10-%E4%B8%8B%E5%8D%883.28.25.png)
 - 选择列,默认全选
 - 确认创建
 - 查看异步任务，确认创建步骤正常
-  ![截屏2022-01-10 下午3.31.18.png](../assets/blog/data_sync_sample/23_history_data_change_sync/截屏2022-01-10-下午3.31.18.png)
+  ![截屏2022-01-10 下午3.31.18.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/23_history_data_change_sync/%E6%88%AA%E5%B1%8F2022-01-10-%E4%B8%8B%E5%8D%883.31.18.png)
 - 进入 任务详情->修改参数->目标DATASOURCE配置，修改参数 **incrementHistory** 为 true
-  ![截屏2022-01-10 下午3.32.39.png](../assets/blog/data_sync_sample/23_history_data_change_sync/截屏2022-01-10-下午3.32.39.png)
+  ![截屏2022-01-10 下午3.32.39.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/23_history_data_change_sync/%E6%88%AA%E5%B1%8F2022-01-10-%E4%B8%8B%E5%8D%883.32.39.png)
 - 启动任务，并正常同步
-  ![截屏2022-01-10 下午3.36.13.png](../assets/blog/data_sync_sample/23_history_data_change_sync/截屏2022-01-10-下午3.36.13.png)
+  ![截屏2022-01-10 下午3.36.13.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/23_history_data_change_sync/%E6%88%AA%E5%B1%8F2022-01-10-%E4%B8%8B%E5%8D%883.36.13.png)
 
 ### 验证历史数据
 -  手动造几条增删改,查看历史数据效果
-   ![截屏2022-01-10 下午3.49.38.png](../assets/blog/data_sync_sample/23_history_data_change_sync/截屏2022-01-10-下午3.49.38.png)
-   ![截屏2022-01-10 下午3.50.12.png](../assets/blog/data_sync_sample/23_history_data_change_sync/截屏2022-01-10-下午3.50.12.png)
+   ![截屏2022-01-10 下午3.49.38.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/23_history_data_change_sync/%E6%88%AA%E5%B1%8F2022-01-10-%E4%B8%8B%E5%8D%883.49.38.png)
+   ![截屏2022-01-10 下午3.50.12.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/23_history_data_change_sync/%E6%88%AA%E5%B1%8F2022-01-10-%E4%B8%8B%E5%8D%883.50.12.png)
 - 再手动增删改几条数据，重启任务，查看幂等效果
-  ![截屏2022-01-10 下午3.54.41.png](../assets/blog/data_sync_sample/23_history_data_change_sync/截屏2022-01-10-下午3.54.41.png)
-  ![截屏2022-01-10 下午3.54.47.png](../assets/blog/data_sync_sample/23_history_data_change_sync/截屏2022-01-10-下午3.54.47.png)
+  ![截屏2022-01-10 下午3.54.41.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/23_history_data_change_sync/%E6%88%AA%E5%B1%8F2022-01-10-%E4%B8%8B%E5%8D%883.54.41.png)
+  ![截屏2022-01-10 下午3.54.47.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/23_history_data_change_sync/%E6%88%AA%E5%B1%8F2022-01-10-%E4%B8%8B%E5%8D%883.54.47.png)
 
 
 ## 常见问题

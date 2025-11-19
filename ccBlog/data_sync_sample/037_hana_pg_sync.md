@@ -6,7 +6,7 @@ date: 2024-09-21
 authors: juantu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/hana_pg_sync.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/hana_pg_sync.png 
 slug: /data_sync_sample/hana_pg_sync
 ---
 

@@ -18,11 +18,11 @@ CloudCanal 提供了客户端日志清理功能，该功能会清理以下路径
 3. 选择需要清理日志的机器，点击 **更多**，选择 **清理机器日志**。
 4. 选择从何时的日志开始清理（默认为机器创建的时刻），点击 **确认** 开始异步任务执行。
 
-   ![clear_panel.png](../../assets/clear_worker_log/clear_panel.png)
+   ![clear_panel.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/clear_worker_log/clear_panel.png)
 
 5. 查看异步任务结果，详情界面中包含日志清理的统计结果。
 
-   ![clear_result.png](../../assets/clear_worker_log/clear_result.png)
+   ![clear_result.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/clear_worker_log/clear_result.png)
    :::info
    参数释义：
     - **Total delete log file**: 已清理的日志文件数量

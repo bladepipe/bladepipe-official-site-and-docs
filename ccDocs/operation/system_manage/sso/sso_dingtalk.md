@@ -19,7 +19,7 @@ CloudCanal 在使用统一身份认证功能时具有如下约束限制：
 
 ## 工作原理
 
-![w400_h280](../../../assets/sso/sso_dingtalk/use-ding-cn.png)
+![w400_h280](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_dingtalk/use-ding-cn.png)
 
 - CloudCanal 采用 OAuth 2.0 流程进行接入。
 - 在登录页面的 **子账号登录** 选项卡中点击 **钉钉登录**，跳转到钉钉登录页面。
@@ -74,15 +74,15 @@ CloudCanal 开启钉钉认证步骤如下：
 
 **配置应用**
 1. 点击 **应用开发** > **钉钉应用** > **创建应用**。
-  ![common](../../../assets/sso/sso_dingtalk/app-step1.png)
+  ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_dingtalk/app-step1.png)
 2. 填写应用的基础信息，并点击 **保存**。涉及图标资源可以在 [资源下载](../../../reference/resource_download) 中获取。
-  ![common](../../../assets/sso/sso_dingtalk/app-step2.png)
+  ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_dingtalk/app-step2.png)
 1. 点击 **凭证与基础信息信息**，获取 **Client ID** 和 **Client Secret**。
-   ![common](../../../assets/sso/sso_dingtalk/app-step3.png)
+   ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_dingtalk/app-step3.png)
 2. 点击 **权限管理**，给应用分配权限。
-   ![common](../../../assets/sso/sso_dingtalk/app-step4.png)
+   ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_dingtalk/app-step4.png)
 3. 点击 **安全设置**，设置您部署 CloudCanal 环境中公网出口 IP，以及您 CloudCanal 访问地址<br/>（您公网/内网访问 CloudCanal 的地址，支持配置多个，若应用并非运行在 80 端口则地址中需要包含完整端口号）
-   ![common](../../../assets/sso/sso_dingtalk/app-step5.png)
+   ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_dingtalk/app-step5.png)
 4. 点击 **版本管理与发布**，发布应用。应用可用范围选择 **全部员工**。
-   ![common](../../../assets/sso/sso_dingtalk/app-step6.png)
+   ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_dingtalk/app-step6.png)
 

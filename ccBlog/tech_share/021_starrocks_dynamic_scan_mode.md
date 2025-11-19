@@ -6,7 +6,7 @@ date: 2024-03-19
 authors: junyu
 tags:
   - tech_share
-image: /img/ccBlog/tech_share/starrocks_dynamic_scan_mode.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/tech_share/starrocks_dynamic_scan_mode.png
 slug: /data_insights/starrocks_dynamic_scan_mode
 ---
 
@@ -18,7 +18,7 @@ slug: /data_insights/starrocks_dynamic_scan_mode
 CloudCanal 先从 FE 节点获取查询计划 (Query Plan)，得到分片元数据信息，然后将获取到的分片元数据信息作为参数，下发至 BE 节点，最后获取 BE 节点返回的数据。
 
 相较于常规的 FE 单点数据串行读取，并行读取有两点比较明显的优势，一是大幅提高效率，二是单次查询可控，避免单次查询数据量过大，导致 BE 节点内存溢出。
-![img3](../assets/blog/tech_share/starrocks_dynamic_scan_mode/img3.png)
+![img3](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/starrocks_dynamic_scan_mode/img3.png)
 
 ### BE 节点级别的断点续传
 CloudCanal 会记录每个 BE 节点是否已读取完成。当任务失败或者中断后重启时，CloudCanal 可以过滤已经读取完成的 BE 节点，继续读取数据。

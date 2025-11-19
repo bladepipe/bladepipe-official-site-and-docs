@@ -18,16 +18,16 @@ title: 添加机器(Kubernetes)
 ### 添加机器
 1. 登录 CloudCanal 控制台，点击 **同步设置** > **同步机器** > **机器列表** > **新增机器**。
 
-![a4c405c7-ef68-4c04-88b6-e5059f853e61-image.png](../../assets/operation-manual/ha1.png)
-![](../../assets/operation-manual/ha2.png)
+![a4c405c7-ef68-4c04-88b6-e5059f853e61-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/ha1.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/ha2.png)
 
 2. 点击 **获取验证码**，输入 **777777** 。
   
-![b64bccae-b56a-4a20-bab5-ce10e4bdbb86-image.png](../../assets/operation-manual/ha3.png)
+![b64bccae-b56a-4a20-bab5-ce10e4bdbb86-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/ha3.png)
 
 3. 获取机器唯一识别配置信息。
   
-![60acda31-94e2-43c1-93f8-114ee6b77975-image.png](../../assets/operation-manual/ha4.png)
+![60acda31-94e2-43c1-93f8-114ee6b77975-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/ha4.png)
 
 ### 添加 Sidecar 节点
 使用以下任一种方式添加 Sidecar 节点。
@@ -39,7 +39,7 @@ title: 添加机器(Kubernetes)
 sh install_one_sidecar.sh
 ```
    
-![ha_k8s_1.png](../../assets/operation-manual/ha_k8s_1.png)
+![ha_k8s_1.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/ha_k8s_1.png)
 
 #### 方式二：使用 Helm Chart
 :::info
@@ -92,7 +92,7 @@ helm upgrade cloudcanal ./ -f values.yaml -n cloudcanal
 
 新添加机器正常上线。
   
-![22b9e92c-e864-40ee-afc4-c70c711bad83-image.png](../../assets/operation-manual/ha6.png)
+![22b9e92c-e864-40ee-afc4-c70c711bad83-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/ha6.png)
 
 ## FAQ
 

@@ -6,7 +6,7 @@ date: 2025-07-25
 authors: juantu
 tags:
   - ai
-image: /img/ccBlog/ai/recall_rate_improve.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/ai/recall_rate_improve.png
 slug: /ai/recall_rate_improve
 ---
 在大模型（LLM）驱动的问答系统中，RAG（Retrieval-Augmented Generation）架构正迅速成为主流；然而在实际应用中，即便接入了如 GPT-4 或 Claude 等先进模型，但生成结果仍然不够理想。
@@ -88,7 +88,7 @@ slug: /ai/recall_rate_improve
 + 段落分块 + 重叠控制 + 元信息附带
 + 向量化写入 StarRocks 等向量库，支持 Qwen 等主流模型接入
 
-![](../assets/blog/ai/recall_rate_improve/2.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/recall_rate_improve/2.png)
 
 
 
@@ -165,9 +165,9 @@ slug: /ai/recall_rate_improve
 > + **tables**：用于指定目录中要处理的**具体文件名**，若设置为空数组（[]），则表示**自动抓取该目录下所有符合后缀规则（如 .md）的文件**，无需逐一列出文件名。
 >
 
-![](../assets/blog/ai/recall_rate_improve/3.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/recall_rate_improve/3.png)
 
-![](../assets/blog/ai/recall_rate_improve/4.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/recall_rate_improve/4.png)
 
 #### 向量数据库（StarRocks）
 用于存储通过大模型编码后的文档向量，是整个 **RAG** 检索流程的核心数据源。
@@ -188,7 +188,7 @@ ADMIN SET FRONTEND CONFIG ("enable_experimental_vector" = "true");
 + **额外参数**：
     - privateHttpHost：填写 localhost:8030。用于 Stream Load 写入，可填写 FE 或 BE 的地址。
 
-![](../assets/blog/ai/recall_rate_improve/5.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/recall_rate_improve/5.png)
 
 #### 大模型平台（Ollama）
 **CloudCanal** 支持通过 **Ollama** 提供完整的向量生成与推理能力，适用于完全私有化的 RAG 场景。
@@ -219,7 +219,7 @@ ADMIN SET FRONTEND CONFIG ("enable_experimental_vector" = "true");
 }
 ```
 
-![](../assets/blog/ai/recall_rate_improve/6.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/recall_rate_improve/6.png)
 
 ### 创建任务：构建知识库
 1. 点击 **同步任务** > **创建任务**。   
@@ -227,7 +227,7 @@ ADMIN SET FRONTEND CONFIG ("enable_experimental_vector" = "true");
     - 源端：**SshFile**
     - 目标端：**StarRocks**
 
-![](../assets/blog/ai/recall_rate_improve/7.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/recall_rate_improve/7.png)
 
 3. 在 **功能配置** 页面，任务类型选择 **全量迁移**，任务规格选择默认 2 GB 即可。
 4. 在 **表&action过滤** 页面，进行以下配置：
@@ -237,20 +237,20 @@ ADMIN SET FRONTEND CONFIG ("enable_experimental_vector" = "true");
     2. 选择需要定时数据迁移的文件，可同时选择多个。
     3. 点击 **批量修改目标名称** > **统一表名** > 填写表名（如 **my_knowledge**），并确认，方便将不同文件向量化并写入同一个表。
 
-![](../assets/blog/ai/recall_rate_improve/8.png)
-![](../assets/blog/ai/recall_rate_improve/9.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/recall_rate_improve/8.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/recall_rate_improve/9.png)
 
 5. 在 **数据处理** 页面，点击 **批量操作** > **大模型嵌入**：
     1. 设置数据分隔长度 1000，分隔重叠 100。
     2. 选择需要嵌入的字段，并全选表。
 
-![](../assets/blog/ai/recall_rate_improve/10.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/recall_rate_improve/10.png)
 
 6. 在 **创建确认** 页面，点击 **创建任务**，开始运行。任务会自动根据源端定义的格式，**自动在 StarRocks 中创建向量表**，并把源端文件处理分块后，嵌入，最终导入到 StarRocks。
 
-![](../assets/blog/ai/recall_rate_improve/11.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/recall_rate_improve/11.png)
 
-![](../assets/blog/ai/recall_rate_improve/12.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/recall_rate_improve/12.png)
 
 7. 到 StarRocks 中查询知识库数据。
 
@@ -264,7 +264,7 @@ select
 from my_knowledge limit 3 \G
 ```
 
-![](../assets/blog/ai/recall_rate_improve/13.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/recall_rate_improve/13.png)
 
 至此，我们就构建好了一个结构化、丰富且高质量内容的知识库，后续可在 CloudCanal 中继续创建任务，构建 RAG API，直接与你的知识库对话。
 

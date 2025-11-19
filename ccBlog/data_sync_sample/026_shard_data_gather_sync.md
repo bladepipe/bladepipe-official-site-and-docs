@@ -6,7 +6,7 @@ date: 2023-09-12
 authors: junyu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/shard_data_gather_sync.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/shard_data_gather_sync.png 
 slug: /data_sync_sample/shard_data_gather_sync
 ---
 
@@ -82,25 +82,25 @@ slug: /data_sync_sample/shard_data_gather_sync
 - 登录 CloudCanal 平台
 - **数据源管理**->**新增数据源**
 - 将源端和目标端**MySQL** 分别添加
-  ![截屏2021-12-20 下午5.06.06.png](../assets/blog/wufenzhong/0026/1.png)
+  ![截屏2021-12-20 下午5.06.06.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0026/1.png)
 
 ### 分库**shard_1**任务创建
 - **任务管理**->**任务创建**
 - 选择 **源** 和 **目标** 数据源
 - 选择 **数据同步**，并勾选 **全量数据初始化**, 其他选项默认
 - 选择需要迁移同步的表, 此处只要选择待聚合表即可，对端选择聚合表
-  ![截屏2021-12-20 下午5.04.03.png](../assets/blog/wufenzhong/0026/2.png)
+  ![截屏2021-12-20 下午5.04.03.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0026/2.png)
 - 修改自定义代码，并打包
-  ![截屏2021-12-20 下午5.08.02.png](../assets/blog/wufenzhong/0026/3.png)
+  ![截屏2021-12-20 下午5.08.02.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0026/3.png)
      ```
   % pwd
   /Users/zylicfc/source/product/cloudcanal/cloudcanal-data-process
   % mvn -Dtest -DfailIfNoTests=false -Dmaven.javadoc.skip=true - 
   Dmaven.compile.fork=true clean package
   ```
-  ![截屏2021-12-20 下午4.00.36.png](../assets/blog/wufenzhong/0026/4.png)
+  ![截屏2021-12-20 下午4.00.36.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0026/4.png)
 - 选择列,默认全选，**选择上传代码包1**
-  ![截屏2021-12-20 下午4.57.59.png](../assets/blog/wufenzhong/0026/5.png)
+  ![截屏2021-12-20 下午4.57.59.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0026/5.png)
 - 确认创建,并自动运行
 
 ### 分库**shard_2**任务创建
@@ -108,30 +108,30 @@ slug: /data_sync_sample/shard_data_gather_sync
 - 选择 **源** 和 **目标** 数据源
 - 选择 **数据同步**，并勾选 **全量数据初始化**, 其他选项默认
 - 选择需要迁移同步的表, 此处只要选择待聚合表即可，对端选择聚合表
-  ![截屏2021-12-20 下午4.16.00.png](../assets/blog/wufenzhong/0026/6.png)
+  ![截屏2021-12-20 下午4.16.00.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0026/6.png)
 - 修改自定义代码，并打包
-  ![截屏2021-12-20 下午3.59.05.png](../assets/blog/wufenzhong/0026/7.png)
+  ![截屏2021-12-20 下午3.59.05.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0026/7.png)
   ```
   % pwd
   /Users/zylicfc/source/product/cloudcanal/cloudcanal-data-process
   % mvn -Dtest -DfailIfNoTests=false -Dmaven.javadoc.skip=true - 
   Dmaven.compile.fork=true clean package
   ```
-  ![截屏2021-12-20 下午4.00.36.png](../assets/blog/wufenzhong/0026/8.png)
+  ![截屏2021-12-20 下午4.00.36.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0026/8.png)
 - 选择列,默认全选，**选择上传代码包2**
 - 确认创建,并自动运行
 
 ### 分库任务状态
 - 两个分库汇聚任务正常运行
-  ![截屏2021-12-20 下午3.57.27.png](../assets/blog/wufenzhong/0026/9.png)
+  ![截屏2021-12-20 下午3.57.27.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0026/9.png)
 
 ### 校验数据
 - 变更**shard_1**数据
-  ![截屏2021-12-20 下午3.51.54.png](../assets/blog/wufenzhong/0026/10.png)
+  ![截屏2021-12-20 下午3.51.54.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0026/10.png)
 - 变更**shard_2**数据
-  ![截屏2021-12-20 下午3.50.47.png](../assets/blog/wufenzhong/0026/11.png)
+  ![截屏2021-12-20 下午3.50.47.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0026/11.png)
 - 查看**no_shard**汇聚库数据
-  ![截屏2021-12-20 下午3.52.30.png](../assets/blog/wufenzhong/0026/12.png)
+  ![截屏2021-12-20 下午3.52.30.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0026/12.png)
 
 ## 常见问题
 

@@ -6,7 +6,7 @@ date: 2024-03-01
 authors: junyu
 tags:
   - tech_share
-image: /img/ccBlog/tech_share/hive_dst_change_data_capture_writer.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/tech_share/hive_dst_change_data_capture_writer.png
 slug: /data_insights/hive_dst_change_data_capture_writer
 ---
 
@@ -27,7 +27,7 @@ Hive 目标端写入方式和 [Doris](https://www.clougence.com/cc-doc/dataMigra
 
 CloudCanal 的设计核心在于，每个同步表对应两张临时表，通过交替合并的方式，确保在一张临时表进行合并时，另一张能够接收新变更，从而提升同步效率和并发性。
 
-![image.png](../assets/blog/tech_share/0017/hive_dst_change_data_capture_1.png)
+![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0017/hive_dst_change_data_capture_1.png)
 
 Hive 提供了两种合并方式：INSERT OVERWRITE（所有版本均支持），MERGE INTO（Hive 2.2.0 之后支持且需要是 ACID 表）
 
@@ -53,7 +53,7 @@ DELETE
 
 通过这种方式，无论是相同或不同的任务、相同或不同的 Schema（源端）、相同或不同的 Table（源端），都能将数据写入不同的临时表，最终合并到同一个实际表中，互相之间不会产生影响。
 
-![image.png](../assets/blog/tech_share/0017/hive_dst_change_data_capture_2.png)
+![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0017/hive_dst_change_data_capture_2.png)
 
 ### 基于 HDFS 文件的写入方式
 
@@ -81,24 +81,24 @@ CloudCanal 在进行数据写入的时候，选择的是绕过 Hive 这层，直
 
 - **数据源管理** -> **添加数据源， 添加** **MySQL、Hive**
 
-  ![image.png](../assets/blog/tech_share/0017/hive_dst_change_data_capture_4.png)
-  ![image.png](../assets/blog/tech_share/0017/hive_dst_change_data_capture_3.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0017/hive_dst_change_data_capture_4.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0017/hive_dst_change_data_capture_3.png)
 
 
 ### 创建同步任务
 
 - 选择源端 **MySQL** 和目标端 **Hive**，同步的 **Schema** 和 **Table**，高级参数含义参考 [MySQL -> Hive](https://www.clougence.com/cc-doc/dataMigrationAndSync/connection/mysql2?target=Hive&src=cc-doc-blog-hive-dst-optimize)
 
-  ![image.png](../assets/blog/tech_share/0017/hive_dst_change_data_capture_5.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0017/hive_dst_change_data_capture_5.png)
 - 任务创建第四步，点击 **配置分区键**
 - 选择 **分区键类型** 以及 **HDFS 文件类型**
 
-  ![image.png](../assets/blog/tech_share/0017/hive_dst_change_data_capture_6.png)
-  ![image.png](../assets/blog/tech_share/0017/hive_dst_change_data_capture_7.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0017/hive_dst_change_data_capture_6.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0017/hive_dst_change_data_capture_7.png)
 
 - 点击下一步，创建任务即可
 
-  ![image.png](../assets/blog/tech_share/0017/hive_dst_change_data_capture_8.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0017/hive_dst_change_data_capture_8.png)
 ## 未来方向
 
 ### 文件 Append 写入方式

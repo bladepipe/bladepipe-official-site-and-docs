@@ -6,7 +6,7 @@ date: 2024-08-23
 authors: junyu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/es_es_sync.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/es_es_sync.png 
 slug: /data_sync_sample/es_es_sync
 ---
 
@@ -33,7 +33,7 @@ Elasticsearch 并没有明确给出如何实时获取其中的变更数据，但
 - Elasticsearch 索引管理方便。
 - 和 CloudCanal 其他数据源 Trigger 方式增量数据获取风格一致，机制代码可重用。
 
-![es_es_sync](../assets/blog/data_sync_sample/es_es_sync/es_es_sync.png)
+![es_es_sync](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/es_es_sync/es_es_sync.png)
 
 索引 `cc_es_trigger_idx` 结构如下, 其中 `row_data` 保留 INDEX 操作变更后数据，pk 则保存文档 _id。
 

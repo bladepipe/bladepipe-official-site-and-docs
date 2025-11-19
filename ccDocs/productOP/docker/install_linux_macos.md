@@ -104,7 +104,7 @@ description: 本文档主要介绍如何在 Linux/MacOS 系统下，全新安装
     ```
 
 2. MacOS 系统请为 Docker 分配内存。
-  ![f0f8aece-be13-44f6-be2b-d5fecd9a7b67-image.png](../../assets/operation-manual/Linux-MacOS.png)
+  ![f0f8aece-be13-44f6-be2b-d5fecd9a7b67-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/Linux-MacOS.png)
 
 ### 安装 CloudCanal
 
@@ -121,7 +121,7 @@ description: 本文档主要介绍如何在 Linux/MacOS 系统下，全新安装
     ```
 
 2. 出现如下标识即安装成功。
- ![7b00e562-cd45-4905-a626-1356503d8213-image.png](../../assets/operation-manual/Linux-MacOS2.png)
+ ![7b00e562-cd45-4905-a626-1356503d8213-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/Linux-MacOS2.png)
 
 ### 开始使用
 

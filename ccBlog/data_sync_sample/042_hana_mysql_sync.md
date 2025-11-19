@@ -6,7 +6,7 @@ date: 2024-12-08
 authors: juantu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/hana_mysql_sync.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/hana_mysql_sync.png 
 slug: /data_sync_sample/hana_mysql_sync
 ---
 
@@ -32,7 +32,7 @@ CloudCanal 实现了表级别的 CDC 表设计，每张源表都对应一张 CDC
 
 相比于所有数据写入单一 CDC 表，表级别的 CDC 表更加独立，方便多次订阅表。此外，触发器只需要执行 INSERT 语句，因此对于字段较多的表也能够快速执行。扫描消费 CDC 数据时，不需要做额外的处理，消费更简单。
 
-![image.png](../assets/blog/tech_share/0019/1.png)
+![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0019/1.png)
 
 **原表**：
 

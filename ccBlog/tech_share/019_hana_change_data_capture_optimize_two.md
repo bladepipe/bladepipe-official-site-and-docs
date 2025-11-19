@@ -6,7 +6,7 @@ date: 2024-05-24
 authors: junyu
 tags:
   - tech_share
-image: /img/ccBlog/tech_share/hana_change_data_capture_optimize_two.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/tech_share/hana_change_data_capture_optimize_two.png
 slug: /data_insights/hana_change_data_capture_optimize_two
 ---
 
@@ -92,7 +92,7 @@ END;
 - 触发器只需要执行 INSERT 语句，因此对于字段较多的表也能够快速执行。
 - 扫描消费 CDC 数据时，不需要做额外的处理，消费更简单。
 
-![image.png](../assets/blog/tech_share/0019/1.png)
+![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0019/1.png)
 
 ### 表级别任务位点
 
@@ -137,14 +137,14 @@ END;
 * 根据源端订阅表数量，初始化相应数量的 Table Worker 工作线程。
 * 每个 Table Worker 根据位点消费对应的 CDC 表数据。
 
-![image.png](../assets/blog/tech_share/0019/2.png)
+![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0019/2.png)
 
 实际的 Table Worker 工作线程会根据 **事务 ID** 计算本次扫描范围，判断该范围是否有未提交的事务：
 
 - 如果有未提交事务：扫描线程进入等待队列，等待下一轮扫描。
 - 如果没有未提交事务：根据确定的范围消费增量数据，并更新单表任务位点。
 
-![image.png](../assets/blog/tech_share/0019/3.png)
+![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0019/3.png)
 
 ## 未来方向
 

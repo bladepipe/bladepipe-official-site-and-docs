@@ -115,13 +115,13 @@ public class WebhookController {
 #### 控制台配置 IM 告警
   
 - 进入控制台 > 点击个人头像 > 进入账户信息
-![](../../assets/custom_webhook/1.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/custom_webhook/1.png)
       
 - 配置 **alertImType** 为 **custom**，**defaultImAlertUrl** 为 **Webhook 请求路径** > 保存配置
-![](../../assets/custom_webhook/2.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/custom_webhook/2.png)
       
 - 验证 IM 告警
-![](../../assets/custom_webhook/3.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/custom_webhook/3.png)
   
 - crul 发送 POST 请求
     ```
@@ -129,4 +129,4 @@ public class WebhookController {
     ```
 
 - Webhook 结果
-![](../../assets/custom_webhook/4.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/custom_webhook/4.png)

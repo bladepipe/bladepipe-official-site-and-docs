@@ -6,7 +6,7 @@ date: 2023-10-16
 authors: juantu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/http_base_internet_data_sync.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/http_base_internet_data_sync.png 
 slug: /data_sync_sample/http_base_internet_data_sync
 ---
 
@@ -23,7 +23,7 @@ slug: /data_sync_sample/http_base_internet_data_sync
 - 支持多种数据库异构互通
 
 ## 技术点
-![image.png](../assets/blog/tech_share/http_sync/http_sync_all.png)
+![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_all.png)
 
 ### Tunnel数据源
 去掉消息依赖的跨互联网数据库互通，我们是通过一个虚拟的数据源 Tunnel 实现。
@@ -120,17 +120,17 @@ Tunnel 数据源本身并不是实体数据库，而是一组逻辑信息，包�
 ### 环境准备
 
 - 杭州环境部署 CloudCanal ，并购买 RDS for MySQL 作为源端
-  ![blog/tech_share/http_sync_3](../assets/blog/tech_share/http_sync/http_sync_3.png)
-  ![blog/tech_share/http_sync_4](../assets/blog/tech_share/http_sync/http_sync_4.png)
+  ![blog/tech_share/http_sync_3](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_3.png)
+  ![blog/tech_share/http_sync_4](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_4.png)
 
 - 深圳环境部署 CloudCanal  ,  并购买 RDS for MySQL 作为目标端
-  ![blog/tech_share/http_sync_1](../assets/blog/tech_share/http_sync/http_sync_1.png)
-  ![blog/tech_share/http_sync_2](../assets/blog/tech_share/http_sync/http_sync_2.png)
+  ![blog/tech_share/http_sync_1](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_1.png)
+  ![blog/tech_share/http_sync_2](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_2.png)
 
 - 因 CloudCanal 为 docker 版本 ,深圳环境  CloudCanal 安装包解压后 ，**需要修改 docker-compose.yml 端口映射再安装/升级**，并开放 ECS 安全组相关端口，以便远程连接
 - 此例以 18443 端口作为 Tunnel 数据源监听端口
-  ![blog/tech_share/http_sync_5](../assets/blog/tech_share/http_sync/http_sync_5.png)
-  ![blog/tech_share/http_sync_6](../assets/blog/tech_share/http_sync/http_sync_6.png)
+  ![blog/tech_share/http_sync_5](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_5.png)
+  ![blog/tech_share/http_sync_6](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_6.png)
 
 ### 为目标端数据库初始化元数据
 
@@ -139,60 +139,60 @@ Tunnel 数据源本身并不是实体数据库，而是一组逻辑信息，包�
 ### 添加 Tunnel 数据源
 
 - 分别在源端和目标端 CloudCanal 配置 Tunnel 数据源
-  ![blog/tech_share/http_sync_7](../assets/blog/tech_share/http_sync/http_sync_7.png)
+  ![blog/tech_share/http_sync_7](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_7.png)
 
 - 源端数据源列表
-  ![blog/tech_share/http_sync_9](../assets/blog/tech_share/http_sync/http_sync_9.png)
+  ![blog/tech_share/http_sync_9](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_9.png)
 
 - 目标端数据源列表  
-  ![blog/tech_share/http_sync_8](../assets/blog/tech_share/http_sync/http_sync_8.png)
+  ![blog/tech_share/http_sync_8](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_8.png)
 
 ### 为 Tunnel 初始化元数据
 
 - 源端创建一个 MySQL -> Tunnel 结构迁移，并完成
-  ![blog/tech_share/http_sync_10](../assets/blog/tech_share/http_sync/http_sync_10.png)
-  ![blog/tech_share/http_sync_11](../assets/blog/tech_share/http_sync/http_sync_11.png)
+  ![blog/tech_share/http_sync_10](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_10.png)
+  ![blog/tech_share/http_sync_11](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_11.png)
 
 - 从源端 Tunnel 数据源拷贝结构并复制到目标端
-  ![blog/tech_share/http_sync_12](../assets/blog/tech_share/http_sync/http_sync_12.png)
-  ![blog/tech_share/http_sync_13](../assets/blog/tech_share/http_sync/http_sync_13.png)
-  ![blog/tech_share/http_sync_14](../assets/blog/tech_share/http_sync/http_sync_14.png)
+  ![blog/tech_share/http_sync_12](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_12.png)
+  ![blog/tech_share/http_sync_13](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_13.png)
+  ![blog/tech_share/http_sync_14](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_14.png)
 
 ### 目标端任务创建
 
 - 选择 Tunnel 和 目标数据库
-  ![blog/tech_share/http_sync_15](../assets/blog/tech_share/http_sync/http_sync_15.png)
+  ![blog/tech_share/http_sync_15](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_15.png)
 
 
 - 选择数据同步
-  ![blog/tech_share/http_sync_16](../assets/blog/tech_share/http_sync/http_sync_16.png)
+  ![blog/tech_share/http_sync_16](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_16.png)
 
 - 选择表、列、映射略
 - 任务正常运行，监听端口并准备接收数据
-  ![blog/tech_share/http_sync_17](../assets/blog/tech_share/http_sync/http_sync_17.png)
+  ![blog/tech_share/http_sync_17](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_17.png)
 
 ### 源端任务创建
 
 - 选择源端数据库 和 Tunnel 数据源
-  ![blog/tech_share/http_sync_18](../assets/blog/tech_share/http_sync/http_sync_18.png)
+  ![blog/tech_share/http_sync_18](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_18.png)
 
 - 选择数据同步，并初始化数据
-  ![blog/tech_share/http_sync_19](../assets/blog/tech_share/http_sync/http_sync_19.png)
+  ![blog/tech_share/http_sync_19](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_19.png)
 
 - 数据持续同步中
-  ![blog/tech_share/http_sync_20](../assets/blog/tech_share/http_sync/http_sync_20.png)
+  ![blog/tech_share/http_sync_20](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_20.png)
 
 ### 数据验证
 #### 造增量数据
 
 - 为了造数据简便，开下源端数据库公网地址
-  ![blog/tech_share/http_sync_21](../assets/blog/tech_share/http_sync/http_sync_21.png)
+  ![blog/tech_share/http_sync_21](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_21.png)
 
 #### 数据校验
 
 - 在深圳环境添加源端数据源，并做数据校验。结果显示数据一致。
-  ![blog/tech_share/http_sync_22](../assets/blog/tech_share/http_sync/http_sync_22.png)
-  ![blog/tech_share/http_sync_23](../assets/blog/tech_share/http_sync/http_sync_23.png)
+  ![blog/tech_share/http_sync_22](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_22.png)
+  ![blog/tech_share/http_sync_23](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/http_sync/http_sync_23.png)
 
 ## 常见问题
 

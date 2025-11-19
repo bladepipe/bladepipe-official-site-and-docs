@@ -19,5 +19,5 @@ CloudCanal 版本 >= 4.2.1.0 。
 1. 登录 CloudCanal 控制台。
 2. 点击对应校验任务 **详情** > **功能列表** > **修改任务参数**。
 3. 选择 **任务核心配置** 页签。修改 **checkFloatNumScale** 参数，设置最大有效小数位（和业务相关，如保证 5 位小数有效则设置 5）。
-   ![](../param_and_func/assets/float_check.png)
+   ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/float_check/float_check.png)
 4. 点击 **生效配置**，重启任务。

@@ -6,7 +6,7 @@ date: 2022-05-23
 authors: junyu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/mysql_polardbx_sync.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/mysql_polardbx_sync.png 
 slug: /data_sync_sample/mysql_polardbx_sync
 ---
 
@@ -93,38 +93,38 @@ if (col.isKey() || (partitionKeys != null && partitionKeys.contains(col.getName(
 
 ### 造数据
 - 混合负载，IUD 比例 2:7:1
-  ![截屏2021-10-29 下午12.12.22.png](../assets/blog/data_sync_sample/8_mysql_polardbx_sync/截屏2021-10-29-下午12.12.22.png)
+  ![截屏2021-10-29 下午12.12.22.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/8_mysql_polardbx_sync/%E6%88%AA%E5%B1%8F2021-10-29-%E4%B8%8B%E5%8D%8812.12.22.png)
 
 ### 添加数据源
 - 登录 CloudCanal 平台
 - **数据源管理**->**新增数据源**
 - 分别选择 **自建** 部署模式下的 **PolarDB-X** 和 **MySQL** 并添加
-  ![截屏2021-10-29 下午12.03.15.png](../assets/blog/data_sync_sample/8_mysql_polardbx_sync/截屏2021-10-29-下午12.03.15.png)
+  ![截屏2021-10-29 下午12.03.15.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/8_mysql_polardbx_sync/%E6%88%AA%E5%B1%8F2021-10-29-%E4%B8%8B%E5%8D%8812.03.15.png)
 
 ### 任务创建
 - **任务管理**->**任务创建**
 - 选择源和目标数据源
-  ![截屏2021-10-29 下午12.04.55.png](../assets/blog/data_sync_sample/8_mysql_polardbx_sync/截屏2021-10-29-下午12.04.55.png)
+  ![截屏2021-10-29 下午12.04.55.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/8_mysql_polardbx_sync/%E6%88%AA%E5%B1%8F2021-10-29-%E4%B8%8B%E5%8D%8812.04.55.png)
 
 - 选择数据同步，并勾选 **全量数据初始化**, 其他选项默认
-  ![截屏2021-10-29 下午12.07.05.png](../assets/blog/data_sync_sample/8_mysql_polardbx_sync/截屏2021-10-29-下午12.07.05.png)
+  ![截屏2021-10-29 下午12.07.05.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/8_mysql_polardbx_sync/%E6%88%AA%E5%B1%8F2021-10-29-%E4%B8%8B%E5%8D%8812.07.05.png)
 
 - 选择需要迁移同步的表
-  ![截屏2021-10-29 下午12.08.54.png](../assets/blog/data_sync_sample/8_mysql_polardbx_sync/截屏2021-10-29-下午12.08.54.png)
+  ![截屏2021-10-29 下午12.08.54.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/8_mysql_polardbx_sync/%E6%88%AA%E5%B1%8F2021-10-29-%E4%B8%8B%E5%8D%8812.08.54.png)
 
 - 选择列,默认全选
 - 设定分库分表算法和字段
-  ![截屏2021-10-29 下午12.11.08.png](../assets/blog/data_sync_sample/8_mysql_polardbx_sync/截屏2021-10-29-下午12.11.08.png)
+  ![截屏2021-10-29 下午12.11.08.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/8_mysql_polardbx_sync/%E6%88%AA%E5%B1%8F2021-10-29-%E4%B8%8B%E5%8D%8812.11.08.png)
 
 - 确认创建,并自动运行
-  ![截屏2021-10-29 下午12.13.18.png](../assets/blog/data_sync_sample/8_mysql_polardbx_sync/截屏2021-10-29-下午12.13.18.png)
+  ![截屏2021-10-29 下午12.13.18.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/8_mysql_polardbx_sync/%E6%88%AA%E5%B1%8F2021-10-29-%E4%B8%8B%E5%8D%8812.13.18.png)
 
 ### 校验任务
 - 停止增量负载
 - 创建校验任务
   - 目前类似任务创建开发中，暂时库表列选择和拆分选择请和同步任务保持一致
 - 校验完毕数据一致
-  ![截屏2021-10-29 下午12.14.32.png](../assets/blog/data_sync_sample/8_mysql_polardbx_sync/截屏2021-10-29-下午12.14.32.png)
+  ![截屏2021-10-29 下午12.14.32.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/8_mysql_polardbx_sync/%E6%88%AA%E5%B1%8F2021-10-29-%E4%B8%8B%E5%8D%8812.14.32.png)
 
 ## 常见问题
 

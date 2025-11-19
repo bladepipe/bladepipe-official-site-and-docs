@@ -6,7 +6,7 @@ date: 2024-12-15
 authors: juantu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/oboracle_oceanbase_sync.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/oboracle_oceanbase_sync.png 
 slug: /data_sync_sample/oboracle_oceanbase_sync
 ---
 

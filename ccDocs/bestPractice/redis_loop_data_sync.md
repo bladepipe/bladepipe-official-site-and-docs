@@ -36,21 +36,21 @@ Redis 集群普遍具备多个节点，为了简化任务配置，CloudCanal 采
 - 登录 CloudCanal 平台 ，**数据源管理** -> **添加数据源**  , 添加 2 个 Redis 集群
 - 建议对数据源进行描述修改，防止配置正反链路时，识别错数据库
    
-  ![redis_loop_ds](../assets/redis_loop_data_sync/redis_loop_ds.png)
+  ![redis_loop_ds](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/redis_loop_data_sync/redis_loop_ds.png)
 
 ### 创建正向同步任务
 - **任务管理**->**新建任务**
 - 双向同步中，正向任务一般指源端有数据，目标端无数据的链路，涉及对端数据初始化
 - 第一个页面，选择源端和目标端数据源和相关信息，点击**下一步**
 
-  ![redis_loop_create_1](../assets/redis_loop_data_sync/redis_loop_create_1.png)
+  ![redis_loop_create_1](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/redis_loop_data_sync/redis_loop_create_1.png)
 
 - 第二个页面
   - 选择 **数据同步**，并且勾选 **全量数据初始化**
   - **置灰自动启动**，以便创建任务后设置双向同步参数
   - 点击 **下一步**
 
-  ![redis_loop_create_2](../assets/redis_loop_data_sync/redis_loop_create_2.png)
+  ![redis_loop_create_2](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/redis_loop_data_sync/redis_loop_create_2.png)
 
 - 第三个页面,点击**确认创建**
 - **任务详情** -> **参数设置**
@@ -58,56 +58,56 @@ Redis 集群普遍具备多个节点，为了简化任务配置，CloudCanal 采
   - 设置源端数据源配置 **deCycleEventExpireSec** 参数为 1200 秒 (防循环辅助指令超时事件，超过后防循环即无效)
   - 生效配置并启动
 
-  ![redis_loop_create_3](../assets/redis_loop_data_sync/redis_loop_create_3.png)
+  ![redis_loop_create_3](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/redis_loop_data_sync/redis_loop_create_3.png)
 
 - 等待正向同步任务初始化完数据并正常同步
   > 此处不建议在正向同步任务创建后立即创建反向任务，涉及到 repl-backlog-size 设置不足时，反向任务启动强制走 FULL SYNC 导致新数据被老数据覆盖问题
 
-  ![redis_loop_forward_job](../assets/redis_loop_data_sync/redis_loop_forward_job.png)
+  ![redis_loop_forward_job](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/redis_loop_data_sync/redis_loop_forward_job.png)
 
 ### 创建反向同步任务
 - **任务管理**->**新建任务**
 - 第一个页面，选择源端和目标端选择数据源（**请和正向任务所选数据源对调**）和相关信息，点击**下一步**
 
-  ![redis_loop_create_reverse_1](../assets/redis_loop_data_sync/redis_loop_create_reverse_1.png)
+  ![redis_loop_create_reverse_1](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/redis_loop_data_sync/redis_loop_create_reverse_1.png)
 
 - 第二个页面
   - 选择 **数据同步**，并去除**全量数据初始化**勾选
   - **置灰自动启动**，以便创建任务后设置双向同步参数
   - 点击 **下一步**
 
-  ![redis_loop_create_reverse_2](../assets/redis_loop_data_sync/redis_loop_create_reverse_2.png)
+  ![redis_loop_create_reverse_2](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/redis_loop_data_sync/redis_loop_create_reverse_2.png)
 
 - 第三个页面，点击**确认创建**
 - **任务详情** -> **参数设置**
   - 设置源端数据源配置 **deCycle** 参数为 true , **deCycleEventExpireSec** 参数为 1200 秒
   - 生效配置并启动
 
-  ![redis_loop_create_reverse_3](../assets/redis_loop_data_sync/redis_loop_create_reverse_3.png)
+  ![redis_loop_create_reverse_3](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/redis_loop_data_sync/redis_loop_create_reverse_3.png)
 
 - 任务正常运行
 
-  ![redis_loop_reverse_job](../assets/redis_loop_data_sync/redis_loop_reverse_job.png)
+  ![redis_loop_reverse_job](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/redis_loop_data_sync/redis_loop_reverse_job.png)
 
 ### 测试
 - 源端数据库做数据变更，正向任务监控有变更，反向任务没有(即无循环)
-  ![redis_loop_forward_gen_data](../assets/redis_loop_data_sync/redis_loop_forward_gen_data.png)
-  ![redis_loop_forward_gen_data_src](../assets/redis_loop_data_sync/redis_loop_forward_gen_data_src.png)
-  ![redis_loop_forward_gen_data_dst](../assets/redis_loop_data_sync/redis_loop_forward_gen_data_dst.png)
+  ![redis_loop_forward_gen_data](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/redis_loop_data_sync/redis_loop_forward_gen_data.png)
+  ![redis_loop_forward_gen_data_src](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/redis_loop_data_sync/redis_loop_forward_gen_data_src.png)
+  ![redis_loop_forward_gen_data_dst](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/redis_loop_data_sync/redis_loop_forward_gen_data_dst.png)
 
 - 目标端数据库做数据变更，反向任务监控有变更，正向任务没有(即无循环)
-  ![redis_loop_reverse_gen_data](../assets/redis_loop_data_sync/redis_loop_reverse_gen_data.png)
-  ![redis_loop_reverse_gen_data_src](../assets/redis_loop_data_sync/redis_loop_reverse_gen_data_src.png)
-  ![redis_loop_reverse_gen_data_dst](../assets/redis_loop_data_sync/redis_loop_reverse_gen_data_dst.png)
+  ![redis_loop_reverse_gen_data](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/redis_loop_data_sync/redis_loop_reverse_gen_data.png)
+  ![redis_loop_reverse_gen_data_src](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/redis_loop_data_sync/redis_loop_reverse_gen_data_src.png)
+  ![redis_loop_reverse_gen_data_dst](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/redis_loop_data_sync/redis_loop_reverse_gen_data_dst.png)
 
 - 等待两边防循环辅助指令过期，检查数据一致
   - 源端
   
-  ![redis_loop_src_final](../assets/redis_loop_data_sync/redis_loop_src_final.png)
+  ![redis_loop_src_final](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/redis_loop_data_sync/redis_loop_src_final.png)
   
   - 目标端
   
-  ![redis_loop_dst_final](../assets/redis_loop_data_sync/redis_loop_dst_final.png)
+  ![redis_loop_dst_final](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/redis_loop_data_sync/redis_loop_dst_final.png)
 
 ## 常见问题
 

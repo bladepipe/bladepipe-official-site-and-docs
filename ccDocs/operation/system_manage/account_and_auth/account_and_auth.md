@@ -43,7 +43,7 @@ CloudCanal 权限由两部分组成，即功能权限和资源权限。
 - **禁止删除子账号**  
 系统默认可删除子账号，若需禁止删除子账号，可按以下步骤操作：
   1. 点击 **配置** > **个人偏好**。
-  2. 定位到参数 *forbidDelSubAccount*，点击 ![](../../../assets/account_and_auth/4.png) 即可将参数值修改为 *true*。
+  2. 定位到参数 *forbidDelSubAccount*，点击 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/account_and_auth/4.png) 即可将参数值修改为 *true*。
   3. 修改参数后，将无法删除子账号。
 
 ## 账号密码管理
@@ -51,18 +51,18 @@ CloudCanal 权限由两部分组成，即功能权限和资源权限。
 密码强度 **对主账号和子账号都生效**。主账号和子账号 **重置自身密码**、 **设置新建子账号密码** 和 **重置子账号密码**（如有权限）时，需满足该密码强度。
 具体操作步骤如下：
   1. 点击 **配置** > **个人偏好**。
-  2. 定位到参数 *subAccountPwdVerifyExpr*，点击 ![](../../../assets/account_and_auth/3.png)，在弹出的对话框中填入密码强度正则表达式。  
+  2. 定位到参数 *subAccountPwdVerifyExpr*，点击 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/account_and_auth/3.png)，在弹出的对话框中填入密码强度正则表达式。  
   示例：`^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$`
       :::info
       若不设置，则采用系统默认验证表达式。
       :::
-  3. 定位到参数 *subAccountPwdVerifyTips*，点击 ![](../../../assets/account_and_auth/3.png)，在弹出的对话框中填入账号密码格式验证提示。  
+  3. 定位到参数 *subAccountPwdVerifyTips*，点击 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/account_and_auth/3.png)，在弹出的对话框中填入账号密码格式验证提示。  
   示例：密码需要数字、小写字母、大写字母组合的 8～20 位字符串。
   4. 修改参数后，设置密码时将显示密码格式提示，需按要求设置密码。   
 
 ### 设置密码强制过期时间
   1. 点击 **配置** > **个人偏好**。
-  2. 定位到参数 *subAccountPwdExpireDays*，点击 ![](../../../assets/account_and_auth/3.png)，在弹出的对话框中填入数字。  
+  2. 定位到参数 *subAccountPwdExpireDays*，点击 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/account_and_auth/3.png)，在弹出的对话框中填入数字。  
   示例：填入“2”表示子账号密码2天后强制过期。
   3. 修改参数后，密码将在指定时间后过期。
       :::info 
