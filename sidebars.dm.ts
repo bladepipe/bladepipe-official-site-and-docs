@@ -348,6 +348,7 @@ const sidebars: SidebarsConfig = {
             description: '查看 CloudDM 各个版本的更新说明、功能特性和修复内容'
         },
         items: [
+            "releaseinfo/team_3_2_0_0",
             "releaseinfo/team_3_1_0_0",
             "releaseinfo/team_3_0_0_0",
             "releaseinfo/team_2_8_1_0",
