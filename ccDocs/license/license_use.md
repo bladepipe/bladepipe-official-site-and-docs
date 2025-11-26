@@ -58,8 +58,7 @@ description: CloudCanal可以通过申请许可证来获取任务数容量和时
 2. 在控制台右上角可查看产品状态已变为 **已激活**。
 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/license/11_commerce_activated.png)
 3. 点击 **已激活** 文本，可看到授权的信息。如需延长使用时间或获取更多资源，按上面的步骤重新申请许可证即可。
-
-:::info
-社区版许可证到期前请尽快到官网自助续签，商业版许可证到期前请[联系我们](https://www.clougence.com/about)帮助续签或到官网自助续签。    
-许可证到期后会影响正在运行的任务，详情请参考 [许可证到期说明](../reference/license_overdue.md)。
-:::
+    :::info
+    社区版许可证到期前请尽快到官网自助续签，商业版许可证到期前请[联系我们](https://www.clougence.com/about)帮助续签或到官网自助续签。    
+    许可证到期后会影响正在运行的任务，详情请参考 [许可证到期说明](../reference/license_overdue.md)。
+    :::
