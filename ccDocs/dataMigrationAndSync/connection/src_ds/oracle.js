@@ -83,10 +83,6 @@ export const Oracle = {
             desc: '重建分析链接的间隔，以释放 Oracle 服务端资源'
         },
         {
-            key: 'oraMiningSessionPauseSec',
-            desc: '执行 Logminer 指令分析的间隔时间'
-        },
-        {
             key: 'fallBackScnStep',
             desc: '和 Redo log 最新数据保持的距离，0 表示紧跟'
         },
