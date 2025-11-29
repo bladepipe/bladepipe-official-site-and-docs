@@ -122,7 +122,14 @@ const config: Config = {
   customFields: {
     siteBrand: process.env.SITE_BRAND || 'clougence',
     API_BASE_URL: SERVICE_URL[current_env],
-    CLOUD_URL: CLOUD_URL[current_env]
+    CLOUD_URL: CLOUD_URL[current_env],
+    // 公告栏配置
+    announcement: {
+      enabled: true, // 设置为 true 启用公告栏
+      text: '🎉 CloudCanal 上线 V5.3.0.0（2025.11.28）：支持表达式表名，可支撑海量表的迁移同步，新增黑夜模式', // 公告文本（支持 i18n）
+      linkUrl: '/docs/releaseNote/rn-cloudcanal-5-3-0-0', // 链接地址（整个区域可点击）
+      endDate: '2025-12-10T23:59:59' // 可选：结束日期（ISO 格式），如 '2025-12-31T23:59:59'，超过此时间后不再显示。不设置则永久显示（当 enabled 为 true 时）
+    }
   }
 };
 

@@ -3196,5 +3196,17 @@
   },
   "loading.authenticating": {
     "message": "登录验证中..."
+  },
+  "announcement.text": {
+    "message": "新功能上线！查看我们的最新更新。",
+    "description": "Announcement text"
+  },
+  "announcement.defaultText": {
+    "message": "新功能上线！查看我们的最新更新。",
+    "description": "Default announcement text"
+  },
+  "announcement.linkText": {
+    "message": "了解更多",
+    "description": "Announcement link text"
   }
 }
