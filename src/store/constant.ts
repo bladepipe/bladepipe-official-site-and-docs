@@ -30,7 +30,7 @@ export const useConstantStore = create<ConstantState>((set, get) => ({
   async ssoType() {
     try {
       const ssoTypeRes: any = await apiSsoType({
-        src: window.sessionStorage.getItem('source_for_cc'),
+        src: window.localStorage.getItem('source_for_cc'),
         target: window.localStorage.getItem('loginSource'),
       });
       if (ssoTypeRes && ssoTypeRes.success) {

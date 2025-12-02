@@ -105,8 +105,8 @@ export default function RegisterFromMarket() {
                 country: 'USA',
                 contactMe: true,
                 noModal: true,
-                src: window.sessionStorage.getItem('source_for_cc'),
-                keyword: window.sessionStorage.getItem('kw_for_cc'),
+                src: window.localStorage.getItem('source_for_cc'),
+                keyword: window.localStorage.getItem('kw_for_cc'),
             };
             const res: any = await registerFromMarket(params);
             let success = false;
