@@ -35,6 +35,7 @@ const CloudDmLoginForm: React.FC<CloudDmLoginFormProps> = ({
   const userLogin = useUserStore((state) => state.login);
   const [activeLoginType, setActiveLoginType] = useState<string>(LOGIN_TYPES.ACCOUNT);
   const [loginLoading, setLoginLoading] = useState(false);
+  const accountValue = Form.useWatch('account', form);
 
   const handleSubmit = async (values: { account: string; password?: string; verifyCode?: string }) => {
     if (!checkPolicy) {
@@ -185,7 +186,7 @@ const CloudDmLoginForm: React.FC<CloudDmLoginFormProps> = ({
               </div>
               <div className="w-[104px] h-[52px] bg-[#0087c7] rounded-[8px]">
                 <CountDownButton
-                  phoneNumber={form.getFieldValue('account')}
+                  phoneNumber={accountValue}
                   verifyCodeType="LOGIN"
                   onError={(error) => {
                     form.setFields([
