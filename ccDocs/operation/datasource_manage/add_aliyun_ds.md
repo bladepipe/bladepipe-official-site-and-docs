@@ -32,7 +32,7 @@ ADB for MySQL、ClickHouse、ElasticSearch、ADB for PG、Kafka、MongoDB、RDS 
      - 环境：默认为 Test Environment。支持 [自定义环境](../system_manage/env_manage.md)。
      - 获取方式：AccessKey。如之前并未配置 AccessKey ID 和 AccessKey Secret，将显示对话框要求输入相应信息。
 3. 下方列表会展示子账号有权限查看的数据源列表。
-4. 勾选左侧需要添加的数据源，点击 ![](../../assets/add_datasource/aliyun_rds/1.png) 图标，将数据源添加到右侧，确认无误后点击 **下一步**。
+4. 勾选左侧需要添加的数据源，点击 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/add_datasource/aliyun_rds/1.png) 图标，将数据源添加到右侧，确认无误后点击 **下一步**。
 5. 选择 **数据库认证方式**，并输入账号、密码等信息。
 6. 在 **阿里云 AccessKey ID / AccessKey Secret** 一列输入相应信息。
 7. 点击 **新增数据源**，添加数据源。

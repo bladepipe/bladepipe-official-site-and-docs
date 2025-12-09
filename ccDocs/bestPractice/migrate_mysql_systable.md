@@ -21,18 +21,18 @@ title: MySQL 系统库同步实践
 
 ### 添加数据源
 登录 CloudCanal 平台，点击 **数据源管理** > **新增数据源**，添加准备的数据库。
-  ![1](../assets/migrate_mysql_systable/1.png)
+  ![1](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/migrate_mysql_systable/1.png)
 
 ### 创建任务
 1. 点击 **同步任务** > **创建任务**。
 2. 进入源&目标设置页面，选择 MySQL 数据源和系统库，点击 **下一步**。
-  ![2](../assets/migrate_mysql_systable/2.png)
+  ![2](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/migrate_mysql_systable/2.png)
 
 3. 进入功能配置页面，选择数据同步。建议任务规格至少选择 1 GB，**取消勾选自动启动任务**，点击 **下一步**。
-  ![3](../assets/migrate_mysql_systable/3.png)
+  ![3](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/migrate_mysql_systable/3.png)
 
 4. 选择需同步的表，不要同步 **mysql.help_category、mysql.help_keyword、mysql.help_topic、mysql.help_relation** 这四张表。点击 **下一步**。
-   ![4](../assets/migrate_mysql_systable/4.png)
+   ![4](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/migrate_mysql_systable/4.png)
 5. 选择需同步的列。
 6. 确认创建任务。
 7. 进入任务详情页，点击 **功能列表** > **修改任务参数**，修改以下参数配置。
@@ -40,7 +40,7 @@ title: MySQL 系统库同步实践
     - 源端 srcTimeZone：配置成源端时区(默认是 Asia/Shanghai)
     - 对端 keyConflictStrategy：REPLACE
     - 对端 dstTimeZone：配置成对端时区(默认是 Asia/Shanghai)
-  ![5](../assets/migrate_mysql_systable/5.png)
+  ![5](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/migrate_mysql_systable/5.png)
 
 7. 启动任务，等待数据同步完毕。
 

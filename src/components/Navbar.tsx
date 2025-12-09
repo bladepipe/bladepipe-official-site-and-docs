@@ -17,7 +17,26 @@ export default function Navbar() {
   const logoSrc = siteBrand === 'clougence' ? '/img/home/CloudCanal.svg' : siteBrand === 'clouddm' ? '/img/home/CloudDM.svg' : '/img/home/BladePipe.png';
   const location = useLocation();
 
+  // 检查公告栏是否显示
+  const announcementConfig = siteConfig.customFields?.announcement as any;
+  const isAnnouncementVisible = React.useMemo(() => {
+    if (!announcementConfig || !announcementConfig.enabled || !announcementConfig.linkUrl) {
+      return false;
+    }
+    if (announcementConfig.endDate) {
+      try {
+        const endDateTime = new Date(announcementConfig.endDate).getTime();
+        const currentTime = new Date().getTime();
+        return currentTime <= endDateTime;
+      } catch (error) {
+        return true;
+      }
+    }
+    return true;
+  }, [announcementConfig]);
+
   const [mobileOpen, setMobileOpen] = useState(false);
+  const scrollYRef = useRef<number>(0);
   // const [SearchBarComponent, setSearchBarComponent] = useState<any>(null);
   //
   // // 动态加载 SearchBar
@@ -118,6 +137,41 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // 移动端菜单打开时禁用背景滚动
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    if (mobileOpen) {
+      // 保存当前滚动位置
+      scrollYRef.current = window.scrollY;
+      // 禁用 body 滚动并保持滚动位置
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollYRef.current}px`;
+      document.body.style.width = '100%';
+    } else {
+      // 恢复滚动
+      const scrollY = scrollYRef.current;
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      
+      // 恢复滚动位置
+      if (scrollY > 0) {
+        window.scrollTo(0, scrollY);
+      }
+    }
+
+    // 组件卸载时确保恢复滚动
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+    };
+  }, [mobileOpen]);
 
 
   return (
@@ -580,7 +634,13 @@ export default function Navbar() {
         </div>
         {/* 移动端抽屉菜单 */}
         {mobileOpen && (
-          <div className='fixed inset-0 top-[70px] bg-white z-50 flex flex-col shadow-lg xl:hidden' style={{ height: 'calc(100vh - 70px)' }}>
+          <div 
+            className='fixed inset-0 bg-white z-50 flex flex-col shadow-lg xl:hidden' 
+            style={{ 
+              top: isAnnouncementVisible ? '110px' : '70px',
+              height: isAnnouncementVisible ? 'calc(100vh - 110px)' : 'calc(100vh - 70px)'
+            }}
+          >
             {/* 导航栏目区域 */}
             <div className='flex flex-col flex-1 overflow-y-auto'>
               {/* Product 展开菜单 - clouddm 时显示为简单链接 */}
@@ -834,13 +894,13 @@ export default function Navbar() {
             </div>
 
             {/* 底部按钮区域 */}
-            <div className="mt-auto px-5 py-[30px] flex items-center justify-end gap-[2px] flex-shrink-0">
+            <div className="mt-auto px-5 py-[30px] flex items-end justify-between gap-[2px] flex-shrink-0">
               {/* 语言切换按钮 */}
               {/* <MobileLanguageDropdown /> */}
 
               {/* 用户认证区域 */}
               {isLoggedIn ? (
-                <div className="flex flex-col gap-3 w-full">
+                <div className="flex flex-col gap-3 flex-1 min-w-0">
                   {/* 用户信息显示 */}
                   <div className='flex items-center justify-center px-5 h-[50px] rounded-lg border border-black/20 bg-gray-50'>
                     <span className='text-[16px] font-bold text-[#131316]'>
@@ -861,14 +921,18 @@ export default function Navbar() {
                       </span>
                     </a>
                     <a
-                      href={`${getCloudUrl()}/#/system/order`}
+                      href={siteBrand === 'clouddm' ? `${getCloudUrl()}/#/system/order` : `${getCloudUrl()}/#/system/billing`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center px-5 h-[40px] rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors no-underline"
                       onClick={() => setMobileOpen(false)}
                     >
                       <span className='text-[14px] font-medium text-[#131316]'>
-                        <Translate id="navbar.myBilling">My Billing</Translate>
+                        {siteBrand === 'clouddm' ? (
+                          <Translate id="navbar.myOrder">My Order</Translate>
+                        ) : (
+                          <Translate id="navbar.myBilling">My Billing</Translate>
+                        )}
                       </span>
                     </a>
                     <button
@@ -901,9 +965,9 @@ export default function Navbar() {
                 </Link>
               )}
 
-              {/* Try Cloud Free 按钮 */}
+              {/* Try Cloud Free 按钮 - 固定在右侧底部 */}
               <div
-                className='flex items-center justify-center px-5 h-[50px] w-[172px] rounded-lg bg-[#0087c7] text-white cursor-pointer hover:bg-[#0070a6]'
+                className='flex items-center justify-center px-5 h-[50px] w-[172px] rounded-lg bg-[#0087c7] text-white cursor-pointer hover:bg-[#0070a6] flex-shrink-0'
                 onClick={() => {
                   setMobileOpen(false);
                   loginCheckAndRedirect(() => {

@@ -6,7 +6,7 @@ date: 2023-06-11
 authors: junyu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/rdb_kudu_sync.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/rdb_kudu_sync.png 
 slug: /data_sync_sample/rdb_kudu_sync
 ---
 
@@ -112,25 +112,25 @@ session.close();
 - 登录 CloudCanal 平台
 -  **数据源管理** -> **添加数据源**
 - 选择 **自建数据源** ，并填写相关数据库信息，其中 **网络地址** 请按提示带上端口号
-  ![3a8f9a9c-b778-4dd5-a509-4032691b37a5-image.png](../assets/blog/wufenzhong/0022/1.png)
+  ![3a8f9a9c-b778-4dd5-a509-4032691b37a5-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0022/1.png)
 - 这里需要有两点提示
   - kudu-client 默认访问的是 **7051** 端口，并非提供 Web 界面的 **8051**
   - 如果 Kudu 是集群化部署，那么在配置网络地址时需要填写集群 **ip:port** 列表。逗号间隔。
 
 ## 同步任务
 -  **任务管理管理** -> **创建任务**  
-   ![71e902c8-dae2-466f-ba43-4f0fac04314c-image.png](../assets/blog/wufenzhong/0022/2.png)
+   ![71e902c8-dae2-466f-ba43-4f0fac04314c-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0022/2.png)
 - 在创建任务的时候，默认高级选项中会要求至少 3副本。可以根据 Kudu 集群情况来修改对应配置。
 
 -  任务类型环节选择 **数据同步**
-   ![fd4e3aec-71fb-4c3e-93e1-4a48e1111f8a-image.png](../assets/blog/wufenzhong/0022/3.png)
+   ![fd4e3aec-71fb-4c3e-93e1-4a48e1111f8a-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0022/3.png)
 - 在表选择环节可以选择要同步的源端表以及同步的动作
-  ![9fbd24b3-e7c6-4a49-8574-ee589fe5f864-image.png](../assets/blog/wufenzhong/0022/4.png)
+  ![9fbd24b3-e7c6-4a49-8574-ee589fe5f864-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0022/4.png)
 - 最后到确认环节创建任务即可。
-  ![3d7cd041-9fcc-4305-acc6-b73263e2d60f-image.png](../assets/blog/wufenzhong/0022/5.png)
+  ![3d7cd041-9fcc-4305-acc6-b73263e2d60f-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0022/5.png)
 
 - 在结构迁移任务跑完之后，就可以看到 Kudu 控制台上已经把对应的 Kudu 表全部创建完毕
-  ![53f2f62b-6b2b-4beb-ad1f-dbe9ae19fbe9-image.png](../assets/blog/wufenzhong/0022/6.png)
+  ![53f2f62b-6b2b-4beb-ad1f-dbe9ae19fbe9-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0022/6.png)
 
 在最后举例使用 Impala 来查询位于 Kudu 中的数据，如下是建表语句：
 ```
@@ -141,7 +141,7 @@ TBLPROPERTIES(
 ```
 
 - 任务在进入增量同步之后尝试对源端就会发现数据已经实时的进入到 Kudu 啦，此时通过 SQL 查询 Impala 上的 Kudu 表就可以看到数据
-  ![072225fc-562f-4313-a1f8-3e4caa3b0cd9-image.png](../assets/blog/wufenzhong/0022/7.png)
+  ![072225fc-562f-4313-a1f8-3e4caa3b0cd9-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0022/7.png)
 
 ## 能力和限制
 - 支持 MySQL、PostgreSQL、Oracle 作为源端到 Kudu 的同步

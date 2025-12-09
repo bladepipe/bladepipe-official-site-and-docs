@@ -6,7 +6,7 @@ date: 2022-09-16
 authors: junyu
 tags: 
   - tech_share
-image: /img/ccBlog/tech_share/different_from_cloudcanal_and_canal.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/tech_share/different_from_cloudcanal_and_canal.png
 slug: /data_insights/different_from_cloudcanal_and_canal
 ---
 ## 前言
@@ -22,7 +22,7 @@ CloudCanal 取名初衷在于其原始意义：云管道。公司使命是做云
 ### CloudCanal 和 Canal 代码有什么区别
 CloudCanal 在 MySQL binlog 解析使用了 Canal 部分代码，其他均为自主研发，并且对 Canal 部分代码进行了大量重构，修复诸多问题并优化性能。Canal 在 CloudCanal 中的位置，可以用以下图片简单表示，可见 Canal 代码在 CloudCanal 产品中只占很小一部分。
 
-![d840d344-a9e3-420f-af15-a4ae91393c50-image.png](../assets/blog/tech_share/0004/d840d344-a9e3-420f-af15-a4ae91393c50-image.png)
+![d840d344-a9e3-420f-af15-a4ae91393c50-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0004/d840d344-a9e3-420f-af15-a4ae91393c50-image.png)
 
 ## CloudCanal 和 Canal 功能差异
 ###

@@ -88,8 +88,8 @@ export default function Register() {
                 verifyType: siteBrand === 'bladepipe' ? verifyType : 'SMS_VERIFY_CODE',
                 contactMe: true,
                 noModal: true,
-                src: window.sessionStorage.getItem('source_for_cc'),
-                keyword: window.sessionStorage.getItem('kw_for_cc'),
+                src: window.localStorage.getItem('source_for_cc'),
+                keyword: window.localStorage.getItem('kw_for_cc'),
                 country: siteBrand === 'bladepipe' ? 'USA' : 'china', // 根据siteBrand动态设置国家
             };
             const res: any = await signIn(params);

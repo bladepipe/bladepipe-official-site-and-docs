@@ -103,7 +103,7 @@ description: 本文档主要介绍在 Linux 操作系统下，部署 CloudCanal 
       --service-cidr=10.96.0.0/12 \
       --pod-network-cidr=10.244.0.0/16
   ```
-  ![f0f8aece-be13-44f6-be2b-d5fecd9a7b67-image.png](../../assets/operation-manual/kubeadm_init.png)
+  ![f0f8aece-be13-44f6-be2b-d5fecd9a7b67-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/kubeadm_init.png)
 
 - 安装成功后，执行如下命令
 
@@ -114,7 +114,7 @@ description: 本文档主要介绍在 Linux 操作系统下，部署 CloudCanal 
   
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
   ```
-  ![f0f8aece-be13-44f6-be2b-d5fecd9a7b67-image.png](../../assets/operation-manual/kubeadm_finished.png)
+  ![f0f8aece-be13-44f6-be2b-d5fecd9a7b67-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/kubeadm_finished.png)
 
 - 保存 **join 命令**，下面加入 Kubernetes Node 时需要执行
 
@@ -132,13 +132,13 @@ description: 本文档主要介绍在 Linux 操作系统下，部署 CloudCanal 
   ```
 
 - 在 calico.yaml 文件中，取消注释 **CALICO_IPV4POOL_CIDR** 配置项，并将其 value 修改为 **Master** 节点初始化时指定的网段 (--pod-network-cidr=10.244.0.0/16)
-  ![f0f8aece-be13-44f6-be2b-d5fecd9a7b67-image.png](../../assets/operation-manual/k8s_calico_edit.png)
+  ![f0f8aece-be13-44f6-be2b-d5fecd9a7b67-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/k8s_calico_edit.png)
 
 - 安装 calico
   ```shell
   kubectl create -f calico.yaml
   ```
-  ![f0f8aece-be13-44f6-be2b-d5fecd9a7b67-image.png](../../assets/operation-manual/k8s_calico_install.png)
+  ![f0f8aece-be13-44f6-be2b-d5fecd9a7b67-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/k8s_calico_install.png)
 
 ### 加入 Kubernetes Node 节点
 
@@ -147,7 +147,7 @@ description: 本文档主要介绍在 Linux 操作系统下，部署 CloudCanal 
   kubeadm join 192.168.2.251:6443 --token brv7nq.adkd0xr0wgl69z3k \
 	--discovery-token-ca-cert-hash sha256:4cb876273f80cb023c4b00c35272d762ab7511aec461fe615f81af84edf8b5a4
   ```
-  ![f0f8aece-be13-44f6-be2b-d5fecd9a7b67-image.png](../../assets/operation-manual/kubeadm_join.png)
+  ![f0f8aece-be13-44f6-be2b-d5fecd9a7b67-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/kubeadm_join.png)
 
 ### 验证部署
 
@@ -155,10 +155,10 @@ description: 本文档主要介绍在 Linux 操作系统下，部署 CloudCanal 
   ```shell
   kubectl get nodes
   ```
-  ![f0f8aece-be13-44f6-be2b-d5fecd9a7b67-image.png](../../assets/operation-manual/k8s_kubectl_get_nodes.png)
+  ![f0f8aece-be13-44f6-be2b-d5fecd9a7b67-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/k8s_kubectl_get_nodes.png)
 
 - 在 **Master 节点** 中查看 Pod 状态，等待 **READY** 项全为 **1/1** 后，即为部署成功
   ```shell
   kubectl get pod -n kube-system
   ```
-  ![f0f8aece-be13-44f6-be2b-d5fecd9a7b67-image.png](../../assets/operation-manual/k8s_check.png)
+  ![f0f8aece-be13-44f6-be2b-d5fecd9a7b67-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/k8s_check.png)

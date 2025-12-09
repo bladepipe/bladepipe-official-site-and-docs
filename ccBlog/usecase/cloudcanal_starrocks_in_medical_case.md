@@ -6,7 +6,7 @@ date: 2023-07-26
 authors: juantu
 tags:
   - usecase
-image: /img/ccBlog/usecase/cloudcanal_starrocks_in_medical_case.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/usecase/cloudcanal_starrocks_in_medical_case.png
 slug: /usecase/cloudcanal_starrocks_in_medical_case
 ---
 ## 简述
@@ -32,7 +32,7 @@ slug: /usecase/cloudcanal_starrocks_in_medical_case
 - **数据处理与分析**：原始的数据经过整合和标准化，可以从数据分析出密接人员、密接关系图谱等信息
 - **数据应用**：数据处理与分析的指标可以用于实时监控大屏、以及相关预警
 
-![e983e0f0-dfd8-4515-b2ba-d7ee0ea65860-image.png](../assets/blog/examples/medical/1.png)
+![e983e0f0-dfd8-4515-b2ba-d7ee0ea65860-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/examples/medical/1.png)
 
 ## 原有技术架构以及痛点
 
@@ -40,7 +40,7 @@ slug: /usecase/cloudcanal_starrocks_in_medical_case
 
 ### 技术架构
 
-![12141ca7-3922-40d8-bea2-1ec34c396492-image (1).png](../assets/blog/examples/medical/2.png)
+![12141ca7-3922-40d8-bea2-1ec34c396492-image (1).png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/examples/medical/2.png)
 
 原有疫情防控的架构总体上分为四块，自底向上分别是：
 
@@ -50,7 +50,7 @@ slug: /usecase/cloudcanal_starrocks_in_medical_case
 
   - 技术信息：数据层采用 MySQL 主从同步，配置级架构如下：
 
-![3767de93-c8fb-48c4-81f9-85924f2609a2-image (2).png](../assets/blog/examples/medical/3.png)
+![3767de93-c8fb-48c4-81f9-85924f2609a2-image (2).png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/examples/medical/3.png)
 
 - 痛点：
 
@@ -65,7 +65,7 @@ slug: /usecase/cloudcanal_starrocks_in_medical_case
 
   技术信息： 整体架构如下
 
-  ![5f4d1355-45ef-4329-a378-ce1f3f23776f-image.png](../assets/blog/examples/medical/4.png)
+  ![5f4d1355-45ef-4329-a378-ce1f3f23776f-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/examples/medical/4.png)
 
 - 痛点：
 
@@ -80,7 +80,7 @@ slug: /usecase/cloudcanal_starrocks_in_medical_case
   - 搭建三台单体 ClickHouse，分别对应 报表业务、大屏业务、数据交换服务、数据查询加速。
   - 以大屏业务举例，前期由于需求变化大，研发直接使用 ClickHouse 对单表过亿的数据进行数据关联、分组统计。高并发情况下也造成 ClickHouse 出现 CPU 打满的情况。ClickHouse 慢语句如下图。
 
-  ![8c921320-a124-4ca0-8b61-ce37145b26d4-image (1).png](../assets/blog/examples/medical/5.png)
+  ![8c921320-a124-4ca0-8b61-ce37145b26d4-image (1).png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/examples/medical/5.png)
 
 - 痛点：
 
@@ -112,7 +112,7 @@ slug: /usecase/cloudcanal_starrocks_in_medical_case
 
   ### 架构介绍
 
-  ![998f1a33-c886-4624-82ba-d8c4e55a5958-image (2).png](../assets/blog/examples/medical/6.png)
+  ![998f1a33-c886-4624-82ba-d8c4e55a5958-image (2).png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/examples/medical/6.png)
 
   新架构层次划分与原有架构基本相同，我们对处理层与分析层的技术栈选型进行了一些调整。在原有架构中，我们使用DataX+FlinkCDC的方案实现了数据的实时与离线同步传输。在替换CloudCanal后，统一实时离线两套技术栈，减少了运维成本。分析层中，通过使用StarRocks替换ClickHouse，在性能，运维成本，业务扩展上也带来了极大的提升。
 
@@ -133,7 +133,7 @@ slug: /usecase/cloudcanal_starrocks_in_medical_case
 
   目前市面上的 OLAP 数据库产品百花齐放，诸如 Impala、Druid、ClickHouse 及 StarRocks。在经过一些列的对比之后，我们最终敲定选择StarRocks替换原有的ClickHouse作为分析层的数据库引擎。
 
-  ![d00ae345-1af5-46b2-accc-680928eed4db-image (3).png](../assets/blog/examples/medical/7.png)
+  ![d00ae345-1af5-46b2-accc-680928eed4db-image (3).png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/examples/medical/7.png)
 
   #### 接入StarRocks
 

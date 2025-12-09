@@ -41,10 +41,6 @@ const MySQL = {
             desc: '兼容额外的 DDL 同步，包括 <b>PT</b>, <b>GHOST</b>, <b>ALI_DMS</b>, <b>PT_GHOST</b>'
         },
         {
-            key: 'needJsonEscape',
-            desc: '将 json 中特殊字符进行转义，以写入到对端'
-        },
-        {
             key: 'fullDataSqlConditionEnabled',
             desc: '将过滤条件拼入 SQL 中进行源端数据扫描，此参数只针对全量迁移有效'
         },

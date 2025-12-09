@@ -7,7 +7,7 @@ description: 本文介绍自动部署/升级节点失败的解决方法
 ## 现象
 * **查看机器配置文件**、**自动部署** 页面出现 Unable to initialize due to invalid secret key 报错
 
-  ![solve_jdk_security_fail_01.png](../assets/faq/solve_jdk_security_fail_01.png)
+  ![solve_jdk_security_fail_01.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/faq/solve_jdk_security_fail_01.png)
 ## 排查
 
 ### 原因

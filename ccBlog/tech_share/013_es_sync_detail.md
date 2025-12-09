@@ -6,7 +6,7 @@ date: 2023-11-02
 authors: junyu
 tags:
   - tech_share
-image: /img/ccBlog/tech_share/es_sync_detail.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/tech_share/es_sync_detail.png
 slug: /data_insights/es_sync_detail
 ---
 

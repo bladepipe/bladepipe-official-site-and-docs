@@ -65,7 +65,7 @@ description: 本文档主要介绍如何使用TGZ包来添加CloudCanal节点
     ```shell
     vi /home/clougence/cloudcanal/global_conf/conf.properties
     ```
-    ![26](../../assets/tgz_install/26.png)<br />
+    ![26](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/tgz_install/26.png)<br />
   
 13. 启动任务运行机器（Sidecar）。
     ```bash

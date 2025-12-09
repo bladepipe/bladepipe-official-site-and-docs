@@ -29,7 +29,7 @@ title: 基于 PostgreSQL 向量构建 RAG API 服务
 
 CloudCanal 构建的 RagApi 服务结合两个任务完成整体链路构建。本文主要介绍 **任务二(API 构建)** 的操作步骤。
 
-![pg_vector_to_rag_api_01.png](../assets/pg_vector_to_rag_api/pg_vector_to_rag_api_01.png)
+![pg_vector_to_rag_api_01.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_vector_to_rag_api/pg_vector_to_rag_api_01.png)
 
 #### 任务一：数据准备与嵌入（File → PostgreSQL 向量库）
 关于该任务的详细内容，可阅读 [使用大模型将数据嵌入到 PostgreSQL 向量](../bestPractice/sshfile_to_aliyun_pg_vector.md)。
@@ -77,18 +77,18 @@ CloudCanal 使用 Chat 模型结合通过 **向量查询** 的上下文进行推
 
 **添加向量数据库：**   
 选择 **自建** > **PostgreSQL**，获取数据源并添加。   
-![](../assets/file_to_aliyun_pg_vector/2.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/file_to_aliyun_pg_vector/2.png)
    
 **添加大模型：**   
 选择 **阿里云** > **手动填写** > **DashScope** 数据源，填写之前步骤获取的 API-KEY。   
-![](../assets/file_to_aliyun_pg_vector/3.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/file_to_aliyun_pg_vector/3.png)
 
 **添加 RagApi 服务：**   
 1. 选择 **自建** > **RagApi**。
 2. 网络地址填写为 `localhost`，端口默认使用 `18089`。
 3. 输入自定义的 API-KEY，用于后续调用 RagApi 接口。
 
-![](../assets/pg_vector_to_rag_api/4.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_vector_to_rag_api/4.png)
 
 ### 创建 RagApi 构建任务
 
@@ -97,7 +97,7 @@ CloudCanal 使用 Chat 模型结合通过 **向量查询** 的上下文进行推
    - 源端：已配置的 PostgreSQL（向量表所在库）
    - 目标端：RagApi 服务
 
-  ![](../assets/pg_vector_to_rag_api/11.png)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_vector_to_rag_api/11.png)
   :::info
   如测试连接长时间无响应，可尝试刷新页面或检查网络连通性与参数配置。
   :::
@@ -105,7 +105,7 @@ CloudCanal 使用 Chat 模型结合通过 **向量查询** 的上下文进行推
 3. 在 **功能配置** 页面，任务类型选择 **全量迁移**，任务规格选择默认 2 GB 即可。
 4. 在 **表&action过滤** 页面，选择要使用的向量表（可多选）。
 
-  ![](../assets/pg_vector_to_rag_api/12.png)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_vector_to_rag_api/12.png)
 5. 在 **数据处理** 页面，**配置大模型**：
    1. **嵌入模型**：选择 DashScope 实例与向量数据使用的嵌入模型（如 `text-embedding-v3`）。
 
@@ -114,11 +114,11 @@ CloudCanal 使用 Chat 模型结合通过 **向量查询** 的上下文进行推
   :::
    2. **聊天模型**：选择 DashScope 实例与对话模型（如 `qwq-plus`）。
 
-  ![](../assets/pg_vector_to_rag_api/13.png)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_vector_to_rag_api/13.png)
 
 6. 在 **创建确认** 页面，检查配置无误后点击 **创建任务**，系统将自动完成 RagApi 服务构建。
 
-  ![](../assets/pg_vector_to_rag_api/15.png)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_vector_to_rag_api/15.png)
 
 ## 效果测试
 
@@ -158,19 +158,19 @@ curl http://localhost:18089/<knowledge-space>/v1/chat/completions \
     - **API 密钥**：填写在 CloudCanal 中配置的 RagApi API Key
     - **API 地址**：http://localhost:18089
    
-   ![](../assets/pg_vector_to_rag_api/16.png)
+   ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_vector_to_rag_api/16.png)
     - **模型名称**：CC_RAG
    
-   ![](../assets/pg_vector_to_rag_api/17.png)
+   ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_vector_to_rag_api/17.png)
 
 3. 回到对话页面：
    - 添加助手 → Default Assistant。
    - 右键点击 Default Assistant → 编辑助手 → 模型设置，绑定上一步添加的模型。
 
-  ![](../assets/pg_vector_to_rag_api/17-1.png)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_vector_to_rag_api/17-1.png)
 4. 返回对话窗口，输入：`CloudCanal 增量同步任务延迟是什么原因？应该怎么处理？`，RagApi 将根据向量数据检索相关内容，并通过对话模型生成响应。
 
-  ![](../assets/pg_vector_to_rag_api/18.png)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_vector_to_rag_api/18.png)
 
 
 

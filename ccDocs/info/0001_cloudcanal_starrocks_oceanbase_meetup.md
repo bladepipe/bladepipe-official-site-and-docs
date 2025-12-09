@@ -5,7 +5,7 @@ title: CloudCanal x StarRocks x OceanBase 联合 meetup
 slug: /info/cloudcanal_starrocks_oceanbase_meetup
 ---
 
-![](../assets/info/0001/0001.1.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/info/0001/0001.1.png)
 
 
 2022年4月26日晚，CloudCanal携手OceanBase和StarRocks联合举办meetup深入探讨了企业如何构建简单高效的现代化数据栈。

@@ -10,7 +10,7 @@ title: 自定义代码任务
 
 自定义代码调用位于 CloudCanal 整个任务处理链的中间部分，如下图所示:
 
-![Custom Code In CloudCanal](../../../assets/create_process_job/custom_code_in_cc.png)
+![Custom Code In CloudCanal](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/create_process_job/custom_code_in_cc.png)
 
 ## 应用场景
 自定义代码主要应用于 CloudCanal 暂时无法标准化的数据迁移同步场景，具有灵活、带有一定业务语意、以及部分复杂度的特点。
@@ -41,12 +41,12 @@ title: 自定义代码任务
     cloudcanal-data-process 工程提供了应用示例，可参考修改进行应用。
     :::
 2. 自定义代码类需要实现 `com.clougence.cloudcanal.sdk.api.CloudCanalProcessorV2` 接口达成被 CloudCanal 调用的目的。
-  ![CloudCanalProcessorV2 implement](../../../assets/create_process_job/code_implement.png)
+  ![CloudCanalProcessorV2 implement](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/create_process_job/code_implement.png)
 
 ### 代码打包
 
 1. 修改打包元信息。
-  ![Modify Package Meta](../../../assets/create_process_job/package_meta.png)
+  ![Modify Package Meta](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/create_process_job/package_meta.png)
 
 2. 进入工程目录，使用命令进行打包。
     ```shell
@@ -56,7 +56,7 @@ title: 自定义代码任务
     ```
 
 3. 执行命令后，可在对应目录得到 jar 包。
-  ![Jar File Path](../../../assets/create_process_job/jar_position.png)
+  ![Jar File Path](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/create_process_job/jar_position.png)
 
 ### 任务创建
 1. 点击 **同步任务** > **创建任务**。
@@ -69,13 +69,13 @@ title: 自定义代码任务
 #### 远程 Debug
   1. CloudCanal 支持 debug 自定义代码，具体步骤可参考 [自定义代码debug](../job_op/debug_customer_code.md) 文档。
   2. 任务启动后，可在 IDE 中断点 debug。
-  ![Debug Code](../../../assets/create_process_job/debug_code.png)
+  ![Debug Code](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/create_process_job/debug_code.png)
 
 #### 打印日志
 1. CloudCanal 日志组件提供了一个固定日志文件(`custom_processor.log`)可供业务逻辑打印日志。具体操作步骤可参考 [自定义代码中打印日志](../job_op/log_in_customer_code.md) 文档。
 2. 生效后，在任务详情页点击 **查看日志 > custom_process.log** 可查看日志内容，也可根据提供的路径到终端 **任务日志目录** 查看完整的日志文件。
-  ![Console Customer Log](../../../assets/create_process_job/console_customer_log.png)
-  ![File Customer Log](../../../assets/create_process_job/file_customer_log.png)
+  ![Console Customer Log](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/create_process_job/console_customer_log.png)
+  ![File Customer Log](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/create_process_job/file_customer_log.png)
 
 ### 代码更新
 1. 在任务详情页面右上角点击 **功能列表** > **代码包管理**，或在页面左侧 **代码处理包** 一栏点击 **查看**。
@@ -88,11 +88,11 @@ title: 自定义代码任务
 ### 代码包不生效
 - 自定义代码包传输只在任务启动时触发，可在页面上重启任务。
 - 如果以上方法无效，可在 sidecar 容器或节点 `/home/clougence/cloudcanal/datahandle` 目录下查看代码包是否存在。
-  ![Customer Code On Node](../../../assets/create_process_job/custom_code_on_node.png)
+  ![Customer Code On Node](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/create_process_job/custom_code_on_node.png)
 - 如果不存在包，可手动上传代码包（代码包名字按报错日志内提示进行修改）。
 
 ### 日志不打印
 - 自定义代码日志只会打印在 custom_processor.log 中，请检查 logger 名字是否正确。
-  ![Log Error](../../../assets/create_process_job/log_error.png)
+  ![Log Error](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/create_process_job/log_error.png)
 - 若 logger 名字正确，请按照 **代码包不生效** 进行处理。
 

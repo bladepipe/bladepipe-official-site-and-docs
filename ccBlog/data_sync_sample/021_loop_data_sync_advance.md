@@ -6,7 +6,7 @@ date: 2023-05-28
 authors: junyu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/loop_data_sync_advance.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/loop_data_sync_advance.png 
 slug: /data_sync_sample/loop_data_sync_advance
 ---
 
@@ -43,13 +43,13 @@ DML 在 Binlog 中正常的事件顺序依次为 QueryEvent(TxBegin)、TableMapE
 - 在 RDS **实例详情**->**参数设置**，设置 **binlog_rows_query_log_events** 为 on
 - 登录 CloudCanal 平台 ，**数据源管理** -> **添加数据源**  , 将准备的数据库逐步添加进来
 - 建议对数据源进行描述修改，防止配置正反链路时，识别错数据库
-  ![loop_sync_1](../assets/blog/tech_share/loop_data_sync/loop_sync_1.png)
+  ![loop_sync_1](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/loop_data_sync/loop_sync_1.png)
 
 ### 创建正向同步任务
 - **任务管理**->**新建任务**
 - 双向同步中，正向任务一般指源端有数据，目标端无数据的链路，涉及对端数据初始化
 - 第一个页面，选择源端和目标端数据源和相关信息，点击**下一步**
-  ![loop_sync_2](../assets/blog/tech_share/loop_data_sync/loop_sync_2.png)
+  ![loop_sync_2](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/loop_data_sync/loop_sync_2.png)
 
 - 第二个页面
   - 选择 **数据同步**，并且勾选 **全量数据初始化**
@@ -57,25 +57,25 @@ DML 在 Binlog 中正常的事件顺序依次为 QueryEvent(TxBegin)、TableMapE
   - **置灰自动启动**，以便创建任务后设置双向同步参数
   - 点击 **下一步**
   
-  ![loop_sync_3](../assets/blog/tech_share/loop_data_sync/loop_sync_3.png)
+  ![loop_sync_3](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/loop_data_sync/loop_sync_3.png)
 
 - 第三个、第四个页面，表、列映射裁剪...此处省略，点击 **下一步**
 - 第五个页面
   - 点击**确认创建**
   
-  ![loop_sync_4](../assets/blog/tech_share/loop_data_sync/loop_sync_4.png)
+  ![loop_sync_4](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/loop_data_sync/loop_sync_4.png)
   
 - **任务详情** -> **参数设置**
   - 设置目标数据源配置 **deCycle** 参数为 true
   - 此处和 GTID 方案有较大差别, **不需要开启 enableTransaction 和 gtidMode**
   - 生效配置并启动
 
-  ![截屏2021-10-28 下午2.26.17.png](../assets/blog/data_sync_sample/21_loop_data_sync_advance/截屏2021-10-28-下午2.26.17.png)
+  ![截屏2021-10-28 下午2.26.17.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/21_loop_data_sync_advance/%E6%88%AA%E5%B1%8F2021-10-28-%E4%B8%8B%E5%8D%882.26.17.png)
 
 ### 创建反向同步任务
 - **任务管理**->**新建任务**
 - 第一个页面，选择源端和目标端选择数据源（**请和正向任务所选数据源对调**）和相关信息，点击**下一步**
-  ![loop_sync_5](../assets/blog/tech_share/loop_data_sync/loop_sync_5.png)
+  ![loop_sync_5](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/loop_data_sync/loop_sync_5.png)
 
 - 第二个页面
   - 选择 **数据同步**，并去除**全量数据初始化**勾选
@@ -83,7 +83,7 @@ DML 在 Binlog 中正常的事件顺序依次为 QueryEvent(TxBegin)、TableMapE
   - **置灰自动启动**，以便创建任务后设置双向同步参数
   - 点击 **下一步**
 
-  ![loop_sync_6](../assets/blog/tech_share/loop_data_sync/loop_sync_6.png)
+  ![loop_sync_6](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/loop_data_sync/loop_sync_6.png)
 
 - 第三、四个页面，表、列映射裁剪...此处省略，点击 **下一步**
 - 第五个页面，点击**确认创建**
@@ -92,21 +92,21 @@ DML 在 Binlog 中正常的事件顺序依次为 QueryEvent(TxBegin)、TableMapE
   - 此处和 GTID 方案有较大差别, **不需要开启 enableTransaction 和 gtidMode**
   - 生效配置并启动
 
-  ![loop_sync_7](../assets/blog/tech_share/loop_data_sync/loop_sync_7.png)
+  ![loop_sync_7](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/loop_data_sync/loop_sync_7.png)
 
 - 任务正常运行
-  ![loop_sync_8](../assets/blog/tech_share/loop_data_sync/loop_sync_8.png)
+  ![loop_sync_8](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/loop_data_sync/loop_sync_8.png)
 
 ### 测试
 - 源端数据库做数据变更，正向任务监控有变更，反向任务没有(即无循环)
-  ![loop_sync_9](../assets/blog/tech_share/loop_data_sync/loop_sync_9.png)
-  ![loop_sync_10](../assets/blog/tech_share/loop_data_sync/loop_sync_10.png)
-  ![loop_sync_11](../assets/blog/tech_share/loop_data_sync/loop_sync_11.png)
+  ![loop_sync_9](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/loop_data_sync/loop_sync_9.png)
+  ![loop_sync_10](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/loop_data_sync/loop_sync_10.png)
+  ![loop_sync_11](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/loop_data_sync/loop_sync_11.png)
 
 - 目标端数据库做数据变更，反向任务监控有变更，正向任务没有(即无循环)
-  ![loop_sync_12](../assets/blog/tech_share/loop_data_sync/loop_sync_12.png)
-  ![loop_sync_13](../assets/blog/tech_share/loop_data_sync/loop_sync_13.png)
-  ![loop_sync_14](../assets/blog/tech_share/loop_data_sync/loop_sync_14.png)
+  ![loop_sync_12](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/loop_data_sync/loop_sync_12.png)
+  ![loop_sync_13](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/loop_data_sync/loop_sync_13.png)
+  ![loop_sync_14](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/loop_data_sync/loop_sync_14.png)
 ## 常见问题
 
 ### 新方案有什么不利因素

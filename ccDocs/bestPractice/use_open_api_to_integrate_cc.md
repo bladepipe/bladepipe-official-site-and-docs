@@ -41,7 +41,7 @@ CloudCanal 为了便利应用查询各种常量，开放了一系列常量接口
 ### 获取 AK/SK
 
 登录 CloudCanal 控制台，点击菜单 **配置** -> **个人资料** -> **安全** ->**获取AK/SK**。
-![get_ak_sk](../assets/open_api/open_api_01.png)
+![get_ak_sk](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/open_api/open_api_01.png)
 
 ### API 认证代码
 

@@ -92,6 +92,12 @@ const config: Config = {
   ],
 
   themeConfig: {
+    // 禁用主题色切换功能
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
+    },
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     prism: {
@@ -121,7 +127,14 @@ const config: Config = {
   customFields: {
     siteBrand: process.env.SITE_BRAND || 'clouddm',
     API_BASE_URL: SERVICE_URL[current_env],
-    CLOUD_URL: CLOUD_URL[current_env]
+    CLOUD_URL: CLOUD_URL[current_env],
+    // 公告栏配置
+    announcement: {
+      enabled: false, // 设置为 true 启用公告栏
+      text: '新功能上线！查看我们的最新更新。', // 公告文本（支持 i18n）
+      linkUrl: '/docs/intro', // 链接地址（整个区域可点击）
+      endDate: undefined // 可选：结束日期（ISO 格式），如 '2025-12-31T23:59:59'，超过此时间后不再显示。不设置则永久显示（当 enabled 为 true 时）
+    }
   }
 };
 

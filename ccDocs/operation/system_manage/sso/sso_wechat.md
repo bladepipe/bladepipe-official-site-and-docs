@@ -22,7 +22,7 @@ CloudCanal 版在使用统一身份认证功能时具有如下约束限制：
 
 ## 工作原理
 
-![w400_h280](../../../assets/sso/sso_wechat/use-wechat-cn.png)
+![w400_h280](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_wechat/use-wechat-cn.png)
 
 - CloudCanal 采用 OAuth 2.0 流程进行接入。
 - 在登录页面的 **子账号登录** 选项卡中点击 **企业微信登录**，跳转到企业微信登录页面。
@@ -77,28 +77,28 @@ CloudCanal 开启企业微信认证步骤如下：
 
 **创建应用**
 1. 点击 **应用管理** > 在页面最下方点击 **创建应用**。
-   ![common](../../../assets/sso/sso_wechat/app-step1.png)
+   ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_wechat/app-step1.png)
 2. 填写应用的基础信息，涉及图标资源可以在 [资源下载](../../../reference/resource_download) 中获取。应用可用范围选择组织机构的 **根部门(包含所有员工)**，然后点击 **保存**。
-   ![common](../../../assets/sso/sso_wechat/app-step2.png)
+   ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_wechat/app-step2.png)
 
 
 **配置应用**
 1. 在 **应用详情** 中可以获取，获取 **AgentId** 和 **Secret**。
-   ![common](../../../assets/sso/sso_wechat/app-step3.png)
+   ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_wechat/app-step3.png)
 2. 在 **我的企业** 页面底部可以获取 **企业 ID (CorpId)**。
-   ![common](../../../assets/sso/sso_wechat/app-step4.png)
+   ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_wechat/app-step4.png)
 3. 在 **应用详情** 中找到 **网页授权及JS-SDK** 卡片点击 **设置可信域名**，根据引导完成可信域名的配置。
-   ![common](../../../assets/sso/sso_wechat/app-step5.png)
+   ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_wechat/app-step5.png)
 4. 在 **应用详情** 中找到 **企业可信 IP** 卡片点击 **设置**，填写您部署 CloudCanal 环境中公网出口 IP。
-   ![common](../../../assets/sso/sso_wechat/app-step6.png)
+   ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_wechat/app-step6.png)
 5. 在 **应用详情** 中设置 **应用主页**。
-   ![common](../../../assets/sso/sso_wechat/app-step7.png)
+   ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_wechat/app-step7.png)
 
 **访问应用**
 1. 打开 **[企业微信客户端](https://work.weixin.qq.com/#indexDownload)** 在工作台中搜索您创建的 CloudCanal 应用。
-   ![common](../../../assets/sso/sso_wechat/app-step8.png)
+   ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_wechat/app-step8.png)
 2. 点击 **应用** 会进入 CloudCanal 登录页面，在 **子账号登录** 中选择 **企业微信登录** 即可。
-   ![common](../../../assets/sso/sso_wechat/app-step9.png)
+   ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_wechat/app-step9.png)
 
 ## FAQ  
 

@@ -21,7 +21,7 @@ description: 本文介绍使用CloudCanal无法删除任务时如何进行排查
 ### 历史版本问题
 
 - **CloudCanal控制台** > **系统管理** > **异步任务管理**，找到删除操作对应的记录，查看异常堆栈，如有下图信息，则确认问题。
-  ![63677bdb-989f-42fa-a489-8d6986ec6a5e-image.png](../assets/faq/async_task_error_log_view.png)
+  ![63677bdb-989f-42fa-a489-8d6986ec6a5e-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/faq/async_task_error_log_view.png)
 
 - 登录元数据库(默认`mysql -uclougence -h127.0.0.1 -P25000 -p123456`)后执行如下SQL语句。
    ```sql

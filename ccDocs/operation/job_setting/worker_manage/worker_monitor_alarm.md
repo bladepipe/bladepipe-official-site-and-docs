@@ -7,7 +7,7 @@ CloudCanal 控制台可以直接查看机器的监控指标，并且在机器状
 ## 机器监控
 1. 点击 **同步设置** > **同步机器**。
 2. 点击集群列表右侧操作栏中的 **机器列表**，进入机器列表页，可查看机器当前的监控指标值，包括CPU、磁盘和内存等。
-3. 点击机器列表右上角的 ![机器监控图标](../../../assets/worker_manage/worker_monitor1.png) 图标，即可查看机器监控图表。   
+3. 点击机器列表右上角的 ![机器监控图标](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/worker_manage/worker_monitor1.png) 图标，即可查看机器监控图表。   
 机器监控支持查看的指标如下：
 
     | 指标名称 | 说明 |

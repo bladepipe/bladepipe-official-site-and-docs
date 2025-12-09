@@ -6,7 +6,7 @@ date: 2025-04-25
 authors: junyu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/mongo_atlas_to_documentdb_sync.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/mongo_atlas_to_documentdb_sync.png 
 slug: /data_sync_sample/mongo_atlas_to_documentdb_sync
 ---
 
@@ -47,20 +47,20 @@ CloudCanal 提供对 MongoDB 索引的迁移支持，确保目标端数据库 **
 2. 切换至 Amazon DocumentDB 管理控制台，在左侧面板点击 **参数组**，创建参数组：
    1. 填写 **新集群参数组名** 和 **描述** 后，点击 **创建**。
    
-   ![](../assets/blog/data_sync_sample/mongodbatlas_mongodb_sync/4.png)
+   ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/mongodbatlas_mongodb_sync/4.png)
       
    2. 进入刚创建的参数组，选择 `tls` 参数，点击 **编辑**，设置为 **disabled**，保存生效。
 
-   ![](../assets/blog/data_sync_sample/mongodbatlas_mongodb_sync/5.png)
+   ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/mongodbatlas_mongodb_sync/5.png)
    
 3. 在左侧面板点击 **集群**，创建集群：
    1. 在 **连接** 部分中，选择 **连接到 EC2 计算资源**，并选择第一步创建的 EC2。
 
-   ![](../assets/blog/data_sync_sample/mongodbatlas_mongodb_sync/6.png)
+   ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/mongodbatlas_mongodb_sync/6.png)
    
    2. 在 **高级设置** > **集群选项** 中，切换集群参数组为第二步创建的参数组。
 
-   ![](../assets/blog/data_sync_sample/mongodbatlas_mongodb_sync/7.png)
+   ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/mongodbatlas_mongodb_sync/7.png)
 
    3. 其他所有选项保持默认，并点击 **创建**。
    
@@ -70,7 +70,7 @@ CloudCanal 提供对 MongoDB 索引的迁移支持，确保目标端数据库 **
 登录 **CloudCanal 平台**，点击 **数据源管理** > **添加数据源**，分别添加 2 个数据源。
 
 1. 添加 MongoDB Atlas 集群实例时，需设置额外参数 `isAtlas` 为 true。
-![](../assets/blog/data_sync_sample/mongodbatlas_mongodb_sync/1.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/mongodbatlas_mongodb_sync/1.png)
 
 2. 添加 DocumentDB 数据源时，需要在 Sidecar 容器中创建 SSH 隧道，参考以下命令。
 
@@ -88,7 +88,7 @@ CloudCanal 提供对 MongoDB 索引的迁移支持，确保目标端数据库 **
    1. 选择源和目标实例，并分别点击 **测试连接**。
    2. 在源端实例下方 **高级配置** 中选择 **是否迁移索引**：是 / 否。
    
-  ![](../assets/blog/data_sync_sample/mongodbatlas_mongodb_sync/8.png)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/mongodbatlas_mongodb_sync/8.png)
 
 3. 选择 **数据同步** 并勾选 **全量初始化**。
 
@@ -113,7 +113,7 @@ CloudCanal 提供对 MongoDB 索引的迁移支持，确保目标端数据库 **
     - **增量数据同步**: 增量数据将会持续地同步到对端数据库，并且保持实时（秒级别延迟）。
   :::
 
-  ![](../assets/blog/data_sync_sample/mongodbatlas_mongodb_sync/9.png)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/mongodbatlas_mongodb_sync/9.png)
 
 ## 总结
 

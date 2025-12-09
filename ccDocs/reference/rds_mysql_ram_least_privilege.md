@@ -63,16 +63,16 @@ CloudCanal 在新增和同步阿里云数据源时需要填入 AK/SK，涉及到
 ### 修改数据库内容
 
 1. 获取实例 ID 信息。
-![](../assets/ram_least_privilege/1.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/ram_least_privilege/1.png)
    
 2. 获取公网 IP 端口号信息。
-![](../assets/ram_least_privilege/2.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/ram_least_privilege/2.png)
    
 3. 获取数据源 ID 信息。
-![](../assets/ram_least_privilege/3.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/ram_least_privilege/3.png)
    
 4. 获取邮箱和手机号信息。
-![](../assets/ram_least_privilege/4.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/ram_least_privilege/4.png)
    
 5. 获取阿里云 AK/SK 信息。
    

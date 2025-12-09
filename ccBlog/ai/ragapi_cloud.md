@@ -6,7 +6,7 @@ date: 2025-05-15
 authors: juantu
 tags:
   - ai
-image: /img/ccBlog/ai/ragapi_cloud.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/ai/ragapi_cloud.png
 slug: /ai/ragapi_cloud
 ---
 在之前的文章中，我们已经厘清了 GenAI 的关键概念：RAG、Function Calling、MCP、AI Agent。接下来的问题在于，如何从概念到实操？
@@ -44,7 +44,7 @@ CloudCanal 本身作为数据同步平台，已经具备多源异构数据的接
 
 整体工作流程如下：
 
-![](../assets/blog/ai/ragapi_cloud/1.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/ragapi_cloud/1.png)
 
 ## 操作步骤
 ### 下载 CloudCanal
@@ -117,19 +117,19 @@ CREATE EXTENSION IF NOT EXISTS vector;
 ]
 ```
 
-![](../assets/blog/ai/ragapi_cloud/2.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/ragapi_cloud/2.png)
 
 **添加向量数据库：**
 
 选择 **自建** > **PostgreSQL**，获取数据源并添加。
 
-![](../assets/blog/ai/ragapi_cloud/3.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/ragapi_cloud/3.png)
 
 **添加大模型：**
 
 选择 **阿里云** > **手动填写** > **DashScope** 数据源，填写之前步骤获取的 API-KEY。
 
-![](../assets/blog/ai/ragapi_cloud/4.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/ragapi_cloud/4.png)
 
 **添加 RagApi 服务：**
 
@@ -138,7 +138,7 @@ CREATE EXTENSION IF NOT EXISTS vector;
 + **网络地址**：填写为 `localhost`，端口默认使用 `18089`。
 + **API 密钥**：自定义一个 API-KEY，用于后续调用 RagApi 接口。
 
-![](../assets/blog/ai/ragapi_cloud/5.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/ragapi_cloud/5.png)
 
 ### 创建任务 1：数据向量化
 1. 点击 **同步任务** > **创建任务**。   
@@ -146,23 +146,23 @@ CREATE EXTENSION IF NOT EXISTS vector;
     - 源端：**SshFile**
     - 目标端：**PostgreSQL**
 
-![](../assets/blog/ai/ragapi_cloud/6.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/ragapi_cloud/6.png)
 
 3. 在 **功能配置** 页面，任务类型选择 **全量迁移**，任务规格选择默认 2 GB 即可。
 4. 在 **表&action过滤** 页面，进行以下配置：
     1. 选择需要定时数据迁移的文件，可同时选择多个。
     2. 点击 **批量修改目标名称** > **统一表名** > 填写表名（如 file_vector），并确认，方便将不同文件向量化并写入同一个表。
-    ![](../assets/blog/ai/ragapi_cloud/7.png)
+    ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/ragapi_cloud/7.png)
 
 5. 在 **数据处理** 页面，进行以下配置：  
     1. 点击 **配置大模型** > **DashScope**，选择刚添加的大模型实例，并选择某一个嵌入模型（如 text-embedding-v3）。
-    ![](../assets/blog/ai/ragapi_cloud/8.png)
+    ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/ragapi_cloud/8.png)
     2. 点击 **批量操作** > **大模型嵌入**，选择需要嵌入的字段，并全选表。
-    ![](../assets/blog/ai/ragapi_cloud/9.png)
+    ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/ragapi_cloud/9.png)
 
 6. 在 **创建确认** 页面，点击 **创建任务**，开始运行。
 
-![](../assets/blog/ai/ragapi_cloud/10.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/ragapi_cloud/10.png)
 
 ### 创建任务 2：RagApi 服务
 1. 点击 **同步任务** > **创建任务**。
@@ -170,12 +170,12 @@ CREATE EXTENSION IF NOT EXISTS vector;
     - 源端：**已配置的 PostgreSQL**（向量表所在库）
     - 目标端：**RagApi**
 
-![](../assets/blog/ai/ragapi_cloud/11.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/ragapi_cloud/11.png)
 
 3. 在 **功能配置** 页面，任务类型选择 **全量迁移**，任务规格选择默认 2 GB 即可。
 4. 在 **表&action过滤** 页面，选择要使用的向量表（可多选）。
 
-![](../assets/blog/ai/ragapi_cloud/12.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/ragapi_cloud/12.png)
 
 5. 在 **数据处理** 页面，**配置大模型**：
     1. **嵌入模型**：选择 DashScope 实例与向量数据使用的嵌入模型（如 `text-embedding-v3`）。
@@ -184,11 +184,11 @@ CREATE EXTENSION IF NOT EXISTS vector;
 
     2. **聊天模型**：选择 DashScope 实例与对话模型（如 `qwq-plus`）。
 
-![](../assets/blog/ai/ragapi_cloud/13.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/ragapi_cloud/13.png)
 
 6. 在 **创建确认** 页面，点击 **创建任务**，系统将自动完成 RagApi 服务构建。
 
-![](../assets/blog/ai/ragapi_cloud/14.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/ragapi_cloud/14.png)
 
 ## 效果测试
 RagApi 支持通过可视化工具 [CherryStudio](https://cherry-ai.com/) 进行交互测试。CherryStudio 兼容 OpenAI 接口标准，适合用于接口联调、上下文调试和模型效果验证。
@@ -198,21 +198,21 @@ RagApi 支持通过可视化工具 [CherryStudio](https://cherry-ai.com/) 进行
     - **API 密钥**：填写在 CloudCanal 中配置的 RagApi API Key
     - **API 地址**：[http://localhost:18089](http://localhost:18089/<knowledge-space>/v1)
 
-![](../assets/blog/ai/ragapi_cloud/15.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/ragapi_cloud/15.png)
 
   - **模型名称**：CC_RAG
 
-![](../assets/blog/ai/ragapi_cloud/16.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/ragapi_cloud/16.png)
 
 3. 回到对话页面：
     - 点击 添加助手 > Default Assistant。
     - 右键点击 Default Assistant > 编辑助手 > 模型设置，绑定上一步添加的模型。
 
-![](../assets/blog/ai/ragapi_cloud/17.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/ragapi_cloud/17.png)
 
 4. 在对话框输入：`CloudCanal 增量同步任务延迟是什么原因？应该怎么处理？`，RagApi 将根据向量数据检索相关内容，并通过对话模型生成响应。
 
-![](../assets/blog/ai/ragapi_cloud/18.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ai/ragapi_cloud/18.png)
 
 ## 总结
 经过简单的几步，我们完成了从零构建 RagApi 服务的全过程：从数据向量化、接入向量库、配置大模型、构建 Prompt，到部署兼容 OpenAI 接口的对话服务 RagApi。

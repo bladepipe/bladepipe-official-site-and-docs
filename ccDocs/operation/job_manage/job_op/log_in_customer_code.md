@@ -10,10 +10,10 @@ description: 在自定义代码功能中，CloudCanal 提供了一个 logger 给
    ```
    protected static final Logger customLogger = LoggerFactory.getLogger("custom_processor");
    ```
-   ![Log Error](../../../assets/create_process_job/log_error.png)
+   ![Log Error](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/create_process_job/log_error.png)
   
 2. 启动任务。
 3. 任务运行后，可按以下方式查看日志：  
    在任务详情页点击 **查看日志** > **custom_process.log** 可在线查看日志内容，也可根据在线日志页面提供的路径到终端查看完整的日志文件。
-  ![Console Customer Log](../../../assets/create_process_job/console_customer_log.png)
-  ![File Customer Log](../../../assets/create_process_job/file_customer_log.png)
+  ![Console Customer Log](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/create_process_job/console_customer_log.png)
+  ![File Customer Log](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/create_process_job/file_customer_log.png)

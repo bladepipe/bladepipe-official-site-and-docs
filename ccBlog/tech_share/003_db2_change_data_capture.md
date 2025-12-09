@@ -6,7 +6,7 @@ date: 2023-05-24
 authors: junyu
 tags:
   - tech_share
-image: /img/ccBlog/tech_share/db2_change_data_capture.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/tech_share/db2_change_data_capture.png
 slug: /data_insights/db2_change_data_capture
 ---
 
@@ -74,29 +74,29 @@ CloudCanal 为 Db2 数据迁移任务提供了包括**钉钉/企业微信/飞书
 - 准备好 Db2 数据库（本例使用 11.5 版本）和 MySQL 数据库（本例使用 8.0 版本）
 - 登录 CloudCanal 平台 ，添加 Db2 和 MySQL
 - Db2 源端如果需要增量同步需要开启 CDC，详细请参考：[Db2 源端 CDC 同步准备](/docs/dataMigrationAndSync/datasource_func/Db2/prepare_for_db2)
-  ![](../assets/blog/tech_share/0003/1.jpg)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0003/1.jpg)
 
 ### 任务创建
 - 任务管理 -> 新建任务
 - 测试链接并选择 源 和 目标 数据库
 - 点击下一步
-  ![](../assets/blog/tech_share/0003/2.jpg)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0003/2.jpg)
 
 - 选择 数据同步，并勾选 全量数据初始化，其他选项默认
-  ![](../assets/blog/tech_share/0003/3.jpg)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0003/3.jpg)
 
 - 选择需要迁移同步的表和列
-  ![](../assets/blog/tech_share/0003/4.jpg)
-  ![](../assets/blog/tech_share/0003/5.jpg)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0003/4.jpg)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0003/5.jpg)
 
 - 确认创建任务
-  ![](../assets/blog/tech_share/0003/6.jpg)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0003/6.jpg)
 
 - 任务自动做结构迁移、全量迁移、增量同步
-  ![](../assets/blog/tech_share/0003/7.jpg)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0003/7.jpg)
 
 - 增量阶段进行数据写入后，进行数据校验，数据校验通过
-  ![](../assets/blog/tech_share/0003/8.jpg)
+  ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0003/8.jpg)
 
 ## 总结
 本文主要介绍了 [CloudCanal](https://www.clougence.com?src=cc-doc-blog-db2-cdc) 支持 Db2 为源端数据迁移同步功能，通过这个能力，用户可以便利地将 Db2 中数据实时同步到其他数据库，实现数据更广泛、更实时的应用。

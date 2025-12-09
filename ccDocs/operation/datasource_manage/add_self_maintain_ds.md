@@ -20,7 +20,7 @@ AutoMQ、ClickHouse、Dameng（达梦）、Db2、Doris、ElasticSearch、GaussDB
      - 认证方式：选择相应的认证方式，并填写所需内容，如账号密码等。点击 **测试连接**。
      - 描述：填写便于识别的名称。
      - 物理位置：选择 **不限** 或根据实际情况选择（非强依赖属性）。
-     - 额外参数：不同的数据源可设置不同的参数。鼠标放置在 ![](../../assets/add_datasource/self_maintain/1.png) 图标即可查看参数说明。如需修改，点击 **修改后的参数值** 一列中的 ![](../../assets/add_datasource/self_maintain/2.png) 图标，并输入相应参数值，点击 **确定**。
+     - 额外参数：不同的数据源可设置不同的参数。鼠标放置在 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/add_datasource/self_maintain/1.png) 图标即可查看参数说明。如需修改，点击 **修改后的参数值** 一列中的 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/add_datasource/self_maintain/2.png) 图标，并输入相应参数值，点击 **确定**。
 4. 点击 **新增数据源** 添加数据源。
 5. 返回数据源列表中，该数据源的 **创建状态** 为 **创建完成**。
   

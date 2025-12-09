@@ -6,7 +6,7 @@ date: 2023-08-19
 authors: juantu
 tags:
   - usecase
-image: /img/ccBlog/usecase/wangzhangdian_mysql_es_widetable_sync.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/usecase/wangzhangdian_mysql_es_widetable_sync.png
 slug: /usecase/wangzhangdian_mysql_es_widetable_sync
 ---
 
@@ -38,7 +38,7 @@ CloudCanal 近期提供了自定义代码构建宽表能力，我们第一时间
 
 #### 业务流程
 在使用 CloudCanal 总体的流程变得十分清晰，在 CloudCanal 层面通过订阅表结合自定义代码中的反查数据库以及数据处理，可以直接生成可以写到对端 ES 的宽表行。
-![17a3934d-3cb8-4682-9dc0-12d08ab69c8e-image.png](../assets/blog/examples/wanzhangdian/1.png)
+![17a3934d-3cb8-4682-9dc0-12d08ab69c8e-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/examples/wanzhangdian/1.png)
 #### 表结构
 准备的 mysql 表结构如下，一个商品会对应多个 SKU，我们在对端创建好索引，其中的 `sku_detail` 保存一个商品关联的 SKU 信息，是一个典型的一对多场景。
 
@@ -126,7 +126,7 @@ ES 索引如下:
 > 注：为了方便大家理解，此处表字段进行了缩减
 
 #### 自定义代码工作流程
-![36f7adfb-ece5-4411-9926-d2cd0262aa3e-image.png](../assets/blog/examples/wanzhangdian/2.png)
+![36f7adfb-ece5-4411-9926-d2cd0262aa3e-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/examples/wanzhangdian/2.png)
 #### 自定义代码源码
 ```
 public List<CustomRecord> addData(CustomRecord customRecord, DataSource dataSource) {
@@ -172,11 +172,11 @@ private List<EnterpriseSku> tryQuerySourceDs(DataSource dataSource, Integer id) 
 `customRecord` 对象即自定义代码传入的参数，传入的 `id` 为子表 `tb_enterprise_sku` 的外键 `enterprise_goods_id`，查询出子表关于这个外键的所有数据，放入 `addFieldValueMap` 中,再利用源码提供的方法`RecordBuilder.modifyRecordBuilder(customRecord).addField(addFieldValueMap)`，对 `customRecord` 进行加工。
 #### 创建任务步骤
 新建源端对端数据源
-![660b46e7-f736-49ff-b368-63b88cb5dbb7-image.png](../assets/blog/examples/wanzhangdian/3.png)
+![660b46e7-f736-49ff-b368-63b88cb5dbb7-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/examples/wanzhangdian/3.png)
 选择订阅表及同步到对端的索引
-![84454765-03f7-4b44-9304-679bb044f380-image.png](../assets/blog/examples/wanzhangdian/4.png)
+![84454765-03f7-4b44-9304-679bb044f380-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/examples/wanzhangdian/4.png)
 选择同步字段，选择自定义包
-![fcacf1a8-24c1-49e5-9d86-1f19835fbbab-image.png](../assets/blog/examples/wanzhangdian/5.png)
+![fcacf1a8-24c1-49e5-9d86-1f19835fbbab-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/examples/wanzhangdian/5.png)
 完成创建任务
 #### 实现效果
 ```
@@ -316,17 +316,17 @@ ES 索引字段
 > 注：ES表结构中涉及多张表，为了方便举例，这边只贴出2张表。es_doc展示纬度为订单商品纬度。
 #### 实现流程
 订阅订单表
-![3d95def3-3234-47f5-b626-89d95b868938-image.png](../assets/blog/examples/wanzhangdian/6.png)
+![3d95def3-3234-47f5-b626-89d95b868938-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/examples/wanzhangdian/6.png)
 订阅字段
 
-![7574425f-6953-4640-9d0a-97c1403d07d7-image.png](../assets/blog/examples/wanzhangdian/7.png)
+![7574425f-6953-4640-9d0a-97c1403d07d7-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/examples/wanzhangdian/7.png)
 
 画出横线的即为需要同步的字段，有一个点需要特别注意：ES 中需要展示的字段一定要勾上同步，不勾上的话在自定义代码中 `add` 后 也不会被同步 官方给出的解释为字段黑白名单。
 
 这里有几个细节点，订阅的表的维度并非 ES 存储数据的维度，所以这边的 `id` 并不是 ES 的 `_id`，对于这种需要在源端同步必须传的字段，设置对端字段可以随意设置一个对端已有的字段，在自定义代码中可以灵活的去重新配置需要同步的字段。（如果设置默认，ES 的 `index` 会创建出这个字段，这显然不是我们想要看到的效果）
 
 #### 业务流程
-![12f805e2-e6d3-478e-b3e1-aaf989fcf59a-image.png](../assets/blog/examples/wanzhangdian/8.png)
+![12f805e2-e6d3-478e-b3e1-aaf989fcf59a-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/examples/wanzhangdian/8.png)
 #### 代码实现
 查询扁平化数据
 ```

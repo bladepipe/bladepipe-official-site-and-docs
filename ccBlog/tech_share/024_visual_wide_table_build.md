@@ -6,7 +6,7 @@ date: 2025-07-03
 authors: juantu
 tags:
   - tech_share
-image: /img/ccBlog/tech_share/visual_wide_table_build.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/tech_share/visual_wide_table_build.png
 slug: /data_insights/visual_wide_table_build
 ---
 
@@ -124,7 +124,7 @@ CloudCanal 默认实现 **Left Join** 语义，确保返回驱动表所有数据
 2. 进入 **选择表** 步骤，选择需要打宽表的表，对端均选择宽表进行映射。
 3. 进入 **数据处理** 步骤。
     1. 页面左侧选择 **驱动表**，并点击 **操作** > **宽表**，设定宽表定义。
-       ![](../assets/blog/widetable_build/wide_table_detail.png)
+       ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/widetable_build/wide_table_detail.png)
         - **关联列** 选择和设置，支持多个。
         - 关联表 **其他列** 选择，以及宽表映射字段填写，此操作主要防止多张来源表字段名在目标宽表中重复。
           :::info
@@ -136,7 +136,7 @@ CloudCanal 默认实现 **Left Join** 语义，确保返回驱动表所有数据
           :::
 
     3. 点击 **确定** 完成设置。
-       ![](../assets/blog/widetable_build/wide_table_chain.png)
+       ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/widetable_build/wide_table_chain.png)
     4. 页面左侧选择 **关联表**，确认列和宽表列映射正确。
 4. 继续完成任务创建流程，即可启动宽表同步任务。
 

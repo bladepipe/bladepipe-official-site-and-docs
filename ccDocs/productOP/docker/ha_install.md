@@ -52,7 +52,7 @@ title: 添加机器(Docker)
 
 12. 将控制台 **机器唯一识别配置信息** 复制到配置文件（conf.properties），替换已存在内容。
 13. 将 `cloudcanal.console.domain` 的值设为 cloudcanal-console 容器所在宿主机 ip。
-  ![3b3f4e08-ed8f-4754-8137-d7264ffe9065-image.png](../../assets/operation-manual/ha5.png)
+  ![3b3f4e08-ed8f-4754-8137-d7264ffe9065-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/ha5.png)
 
 14. 从 Sidecar 容器检查 Console 容器所在宿主机 7007 端口连通性。
     ```

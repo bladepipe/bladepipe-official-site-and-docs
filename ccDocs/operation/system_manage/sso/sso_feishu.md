@@ -19,7 +19,7 @@ CloudCanal 在使用统一身份认证功能时具有如下约束限制：
 
 ## 工作原理
 
-![w400_h280](../../../assets/sso/sso_feishu/use-feishu-cn.png)
+![w400_h280](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_feishu/use-feishu-cn.png)
 
 - CloudCanal 采用 OAuth 2.0 流程进行接入。
 - 在登录页面的 **子账号登录** 选项卡中点击 **飞书登录**，跳转到飞书登录页面。
@@ -77,16 +77,16 @@ CloudCanal 开启飞书认证步骤如下：
 
 **创建应用**
 1. 点击 **应用开发** > **飞书应用** > **创建应用**。
-   ![common](../../../assets/sso/sso_feishu/app-step1.png)
+   ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_feishu/app-step1.png)
 2. 填写应用的基础信息，并点击 **保存**。涉及图标资源可以在 [资源下载](../../../reference/resource_download) 中获取。
-   ![common](../../../assets/sso/sso_feishu/app-step2.png)
+   ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_feishu/app-step2.png)
    
 **配置应用**
 1. 在 **凭证与基础信息信息**，获取 **App ID** 和 **App Secret**。
-   ![common](../../../assets/sso/sso_feishu/app-step3.png)
+   ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_feishu/app-step3.png)
 2. 【可选】点击 **权限管理** > **开通权限** > **应用身份权限**，给应用分配读取邮箱和手机号权限。该权限会在用户首次登陆时获取相关信息时使用，如无此权限首次登陆会要求用户填写。具体权限点有：`contact:user.email:readonly`、`contact:user.phone:readonly`
-   ![common](../../../assets/sso/sso_feishu/app-step4.png)
+   ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_feishu/app-step4.png)
 3. 点击 **安全设置**<br/>在 **IP 白名单** 选项下配置您 CloudCanal 环境中公网出口 IP。<br/>在 **重定向 URL** 中设置您部署 CloudCanal 回调地址（例：`http://192.168.0.100:8222/callback/auth`）
-   ![common](../../../assets/sso/sso_feishu/app-step5.png)
+   ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_feishu/app-step5.png)
 4. 点击 **版本管理与发布**，发布应用。应用可用范围选择 **所有员工**。
-   ![common](../../../assets/sso/sso_feishu/app-step6.png)
+   ![common](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/sso/sso_feishu/app-step6.png)

@@ -5,7 +5,7 @@ title: CloudCanal 亮相 StarRocks Submit Asia 2022 峰会
 slug: /info/cloudcanal_in_starrocks_submit_asia_2022
 ---
 
-![](../assets/info/0002/0002.1.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/info/0002/0002.1.png)
 
 2022年9月24日第一届StarRocks Submmit Asia峰会在线上举办，围绕“极速统一”带来的业务价值主题进行会议分享。
 

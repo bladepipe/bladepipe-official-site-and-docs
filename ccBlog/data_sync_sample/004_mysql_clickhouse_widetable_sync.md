@@ -6,7 +6,7 @@ date: 2022-04-19
 authors: juantu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/mysql_clickhouse_widetable_sync.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/mysql_clickhouse_widetable_sync.png 
 slug: /data_sync_sample/mysql_clickhouse_widetable_sync
 ---
 
@@ -89,9 +89,9 @@ ClickHouse 作为标准的列存数据库，其特点相当鲜明，对于多维
 ### 开发宽表代码
 - 代码工程 [cloudcanal-data-process](https://gitee.com/clougence/cloudcanal-data-process) ，并找到代码类 [MySqlToChOnlyFact_one_fact_two_dim.java](https://gitee.com/clougence/cloudcanal-data-process/blob/master/wide-table/src/main/java/com/clougence/cloudcanal/dataprocess/widetable/MySqlToChOnlyFact_one_fact_two_dim.java)
 - 修改必要信息
-  ![截屏2021-12-16 下午6.20.00.png](../assets/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/截屏2021-12-16-下午6.20.00.png)
-  ![代码1.png](../assets/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/代码1.png)
-  ![代码2.png](../assets/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/代码2.png)
+  ![截屏2021-12-16 下午6.20.00.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/%E6%88%AA%E5%B1%8F2021-12-16-%E4%B8%8B%E5%8D%886.20.00.png)
+  ![代码1.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/%E4%BB%A3%E7%A0%811.png)
+  ![代码2.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/%E4%BB%A3%E7%A0%812.png)
 
 ### 打包
 - 进入工程目录，使用命令进行打包
@@ -102,32 +102,32 @@ ClickHouse 作为标准的列存数据库，其特点相当鲜明，对于多维
   ```
 ### 自定义代码包
 - 打包命令后，代码包位于工程目录下的 wide-table/target 目录
-  ![截屏2021-12-10 下午12.30.39.png](../assets/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/截屏2021-12-10-下午12.30.39.png)
+  ![截屏2021-12-10 下午12.30.39.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/%E6%88%AA%E5%B1%8F2021-12-10-%E4%B8%8B%E5%8D%8812.30.39.png)
 
 ### 添加数据源
 - 登录 CloudCanal 平台
 - **数据源管理**->**新增数据源**
 - 将**MySQL** 和 **ClickHouse** 分别添加
-  ![截屏2021-12-16 下午6.33.14.png](../assets/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/截屏2021-12-16-下午6.33.14.png)
+  ![截屏2021-12-16 下午6.33.14.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/%E6%88%AA%E5%B1%8F2021-12-16-%E4%B8%8B%E5%8D%886.33.14.png)
 
 ### 任务创建
 - **任务管理**->**任务创建**
 - 选择 **源** 和 **目标** 数据源
 - 选择 **数据同步**，并勾选 **全量数据初始化**, 其他选项默认
 - 选择需要迁移同步的表, 此处只要选择事实表即可，维表会通过自定义代码反查补充
-  ![截屏2021-12-16 下午7.07.18.png](../assets/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/截屏2021-12-16-下午7.07.18.png)
+  ![截屏2021-12-16 下午7.07.18.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/%E6%88%AA%E5%B1%8F2021-12-16-%E4%B8%8B%E5%8D%887.07.18.png)
 - 选择列,默认全选，**选择上传代码包(路径如上所示)**
-  ![截屏2021-12-16 下午7.07.45.png](../assets/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/截屏2021-12-16-下午7.07.45.png)
+  ![截屏2021-12-16 下午7.07.45.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/%E6%88%AA%E5%B1%8F2021-12-16-%E4%B8%8B%E5%8D%887.07.45.png)
 - 确认创建,并自动运行
-  ![截屏2021-12-16 下午7.12.16.png](../assets/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/截屏2021-12-16-下午7.12.16.png)
+  ![截屏2021-12-16 下午7.12.16.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/%E6%88%AA%E5%B1%8F2021-12-16-%E4%B8%8B%E5%8D%887.12.16.png)
 
 ### 校验数据
 - 变更事实表数据
-  ![截屏2021-12-16 下午7.08.18.png](../assets/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/截屏2021-12-16-下午7.08.18.png)
-  ![截屏2021-12-16 下午7.08.50.png](../assets/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/截屏2021-12-16-下午7.08.50.png)
+  ![截屏2021-12-16 下午7.08.18.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/%E6%88%AA%E5%B1%8F2021-12-16-%E4%B8%8B%E5%8D%887.08.18.png)
+  ![截屏2021-12-16 下午7.08.50.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/%E6%88%AA%E5%B1%8F2021-12-16-%E4%B8%8B%E5%8D%887.08.50.png)
 - 变更维表数据
-  ![截屏2021-12-16 下午7.09.17.png](../assets/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/截屏2021-12-16-下午7.09.17.png)
-  ![截屏2021-12-16 下午7.09.42.png](../assets/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/截屏2021-12-16-下午7.09.42.png)
+  ![截屏2021-12-16 下午7.09.17.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/%E6%88%AA%E5%B1%8F2021-12-16-%E4%B8%8B%E5%8D%887.09.17.png)
+  ![截屏2021-12-16 下午7.09.42.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/4_mysql_clickhouse_widetable_sync/%E6%88%AA%E5%B1%8F2021-12-16-%E4%B8%8B%E5%8D%887.09.42.png)
 
 ### 数据变化规律
 - 事实表插入，更新都会反查维表最新数据并写入对端

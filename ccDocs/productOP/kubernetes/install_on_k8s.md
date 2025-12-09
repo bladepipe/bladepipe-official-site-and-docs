@@ -30,7 +30,7 @@ description: 本文档主要介绍在 Linux/MacOS 操作系统下，全新安装
 - Linux 系统安装 Kubernetes,可参考 [最小化 Kubernetes 环境部署](../dailyOP/minimal_k8s_for_cc.md)，也可参考 [官方文档](https://kubernetes.io/zh-cn/docs/setup/production-environment/tools/kubeadm/install-kubeadm/) (版本 **1.19** 及以上)。
 
 - MacOS 系统请进行如下设置，安装 Kubernetes 单机版。
-  ![f0f8aece-be13-44f6-be2b-d5fecd9a7b67-image.png](../../assets/operation-manual/k8s_install_2.png)
+  ![f0f8aece-be13-44f6-be2b-d5fecd9a7b67-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/k8s_install_2.png)
 
 - (可选) Linux 系统安装 Helm，可参考 [官方文档](https://helm.sh/docs/intro/install/) (版本 **3.x** 及以上)。
 
@@ -72,7 +72,7 @@ description: 本文档主要介绍在 Linux/MacOS 操作系统下，全新安装
 ### 安装包准备
 
 1. 登录[官方网站](https://www.clougence.com?src=cc-doc-install-linux)，点击**下载私有部署版**按钮，获取 **软件包下载链接**。
-  ![downloadtgz](../../assets/quick_start/download.png)
+  ![downloadtgz](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/quick_start/download.png)
 
 2. 下载安装包。
     ```shell
@@ -137,7 +137,7 @@ description: 本文档主要介绍在 Linux/MacOS 操作系统下，全新安装
     ```
 
 2. 出现如下标识即安装成功。
-  ![k8s_install.png](../../assets/operation-manual/k8s_install.png)
+  ![k8s_install.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/k8s_install.png)
 
 #### 方式二：使用 Helm Chart 安装
 1. 使用脚本导入镜像到所有 Node 节点：

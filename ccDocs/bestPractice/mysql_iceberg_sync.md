@@ -141,11 +141,11 @@ CloudCanal 支持 Iceberg 3 种 Catalog 和 2 种存储方式，搭配关系为
 5. 在 **数据处理** 页面，保持默认配置。
 6. 在 **创建确认** 页面，点击 **创建任务**，开始运行。
    
-   ![mysql_to_iceberg_running](../assets/mysql_iceberg_sync/mysql_to_iceberg_running.png)
+   ![mysql_to_iceberg_running](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/mysql_iceberg_sync/mysql_to_iceberg_running.png)
 
 ### 测试并验证数据
 1. 造增删改数据。
-  ![mysql_to_iceberg_incre_data](../assets/mysql_iceberg_sync/mysql_to_iceberg_incre_data.png)
+  ![mysql_to_iceberg_incre_data](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/mysql_iceberg_sync/mysql_to_iceberg_incre_data.png)
 
 2. 停止造数据。
 3. 创建一个按量 Aliyun EMR for StarRocks，添加 AWS Glue 的 Iceberg Catalog 并查询。
@@ -172,10 +172,10 @@ CloudCanal 支持 Iceberg 3 种 Catalog 和 2 种存储方式，搭配关系为
     ```
 
   - MySQL 数据量
-   ![mysql_data_count](../assets/mysql_iceberg_sync/mysql_data_count.png)
+   ![mysql_data_count](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/mysql_iceberg_sync/iceberg_data_count.png)
 
   - Iceberg 数据源
-   ![iceberg_data_count](../assets/mysql_iceberg_sync/iceberg_data_count.png)
+   ![iceberg_data_count](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/mysql_iceberg_sync/iceberg_data_count.png)
 
 ## 总结
 本文简单介绍了如何使用 [CloudCanal](https://www.clougence.com?src=cc-doc-mysql-iceberg-sync) 快速构建一条 MySQL 到 Iceberg 数据迁移同步链路，助力用户业务查询加速目标。

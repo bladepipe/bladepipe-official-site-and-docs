@@ -21,13 +21,13 @@ title: MySQL 到 Kafka 同步
 
 目前任务支持自动创建 Kafka 的 Topic，并且能自定义分区数量。如下示例：
 
-![image.png](../assets/mysql_kafka_sync/1.png)
+![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/mysql_kafka_sync/1.png)
 
 ### 数据批量写入
 
 支持对同一表的相同操作合并到同一条消息体中，实现数据批量写入，从而减少网络带宽的使用，提高数据处理的效率。
 
-![image.png](../assets/mysql_kafka_sync/2.png)
+![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/mysql_kafka_sync/2.png)
 
 ### 任务断点续传
 
@@ -39,20 +39,20 @@ CloudCanal 支持迁移和同步任务的断点续传，通过定期记录的位
 - 下载安装 [CloudCanal 私有部署版本](https://www.clougence.com?src=cc-doc-mysql-kafka-sync)
 
 - 造 Insert、Update、Delete 负载，比例为 1:1:1
-![image.png](../assets/mysql_kafka_sync/3.png)
+![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/mysql_kafka_sync/3.png)
 
 - 添加数据源
-![image.png](../assets/mysql_kafka_sync/4.png)
+![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/mysql_kafka_sync/4.png)
 
 - 创建任务，选择数据源和库，并连接成功
 - 点击下一步
-![image.png](../assets/mysql_kafka_sync/5.png)
+![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/mysql_kafka_sync/5.png)
 
 - 选择数据同步，建议规格至少选择 1 GB
-![image.png](../assets/mysql_kafka_sync/6.png)
+![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/mysql_kafka_sync/6.png)
 
 - 任务结构迁移、全量迁移、增量同步，正常运行
-![image.png](../assets/mysql_kafka_sync/7.png)
+![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/mysql_kafka_sync/7.png)
 
 ## 常见问题
 ### 还支持哪些源端数据源呢？

@@ -21,7 +21,7 @@ export default function NotFound(): React.JSX.Element {
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link
               to="/"
-              className="rounded-md bg-[#0087c7] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#006ba6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0087c7] no-underline hover:no-underline transition-colors"
+              className="button-link-white rounded-md bg-[#0087c7] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#006ba6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0087c7] no-underline hover:no-underline transition-colors"
             >
               <Translate id="404.goBackHome">Go back home</Translate>
             </Link>

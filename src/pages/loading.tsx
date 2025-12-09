@@ -12,7 +12,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 // 从环境变量或配置中获取
 const DOMAIN = {
-  COOKIE_DOMAIN: process.env.NODE_ENV === 'development' ? 'localhost' : '.clougence.com'
+  COOKIE_DOMAIN: process.env.NODE_ENV === 'development' ? 'localhost' : '.bladepipe.com'
 };
 
 // 验证码类型常量
@@ -42,6 +42,7 @@ export default function Loading() {
   const [showAddPhone, setShowAddPhone] = useState(false);
   const [isReady, setIsReady] = useState(false);
   const [requestId, setRequestId] = useState('');
+  const [stateForCC, setStateForCC] = useState<string | null>(null);
   const [registerForm] = Form.useForm();
   const [verifyCodeError, setVerifyCodeError] = useState('');
 
@@ -72,6 +73,10 @@ export default function Loading() {
           }
 
           authParams = { state: stateBase64, accessToken };
+        }
+
+        if (authParams.state) {
+          setStateForCC(authParams.state);
         }
 
         // 调用 auth 接口
@@ -130,8 +135,13 @@ export default function Loading() {
     try {
       const values = await registerForm.validateFields();
 
+      if (!stateForCC) {
+        message.error(translate({ id: 'loading.form.state.missing', message: '认证状态缺失，请重新完成登录流程' }));
+        return;
+      }
+
       const res: any = await ssoAuth({
-        state: window.localStorage.getItem('state_for_cc'),
+        state: stateForCC,
         requestId: requestId,
         phone: values.phone,
         company: values.company,

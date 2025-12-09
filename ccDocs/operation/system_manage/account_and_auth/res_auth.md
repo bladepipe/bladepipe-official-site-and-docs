@@ -18,4 +18,4 @@ CloudCanal 主账号默认拥有其归属资源的所有权限，子账号需要
 ## 查看权限
   1. 点击 **配置** > **子账号管理**。
   2. 选择需要查看的子账号，点击 **授权**。
-  3. 资源名称旁显示 ![](../../../assets/res_auth/4.png) 图标表示有已授权限，可点击查看。
+  3. 资源名称旁显示 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/res_auth/4.png) 图标表示有已授权限，可点击查看。

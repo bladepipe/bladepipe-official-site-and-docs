@@ -6,7 +6,7 @@ date: 2023-05-24
 authors: junyu
 tags:
   - tech_share
-image: /img/ccBlog/tech_share/oceanbase_change_data_capture_optimize_1.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/tech_share/oceanbase_change_data_capture_optimize_1.png
 slug: /data_insights/oceanbase_change_data_capture_optimize
 ---
 

@@ -6,7 +6,7 @@ date: 2025-09-17
 authors: mumu
 tags:
   - tech_share
-image: /img/ccBlog/tech_share/paimon_selectdb_lakehouse.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/tech_share/paimon_selectdb_lakehouse.png
 slug: /data_insights/paimon_selectdb_lakehouse
 ---
 湖仓一体已经成为数据架构领域的热门话题。相比传统湖仓分离的模式，湖仓一体架构在统一存储层上同时支持流式和批处理，兼顾**实时数据处理能力与灵活分析能力**，成为许多企业数据架构的主流选择。
@@ -30,7 +30,7 @@ slug: /data_insights/paimon_selectdb_lakehouse
 ## CloudCanal + Paimon + SelectDB 的协同优势
 要构建实时湖仓，关键在于三个核心能力：**实时采集、湖存储、分析查询**。
 
-![](../assets/blog/tech_share/paimon_selectdb_lakehouse/1.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/paimon_selectdb_lakehouse/1.png)
 
 + **CloudCanal：实时采集业务数据**
     - 提供 **实时 CDC**（Change Data Capture）能力
@@ -73,33 +73,33 @@ slug: /data_insights/paimon_selectdb_lakehouse
 #### 添加数据源
 1. 登录 **CloudCanal 平台**，点击 **数据源管理** > **添加数据源**，分别添加 MySQL 和 Paimon 数据源。
 
-![](../assets/blog/tech_share/paimon_selectdb_lakehouse/2.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/paimon_selectdb_lakehouse/2.png)
 
 2. 添加 Paimon 数据源时，需配置额外参数，具体可参考：[Paimon 数据源配置](https://www.clougence.com/cc-doc/dataMigrationAndSync/datasource_func/Paimon/props_for_paimon_ds)
 
-![](../assets/blog/tech_share/paimon_selectdb_lakehouse/3.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/paimon_selectdb_lakehouse/3.png)
 
 #### 创建同步任务
 1. 点击 **同步任务** > [创建任务](https://www.clougence.com/cc-doc/operation/job_manage/create_job/create_full_incre_task)。
 2. 选择源和目标实例，并分别点击 **测试连接**。
 
-![](../assets/blog/tech_share/paimon_selectdb_lakehouse/4.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/paimon_selectdb_lakehouse/4.png)
 
 3. 在 **功能配置** 页面，选择 **增量同步**，并勾选 **全量初始化**。
 
-![](../assets/blog/tech_share/paimon_selectdb_lakehouse/5.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/paimon_selectdb_lakehouse/5.png)
 
 4. 在 **表和操作过滤** 页面，选择需要迁移同步的表，可同时选择多张。
 
-![](../assets/blog/tech_share/paimon_selectdb_lakehouse/6.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/paimon_selectdb_lakehouse/6.png)
 
 5. 在 **数据处理** 页面，保持默认配置。
 
-![](../assets/blog/tech_share/paimon_selectdb_lakehouse/7.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/paimon_selectdb_lakehouse/7.png)
 
 6. 在 **创建确认** 页面，点击 **创建任务**，开始运行。
 
-![](../assets/blog/tech_share/paimon_selectdb_lakehouse/8.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/paimon_selectdb_lakehouse/8.png)
 
 
 
@@ -124,7 +124,7 @@ CREATE CATALOG catalog_name PROPERTIES (
 #### 实时查询数据
 Catalog 创建成功后，就可以开始查询 Paimon 中的数据：
 
-![](../assets/blog/tech_share/paimon_selectdb_lakehouse/9.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/paimon_selectdb_lakehouse/9.png)
 
 
 

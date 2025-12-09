@@ -6,12 +6,12 @@ import type * as Preset from '@docusaurus/preset-classic';
 const current_env = process.env.DEPLOYMENT_ENV || 'development';
 const SERVICE_URL = {
   development: 'http://localhost:8111',
-  staging: 'https://test-cloud.askcug.cn',
-  production: 'https://api.bladepipe.com'
+  staging: 'https://api-sg.bladepipe.com',
+  production: 'https://api-sg.bladepipe.com'
 };
 const CLOUD_URL = {
   development: 'http://localhost:8111',
-  staging: 'https://test-cloud.askcug.cn',
+  staging: 'https://api-sg.bladepipe.com',
   production: 'https://cloud.bladepipe.com'
 };
 const config: Config = {
@@ -86,6 +86,12 @@ const config: Config = {
   ],
 
   themeConfig: {
+    // 禁用主题色切换功能
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
+    },
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     prism: {
@@ -151,7 +157,14 @@ const config: Config = {
   customFields: {
     siteBrand: process.env.SITE_BRAND || 'bladepipe',
     API_BASE_URL: SERVICE_URL[current_env],
-    CLOUD_URL: CLOUD_URL[current_env]
+    CLOUD_URL: CLOUD_URL[current_env],
+    // 公告栏配置
+    announcement: {
+      enabled: false, // 设置为 true 启用公告栏
+      text: 'New features available! Check out our latest updates.', // 公告文本（支持 i18n）
+      linkUrl: '/docs/intro', // 链接地址（整个区域可点击）
+      endDate: undefined // 可选：结束日期（ISO 格式），如 '2025-12-31T23:59:59'，超过此时间后不再显示。不设置则永久显示（当 enabled 为 true 时）
+    }
   }
 };
 

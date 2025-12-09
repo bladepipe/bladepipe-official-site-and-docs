@@ -5,6 +5,7 @@ import { useLocation } from '@docusaurus/router';
 import { getAgentId } from '@site/src/utils';
 import { addViewLog } from '../../apis/weblog';
 import WechatFloat from '@site/src/components/WechatFloat';
+import AnnouncementBar from '@site/src/components/AnnouncementBar';
 
 export default function Layout(props) {
   const [showAnim, setShowAnim] = useState(true);
@@ -55,6 +56,7 @@ export default function Layout(props) {
 
   return (
     <>
+      <AnnouncementBar />
       <OriginalLayout {...props} wrapperClassName={(props.wrapperClassName ?? '') + (showAnim ? ' animate-fadeInUp' : '')} />
       <WechatFloat />
     </>

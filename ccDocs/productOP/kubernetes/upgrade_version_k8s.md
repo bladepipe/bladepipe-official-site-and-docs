@@ -13,7 +13,7 @@ description: 本文档主要介绍在 Linux/MacOS 操作系统下，已经安装
 ### 下载安装包
 
 登录[官方网站](https://www.clougence.com?src=cc-doc-upgrade)，点击 **下载私有部署版** 按钮。
-![](../../assets/license/license_biz/1.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/license/license_biz/1.png)
 
 ### 解压缩新安装包
 
@@ -39,7 +39,7 @@ cd cloudcanal_home/install_on_kubernetes
   ## CentOS / Rhel / Ubuntu / MacOS
   ./upgrade.sh
   ```
-  ![k8s_upgrade.png](../../assets/operation-manual/k8s_upgrade.png)
+  ![k8s_upgrade.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/k8s_upgrade.png)
 
 #### 方式二：使用 Helm Chart 升级
 1. 使用脚本导入镜像到所有 Node 节点：
@@ -89,7 +89,7 @@ cd cloudcanal_home/install_on_kubernetes
   ```sh
   kubectl get po -n cloudcanal
   ```
-  ![k8s_upgrade2.png](../../assets/operation-manual/k8s_upgrade_2.png)
+  ![k8s_upgrade2.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/k8s_upgrade_2.png)
 
 ## FAQ
 
@@ -106,7 +106,7 @@ cd cloudcanal_home/install_on_kubernetes
   ```
 例如：当前版本为 1.0.3，在新包 **ddl_history.sql** 中看到 1.0.4 版本及往后的变更如下图。按序执行这些变更到元数据库即可。
 
-  ![e2e76c27-250f-49db-96e4-1be333854854-image.png](../../assets/operation-manual/update1.png)
+  ![e2e76c27-250f-49db-96e4-1be333854854-image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/update1.png)
 
 ### 特殊版本怎么处理？
 
@@ -120,4 +120,4 @@ cd cloudcanal_home/install_on_kubernetes
   console.config.alert.custom.alerturl=
   ```
 
-![image-20221205141715889](../../assets/operation-manual/change_conf.png)
+![image-20221205141715889](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/change_conf.png)

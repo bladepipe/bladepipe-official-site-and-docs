@@ -6,7 +6,7 @@ date: 2023-07-30
 authors: juantu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/data_check_and_revise.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/data_check_and_revise.png 
 slug: /data_sync_sample/data_check_and_revise
 ---
 ## 简述
@@ -56,7 +56,7 @@ WHERE (col1, col2)                    --- parentheses here
 - 支持该特性的CloudCanal版本：v2.2.6.8(商业版)
 - 订正是以源端数据为准：校验结果中会记录对端相比源端缺失、不一致的行的源端主键信息。订正则会基于该源端主键进行订正。假设对端多出了一些源端不存在的主键，在订正的时候CloudCanal是不会去删除这些行的请知悉。
 - 基于校验结果的订正依赖校验任务的校验结果文件，因此当关联的校验任务在不同机器上执行过的话，则无法基于该校验任务创建订正任务。在校验任务详情，点击功能列表->重启历史记录 可以查看校验任务是否在多台机器上运行过。
-![image.png](../assets/blog/wufenzhong/0001/a.png)
+![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0001/a.png)
 
 
 ## 操作说明
@@ -67,51 +67,51 @@ WHERE (col1, col2)                    --- parentheses here
 ### 校验订正的基本流程
 使用CloudCanal的校验订正能力恢复异常数据的典型流程如下图所示。
 
-![image.png](../assets/blog/wufenzhong/0001/0.png)
+![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0001/0.png)
 
 ### 数据校验
 
 - 在任务管理页点击创建任务，进入创建任务的第一步，配置源对端的数据库并且选择需要订阅的库。
-  ![image.png](../assets/blog/wufenzhong/0001/1.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0001/1.png)
 
 - 选择任务类型为校验，开启一次性校验，设置自动启动。
-  ![image.png](../assets/blog/wufenzhong/0001/2.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0001/2.png)
 
 - 选择需要进行校验的表。
-  ![image.png](../assets/blog/wufenzhong/0001/3.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0001/3.png)
 
 - 选择需要进行校验的列，支持映射和裁剪。裁剪的列将不参与校验。
-  ![image.png](../assets/blog/wufenzhong/0001/4.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0001/4.png)
 
 - 确认任务整体配置情况，无误后点击创建
-  ![image.png](../assets/blog/wufenzhong/0001/5.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0001/5.png)
 
 - 校验完成后可以查看具体每张表相比源端缺失或者不一致的数据。
-  ![image.png](../assets/blog/wufenzhong/0001/6.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0001/6.png)
 
 
 ### 数据订正
 
 - 从**校验任务的详情页**，点击功能列表中的创建订正任务可以直接基于该次校验的结果，创建对应表的订正任务。
-  ![image.png](../assets/blog/wufenzhong/0001/00.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0001/00.png)
 
 - 订正任务的源对端信息和订阅的库信息与之前的校验任务保持一致，此处源对端测试连接成功后可直接点击下一步。
-  ![image.png](../assets/blog/wufenzhong/0001/01.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0001/01.png)
 
 - 规格与校验任务保持一致，可以直接下一步
-  ![image.png](../assets/blog/wufenzhong/0001/02.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0001/02.png)
 
 - 订阅信息仅供确认，无法修改，与校验任务保持一致，直接点击下一步
-  ![image.png](../assets/blog/wufenzhong/0001/03.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0001/03.png)
 
 - 确认列的映射、裁剪信息，无法修改，与校验任务保持一致，直接点击下一步
-  ![image.png](../assets/blog/wufenzhong/0001/04.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0001/04.png)
 
 - 确认订正任务的配置无误后点击创建任务
-  ![image.png](../assets/blog/wufenzhong/0001/05.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0001/05.png)
 
 - 校验完成后可以看到具体订正的统计信息
-  ![image.png](../assets/blog/wufenzhong/0001/06.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0001/06.png)
 
 ## 总结
 

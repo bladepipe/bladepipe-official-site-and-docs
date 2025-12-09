@@ -99,7 +99,7 @@ const sidebars: SidebarsConfig = {
                 "operation/job_manage/job_op/change_job_setting",
                 "operation/job_manage/job_op/data_transform",
                 "operation/job_manage/job_op/visual_widetable_create",
-                //"operation/job_manage/job_op/param_template"
+                "operation/job_manage/job_op/param_template"
               ]
             }
           ]
@@ -625,6 +625,7 @@ const sidebars: SidebarsConfig = {
       "type": "category",
       "label": "版本说明",
       "items": [
+        "releaseNote/rn-cloudcanal-5-3-0-0",
         "releaseNote/rn-cloudcanal-5-2-1-0",
         "releaseNote/rn-cloudcanal-5-2-0-0",
         "releaseNote/rn-cloudcanal-5-1-0-0",

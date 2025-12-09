@@ -6,7 +6,7 @@ date: 2025-06-26
 authors: junyu
 tags:
   - tech_share
-image: /img/ccBlog/tech_share/redis_big_key_opt.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/tech_share/redis_big_key_opt.png
 slug: /data_insights/redis_big_key_opt
 ---
 在企业级的数据同步和迁移场景中，Redis 凭借高性能和灵活的数据结构，常被用于缓存和高频读写场景。随着业务数据的积累，Redis 中不可避免会出现包含大量元素的“大 Key”，如包含几十万条数据的 List、Set 或 Hash 类型。在进行全量同步或迁移时，大 Key 往往成为性能瓶颈甚至故障源。
@@ -48,7 +48,7 @@ CloudCanal 测试了优化后的大 Key 同步效果，数据准备如下：
 - 5w 30 MB 大小 Key（包含：String、Set、ZSet、List、Hash，最大 Key 35 MB左右）
 
 数据同步性能如下：
-![](../assets/blog/tech_share/0025/big_key.png)
+![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0025/big_key.png)
 
 结果显示，CloudCanal 在 Redis 到 Redis 数据同步（包含大 Key 场景）中，基准 RPS 可达到 4-5 K 左右，基本能够满足业务日常同步需求，并确保数据准确。
 

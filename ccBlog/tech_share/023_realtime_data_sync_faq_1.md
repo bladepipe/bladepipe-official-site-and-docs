@@ -6,7 +6,7 @@ date: 2025-06-12
 authors: mumu
 tags:
   - tech_share
-image: /img/ccBlog/tech_share/realtime_data_sync_faq_1.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/tech_share/realtime_data_sync_faq_1.png
 slug: /data_insights/realtime_data_sync_faq_1
 ---
 

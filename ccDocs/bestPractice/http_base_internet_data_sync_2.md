@@ -17,7 +17,7 @@ title: 跨互联网数据同步进阶
 - 不依赖消息等软件
 
 ## 技术点
-![image.png](../assets/http_sync_2/http_sync_all_upgrade.png)
+![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_all_upgrade.png)
 
 ### 防循环
 
@@ -41,42 +41,42 @@ title: 跨互联网数据同步进阶
 ### CloudCanal 准备
 
 - 杭州环境部署 CloudCanal ，并购买 RDS for MySQL
-  ![http_sync_upgrade_1](../assets/http_sync_2/http_sync_upgrade_1.png)
-  ![http_sync_upgrade_2](../assets/http_sync_2/http_sync_upgrade_2.png)
+  ![http_sync_upgrade_1](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_1.png)
+  ![http_sync_upgrade_2](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_2.png)
 
 - 上海环境部署 CloudCanal , 并购买 RDS for MySQL
-  ![http_sync_upgrade_3](../assets/http_sync_2/http_sync_upgrade_3.png)
-  ![http_sync_upgrade_4](../assets/http_sync_2/http_sync_upgrade_4.png)
+  ![http_sync_upgrade_3](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_3.png)
+  ![http_sync_upgrade_4](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_4.png)
 
 - CloudCanal docker 安装包解压后 ，需 **修改 docker-compose.yml 端口映射再安装/升级**，以 18443 端口为例
   
-  ![http_sync_upgrade_5](../assets/http_sync_2/http_sync_upgrade_5.png)
+  ![http_sync_upgrade_5](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_5.png)
 
 - 开放 ECS 安全组相关端口，以便远程连接，以 18443 端口为例
   
-  ![http_sync_upgrade_6](../assets/http_sync_2/http_sync_upgrade_6.png)
+  ![http_sync_upgrade_6](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_6.png)
 
 ### 添加 Tunnel 数据源
 
 - 分别在 **杭州** 和 **上海** CloudCanal 配置 Tunnel 数据源
 - 因为双向同步，所以两个环境需要配置各自内网的 Tunnel 数据源和对方公网 Tunnel 数据源
 - 杭州数据源列表
-  ![http_sync_upgrade_7](../assets/http_sync_2/http_sync_upgrade_7.png)
+  ![http_sync_upgrade_7](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_7.png)
 
 - 上海数据源列表  
-  ![http_sync_upgrade_8](../assets/http_sync_2/http_sync_upgrade_8.png)
+  ![http_sync_upgrade_8](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_8.png)
 
 ### 为 Tunnel 初始化元数据
 
 - **杭州** 创建两个 MySQL -> Tunnel 结构迁移，并完成
-  ![http_sync_upgrade_12](../assets/http_sync_2/http_sync_upgrade_12.png)
-  ![http_sync_upgrade_13](../assets/http_sync_2/http_sync_upgrade_13.png)
-  ![http_sync_upgrade_14](../assets/http_sync_2/http_sync_upgrade_14.png)
+  ![http_sync_upgrade_12](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_12.png)
+  ![http_sync_upgrade_13](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_13.png)
+  ![http_sync_upgrade_14](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_14.png)
 
 - **上海** 创建两个 MySQL -> Tunnel 结构迁移，并完成
-  ![http_sync_upgrade_9](../assets/http_sync_2/http_sync_upgrade_9.png)
-  ![http_sync_upgrade_10](../assets/http_sync_2/http_sync_upgrade_10.png)
-  ![http_sync_upgrade_11](../assets/http_sync_2/http_sync_upgrade_11.png)
+  ![http_sync_upgrade_9](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_9.png)
+  ![http_sync_upgrade_10](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_10.png)
+  ![http_sync_upgrade_11](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_11.png)
 
 ## 任务创建
 
@@ -92,88 +92,88 @@ title: 跨互联网数据同步进阶
 ### 杭州任务 A 创建
 
 - 选择 Tunnel(杭州) 和 MySQL数据库(杭州)
-  ![http_sync_upgrade_15](../assets/http_sync_2/http_sync_upgrade_15.png)
+  ![http_sync_upgrade_15](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_15.png)
 
 - 选择表、列、映射略
 - 任务正常运行，监听端口并准备接收数据
-  ![http_sync_upgrade_16](../assets/http_sync_2/http_sync_upgrade_16.png)
+  ![http_sync_upgrade_16](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_16.png)
 
 ### 上海任务 C 创建
 
 - 选择 Tunnel(上海) 和 MySQL数据库(上海)
-  ![http_sync_upgrade_17](../assets/http_sync_2/http_sync_upgrade_17.png)
+  ![http_sync_upgrade_17](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_17.png)
 
 - 选择表、列、映射略
 - 任务正常运行，监听端口并准备接收数据
-  ![http_sync_upgrade_18](../assets/http_sync_2/http_sync_upgrade_18.png)
+  ![http_sync_upgrade_18](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_18.png)
 
 ### 杭州任务 B 创建
 
 - 选择 MySQL (杭州) 和 Tunnel 数据源(上海)
-  ![http_sync_upgrade_19](../assets/http_sync_2/http_sync_upgrade_19.png)
+  ![http_sync_upgrade_19](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_19.png)
 
 - 选择数据同步，并 **关闭任务自动启动**
-  ![http_sync_upgrade_20](../assets/http_sync_2/http_sync_upgrade_20.png)
+  ![http_sync_upgrade_20](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_20.png)
 
 - 选择表、列、映射略
 - 任务正常创建
 - 任务详情 > 更多功能 > 参数设置，目标端数据源配置，deCycle 参数设置为 true
-  ![http_sync_upgrade_21](../assets/http_sync_2/http_sync_upgrade_21.png)
+  ![http_sync_upgrade_21](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_21.png)
 
 - 启动任务，正常运行
-  ![http_sync_upgrade_22](../assets/http_sync_2/http_sync_upgrade_22.png)
+  ![http_sync_upgrade_22](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_22.png)
 
 ### 上海任务 D 创建
 
 - 选择 MySQL (上海) 和 Tunnel 数据源(杭州)
-  ![http_sync_upgrade_23](../assets/http_sync_2/http_sync_upgrade_23.png)
+  ![http_sync_upgrade_23](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_23.png)
 
 - 选择数据同步，并 **关闭任务自动启动**
-  ![http_sync_upgrade_24](../assets/http_sync_2/http_sync_upgrade_24.png)
+  ![http_sync_upgrade_24](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_24.png)
 
 - 选择表、列、映射略
 - 任务正常创建
 - 任务详情 > 更多功能 > 参数设置，目标端数据源配置，deCycle 参数设置为 true
-  ![http_sync_upgrade_25](../assets/http_sync_2/http_sync_upgrade_25.png)
+  ![http_sync_upgrade_25](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_25.png)
 
 - 启动任务，正常运行
-  ![http_sync_upgrade_26](../assets/http_sync_2/http_sync_upgrade_26.png)
+  ![http_sync_upgrade_26](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_26.png)
 
 ### 功能验证
 
 #### 杭州 MySQL 造增量数据
   
   - 使用 [CloudDM](https://www.clougence.com/clouddm-personal) 在杭州 MySQL 上造增量数据
-  ![http_sync_upgrade_27](../assets/http_sync_2/http_sync_upgrade_27.png)
+  ![http_sync_upgrade_27](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_27.png)
   
   - 杭州写入上海 Tunnel 任务 **有流量**
-  ![http_sync_upgrade_28](../assets/http_sync_2/http_sync_upgrade_28.png)
+  ![http_sync_upgrade_28](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_28.png)
 
   - 上海接收数据任务 **有流量**
-  ![http_sync_upgrade_29](../assets/http_sync_2/http_sync_upgrade_29.png)
+  ![http_sync_upgrade_29](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_29.png)
 
   - 杭州接收数据任务 **无流量**
-  ![http_sync_upgrade_30](../assets/http_sync_2/http_sync_upgrade_30.png)
+  ![http_sync_upgrade_30](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_30.png)
  
   - 上海写入杭州 Tunnel 任务 **无流量**
-  ![http_sync_upgrade_31](../assets/http_sync_2/http_sync_upgrade_31.png)
+  ![http_sync_upgrade_31](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_31.png)
 
 #### 上海 MySQL 造增量数据
 
   - 使用 [CloudDM](https://www.clougence.com/clouddm-personal) 在上海 MySQL 上造增量数据
-  ![http_sync_upgrade_32](../assets/http_sync_2/http_sync_upgrade_32.png)
+  ![http_sync_upgrade_32](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_32.png)
 
   - 上海写入杭州 Tunnel 任务 **有流量**
-  ![http_sync_upgrade_33](../assets/http_sync_2/http_sync_upgrade_33.png)
+  ![http_sync_upgrade_33](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_33.png)
 
   - 杭州接收数据任务 **有流量**
-  ![http_sync_upgrade_34](../assets/http_sync_2/http_sync_upgrade_34.png)
+  ![http_sync_upgrade_34](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_34.png)
 
   - 杭州写入上海 Tunnel 任务 **无流量**
-  ![http_sync_upgrade_35](../assets/http_sync_2/http_sync_upgrade_35.png)
+  ![http_sync_upgrade_35](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_35.png)
  
   - 上海接收数据任务**无流量**
-  ![http_sync_upgrade_36](../assets/http_sync_2/http_sync_upgrade_36.png)
+  ![http_sync_upgrade_36](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/http_sync_2/http_sync_upgrade_36.png)
 
 - 以上两者说明防循环生效
 

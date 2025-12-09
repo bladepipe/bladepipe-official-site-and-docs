@@ -6,7 +6,7 @@ date: 2022-09-20
 authors: junyu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/postgresql_doris_sync.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/postgresql_doris_sync.png 
 slug: /data_sync_sample/postgresql_doris_sync
 ---
 
@@ -45,7 +45,7 @@ MySQL 兼容性好，兼容 MySQL 的网络协议，**兼容 MySQL 语法**。
 - 下载安装 [CloudCanal 私有部署版本](https://www.clougence.com?src=cc-doc-blog-postgresql-doris-sync),使用参见[快速上手文档](https://www.clougence.com/docs/productOP/docker/install_linux_macos)
 - 准备一个 PG 数据库，和 DORIS 实例（本例分别使用自建 PG 12.4 和 Doris 1.0）
 - 登录 CloudCanal 平台 ，添加 PG 和 DORIS
-  ![image.png](../assets/blog/wufenzhong/0002/01.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0002/01.png)
 
 - 创建一条 PG -> DORIS 链路作为增量数据来源
 
@@ -54,32 +54,32 @@ MySQL 兼容性好，兼容 MySQL 的网络协议，**兼容 MySQL 语法**。
 - **任务管理**-> **任务创建**
 - **测试链接**并选择 **源** 和 **目标** 数据库
 - 点击下一步
-  ![image.png](../assets/blog/wufenzhong/0002/02.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0002/02.png)
 
 - 选择 **数据同步**，并勾选 **全量数据初始化**，其他选项默认
-  ![image.png](../assets/blog/wufenzhong/0002/03.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0002/03.png)
 
 - 选择需要迁移同步的**表**和**列**
-  ![image.png](../assets/blog/wufenzhong/0002/04.png)
-  ![image.png](../assets/blog/wufenzhong/0002/05.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0002/04.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0002/05.png)
 
 - 确认创建任务
-  ![image.png](../assets/blog/wufenzhong/0002/06.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0002/06.png)
 
 - 任务自动做**结构迁移**、**全量迁移**、**增量同步**
-  ![image.png](../assets/blog/wufenzhong/0002/07.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0002/07.png)
 
 ### 校验数据
 
 - 我们使用程序对源端制造了一些数据
-  ![image.png](../assets/blog/wufenzhong/0002/08.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0002/08.png)
 
 - 任务正常运行一段时间后，停止造数据
 - 点击  PG -> DORIS 任务**详情**，**功能列表 -> 创建相似任务**，在创建任务的第二步选择**数据校验**
-  ![image.png](../assets/blog/wufenzhong/0002/09.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0002/09.png)
 
 - 数据校验 OK
-  ![image.png](../assets/blog/wufenzhong/0002/10.png)
+  ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0002/10.png)
 
 ## 常见问题
 ### 支持什么版本的 PG 和 DOIRS ？

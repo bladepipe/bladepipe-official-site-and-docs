@@ -13,5 +13,5 @@ CloudCanal 对核心组件产生的异常事件均有记录。查看异常事件
 3. 在顶部搜索栏可按照时间或任务 ID 进行筛选查询。   
    
 :::info
-任务列表页中的任务如果存在异常，任务名右侧会显示 ![](../../assets/console_job/1.png) 图标，点击该图标可直达该异常日志。
+任务列表页中的任务如果存在异常，任务名右侧会显示 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/console_job/1.png) 图标，点击该图标可直达该异常日志。
 :::

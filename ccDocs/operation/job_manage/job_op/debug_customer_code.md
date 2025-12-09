@@ -15,7 +15,7 @@ Java 开发人员使用 CloudCanal 自定义代码时若遇到问题，可以开
     - Docker 部署：18787（默认将 8787 映射到外部的 18787 端口）
     - Kubernetes 部署：32727（默认将 8787 映射到外部的 32727 端口）
     - TGZ 部署：8787
-      ![Debug Code Config](../../../assets/create_process_job/debug_code_config.png)
+      ![Debug Code Config](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/create_process_job/debug_code_config.png)
 
 ## 注意事项
 调试完毕后请重新修改参数 *debugMode* 为 false 并重启任务，否则该任务会无法正常运行。

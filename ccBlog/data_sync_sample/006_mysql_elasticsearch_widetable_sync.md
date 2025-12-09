@@ -6,7 +6,7 @@ date: 2022-05-06
 authors: junyu
 tags:
   - data_sync_sample
-image: /img/ccBlog/data_sync_sample/mysql_elasticsearch_widetable_sync.png 
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/mysql_elasticsearch_widetable_sync.png 
 slug: /data_sync_sample/mysql_elasticsearch_widetable_sync
 ---
 
@@ -70,9 +70,9 @@ CloudCanal 目前打宽表的方式主要通过反查实现，对于多流 join 
 ### 开发宽表代码
 - 代码工程 [cloudcanal-data-process](https://gitee.com/clougence/cloudcanal-data-process) ，并找到代码类 [MySqlToEsOnlyFact_one_fact_two_dim.java](https://gitee.com/clougence/cloudcanal-data-process/blob/master/wide-table/src/main/java/com/clougence/cloudcanal/dataprocess/widetable/MySqlToEsOnlyFact_one_fact_two_dim.java)
 - 修改必要信息
-  ![截屏2021-12-10 下午1.00.13.png](../assets/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/截屏2021-12-10-下午1.00.13.png)
-  ![代码1.png](../assets/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/代码1.png)
-  ![代码2.png](../assets/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/代码2.png)
+  ![截屏2021-12-10 下午1.00.13.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/%E6%88%AA%E5%B1%8F2021-12-10-%E4%B8%8B%E5%8D%881.00.13.png)
+  ![代码1.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/%E4%BB%A3%E7%A0%811.png)
+  ![代码2.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/%E4%BB%A3%E7%A0%812.png)
 ### 打包
 - 进入工程目录，使用命令进行打包
   ```
@@ -82,32 +82,32 @@ CloudCanal 目前打宽表的方式主要通过反查实现，对于多流 join 
   ```
 ### 自定义代码包
 - 打包命令后，代码包位于工程目录下的 wide-table/target 目录
-  ![截屏2021-12-10 下午12.30.39.png](../assets/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/截屏2021-12-10-下午12.30.39.png)
+  ![截屏2021-12-10 下午12.30.39.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/%E6%88%AA%E5%B1%8F2021-12-10-%E4%B8%8B%E5%8D%8812.30.39.png)
 
 ### 添加数据源
 - 登录 CloudCanal 平台
 - **数据源管理**->**新增数据源**
 - 将**MySQL** 和 **Elasticsearch** 分别添加
-  ![数据源.png](../assets/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/数据源.png)
+  ![数据源.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/%E6%95%B0%E6%8D%AE%E6%BA%90.png)
 
 ### 任务创建
 - **任务管理**->**任务创建**
 - 选择 **源** 和 **目标** 数据源
 - 选择 **数据同步**，并勾选 **全量数据初始化**, 其他选项默认
 - 选择需要迁移同步的表, 此处只要选择事实表即可，维表会通过自定义代码反查补充
-  ![截屏2021-12-10 下午12.35.53.png](../assets/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/截屏2021-12-10-下午12.35.53.png)
+  ![截屏2021-12-10 下午12.35.53.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/%E6%88%AA%E5%B1%8F2021-12-10-%E4%B8%8B%E5%8D%8812.35.53.png)
 - 选择列,默认全选，**选择上传代码包(路径如上所示)**
-  ![截屏2021-12-10 下午12.37.18.png](../assets/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/截屏2021-12-10-下午12.37.18.png)
+  ![截屏2021-12-10 下午12.37.18.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/%E6%88%AA%E5%B1%8F2021-12-10-%E4%B8%8B%E5%8D%8812.37.18.png)
 - 确认创建,并自动运行
-  ![截屏2021-12-10 下午12.38.33.png](../assets/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/截屏2021-12-10-下午12.38.33.png)
+  ![截屏2021-12-10 下午12.38.33.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/%E6%88%AA%E5%B1%8F2021-12-10-%E4%B8%8B%E5%8D%8812.38.33.png)
 
 ### 校验数据
 - 变更事实表数据
-  ![截屏2021-12-10 下午12.40.05.png](../assets/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/截屏2021-12-10-下午12.40.05.png)
-  ![截屏2021-12-10 下午12.40.30.png](../assets/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/截屏2021-12-10-下午12.40.30.png)
+  ![截屏2021-12-10 下午12.40.05.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/%E6%88%AA%E5%B1%8F2021-12-10-%E4%B8%8B%E5%8D%8812.40.05.png)
+  ![截屏2021-12-10 下午12.40.30.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/%E6%88%AA%E5%B1%8F2021-12-10-%E4%B8%8B%E5%8D%8812.40.30.png)
 - 变更维表数据
-  ![截屏2021-12-10 下午12.41.19.png](../assets/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/截屏2021-12-10-下午12.41.19.png)
-  ![截屏2021-12-10 下午12.41.41.png](../assets/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/截屏2021-12-10-下午12.41.41.png)
+  ![截屏2021-12-10 下午12.41.19.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/%E6%88%AA%E5%B1%8F2021-12-10-%E4%B8%8B%E5%8D%8812.41.19.png)
+  ![截屏2021-12-10 下午12.41.41.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/data_sync_sample/6_mysql_elasticsearch_widetable_sync/%E6%88%AA%E5%B1%8F2021-12-10-%E4%B8%8B%E5%8D%8812.41.41.png)
 
 ### 数据变化规律
 - 事实表插入，更新都会反查维表最新数据并写入对端

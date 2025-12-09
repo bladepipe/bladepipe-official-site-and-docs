@@ -18,10 +18,10 @@ title: 产品功能
   </tr>
   <tr>
     <td rowSpan={5} style={{backgroundColor: '#f8f8f8'}}>数据查询</td>
-    <td style={{backgroundColor: '#f8f8f8'}}>数据源(28种)</td>
+    <td style={{backgroundColor: '#f8f8f8'}}>数据源(30种)</td>
     <td style={{backgroundColor: '#ffffff'}}>
         <b>MySQL</b>、<b>Oracle</b>、<b>MariaDB</b>、<b>PostgreSQL</b>、<b>IBM DB2（IBM i 及 z/OS）</b>、<b>SQL Server</b>、
-        <b>OceanBase(MySQL 及 Oracle)</b>、<b>PolarDB-X</b>、<b>PolarDB(MySQL)</b>、<b>StarRocks</b>、<b>Doris</b>、<b>SelectDB</b>、<b>ClickHouse</b>、<b>TiDB</b>、<b>Greenplum</b>、
+        <b>OceanBase(MySQL 及 Oracle)</b>、<b>PolarDB-X</b>、<b>PolarDB(MySQL)</b>、<b>StarRocks</b>、<b>Doris</b>、<b>SelectDB</b>、<b>ClickHouse</b>、<b>Redis</b>、<b>Hologres</b>、<b>TiDB</b>、<b>Greenplum</b>、
         <b>阿里云 AnalyticDB(MySQL)</b>、<b>阿里云 RDS(MySQL)</b>、<b>阿里云 RDS(PostgreSQL)</b>、<b>阿里云 PolarDB(MySQL)</b>、<b>阿里云 PolarDB-X</b>、<b>阿里云 PolarDB for PostgreSQL</b>、<b>阿里云 MaxCompute</b>、
         <b>亚马逊 AWS MySQL</b>、<b>亚马逊 AWS PostgreSQL</b>、
         <b>微软 Azure(MySQL)</b>、<b>微软 Azure(PostgreSQL)</b>，更多数据源等待开放
