@@ -814,6 +814,12 @@ button[title*="Copy"]:hover {
   color: #0087C7 !important;
 }
 
+/*tab激活的颜色*/
+.tabs__item--active {
+  color: #0087C7 !important;
+  border-bottom-color: #0087C7 !important;
+}
+
 /* 分页导航 - 悬停边框颜色 */
 .pagination-nav__link:hover {
   border-color: #0087C7 !important;

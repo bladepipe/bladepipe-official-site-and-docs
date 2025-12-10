@@ -64,6 +64,7 @@ const sidebars: SidebarsConfig = {
                 "operation/job_manage/create_job/create_data_filter_job",
                 // "operation/job_manage/create_job/create_db_sync_job",
                 "operation/job_manage/create_job/create_period_full_job",
+                "operation/job_manage/create_job/create_regex_table_job",
                 "operation/job_manage/create_job/create_period_verification_correction_job"
               ]
             },
@@ -546,6 +547,7 @@ const sidebars: SidebarsConfig = {
       "type": "category",
       "label": "Release Note",
       "items": [
+        "releaseNote/rn-bladepipe-1-1-0",
         "releaseNote/rn-bladepipe-1-0-0",
         "releaseNote/rn-bladepipe-0-9-0",
         "releaseNote/rn-bladepipe-0-8-0",

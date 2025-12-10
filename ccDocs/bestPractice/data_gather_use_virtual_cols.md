@@ -25,15 +25,53 @@ title: 多来源数据汇聚
 
 同时也支持 **单表设置多个虚拟列**，**针对特定表设置**，**批量设置**。
 
-| 虚拟列种类              |说明             | 有效的操作 |
-| -------------------- | --------------------------|---|
-| 指定具体值   | 可指定特定的数字、字符串生成新列，写入到对端  | INSERT|
-| 数据迁移或同步时间  | 以数据到达 CloudCanal 的时间生成新列，写入对端|INSERT, UPDATE|
-| 源端实例ID_SCHEMA_表_主键值   | 按照源端数据源 **实例ID**，**Schema**，**表** 和 **主键值** 做拼接生成新列，写入对端  |INSERT, UPDATE, DELETE|
-| 源端实例ID_DB_SCHEMA_表_主键值   | 按照源端数据源 **实例ID**，**Catalog**，**Schema**，**表** 和 **主键值** 做拼接生成新列，写入对端  |INSERT, UPDATE, DELETE|
-| 源端实例DB_SCHEMA_表_主键值   | 按照源端数据源 **Catalog**，**Schema**，**表** 和 **主键值** 做拼接生成新列，写入对端  |INSERT, UPDATE, DELETE|
-| 源端实例SCHEMA_表_主键值   | 按照源端数据源 **Schema**，**表** 和 **主键值** 做拼接生成新列，写入对端  |INSERT, UPDATE, DELETE|
-| 源端实例表_主键值   | 按照源端数据源 **表** 和 **主键值** 做拼接生成新列，写入对端  |INSERT, UPDATE, DELETE|
+<table>
+  <thead>
+    <tr>
+      <th>虚拟列种类</th>
+      <th>说明</th>
+      <th>有效的操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>指定具体值</td>
+      <td>可指定特定的数字、字符串生成新列，写入到对端</td>
+      <td rowspan="8">INSERT, UPDATE, DELETE</td>
+    </tr>
+    <tr>
+      <td>数据迁移或同步时间</td>
+      <td>以数据到达 CloudCanal 的时间生成新列，写入对端</td>
+    </tr>
+    <tr>
+      <td>源端实例ID_SCHEMA_表_主键值</td>
+      <td>按照源端数据源 <strong>实例ID</strong>，<strong>Schema</strong>，<strong>表</strong> 和 <strong>主键值</strong> 做拼接生成新列，写入对端</td>
+    </tr>
+    <tr>
+      <td>源端实例ID_DB_SCHEMA_表_主键值</td>
+      <td>按照源端数据源 <strong>实例ID</strong>，<strong>Catalog</strong>，<strong>Schema</strong>，<strong>表</strong> 和 <strong>主键值</strong> 做拼接生成新列，写入对端</td>
+    </tr>
+    <tr>
+      <td>源端实例DB_SCHEMA_表_主键值</td>
+      <td>按照源端数据源 <strong>Catalog</strong>，<strong>Schema</strong>，<strong>表</strong> 和 <strong>主键值</strong> 做拼接生成新列，写入对端</td>
+    </tr>
+    <tr>
+      <td>源端实例SCHEMA_表_主键值</td>
+      <td>按照源端数据源 <strong>Schema</strong>，<strong>表</strong> 和 <strong>主键值</strong> 做拼接生成新列，写入对端</td>
+    </tr>
+    <tr>
+      <td>源端实例表_主键值</td>
+      <td>按照源端数据源 <strong>表</strong> 和 <strong>主键值</strong> 做拼接生成新列，写入对端</td>
+    </tr>
+    <tr>
+      <td>转换表达式</td>
+      <td>
+        按照预设的脚本转换数据，支持的转换规则请参考
+        <a href="https://www.clougence.com/docs/operation/job_manage/job_op/data_transform#%E5%BD%93%E5%89%8D%E6%94%AF%E6%8C%81%E7%9A%84%E8%84%9A%E6%9C%AC">当前支持的脚本</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ### 指定虚拟列为对端主键(唯一键)
 

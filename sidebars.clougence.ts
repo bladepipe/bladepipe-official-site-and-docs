@@ -73,6 +73,8 @@ const sidebars: SidebarsConfig = {
                 // "operation/job_manage/create_job/create_db_sync_job",
                 "operation/job_manage/create_job/create_regex_table_job",
                 "operation/job_manage/create_job/create_period_full_job",
+                "operation/job_manage/create_job/create_virtual_col_job",
+                "operation/job_manage/create_job/create_target_pk_job",
                 "operation/job_manage/create_job/create_verification_correction_job"
               ]
             },
@@ -269,7 +271,8 @@ const sidebars: SidebarsConfig = {
               "items": [
                 "dataMigrationAndSync/datasource_func/SqlServer/privs_for_sqlserver",
                 "dataMigrationAndSync/datasource_func/SqlServer/sync_cdc_cdc",
-                "dataMigrationAndSync/datasource_func/SqlServer/update_multi_pos"
+                "dataMigrationAndSync/datasource_func/SqlServer/update_multi_pos",
+                "dataMigrationAndSync/datasource_func/SqlServer/open_sqlserver_heartbeat"
               ]
             },
             {
@@ -495,8 +498,8 @@ const sidebars: SidebarsConfig = {
         "bestPractice/redis_loop_data_sync",
         "bestPractice/opengauss_pg_loop_data_sync",
         "bestPractice/data_gather_use_virtual_cols",
-        "bestPractice/http_internet_data_sync",
-        "bestPractice/http_internet_data_sync_2",
+        //"bestPractice/http_internet_data_sync",
+        //"bestPractice/http_internet_data_sync_2",
         "bestPractice/encrypt_data_when_sync",
         "bestPractice/mysql_clickhouse_sync",
         "bestPractice/verification_and_correction",
@@ -717,7 +720,8 @@ const sidebars: SidebarsConfig = {
       "label": "协议",
       "items": [
         "protocol/terms_of_use",
-        "protocol/privacy_policy"
+        "protocol/privacy_policy",
+        "protocol/saas_protocol"
       ]
     },
     {

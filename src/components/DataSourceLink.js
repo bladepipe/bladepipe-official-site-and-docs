@@ -10,35 +10,35 @@ import './datasourceLink.css';
  * 需要增加对端的数据源，在DATA_SOURCE_COLUMN_LIST这个数组中添加
  * 需要增加源端的列，在DATA_SOURCE_LINK多增加一个key，并在key对应的value中添加该数据源支持的对端数据源
  */
-const DATA_SOURCE_COLUMN_LIST = ["MySQL/MariaDB/AuroraMySQL", "Oracle", "PostgreSQL", "AuroraPostgreSQL", "Greenplum", "SQL Server", "Db2", "Kafka", "RocketMQ", "RabbitMQ", "AutoMQ", "PolarDB-MySQL", "Tunnel", "MongoDB", "DocumentDB", "MongoDB Atlas", "OceanBase", "TiDB", "PolarDB-X", "Redis", "Hana", "StarRocks", "ClickHouse", "Doris", "SelectDB", "Elasticsearch", "ADB for MySQL", "openGauss", "GaussDB for MySQL", "Hive", "Kudu", "Iceberg", "Apache Paimon", "达梦", "Redshift", "Pulsar", "GreptimeDB", "DuckDB", "RagApi"]
+const DATA_SOURCE_COLUMN_LIST = ["MySQL/MariaDB/AuroraMySQL", "Oracle", "PostgreSQL", "AuroraPostgreSQL", "Greenplum", "SQL Server", "Db2", "Kafka", "RocketMQ", "RabbitMQ", "AutoMQ", "PolarDB-MySQL", "PolarDB PostgreSQL", "Tunnel", "MongoDB", "DocumentDB", "MongoDB Atlas", "OceanBase", "OceanBase for Oracle", "TiDB", "PolarDB-X", "Redis", "ElastiCache", "Hana", "StarRocks", "ClickHouse", "Doris", "SelectDB", "Elasticsearch", "ADB for MySQL", "ADB for PostgreSQL", "Amazon MSK", "DynamoDB", "openGauss", "GaussDB", "Hive", "Kudu", "Iceberg", "Apache Paimon", "Delta Lake", "DLF", "达梦", "Redshift", "Pulsar", "GreptimeDB", "DuckDB", "RagApi"]
 const DATA_SOURCE_LINK = {
   "MySQL/MariaDB/AuroraMySQL": [
-    "MySQL/MariaDB/AuroraMySQL", "Oracle", "PostgreSQL", "AuroraPostgreSQL", "Greenplum", "SQL Server", "Db2", "Kafka", "RocketMQ", "RabbitMQ", "AutoMQ", "PolarDB-MySQL", "Tunnel", "MongoDB", "DocumentDB", "OceanBase", "TiDB", "PolarDB-X", "Redis", 
-    "Hana", "StarRocks", "ClickHouse", "Doris", "SelectDB", "ElasticSearch", "ADB for MySQL", "openGauss", "GaussDB for MySQL", "Hive", "Kudu", "Iceberg", "达梦", "Redshift", "Pulsar", "GreptimeDB", "DuckDB", "Apache Paimon"
+    "MySQL/MariaDB/AuroraMySQL", "Oracle", "PostgreSQL", "AuroraPostgreSQL", "Greenplum", "SQL Server", "Db2", "Kafka", "RocketMQ", "RabbitMQ", "AutoMQ", "PolarDB-MySQL", "PolarDB PostgreSQL", "Tunnel", "MongoDB", "DocumentDB", "OceanBase", "OceanBase for Oracle", "TiDB", "PolarDB-X", "Redis", 
+    "Hana", "StarRocks", "ClickHouse", "Doris", "SelectDB", "Elasticsearch", "ADB for MySQL", "ADB for PostgreSQL", "openGauss", "GaussDB", "Hive", "Kudu", "Iceberg", "达梦", "Redshift", "Pulsar", "GreptimeDB", "DuckDB", "Apache Paimon", "DLF", "Delta Lake", "Amazon MSK", "DynamoDB"
   ],
   "Oracle": [
     "MySQL/MariaDB/AuroraMySQL", "Oracle", "PostgreSQL", "AuroraPostgreSQL", "Greenplum", "SQL Server", "Kafka", "Tunnel", "Iceberg", 
-    "ClickHouse", "StarRocks", "Doris", "SelectDB", "OceanBase", "TiDB", "Kudu", "RocketMQ", "Elasticsearch", "达梦"
+    "ClickHouse", "StarRocks", "Doris", "SelectDB", "OceanBase", "TiDB", "Kudu", "RocketMQ", "Elasticsearch", "GaussDB", "ADB for PostgreSQL",
   ],
   "PostgreSQL": [
-    "MySQL/MariaDB/AuroraMySQL", "PostgreSQL", "AuroraPostgreSQL", "Greenplum", "Kafka", "Iceberg", 
-    "ClickHouse", "StarRocks", "Doris", "SelectDB", "OceanBase", "ElasticSearch", "Kudu", "Elasticsearch", "达梦", "RagApi", "DuckDB"
+    "MySQL/MariaDB/AuroraMySQL", "PostgreSQL", "AuroraPostgreSQL", "Greenplum", "Kafka", "RocketMQ", "RabbitMQ", "Iceberg", 
+    "ClickHouse", "StarRocks", "Doris", "SelectDB", "OceanBase", "Elasticsearch", "Kudu", "RagApi", "DuckDB", "PolarDB PostgreSQL", "ADB for PostgreSQL"
   ],
   "AuroraPostgreSQL": [
-    "MySQL/MariaDB/AuroraMySQL", "PostgreSQL", "AuroraPostgreSQL", "Greenplum", "Kafka",
-    "ClickHouse", "StarRocks", "Doris", "SelectDB", "OceanBase", "ElasticSearch", "Kudu", "达梦"
+    "MySQL/MariaDB/AuroraMySQL", "PostgreSQL", "AuroraPostgreSQL", "Greenplum", "Kafka", "RocketMQ", "RabbitMQ", "Iceberg",
+    "ClickHouse", "StarRocks", "Doris", "SelectDB", "OceanBase", "Elasticsearch", "Kudu", "RagApi", "DuckDB", "PolarDB PostgreSQL", "ADB for PostgreSQL"
   ],
   "Greenplum": [
-    "PostgreSQL", "AuroraPostgreSQL", "Greenplum", 
+    "PostgreSQL", "AuroraPostgreSQL", "Greenplum", "ADB for PostgreSQL",
     "StarRocks", "Doris", "OceanBase", "Kudu", "Hana"
   ],
   "SQL Server": [
     "MySQL/MariaDB/AuroraMySQL", "Oracle", "SQL Server", "Kafka", "Tunnel", "Iceberg", 
-    "StarRocks", "Doris", "SelectDB", "PostgreSQL", "AuroraPostgreSQL", "Greenplum", "达梦"
+    "StarRocks", "Doris", "SelectDB", "PostgreSQL", "GaussDB",
   ],
   "Db2": [
     "MySQL/MariaDB/AuroraMySQL", "Kafka",
-    "StarRocks", "TiDB", "达梦", "Redis"
+    "StarRocks", "TiDB"
   ],
   "Hana": [
     "MySQL/MariaDB/AuroraMySQL", "Kafka", "PostgreSQL",
@@ -46,29 +46,33 @@ const DATA_SOURCE_LINK = {
   ],
   "PolarDB-MySQL": [
     "MySQL/MariaDB/AuroraMySQL", "PostgreSQL", "AuroraPostgreSQL", "Greenplum", "Kafka", "RocketMQ", "PolarDB-MySQL", "Tunnel",
-    "ClickHouse", "StarRocks", "Doris", "SelectDB", "TiDB", "Redis", "ADB for MySQL", "OceanBase", "Tunnel", "达梦", "Elasticsearch"
+    "ClickHouse", "StarRocks", "Doris", "SelectDB", "TiDB", "ADB for MySQL", "ADB for PostgreSQL", "Elasticsearch"
+  ],
+  "PolarDB PostgreSQL": [
+    "MySQL/MariaDB/AuroraMySQL","StarRocks", "Doris", "SelectDB", "PolarDB PostgreSQL"
   ],
   "MongoDB": [
     "MySQL/MariaDB/AuroraMySQL", "Kafka", "PolarDB-MySQL", "MongoDB Atlas", 
-    "MongoDB", "TiDB", "RocketMQ", "DocumentDB", "Oracle", "StarRocks", "ClickHouse"
+    "MongoDB", "TiDB", "DocumentDB", "Oracle", "StarRocks", "ClickHouse", "RagApi"
   ],
   "DocumentDB": [
     "MySQL/MariaDB/AuroraMySQL", "Kafka", "PolarDB-MySQL",
-    "MongoDB", "TiDB", "RocketMQ", "DocumentDB", "Oracle", "StarRocks"
+    "MongoDB", "TiDB", "DocumentDB", "Oracle", "StarRocks","ClickHouse", "RagApi"
   ],
   "MongoDB Atlas": [
     "RagApi"
   ],
+  "DynamoDB": ["MySQL/MariaDB/AuroraMySQL","StarRocks"],
   "Kafka": [
-    "MySQL/MariaDB/AuroraMySQL", "Oracle", "PostgreSQL", "AuroraPostgreSQL", "Greenplum", "SQL Server", "Kafka", "PolarDB-MySQL", "Tunnel",
-    "ClickHouse", "StarRocks", "Doris", "SelectDB", "MongoDB", "DocumentDB", "OceanBase", "PolarDB-X", "ElasticSearch", "AutoMQ", "Iceberg", "Apache Paimon"
+    "MySQL/MariaDB/AuroraMySQL", "Oracle", "PostgreSQL", "AuroraPostgreSQL", "Greenplum", "SQL Server", "Kafka", "PolarDB-MySQL", "ADB for PostgreSQL", "DLF",
+    "ClickHouse", "StarRocks", "Doris", "SelectDB", "MongoDB", "DocumentDB", "OceanBase", "PolarDB-X", "Elasticsearch", "AutoMQ", "Iceberg", "Apache Paimon"
   ],
-  "RocketMQ": ["MySQL/MariaDB/AuroraMySQL", "RocketMQ", "PolarDB-MySQL", "MongoDB", "DocumentDB"],
+  "RocketMQ": ["MySQL/MariaDB/AuroraMySQL", "RocketMQ", "PolarDB-MySQL"],
   "RabbitMQ": ["MySQL/MariaDB/AuroraMySQL"],
   "AutoMQ": ["MySQL/MariaDB/AuroraMySQL", "Kafka", "AutoMQ"],
   "OceanBase": [
-    "MySQL/MariaDB/AuroraMySQL", "Kafka", "PostgreSQL", "AuroraPostgreSQL", "Greenplum", "RocketMQ", "SQL Server", "MongoDB", "DocumentDB",
-    "StarRocks", "Doris", "SelectDB", "MongoDB", "ADB for MySQL", "TiDB", "ElasticSearch", "Oracle", "ClickHouse", "OceanBase", "达梦"
+    "MySQL/MariaDB/AuroraMySQL", "Kafka", "RocketMQ", "SQL Server", "MongoDB", "DocumentDB",
+    "StarRocks", "Doris", "SelectDB", "ADB for MySQL", "Elasticsearch", "ClickHouse", "OceanBase", "OceanBase for Oracle"
   ],
   "OceanBase for Oracle": [
     "OceanBase", "Kafka"
@@ -82,23 +86,31 @@ const DATA_SOURCE_LINK = {
   "SelectDB": [
     "MySQL/MariaDB/AuroraMySQL"
   ],
+  "ClickHouse": [
+    "Doris", "SelectDB", "StarRocks", "ClickHouse"
+  ],
   "TiDB": [
     "MySQL/MariaDB/AuroraMySQL", "Kafka", "OceanBase", "PostgreSQL", "Greenplum",
-    "StarRocks", "MongoDB", "TiDB", "Redis", "达梦", "ElasticSearch", "ClickHouse", "Doris", "SelectDB"
+    "StarRocks", "TiDB", "Elasticsearch", "ClickHouse", "Doris", "SelectDB", "ADB for PostgreSQL"
   ],
   "Elasticsearch": [
-    "MySQL/MariaDB/AuroraMySQL", "Elasticsearch",
-    "Kafka", "RagApi"
+    "Elasticsearch", "RagApi"
   ],
   "PolarDB-X": [
     "MySQL/MariaDB/AuroraMySQL", "Kafka",
-    "StarRocks", "Doris", "PolarDB-X", "达梦", "PostgreSQL"
+    "StarRocks", "Doris", "PostgreSQL"
+  ],
+  "ADB for PostgreSQL": [
+    "StarRocks", "Doris", "PostgreSQL", "Greenplum", "Kudu", "OceanBase", "Hana", "ADB for PostgreSQL", "AuroraPostgreSQL"
   ],
   "openGauss": [
     "openGauss", "Kafka"
   ],
-  "Redis": ["Redis"],
-  "Hana": ["MySQL/MariaDB/AuroraMySQL", "StarRocks", "Doris", "SelectDB"],
+  "GaussDB": ["MySQL/MariaDB/AuroraMySQL", "Oracle", "Doris", "SelectDB", "ClickHouse"],
+  "Redis": ["Redis", "ElastiCache"],
+  "ElastiCache": ["Redis", "ElastiCache"],
+  "Amazon MSK": ["Kafka", "Amazon MSK"],
+  "Hana": ["MySQL/MariaDB/AuroraMySQL", "StarRocks", "Doris", "SelectDB", "TiDB", "OceanBase", "Hana", "Kafka", "PostgreSQL", "ADB for MySQL"],
   "Pulsar": ["MySQL/MariaDB/AuroraMySQL", "Pulsar"],
   "TDengine": ["MySQL/MariaDB/AuroraMySQL"],
   "达梦": ["MySQL/MariaDB/AuroraMySQL", "达梦", "Kafka", "ClickHouse", "StarRocks", "Doris", "OceanBase"],
@@ -106,6 +118,7 @@ const DATA_SOURCE_LINK = {
   "S3File": ["MySQL/MariaDB/AuroraMySQL", "PostgreSQL", "StarRocks", "Elasticsearch", "MongoDB Atlas"],
   "OssFile": ["MySQL/MariaDB/AuroraMySQL", "PostgreSQL", "StarRocks", "Elasticsearch", "MongoDB Atlas"],
   "Google Drive": ["PostgreSQL"],
+  "语雀": ["PostgreSQL"],
   "Tunnel": ["MySQL/MariaDB/AuroraMySQL"],
 }
 
