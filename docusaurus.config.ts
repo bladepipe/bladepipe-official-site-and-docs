@@ -6,12 +6,12 @@ import type * as Preset from '@docusaurus/preset-classic';
 const current_env = process.env.DEPLOYMENT_ENV || 'development';
 const SERVICE_URL = {
   development: 'http://localhost:8111',
-  staging: 'https://test-cloud.askcug.cn',
-  production: 'https://api.bladepipe.com'
+  staging: 'https://api-sg.bladepipe.com',
+  production: 'https://api-sg.bladepipe.com'
 };
 const CLOUD_URL = {
   development: 'http://localhost:8111',
-  staging: 'https://test-cloud.askcug.cn',
+  staging: 'https://api-sg.bladepipe.com',
   production: 'https://cloud.bladepipe.com'
 };
 const config: Config = {

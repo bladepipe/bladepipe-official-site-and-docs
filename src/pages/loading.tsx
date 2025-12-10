@@ -12,7 +12,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 // 从环境变量或配置中获取
 const DOMAIN = {
-  COOKIE_DOMAIN: process.env.NODE_ENV === 'development' ? 'localhost' : '.clougence.com'
+  COOKIE_DOMAIN: process.env.NODE_ENV === 'development' ? 'localhost' : '.bladepipe.com'
 };
 
 // 验证码类型常量
