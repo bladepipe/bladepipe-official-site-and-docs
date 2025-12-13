@@ -13,9 +13,10 @@ interface CountDownButtonProps {
   phoneAreaCode?: string;
   verifyCodeType: string;
   onError?: (error: string) => void;
+  onSuccess?: () => void;
 }
 
-const CountDownButton: React.FC<CountDownButtonProps> = ({ email, phoneNumber, phoneAreaCode, verifyCodeType, onError }) => {
+const CountDownButton: React.FC<CountDownButtonProps> = ({ email, phoneNumber, phoneAreaCode, verifyCodeType, onError, onSuccess }) => {
   const { siteConfig } = useDocusaurusContext();
   const siteBrand = siteConfig.customFields?.siteBrand;
 
@@ -82,6 +83,7 @@ const CountDownButton: React.FC<CountDownButtonProps> = ({ email, phoneNumber, p
       if (res && res.success) {
         setCounting(true);
         message.success(translate({ id: 'countdownButton.success.sent', message: 'Verification code sent successfully' }));
+        onSuccess?.(); // 发送成功时清除错误
       } else {
         const genericMsg = translate({ id: 'countdownButton.error.sendFailed', message: 'Failed to send verification code' });
         // 不返回后端原始报错，仅在可读时提示通用信息，否则清空

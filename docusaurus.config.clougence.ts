@@ -16,9 +16,9 @@ const CLOUD_URL = {
 };
 
 const config: Config = {
-  title: '让数据流动更简单、精确、稳定、实时，丰富业务数据应用场景',
+  title: 'CloudCanal - 让数据流动更简单、精确、稳定、实时，丰富业务数据应用场景',
   tagline:
-    'Build end-to-end data pipelines between 60+ datasources for analytics or AI in minutes. Move data faster and easier than ever in Cloud or On-Premise, with ultra-low latency less than 3 seconds.',
+    '数据同步 数据迁移 数据集成 数据复制 数据备份 双向同步 全量 增量 结构迁移 数据校验 数据订正 多活 数据分析 数据库 数仓 消息系统 kafka 缓存 查询',
   favicon: 'img/cc.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future

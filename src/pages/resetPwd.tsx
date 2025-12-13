@@ -205,6 +205,19 @@ export default function ResetPwd() {
                     })}
                     className="w-full h-[52px] text-[16px] leading-[24px] text-[#737373] border border-solid border-[#11101a] border-opacity-20 rounded-[8px] px-[14px] focus:border-[#d6bbfb] focus:shadow-[0_0_0_4px_rgba(214,187,251,0.24)] transition-all duration-300"
                     style={{background: 'white'}}
+                    onChange={() => {
+                      // 当邮箱/手机号改变时，清除验证码错误信息
+                      form.setFields([
+                        {
+                          name: 'verifyCodeError',
+                          value: undefined
+                        },
+                        {
+                          name: 'verifyCode',
+                          errors: []
+                        }
+                      ]);
+                    }}
                   />
                 </Form.Item>
               </div>
@@ -280,6 +293,19 @@ export default function ResetPwd() {
                             {
                               name: 'verifyCode',
                               errors: [error]
+                            }
+                          ]);
+                        }}
+                        onSuccess={() => {
+                          // 验证码发送成功时清除错误信息
+                          form.setFields([
+                            {
+                              name: 'verifyCodeError',
+                              value: undefined
+                            },
+                            {
+                              name: 'verifyCode',
+                              errors: []
                             }
                           ]);
                         }}

@@ -281,6 +281,19 @@ export default function RegisterFromMarket() {
                                                 })}
                                                 className="flex-1 h-[24px] text-[16px] leading-[24px] text-[#737373] border-none shadow-none focus:outline-none"
                                                 style={{background: 'transparent'}}
+                                                onChange={() => {
+                                                  // 当邮箱改变时，清除验证码错误信息
+                                                  form.setFields([
+                                                    {
+                                                      name: 'verifyCodeError',
+                                                      value: undefined
+                                                    },
+                                                    {
+                                                      name: 'verifyCode',
+                                                      errors: []
+                                                    }
+                                                  ]);
+                                                }}
                                             />
                                         </Form.Item>
                                     </div>
@@ -356,6 +369,19 @@ export default function RegisterFromMarket() {
                                                             {
                                                                 name: 'verifyCode',
                                                                 errors: [error]
+                                                            }
+                                                        ]);
+                                                    }}
+                                                    onSuccess={() => {
+                                                        // 验证码发送成功时清除错误信息
+                                                        form.setFields([
+                                                            {
+                                                                name: 'verifyCodeError',
+                                                                value: undefined
+                                                            },
+                                                            {
+                                                                name: 'verifyCode',
+                                                                errors: []
                                                             }
                                                         ]);
                                                     }}

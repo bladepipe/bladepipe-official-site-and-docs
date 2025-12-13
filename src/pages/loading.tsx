@@ -287,6 +287,10 @@ export default function Loading() {
                             onError={(error) => {
                               setVerifyCodeError(error);
                             }}
+                            onSuccess={() => {
+                              // 验证码发送成功时清除错误信息
+                              setVerifyCodeError('');
+                            }}
                           />
                         </div>
                       )}
