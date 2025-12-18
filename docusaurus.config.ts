@@ -152,7 +152,9 @@ const config: Config = {
     { src: 'https://hm.baidu.com/hm.js?9a18d2c0bad7c7472febb245db950168', async: true },
     { src: 'https://www.googletagmanager.com/gtag/js?id=G-0NCQHMHBDL', async: true },
     { src: '/analytics.js' },
-    '/iconfont/datasource.js'
+    '/iconfont/datasource.js',
+    // 预加载 Google Translate 脚本以满足 CSP
+    { src: 'https://translate.google.com/translate_a/element.js', async: true }
   ],
   customFields: {
     siteBrand: process.env.SITE_BRAND || 'bladepipe',

@@ -280,13 +280,13 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
           }
         }, 100);
       } else {
-        // 加载 Google Translate 脚本
+        // 加载 Google Translate 脚本（使用 https 显式协议，避免 CSP 拒绝）
         const script = document.createElement('script');
         script.type = 'text/javascript';
-        script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        script.src = 'https://translate.google.com/translate_a/element.js';
         script.async = true;
 
-        // 定义全局回调函数
+        // 定义全局回调函数（若未来需要 ?cb 形式仍可复用）
         (window as any).googleTranslateElementInit = () => {
           scriptLoadedRef.current = true;
           setTimeout(() => {
