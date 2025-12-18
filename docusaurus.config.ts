@@ -153,8 +153,8 @@ const config: Config = {
     { src: 'https://www.googletagmanager.com/gtag/js?id=G-0NCQHMHBDL', async: true },
     { src: '/analytics.js' },
     '/iconfont/datasource.js',
-    // 预加载 Google Translate 脚本以满足 CSP
-    { src: 'https://translate.google.com/translate_a/element.js', async: true }
+    // 本地预加载 Google Translate 脚本（需将 element.js 放入 static/translate/）
+    { src: '/translate/element.js', async: true }
   ],
   customFields: {
     siteBrand: process.env.SITE_BRAND || 'bladepipe',

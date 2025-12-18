@@ -280,10 +280,11 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
           }
         }, 100);
       } else {
-        // 加载 Google Translate 脚本（使用 https 显式协议，避免 CSP 拒绝）
+        // 加载 Google Translate 脚本（改为本地文件以满足 CSP，需放置于 static/translate/element.js）
         const script = document.createElement('script');
         script.type = 'text/javascript';
-        script.src = 'https://translate.google.com/translate_a/element.js';
+        // 本地文件保持与官方路径一致的 cb 调用方式
+        script.src = '/translate/element.js?cb=googleTranslateElementInit';
         script.async = true;
 
         // 定义全局回调函数（若未来需要 ?cb 形式仍可复用）
