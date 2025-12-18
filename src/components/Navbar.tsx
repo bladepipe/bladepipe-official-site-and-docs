@@ -10,6 +10,7 @@ import Translate, { translate } from '@docusaurus/Translate';
 import { loginCheckAndRedirect } from '@site/src/utils';
 import { useUserStore } from '@site/src/store/user';
 import { isUserLogin } from '@site/src/store/user';
+import GoogleTranslate from '@site/src/components/GoogleTranslate';
 
 export default function Navbar() {
   const { siteConfig } = useDocusaurusContext();
@@ -585,6 +586,13 @@ export default function Navbar() {
           {/*/!* 搜索图标 *!/*/}
           {/*{siteBrand !== 'clougence' && SearchBarComponent && <SearchBarComponent />}*/}
 
+          {/* Google Translate - 仅在 bladepipe 时显示 */}
+          {siteBrand === 'bladepipe' && (
+            <div className="navbar-google-translate">
+              <GoogleTranslate position="navbar" />
+            </div>
+          )}
+          
           {/* 语言选择器 */}
           {/* <LanguageDropdown /> */}
           {/* 用户认证区域 */}
@@ -895,6 +903,13 @@ export default function Navbar() {
 
             {/* 底部按钮区域 */}
             <div className="mt-auto px-5 py-[30px] flex items-end justify-between gap-[2px] flex-shrink-0">
+              {/* Google Translate - 移动端，仅在 bladepipe 时显示 */}
+              {siteBrand === 'bladepipe' && (
+                <div className="mobile-google-translate mb-4 w-full">
+                  <GoogleTranslate position="navbar" />
+                </div>
+              )}
+              
               {/* 语言切换按钮 */}
               {/* <MobileLanguageDropdown /> */}
 

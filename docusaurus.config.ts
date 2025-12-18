@@ -42,11 +42,11 @@ const config: Config = {
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
-  // i18n: {
-  //   defaultLocale: 'en',
-  //   locales: ['zh', 'en'],
-  //   path: 'i18n'
-  // },
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['zh', 'en'],
+    path: 'i18n'
+  },
 
   presets: [
     [
@@ -165,7 +165,29 @@ const config: Config = {
       linkUrl: '/docs/intro', // 链接地址（整个区域可点击）
       endDate: undefined // 可选：结束日期（ISO 格式），如 '2025-12-31T23:59:59'，超过此时间后不再显示。不设置则永久显示（当 enabled 为 true 时）
     }
-  }
+  },
+
+  // 自定义插件：配置 devServer
+  plugins: [
+    function(context, options) {
+      return {
+        name: 'custom-devserver-plugin',
+        configureWebpack(config, isServer, utils) {
+          // 只在客户端构建时配置 devServer
+          if (!isServer) {
+            return {
+              devServer: {
+                client: {
+                  overlay: false, // 禁用错误遮罩层
+                },
+              },
+            } as any;
+          }
+          return {};
+        },
+      };
+    },
+  ],
 };
 
 export default config;

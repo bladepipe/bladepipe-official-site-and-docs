@@ -35,7 +35,6 @@ const CloudCanalLoginForm: React.FC<CloudCanalLoginFormProps> = ({
   const userLogin = useUserStore((state) => state.login);
   const [activeLoginType, setActiveLoginType] = useState<string>(LOGIN_TYPES.ACCOUNT);
   const [loginLoading, setLoginLoading] = useState(false);
-  const accountValue = Form.useWatch('account', form);
 
   const handleSubmit = async (values: { account: string; password?: string; verifyCode?: string }) => {
     if (!checkPolicy) {
@@ -136,6 +135,17 @@ const CloudCanalLoginForm: React.FC<CloudCanalLoginFormProps> = ({
               }
               className="w-full h-[52px] text-[16px] leading-[24px] text-[#262A2B] border border-solid border-[#11101a] border-opacity-20 rounded-[8px] px-[14px] focus:border-[#d6bbfb] focus:shadow-[0_0_0_4px_rgba(214,187,251,0.24)] transition-all duration-300"
               style={{ background: 'white' }}
+              onChange={() => {
+                // 当手机号改变时，清除验证码错误信息
+                if (activeLoginType === LOGIN_TYPES.SMS) {
+                  form.setFields([
+                    {
+                      name: 'verifyCode',
+                      errors: [],
+                    },
+                  ]);
+                }
+              }}
             />
           </Form.Item>
         </div>
@@ -184,20 +194,43 @@ const CloudCanalLoginForm: React.FC<CloudCanalLoginFormProps> = ({
                   />
                 </Form.Item>
               </div>
-              <div className="w-[104px] h-[52px] bg-[#0087c7] rounded-[8px]">
-                <CountDownButton
-                  phoneNumber={accountValue}
-                  verifyCodeType="LOGIN"
-                  onError={(error) => {
-                    form.setFields([
-                      {
-                        name: 'verifyCode',
-                        errors: [error],
-                      },
-                    ]);
-                  }}
-                />
-              </div>
+
+              <Form.Item shouldUpdate noStyle>
+                {() => (
+                  <div
+                    className="w-[104px] h-[52px] bg-[#0087c7] border border-solid border-black border-opacity-20 rounded-[8px] flex justify-center items-center cursor-pointer"
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center'
+                    }}
+                  >
+                    <div className="get-code-wrapper">
+                      <CountDownButton
+                        phoneNumber={form.getFieldValue('account')}
+                        verifyCodeType="LOGIN"
+                        onError={(error) => {
+                          form.setFields([
+                            {
+                              name: 'verifyCode',
+                              errors: [error],
+                            },
+                          ]);
+                        }}
+                        onSuccess={() => {
+                          // 验证码发送成功时清除错误信息
+                          form.setFields([
+                            {
+                              name: 'verifyCode',
+                              errors: [],
+                            },
+                          ]);
+                        }}
+                      />
+                    </div>
+                  </div>
+                )}
+              </Form.Item>
             </div>
           </div>
         )}

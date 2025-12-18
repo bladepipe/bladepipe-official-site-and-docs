@@ -463,6 +463,19 @@ export default function Register() {
                                                                 }
                                                             ]);
                                                         }}
+                                                        onSuccess={() => {
+                                                            // 验证码发送成功时清除错误信息
+                                                            form.setFields([
+                                                                {
+                                                                    name: 'verifyCodeError',
+                                                                    value: undefined
+                                                                },
+                                                                {
+                                                                    name: 'verifyCode',
+                                                                    errors: []
+                                                                }
+                                                            ]);
+                                                        }}
                                                     />
                                                 </div>
                                             </div>

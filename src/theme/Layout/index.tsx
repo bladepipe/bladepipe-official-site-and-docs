@@ -18,11 +18,9 @@ export default function Layout(props) {
       const params = new URLSearchParams(window.location.search);
       const bd_vid = params.get('bd_vid');
       const state = params.get('state');
-      if (bd_vid) {
-        window.localStorage.setItem('vbid_for_cc', bd_vid);
-        window.localStorage.setItem('source_for_cc', window.document.referrer.split('?')[0]);
-        window.localStorage.setItem('url_for_cc', window.location.href);
-      }
+      window.localStorage.setItem('vbid_for_cc', bd_vid);
+      window.localStorage.setItem('source_for_cc', window.document.referrer);
+      window.localStorage.setItem('url_for_cc', window.location.href);
       if (state) {
         window.localStorage.setItem('state_for_cc', state);
       }

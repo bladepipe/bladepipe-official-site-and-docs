@@ -16,9 +16,9 @@ const CLOUD_URL = {
 };
 
 const config: Config = {
-  title: '让数据流动更简单、精确、稳定、实时，丰富业务数据应用场景',
+  title: 'CloudCanal - 让数据流动更简单、精确、稳定、实时，丰富业务数据应用场景',
   tagline:
-    'Build end-to-end data pipelines between 60+ datasources for analytics or AI in minutes. Move data faster and easier than ever in Cloud or On-Premise, with ultra-low latency less than 3 seconds.',
+    '数据同步 数据迁移 数据集成 数据复制 数据备份 双向同步 全量 增量 结构迁移 数据校验 数据订正 多活 数据分析 数据库 数仓 消息系统 kafka 缓存 查询',
   favicon: 'img/cc.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -136,7 +136,29 @@ const config: Config = {
       linkUrl: '/docs/releaseNote/rn-cloudcanal-5-3-0-0', // 链接地址（整个区域可点击）
       endDate: '2025-12-10T23:59:59' // 可选：结束日期（ISO 格式），如 '2025-12-31T23:59:59'，超过此时间后不再显示。不设置则永久显示（当 enabled 为 true 时）
     }
-  }
+  },
+
+  // 自定义插件：配置 devServer
+  plugins: [
+    function(context, options) {
+      return {
+        name: 'custom-devserver-plugin',
+        configureWebpack(config, isServer, utils) {
+          // 只在客户端构建时配置 devServer
+          if (!isServer) {
+            return {
+              devServer: {
+                client: {
+                  overlay: false, // 禁用错误遮罩层
+                },
+              },
+            } as any;
+          }
+          return {};
+        },
+      };
+    },
+  ],
 };
 
 export default config;
