@@ -1,5 +1,5 @@
 ---
-id: team_use_database_challenges
+slug: /data_management/team_use_database_challenges
 description: 团队使用数据库面临 3 大致命问题，如何安全有效地解决这些问题？
 title: 如何解决团队访问数据库的 3 个致命问题？
 date: 2024-10-24
@@ -7,12 +7,10 @@ authors: mode
 tags:
   - data_management
 image: /img/clouddm/dmblog/data_management/team_use_database_challenges.png
-slug: /data_management/team_use_database_challenges
 ---
 
 ## 面临的问题
 ![](../assets/team_use_database_challenges/1.png)
-
 
 在开发过程中避免不了需要访问数据库数据，尤其在团队协作中对于数据库数据的访问会更加频繁。
 
@@ -23,6 +21,8 @@ slug: /data_management/team_use_database_challenges
 + 团队成员在设计数据库表结构容易产生随意性，导致数据库结构规范不统一。
 + 容易忽略账号和权限的管控，导致数据库访问缺失权限控制。
 + 数据库的变更的发布在需要多个团队成员通过流程化的方式相互协作，如果协作过程不顺畅则会降低团队效率。
+
+<!-- truncate -->
 
 ## 问题的严重性
 如果这些问题没有被妥善处理好都会产生哪些影响呢？接下来我们举几个案例。

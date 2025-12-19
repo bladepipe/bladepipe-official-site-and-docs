@@ -1,5 +1,5 @@
 ---
-id: data_masking_in_minutes
+slug: /data_management/data_masking_in_minutes
 description: 使用 CloudDM 数据库数据管理工具，轻松实现数据脱敏，为数据安全提供保障。
 title: 5 分钟用多种方式实现数据脱敏
 date: 2024-12-12
@@ -7,10 +7,12 @@ authors: mode
 tags:
   - data_management
 image: /img/clouddm/dmblog/data_management/data_masking_in_minutes.png 
-slug: /data_management/data_masking_in_minutes
 ---
 
-在数字化的今天，数据脱敏已成为保护数据隐私的重要手段。在《大数据时代，数据脱敏助力企业信息安全》一文中，我们介绍了数据脱敏的重要性，以及 CloudDM 数据脱敏的实现方式。本文将手把手教你如何使用 CloudDM 以多种方式实现数据脱敏。
+在数字化的今天，数据脱敏已成为保护数据隐私的重要手段。
+在《大数据时代，数据脱敏助力企业信息安全》一文中，我们介绍了数据脱敏的重要性，以及 CloudDM 数据脱敏的实现方式。本文将手把手教你如何使用 CloudDM 以多种方式实现数据脱敏。
+
+<!-- truncate -->
 
 ## 数据脱敏方案概览
 在数据脱敏之前，用户首先需要明确，对于不同类型的敏感数据，采取不同的脱敏方案。CloudDM 支持对值和整行数据脱敏，满足用户不同的脱敏需求。

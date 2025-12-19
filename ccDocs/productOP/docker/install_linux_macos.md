@@ -12,6 +12,7 @@ description: 本文档主要介绍如何在 Linux/MacOS 系统下，全新安装
 
 - **操作系统**：CentOS/RHEL 或 Ubuntu 或 MacOS
 - **CPU架构**：x86 或 arm64v8
+  
   :::info
   不支持 vmware、virtualbox 和 windows 的 linux 子系统。
   :::

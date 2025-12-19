@@ -20,6 +20,7 @@ description: CloudCanal可以通过申请许可证来获取任务数容量和时
 ## 获取许可证
 - 登录[官网](https://www.clougence.com?src=cc-doc)，在 CloudCanal 产品页点击 **获取许可证**。
 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/license/3_login_site.png)
+  
   :::info
   各版本差异请参考 [产品版本](../intro/product_version.md)。
   :::
@@ -43,6 +44,7 @@ description: CloudCanal可以通过申请许可证来获取任务数容量和时
 3. 选择想要购买的 [**链路数**](../reference/service_difference.md) 和 **有效期**，价格请参考 [产品定价](../price/product_price.md) 。
 4. 选择支付方式，并点击 **去付款**。
   ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/license/9_commerce_license.png)
+    
     :::info
     可选择 **支付宝** 或 **银行卡** 支付方式：
     * **支付宝**：进行在线支付。
@@ -58,6 +60,7 @@ description: CloudCanal可以通过申请许可证来获取任务数容量和时
 2. 在控制台右上角可查看产品状态已变为 **已激活**。
 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/license/11_commerce_activated.png)
 3. 点击 **已激活** 文本，可看到授权的信息。如需延长使用时间或获取更多资源，按上面的步骤重新申请许可证即可。
+    
     :::info
     社区版许可证到期前请尽快到官网自助续签，商业版许可证到期前请[联系我们](https://www.clougence.com/about)帮助续签或到官网自助续签。    
     许可证到期后会影响正在运行的任务，详情请参考 [许可证到期说明](../reference/license_overdue.md)。

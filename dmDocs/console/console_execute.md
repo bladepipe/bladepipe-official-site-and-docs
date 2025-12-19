@@ -44,9 +44,7 @@ description: 本文主要介绍如何在 CloudDM Team 产品执行 SQL 语句并
 - **接收结果耗时** 是指整个查询在接收到第一个查询结果和最后一个查询结果之间的总耗时，单位：毫秒
 
 :::info
-如果用户一次选择了多条 SQL 语句进行执行。那么查询状态耗时信息可能存在更大的准确性偏差。
-
-原因是由于多条 SQL 语句在 Sidecar 中执行时会逐个执行，因此多条语句中从第二个语句开始其数据库查询耗时也会被记录在接收结果耗时中。
+如果用户一次选择了多条 SQL 语句进行执行，那么查询状态耗时信息可能存在更大的准确性偏差。这是因为多条 SQL 语句在 Sidecar 中执行时会逐个执行，因此多条语句中从第二个语句开始其数据库查询耗时也会被记录在接收结果耗时中。
 :::
 
 ### 结果集窗口
@@ -59,12 +57,12 @@ description: 本文主要介绍如何在 CloudDM Team 产品执行 SQL 语句并
 ```text
 配置项                       │ 默认值       │ 说明
 ────────────────────────────┼─────────────┼──────────────────────────────────────
-defaultColumnDisplayChars   │ 256         │ 结果集单元格默认展示字符/字节数
-onlineResultCacheTimeoutSec │ 300         │ 结果缓存最长时间，超出后缓存数据将会删除。单位：秒
-onlineMaxRecordCount        │ 3000        │ 控制台执行查询最大获取的记录条数，超出部分会被忽略。
-onlineMaxResultSetMegaByte  │ 200         │ 控制台执行查询最大结果集大小，单位 MB，超出后会忽略后续记录。
-onlineMaxColumnMegaByte     │ 4           │ 控制台执行查询单列最大大小，单位 MB，超出部分会被截断。
-onlineMaxElementMegaByte    │ 1           │ 控制台执行查询对于 `数组` 类型数据单个数组元素最大大小，单位 MB，超出后数组会被截断展示。
+defaultColumnDisplayChars   │ 250         │ 结果集单元格默认展示字符/字节数，超出后需要打开详情展示，可设置范围为 10-500 字符。
+onlineResultCacheTimeoutSec │ 300         │ 结果缓存最长时间，超出后缓存数据将会删除。单位：秒。
+onlineMaxRecordCount        │ 10000        │ 控制台执行查询最大获取的记录条数，超出部分会被忽略。可设置范围为 1~100 万条记录。
+onlineMaxResultSetMegaByte  │ 60         │ 控制台执行查询最大结果集大小，单位 MB，超出后会忽略后续记录。可设置范围为 4~1024MB。
+onlineMaxColumnMegaByte     │ 1           │ 控制台执行查询单列最大大小，单位 MB，超出部分会被截断。可设置范围为 1~16MB。
+onlineMaxElementMegaByte    │ 1           │ 控制台执行查询对于 `数组` 类型数据单个数组元素最大大小，单位 MB，超出后数组会被截断展示。可设置范围为 1~16MB。
 taskMaxRecordCount          │ -1 (不限制)  │ 通过后台执行查询最大获取的记录条数，超出部分会被忽略。
 taskMaxResultSetMegaByte    │ 1024        │ 通过后台执行查询最大结果集大小，单位 MB，超出后会忽略后续记录。
 onlineMaxColumnMegaByte     │ 4           │ 通过后台执行查询单列最大大小，单位 MB，超出部分会被截断。

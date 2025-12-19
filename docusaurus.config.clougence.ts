@@ -136,7 +136,29 @@ const config: Config = {
       linkUrl: '/docs/releaseNote/rn-cloudcanal-5-3-0-0', // 链接地址（整个区域可点击）
       endDate: '2025-12-10T23:59:59' // 可选：结束日期（ISO 格式），如 '2025-12-31T23:59:59'，超过此时间后不再显示。不设置则永久显示（当 enabled 为 true 时）
     }
-  }
+  },
+
+  // 自定义插件：配置 devServer
+  plugins: [
+    function(context, options) {
+      return {
+        name: 'custom-devserver-plugin',
+        configureWebpack(config, isServer, utils) {
+          // 只在客户端构建时配置 devServer
+          if (!isServer) {
+            return {
+              devServer: {
+                client: {
+                  overlay: false, // 禁用错误遮罩层
+                },
+              },
+            } as any;
+          }
+          return {};
+        },
+      };
+    },
+  ],
 };
 
 export default config;

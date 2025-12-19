@@ -1,5 +1,5 @@
 ---
-id: clouddm_install
+slug: /tutorials/clouddm_install
 description: CloudDM Docker 版是一款用于团队化访问数据库的工具，本文详细而直观地展示了如何安装及初步使用 CloudDM
 title: CloudDM Docker 版安装指南
 date: 2024-11-14
@@ -7,10 +7,11 @@ authors: mode
 tags:
   - tutorials
 image: /img/clouddm/dmblog/tutorials/clouddm_install.png 
-slug: /tutorials/clouddm_install
 ---
 
 CloudDM 是一款全新的国产自研数据库管理工具。本文将会介绍如何在 Ubuntu Linux 中安装并初步使用这款数据库管理工具。
+
+<!-- truncate -->
 
 ## 准备工作
 ### 安装 Docker

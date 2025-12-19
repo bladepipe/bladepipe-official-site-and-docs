@@ -1,5 +1,5 @@
 ---
-id: feishu_sql_review
+slug: /tutorials/feishu_sql_review
 description: CloudDM 接入飞书，支持实时通知与移动办公，满足广大企业用户的实际需求。
 title: 使用 CloudDM 和飞书流程化管理数据库变更审批
 date: 2025-04-16
@@ -7,13 +7,14 @@ authors: mumu
 tags:
   - tutorials
 image: /img/clouddm/dmblog/tutorials/feishu_sql_review.png 
-slug: /tutorials/feishu_sql_review
 ---
 
 CloudDM 是一个专为团队协同工作打造的数据库数据管控平台。在管控数据库安全变更的过程中，为提高效率，方便用户使用，CloudDM 接入了主流 OA 协同办公系统（包括钉钉、飞书、企业微信），支持实时通知与移动办公，满足广大企业用户的实际需求。
 
 
 本文将介绍如何使用 CloudDM 和飞书实现高效的数据库变更审批。
+
+<!-- truncate -->
 
 ## 接入飞书
 ###  创建飞书应用

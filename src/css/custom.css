@@ -106,58 +106,70 @@ body {
 .ant-form-item {
   margin-bottom: 0 !important;
 }
+
 .ant-form-item-explain-error {
   font-size: 14px;
   color: #ff4d4f;
   position: absolute;
   white-space: nowrap;
 }
+
 .ant-form-item-has-error .ant-input {
   background: white !important;
   border: 1px solid rgba(17, 16, 26, 0.2) !important;
   border-radius: 8px !important;
 }
+
 .ant-form-item-has-error .ant-input:focus {
   box-shadow: 0 0 0 4px rgba(255, 77, 79, 0.1) !important;
 }
+
 /* 修复 Input.Password 组件的双层边框问题 */
 .ant-form-item-has-error .ant-input-password {
   background: white !important;
   border: 1px solid rgba(17, 16, 26, 0.2) !important;
   border-radius: 8px !important;
 }
+
 .ant-form-item-has-error .ant-input-password .ant-input {
   border: none !important;
   background: transparent !important;
   box-shadow: none !important;
 }
+
 .ant-form-item-has-error .ant-input-password:focus {
   border: 1px solid #d6bbfb !important;
   box-shadow: 0 0 0 4px rgba(214, 187, 251, 0.24) !important;
 }
+
 .ant-form-item-has-error .ant-input-password:focus .ant-input {
   border: none !important;
   box-shadow: none !important;
 }
+
 /* 修复 Input 组件的双层边框问题 */
 .ant-form-item-has-error .ant-input-affix-wrapper {
   background: white !important;
   border: 1px solid rgba(17, 16, 26, 0.2) !important;
   border-radius: 8px !important;
 }
+
 .ant-form-item-has-error .ant-input-affix-wrapper .ant-input {
   border: none !important;
   background: transparent !important;
   box-shadow: none !important;
 }
+
 .ant-form-item-has-error .ant-input-affix-wrapper:focus {
   border: 1px solid #d6bbfb !important;
   box-shadow: 0 0 0 4px rgba(214, 187, 251, 0.24) !important;
 }
+
 .ant-form-item-has-error .ant-input-affix-wrapper:focus .ant-input {
   border: none !important;
   box-shadow: none !important;
 }
+
 .get-code-wrapper {
   width: 100%;
   height: 100%;
@@ -176,10 +188,12 @@ body {
   height: 52px !important;
   width: 100% !important;
 }
+
 .get-code-wrapper .ant-btn:hover {
   background: transparent !important;
   color: white !important;
 }
+
 .get-code-wrapper .ant-btn:focus {
   background: transparent !important;
   color: white !important;
@@ -189,19 +203,24 @@ body {
 .ant-btn-primary {
   background: #0087c7 !important;
 }
+
 .ant-btn-primary:hover {
   background: #0070a6 !important;
 }
+
 .ant-btn-primary:focus {
   background: #0070a6 !important;
 }
 
 /* Banner 光晕动画 */
 @keyframes glow-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.3;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.8;
     transform: scale(1.1);
@@ -277,9 +296,10 @@ article h1,
 }
 
 .blog-layout .avatar img {
-  width: 40px!important;
-  height: 40px!important;
+  width: 40px !important;
+  height: 40px !important;
 }
+
 .blog-layout .avatar .avatar__name {
   margin-top: 10px;
 }
@@ -312,6 +332,7 @@ article h3,
     opacity: 0;
     transform: translateY(40px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -326,12 +347,15 @@ article h3,
 .scale-100 {
   transform: scale(1);
 }
+
 .scale-95 {
   transform: scale(0.95);
 }
+
 .opacity-100 {
   opacity: 1;
 }
+
 .opacity-0 {
   opacity: 0;
 }
@@ -394,8 +418,8 @@ article h3,
 }
 
 /* 确保Previous/Next按钮没有背景色 */
-.custom-pagination-container > div:first-child button,
-.custom-pagination-container > div:last-child button {
+.custom-pagination-container>div:first-child button,
+.custom-pagination-container>div:last-child button {
   background: transparent !important;
   background-color: transparent !important;
 }
@@ -404,12 +428,15 @@ article h3,
 
 /* 隐藏滚动条样式 */
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari and Opera */
+  display: none;
+  /* Chrome, Safari and Opera */
 }
 
 /* Navbar Dropdown Styles */
@@ -540,7 +567,8 @@ aside[class*="theme-doc-sidebar"] {
 /* 箭头图标替换 - 使用精确选择器 */
 
 /* 直接替换原始的箭头图标 */
-.menu__link--sublist-caret:after, .menu__list-item-collapsible button::before {
+.menu__link--sublist-caret:after,
+.menu__list-item-collapsible button::before {
   background-image: url('/img/home/icon/chevron-right.svg') !important;
   background-size: 16px 16px !important;
   background-repeat: no-repeat !important;
@@ -548,15 +576,21 @@ aside[class*="theme-doc-sidebar"] {
   transition: transform 0.2s ease !important;
 }
 
-.menu__list-item--collapsed .menu__link--sublist:after, .menu__list-item--collapsed .menu__caret:before, .menu__list-item-collapsible button::before  {
+.menu__list-item--collapsed .menu__link--sublist:after,
+.menu__list-item--collapsed .menu__caret:before,
+.menu__list-item-collapsible button::before {
   transform: rotate(0deg) !important;
 }
 
-.menu__link--sublist-caret:after, .menu__list-item-collapsible button::before  {
+.menu__link--sublist-caret:after,
+.menu__list-item-collapsible button::before {
   transform: rotate(90deg) !important;
 }
 
-.markdown a:hover, [class*="docItemContainer"] a:hover, article a:hover, .theme-doc-markdown a:hover {
+.markdown a:hover,
+[class*="docItemContainer"] a:hover,
+article a:hover,
+.theme-doc-markdown a:hover {
   border-color: #0087C7 !important;
 }
 
@@ -633,7 +667,7 @@ a[aria-current="page"] {
 
 /* TOC 容器的粘性定位 */
 .theme-doc-toc-desktop,
-.col.col--3 > div,
+.col.col--3>div,
 div[class*="tableOfContents"] {
   position: sticky !important;
   top: calc(var(--ifm-navbar-height) + 1rem) !important;
@@ -649,11 +683,11 @@ div[class*="tableOfContents"] {
 }
 
 /* 如果上面的选择器还不够精确，使用更通用的方法 */
-.row > .col:last-child {
+.row>.col:last-child {
   position: relative !important;
 }
 
-.row > .col:last-child > div {
+.row>.col:last-child>div {
   position: sticky !important;
   top: calc(var(--ifm-navbar-height) + 1rem) !important;
   max-height: calc(100vh - var(--ifm-navbar-height) - 2rem) !important;
@@ -675,7 +709,7 @@ nav[class*="table-of-contents"],
 }
 
 /* 如果 TOC 包裹在额外的容器中 */
-.col--3 > * {
+.col--3>* {
   position: sticky !important;
   top: calc(var(--ifm-navbar-height) + 1rem) !important;
   max-height: calc(100vh - var(--ifm-navbar-height) - 2rem) !important;
@@ -698,9 +732,9 @@ nav[class*="table-of-contents"],
 /* 最后的备用方案 - 使用通用选择器 */
 /* 如果以上都不起作用，这应该能覆盖所有情况 */
 .container .row .col:last-child,
-.container .row .col:last-child > div,
-.container .row .col:last-child > aside,
-.container .row .col:last-child > nav {
+.container .row .col:last-child>div,
+.container .row .col:last-child>aside,
+.container .row .col:last-child>nav {
   position: sticky !important;
   top: var(--ifm-navbar-height) !important;
   max-height: calc(100vh - var(--ifm-navbar-height)) !important;
@@ -733,12 +767,13 @@ article a:hover,
   color: #000 !important;
 }
 
-.theme-doc-markdown p:last-child, .theme-doc-markdown pre {
+.theme-doc-markdown p:last-child,
+.theme-doc-markdown pre {
   margin-bottom: 0 !important;
 }
 
 .theme-doc-markdown li {
-    margin-bottom: 1em!important;
+  margin-bottom: 1em !important;
 }
 
 /* 代码块背景颜色 */
@@ -846,35 +881,36 @@ button[title*="Copy"]:hover {
 }
 
 /* 只对有子菜单的父级菜单项设置特殊悬停背景 */
-.menu__list-item:has(.menu__list) > .menu__link:hover {
+.menu__list-item:has(.menu__list)>.menu__link:hover {
   background-color: #F3F6FE !important;
   border-radius: 6px !important;
 }
 
 /* 对没有子菜单的普通菜单项使用标准悬停背景 */
-.menu__list-item:not(:has(.menu__list)) > .menu__link:hover {
+.menu__list-item:not(:has(.menu__list))>.menu__link:hover {
   background-color: rgba(0, 135, 199, 0.05) !important;
   border-radius: 6px !important;
 }
 
 /* 兼容不支持 :has() 选择器的浏览器 */
 @supports not selector(:has(*)) {
+
   /* 使用类名来区分有子菜单的项目 */
-  .menu__list-item.menu__list-item--collapsible > .menu__link:hover,
-  .menu__list-item[class*="collapsible"] > .menu__link:hover {
+  .menu__list-item.menu__list-item--collapsible>.menu__link:hover,
+  .menu__list-item[class*="collapsible"]>.menu__link:hover {
     background-color: #F3F6FE !important;
     border-radius: 6px !important;
   }
 
   /* 普通菜单项的悬停效果 */
-  .menu__list-item:not(.menu__list-item--collapsible) > .menu__link:hover,
-  .menu__list-item:not([class*="collapsible"]) > .menu__link:hover {
+  .menu__list-item:not(.menu__list-item--collapsible)>.menu__link:hover,
+  .menu__list-item:not([class*="collapsible"])>.menu__link:hover {
     background-color: rgba(0, 135, 199, 0.05) !important;
     border-radius: 6px !important;
   }
 
   /* 确保子菜单项始终透明背景 */
-  .menu__list .menu__list-item > .menu__link:hover {
+  .menu__list .menu__list-item>.menu__link:hover {
     background-color: transparent !important;
   }
 }
@@ -894,7 +930,8 @@ table th {
   text-align: left !important;
 }
 
-.markdown table th, .markdown table td {
+.markdown table th,
+.markdown table td {
   padding: 0.5rem 1rem !important;
   text-align: left !important;
 }
@@ -944,9 +981,11 @@ input:focus {
   outline: none !important;
   box-shadow: none !important;
 }
+
 .theme-doc-toc-mobile {
-  display: none!important;
+  display: none !important;
 }
+
 /*
 .ant-table-wrapper .ant-table.ant-table-bordered >.ant-table-container {
   border-top: none!important;
@@ -958,22 +997,25 @@ table ul {
 }
 
 table {
-  display: table!important;
+  display: table !important;
   width: 100%;
 }
-table th, table td {
+
+table th,
+table td {
   padding: 0.6rem 0.75rem;
 }
 
 table thead th:first-child {
   width: 30%;
 }
+
 table thead tr {
   text-align: left;
 }
 
 .markdown table {
-  margin-top: 0!important;
+  margin-top: 0 !important;
 }
 
 .theme-doc-markdown .hide-title {
@@ -981,12 +1023,12 @@ table thead tr {
   display: none;
 }
 
-.hide-title + a {
+.hide-title+a {
   display: none;
 }
 
-.li-in-md p{
-  margin: 0!important;
+.li-in-md p {
+  margin: 0 !important;
 }
 
 blockquote {
@@ -997,8 +1039,8 @@ blockquote {
 img[alt*="w20_h20"] {
   margin-bottom: -4px;
   margin-right: 2px;
-  width: 20px!important;
-  height: 20px!important;
+  width: 20px !important;
+  height: 20px !important;
 }
 
 img[alt*="w15_h20"] {
@@ -1176,8 +1218,8 @@ article img {
 /* 确保 generated-index 类型的侧边栏箭头样式与其他分类一致 */
 
 /* Docusaurus 4 新版本的箭头样式覆盖 */
-.theme-doc-sidebar-item-category-level-1 > .theme-doc-sidebar-item-category > .theme-doc-sidebar-item-link:after,
-.theme-doc-sidebar-item-category-level-1 > .theme-doc-sidebar-item-category > .theme-doc-sidebar-item-link:before {
+.theme-doc-sidebar-item-category-level-1>.theme-doc-sidebar-item-category>.theme-doc-sidebar-item-link:after,
+.theme-doc-sidebar-item-category-level-1>.theme-doc-sidebar-item-category>.theme-doc-sidebar-item-link:before {
   background-image: url('/img/home/icon/chevron-right.svg') !important;
   background-size: 16px 16px !important;
   background-repeat: no-repeat !important;
@@ -1186,14 +1228,14 @@ article img {
 }
 
 /* 展开状态的新版本箭头 */
-.theme-doc-sidebar-item-category-level-1 > .theme-doc-sidebar-item-category > .theme-doc-sidebar-item-link:after,
-.theme-doc-sidebar-item-category-level-1 > .theme-doc-sidebar-item-category > .theme-doc-sidebar-item-link:before {
+.theme-doc-sidebar-item-category-level-1>.theme-doc-sidebar-item-category>.theme-doc-sidebar-item-link:after,
+.theme-doc-sidebar-item-category-level-1>.theme-doc-sidebar-item-category>.theme-doc-sidebar-item-link:before {
   transform: rotate(90deg) !important;
 }
 
 /* 收起状态的新版本箭头 */
-.theme-doc-sidebar-item-category-level-1.theme-doc-sidebar-item-category-level-1--collapsed > .theme-doc-sidebar-item-category > .theme-doc-sidebar-item-link:after,
-.theme-doc-sidebar-item-category-level-1.theme-doc-sidebar-item-category-level-1--collapsed > .theme-doc-sidebar-item-category > .theme-doc-sidebar-item-link:before {
+.theme-doc-sidebar-item-category-level-1.theme-doc-sidebar-item-category-level-1--collapsed>.theme-doc-sidebar-item-category>.theme-doc-sidebar-item-link:after,
+.theme-doc-sidebar-item-category-level-1.theme-doc-sidebar-item-category-level-1--collapsed>.theme-doc-sidebar-item-category>.theme-doc-sidebar-item-link:before {
   transform: rotate(0deg) !important;
 }
 
@@ -1241,6 +1283,7 @@ article img {
 
 /* 中等屏幕尺寸的边距优化 */
 @media (min-width: 640px) and (max-width: 1024px) {
+
   .container,
   .max-w-\[1320px\] {
     padding-left: 2rem !important;
@@ -1256,6 +1299,7 @@ article img {
 
 /* 大屏幕的边距 */
 @media (min-width: 1025px) {
+
   .container,
   .max-w-\[1320px\] {
     padding-left: 3rem !important;
@@ -1265,6 +1309,7 @@ article img {
 
 /* 导航栏响应式优化 */
 @media (min-width: 1024px) and (max-width: 1280px) {
+
   /* 导航菜单项字体大小调整 */
   .navbar .text-\[16px\] {
     font-size: 14px !important;
@@ -1422,6 +1467,7 @@ article img {
 
 /* CloudDM 小屏 navbar logo 样式 */
 @media (max-width: 996px) {
+
   .navbar__logo img[alt="CloudDM Logo"],
   .navbar__logo img[src*="CloudDM.svg"],
   .navbar__brand img[alt="CloudDM Logo"],
@@ -1457,9 +1503,9 @@ article img {
   color: #333333;
 }
 
-.login-tabs-custom .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
-  color: #0087c7!important;
-  text-shadow: 0 0 0.25px #0087c7!important;
+.login-tabs-custom .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #0087c7 !important;
+  text-shadow: 0 0 0.25px #0087c7 !important;
 }
 
 .login-tabs-custom .ant-tabs-nav-list {
@@ -1467,7 +1513,7 @@ article img {
 }
 
 .login-tabs-custom .ant-tabs-ink-bar {
-  background: #0087c7!important;
+  background: #0087c7 !important;
 }
 
 
@@ -1540,4 +1586,21 @@ a:active {
 
 .button-link-white:active {
   color: #fff !important;
+}
+
+/* 隐藏 Google Translate 的顶部 banner 和 iframe */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+.skiptranslate {
+  display: none !important;
+}
+
+#google_translate_element.container {
+  display: none !important;
+}
+
+.skiptranslate iframe {
+  display: none !important;
 }

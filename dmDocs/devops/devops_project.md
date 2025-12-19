@@ -83,5 +83,5 @@ CloudDM Team 的 数据库 CI/CD 完整发布流程总共包含四个阶段：
 
 :::info
 审核风险等级，在目标发布数据源的环境上启用了安全规范后，数据库 CI/CD 会使用这个安全规范来检查变更中的 SQL 语句。
-[了解安全规范](../operation/security/spec)
+[了解安全规范](../console/security/spec.md)
 :::

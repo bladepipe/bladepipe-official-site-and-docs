@@ -1,5 +1,5 @@
 ---
-id: database_sql_policy
+slug: /data_management/database_sql_policy
 description: 使用 CloudDM 这样的数据库数据管理工具，轻松实现良好的数据库结构规范，为团队开发协作提质增效。
 title: 如何实现良好的数据库结构规范？
 date: 2024-11-07
@@ -7,10 +7,13 @@ authors: mode
 tags:
   - data_management
 image: /img/clouddm/dmblog/data_management/database_sql_policy.png 
-slug: /data_management/database_sql_policy
 ---
 
-在团队协作开发过程中，开发人员想法、习惯各异，使用数据库时常常导致表结构不统一。如果长期使用不规范的表结构，可能会导致数据分析困难、执行速度下降、数据可视化困难等多种后果。‌这些问题普遍带有 **滞后性**、**隐蔽性** 的特点，解决这些问题时又容易产生更多连带风险。因此，规范化的表结构设计对于业务发展至关重要。
+在团队协作开发过程中，开发人员想法、习惯各异，使用数据库时常常导致表结构不统一。
+如果长期使用不规范的表结构，可能会导致数据分析困难、执行速度下降、数据可视化困难等多种后果。
+‌这些问题普遍带有 **滞后性**、**隐蔽性** 的特点，解决这些问题时又容易产生更多连带风险。因此，规范化的表结构设计对于业务发展至关重要。
+
+<!-- truncate -->
 
 ## 表结构不规范的影响
 ### 数据分析困难
