@@ -24,6 +24,10 @@ import {GoogleDrive} from "./googledrive";
 import {Dameng} from "./dameng";
 import {GaussDB} from "./gaussdb";
 import {DynamoDB} from "./dynamodb";
+import {KingbaseES} from "./kingbasees";
+import {ClickHouse} from "./clickhouse";
+import {TdsqlCMySQL} from "./tdsqlcmysql";
+import {TdsqlMySQL} from "./tdsqlmysql";
 
 export const SourceInfo = {
     MySQL,
@@ -56,6 +60,10 @@ export const SourceInfo = {
     GoogleDrive,
     Dameng,
     GaussDB,
-    DynamoDB
+    DynamoDB,
+    KingbaseES,
+    ClickHouse,
+    TdsqlCMySQL,
+    TdsqlMySQL
 }
 

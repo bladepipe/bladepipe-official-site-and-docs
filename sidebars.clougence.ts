@@ -215,7 +215,11 @@ const sidebars: SidebarsConfig = {
             "dataMigrationAndSync/connection/googledrive2",
             "dataMigrationAndSync/connection/dameng2",
             "dataMigrationAndSync/connection/gaussdb2",
-            "dataMigrationAndSync/connection/dynamodb2"
+            "dataMigrationAndSync/connection/dynamodb2",
+            "dataMigrationAndSync/connection/kingbasees2",
+            "dataMigrationAndSync/connection/clickhouse2",
+            "dataMigrationAndSync/connection/tdsqlcmysql2",
+            "dataMigrationAndSync/connection/tdsqlmysql2"
           ]
         },
         {
@@ -370,7 +374,15 @@ const sidebars: SidebarsConfig = {
               "items": [
                   "dataMigrationAndSync/datasource_func/DynamoDB/privs_for_dynamodb"
               ]
-          },
+            },
+            {
+                "type": "category",
+                "label": "KingbaseES",
+                "items": [
+                    "dataMigrationAndSync/datasource_func/KingbaseES/privs_for_kes",
+                    "dataMigrationAndSync/datasource_func/KingbaseES/set_kes_replica_identity"
+                ]
+            }
           ]
         },
         {
