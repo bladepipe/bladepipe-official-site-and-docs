@@ -1,5 +1,5 @@
 ---
-id: sql_review_upgrade
+slug: /data_management/sql_review_upgrade
 description: CloudDM 的 SQL 审核架构延续统一性、开放性、自由性的特点，在此基础上进行了重大技术升级，适配复杂编程场景及查询需求。
 title: CloudDM 升级全新 SQL 审核架构，适配多种数据源
 date: 2024-12-27
@@ -7,10 +7,12 @@ authors: mode
 tags:
   - data_management
 image: /img/clouddm/dmblog/data_management/sql_review_upgrade.png 
-slug: /data_management/sql_review_upgrade
 ---
 
-对于任何一款数据库管理工具，SQL 审核都占据重要地位，因为它直接关系到数据库的安全性和业务稳定性。通过 SQL 审核，可以有效发现并纠正 SQL 编写不当的问题，从而避免可能引发的数据库故障，如性能下降或数据泄露等严重后果‌。
+对于任何一款数据库管理工具，SQL 审核都占据重要地位，因为它直接关系到数据库的安全性和业务稳定性。
+通过 SQL 审核，可以有效发现并纠正 SQL 编写不当的问题，从而避免可能引发的数据库故障，如性能下降或数据泄露等严重后果‌。
+
+<!-- truncate -->
 
 CloudDM 是 ClouGence 公司推出的面向团队使用的数据库管理工具，支持云上、云下、多云多环境。目前支持 **15** 种数据源。未来更多数据源将逐步开放。对于 SQL 审核，CloudDM 提供了 **59 个内置规则**，并且 **97%** 以上规则同时适用于多种数据源。
 

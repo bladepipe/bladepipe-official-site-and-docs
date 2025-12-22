@@ -1,5 +1,5 @@
 ---
-id: starrocks_visual_management
+slug: /data_management/starrocks_visual_management
 description: CloudDM 个人版在修改 StarRocks 表结构方面进一步优化，大幅提升 StarRocks 表结构设计效率
 title: CloudDM 强化 StarRocks 可视化数据管理能力
 date: 2025-03-21
@@ -7,9 +7,9 @@ authors: mumu
 tags:
   - data_management
 image: /img/clouddm/dmblog/data_management/starrocks_visual_management.png 
-slug: /data_management/starrocks_visual_management
 ---
-CloudDM 个人版是一款数据库数据管理客户端工具，支持 [StarRocks 可视化建表](https://forum.mirrorship.cn/t/topic/10747)，创建表时可选择分桶、配置数据模型。目前版本持续更新，在修改 StarRocks 表结构方面进一步优化，大幅提升 StarRocks 表结构设计效率。当前 CloudDM 支持：
+CloudDM 个人版是一款数据库数据管理客户端工具，支持 [StarRocks 可视化建表](https://forum.mirrorship.cn/t/topic/10747)，创建表时可选择分桶、配置数据模型。
+目前版本持续更新，在修改 StarRocks 表结构方面进一步优化，大幅提升 StarRocks 表结构设计效率。当前 CloudDM 支持：
 
 + 可视化设计表
 + 查看索引
@@ -17,6 +17,7 @@ CloudDM 个人版是一款数据库数据管理客户端工具，支持 [StarRoc
 
 下面依次展示如何修改表结构、查看索引及区分外部表。
 
+<!-- truncate -->
  
 ## 如何修改表结构
 使用 [CloudDM](https://www.clougence.com/clouddm-personal)，添加完 StarRocks 数据源之后，右键需要修改的表，点击 **设计表**。

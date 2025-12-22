@@ -53,6 +53,7 @@ CloudCanal 权限由两部分组成，即功能权限和资源权限。
   1. 点击 **配置** > **个人偏好**。
   2. 定位到参数 *subAccountPwdVerifyExpr*，点击 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/account_and_auth/3.png)，在弹出的对话框中填入密码强度正则表达式。  
   示例：`^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$`
+      
       :::info
       若不设置，则采用系统默认验证表达式。
       :::
@@ -65,6 +66,7 @@ CloudCanal 权限由两部分组成，即功能权限和资源权限。
   2. 定位到参数 *subAccountPwdExpireDays*，点击 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/account_and_auth/3.png)，在弹出的对话框中填入数字。  
   示例：填入“2”表示子账号密码2天后强制过期。
   3. 修改参数后，密码将在指定时间后过期。
+      
       :::info 
       密码失效前七天内，子账号登录后会在页面顶端提示密码强制过期时间。建议在失效前重置密码。    
       若在密码失效前重置密码，密码强制过期时间会重新计算。若密码已经失效，则无法登录，需由主账号重置密码。

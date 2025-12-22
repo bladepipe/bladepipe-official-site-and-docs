@@ -1,5 +1,5 @@
 ---
-id: sql_review_tool_vs
+slug: /data_management/sql_review_tool_vs
 description: 从工单场景出发横向对比 CloudDM、Archery、Yearning、Bytebase
 title: SQL 审核工具深度体验（一）： CloudDM vs Archery vs Yearning vs Bytebase
 date: 2025-09-19
@@ -7,10 +7,12 @@ authors: mode
 tags:
   - data_management
 image: /img/clouddm/dmblog/data_management/sql_review_tool_vs.png 
-slug: /data_management/sql_review_tool_vs
 ---
 
-数据库变更是日常开发和运维里绕不开的活。为了降低线上环境出故障的风险，通常会配合工单系统来发布变更，这样流程可控，也能减少低级错误。市面上能选的工具不少，有开源的，也有商业化的。这次我挑了四款比较常见的：**Yearning、Archery、Bytebase**，还有 **CloudDM**，从工单场景出发做了一轮体验和横向对比，给大家一些参考。
+数据库变更是日常开发和运维里绕不开的活。为了降低线上环境出故障的风险，通常会配合工单系统来发布变更，这样流程可控，也能减少低级错误。
+市面上能选的工具不少，有开源的，也有商业化的。这次我挑了四款比较常见的：**Yearning、Archery、Bytebase**，还有 **CloudDM**，从工单场景出发做了一轮体验和横向对比，给大家一些参考。
+
+<!-- truncate -->
 
 ## 测评方法
 不同工具的功能侧重点不一样，如果各方面都测，反而看不出差别。所以我主要关注最常见的两个场景：**业务上线**和**数据订正**。测试用的版本主要是**社区版/免费版**。

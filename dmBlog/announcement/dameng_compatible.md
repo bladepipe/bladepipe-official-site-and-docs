@@ -1,5 +1,5 @@
 ---
-id: dameng_compatible
+slug: /announcement/dameng_compatible
 description: CloudDM 与达梦数据库正式完成产品兼容互认证
 title: 强强联合｜CloudDM 与达梦数据库完成产品兼容互认证
 date: 2025-07-19
@@ -7,13 +7,14 @@ authors: mumu
 tags:
   - announcement
 image: /img/clouddm/dmblog/announcement/dameng_compatible.png 
-slug: /announcement/dameng_compatible
 ---
 近日，杭州开云集致公司推出的一站式多数据源开发管理工具 CloudDM 与武汉达梦数据库股份有限公司自主研发的 **达梦数据系列数据库产品** 正式完成 **产品兼容性互认证**。
 
 双方技术团队进行了严格的测试，测试结果表明，CloudDM 能够无缝连接并高效管理达梦数据库，支持可视化创建/修改表、可视化创建/查看视图/触发器/函数等多种高级功能，**两款产品在功能方面实现了深度兼容，系统运行稳定高效**。
 
 这一认证的完成具有多重意义。技术层面，验证了 CloudDM 对国产数据库的支持能力，特别是针对达梦数据库的特性适配更加完善。生态层面，推动了国产数据库工具链的成熟。同时，为企业用户提供了更可靠的 **国产化数据库管理解决方案**，降低存储和运维成本。
+
+<!-- truncate -->
 
 ![](../assets/dameng_compatible/dameng_compatible_certificate.png)
 

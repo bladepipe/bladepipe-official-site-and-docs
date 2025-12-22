@@ -8,10 +8,12 @@ CloudCanal 支持设置创建任务的偏好以及设置告警等高级功能。
 ## 设置个人偏好
 1. 点击 **配置** > **个人偏好**，进入个人偏好页面。
 2. 选择需要修改的参数，点击 **修改后的参数值** 一列中的 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/account_and_auth/4.png) 或 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/account_and_auth/3.png) 图标，修改参数值。参数值范围可参考 **可修改范围**。
+   
    :::info
    如果参数是 **待创建** 的状态，说明该参数从未进行过设置。
    :::
 3. 点击页面右上角 **保存** 则修改成功。
+   
    :::warning
    个人偏好下的配置将应用于主账号以及属于该主账号下的所有子账号，请谨慎修改。
    :::

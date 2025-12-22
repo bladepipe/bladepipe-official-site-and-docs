@@ -27,6 +27,8 @@ import {RagApi} from "./ragapi";
 import {Paimon} from "./paimon";
 import {Dameng} from "./dameng";
 import {DynamoDB} from "./dynamodb";
+import {TdsqlCMySQL} from "./tdsqlcmysql";
+import {TdsqlMySQL} from "./tdsqlmysql";
 
 export const TargetInfo = {
     MySQL,
@@ -63,5 +65,7 @@ export const TargetInfo = {
     RagApi,
     Paimon,
     Dameng,
-    DynamoDB
+    DynamoDB,
+    TdsqlCMySQL,
+    TdsqlMySQL
 }

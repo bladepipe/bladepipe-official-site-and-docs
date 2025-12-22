@@ -26,7 +26,7 @@ description: 在 CloudDM Team 中变更时一次 SQL 发布的最小组成单位
 在变更详情页面的 **SQL变更内容** 下面展示本次变更的具体内容，可以使用 **结果**、**Diff** 两种方式展示。
   - **结果模式**：将可能存在的多个增量变更 SQL 文件进行汇总展示，并且标记出具体来源文件。
   - **Diff 模式**：展示每一个 SQL 文件的变更前后的状态，以 Diff 的形式展示出来。
-- ![w20_h20](../assets/devops/devops_change/2.png) **SQL 检查**：在该阶段会使用目标端数据源环境上指定的安全规范（[查询设置 > 安全规范 > 启用规范](../operation/security/spec)）来检查发布的 SQL 是否符合规范。
+- ![w20_h20](../assets/devops/devops_change/2.png) **SQL 检查**：在该阶段会使用目标端数据源环境上指定的安全规范（[查询设置 > 安全规范 > 启用规范](../console/security/spec.md)）来检查发布的 SQL 是否符合规范。
   - 如果检查出 SQL 不满足规范要求，会在 **SQL 审核** 标签下展示具体的 SQL 和不满足的具体规范项。
   - 根据项目的 **[发布流程配置](devops_project#flow_conf)**，如果需要人工确认，则需要在变更详情页的右上角进行确认操作，确认后会进入下一个阶段。
 - ![w20_h20](../assets/devops/devops_change/3.png) **审批**：该阶段变更会使用目标端数据源环境上指定的 ![w20_h20](../assets/approval/approval_setting/change-ticket.png) 变更流程发起工单审批。

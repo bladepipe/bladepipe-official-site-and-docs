@@ -1,5 +1,5 @@
 ---
-id: mysql_management
+slug: /tutorials/mysql_management
 description: 本文展示了如何使用可视化工具 CloudDM 个人版管理和操作 MySQL 数据库和数据表
 title: 使用 CloudDM 可视化操作 MySQL
 date: 2025-06-14
@@ -7,13 +7,14 @@ authors: mode
 tags:
   - tutorials
 image: /img/clouddm/dmblog/tutorials/mysql_management.png 
-slug: /tutorials/mysql_management
 ---
 
 ## CloudDM 个人版简介
 CloudDM 个人版是 ClouGence 公司推出的一款一站式数据库管理工具，可以方便地访问和管理 MySQL、Oracle、PostgreSQL、阿里云 RDS、Greenplum、TiDB、Redis、StarRocks、Doris、SelectDB、SQL Server、ClickHouse、OceanBase 、PolarDB-X 、IBM Db2 等多种不同类型的数据库。通过 CloudDM 丰富的数据源支持可以避免在多个专业工具之间切换，从而提高工作效率。
 
 它是本地化的应用程序，没有后台进程。和 DataGrip、Navicat 一样在安装完成后，只需要双击应用程序图标，便可以方便地管理位于本地计算机或远程计算机上的数据库。已支持 Windows、Linux 和 MacOS 操作系统。
+
+<!-- truncate -->
 
 ## CloudDM 界面介绍
 ![](../assets/mysql_management/1.png)

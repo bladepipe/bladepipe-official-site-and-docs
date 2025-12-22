@@ -41,7 +41,7 @@ const DataSourceCard: React.FC<DataSourceCardProps> = ({
       </div>
       
       {/* 标题 - 24px 字体，粗体 */}
-      <h3 className="text-2xl font-bold text-black leading-8 m-0">{name}</h3>
+      <h3 className="text-2xl font-bold text-black leading-8 m-0" translate="no">{name}</h3>
       
       {/* 描述文本 - 16px 字体，80% 透明度，固定四行高度 */}
       <p className="text-base text-black opacity-80 leading-6 font-medium flex-1 m-0 min-h-[96px] flex items-start">

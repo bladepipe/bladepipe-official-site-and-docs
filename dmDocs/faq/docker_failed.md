@@ -3,7 +3,6 @@
 ## 错误现象
 
 在执行 “install.sh” 安装脚本执行中有 check_docker_is_permission 阶段报错，如下：
-
 ![common](../assets/faq/docker_failed/docker_sock.png)
 
 ```text title='报错关键信息'
@@ -49,7 +48,7 @@ Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docke
 - 添加 Docker 用户组，一般已存在。
   - `sudo groupadd docker`
 - 将登录用户加入到 Docker 用户组中。
-  - `sudo usermod -aG docker \${USER}`
+  - `sudo usermod -aG docker ${USER}`
 - 更新 Docker 用户组。
   - `sudo newgrp docker`
 - 切换或者退出当前账户后，再重新登录。

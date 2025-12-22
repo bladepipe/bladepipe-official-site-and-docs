@@ -1,4 +1,4 @@
-import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -21,323 +21,172 @@ const sidebars: SidebarsConfig = {
   // tutorialSidebar: [
   //   'intro'
   // ],
-  
+
   // 主文档 sidebar - 默认显示
   communitySidebar: [
     {
-        type: 'category',
-        label: '产品介绍',
-        items: [
-            'intro/product_intro',
-            'intro/product_advantage',
-            'intro/product_func',
-            'intro/product_structure',
-            'intro/product_nouns',
-            'intro/contact_us'
-        ]
+      type: "category",
+      label: "产品介绍",
+      items: [
+        "intro/product_intro",
+        "intro/product_advantage",
+        "intro/product_func",
+        "intro/product_structure",
+        "intro/product_nouns",
+        "intro/contact_us"
+      ],
     },
     {
-        type: 'doc',
-        id: 'license/license_use'
+      type: "category",
+      label: "安装/升级",
+      items: [
+        "maintain/install_require",
+        {
+          type: "category",
+          label: "TGZ 版",
+          items: ["maintain/install_tgz", "maintain/upgrade_tgz"],
+        },
+        {
+          type: "category",
+          label: "Docker 版",
+          items: [
+            "maintain/install_docker",
+            "maintain/upgrade_docker",
+            "maintain/uninstall_docker",
+          ],
+        },
+        "maintain/license",
+      ],
     },
     {
-        type: 'doc',
-        id: 'quick/quick_start'
+      type: "category",
+      label: "快速开始",
+      items: ["quick/quick_start"],
     },
     {
-        type: 'category',
-        label: '数据查询',
-        items: [
-            'console/console_editor',
-            'console/console_execute',
-            //'console/console_tran',
-            //'console/console_readonly'
-            'console/obj_browser',
-            //'console/obj_table_editor',
-            //'console/obj_view_editor',
-            //'console/obj_proc_editor',
-            //'console/obj_func_editor',
-            //'console/obj_trigger_editor',
-            'console/obj_ddl',
-            'console/operate/console_visual_editor',
-            //{
-                //type: 'category',
-                //label: '数据库可视化操作',
-                //items: [
-                    //'console/operate/mysql',
-                    //'console/operate/mariadb',
-                    //'console/operate/tidb',
-                    //'console/operate/polardbx',
-                    //'console/operate/oceanbase',
-                    //'console/operate/sqlserver',
-                    //'console/operate/oracle',
-                    //'console/operate/postgre',
-                    //'console/operate/greenplum',
-                    //'console/operate/db2',
-                    //'console/operate/db2fori'
-                //]
-            //},
-            //'console/obj_operation',
-            //'console/data_view',
-            //'console/data_operation',
-            //'console/data_table',
-            //'console/faker_with_full',
-            //'console/faker_with_incr',
-            //'console/faker_task'
-        ]
+      type: "category",
+      label: "功能特性",
+      items: [
+        {
+          type: "category",
+          label: "数据查询",
+          items: [
+            "console/console_editor",
+            "console/console_execute",
+            "console/obj_browser",
+            "console/obj_ddl",
+            "console/operate/console_visual_editor",
+            "console/sql_rules",
+          ],
+        },
+        {
+          type: "category",
+          label: "数据脱敏",
+          items: [
+            "datamask/datamask_about",
+            "datamask/datamask_policy",
+            "datamask/datamask_dynamic",
+            "datamask/datamask_exemption",
+          ],
+        },
+        {
+          type: "category",
+          label: "数据库 CI/CD",
+          items: [
+            "devops/devops_about",
+            "devops/devops_project",
+            "devops/devops_flow",
+            "devops/devops_change",
+            "devops/devops_trigger",
+            "devops/devops_callback",
+            "devops/devops_service",
+          ],
+        },
+        {
+          type: "category",
+          label: "工单系统",
+          items: [
+            "approval/approval_about",
+            "approval/approval_and_execution",
+            "approval/approval_detail",
+            "approval/approval_list",
+            "approval/approval_setting",
+            "approval/approval_submit",
+          ],
+        },
+      ],
     },
     {
-        type: 'category',
-        label: '数据库 CI/CD',
-        items: [
-            'devops/devops_about',
-            'devops/devops_project',
-            'devops/devops_flow',
-            'devops/devops_change',
-            'devops/devops_trigger',
-            'devops/devops_callback',
-            'devops/devops_service',
-            {
-                type: 'category',
-                label: '服务提供者',
-                items: [
-                    'devops/provider/devops_cicd_gitee',
-                    //'devops/provider/devops_cicd_github',
-                    'devops/provider/devops_im_dingtalk',
-                    'devops/provider/devops_im_feishu',
-                    'devops/provider/devops_im_wechat',
-                ]
-            },
-
-        ]
+      type: "category",
+      label: "系统管理",
+      items: [
+        {
+          type: "category",
+          label: "安全",
+          items: [
+            "operation/accounts",
+            "operation/roles_prem",
+            "operation/security_policy",
+            "operation/audit",
+          ],
+        },
+        {
+          type: "category",
+          label: "环境",
+          items: ["operation/environment", "operation/cluster_worker"],
+        },
+        {
+          type: "category",
+          label: "数据源",
+          items: ["operation/dsmanager"],
+        },
+      ],
     },
     {
-        type: 'category',
-        label: '工单系统',
-        items: [
-            'approval/approval_about',
-            'approval/approval_setting',
-            'approval/approval_list',
-            'approval/approval_detail',
-            {
-                type: 'category',
-                label: '发起工单',
-                items: [
-                    'approval/promoter/approval_promoter',
-                    'approval/promoter/execute_approval',
-                    'approval/promoter/permission_approval',
-                ]
-            },
-            {
-                type: 'category',
-                label: '审批和执行',
-                items: [
-                    'approval/approval/approval_approver',
-                    'approval/approval/approval_exec',
-                ]
-            },
-            {
-                type: 'category',
-                label: '审批引擎',
-                items: [
-                    'approval/engine/dingtalk_approval',
-                    'approval/engine/feishu_approval',
-                    'approval/engine/wechat_approval',
-                ]
-            },
-        ]
-    },
-    {
-        type: 'category',
-        label: '登录与账户',
-        items: [
-            'manual/login/login_by_main',
-            'manual/login/login_by_inner',
-            'manual/login/login_by_ldap',
-            'manual/login/login_by_ad',
-            'manual/information/info_modify_password',
-            'manual/information/info_modify_email',
-            'manual/information/info_modify_phone',
-            'manual/information/info_myauth',
-        ]
-    },
-    {
-        type: 'category',
-        label: '系统管理',
-        items: [
-            'operation/operation_guide',
-            {
-                type: 'category',
-                label: '账号与权限',
-                items: [
-                    'operation/accounts',
-                    'operation/passwords',
-                    'operation/roles',
-                    'operation/auth',
-                ]
-            },
-            {
-                type: 'category',
-                label: '统一认证SSO',
-                items: [
-                    'operation/sso/sso_ldap',
-                    'operation/sso/sso_oidc',
-                    'operation/sso/sso_ad',
-                    'operation/sso/sso_dingtalk',
-                    'operation/sso/sso_feishu',
-                    'operation/sso/sso_wechat',
-                ]
-            },
-            'operation/environment',
-            {
-                type: 'category',
-                label: '数据源管理',
-                items: [
-                    'operation/datasource/self_maintain',
-                    'operation/datasource/aliyun_maintain',
-                    'operation/datasource/aws_maintain',
-                    'operation/datasource/azure_maintain',
-                    //'operation/datasource/hauwei_maintain',
-                    'operation/datasource/dsmanager'
-                ]
-            },
-            {
-                type: 'category',
-                label: '安全规则与规范',
-                items: [
-                    'operation/security/rules',
-                    'operation/security/spec',
-                    'operation/security/configs'
-                ]
-            },
-            {
-                type: 'category',
-                label: '查询设置',
-                items: [
-                    'operation/query/dsconfig',
-                    'operation/query/cluster',
-                    'operation/query/worker'
-                ]
-            },
-            'operation/audit'
-        ]
-    },
-    // {
-    //     type: 'category',
-    //     label: '最佳实践',
-    //     items: [
-    //         {
-    //             type: 'category',
-    //             label: '按角色设置权限',
-    //             items: [
-    //                 'practice/perm_minimize/perm_scene_as_maintain',
-    //                 'practice/perm_minimize/perm_scene_as_admin',
-    //                 'practice/perm_minimize/perm_scene_as_dba',
-    //                 'practice/perm_minimize/perm_scene_as_develop',
-    //                 'practice/perm_minimize/perm_scene_as_auditors',
-    //             ]
-    //         },
-    //     ]
-    // },
-    {
-        type: 'category',
-        label: '产品运维',
-        items: [
-            'maintain/maintain_guide',
-            {
-                type: 'category',
-                label: '安装准备',
-                items: [
-                    'maintain/prepare/prepare_require',
-                    'maintain/prepare/prepare_install',
-                ]
-            },
-            {
-                type: 'category',
-                label: '全新安装',
-                items: [
-                    'maintain/install/install_docker',
-                    //'maintain/install/install_cenos',
-                    //'maintain/install/install_ubuntu',
-                ]
-            },
-            {
-                type: 'category',
-                label: '升级安装',
-                items: [
-                    'maintain/upgrade/upgrade_docker',
-                    //'maintain/upgrade/upgrade_cenos',
-                    //'maintain/upgrade/upgrade_ubuntu',
-                ]
-            },
-            // {
-            //     type: 'category',
-            //     label: '扩容/缩容',
-            //     items: [
-            //         'maintain/workers/workers_docker',
-            //         //'maintain/workers/workers_cenos',
-            //         //'maintain/workers/workers_ubuntu',
-            //     ]
-            // },
-            {
-                type: 'category',
-                label: '卸载',
-                items: [
-                    'maintain/uninstall/uninstall_docker',
-                    //'maintain/uninstall/uninstall_cenos',
-                    //'maintain/uninstall/uninstall_ubuntu'
-                ]
-            },
-            {
-                type: 'category',
-                label: '产品拓展',
-                items: [
-                    //'maintain/extension/extension_ha',
-                    'maintain/extension/extension_cloudcanal',
-                ]
-            },
-        ]
-    },
-    {
-        type: 'category',
-        label: '权限说明',
-        items: [
-            'permission/system/perm_sys',
-            {
-                type: 'category',
-                label: '功能权限',
-                items: [
-                    'permission/roleauth/roleauth_query',
-                    'permission/roleauth/roleauth_workorder',
-                    'permission/roleauth/roleauth_project',
-                    'permission/roleauth/roleauth_env',
-                    'permission/roleauth/roleauth_ds',
-                    'permission/roleauth/roleauth_accounts',
-                    'permission/roleauth/roleauth_audit',
-                    'permission/roleauth/roleauth_pri_settings',
-                    'permission/roleauth/roleauth_cicd',
-                    'permission/roleauth/roleauth_im',
-                ]
-            },
-            {
-                type: 'category',
-                label: '资源权限',
-                items: [
-                    'permission/dataauth/dataauth_ds',
-                    'permission/dataauth/dataauth_query'
-                ]
-            },
-            {
-                type: 'category',
-                label: '内置角色',
-                items: [
-                    'permission/role/role_info_developer',
-                    'permission/role/role_info_admin',
-                    'permission/role/role_info_dba',
-                    'permission/role/role_info_pm'
-                ]
-            },
-        ]
+      type: "category",
+      label: "集成",
+      items: [
+        {
+          type: "category",
+          label: "单点登录 SSO",
+          items: [
+            "integrations/sso/sso_ldap",
+            "integrations/sso/sso_ad",
+            "integrations/sso/sso_oidc",
+            "integrations/sso/sso_dingtalk",
+            "integrations/sso/sso_feishu",
+            "integrations/sso/sso_wechat",
+          ],
+        },
+        {
+          type: "category",
+          label: "审批引擎",
+          items: [
+            "integrations/approval/dingtalk_approval",
+            "integrations/approval/feishu_approval",
+            "integrations/approval/wechat_approval",
+          ],
+        },
+        {
+          type: "category",
+          label: "CI/CD 变更源",
+          items: ["integrations/devops/devops_cicd_gitee"],
+        },
+        {
+          type: "category",
+          label: "消息服务",
+          items: [
+            "integrations/devops/devops_im_dingtalk",
+            "integrations/devops/devops_im_feishu",
+            "integrations/devops/devops_im_wechat",
+          ],
+        },
+        {
+          type: "category",
+          label: "产品集成",
+          items: ["integrations/cloudcanal"],
+        },
+      ],
     },
     {
         type: 'category',
@@ -348,6 +197,7 @@ const sidebars: SidebarsConfig = {
             description: '查看 CloudDM 各个版本的更新说明、功能特性和修复内容'
         },
         items: [
+            "releaseinfo/team_3_4_0_0",
             "releaseinfo/team_3_3_0_0",
             "releaseinfo/team_3_2_0_0",
             "releaseinfo/team_3_1_0_0",
@@ -371,80 +221,81 @@ const sidebars: SidebarsConfig = {
             'releaseinfo/team_1_4_0_0',
             'releaseinfo/team_1_3_0_0',
             'releaseinfo/team_1_2_0_0'
-        ]
+        ],
     },
     {
-        type: 'category',
-        label: 'FAQ',
-        items: [
-            'faq/docker_failed',
-            'faq/upgrade_to_2_x',
-            'faq/init_mysql_5_6_failed'
-        ]
+      type: "category",
+      label: "FAQ",
+      items: [
+        "faq/info_modify",
+        "faq/docker_failed",
+        "faq/upgrade_to_2_x",
+        "faq/init_mysql_5_6_failed",
+      ],
     },
     {
-        type: 'category',
-        label: '协议',
-        items: [
-            'protocol/terms_of_use',
-            'protocol/privacy_policy'
-        ]
-    }
+      type: "category",
+      label: "协议",
+      items: [
+      "protocol/terms_of_use",
+      "protocol/privacy_policy",
+      ],
+    },
   ],
 
   // 个人版版本说明 sidebar - 专门用于个人版版本信息页面
   personalSidebar: [
     {
-      type: 'category',
-      label: '个人版版本说明',
+      type: "category",
+      label: "个人版版本说明",
       link: {
-        type: 'generated-index',
-        title: 'CloudDM 个人版版本说明',
-        description: '查看 CloudDM 个人版各个版本的更新说明、功能特性和修复内容'
+        type: "generated-index",
+        title: "CloudDM 个人版版本说明",
+        description:
+          "查看 CloudDM 个人版各个版本的更新说明、功能特性和修复内容",
       },
       items: [
-        'releasenote_personal/desktop_latest',
-        'releasenote_personal/desktop_3_0_7',
-        'releasenote_personal/desktop_3_0_6',
-        'releasenote_personal/desktop_3_0_5',
-        'releasenote_personal/desktop_3_0_4',
-        'releasenote_personal/desktop_3_0_3',
-        'releasenote_personal/desktop_3_0_2',
-        'releasenote_personal/desktop_3_0_1',
-        'releasenote_personal/desktop_3_0_0',
-        'releasenote_personal/desktop_2_9_0',
-        'releasenote_personal/desktop_2_8_4',
-        'releasenote_personal/desktop_2_8_3',
-        'releasenote_personal/desktop_2_8_2',
-        'releasenote_personal/desktop_2_8_1',
-        'releasenote_personal/desktop_2_8_0',
-        'releasenote_personal/desktop_2_7_0',
-        'releasenote_personal/desktop_2_6_0',
-        'releasenote_personal/desktop_2_5_0',
-        'releasenote_personal/desktop_2_4_5',
-        'releasenote_personal/desktop_2_4_4',
-        'releasenote_personal/desktop_2_4_3',
-        'releasenote_personal/desktop_2_4_2',
-        'releasenote_personal/desktop_2_4_1',
-        'releasenote_personal/desktop_2_4_0',
-        'releasenote_personal/desktop_2_3_4',
-        'releasenote_personal/desktop_2_3_3',
-        'releasenote_personal/desktop_2_3_2',
-        'releasenote_personal/desktop_2_3_1',
-        'releasenote_personal/desktop_2_3_0',
-        'releasenote_personal/desktop_2_2_0',
-        'releasenote_personal/desktop_2_1_3',
-        'releasenote_personal/desktop_2_1_2',
-        'releasenote_personal/desktop_2_1_1',
-        'releasenote_personal/desktop_2_1_0',
-        'releasenote_personal/desktop_2_0_5',
-        'releasenote_personal/desktop_2_0_4',
-        'releasenote_personal/desktop_2_0_3',
-        'releasenote_personal/desktop_2_0_2',
-      ]
-    }
-  ]
-  
+        "releasenote_personal/desktop_latest",
+        "releasenote_personal/desktop_3_0_7",
+        "releasenote_personal/desktop_3_0_6",
+        "releasenote_personal/desktop_3_0_5",
+        "releasenote_personal/desktop_3_0_4",
+        "releasenote_personal/desktop_3_0_3",
+        "releasenote_personal/desktop_3_0_2",
+        "releasenote_personal/desktop_3_0_1",
+        "releasenote_personal/desktop_3_0_0",
+        "releasenote_personal/desktop_2_9_0",
+        "releasenote_personal/desktop_2_8_4",
+        "releasenote_personal/desktop_2_8_3",
+        "releasenote_personal/desktop_2_8_2",
+        "releasenote_personal/desktop_2_8_1",
+        "releasenote_personal/desktop_2_8_0",
+        "releasenote_personal/desktop_2_7_0",
+        "releasenote_personal/desktop_2_6_0",
+        "releasenote_personal/desktop_2_5_0",
+        "releasenote_personal/desktop_2_4_5",
+        "releasenote_personal/desktop_2_4_4",
+        "releasenote_personal/desktop_2_4_3",
+        "releasenote_personal/desktop_2_4_2",
+        "releasenote_personal/desktop_2_4_1",
+        "releasenote_personal/desktop_2_4_0",
+        "releasenote_personal/desktop_2_3_4",
+        "releasenote_personal/desktop_2_3_3",
+        "releasenote_personal/desktop_2_3_2",
+        "releasenote_personal/desktop_2_3_1",
+        "releasenote_personal/desktop_2_3_0",
+        "releasenote_personal/desktop_2_2_0",
+        "releasenote_personal/desktop_2_1_3",
+        "releasenote_personal/desktop_2_1_2",
+        "releasenote_personal/desktop_2_1_1",
+        "releasenote_personal/desktop_2_1_0",
+        "releasenote_personal/desktop_2_0_5",
+        "releasenote_personal/desktop_2_0_4",
+        "releasenote_personal/desktop_2_0_3",
+        "releasenote_personal/desktop_2_0_2",
+      ],
+    },
+  ],
 };
 
 export default sidebars;

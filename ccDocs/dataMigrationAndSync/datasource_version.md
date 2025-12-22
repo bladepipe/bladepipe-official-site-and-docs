@@ -41,6 +41,9 @@ description: CloudCanal 支持的数据源版本支持
 | Greptime              | 0.7, 0.8, 0.9, 0.10, 0.11                                                                      |
 | TDengine              | 3.x                                                                                            |
 | Dameng                | 5.x                                                                                            |
+| TDSQL-C MySQL         | 5.7, 8.0                                                                                       |
+| TDSQL MySQL           | 5.7                                                                                            |
+| KingbaseES            | V8R6, V9R1                                                                                     |
 | OssFile               | ~                                                                                              |
 | S3File                | ~                                                                                              |
 | SshFile               | ~                                                                                              |

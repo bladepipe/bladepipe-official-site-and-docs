@@ -44,34 +44,59 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
   const history = useHistory();
   const location = useLocation();
 
+  // 判断当前页面是否是文档或博客页面
+  const isDocsOrBlogPage = useCallback(() => {
+    const pathname = window.location.pathname;
+    // 移除语言前缀后检查
+    const pathWithoutLocale = pathname.replace(new RegExp(`^/(en|zh)`), '') || pathname;
+    return pathWithoutLocale.startsWith('/docs/') ||
+           pathWithoutLocale.startsWith('/ccDocs/') ||
+           pathWithoutLocale.startsWith('/dmDocs/') ||
+           pathWithoutLocale.startsWith('/blog');
+  }, []);
+
+  // 从 Google Translate select 元素获取当前语言代码
+  const getCurrentLanguageFromGoogleTranslate = (): string | null => {
+    const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+    if (selectElement && selectElement.value) {
+      const currentValue = selectElement.value;
+      let currentLangCode = '';
+
+      if (currentValue === '' || currentValue === 'en') {
+        currentLangCode = '';
+      } else {
+        // 格式可能是 "en|zh-CN" 或 "en|ja"，提取目标语言
+        const parts = currentValue.split('|');
+        currentLangCode = parts.length > 1 ? parts[1] : parts[0];
+      }
+
+      // 找到对应的语言标签
+      const lang = LANGUAGES.find(l => l.code === currentLangCode);
+      if (lang) {
+        return lang.label;
+      }
+    }
+    return null;
+  };
+
   // 更新当前语言显示
-  const updateCurrentLanguage = () => {
+  const updateCurrentLanguage = useCallback(() => {
+    console.log(1111);
     const pathname = window.location.pathname;
     const localeMatch = pathname.match(/^\/(zh|en)(\/|$)/);
     const isDocsBlog = isDocsOrBlogPage();
 
+    // 优先检查 Google Translate 的 select 元素（适用于所有使用 Google Translate 的场景）
+    const googleTranslateLang = getCurrentLanguageFromGoogleTranslate();
+    console.log('googleTranslateLang', googleTranslateLang);
+    if (googleTranslateLang) {
+      setCurrentLanguage(googleTranslateLang);
+      return;
+    }
+
     // 如果在中文路由下的文档/博客页面，使用 Google Translate
     if (localeMatch && localeMatch[1] === 'zh' && isDocsBlog) {
-      // 从 Google Translate 的 select 元素获取当前语言
-      const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
-      if (selectElement && selectElement.value) {
-        const currentValue = selectElement.value;
-        let currentLangCode = '';
-
-        if (currentValue === '' || currentValue === 'en') {
-          currentLangCode = '';
-        } else {
-          const parts = currentValue.split('|');
-          currentLangCode = parts.length > 1 ? parts[1] : parts[0];
-        }
-
-        // 如果 Google Translate 显示的是中文，显示简体中文
-        if (currentLangCode === 'zh-CN') {
-          setCurrentLanguage('简体中文');
-          return;
-        }
-      }
-      // 如果 Google Translate 还没加载或显示其他语言，默认显示简体中文（因为路由是 /zh/）
+      // 如果 Google Translate 还没加载，默认显示简体中文（因为路由是 /zh/）
       setCurrentLanguage('简体中文');
       return;
     }
@@ -104,31 +129,9 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
       }
     }
 
-    // 如果使用 Google Translate，从 select 元素获取
-    const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
-    if (selectElement && selectElement.value) {
-      // 解析当前语言代码
-      const currentValue = selectElement.value;
-      let currentLangCode = '';
-
-      if (currentValue === '' || currentValue === 'en') {
-        currentLangCode = '';
-      } else {
-        // 格式可能是 "en|zh-CN"，提取目标语言
-        const parts = currentValue.split('|');
-        currentLangCode = parts.length > 1 ? parts[1] : parts[0];
-      }
-
-      // 找到对应的语言标签
-      const lang = LANGUAGES.find(l => l.code === currentLangCode);
-      if (lang) {
-        setCurrentLanguage(lang.label);
-      }
-    } else {
-      // 如果没有 Google Translate，默认显示英文
-      setCurrentLanguage('English');
-    }
-  };
+    // 如果没有 Google Translate，默认显示英文
+    setCurrentLanguage('English');
+  }, [isDocsOrBlogPage, i18n]);
 
   // 检测移动端
   useEffect(() => {
@@ -236,38 +239,18 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
       subtree: true,
     });
 
-    // 定期检查（作为备用方案）
-    const interval = setInterval(() => {
-      hideBanner();
-
-      // 如果在中文路由下，根据页面类型决定是否清除 Google Translate
-      if (isChineseRoute) {
-        const isDocsBlog = isDocsOrBlogPage();
-        if (!isDocsBlog) {
-          // 非文档/博客页面，清除 Google Translate cookie
-          const domain = window.location.hostname;
-          const domainParts = domain.split('.');
-          document.cookie = `googtrans=; path=/; domain=${domain}; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
-          document.cookie = `googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
-          if (domainParts.length > 1) {
-            const rootDomain = '.' + domainParts.slice(-2).join('.');
-            document.cookie = `googtrans=; path=/; domain=${rootDomain}; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
-          }
-        }
-      }
-    }, 500);
-
     let checkInterval: NodeJS.Timeout | null = null;
-
+    console.log('window.google?.translate?.TranslateElement', window.google?.translate?.TranslateElement);
     // 如果脚本已经加载，直接初始化
     if (window.google?.translate?.TranslateElement) {
       // 延迟一下确保 DOM 已准备好
       setTimeout(() => {
+        console.log('aa11');
         initializeTranslate();
-      }, 100);
+      }, 10);
     } else if (!scriptLoadedRef.current) {
-      // 检查是否已经有脚本标签
-      const existingScript = document.querySelector('script[src*="translate_a/element.js"]');
+      // 检查是否已经有脚本标签（包括本地路径和官方路径）
+      const existingScript = document.querySelector('script[src*="translate_a/element.js"], script[src*="/translate/element.js"]');
       if (existingScript) {
         // 如果脚本已存在，等待它加载完成
         checkInterval = setInterval(() => {
@@ -275,10 +258,19 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
             if (checkInterval) clearInterval(checkInterval);
             scriptLoadedRef.current = true;
             setTimeout(() => {
+              console.log('aa12');
               initializeTranslate();
-            }, 100);
+            }, 10);
           }
         }, 100);
+        
+        // 设置超时，避免无限等待
+        setTimeout(() => {
+          if (checkInterval) {
+            clearInterval(checkInterval);
+            checkInterval = null;
+          }
+        }, 5000);
       } else {
         // 加载 Google Translate 脚本（改为本地文件以满足 CSP，需放置于 static/translate/element.js）
         const script = document.createElement('script');
@@ -291,8 +283,9 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
         (window as any).googleTranslateElementInit = () => {
           scriptLoadedRef.current = true;
           setTimeout(() => {
+            console.log('aa13');
             initializeTranslate();
-          }, 100);
+          }, 10);
         };
 
         document.head.appendChild(script);
@@ -302,7 +295,6 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
     return () => {
       // 清理
       observer.disconnect();
-      clearInterval(interval);
       if (checkInterval) {
         clearInterval(checkInterval);
       }
@@ -311,10 +303,98 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
 
   // 监听路由变化，更新当前语言
   useEffect(() => {
+    console.log(1);
     updateCurrentLanguage();
-  }, [location.pathname]);
+  }, [location.pathname, updateCurrentLanguage]);
+
+  // 监听 Google Translate select 元素的变化
+  useEffect(() => {
+    let selectCheckInterval: NodeJS.Timeout | null = null;
+    let lastSelectValue: string | null = null;
+
+    // 添加监听器的函数
+    const setupSelectListener = () => {
+      const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+      if (selectElement) {
+        // 检查是否已经添加过监听器
+        if (!(selectElement as any).__languageChangeListenerAdded) {
+          const handleChange = () => {
+            // 延迟一下，确保 Google Translate 已经更新了 DOM
+            setTimeout(() => {
+              console.log(2);
+              updateCurrentLanguage();
+            }, 10);
+          };
+          
+          selectElement.addEventListener('change', handleChange, true);
+          (selectElement as any).__languageChangeListenerAdded = true;
+          (selectElement as any).__languageChangeHandler = handleChange;
+        }
+        
+        // 记录当前值
+        lastSelectValue = selectElement.value;
+      }
+    };
+
+    // 使用 MutationObserver 监控 select 元素的创建和变化
+    const selectObserver = new MutationObserver(() => {
+      setupSelectListener();
+      
+      // 检查值是否变化
+      const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+      if (selectElement && selectElement.value !== lastSelectValue) {
+        lastSelectValue = selectElement.value;
+        console.log(3);
+        updateCurrentLanguage();
+      }
+    });
+
+    // 监控 body 的变化，以便在 select 元素创建时立即添加监听器
+    selectObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    // 立即尝试设置监听器
+    setupSelectListener();
+
+    // 定期检查 select 元素的值变化（作为备用方案）
+    selectCheckInterval = setInterval(() => {
+      const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+      if (selectElement) {
+        const currentValue = selectElement.value;
+        // 如果值变化了，更新语言状态
+        if (currentValue !== lastSelectValue) {
+          lastSelectValue = currentValue;
+          console.log(4);
+          updateCurrentLanguage();
+        }
+        
+        // 确保监听器已添加
+        setupSelectListener();
+      }
+    }, 300);
+
+    console.log(5);
+
+    return () => {
+      selectObserver.disconnect();
+      if (selectCheckInterval) {
+        clearInterval(selectCheckInterval);
+      }
+      
+      // 清理监听器
+      const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+      if (selectElement && (selectElement as any).__languageChangeHandler) {
+        selectElement.removeEventListener('change', (selectElement as any).__languageChangeHandler, true);
+        delete (selectElement as any).__languageChangeListenerAdded;
+        delete (selectElement as any).__languageChangeHandler;
+      }
+    };
+  }, [updateCurrentLanguage]);
 
   const initializeTranslate = () => {
+    console.log('test1');
     if (!translateElementRef.current) {
       return;
     }
@@ -348,17 +428,44 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
         'google_translate_element'
       );
 
-      // 等待 select 元素创建后，获取当前语言
+      // 等待 select 元素创建后，检查 cookie 并应用语言
       setTimeout(() => {
+        console.log(6);
+        // 检查 cookie 中是否已经设置了目标语言
+        const cookies = document.cookie.split(';');
+        let targetLangCode: string | null = null;
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.startsWith('googtrans=')) {
+            const googtransValue = cookie.substring('googtrans='.length);
+            // 格式通常是 "/en/zh-CN" 或 "/en/ja"
+            const parts = googtransValue.split('/');
+            if (parts.length >= 3 && parts[2]) {
+              targetLangCode = parts[2];
+              break;
+            }
+          }
+        }
+        
+        // 如果 cookie 中设置了目标语言，且不是英文，尝试应用
+        if (targetLangCode && targetLangCode !== 'en' && targetLangCode !== '') {
+          const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+          if (selectElement) {
+            const options = Array.from(selectElement.options);
+            const targetOption = options.find(opt => opt.value.includes(targetLangCode!));
+            if (targetOption && selectElement.value !== targetOption.value) {
+              selectElement.value = targetOption.value;
+              const event = new Event('change', { bubbles: true });
+              selectElement.dispatchEvent(event);
+            }
+          }
+        }
+        
         updateCurrentLanguage();
       }, 500);
 
-      // 监听路由变化，更新当前语言
-      const handleLocationChange = () => {
-        updateCurrentLanguage();
-      };
-
       // 立即执行一次
+      console.log(7);
       updateCurrentLanguage();
     } catch (error) {
       console.error('Google Translate initialization error:', error);
@@ -398,17 +505,6 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
       }
     });
   };
-
-  // 判断当前页面是否是文档或博客页面
-  const isDocsOrBlogPage = useCallback(() => {
-    const pathname = window.location.pathname;
-    // 移除语言前缀后检查
-    const pathWithoutLocale = pathname.replace(new RegExp(`^/(en|zh)`), '') || pathname;
-    return pathWithoutLocale.startsWith('/docs/') ||
-           pathWithoutLocale.startsWith('/ccDocs/') ||
-           pathWithoutLocale.startsWith('/dmDocs/') ||
-           pathWithoutLocale.startsWith('/blog');
-  }, []);
 
   // 使用 Docusaurus i18n 切换语言
   const switchToDocusaurusLocale = useCallback((locale: string) => {
@@ -454,6 +550,7 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
       // 如果路由没有变化，尝试通过 select 元素切换回原始语言
       const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
       if (selectElement) {
+        console.log(1);
         // 找到英文选项并切换
         const englishOption = Array.from(selectElement.options).find(opt =>
           opt.value === '' || opt.value === 'en'
@@ -464,11 +561,13 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
           selectElement.dispatchEvent(event);
         }
       } else {
+        console.log(2);
         // 如果 select 不存在，刷新页面以清除翻译
-        window.location.reload();
+        // window.location.reload();
       }
 
       setCurrentLanguage(label);
+      console.log('hello');
       return;
     } else if (langCode === 'zh-CN') {
       // 判断当前页面是否是文档或博客页面
@@ -569,9 +668,73 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
     }
 
     // 如果不需要跳转，直接应用 Google Translate
-    if (!window.google?.translate) {
-      console.warn('Google Translate not loaded');
-      return;
+    // 如果 Google Translate 未加载，尝试重新加载
+    if (!window.google?.translate?.TranslateElement) {
+      // 检查脚本是否已经存在
+      const existingScript = document.querySelector('script[src*="translate_a/element.js"], script[src*="/translate/element.js"]');
+      
+      if (existingScript) {
+        // 如果脚本已存在，等待它加载完成
+        const checkInterval = setInterval(() => {
+          if (window.google?.translate?.TranslateElement) {
+            clearInterval(checkInterval);
+            // 初始化 Google Translate
+            initializeTranslate();
+            // 等待初始化完成后切换语言
+            setTimeout(() => {
+              const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+              if (selectElement) {
+                const options = Array.from(selectElement.options);
+                const targetOption = options.find(opt => opt.value.includes(langCode));
+                if (targetOption) {
+                  selectElement.value = targetOption.value;
+                  const event = new Event('change', { bubbles: true });
+                  selectElement.dispatchEvent(event);
+                  setCurrentLanguage(label);
+                }
+              }
+            }, 500);
+          }
+        }, 100);
+        
+        // 设置超时，避免无限等待
+        setTimeout(() => {
+          clearInterval(checkInterval);
+        }, 5000);
+        
+        return;
+      } else {
+        // 如果脚本不存在，重新加载脚本
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = '/translate/element.js?cb=googleTranslateElementInit';
+        script.async = true;
+
+        // 定义全局回调函数
+        (window as any).googleTranslateElementInit = () => {
+          scriptLoadedRef.current = true;
+          setTimeout(() => {
+            initializeTranslate();
+            // 等待初始化完成后切换语言
+            setTimeout(() => {
+              const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+              if (selectElement) {
+                const options = Array.from(selectElement.options);
+                const targetOption = options.find(opt => opt.value.includes(langCode));
+                if (targetOption) {
+                  selectElement.value = targetOption.value;
+                  const event = new Event('change', { bubbles: true });
+                  selectElement.dispatchEvent(event);
+                  setCurrentLanguage(label);
+                }
+              }
+            }, 500);
+          }, 100);
+        };
+
+        document.head.appendChild(script);
+        return;
+      }
     }
 
     // 方法1: 尝试使用 select 元素切换
@@ -660,10 +823,12 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
         placement={isMobile ? 'topRight' : 'bottomRight'}
         overlayClassName="google-translate-dropdown notranslate"
         className='cursor-pointer notranslate'
+        destroyPopupOnHide
       >
         <button
           className="notranslate flex items-center justify-center w-10 h-10 border-0 bg-white hover:bg-gray-100 transition-colors focus:outline-none"
           aria-label="Select language"
+          onClick={(e) => e.preventDefault()}
         >
           <svg
             className="w-6 h-6 text-[#131316]"

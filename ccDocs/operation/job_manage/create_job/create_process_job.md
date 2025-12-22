@@ -36,6 +36,7 @@ title: 自定义代码任务
 
 ### 代码开发
 1. CloudCanal 提供了基础工程 [cloudcanal-data-process](https://gitee.com/clougence/cloudcanal-data-process)，将此工程导入 IDE 即可进行开发。
+    
     :::info
     自定义代码开发推荐在 [IntelliJ IDEA](https://www.jetbrains.com/idea/) 或 [Eclipse](https://www.eclipse.org/) 等 java IDE 中进行。   
     cloudcanal-data-process 工程提供了应用示例，可参考修改进行应用。

@@ -1,5 +1,5 @@
 ---
-id: wecom_sql_review
+slug: /tutorials/wecom_sql_review
 description: CloudDM 接入企业微信，支持实时通知与移动办公，满足广大企业用户的实际需求。
 title: 使用 CloudDM 和企业微信流程化管理数据库变更审批
 date: 2025-03-28
@@ -7,12 +7,13 @@ authors: mode
 tags:
   - tutorials
 image: /img/clouddm/dmblog/tutorials/wecom_sql_review.png 
-slug: /tutorials/wecom_sql_review
 ---
 
 CloudDM 是一个专为团队协同工作打造的数据库数据管控平台。在管控数据库安全变更的过程中，为提高效率，方便用户使用，CloudDM 接入了主流 OA 协同办公系统（包括钉钉、飞书、企业微信），支持实时通知与移动办公，满足广大企业用户的实际需求。
 
 本文将介绍如何使用 CloudDM 和企业微信实现高效的数据库变更审批。
+
+<!-- truncate -->
 
 ## 前置要求
 部署 CloudDM Console 的服务器能够被外网访问。

@@ -1,5 +1,5 @@
 ---
-id: dingtalk_sql_review
+slug: /tutorials/dingtalk_sql_review
 description: CloudDM 接入钉钉，支持实时通知与移动办公，满足广大企业用户的实际需求。
 title: 使用 CloudDM 和钉钉流程化管理数据库变更审批
 date: 2025-06-08
@@ -7,12 +7,13 @@ authors: mumu
 tags:
   - tutorials
 image: /img/clouddm/dmblog/tutorials/dingtalk_sql_review.png 
-slug: /tutorials/dingtalk_sql_review
 ---
 
 CloudDM 是一个专为团队协同工作打造的数据库数据管控平台，在管控数据库安全变更的过程中，为提高效率，CloudDM 接入钉钉，支持实时通知与移动办公，满足广大企业用户的实际需求。
 
 本文将介绍如何使用 CloudDM 和钉钉实现高效的数据库变更审批。
+
+<!-- truncate -->
 
 ## 接入钉钉
 ###  创建钉钉应用
