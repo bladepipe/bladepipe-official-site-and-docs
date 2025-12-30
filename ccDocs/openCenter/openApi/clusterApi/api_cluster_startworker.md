@@ -1,16 +1,16 @@
 ---
-id: api_constant_dspostype
-title: 数据源位点类型
-description: 接口描述：获取数据源位点类型,以便展示
+id: api_cluster_startworker
+title: 启动机器
+description: 接口描述：启动指定的机器节点
 ---
 
 ## 接口描述 
 
-获取数据源位点类型，以便展示
+启动指定的机器节点，将节点状态更新为等待上线
 
 ## 接口地址 
 
-`/cloudcanal/console/api/v1/openapi/constant/dspostypes`
+`/cloudcanal/console/api/v1/openapi/worker/startWorker`
 
 ## 请求方式
 
@@ -20,7 +20,7 @@ description: 接口描述：获取数据源位点类型,以便展示
 
 | 参数名称         | 参数说明     |     请求类型 |  是否必须      |  数据类型   |
 | ------------ | -------------------------------- |-----------|--------|----|
-| dsType  |数据源类型 , 根据 [获取源端数据源类型](api_constant_srcdstype.md) 获取|   body    |   是   |string  |     
+| workerId  |机器节点id|   body    |   是   |  long |  
 
 ## 公共响应结果
 
@@ -31,23 +31,18 @@ description: 接口描述：获取数据源位点类型,以便展示
 | msg      |      |    string   |   否    |
 | requestId     |      |    string   |   是    |
 
-## data 参数说明
-
-data 为一串字符串数组，值表示该数据源的位点类型
-
 ## 响应示例
 
 ```json
 {
-  "requestId": "4a178313-2be6-11ec-b616-93507033b0a3",
+  "requestId": "ebd0b7dc-54ed-11ed-b820-5bd47d77dc8c",
   "code": "1",
   "msg": "request success",
-  "data": [
-    "MYSQL_LOG_FILE_POS",
-    "MYSQL_GTID_POS",
-    "MYSQL_TIMESTAMP_POS"
-  ]
+  "data": null
 }
 ```
 
+## 注意事项
 
+- 启动后节点状态将变为 `WAIT_TO_ONLINE`（等待上线）
+- 节点上的 Sidecar 客户端启动后会自动将状态更新为 `ONLINE`（在线）

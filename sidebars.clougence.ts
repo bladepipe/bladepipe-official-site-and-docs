@@ -552,6 +552,8 @@ const sidebars: SidebarsConfig = {
             "openCenter/openApi/constApi/api_constant_listdatataskstatuses",
             "openCenter/openApi/constApi/api_constant_mqvalueformats",
             "openCenter/openApi/constApi/api_constant_srcdstype",
+            "openCenter/openApi/constApi/api_constant_supportsrcdeploytypes",
+            "openCenter/openApi/constApi/api_constant_supportdstdeploytypes",
             "openCenter/openApi/constApi/api_constant_transformjobtype",
             "openCenter/openApi/constApi/api_constant_valueformatstemplate"
           ]
@@ -563,7 +565,12 @@ const sidebars: SidebarsConfig = {
             "openCenter/openApi/clusterApi/api_cluster_listclusters",
             "openCenter/openApi/clusterApi/api_cluster_listworkers",
             "openCenter/openApi/clusterApi/api_cluster_createandinstallworker",
-            "openCenter/openApi/clusterApi/api_cluster_operateworkersclient"
+            "openCenter/openApi/clusterApi/api_cluster_operateworkersclient",
+            "openCenter/openApi/clusterApi/api_cluster_startworker",
+            "openCenter/openApi/clusterApi/api_cluster_stopworker",
+            "openCenter/openApi/clusterApi/api_cluster_deleteworker",
+            "openCenter/openApi/clusterApi/api_cluster_modifymemoversoldpercent",
+            "openCenter/openApi/clusterApi/api_cluster_updateworkeralertconfig"
           ]
         },
         {
@@ -596,8 +603,12 @@ const sidebars: SidebarsConfig = {
           "label": "数据任务API",
           "items": [
             "openCenter/openApi/dataTaskApi/api_datajob_list",
+            "openCenter/openApi/dataTaskApi/api_datajob_listbypage",
             "openCenter/openApi/dataTaskApi/api_datajob_query",
             "openCenter/openApi/dataTaskApi/api_datajob_queryjobschema",
+            "openCenter/openApi/dataTaskApi/api_datajob_queryjobmetric",
+            "openCenter/openApi/dataTaskApi/api_datajob_queryjobcreatedetail",
+            "openCenter/openApi/dataTaskApi/api_datajob_queryjobposition",
             "openCenter/openApi/dataTaskApi/api_datajob_start",
             "openCenter/openApi/dataTaskApi/api_datajob_stop",
             "openCenter/openApi/dataTaskApi/api_datajob_restart",
@@ -623,7 +634,8 @@ const sidebars: SidebarsConfig = {
           "type": "category",
           "label": "元数据API",
           "items": [
-            "openCenter/openApi/schemaApi/api_schema_querybytransferobjname"
+            "openCenter/openApi/schemaApi/api_schema_querybytransferobjname",
+            "openCenter/openApi/schemaApi/api_schema_listtransobjsbymeta"
           ]
         },
         {

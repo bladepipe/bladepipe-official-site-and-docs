@@ -1,6 +1,6 @@
 ---
 id: api_datajob_query
-title: 数据任务详情
+title: 查询任务详情
 description: 接口描述：根据任务id查询任务详情
 ---
 

@@ -6,7 +6,7 @@ description: 接口描述：获取DataJob类型,以便选择
 
 ## 接口描述 
 
-获取DataJob类型,以便选择
+获取 DataJob 类型，以便选择
 
 ## 接口地址 
 

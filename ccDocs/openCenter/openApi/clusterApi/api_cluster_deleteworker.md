@@ -1,16 +1,16 @@
 ---
-id: api_constant_dspostype
-title: 数据源位点类型
-description: 接口描述：获取数据源位点类型,以便展示
+id: api_cluster_deleteworker
+title: 删除机器
+description: 接口描述：删除指定的机器节点
 ---
 
 ## 接口描述 
 
-获取数据源位点类型，以便展示
+删除指定的机器节点
 
 ## 接口地址 
 
-`/cloudcanal/console/api/v1/openapi/constant/dspostypes`
+`/cloudcanal/console/api/v1/openapi/worker/deleteWorker`
 
 ## 请求方式
 
@@ -20,7 +20,7 @@ description: 接口描述：获取数据源位点类型,以便展示
 
 | 参数名称         | 参数说明     |     请求类型 |  是否必须      |  数据类型   |
 | ------------ | -------------------------------- |-----------|--------|----|
-| dsType  |数据源类型 , 根据 [获取源端数据源类型](api_constant_srcdstype.md) 获取|   body    |   是   |string  |     
+| workerId  |机器节点id|   body    |   是   |  long |  
 
 ## 公共响应结果
 
@@ -31,23 +31,19 @@ description: 接口描述：获取数据源位点类型,以便展示
 | msg      |      |    string   |   否    |
 | requestId     |      |    string   |   是    |
 
-## data 参数说明
-
-data 为一串字符串数组，值表示该数据源的位点类型
-
 ## 响应示例
 
 ```json
 {
-  "requestId": "4a178313-2be6-11ec-b616-93507033b0a3",
+  "requestId": "ebd0b7dc-54ed-11ed-b820-5bd47d77dc8c",
   "code": "1",
   "msg": "request success",
-  "data": [
-    "MYSQL_LOG_FILE_POS",
-    "MYSQL_GTID_POS",
-    "MYSQL_TIMESTAMP_POS"
-  ]
+  "data": null
 }
 ```
 
+## 注意事项
 
+- 删除节点前请确保节点上没有运行中的任务
+- 删除操作不可逆，请谨慎操作
+- 如果节点上仍有任务挂载，删除操作可能会失败

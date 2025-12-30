@@ -18,7 +18,7 @@ title: 5.3.0.0
 
 ## 新特性
 
-- 支持 AWS RDS Oracle 全量迁移和增量同步
+- 支持 [AWS RDS Oracle 全量迁移和增量同步](../dataMigrationAndSync/datasource_func/Oracle/prepare_for_aws_oracle.md)
 - 支持 Oracle/PostgreSQL/SQL Server 源端数据校验设置采样率（参数：checkSamplePercent ），无断点续传，支持叠加过滤条件
 - 支持 MySQL -> PostgreSQL 多 Schema 迁移同步
 - 支持 TiDB 源端多任务订阅相同表，对于超多 region 表显著降低拉取变更记录可能发生异常的概率

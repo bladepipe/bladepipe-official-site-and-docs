@@ -12,31 +12,35 @@ CloudCanal 任务有时候也叫做链路。
 
 | 源端数据库类型 | 单个任务最大颗粒度 | 单个任务最小颗粒度 |
 | --- | --- | --- |
-| MySQL | 多个 Schema | 单个表 |
+| MySQL | 单个实例<sup>[1]</sup> | 单个表 |
 | Oracle | 单个 Schema | 单个表 |
 | SQL Server | 单个 Schema | 单个表 |
 | Db2 | 单个 Schema | 单个表 |
-| PostgreSQL | 多个 Schema | 单个表 |
-| MongoDB | 多个 Schema | 单个 Collection |
-| OceanBase | 多个 Schema | 单个表 |
-| PolarDB-X | 多个 Schema | 单个表 |
-| StarRocks | 多个 Schema | 单个表 |
-| Tunnel | 多个 Schema | 单个表 |
-| TiDB | 多个 Schema | 单个表 |
+| PostgreSQL | 单个实例 | 单个表 |
+| MongoDB | 单个实例 | 单个 Collection |
+| OceanBase | 单个实例 | 单个表 |
+| PolarDB-X | 单个实例 | 单个表 |
+| StarRocks | 单个实例 | 单个表 |
+| Tunnel | 单个实例 | 单个表 |
+| TiDB | 单个实例 | 单个表 |
 | Kafka | 多个 Topic | 单个 Topic |
 | RocketMQ | 多个 Topic | 单个 Topic |
 | RabbitMQ | 多个 Queue | 单个 Queue |
 | AutoMQ | 多个 Topic | 单个 Topic |
 | Hana | 单个 Schema | 单个表 |
-| OpenGauss | 多个 Schema | 单个表 |
-| Greenplum | 多个 Schema | 单个表 |
+| OpenGauss | 单个实例 | 单个表 |
+| Greenplum | 单个实例 | 单个表 |
 | Elasticsearch | 多个 Index | 单个 Index |
 | Pulsar | 多个 Topic | 单个 Topic |
-| TDengine | 多个 Schema | 单个表 |
-| 达梦 | 多个 Schema  | 单个表 |
+| TDengine | 单个实例 | 单个表 |
+| 达梦 | 单个实例  | 单个表 |
 | SshFile | 单个目录  | 单个文件 |
 | S3File | 单个 Bucket  | 单个文件 |
 | OssFile | 单个 Bucket  | 单个文件 |
+
+:::info
+1. 单个实例对应多个schema，单个 schema 对应多张表。
+:::
 
 ## 任务规格
 
