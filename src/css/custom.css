@@ -1604,3 +1604,62 @@ a:active {
 .skiptranslate iframe {
   display: none !important;
 }
+
+/* AI Bot 浮动按钮高亮与提示气泡（兼容可能的类名变体） */
+.ai-bot-widget-button,
+[class*="ai-bot-widget-button"] {
+  box-shadow: 0 8px 24px rgba(0, 135, 199, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ai-bot-widget-button:hover,
+[class*="ai-bot-widget-button"]:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 135, 199, 0.45);
+}
+
+.ai-bot-widget-button::before,
+[class*="ai-bot-widget-button"]::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(0,135,199,0.25) 0%, rgba(0,135,199,0) 70%);
+  animation: aiBotPulse 2.4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ai-bot-widget-button::after,
+[class*="ai-bot-widget-button"]::after {
+  content: '有问题，尽管问我吧';
+  position: absolute;
+  left: 50%;
+  bottom: 110%;
+  transform: translate(-50%, 0);
+  white-space: nowrap;
+  background: #0a6fb7;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(10, 111, 183, 0.25);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 2;
+}
+
+.ai-bot-widget-button:hover::after,
+.ai-bot-widget-button:focus-visible::after,
+[class*="ai-bot-widget-button"]:hover::after,
+[class*="ai-bot-widget-button"]:focus-visible::after {
+  opacity: 1;
+  transform: translate(-50%, -4px);
+}
+
+@keyframes aiBotPulse {
+  0% { transform: scale(0.96); opacity: 0.6; }
+  50% { transform: scale(1.06); opacity: 0.2; }
+  100% { transform: scale(0.98); opacity: 0; }
+}
