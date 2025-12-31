@@ -129,3 +129,73 @@ window.aiBotConfig = {
       }
   }
 };
+
+// 为 AI Bot 按钮注入样式（Shadow DOM 内）
+(function injectAiBotStyle() {
+  const styleContent = `
+    .ai-bot-widget-button {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .ai-bot-widget-button:hover,
+    .ai-bot-widget-button:focus-visible {
+      transform: translateY(-1px) scale(1.02);
+    }
+    .ai-bot-widget-button::after {
+      content: '有问题？尽管问我吧！';
+      position: absolute;
+      right: 110%;
+      top: 50%;
+      transform: translate(0, -50%);
+      white-space: nowrap;
+      background: rgb(75,205,107);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 10px 14px;
+      border-radius: 999px;
+      box-shadow: 0 8px 20px rgba(10, 111, 183, 0.25);
+      opacity: 0;
+      animation: aiBotHint 10s ease-in-out infinite;
+      z-index: 2;
+    }
+    .ai-bot-widget-button:hover::after,
+    .ai-bot-widget-button:focus-visible::after {
+      animation: none;
+      opacity: 1;
+      transform: translate(-4px, -50%);
+    }
+    @keyframes aiBotHint {
+      0%, 5% { opacity: 0; transform: translate(10px, -50%); }
+      10%, 65% { opacity: 1; transform: translate(-4px, -50%); }
+      70%, 100% { opacity: 0; transform: translate(10px, -50%); }
+    }
+  `;
+
+  const tryInject = () => {
+    const host = document.querySelector('#ai-bot-root');
+    if (!host || !host.shadowRoot) return false;
+    const btn = host.shadowRoot.querySelector('.ai-bot-widget-button');
+    if (!btn) return false;
+    // 防止重复注入
+    if (host.shadowRoot.querySelector('#ai-bot-style')) return true;
+    const style = document.createElement('style');
+    style.id = 'ai-bot-style';
+    style.textContent = styleContent;
+    host.shadowRoot.appendChild(style);
+    // 如果按钮是 static 定位，则仅在这种情况下设为 relative，避免覆写已有 fixed/absolute
+    const computed = window.getComputedStyle(btn);
+    if (computed.position === 'static') {
+      btn.style.position = 'relative';
+      btn.style.overflow = 'visible';
+    }
+    return true;
+  };
+
+  let attempts = 0;
+  const timer = setInterval(() => {
+    attempts += 1;
+    if (tryInject() || attempts > 40) {
+      clearInterval(timer);
+    }
+  }, 250);
+})();

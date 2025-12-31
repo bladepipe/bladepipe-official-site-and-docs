@@ -1107,16 +1107,28 @@ export default function About(): React.JSX.Element {
                       <h3 className="text-[14px] sm:text-[16px] font-medium text-black opacity-80">
                         <Translate id="about.contact.other.title">Other Contact Information</Translate>
                       </h3>
-                      <a 
-                        href="https://join.slack.com/t/bladepipehq/shared_invite/zt-2sh9op2yo-JIsDrstycVMdKM4auCTm8g"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex gap-[12px] sm:gap-[23px] justify-start items-center hover:opacity-80 transition-opacity"
+                      {/*<a */}
+                      {/*  href="https://join.slack.com/t/bladepipehq/shared_invite/zt-2sh9op2yo-JIsDrstycVMdKM4auCTm8g"*/}
+                      {/*  target="_blank"*/}
+                      {/*  rel="noopener noreferrer"*/}
+                      {/*  className="flex gap-[12px] sm:gap-[23px] justify-start items-center hover:opacity-80 transition-opacity"*/}
+                      {/*>*/}
+                      {/*  <img */}
+                      {/*    src="/img/about/contact/slack.svg" */}
+                      {/*    alt="Slack" */}
+                      {/*    className="w-[28px] h-[28px] sm:w-[32px] sm:h-[32px]"*/}
+                      {/*  />*/}
+                      {/*</a>*/}
+                      <a
+                          href="https://discord.com/channels/1033762479530053672/1156573265985282128"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex gap-[12px] sm:gap-[23px] justify-start items-center hover:opacity-80 transition-opacity"
                       >
-                        <img 
-                          src="/img/about/contact/slack.svg" 
-                          alt="Slack" 
-                          className="w-[28px] h-[28px] sm:w-[32px] sm:h-[32px]"
+                        <img
+                            src="/img/about/contact/discord.svg"
+                            alt="Discord"
+                            className="w-[28px] h-[28px] sm:w-[32px] sm:h-[32px]"
                         />
                       </a>
                     </div>

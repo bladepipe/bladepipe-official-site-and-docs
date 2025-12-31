@@ -396,8 +396,11 @@ export default function Footer() {
                 <a href="mailto:support@bladepipe.com" className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black" title="Email">
                   <img src="/img/contact/email.svg" alt="Email" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />
                 </a>
-                <a href="https://join.slack.com/t/bladepipehq/shared_invite/zt-2sh9op2yo-JIsDrstycVMdKM4auCTm8g" className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black" title="Slack">
-                  <img src="/img/contact/slack.svg" alt="Slack" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />
+                {/*<a href="https://join.slack.com/t/bladepipehq/shared_invite/zt-2sh9op2yo-JIsDrstycVMdKM4auCTm8g" className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black" title="Slack">*/}
+                {/*  <img src="/img/contact/slack.svg" alt="Slack" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />*/}
+                {/*</a>*/}
+                <a href="https://discord.com/channels/1033762479530053672/1156573265985282128" target="_blank" className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black" title="Slack">
+                  <img src="/img/contact/discord.svg" alt="Discord" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />
                 </a>
               </>
             )}

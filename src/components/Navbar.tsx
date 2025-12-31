@@ -582,9 +582,27 @@ export default function Navbar() {
           )}
         </div>
         {/* 右侧操作区（大屏显示） */}
-        <div className='hidden xl:flex items-center gap-2 xl:gap-4 flex-shrink-0'>
+        <div className='hidden xl:flex items-center gap-2 flex-shrink-0'>
           {/*/!* 搜索图标 *!/*/}
           {/*{siteBrand !== 'clougence' && SearchBarComponent && <SearchBarComponent />}*/}
+
+          {/* Discord 图标链接 - 仅在 bladepipe 时显示 */}
+          {siteBrand === 'bladepipe' && (
+            <a 
+              href="https://discord.com/channels/1033762479530053672/1156573265985282128" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-10 h-10 mr-2 2xl:mr-4 rounded-full border border-black/20 bg-white flex items-center justify-center transition-all duration-200 hover:bg-gray-100 hover:border-black/30 hover:scale-105"
+              title="Discord"
+              aria-label="Discord"
+            >
+              <img 
+                src="/img/about/contact/discord.svg" 
+                alt="Discord" 
+                className="w-6 h-6" 
+              />
+            </a>
+          )}
 
           {/* Google Translate - 仅在 bladepipe 时显示 */}
           {siteBrand === 'bladepipe' && (
@@ -605,7 +623,7 @@ export default function Navbar() {
               destroyPopupOnHide={true}
               getPopupContainer={(trigger) => trigger.parentElement || document.body}
             >
-              <div className='flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full border border-black/20 cursor-pointer hover:bg-gray-100 transition-colors'>
+              <div className='flex items-center px-3 2xl:px-5 h-10 rounded-full border border-black/20 cursor-pointer hover:bg-gray-100 transition-colors'>
                 <span className='text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#131316] mr-2'>
                   <Translate id='navbar.hello'>Hello</Translate>, {userInfo?.username || userInfo?.email || 'User'}
                 </span>
@@ -620,7 +638,7 @@ export default function Navbar() {
                 localStorage.setItem('loginSource', 'sign_in');
               }}
             >
-              <div className='flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full border border-black/20 cursor-pointer hover:bg-gray-100'>
+              <div className='flex items-center px-3 2xl:px-5 h-10 rounded-full border border-black/20 cursor-pointer hover:bg-gray-100'>
                 <span className='text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#131316]'>
                   <Translate id='navbar.signin'>Log In</Translate>
                 </span>
@@ -629,7 +647,7 @@ export default function Navbar() {
           )}
           {/* Try Cloud Free */}
           <div
-            className='flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full bg-[#0087c7] text-white cursor-pointer hover:bg-[#0070a6]'
+            className='flex items-center px-3 lg:px-4 2xl:px-5 h-10 rounded-full bg-[#0087c7] text-white cursor-pointer hover:bg-[#0070a6]'
             onClick={() =>
               loginCheckAndRedirect(() => {
                 window.location.href = getCloudUrl();
@@ -902,10 +920,29 @@ export default function Navbar() {
             </div>
 
             {/* 底部按钮区域 */}
-            <div className="mt-auto px-5 py-[30px] flex items-end justify-between gap-[2px] flex-shrink-0">
+            <div className="mt-auto px-5 py-[30px] flex items-end gap-3 flex-shrink-0">
+              {/* Discord 图标链接 - 移动端，仅在 bladepipe 时显示 */}
+              {siteBrand === 'bladepipe' && (
+                <a 
+                  href="https://discord.com/channels/1033762479530053672/1156573265985282128" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full border border-black/20 bg-white flex items-center justify-center transition-all duration-200 hover:bg-gray-100 hover:border-black/30 mb-4 flex-shrink-0"
+                  title="Discord"
+                  aria-label="Discord"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  <img 
+                    src="/img/about/contact/discord.svg" 
+                    alt="Discord" 
+                    className="w-6 h-6" 
+                  />
+                </a>
+              )}
+
               {/* Google Translate - 移动端，仅在 bladepipe 时显示 */}
               {siteBrand === 'bladepipe' && (
-                <div className="mobile-google-translate mb-4 w-full">
+                <div className="mobile-google-translate mb-4 flex-1">
                   <GoogleTranslate position="navbar" />
                 </div>
               )}
