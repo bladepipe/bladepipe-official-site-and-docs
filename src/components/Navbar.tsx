@@ -588,18 +588,18 @@ export default function Navbar() {
 
           {/* Discord 图标链接 - 仅在 bladepipe 时显示 */}
           {siteBrand === 'bladepipe' && (
-            <a 
-              href="https://discord.com/channels/1033762479530053672/1156573265985282128" 
-              target="_blank" 
+            <a
+              href="https://discord.gg/HMnThuQMup"
+              target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 mr-2 2xl:mr-4 rounded-full border border-black/20 bg-white flex items-center justify-center transition-all duration-200 hover:bg-gray-100 hover:border-black/30 hover:scale-105"
               title="Discord"
               aria-label="Discord"
             >
-              <img 
-                src="/img/about/contact/discord.svg" 
-                alt="Discord" 
-                className="w-6 h-6" 
+              <img
+                src="/img/about/contact/discord.svg"
+                alt="Discord"
+                className="w-6 h-6"
               />
             </a>
           )}
@@ -923,19 +923,19 @@ export default function Navbar() {
             <div className="mt-auto px-5 py-[30px] flex items-end gap-3 flex-shrink-0">
               {/* Discord 图标链接 - 移动端，仅在 bladepipe 时显示 */}
               {siteBrand === 'bladepipe' && (
-                <a 
-                  href="https://discord.com/channels/1033762479530053672/1156573265985282128" 
-                  target="_blank" 
+                <a
+                  href="https://discord.gg/HMnThuQMup"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full border border-black/20 bg-white flex items-center justify-center transition-all duration-200 hover:bg-gray-100 hover:border-black/30 mb-4 flex-shrink-0"
                   title="Discord"
                   aria-label="Discord"
                   onClick={() => setMobileOpen(false)}
                 >
-                  <img 
-                    src="/img/about/contact/discord.svg" 
-                    alt="Discord" 
-                    className="w-6 h-6" 
+                  <img
+                    src="/img/about/contact/discord.svg"
+                    alt="Discord"
+                    className="w-6 h-6"
                   />
                 </a>
               )}

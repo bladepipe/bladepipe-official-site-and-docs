@@ -1120,7 +1120,7 @@ export default function About(): React.JSX.Element {
                       {/*  />*/}
                       {/*</a>*/}
                       <a
-                          href="https://discord.com/channels/1033762479530053672/1156573265985282128"
+                          href="https://discord.gg/HMnThuQMup"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex gap-[12px] sm:gap-[23px] justify-start items-center hover:opacity-80 transition-opacity"

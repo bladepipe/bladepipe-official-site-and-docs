@@ -25,7 +25,7 @@ title: 5.3.1.0
 - 支持 MySQL 源端 RENAME_COL 类型 DDL，并且支持 StarRocks（>= 3.3.2）对端同步该类型 DDL
 - 支持 MySQL 解析 binlog 时跳过不支持的 variable part 事件
 - 支持 Hana -> Doris，OceanBase -> StarRocks 虚拟列功能
-- 支持 SQL Server 源端心跳，解决源端无任何写入延迟问题
+- 支持 [SQL Server 源端心跳](../dataMigrationAndSync/datasource_func/SqlServer/open_sqlserver_heartbeat.md)，解决源端无任何写入延迟问题
 - 支持 Doris/SelectDB -> MySQL 数据校验/数据订正
 - 支持 DB2 源端元数据检索，方便用户查阅订阅关系
 - 支持 DB2 源端性能参数的模板白名单
@@ -42,7 +42,7 @@ title: 5.3.1.0
 - 优化 MySQL 源端同步 OnlineDDL 默认使用 DDL Convert 逻辑，大幅提升 ONLINE DDL 同步的兼容性
 - 优化 MySQL 源端结构迁移过滤非法 datetime/timestamp 默认值
 - 优化 MySQL 全量多 schema 数据迁移连接池初始化逻辑，解决启动慢、连接数占用多的问题
-- 优化 MySQL 源端非法 DATE/DATETIME/TIMESTAMP 数据判定逻辑
+- 优化 MySQL 源端非法 date/datetime/timestamp 数据判定逻辑
 - 优化 PostgreSQL 全量迁移支持多主键表使用主键分页查询 （原为 snapshot read）
 - 优化 SQL Server 延迟展示的时区偏移问题
 - 优化 SQL Server 源端 2014 以下版本默认 SnapshotRead 设置为 ture，扫描动作为快照读
@@ -68,7 +68,7 @@ title: 5.3.1.0
 - 修复 Oracle 添加数据源用户名配置为 username as role （.e.g. sys as sysdba）导致的连接问题
 - 修复 Oracle 无约束表增量同步阶段对端无法插入相同行的问题
 - 修复 获取 Oracle index 列时，未限制列 owner 导致错误获取到其他 Schema 同名 index 列的问题
-- 修复 PostgreSQL 增量开启强类型同步后解析公元前的 timestamp with/without time zone 数据失败的问题
+- 修复 PostgreSQL 源端增量开启强类型同步后解析公元前的 timestamp with/without time zone 数据失败的问题
 - 修复 OceanBase/OceanBase for Oracle 源端 LogProxy 服务进程退出后增量同步任务无限重连的问题（新增参数 logProxyMaxReconnectTimes）
 - 修复 OceanBase for Oracle 源端解析 DDL 失败导致日志监听客户端停止，但任务进程仍存活的问题
 - 修复 DB2 源端子任务合并后，主任务无法启动的问题
