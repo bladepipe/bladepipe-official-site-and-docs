@@ -624,6 +624,7 @@ const sidebars: SidebarsConfig = {
             "openCenter/openApi/dataTaskApi/api_datajob_updatetransferobjnew",
             "openCenter/openApi/dataTaskApi/api_datajob_updatetransferobjnewfull",
             "openCenter/openApi/dataTaskApi/api_datajob_delete",
+            "openCenter/openApi/dataTaskApi/api_datajob_updateincrepos",
             "openCenter/openApi/dataTaskApi/api_datajob_schema",
             "openCenter/openApi/dataTaskApi/api_datajob_mapping",
             "openCenter/openApi/dataTaskApi/api_datajob_listkvconfigsbyjobid",
