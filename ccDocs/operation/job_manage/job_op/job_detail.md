@@ -26,7 +26,7 @@ title: 查看任务信息
 
 - [管理任务生命周期](job_life_cycle_manage.md)
 - [重跑任务](job_replay.md)
-- [修改任务参数](job_params.md)
+- [修改参数](job_params.md)
 - [修改订阅](edit_job.md)
 - [修改任务配置](change_job_setting.md)
 - [配置任务告警](job_alarm.md)

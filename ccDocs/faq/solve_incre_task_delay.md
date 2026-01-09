@@ -37,7 +37,7 @@ description: 本文介绍使用CloudCanal创建同步任务后增量任务延迟
  ![task_resource_monitor](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/faq/task_resource_monitor.png)
  ![task_fgc_dashboard](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/faq/task_fgc_dashboard.png)
 
-- FGC 过多， **任务详情** > **功能列表** > **参数修改** 进行参数调整
+- FGC 过多， **任务详情** > **功能列表** > **修改参数** 进行参数调整
   - 增量同步：调整 **increRingBufferSize**、**increBatchSize** 参数，将原有值调小一半，避免一批同步太多数据导致 FGC
   - 全量迁移：调整 **fullRingBufferSize**、**fullBatchSize** 参数，将原有值调小一半，避免一批迁移太多数据导致 FGC
 

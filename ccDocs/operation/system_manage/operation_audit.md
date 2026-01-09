@@ -17,3 +17,4 @@ CloudCanal 对 **查看数据源配置、更新数据源配置、更新数据源
    :::info
    仅支持查看未归档的日志。若日志已归档，请在对应的日志服务器上查看，路径为 ~/logs/cloudcanal/console/fileName。
    :::
+3. 在右上方点击 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operate_audit/1.png) 图标，可导出操作审计日志。

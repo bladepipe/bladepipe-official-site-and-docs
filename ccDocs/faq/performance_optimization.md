@@ -18,19 +18,19 @@ CloudCanal 任务卡顿超时，需要优化性能，提高效率。
   
 - **若存在内存问题**，可按以下步骤修改参数：
   - 全量迁移参数修改
-    1. 进入任务详情页，点击 **功能列表** > [**参数修改**](../operation/job_manage/job_op/job_params.md)。
+    1. 进入任务详情页，点击 **功能列表** > [**修改参数**](../operation/job_manage/job_op/job_params.md)。
     2. 修改 ***fullRingBufferSize*** 和 ***fullBatchSize*** 为原来的 50%。
     3. 修改 ***writeParallel*** 为原来的 200%。
     4. 点击页面右上角 **生效配置**。
 
   - 增量同步参数修改
-    1. 进入任务详情页，点击 **功能列表** > [**参数修改**](../operation/job_manage/job_op/job_params.md)。
+    1. 进入任务详情页，点击 **功能列表** > [**修改参数**](../operation/job_manage/job_op/job_params.md)。
     2. 修改 ***increRingBufferSize*** 和 ***increBatchSize*** 为原来的 50%。
     3. 修改 ***writeParallel*** 为原来 200%。
     4. 点击页面右上角 **生效配置**。
 
 - **若不存在内存问题**，可按以下步骤尝试：   
-  1. 进入任务详情页，点击 **功能列表** > [**参数修改**](../operation/job_manage/job_op/job_params.md)，修改 ***increBatchSize*** 和 ***writeParallel*** 参数提升写入效率。
+  1. 进入任务详情页，点击 **功能列表** > [**修改参数**](../operation/job_manage/job_op/job_params.md)，修改 ***increBatchSize*** 和 ***writeParallel*** 参数提升写入效率。
 
   2. 若修改参数后写入效率并未提升，可能存在 **对端写入瓶颈**，可按以下步骤查看：    
    进入任务详情页，点击 **增量同步** 页签下的 **查看日志** > **apply_commit.log**，其中最后一列是写入对端耗时（毫秒）。如耗时为将近 10s，可能对端处理能力存在瓶颈。

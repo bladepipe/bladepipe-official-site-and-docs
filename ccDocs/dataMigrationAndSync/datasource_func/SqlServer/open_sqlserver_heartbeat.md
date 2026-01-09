@@ -41,7 +41,7 @@ SQL Server 作为源端的数据同步场景中，如果长时间无变更，会
 
 <Tabs groupId="mode">
   <TabItem value="CHECK_POS" label="CHECK_POS 模式" default>
-    1. 进入任务详情页，点击 **功能列表** > **修改任务参数**。
+    1. 进入任务详情页，点击 **功能列表** > **修改参数**。
     2. 选择 **源数据源配置** 页签，修改以下参数值：
         - 参数 **dbHeartbeatEnable** 设置为 true。
         - 参数 **dbHeartbeatMode** 设置为 CHECK_POS。
@@ -59,7 +59,7 @@ SQL Server 作为源端的数据同步场景中，如果长时间无变更，会
 
     INSERT INTO [dbo].[cc_hb_tab] ([gmt_modified]) VALUES (CURRENT_TIMESTAMP);
     ```
-2. 在任务详情页的 **功能列表** > **修改任务参数** > **源数据源配置** 页签中查看 **dataCaptureMode** 参数值，检查源端心跳表的 CDC 表模式：
+2. 在任务详情页的 **功能列表** > **修改参数** > **源数据源配置** 页签中查看 **dataCaptureMode** 参数值，检查源端心跳表的 CDC 表模式：
     - 参数值为 **CDC_DYNAMIC**：动态 CDC 模式
     - 参数值为 **CDC_STATIC**：静态 CDC 模式
     :::info
@@ -87,7 +87,7 @@ SQL Server 作为源端的数据同步场景中，如果长时间无变更，会
         @capture_instance = N'cc_test_db_dbo_cc_hb_tab_cc_static',
         @supports_net_changes = 0
     ```
-4. 进入任务详情页，点击 **功能列表** > **修改任务参数**。
+4. 进入任务详情页，点击 **功能列表** > **修改参数**。
 5. 选择 **源数据源配置** 页签，修改以下参数值：
      - 参数 **dbHeartbeatEnable** 设置为 true。
      - 参数 **dbHeartbeatMode** 设置为 SEND_SQL。

@@ -113,7 +113,7 @@ CREATE TABLE `ghost_test`.`abc` (
 - **任务管理** -> **任务创建。**
 - **测试连接**并选择 **源** 和 **目标** 数据库。
 - 选择增量同步任务和需要订阅的表与字段，并创建任务
-- 增量任务中，功能列表 -> 参数修改 -> 源数据源配置 -> 参数 **extraDDL** 设置为 **GHOST**
+- 增量任务中，功能列表 -> 修改参数 -> 源数据源配置 -> 参数 **extraDDL** 设置为 **GHOST**
   ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/tech_share/0002/3.png)
 
 创建并且启动任务，当任务正常执行到增量阶段时，此时我们可以利用数据生成工具和Online DDL工具对源端数据库触发一些增量DML变更和DDL变更，然后查看CloudCanal是否能正常实时同步这些DML和DDL事件。
