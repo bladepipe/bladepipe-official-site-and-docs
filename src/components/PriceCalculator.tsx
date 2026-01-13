@@ -183,14 +183,14 @@ const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
     const val = value !== undefined ? value : etlValue;
     const maxValue = 1000;
     const currentValue = Math.round((val / 100) * maxValue);
-    return `${currentValue}M/${translate({ id: 'pricing.calculator.month', message: 'month' })}`;
+    return `${currentValue}${translate({ id: 'pricing.calculator.million', message: ' Million' })}/${translate({ id: 'pricing.calculator.month', message: 'month' })}`;
   };
 
   const formatCdcValue = (value?: number) => {
     const val = value !== undefined ? value : cdcValue;
     const maxValue = 100;
     const currentValue = Math.round((val / 100) * maxValue);
-    return `${currentValue}M/${translate({ id: 'pricing.calculator.month', message: 'month' })}`;
+    return `${currentValue}${translate({ id: 'pricing.calculator.million', message: ' Million' })}/${translate({ id: 'pricing.calculator.month', message: 'month' })}`;
   };
 
   const items = [
@@ -283,7 +283,7 @@ const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
                       * {currencySymbol}{etlPricePerMillion}{currencyUnit}/{translate({ id: 'pricing.calculator.millionRows', message: 'million rows' })}
                     </div>
                   </div>
-                  <div className="w-full lg:w-[500px] lg:flex-shrink-0">
+                  <div className="w-full lg:w-[450px] lg:flex-shrink-0">
                     <Slider
                       value={etlValue}
                       onChange={setEtlValue}
@@ -307,7 +307,7 @@ const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
                       * {currencySymbol}{cdcPricePerMillion}{currencyUnit}/{translate({ id: 'pricing.calculator.millionRows', message: 'million rows' })},{translate({ id: 'pricing.calculator.includesRows', message: 'includes rows added, edited or deleted' })}
                     </div>
                   </div>
-                  <div className="w-full lg:w-[500px] lg:flex-shrink-0">
+                  <div className="w-full lg:w-[450px] lg:flex-shrink-0">
                     <Slider
                       value={cdcValue}
                       onChange={setCdcValue}

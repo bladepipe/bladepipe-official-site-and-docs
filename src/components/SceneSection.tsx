@@ -75,8 +75,8 @@ const SceneSection: React.FC = () => {
         <div className="w-full flex justify-center mt-8 sm:mt-10 lg:mt-12">
           <img
             src={siteBrand === 'clougence' 
-              ? `/img/home/scene_cc${activeIdx + 1}.svg` 
-              : `/img/home/scene${activeIdx + 1}.svg`
+              ? `/img/home/scene_cc${activeIdx + 1}.png`
+              : `/img/home/scene${activeIdx + 1}.png`
             }
             alt="场景示意"
             className="max-w-full h-auto rounded-2xl sm:rounded-2xl lg:rounded-3xl"

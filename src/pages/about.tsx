@@ -171,7 +171,7 @@ const getTeamMembers = (siteBrand: string) => {
         nameText: '励强',
         title: 'about.team.liqiang.title',
         titleText: '创始人 & CEO',
-        avatar: '/img/about/team/junyu.svg',
+        avatar: '/img/about/team/junyu.png',
         quote: 'about.dm.team.liqiang.quote',
         quoteText: '我们专注于保护用户数据的安全，深耕数据防护。无论团队化协作还是作为个人用户，CloudDM 带来的不仅是便利更是对数据安全的思考。',
         cardHeight: '314px',
@@ -186,7 +186,7 @@ const getTeamMembers = (siteBrand: string) => {
         nameText: '赵永春',
         title: 'about.team.zhaoyongchun.title',
         titleText: '首席架构师',
-        avatar: '/img/about/team/mode.png',
+        avatar: '/img/about/team/mode.jpg',
         quote: 'about.dm.team.zhaoyongchun.quote',
         quoteText: '我们是产品提供者同时也是开发者，作为双重身份我们深知在保证安全的同时用户体验对效率提升也至关重要。因此 CloudDM 在保证安全的前提下，也注重用户体验的提升。',
         cardHeight: '314px',
@@ -201,7 +201,7 @@ const getTeamMembers = (siteBrand: string) => {
         nameText: '罗梦婷',
         title: 'about.team.luomengting.title',
         titleText: '联合创始人 & 产品总监',
-        avatar: '/img/about/team/buding.svg',
+        avatar: '/img/about/team/buding.png',
         quote: 'about.dm.team.luomengting.quote',
         quoteText: '见证 CloudDM 发展成为一个成熟的解决方案，我们充满成就感和无限可能。我们致力于使其成为行业中最可靠的数据库管理工具。',
         cardHeight: '338px',
@@ -216,7 +216,7 @@ const getTeamMembers = (siteBrand: string) => {
         nameText: '张磊',
         title: 'about.team.zhanglei.title',
         titleText: '商务总监',
-        avatar: '/img/about/team/zhanglei.svg',
+        avatar: '/img/about/team/zhanglei.png',
         quote: 'about.dm.team.zhanglei.quote',
         quoteText: 'CloudDM 正在被更多业界的人熟知与使用，我们渴望在未来扩大我们的影响力和足迹。',
         cardHeight: '338px',
@@ -814,7 +814,7 @@ export default function About(): React.JSX.Element {
                 <div className="w-full max-w-[1364px] aspect-[1364/650]">
                   {/* 地图背景 */}
                   <img 
-                    src={siteBrand === 'bladepipe' ? "/img/about/contact/map.svg" : "/img/about/contact/map_clougence.svg"} 
+                    src={siteBrand === 'bladepipe' ? "/img/about/contact/map.png" : "/img/about/contact/map_clougence.png"}
                     alt="about.contact.map.alt"
                     className="w-full h-full object-contain"
                   />

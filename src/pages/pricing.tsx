@@ -210,7 +210,7 @@ const PricingCard = ({ plan, onDownloadClick, siteBrand }) => {
       )}
       
       {/* 标题 */}
-      <h3 className="text-[22px] sm:text-[26px] lg:text-[28px] font-bold text-black mb-[2px] sm:mb-[4px]">
+      <h3 translate="no" className="text-[22px] sm:text-[26px] lg:text-[28px] font-bold text-black mb-[2px] sm:mb-[4px]">
         {plan.title}
       </h3>
       <h4 className="text-[14px] sm:text-[16px] lg:text-[18px] font-medium text-black mb-[24px] sm:mb-[30px] lg:mb-[36px]">
@@ -271,7 +271,7 @@ const PricingCard = ({ plan, onDownloadClick, siteBrand }) => {
 
             
       {/* 价格 */}
-      <div className="mb-[16px] sm:mb-[20px] lg:mb-[24px]">
+      <div translate="no" className="mb-[16px] sm:mb-[20px] lg:mb-[24px]">
         <div className="text-[28px] sm:text-[36px] lg:text-[40px] font-bold text-black">
           {plan.price}
           {plan.priceUnit && (

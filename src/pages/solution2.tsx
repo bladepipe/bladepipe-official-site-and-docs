@@ -210,7 +210,7 @@ export default function Solution2(): React.JSX.Element {
               {/* 右侧图形区域 */}
               <div className="w-full lg:w-[779px] min-h-[200px] sm:min-h-[300px] lg:h-[396px] flex justify-center items-center order-1 lg:order-2">
                 <img 
-                  src={siteBrand === 'clougence' ? '/img/solution/banner_cc2.svg' : '/img/solution/banner2.svg'} 
+                  src={siteBrand === 'clougence' ? '/img/solution/banner_cc2.svg' : '/img/solution/banner2.png'}
                   alt="RAG API Solution Banner" 
                   className="w-full h-full max-w-[400px] lg:max-w-none object-contain"
                 />
@@ -272,7 +272,7 @@ export default function Solution2(): React.JSX.Element {
                 {/* 架构图容器 */}
                 <div className="w-full min-h-[400px] sm:min-h-[500px] lg:h-[805px] bg-white rounded-[16px] sm:rounded-[20px] lg:rounded-[24px] flex justify-center items-center p-[12px] sm:p-[16px] lg:p-0">
                   <img 
-                    src="/img/solution/architecture2.svg" 
+                    src="/img/solution/architecture2.png"
                     alt="Solution Architecture" 
                     className="w-full h-full object-contain"
                   />

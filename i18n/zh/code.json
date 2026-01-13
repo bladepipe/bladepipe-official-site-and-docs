@@ -84,7 +84,7 @@
     "message": "元/百万行数据"
   },
   "pricing.cloud.priceUnit.en": {
-    "message": "/million rows of data"
+    "message": "元/百万行数据"
   },
   "pricing.cloud.button": {
     "message": "立即开始"
@@ -234,6 +234,9 @@
     "message": "优先支持"
   },
   "pricing.trial.extraText": {
+    "message": "包含所有云服务 (BYOC) 功能，额外："
+  },
+  "pricing.enterprise.priceUnit": {
     "message": "包含所有云服务 (BYOC) 功能，额外："
   },
   "pricing.featureComparison.title": {
@@ -445,6 +448,9 @@
   },
   "pricing.calculator.month": {
     "message": "月"
+  },
+  "pricing.calculator.million": {
+    "message": " 百万行"
   },
   "pricing.calculator.hour": {
     "message": "小时"

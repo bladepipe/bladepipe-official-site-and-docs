@@ -148,7 +148,7 @@ export default function Solution1(): React.JSX.Element {
               {/* 右侧图形区域 */}
               <div className="w-full lg:flex-1 min-h-[200px] sm:min-h-[300px] lg:h-[396px] flex justify-center items-center order-1 lg:order-2">
                 <img 
-                  src={siteBrand === 'clougence' ? '/img/solution/banner_cc1.svg' : '/img/solution/banner1.svg'} 
+                  src={siteBrand === 'clougence' ? '/img/solution/banner_cc1.svg' : '/img/solution/banner1.png'}
                   alt="Solution Banner" 
                   className="w-full h-full max-w-[400px] lg:max-w-none object-contain"
                 />
@@ -210,7 +210,7 @@ export default function Solution1(): React.JSX.Element {
                 {/* 架构图容器 */}
                 <div className="w-full min-h-[300px] sm:min-h-[400px] lg:h-[626px] bg-white rounded-[16px] sm:rounded-[20px] lg:rounded-[24px] flex justify-center items-center p-[12px] sm:p-[16px] lg:p-0">
                   <img 
-                    src={siteBrand === 'clougence' ? '/img/solution/architecture_cc1.svg' : '/img/solution/architecture1.svg'} 
+                    src={siteBrand === 'clougence' ? '/img/solution/architecture_cc1.png' : '/img/solution/architecture1.png'}
                     alt="Solution Architecture" 
                     className="w-full h-full object-contain"
                   />

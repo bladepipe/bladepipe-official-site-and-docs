@@ -38,19 +38,28 @@ export default function Navbar() {
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const scrollYRef = useRef<number>(0);
-  // const [SearchBarComponent, setSearchBarComponent] = useState<any>(null);
-  //
-  // // 动态加载 SearchBar
-  // useEffect(() => {
-  //   import('@theme/SearchBar')
-  //     .then((module) => {
-  //       setSearchBarComponent(() => module.default);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Failed to load SearchBar:', error);
-  //       setSearchBarComponent(() => null);
-  //     });
-  // }, []);
+  const [SearchBarComponent, setSearchBarComponent] = useState<any>(null);
+
+  // 动态加载 SearchBar
+  useEffect(() => {
+    import('@theme/SearchBar')
+      .then((module) => {
+        setSearchBarComponent(() => module.default);
+      })
+      .catch((error) => {
+        console.error('Failed to load SearchBar:', error);
+        setSearchBarComponent(() => null);
+      });
+  }, []);
+
+  // 检查是否是文档页面
+  const isDocsPage = React.useMemo(() => {
+    const pathname = location.pathname;
+    return pathname.startsWith('/docs/') ||
+           pathname.startsWith('/ccDocs/') ||
+           pathname.startsWith('/dmDocs/');
+  }, [location.pathname]);
+
   const [activeNav, setActiveNav] = useState(''); // 初始为空，根据路径自动设置
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuExpanded, setMobileMenuExpanded] = useState('');
@@ -192,8 +201,12 @@ export default function Navbar() {
         </div>
         {/* 移动端右侧按钮区 */}
         <div className='xl:hidden flex items-center gap-2 ml-auto'>
-          {/*/!* 搜索图标（移动端） *!/*/}
-          {/*{SearchBarComponent && <SearchBarComponent />}*/}
+          {/* 搜索图标（移动端）- 仅在文档页面显示 */}
+          {isDocsPage && SearchBarComponent && (
+            <div className="mr-2">
+              <SearchBarComponent />
+            </div>
+          )}
 
           {/* 汉堡按钮 */}
           <button
@@ -274,6 +287,7 @@ export default function Navbar() {
                           to="/"
                           className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                           onClick={() => setActiveNav('product')}
+                          translate="no"
                         >
                           <Translate id="navbar.bladepipe">BladePipe</Translate>
                         </Link>
@@ -286,6 +300,7 @@ export default function Navbar() {
                           to="/why"
                           className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                           onClick={() => setActiveNav('product')}
+                          translate="no"
                         >
                           <Translate id="navbar.whyBladepipe">Why BladePipe</Translate>
                         </Link>
@@ -583,9 +598,6 @@ export default function Navbar() {
         </div>
         {/* 右侧操作区（大屏显示） */}
         <div className='hidden xl:flex items-center gap-2 flex-shrink-0'>
-          {/*/!* 搜索图标 *!/*/}
-          {/*{siteBrand !== 'clougence' && SearchBarComponent && <SearchBarComponent />}*/}
-
           {/* Discord 图标链接 - 仅在 bladepipe 时显示 */}
           {siteBrand === 'bladepipe' && (
             <a
@@ -613,50 +625,60 @@ export default function Navbar() {
           
           {/* 语言选择器 */}
           {/* <LanguageDropdown /> */}
-          {/* 用户认证区域 */}
-          {isLoggedIn ? (
-            <Dropdown
-              menu={{ items: userMenuItems }}
-              placement="bottomRight"
-              trigger={['click']}
-              overlayClassName="user-dropdown"
-              destroyPopupOnHide={true}
-              getPopupContainer={(trigger) => trigger.parentElement || document.body}
-            >
-              <div className='flex items-center px-3 2xl:px-5 h-10 rounded-full border border-black/20 cursor-pointer hover:bg-gray-100 transition-colors'>
-                <span className='text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#131316] mr-2'>
-                  <Translate id='navbar.hello'>Hello</Translate>, {userInfo?.username || userInfo?.email || 'User'}
+          {/* 用户认证区域 - 在 docs 页面时不显示 */}
+          {!isDocsPage && (
+            <>
+              {isLoggedIn ? (
+                <Dropdown
+                  menu={{ items: userMenuItems }}
+                  placement="bottomRight"
+                  trigger={['click']}
+                  overlayClassName="user-dropdown"
+                  destroyPopupOnHide={true}
+                  getPopupContainer={(trigger) => trigger.parentElement || document.body}
+                >
+                  <div className='flex items-center px-3 2xl:px-5 h-10 rounded-full border border-black/20 cursor-pointer hover:bg-gray-100 transition-colors'>
+                    <span translate="no" className='text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#131316] mr-2'>
+                      <Translate id='navbar.hello'>Hello</Translate>, {userInfo?.username || userInfo?.email || 'User'}
+                    </span>
+                    <ChevronDownIcon className="w-4 h-4 text-gray-600" />
+                  </div>
+                </Dropdown>
+              ) : (
+                <Link
+                  to="/login"
+                  className="no-underline"
+                  onClick={() => {
+                    localStorage.setItem('loginSource', 'sign_in');
+                  }}
+                >
+                  <div className='flex items-center px-3 2xl:px-5 h-10 rounded-full border border-black/20 cursor-pointer hover:bg-gray-100'>
+                    <span className='text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#131316]'>
+                      <Translate id='navbar.signin'>Log In</Translate>
+                    </span>
+                  </div>
+                </Link>
+              )}
+              {/* Try Cloud Free - 在 docs 页面时不显示 */}
+              <div
+                className='flex items-center px-3 lg:px-4 2xl:px-5 h-10 rounded-full bg-[#0087c7] text-white cursor-pointer hover:bg-[#0070a6]'
+                onClick={() =>
+                  loginCheckAndRedirect(() => {
+                    window.location.href = getCloudUrl();
+                  }, 'try_cloud_free')
+                }>
+                <span className='text-sm lg:text-[15px] xl:text-[16px] font-bold'>
+                  <Translate id='navbar.tryCloud'>Try Cloud Free</Translate>
                 </span>
-                <ChevronDownIcon className="w-4 h-4 text-gray-600" />
               </div>
-            </Dropdown>
-          ) : (
-            <Link
-              to="/login"
-              className="no-underline"
-              onClick={() => {
-                localStorage.setItem('loginSource', 'sign_in');
-              }}
-            >
-              <div className='flex items-center px-3 2xl:px-5 h-10 rounded-full border border-black/20 cursor-pointer hover:bg-gray-100'>
-                <span className='text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#131316]'>
-                  <Translate id='navbar.signin'>Log In</Translate>
-                </span>
-              </div>
-            </Link>
+            </>
           )}
-          {/* Try Cloud Free */}
-          <div
-            className='flex items-center px-3 lg:px-4 2xl:px-5 h-10 rounded-full bg-[#0087c7] text-white cursor-pointer hover:bg-[#0070a6]'
-            onClick={() =>
-              loginCheckAndRedirect(() => {
-                window.location.href = getCloudUrl();
-              }, 'try_cloud_free')
-            }>
-            <span className='text-sm lg:text-[15px] xl:text-[16px] font-bold'>
-              <Translate id='navbar.tryCloud'>Try Cloud Free</Translate>
-            </span>
-          </div>
+          {/* 搜索图标 - 仅在文档页面显示，放在最右侧 */}
+          {isDocsPage && SearchBarComponent && (
+            <div className="mr-2">
+              <SearchBarComponent />
+            </div>
+          )}
         </div>
         {/* 移动端抽屉菜单 */}
         {mobileOpen && (
@@ -955,7 +977,7 @@ export default function Navbar() {
                 <div className="flex flex-col gap-3 flex-1 min-w-0">
                   {/* 用户信息显示 */}
                   <div className='flex items-center justify-center px-5 h-[50px] rounded-lg border border-black/20 bg-gray-50'>
-                    <span className='text-[16px] font-bold text-[#131316]'>
+                    <span translate="no" className='text-[16px] font-bold text-[#131316]'>
                       <Translate id='navbar.hello'>Hello</Translate>, {userInfo?.username || userInfo?.email || 'User'}
                     </span>
                   </div>

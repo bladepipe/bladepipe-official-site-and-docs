@@ -38,6 +38,7 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
 }) => {
   const translateElementRef = useRef<HTMLDivElement>(null);
   const scriptLoadedRef = useRef(false);
+  const previousPathRef = useRef<string | null>(null);
   const [currentLanguage, setCurrentLanguage] = useState('English');
   const [isMobile, setIsMobile] = useState(false);
   const { i18n } = useDocusaurusContext();
@@ -53,6 +54,25 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
            pathWithoutLocale.startsWith('/ccDocs/') ||
            pathWithoutLocale.startsWith('/dmDocs/') ||
            pathWithoutLocale.startsWith('/blog');
+  }, []);
+
+  // 判断当前页面是否是文档页面（不包括博客页面）
+  const isDocsPage = useCallback(() => {
+    const pathname = window.location.pathname;
+    // 移除语言前缀后检查
+    const pathWithoutLocale = pathname.replace(new RegExp(`^/(en|zh)`), '') || pathname;
+    return pathWithoutLocale.startsWith('/docs/') ||
+           pathWithoutLocale.startsWith('/ccDocs/') ||
+           pathWithoutLocale.startsWith('/dmDocs/');
+  }, []);
+
+  // 判断上一个路径是否是文档页面
+  const wasPreviousPathDocs = useCallback(() => {
+    if (!previousPathRef.current) return false;
+    const pathWithoutLocale = previousPathRef.current.replace(new RegExp(`^/(en|zh)`), '') || previousPathRef.current;
+    return pathWithoutLocale.startsWith('/docs/') ||
+           pathWithoutLocale.startsWith('/ccDocs/') ||
+           pathWithoutLocale.startsWith('/dmDocs/');
   }, []);
 
   // 从 Google Translate select 元素获取当前语言代码
@@ -192,6 +212,9 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
           const event = new Event('change', { bubbles: true });
           selectElement.dispatchEvent(event);
         }
+      } else {
+        // 如果 select 元素还不存在，等待 Google Translate 初始化完成后再设置
+        // 这个逻辑会在 initializeTranslate 函数中处理
       }
     }
 
@@ -263,7 +286,7 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
             }, 10);
           }
         }, 100);
-        
+
         // 设置超时，避免无限等待
         setTimeout(() => {
           if (checkInterval) {
@@ -307,6 +330,59 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
     updateCurrentLanguage();
   }, [location.pathname, updateCurrentLanguage]);
 
+  // 使用 history.listen 监听路由变化，检查是否需要刷新页面
+  useEffect(() => {
+    // 初始化 previousPathRef
+    previousPathRef.current = location.pathname;
+
+    // 使用 history.listen 监听路由变化
+    const unlisten = history.listen((location, action) => {
+      const currentPathname = location.pathname;
+      const previousPath = previousPathRef.current;
+
+      // 如果路径没有变化，不需要处理
+      if (previousPath === currentPathname) {
+        return;
+      }
+
+      // 路径确实发生了变化，现在 previousPath 是上一个路径，currentPathname 是当前路径
+      const isChineseRoute = currentPathname.match(/^\/(zh)(\/|$)/);
+
+      // 使用当前路径判断是否是文档页面或博客页面
+      const currentPathWithoutLocale = currentPathname.replace(new RegExp(`^/(en|zh)`), '') || currentPathname;
+      const isDocs = currentPathWithoutLocale.startsWith('/docs/') ||
+                     currentPathWithoutLocale.startsWith('/ccDocs/') ||
+                     currentPathWithoutLocale.startsWith('/dmDocs/');
+      const isBlog = currentPathWithoutLocale.startsWith('/blog');
+
+      // 判断上一个路径是否是文档页面或博客页面
+      const previousPathWithoutLocale = previousPath.replace(new RegExp(`^/(en|zh)`), '') || previousPath;
+      const wasDocs = previousPathWithoutLocale.startsWith('/docs/') ||
+                      previousPathWithoutLocale.startsWith('/ccDocs/') ||
+                      previousPathWithoutLocale.startsWith('/dmDocs/');
+      const wasBlog = previousPathWithoutLocale.startsWith('/blog');
+
+      // 如果是中文路由，且从非文档/博客页面进入文档/博客页面，则刷新页面
+      if (isChineseRoute && (isDocs || isBlog) && !wasDocs && !wasBlog) {
+        // 设置 Google Translate cookie 为中文
+        const domain = window.location.hostname;
+        const cookieValue = `/en/zh-CN`;
+        document.cookie = `googtrans=${cookieValue}; path=/; domain=${domain}`;
+        // 刷新页面
+        window.location.reload();
+        return;
+      }
+
+      // 在检查完成后更新上一个路径
+      previousPathRef.current = currentPathname;
+    });
+
+    // 清理函数：取消监听
+    return () => {
+      unlisten();
+    };
+  }, [history]);
+
   // 监听 Google Translate select 元素的变化
   useEffect(() => {
     let selectCheckInterval: NodeJS.Timeout | null = null;
@@ -325,12 +401,12 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
               updateCurrentLanguage();
             }, 10);
           };
-          
+
           selectElement.addEventListener('change', handleChange, true);
           (selectElement as any).__languageChangeListenerAdded = true;
           (selectElement as any).__languageChangeHandler = handleChange;
         }
-        
+
         // 记录当前值
         lastSelectValue = selectElement.value;
       }
@@ -339,7 +415,7 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
     // 使用 MutationObserver 监控 select 元素的创建和变化
     const selectObserver = new MutationObserver(() => {
       setupSelectListener();
-      
+
       // 检查值是否变化
       const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
       if (selectElement && selectElement.value !== lastSelectValue) {
@@ -369,7 +445,7 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
           console.log(4);
           updateCurrentLanguage();
         }
-        
+
         // 确保监听器已添加
         setupSelectListener();
       }
@@ -382,7 +458,7 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
       if (selectCheckInterval) {
         clearInterval(selectCheckInterval);
       }
-      
+
       // 清理监听器
       const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
       if (selectElement && (selectElement as any).__languageChangeHandler) {
@@ -431,6 +507,11 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
       // 等待 select 元素创建后，检查 cookie 并应用语言
       setTimeout(() => {
         console.log(6);
+        // 检查当前路由是否是中文路由下的文档/博客页面
+        const pathname = window.location.pathname;
+        const isChineseRoute = pathname.match(/^\/(zh)(\/|$)/);
+        const isDocsBlog = isDocsOrBlogPage();
+
         // 检查 cookie 中是否已经设置了目标语言
         const cookies = document.cookie.split(';');
         let targetLangCode: string | null = null;
@@ -446,7 +527,15 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
             }
           }
         }
-        
+
+        // 如果在中文路由下的文档/博客页面，且 cookie 中没有设置中文，则设置
+        if (isChineseRoute && isDocsBlog && (!targetLangCode || targetLangCode === 'en' || targetLangCode === '')) {
+          const domain = window.location.hostname;
+          const cookieValue = `/en/zh-CN`;
+          document.cookie = `googtrans=${cookieValue}; path=/; domain=${domain}`;
+          targetLangCode = 'zh-CN';
+        }
+
         // 如果 cookie 中设置了目标语言，且不是英文，尝试应用
         if (targetLangCode && targetLangCode !== 'en' && targetLangCode !== '') {
           const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
@@ -460,7 +549,7 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
             }
           }
         }
-        
+
         updateCurrentLanguage();
       }, 500);
 
@@ -518,8 +607,17 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
   }, [i18n.defaultLocale]);
 
   // 恢复路由到默认语言（移除语言前缀）
-  const restoreDefaultRoute = () => {
+  const restoreDefaultRoute = (preserveZhForDocsBlog: boolean = false) => {
     const pathname = window.location.pathname;
+    // 如果需要为文档/博客页面保留 /zh 前缀
+    if (preserveZhForDocsBlog) {
+      const isDocsBlog = isDocsOrBlogPage();
+      const isChineseRoute = pathname.match(/^\/(zh)(\/|$)/);
+      // 如果是中文路由下的文档/博客页面，保持 /zh 前缀
+      if (isDocsBlog && isChineseRoute) {
+        return null; // 不需要跳转，保持当前路由
+      }
+    }
     // 如果路径包含语言前缀，移除它
     const newPath = pathname.replace(new RegExp(`^/(en|zh)`), '') || '/';
     // 如果路径改变了，返回新路径（不立即跳转，让调用者决定何时跳转）
@@ -572,6 +670,8 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
     } else if (langCode === 'zh-CN') {
       // 判断当前页面是否是文档或博客页面
       const isDocsBlog = isDocsOrBlogPage();
+      const pathname = window.location.pathname;
+      const isChineseRoute = pathname.match(/^\/(zh)(\/|$)/);
 
       if (isDocsBlog) {
         // 文档和博客页面使用 Google Translate
@@ -580,41 +680,50 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
           return;
         }
 
-        // 先恢复路由到默认语言（移除语言前缀）
-        const newPath = restoreDefaultRoute();
-
-        if (newPath) {
-          // 如果需要跳转，在跳转前设置 Google Translate cookie 为中文
+        // 如果当前已经在 /zh/blog 或 /zh/docs 路由下，保持路由不变
+        if (isChineseRoute) {
+          // 设置 Google Translate cookie 为中文
           const domain = window.location.hostname;
           const cookieValue = `/en/zh-CN`;
           document.cookie = `googtrans=${cookieValue}; path=/; domain=${domain}`;
-          // 跳转到新路径，跳转后 Google Translate 会自动应用翻译
-          window.location.href = newPath;
+
+          // 直接应用 Google Translate
+          const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+          if (selectElement) {
+            // 找到中文选项
+            const options = Array.from(selectElement.options);
+            const targetOption = options.find(opt => opt.value.includes('zh-CN'));
+
+            if (targetOption && selectElement.value !== targetOption.value) {
+              selectElement.value = targetOption.value;
+              const event = new Event('change', { bubbles: true });
+              selectElement.dispatchEvent(event);
+            }
+          } else {
+            // 如果 select 不存在，通过 cookie 和刷新页面
+            window.location.reload();
+            return;
+          }
           setCurrentLanguage(label);
           return;
         }
 
-        // 如果不需要跳转，直接应用 Google Translate
-        const selectElement = document.querySelector('.goog-te-combo') as HTMLSelectElement;
-        if (selectElement) {
-          // 找到中文选项
-          const options = Array.from(selectElement.options);
-          const targetOption = options.find(opt => opt.value.includes('zh-CN'));
+        // 如果当前不在 /zh 路由下，需要跳转到 /zh 路由
+        // 先恢复路由到默认语言（移除语言前缀，如果有的话）
+        const newPath = restoreDefaultRoute();
 
-          if (targetOption) {
-            selectElement.value = targetOption.value;
-            const event = new Event('change', { bubbles: true });
-            selectElement.dispatchEvent(event);
-            setCurrentLanguage(label);
-          }
-        } else {
-          // 如果 select 不存在，通过 cookie 和刷新页面
-          const domain = window.location.hostname;
-          const cookieValue = `/en/zh-CN`;
-          document.cookie = `googtrans=${cookieValue}; path=/; domain=${domain}`;
-          window.location.reload();
-          return;
-        }
+        // 构建目标路径，确保是 /zh/blog 或 /zh/docs
+        const targetPath = `/zh${newPath || pathname.replace(new RegExp(`^/(en|zh)`), '') || pathname}`;
+
+        // 设置 Google Translate cookie 为中文
+        const domain = window.location.hostname;
+        const cookieValue = `/en/zh-CN`;
+        document.cookie = `googtrans=${cookieValue}; path=/; domain=${domain}`;
+
+        // 跳转到 /zh 路由，跳转后 Google Translate 会自动应用翻译
+        window.location.href = targetPath;
+        setCurrentLanguage(label);
+        return;
       } else {
         // 其他页面使用 Docusaurus i18n
         // 清除 Google Translate 状态（包括 cookie 和 select 元素）
@@ -672,7 +781,7 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
     if (!window.google?.translate?.TranslateElement) {
       // 检查脚本是否已经存在
       const existingScript = document.querySelector('script[src*="translate_a/element.js"], script[src*="/translate/element.js"]');
-      
+
       if (existingScript) {
         // 如果脚本已存在，等待它加载完成
         const checkInterval = setInterval(() => {
@@ -696,12 +805,12 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
             }, 500);
           }
         }, 100);
-        
+
         // 设置超时，避免无限等待
         setTimeout(() => {
           clearInterval(checkInterval);
         }, 5000);
-        
+
         return;
       } else {
         // 如果脚本不存在，重新加载脚本
@@ -915,3 +1024,4 @@ const GoogleTranslate: React.FC<GoogleTranslateProps> = ({
 };
 
 export default GoogleTranslate;
+

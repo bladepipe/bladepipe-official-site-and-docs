@@ -181,7 +181,7 @@ export default function BlogListPage({ metadata, items, sidebar }: Props) {
                   </div>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-base lg:text-lg font-bold text-[#131316] font-['Plus Jakarta Sans'] leading-6 lg:leading-7">
+                  <span translate="no" className="text-base lg:text-lg font-bold text-[#131316] font-['Plus Jakarta Sans'] leading-6 lg:leading-7">
                     {featured[carouselIdx].author}
                   </span>
                   <span className="text-sm lg:text-base font-medium text-[#52525b] font-['Plus Jakarta Sans'] leading-5 lg:leading-6">
@@ -348,7 +348,7 @@ export default function BlogListPage({ metadata, items, sidebar }: Props) {
                     </div>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-base font-bold text-[#131316] font-['Plus Jakarta Sans'] leading-6">
+                    <span translate="no" className="text-base font-bold text-[#131316] font-['Plus Jakarta Sans'] leading-6">
                       {blog.author}
                     </span>
                     <span className="text-sm font-medium text-[#52525b] font-['Plus Jakarta Sans'] leading-5">

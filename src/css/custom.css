@@ -1663,3 +1663,168 @@ a:active {
   50% { transform: scale(1.06); opacity: 0.2; }
   100% { transform: scale(0.98); opacity: 0; }
 }
+
+/* ========== Docusaurus 搜索框自定义样式 ========== */
+
+/* 搜索框容器样式 */
+.navbar__search {
+  margin-right: 0.5rem;
+  position: relative;
+}
+
+/* 搜索输入框样式 */
+.navbar__search-input {
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  border-radius: 8px !important;
+  padding: 8px 12px 8px 40px !important;
+  background-color: #fff !important;
+  font-size: 14px !important;
+  width: 200px !important;
+  height: 40px !important;
+  transition: all 0.2s ease !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  color: #262728 !important;
+}
+
+.navbar__search-input:hover {
+  border-color: #0087c7 !important;
+}
+
+.navbar__search-input:focus {
+  border-color: #0087c7 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(0, 135, 199, 0.1) !important;
+}
+
+.navbar__search-input::placeholder {
+  color: #9ca3af !important;
+  font-size: 14px !important;
+}
+
+/* 搜索图标样式 */
+.navbar__search-icon {
+  color: #6b7280 !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.navbar__search-icon:hover {
+  color: #0087c7 !important;
+}
+
+/* 搜索按钮样式（如果存在） */
+.navbar__search-button {
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  border-radius: 8px !important;
+  background-color: #fff !important;
+  padding: 8px 12px !important;
+  height: 40px !important;
+  transition: all 0.2s ease !important;
+}
+
+.navbar__search-button:hover {
+  border-color: #0087c7 !important;
+  background-color: rgba(0, 135, 199, 0.05) !important;
+}
+
+/* 搜索结果下拉框样式（DocSearch 样式） */
+.DocSearch-Container {
+  z-index: 10000 !important;
+}
+
+.DocSearch-Modal {
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+}
+
+.DocSearch-Input {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  font-size: 16px !important;
+}
+
+.DocSearch-Input:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(0, 135, 199, 0.1) !important;
+}
+
+.DocSearch-Hit {
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.DocSearch-Hit:hover {
+  background-color: rgba(0, 135, 199, 0.05) !important;
+}
+
+.DocSearch-Hit--active {
+  background-color: rgba(0, 135, 199, 0.1) !important;
+}
+
+.DocSearch-Hit a {
+  color: #262728 !important;
+}
+
+.DocSearch-Hit--active a {
+  color: #0087c7 !important;
+}
+
+/* 本地搜索插件样式（@easyops-cn/docusaurus-search-local） */
+.searchBox {
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  border-radius: 8px !important;
+  background-color: #fff !important;
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+  transition: all 0.2s ease !important;
+}
+
+.searchBox:hover {
+  border-color: #0087c7 !important;
+}
+
+.searchBox:focus {
+  border-color: #0087c7 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(0, 135, 199, 0.1) !important;
+}
+
+/* 搜索结果面板样式 */
+.search-result {
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.search-result-item {
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.search-result-item:hover {
+  background-color: rgba(0, 135, 199, 0.05) !important;
+}
+
+.search-result-item--active {
+  background-color: rgba(0, 135, 199, 0.1) !important;
+}
+
+/* 移动端搜索框样式 */
+@media (max-width: 1023px) {
+  .navbar__search-input {
+    width: 180px !important;
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar__search-input {
+    width: 150px !important;
+    padding: 6px 10px 6px 36px !important;
+    height: 36px !important;
+    font-size: 13px !important;
+  }
+}
+
+.searchHintContainer_Pkmr {
+  display: none!important;
+}
