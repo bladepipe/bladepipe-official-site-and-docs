@@ -364,7 +364,7 @@ export default function Navbar() {
                     key: 'solution1',
                     label: (
                       <Link
-                        to="/solution1"
+                        to="/real-time-analytics"
                         className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                         onClick={() => setActiveNav('solutions')}
                       >
@@ -376,7 +376,7 @@ export default function Navbar() {
                     key: 'solution2',
                     label: (
                       <Link
-                        to="/solution2"
+                        to="/ai-rag"
                         className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                         onClick={() => setActiveNav('solutions')}
                       >
@@ -389,7 +389,7 @@ export default function Navbar() {
                     key: 'solution1',
                     label: (
                       <Link
-                        to="/solution1"
+                        to="/real-time-analytics"
                         className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                         onClick={() => setActiveNav('solutions')}
                       >
@@ -401,7 +401,7 @@ export default function Navbar() {
                     key: 'solution2',
                     label: (
                       <Link
-                        to="/solution2"
+                        to="/ai-rag"
                         className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                         onClick={() => setActiveNav('solutions')}
                       >
@@ -808,14 +808,14 @@ export default function Navbar() {
                         </Link>
                       ) : (
                         <>
-                          <Link to="/solution1" onClick={() => setMobileOpen(false)} className="no-underline">
+                          <Link to="/real-time-analytics" onClick={() => setMobileOpen(false)} className="no-underline">
                             <div className='flex items-center px-5 py-[10px] h-[44px] cursor-pointer hover:bg-gray-100'>
                               <span className="text-[16px] font-medium text-black/80">
                                 <Translate id="navbar.realtimeAnalytics">Real-time Analytics</Translate>
                               </span>
                             </div>
                           </Link>
-                          <Link to="/solution2" onClick={() => setMobileOpen(false)} className="no-underline">
+                          <Link to="/ai-rag" onClick={() => setMobileOpen(false)} className="no-underline">
                             <div className='flex items-center px-5 py-[10px] h-[44px] cursor-pointer hover:bg-gray-100'>
                               <span className="text-[16px] font-medium text-black/80">
                                 <Translate id="navbar.aiRag">AI & RAG</Translate>

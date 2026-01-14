@@ -1,11 +1,13 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import Head from '@docusaurus/Head';
 import Translate from '@docusaurus/Translate';
 import FadeInSection from '@site/src/components/FadeInSection';
 import Footer from '@site/src/components/Footer';
 import CheckIcon from '@site/static/img/home/icon/check.svg';
 import BlogCardGrid from '@site/src/components/BlogCardGrid';
 import siteConfig from '@generated/docusaurus.config';
+import { getPageMeta } from '@site/src/utils/meta';
 
 // 特性卡片配置
 const featureCards = [
@@ -126,9 +128,13 @@ const getLatestBlogs = (siteBrand: string) => {
 
 export default function Solution1(): React.JSX.Element {
   const siteBrand = siteConfig.customFields?.siteBrand as string;
+  const pageMeta = getPageMeta('real-time-analytics');
   
   return (
-    <Layout>
+    <Layout description={pageMeta.description}>
+      <Head>
+        <title>{pageMeta.title}</title>
+      </Head>
       <div className="w-full bg-white">
         {/* Banner Section - 响应式设计 */}
         <FadeInSection immediate>

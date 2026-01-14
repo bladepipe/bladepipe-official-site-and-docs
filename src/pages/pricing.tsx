@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import Head from '@docusaurus/Head';
 import Translate, { translate } from '@docusaurus/Translate';
 import FeatureComparison_price from '@site/src/components/FeatureComparison_price';
 import ArrowIcon from '@site/static/img/home/icon/arrow.svg';
@@ -13,14 +14,15 @@ import { isUserLogin } from '@site/src/store/user';
 import { listDownloadProduct, queryPriceMeta } from '@site/src/apis/constant';
 import DownloadModal from '@site/src/components/DownloadModal';
 import siteConfig from '@generated/docusaurus.config';
+import { getPageMeta } from '@site/src/utils/meta';
 
 // 计算云服务价格
 const calculateCloudPrice = (priceMeta?: any, siteBrand?: string) => {
   if (priceMeta?.payAsYouGoPriceVO?.pricePerRow?.FULL) {
     const price = Math.ceil(parseFloat(priceMeta.payAsYouGoPriceVO.pricePerRow.FULL) * 10000 * 100) / 100;
-    return price.toString();
+    return siteBrand === 'clougence' ? price.toString() : `$${price.toString()}`;
   }
-  return siteBrand === 'clougence' ? '0.01' : '0.01';
+  return siteBrand === 'clougence' ? '0.01' : '$0.01';
 };
 
 // 获取云服务价格单位
@@ -28,7 +30,7 @@ const getCloudPriceUnit = (siteBrand: string) => {
   if (siteBrand === 'clougence') {
     return translate({ id: 'pricing.cloud.priceUnit', message: '元/百万行数据' });
   }
-  return translate({ id: 'pricing.cloud.priceUnit.en', message: '$/million rows of data' });
+  return translate({ id: 'pricing.cloud.priceUnit.en', message: '/million rows of data' });
 };
 
 // 版本配置数据
@@ -331,6 +333,9 @@ export default function Pricing() {
   const [priceMetaLoading, setPriceMetaLoading] = React.useState(false);
   
   const pricingPlans = getPricingPlans(siteBrand, priceMeta);
+
+  // 使用统一的工具函数获取价格页面 meta 信息
+  const pricingMeta = getPageMeta('pricing');
   
   // 下载按钮点击逻辑
   const handleDownloadClick = async () => {
@@ -424,7 +429,10 @@ export default function Pricing() {
   }, []);
 
   return (
-    <Layout>
+    <Layout description={pricingMeta.description}>
+      <Head>
+        <title>{pricingMeta.title}</title>
+      </Head>
       <style>{`
         .scrollbar-hide {
           -ms-overflow-style: none;

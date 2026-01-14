@@ -81,7 +81,7 @@ const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
   
   // 根据 priceMeta 或 siteBrand 确定货币单位
   const currencySymbol = priceMeta?.currency === 'RMB' ? '' : '$';
-  const currencyUnit = priceMeta?.currencyI18n || (siteBrand === 'clougence' ? translate({ id: 'pricing.currency.yuan', message: '元' }) : '');
+  const currencyUnit = (siteBrand === 'clougence' ? priceMeta?.currencyI18n || translate({ id: 'pricing.currency.yuan', message: '元' }) : '');
   
   // Enterprise版本的配置状态
   const [syncLinks, setSyncLinks] = useState(5);

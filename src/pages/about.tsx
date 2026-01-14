@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import Head from '@docusaurus/Head';
 import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import FadeInSection from '@site/src/components/FadeInSection';
@@ -7,6 +8,7 @@ import Footer from '@site/src/components/Footer';
 import AnimatedBanner from '@site/src/components/AnimatedBanner';
 import RotatingWords from '@site/src/components/RotatingWords';
 import { Popover } from 'antd';
+import { getPageMeta } from '@site/src/utils/meta';
 // 获取时间轴数据的函数
 const getTimelineData = (siteBrand: string) => {
   if (siteBrand === 'clouddm') {
@@ -565,10 +567,16 @@ export default function About(): React.JSX.Element {
   // 团队成员配置数据
   const teamMembers = getTeamMembers(siteBrand || 'bladepipe');
   
+  // 获取页面 meta 信息
+  const pageMeta = getPageMeta('about');
+  
 
   
   return (
-    <Layout>
+    <Layout description={pageMeta.description}>
+      <Head>
+        <title>{pageMeta.title}</title>
+      </Head>
       <div className="w-full bg-white">
         {/* Banner Section - 响应式设计 */}
         <FadeInSection immediate>

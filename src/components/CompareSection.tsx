@@ -92,13 +92,13 @@ const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true })
       <div className="w-full max-w-[1320px] mx-auto px-4 md:px-8 flex flex-col items-center gap-12">
         {/* 标题区 */}
         <div className="flex flex-col items-center gap-3 mb-2">
-          <h2 className="text-[40px] font-bold text-black leading-[50px] text-center">
+          <h1 className="text-[40px] font-bold text-black leading-[50px] text-center">
             {siteBrand === 'clougence' ? (
               <Translate id="compare.why.cloudcanal">Why CloudCanal</Translate>
             ) : (
               <Translate id="compare.why">Why BladePipe</Translate>
             )}
-          </h2>
+          </h1>
         </div>
         <div className="flex flex-row w-full justify-between items-center mb-8">
           <div className="text-[24px] font-bold text-black">

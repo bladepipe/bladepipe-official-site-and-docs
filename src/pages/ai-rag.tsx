@@ -1,11 +1,13 @@
 import React from 'react';
 import Layout from '@theme/Layout';
+import Head from '@docusaurus/Head';
 import Translate from '@docusaurus/Translate';
 import FadeInSection from '@site/src/components/FadeInSection';
 import Footer from '@site/src/components/Footer';
 import CheckIcon from '@site/static/img/home/icon/check.svg';
 import BlogCardGrid from '@site/src/components/BlogCardGrid';
 import siteConfig from '@generated/docusaurus.config';
+import { getPageMeta } from '@site/src/utils/meta';
 
 // 特性卡片配置
 const featureCards = [
@@ -189,9 +191,13 @@ const getLatestBlogs = (siteBrand: string) => {
 export default function Solution2(): React.JSX.Element {
   const siteBrand = siteConfig.customFields?.siteBrand as string;
   const stepCards = getStepCards(siteBrand);
+  const pageMeta = getPageMeta('ai-rag');
   
   return (
-    <Layout>
+    <Layout description={pageMeta.description}>
+      <Head>
+        <title>{pageMeta.title}</title>
+      </Head>
       <div className="w-full bg-white">
         <FadeInSection immediate>
           <section className="w-full min-h-[300px] sm:min-h-[400px] lg:h-[470px] py-[24px] sm:py-[30px] lg:py-[37px] px-4 sm:px-8 flex justify-center items-start bg-gradient-to-b from-white to-[#eaf6ff]">
