@@ -164,6 +164,12 @@ window.aiBotConfig = {
       opacity: 1;
       transform: translate(-4px, -50%);
     }
+    /* 当按钮有 hide-tips class 时，隐藏 tips */
+    .ai-bot-widget-button.hide-tips::after {
+      display: none !important;
+      animation: none !important;
+      opacity: 0 !important;
+    }
     @keyframes aiBotHint {
       0%, 5% { opacity: 0; transform: translate(10px, -50%); }
       10%, 65% { opacity: 1; transform: translate(-4px, -50%); }
@@ -191,10 +197,62 @@ window.aiBotConfig = {
     return true;
   };
 
+  // 监听 notification-dot 的 visible class 变化
+  const setupNotificationDotObserver = () => {
+    const host = document.querySelector('#ai-bot-root');
+    if (!host || !host.shadowRoot) return false;
+    const notificationDot = host.shadowRoot.querySelector('.notification-dot');
+    const btn = host.shadowRoot.querySelector('.ai-bot-widget-button');
+    if (!notificationDot || !btn) return false;
+
+    // 创建 MutationObserver 监听 class 变化
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          const hasVisible = notificationDot.classList.contains('visible');
+          if (!hasVisible) {
+            // 当 visible class 消失时，给按钮添加 hide-tips class
+            btn.classList.add('hide-tips');
+          } else {
+            // 当 visible class 存在时，移除 hide-tips class
+            btn.classList.remove('hide-tips');
+          }
+        }
+      });
+    });
+
+    // 开始观察
+    observer.observe(notificationDot, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    // 初始化状态检查
+    const hasVisible = notificationDot.classList.contains('visible');
+    if (!hasVisible) {
+      btn.classList.add('hide-tips');
+    }
+
+    return true;
+  };
+
   let attempts = 0;
   const timer = setInterval(() => {
     attempts += 1;
-    if (tryInject() || attempts > 40) {
+    const injected = tryInject();
+    if (injected) {
+      // 样式注入成功后，尝试设置观察器
+      setTimeout(() => {
+        let observerAttempts = 0;
+        const observerTimer = setInterval(() => {
+          observerAttempts += 1;
+          if (setupNotificationDotObserver() || observerAttempts > 40) {
+            clearInterval(observerTimer);
+          }
+        }, 250);
+      }, 100);
+    }
+    if (injected || attempts > 40) {
       clearInterval(timer);
     }
   }, 250);

@@ -13,7 +13,7 @@ const SceneSection: React.FC = () => {
         ? translate({id: 'scene.card1.desc.clougence', message: 'CloudCanal makes it easy to integrate data into modern real-time data warehouses without delay, ensuring freshness and unlocking greater data value.'})
         : translate({id: 'scene.card1.desc', message: 'BladePipe makes it easy to integrate data into modern real-time data warehouses without delay, ensuring freshness and unlocking greater data value.'}),
       btn: translate({id: 'scene.card1.btn', message: 'Learn More'}),
-      btnHref: '/solution1',
+      btnHref: '/real-time-analytics',
       border: 'border border-[#0000001A]',
       activeBorder: 'border-[#0087c7]',
       hoverBorder: 'hover:border-[#0087c7]',
@@ -22,7 +22,7 @@ const SceneSection: React.FC = () => {
       title: translate({id: 'scene.card2.title', message: 'Build Smarter AI Chatbots'}),
       desc: translate({id: 'scene.card2.desc', message: 'Embed documents, database data, and other private knowledge bases into leading LLMs to make your chatbots more professional and incredibly intelligent.'}),
       btn: translate({id: 'scene.card2.btn', message: 'Learn More'}),
-      btnHref: 'solution2',
+      btnHref: 'ai-rag',
       border: 'border border-[#0000001A]',
       activeBorder: 'border-[#0087c7]',
       hoverBorder: 'hover:border-[#0087c7]'
@@ -75,8 +75,8 @@ const SceneSection: React.FC = () => {
         <div className="w-full flex justify-center mt-8 sm:mt-10 lg:mt-12">
           <img
             src={siteBrand === 'clougence' 
-              ? `/img/home/scene_cc${activeIdx + 1}.svg` 
-              : `/img/home/scene${activeIdx + 1}.svg`
+              ? `/img/home/scene_cc${activeIdx + 1}.png`
+              : `/img/home/scene${activeIdx + 1}.png`
             }
             alt="场景示意"
             className="max-w-full h-auto rounded-2xl sm:rounded-2xl lg:rounded-3xl"

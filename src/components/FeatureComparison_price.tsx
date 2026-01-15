@@ -517,7 +517,7 @@ const FeatureComparison_price: React.FC = () => {
                 {versionConfig.map((version) => (
                   <div key={version.id} className="flex-1 h-[60px] sm:h-[66px] lg:h-[72px] flex items-center justify-center">
                     <div className={`w-full h-[60px] sm:h-[66px] lg:h-[72px] ${version.headerStyle}`} style={{ borderStyle: 'solid', borderWidth: '1px' }}>
-                      <span className={`text-[16px] sm:text-[18px] lg:text-[20px] font-bold ${version.id === 'enterprise' ? 'text-white' : 'text-[#0087c7]'}`}>{version.title}</span>
+                      <span translate="no" className={`text-[16px] sm:text-[18px] lg:text-[20px] font-bold ${version.id === 'enterprise' ? 'text-white' : 'text-[#0087c7]'}`}>{version.title}</span>
                       {version.badge && (
                         <div className="absolute top-[6px] sm:top-[8px] lg:top-[10px] right-[6px] sm:right-[8px] lg:right-[10px] bg-white border border-[#0087c7] rounded-full px-[6px] sm:px-[8px] py-[1px] sm:py-[2px] whitespace-nowrap" style={{ borderStyle: 'solid', borderWidth: '1px' }}>
                           <span className="text-[10px] sm:text-[11px] lg:text-[12px] font-bold text-[#0087c7]">{version.badge.text}</span>
@@ -565,7 +565,7 @@ const FeatureComparison_price: React.FC = () => {
                               ) : value === '✗' ? (
                                 <CrossIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                               ) : (
-                                <span className={`text-[14px] sm:text-[15px] lg:text-[16px] font-bold ${isEnterprise ? 'text-[#0087c7]' : 'text-black'} text-center`}>
+                                <span translate="no" className={`text-[14px] sm:text-[15px] lg:text-[16px] font-bold ${isEnterprise ? 'text-[#0087c7]' : 'text-black'} text-center`}>
                                   {value}
                                 </span>
                               )}

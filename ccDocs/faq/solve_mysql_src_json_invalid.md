@@ -17,6 +17,6 @@ Invalid JSON text: The document root must not be followed by other values.
 - JSON 字段值中特殊字符没有转义，导致 JSON 数据被截断
 
 ### 步骤
-1. **任务详情** > **更多功能** > **参数修改** > **源数据源配置**，设置参数 **needJsonEscape** 为 true
+1. **任务详情** > **更多功能** > **修改参数** > **源数据源配置**，设置参数 **needJsonEscape** 为 true
    ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/faq/invalid_json_src_mysql.png)
 2. 点击右上角 **生效配置** 并确认

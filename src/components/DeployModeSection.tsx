@@ -9,7 +9,7 @@ const DeployModeSection: React.FC = () => {
     {
       title: translate({id: 'deploy.cloud.title', message: 'Cloud (SaaS Managed & BYOC)'}),
       subtitle: 'BYOC',
-      img: siteBrand === 'clougence' ? '/img/home/deployMode/byoc_cc.svg' : '/img/home/deployMode/byoc.svg',
+      img: siteBrand === 'clougence' ? '/img/home/deployMode/byoc_cc.png' : '/img/home/deployMode/byoc.png',
       border: 'border-[#0000001A]',
       shadow: 'shadow-[0_4px_32px_0_rgba(0,0,0,0.10)]',
       highlights: [
@@ -25,7 +25,7 @@ const DeployModeSection: React.FC = () => {
     {
       title: translate({id: 'deploy.onprem.title', message: 'Enterprise (On-Premise)'}),
       subtitle: 'ON-PREMISE',
-      img: '/img/home/deployMode/on_premise.svg',
+      img: '/img/home/deployMode/on_premise.png',
       border: 'border-[#0087c7]',
       shadow: 'shadow-[0_4px_32px_0_rgba(0,135,199,0.10)]',
       highlights: [

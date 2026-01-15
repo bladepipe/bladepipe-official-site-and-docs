@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '@theme/Layout';
+import Head from '@docusaurus/Head';
 import Translate, { translate } from '@docusaurus/Translate';
 import { Input, Select, Checkbox, Tag } from 'antd';
 import { SearchOutlined, DownOutlined, CloseOutlined } from '@ant-design/icons';
@@ -8,6 +9,7 @@ import DataSourceCards from '@site/src/components/DataSourceCards';
 import Footer from '@site/src/components/Footer';
 import FadeInSection from '@site/src/components/FadeInSection';
 import siteConfig from '@generated/docusaurus.config';
+import { getPageMeta } from '@site/src/utils/meta';
 import './connector.css';
 
 const { Option } = Select;
@@ -20,6 +22,9 @@ export default function Connector() {
   const [targetValue, setTargetValue] = useState(false);
   const [businessOnly, setBusinessOnly] = useState(false);
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
+
+  // 使用统一的工具函数获取连接器页面 meta 信息
+  const connectorMeta = getPageMeta('connector');
 
   const handleRemoveFilter = (filter: string) => {
     if (filter.startsWith(translate({id: 'connector.filter.searchPrefix', message: 'Search:'}))) {
@@ -73,7 +78,10 @@ export default function Connector() {
   }, [searchFilter, sourceValue, targetValue, businessOnly]);
 
   return (
-    <Layout>
+    <Layout description={connectorMeta.description}>
+      <Head>
+        <title>{connectorMeta.title}</title>
+      </Head>
       <div className="w-full bg-white">
         {/* Banner部分 */}
         <FadeInSection>

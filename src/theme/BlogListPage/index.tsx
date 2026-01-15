@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { Props } from '@theme/BlogListPage';
+import Head from '@docusaurus/Head';
 import { Tabs, Select } from 'antd';
 import Navbar from '@site/src/theme/Navbar';
 import Footer from '@site/src/components/Footer';
 import Pagination from '@site/src/components/Pagination';
+import { getPageMeta } from '@site/src/utils/meta';
 
 export default function BlogListPage({ metadata, items, sidebar }: Props) {
   // 日期格式化函数
@@ -61,12 +63,27 @@ export default function BlogListPage({ metadata, items, sidebar }: Props) {
   const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
   const paged = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
+  // 获取博客列表页的 meta 信息
+  const blogMeta = getPageMeta('blog-list');
+
+  // 使用 useEffect 直接设置 document.title，确保覆盖其他设置
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.title = blogMeta.title;
+    }
+  }, [blogMeta.title]);
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
+      <Head>
+        <title>{blogMeta.title}</title>
+        <meta name="description" content={blogMeta.description} />
+      </Head>
       <Navbar />
       {/* 轮播区 */}
       {featured.length > 0 && (
         <div className="w-full bg-white pt-20 pb-10 flex flex-col items-center">
+          <h1 className="hidden">Blog</h1>
           <div className="w-[1320px] max-w-full relative min-h-[340px] flex flex-col lg:flex-row items-center gap-8 lg:gap-16 group px-4 lg:px-0">
             {/* 轮播按钮容器 */}
             <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
@@ -181,7 +198,7 @@ export default function BlogListPage({ metadata, items, sidebar }: Props) {
                   </div>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-base lg:text-lg font-bold text-[#131316] font-['Plus Jakarta Sans'] leading-6 lg:leading-7">
+                  <span translate="no" className="text-base lg:text-lg font-bold text-[#131316] font-['Plus Jakarta Sans'] leading-6 lg:leading-7">
                     {featured[carouselIdx].author}
                   </span>
                   <span className="text-sm lg:text-base font-medium text-[#52525b] font-['Plus Jakarta Sans'] leading-5 lg:leading-6">
@@ -348,7 +365,7 @@ export default function BlogListPage({ metadata, items, sidebar }: Props) {
                     </div>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-base font-bold text-[#131316] font-['Plus Jakarta Sans'] leading-6">
+                    <span translate="no" className="text-base font-bold text-[#131316] font-['Plus Jakarta Sans'] leading-6">
                       {blog.author}
                     </span>
                     <span className="text-sm font-medium text-[#52525b] font-['Plus Jakarta Sans'] leading-5">

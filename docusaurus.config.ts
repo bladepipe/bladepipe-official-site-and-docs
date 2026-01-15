@@ -6,16 +6,16 @@ import type * as Preset from '@docusaurus/preset-classic';
 const current_env = process.env.DEPLOYMENT_ENV || 'development';
 const SERVICE_URL = {
   development: 'http://localhost:8111',
-  staging: 'https://api-sg.bladepipe.com',
+  staging: 'https://test-cloud.askcug.cn',
   production: 'https://api-sg.bladepipe.com'
 };
 const CLOUD_URL = {
   development: 'http://localhost:8111',
-  staging: 'https://api-sg.bladepipe.com',
+  staging: 'https://test-cloud.askcug.cn',
   production: 'https://cloud.bladepipe.com'
 };
 const config: Config = {
-  title: 'BladePipe - Replicate data in real-time, incremental, end-to-end, secure',
+  title: 'BladePipe',
   tagline:
     'Build end-to-end data pipelines between 60+ datasources for analytics or AI in minutes. Move data faster and easier than ever in Cloud or On-Premise, with ultra-low latency less than 3 seconds.',
   favicon: 'img/favicon.ico',
@@ -85,6 +85,28 @@ const config: Config = {
     ]
   ],
 
+  themes: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        // 启用哈希以提高性能
+        hashed: true,
+        // 支持的语言
+        language: ['en', 'zh'],
+        // 在目标页面高亮搜索词
+        highlightSearchTermsOnTargetPage: true,
+        // 显式搜索结果路径
+        explicitSearchResultPath: true,
+        // 博客索引
+        indexBlog: true,
+        // 文档索引
+        indexDocs: true,
+        // 页面索引
+        indexPages: true,
+      },
+    ],
+  ],
+
   themeConfig: {
     // 禁用主题色切换功能
     colorMode: {
@@ -102,11 +124,7 @@ const config: Config = {
       {
         name: 'description',
         content:
-          'Facilitate real-time data replication between diverse data sources, including databases, message queues, search engines, caching, real-time data warehouses, data lakes and more for data-driven decision-making and unprecedented business insights.'
-      },
-      {
-        name: 'keywords',
-        content: 'data+movement,data+integration,cdc,etl,integration,real-time,replication,data+replication,data+pipeline,datapipeline,data+science'
+          'BladePipe is a real-time data integration platform supporting various data sources. Build low-latency, reliable and scalable CDC and ETL pipelines for enterprise data sync, analytics and AI.'
       },
       { property: 'og:image', content: 'https://www.bladepipe.com/banner_for_link.png' }
     ],
@@ -120,7 +138,7 @@ const config: Config = {
         items: [
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'intro/product_intro',
             position: 'left',
             label: 'Docs'
           }
@@ -189,6 +207,7 @@ const config: Config = {
         },
       };
     },
+    require.resolve('./src/plugins/robots-txt-plugin'),
   ],
 };
 

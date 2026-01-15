@@ -92,13 +92,13 @@ const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true })
       <div className="w-full max-w-[1320px] mx-auto px-4 md:px-8 flex flex-col items-center gap-12">
         {/* 标题区 */}
         <div className="flex flex-col items-center gap-3 mb-2">
-          <h2 className="text-[40px] font-bold text-black leading-[50px] text-center">
+          <h1 className="text-[40px] font-bold text-black leading-[50px] text-center">
             {siteBrand === 'clougence' ? (
               <Translate id="compare.why.cloudcanal">Why CloudCanal</Translate>
             ) : (
               <Translate id="compare.why">Why BladePipe</Translate>
             )}
-          </h2>
+          </h1>
         </div>
         <div className="flex flex-row w-full justify-between items-center mb-8">
           <div className="text-[24px] font-bold text-black">
@@ -133,9 +133,9 @@ const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true })
                       return isNaN(num) ? 0 : num;
                     }));
                     return (
-                      <div key={item.name} className="flex flex-col items-center" style={{width: 60}}>
-                        <span
-                          className={`mb-2 px-2 py-1 rounded-full text-white text-[11px] sm:text-[11px] lg:text-[12px] font-bold ${item.highlight ? 'bg-[#0087C7] shadow' : ''}`}
+                      <div translate="no"  key={item.name} className="flex flex-col items-center" style={{width: 60}}>
+                        <span translate="no"
+                              className={`mb-2 px-2 py-1 rounded-full text-white text-[11px] sm:text-[11px] lg:text-[12px] font-bold ${item.highlight ? 'bg-[#0087C7] shadow' : ''}`}
                           style={{
                             display: item.price === '/' ? 'none' : 'inline-block',
                             background: item.highlight ? undefined : 'transparent',
@@ -154,7 +154,7 @@ const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true })
                           }}
                         >
                         </div>
-                        <div className={`text-[11px] sm:text-[11px] lg:text-[12px] font-bold mt-1 ${item.highlight ? 'text-[#18181B]' : 'text-[#18181B]'}`}>
+                        <div translate="no"  className={`text-[11px] sm:text-[11px] lg:text-[12px] font-bold mt-1 ${item.highlight ? 'text-[#18181B]' : 'text-[#18181B]'}`}>
                           {item.name}
                         </div>
                         {item.note && <div className="text-[11px] sm:text-[11px] lg:text-[12px] text-[#888]">{item.note}</div>}
@@ -166,7 +166,7 @@ const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true })
             ))}
           </div>
         </div>
-        <div className="w-full text-[13px] text-[#888] mt-2 mb-8">
+        <div translate="no" className="w-full text-[13px] text-[#888] mt-2 mb-8">
           {siteBrand === 'clougence' ? (
             <Translate id="compare.note.cny">*: include one Aliyun ECS t2.xlarge for worker, ¥483/month</Translate>
           ) : (
@@ -184,7 +184,7 @@ const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true })
             {/* 主品牌 */}
             <div className="flex flex-col w-full lg:w-1/3">
               <div className="flex flex-row items-center w-full mb-1">
-                <div className="w-[80px] text-[14px] sm:text-[15px] lg:text-[16px] font-bold text-[#18181B] flex items-center">
+                <div translate="no" className="w-[80px] text-[14px] sm:text-[15px] lg:text-[16px] font-bold text-[#18181B] flex items-center">
                   {siteBrand === 'clougence' ? (
                     <Translate id="compare.brand.cloudcanal">CloudCanal</Translate>
                   ) : (
@@ -211,7 +211,7 @@ const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true })
             {/* Airbyte */}
             <div className="flex flex-col w-full lg:w-1/3">
               <div className="flex flex-row items-center w-full mb-1">
-                <div className="w-[80px] text-[14px] sm:text-[15px] lg:text-[16px] font-bold text-[#18181B] flex items-center">
+                <div translate="no" className="w-[80px] text-[14px] sm:text-[15px] lg:text-[16px] font-bold text-[#18181B] flex items-center">
                   <Translate id="compare.brand.airbyte">Airbyte</Translate>
                 </div>
                 <div className="flex-1"></div>
@@ -230,7 +230,7 @@ const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true })
             {/* Fivetran */}
             <div className="flex flex-col w-full lg:w-1/3">
               <div className="flex flex-row items-center w-full mb-1">
-                <div className="w-[80px] text-[14px] sm:text-[15px] lg:text-[16px] font-bold text-[#18181B] flex items-center">
+                <div translate="no" className="w-[80px] text-[14px] sm:text-[15px] lg:text-[16px] font-bold text-[#18181B] flex items-center">
                   <Translate id="compare.brand.fivetran">Fivetran</Translate>
                 </div>
                 <div className="flex-1"></div>

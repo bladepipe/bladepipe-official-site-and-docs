@@ -122,7 +122,7 @@ const DataSourceList: React.FC = () => {
                         <use xlinkHref={`#icon-v2-${item.icon}`} />
                       </svg>
                     </div>
-                    <div className="mt-2 text-[12px] sm:text-[13px] lg:text-[14px] font-medium text-[#26272B] text-center whitespace-nowrap">
+                    <div translate="no" className="mt-2 text-[12px] sm:text-[13px] lg:text-[14px] font-medium text-[#26272B] text-center whitespace-nowrap">
                       {item.name}
                     </div>
                   </div>

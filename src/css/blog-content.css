@@ -154,28 +154,28 @@
 }
 
 /* 代码块响应式 */
-.markdown pre {
-  margin: 1rem -1rem;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  font-size: 13px;
-}
+/*.markdown pre {*/
+/*  margin: 1rem -1rem;*/
+/*  padding: 1rem;*/
+/*  border-radius: 0.5rem;*/
+/*  font-size: 13px;*/
+/*}*/
 
-@media (min-width: 640px) {
-  .markdown pre {
-    margin: 1.25rem 0;
-    padding: 1.25rem;
-    font-size: 14px;
-  }
-}
+/*@media (min-width: 640px) {*/
+/*  .markdown pre {*/
+/*    margin: 1.25rem 0;*/
+/*    padding: 1.25rem;*/
+/*    font-size: 14px;*/
+/*  }*/
+/*}*/
 
-@media (min-width: 1024px) {
-  .markdown pre {
-    margin: 1.5rem 0;
-    padding: 1.5rem;
-    font-size: 15px;
-  }
-}
+/*@media (min-width: 1024px) {*/
+/*  .markdown pre {*/
+/*    margin: 1.5rem 0;*/
+/*    padding: 1.5rem;*/
+/*    font-size: 15px;*/
+/*  }*/
+/*}*/
 
 /* 表格响应式 */
 .markdown table {

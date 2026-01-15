@@ -1,9 +1,9 @@
 ---
 id: job_log
-title: 查看任务日志
+title: 查看与导出任务日志
 ---
 
-任务详情页支持在线查看日志，让运维任务更加简单、快捷。本文介绍如何查看任务日志。
+任务详情页支持在线查看与导出日志，让运维任务更加简单、快捷。本文介绍如何查看与导出任务日志。
 
 ## 查看结构迁移任务日志
 
@@ -33,4 +33,14 @@ title: 查看任务日志
 
 :::info
 全量迁移阶段和数据订正阶段任务完成后，不支持在线查看日志。可在终端查看具体日志信息。路径为 /home/clougence/logs/cloudcanal/tasks/filename。
+:::
+
+## 导出日志
+1. 在任务详情页相应任务阶段的页签下点击 **查看日志**。
+2. 在 **路径** 旁点击 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/job_log/1.png) 图标，并等待日志上传。
+3. 上传完成后，在 **日志导出状态** 旁点击 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/job_log/2.png) 图标下载日志。
+
+:::info
+暂不支持导出结构迁移的日志。    
+全量迁移和数据订正阶段任务完成后，不支持导出日志。可在终端查看具体日志信息。路径为 /home/clougence/logs/cloudcanal/tasks/filename。
 :::

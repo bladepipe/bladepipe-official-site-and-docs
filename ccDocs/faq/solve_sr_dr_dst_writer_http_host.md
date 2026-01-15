@@ -45,4 +45,4 @@ org.apache.http.conn.HttpHostConnectException: Connect to 172.20.0.5:8040 [/172.
      实际数据同步中，FE 可能会返回一个 BE 地址，该地址可能是内网 IP 或不可解析的 Hostname 导致同步任务报错。
      :::
    - 或填写 ip:8040（BE HTTP Server 端口默认为 8040）
-4. 进入任务详情页，点击 **功能列表** > [**参数修改**](../operation/job_manage/job_op/job_params.md) > **目标数据源配置**，将参数 *httpHost* 修改为上一步填写的 *privateHttpHost* / *publicHttpHost*。
+4. 进入任务详情页，点击 **功能列表** > [**修改参数**](../operation/job_manage/job_op/job_params.md) > **目标数据源配置**，将参数 *httpHost* 修改为上一步填写的 *privateHttpHost* / *publicHttpHost*。

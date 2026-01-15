@@ -256,6 +256,7 @@ const sidebars: SidebarsConfig = {
               "type": "category",
               "label": "SQL Server",
               "items": [
+                "dataMigrationAndSync/datasource_func/SqlServer/enable_sql_server_heartbeat",
                 "dataMigrationAndSync/datasource_func/SqlServer/privs_for_sqlserver",
                 "dataMigrationAndSync/datasource_func/SqlServer/update_multi_pos"
               ]
@@ -520,6 +521,7 @@ const sidebars: SidebarsConfig = {
             "openCenter/openApi/dataTaskApi/api_datajob_updatetransferobjnew",
             "openCenter/openApi/dataTaskApi/api_datajob_updatetransferobjnewfull",
             "openCenter/openApi/dataTaskApi/api_datajob_delete",
+            "openCenter/openApi/dataTaskApi/api_datajob_updateincrepos",
             "openCenter/openApi/dataTaskApi/api_datajob_schema",
             "openCenter/openApi/dataTaskApi/api_datajob_mapping",
             "openCenter/openApi/dataTaskApi/api_datajob_listkvconfigsbyjobid",
@@ -547,6 +549,7 @@ const sidebars: SidebarsConfig = {
       "type": "category",
       "label": "Release Note",
       "items": [
+        "releaseNote/rn-bladepipe-1-2-0",
         "releaseNote/rn-bladepipe-1-1-0",
         "releaseNote/rn-bladepipe-1-0-0",
         "releaseNote/rn-bladepipe-0-9-0",

@@ -101,7 +101,8 @@ const sidebars: SidebarsConfig = {
                 "operation/job_manage/job_op/change_job_setting",
                 "operation/job_manage/job_op/data_transform",
                 "operation/job_manage/job_op/visual_widetable_create",
-                "operation/job_manage/job_op/param_template"
+                "operation/job_manage/job_op/param_template",
+                "operation/job_manage/job_op/duplicate_subscription",
               ]
             }
           ]
@@ -624,6 +625,7 @@ const sidebars: SidebarsConfig = {
             "openCenter/openApi/dataTaskApi/api_datajob_updatetransferobjnew",
             "openCenter/openApi/dataTaskApi/api_datajob_updatetransferobjnewfull",
             "openCenter/openApi/dataTaskApi/api_datajob_delete",
+            "openCenter/openApi/dataTaskApi/api_datajob_updateincrepos",
             "openCenter/openApi/dataTaskApi/api_datajob_schema",
             "openCenter/openApi/dataTaskApi/api_datajob_mapping",
             "openCenter/openApi/dataTaskApi/api_datajob_listkvconfigsbyjobid",

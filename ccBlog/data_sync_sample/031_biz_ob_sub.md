@@ -129,7 +129,7 @@ MySQL、StarRocks、OceanBase、Kafka
   ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0031/14.png)
 
 #### 方法二：修改任务配置
-- 任务管理点击任务进入任务详情页，选择 **功能列表->参数修改->源端数据配置**
+- 任务管理点击任务进入任务详情页，选择 **功能列表->修改参数->源端数据配置**
   ![image.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/wufenzhong/0031/15.png)
 
 - 新版CloudCanal针对OceanBase源端新增了以下参数，补全新增参数的值

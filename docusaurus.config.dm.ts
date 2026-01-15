@@ -91,6 +91,28 @@ const config: Config = {
     ],
   ],
 
+  themes: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        // 启用哈希以提高性能
+        hashed: true,
+        // 支持的语言
+        language: ["zh", "en"],
+        // 在目标页面高亮搜索词
+        highlightSearchTermsOnTargetPage: true,
+        // 显式搜索结果路径
+        explicitSearchResultPath: true,
+        // 博客索引
+        indexBlog: true,
+        // 文档索引
+        indexDocs: true,
+        // 页面索引
+        indexPages: true,
+      },
+    ],
+  ],
+
   themeConfig: {
     // 禁用主题色切换功能
     colorMode: {
@@ -171,6 +193,7 @@ const config: Config = {
         },
       };
     },
+    require.resolve('./src/plugins/robots-txt-plugin'),
   ],
 };
 

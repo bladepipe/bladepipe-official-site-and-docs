@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
+import Head from '@docusaurus/Head';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import Banner from '@site/src/components/Banner';
@@ -21,6 +22,7 @@ import DeployModeSection from '../components/DeployModeSection';
 import CustomBlog from '@site/src/components/custom-blog';
 import Translate from '@docusaurus/Translate';
 import CloudDM from './clouddm';
+import { getPageMeta } from '@site/src/utils/meta';
 
 import styles from './index.module.css';
 
@@ -51,6 +53,9 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   const siteBrand = siteConfig.customFields?.siteBrand;
   
+  // 使用统一的工具函数获取首页 meta 信息
+  const homeMeta = getPageMeta('home');
+  
   // 当 siteBrand 为 clouddm 时，渲染 CloudDM 页面
   if (siteBrand === 'clouddm') {
     return <CloudDM />;
@@ -58,7 +63,10 @@ export default function Home(): ReactNode {
 
   // 否则渲染原有的首页内容
   return (
-    <Layout>
+    <Layout description={homeMeta.description}>
+      <Head>
+        <title>{homeMeta.title}</title>
+      </Head>
       <FadeInSection><Banner /></FadeInSection>
       <FadeInSection><UserLogos /></FadeInSection>
       <FadeInSection><BusinessData /></FadeInSection>

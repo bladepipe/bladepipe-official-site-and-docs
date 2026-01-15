@@ -67,7 +67,7 @@ export default function BusinessData() {
             />
           </div>
           <div className="flex flex-col justify-start items-start ml-2 md:ml-4">
-            <span className="text-[36px] md:text-[48px] font-bold leading-[44px] md:leading-[60px] text-[#131316] font-['Plus Jakarta Sans']">{count.clients}+</span>
+            <span translate="no" className="text-[36px] md:text-[48px] font-bold leading-[44px] md:leading-[60px] text-[#131316] font-['Plus Jakarta Sans']">{count.clients}+</span>
             <span className="text-[14px] md:text-[16px] font-bold leading-[20px] md:leading-[24px] text-black/80 font-['Plus Jakarta Sans']">
               <Translate id="business.clients">clients</Translate>
             </span>
@@ -87,7 +87,7 @@ export default function BusinessData() {
             />
           </div>
           <div className="flex flex-col justify-start items-start ml-2 md:ml-4">
-            <span className="text-[36px] md:text-[48px] font-bold leading-[44px] md:leading-[60px] text-black font-['Plus Jakarta Sans']">{count.downloads.toLocaleString()}+</span>
+            <span translate="no" className="text-[36px] md:text-[48px] font-bold leading-[44px] md:leading-[60px] text-black font-['Plus Jakarta Sans']">{count.downloads.toLocaleString()}+</span>
             <span className="text-[14px] md:text-[16px] font-bold leading-[20px] md:leading-[24px] text-[#18181a] font-['Plus Jakarta Sans']">
               <Translate id="business.downloads">downloads</Translate>
             </span>
@@ -107,7 +107,7 @@ export default function BusinessData() {
             />
           </div>
           <div className="flex flex-col justify-start items-start ml-2 md:ml-4">
-            <span className="text-[36px] md:text-[48px] font-bold leading-[44px] md:leading-[60px] text-black font-['Plus Jakarta Sans']">{count.members.toLocaleString()}+</span>
+            <span translate="no" className="text-[36px] md:text-[48px] font-bold leading-[44px] md:leading-[60px] text-black font-['Plus Jakarta Sans']">{count.members.toLocaleString()}+</span>
             <span className="text-[14px] md:text-[16px] font-bold leading-[20px] md:leading-[24px] text-[#18181a] font-['Plus Jakarta Sans']">
               <Translate id="business.members">community members</Translate>
             </span>

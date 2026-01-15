@@ -35,7 +35,7 @@ title: MySQL 系统库同步实践
    ![4](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/migrate_mysql_systable/4.png)
 5. 选择需同步的列。
 6. 确认创建任务。
-7. 进入任务详情页，点击 **功能列表** > **修改任务参数**，修改以下参数配置。
+7. 进入任务详情页，点击 **功能列表** > **修改参数**，修改以下参数配置。
     - 源端 zeroDateTimeBehavior：exception
     - 源端 srcTimeZone：配置成源端时区(默认是 Asia/Shanghai)
     - 对端 keyConflictStrategy：REPLACE
