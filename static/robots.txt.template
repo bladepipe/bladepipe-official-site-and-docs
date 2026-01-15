@@ -6,10 +6,6 @@ Disallow: /admin/
 Disallow: /api/
 Disallow: /_next/
 Disallow: /build/
-Disallow: /loading/
-Disallow: /login/
-Disallow: /register/
-Disallow: /resetPwd/
 
 # 站点地图
 Sitemap: /sitemap.xml

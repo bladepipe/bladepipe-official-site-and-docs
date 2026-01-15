@@ -193,6 +193,7 @@ const config: Config = {
         },
       };
     },
+    require.resolve('./src/plugins/robots-txt-plugin'),
   ],
 };
 
