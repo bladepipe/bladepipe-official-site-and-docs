@@ -256,6 +256,7 @@ const sidebars: SidebarsConfig = {
               "type": "category",
               "label": "SQL Server",
               "items": [
+                "dataMigrationAndSync/datasource_func/SqlServer/enable_sql_server_heartbeat",
                 "dataMigrationAndSync/datasource_func/SqlServer/privs_for_sqlserver",
                 "dataMigrationAndSync/datasource_func/SqlServer/update_multi_pos"
               ]
@@ -548,6 +549,7 @@ const sidebars: SidebarsConfig = {
       "type": "category",
       "label": "Release Note",
       "items": [
+        "releaseNote/rn-bladepipe-1-2-0",
         "releaseNote/rn-bladepipe-1-1-0",
         "releaseNote/rn-bladepipe-1-0-0",
         "releaseNote/rn-bladepipe-0-9-0",
