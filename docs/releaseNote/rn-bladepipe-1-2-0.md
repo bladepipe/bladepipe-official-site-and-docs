@@ -1,7 +1,7 @@
 ---
 id: rn-bladepipe-1-2-0
 title: BladePipe 1.2.0
-description: BladePipe 5.3.1.0 adds KingbaseES V8/V9 source support, new sync pipelines, CDC and DDL enhancements, performance improvements, and bug fixes.
+description: BladePipe 1.2.0 adds KingbaseES V8/V9 source support, new sync pipelines, CDC and DDL enhancements, performance improvements, and bug fixes.
 ---
 Release Date: January 15, 2026
 

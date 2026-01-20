@@ -3,7 +3,7 @@ id: what_is_cloud_data_integration
 description: Cloud data integration is the process of combining data from multiple cloud sources into a unified system for analysis, reporting, or operational use.
 title: What Is Cloud Data Integration and How to Do It Right? 
 date: 2026-01-09
-authors: mumu 
+authors: yuxia
 tags:
   - data_insights
 image: /img/blog/data_insights/what_is_cloud_data_integration.png
@@ -51,7 +51,7 @@ Unlike traditional ETL, cloud data integration is designed for:
 | Transformations | Data-centric transformations (ETL/ELT) | Basic field mapping |
 | Monitoring & Reliability | Built-in data monitoring and recovery | Workflow-level monitoring |
 
-While iPaaS (Integration Platform as a Service) also connects cloud applications, cloud data integration emphasizes data movement, transformation, and [**analytics readiness**](https://www.bladepipe.com/solution1/), rather than just application workflows.
+While iPaaS (Integration Platform as a Service) also connects cloud applications, cloud data integration emphasizes data movement, transformation, and [**analytics readiness**](https://www.bladepipe.com/real-time-analytics/), rather than just application workflows.
 
 **Benefits include:**
 - Faster insights from unified data
