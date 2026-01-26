@@ -39,6 +39,7 @@ description: BladePipe The datasource source and target, The versions supported
 | Pulsar                | 3.x, 4.x     |
 | Greptime              | 0.7, 0.8, 0.9, 0.10, 0.11      |
 | TDengine              | 3.x     |
+| Vastbase              | G100V3.0    |
 | OssFile               | ~       |
 | S3File                | ~       |
 | SshFile               | ~       |

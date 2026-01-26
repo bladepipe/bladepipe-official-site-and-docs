@@ -1,8 +1,8 @@
 ---
 id: top_cdc_tool
-description: Show the best 7 CDC tools in 2025
-title: 7 Best Change Data Capture (CDC) Tools in 2025
-date: 2025-04-12
+description: Show the best 7 CDC tools in 2026
+title: 7 Best Change Data Capture (CDC) Tools in 2026
+date: 2026-01-14
 authors: junyu 
 tags:
   - data_insights
@@ -18,7 +18,7 @@ Change Data Capture (CDC) is a technique that identifies and tracks changes to d
 - **Agile Business Insights**: CDC enables data collection in real-time, allowing teams across organizations to access recent data for making data-driven decisions quickly and improving accuracy of decision-making.
 
 
-## 7 Best CDC Tools in 2025
+## 7 Best CDC Tools in 2026
 
 ### Debezium
 [Debezium](https://debezium.io/) is an open-source distributed platform for change data capture. Built on top of Apache Kafka, Debezium captures row-level changes from various databases, like MySQL, PostgreSQL, MongoDB, and others, and streams these changes to Kafka for downstream processing.

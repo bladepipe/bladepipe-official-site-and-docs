@@ -44,6 +44,7 @@ description: CloudCanal 支持的数据源版本支持
 | TDSQL-C MySQL         | 5.7, 8.0                                                                                       |
 | TDSQL MySQL           | 5.7                                                                                            |
 | KingbaseES            | V8R6, V9R1                                                                                     |
+| Vastbase              | G100V3.0                                                                                           |
 | OssFile               | ~                                                                                              |
 | S3File                | ~                                                                                              |
 | SshFile               | ~                                                                                              |

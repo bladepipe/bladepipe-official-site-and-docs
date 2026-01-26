@@ -218,6 +218,7 @@ const sidebars: SidebarsConfig = {
             "dataMigrationAndSync/connection/gaussdb2",
             "dataMigrationAndSync/connection/dynamodb2",
             "dataMigrationAndSync/connection/kingbasees2",
+            "dataMigrationAndSync/connection/vastbase2",
             "dataMigrationAndSync/connection/clickhouse2",
             "dataMigrationAndSync/connection/tdsqlcmysql2",
             "dataMigrationAndSync/connection/tdsqlmysql2"
@@ -382,6 +383,14 @@ const sidebars: SidebarsConfig = {
                 "items": [
                     "dataMigrationAndSync/datasource_func/KingbaseES/privs_for_kes",
                     "dataMigrationAndSync/datasource_func/KingbaseES/set_kes_replica_identity"
+                ]
+            },
+            {
+                "type": "category",
+                "label": "Vastbase",
+                "items": [
+                    "dataMigrationAndSync/datasource_func/Vastbase/privs_for_vastbase",
+                    "dataMigrationAndSync/datasource_func/Vastbase/set_vastbase_replica_identity"
                 ]
             }
           ]

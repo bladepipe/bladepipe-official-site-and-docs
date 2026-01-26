@@ -1,8 +1,8 @@
 ---
 id: vs_airbyte
 description: This article compares BladePipe and Airbyte.
-title: BladePipe vs. Airbyte-Features, Pricing and More (2025)
-date: 2025-07-04
+title: BladePipe vs. Airbyte-Features, Pricing and More (2026)
+date: 2026-01-16
 authors: mumu 
 tags:
   - data_insights

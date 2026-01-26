@@ -1,8 +1,8 @@
 ---
 id: dynamodb_vs_mongodb
 description: Compare the key differences between DynamoDB and MongoDB, and how to choose between them.
-title: DynamoDB vs MongoDB in 2025 - Key Differences, Use Cases
-date: 2025-08-22
+title: DynamoDB vs MongoDB in 2026 - Key Differences, Use Cases
+date: 2026-01-22
 authors: mumu 
 tags:
   - data_insights

@@ -412,13 +412,14 @@ const sidebars: SidebarsConfig = {
         "bestPractice/encrypt_data_when_sync",
         "bestPractice/verification_and_correction",
         "bestPractice/data_gather_use_virtual_cols",
+        "bestPractice/time_schedule_full"
       ]
     },
     {
       "type": "category",
       "label": "FAQ",
       "items": [
-        "faq/cloudcanal_faq_list",
+        "faq/bladepipe_faq_list",
         "faq/performance_optimization",
         "faq/solve_task_communicate_timeout",
         "faq/solve_task_can_not_delete",
