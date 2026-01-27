@@ -28,6 +28,7 @@ import {KingbaseES} from "./kingbasees";
 import {ClickHouse} from "./clickhouse";
 import {TdsqlCMySQL} from "./tdsqlcmysql";
 import {TdsqlMySQL} from "./tdsqlmysql";
+import {Vastbase} from "./vastbase";
 
 export const SourceInfo = {
     MySQL,
@@ -62,6 +63,7 @@ export const SourceInfo = {
     GaussDB,
     DynamoDB,
     KingbaseES,
+    Vastbase,
     ClickHouse,
     TdsqlCMySQL,
     TdsqlMySQL

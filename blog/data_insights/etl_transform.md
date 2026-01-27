@@ -1,8 +1,8 @@
 ---
 id: etl_tranform
 description: Show the common types of transformation in ETL
-title: Data Transformation in ETL (2025 Guide)
-date: 2025-05-14
+title: Data Transformation in ETL (2026 Guide)
+date: 2026-01-21
 authors: junyu 
 tags:
   - data_insights

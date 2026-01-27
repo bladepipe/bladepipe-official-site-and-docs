@@ -2639,6 +2639,15 @@
   "connector.datasource.tdsqlcmysql.description": {
     "message": "TDSQL-C 是腾讯云的企业级云原生数据库，与 MySQL 兼容，具有高可用性和弹性。"
   },
+  "connector.datasource.tdsqlmysql.description": {
+    "message": "TDSQL 是腾讯的高性能分布式数据库，具备强一致性、高可用性、SQL 兼容性和水平扩展能力。"
+  },
+  "connector.datasource.kingbasees.description": {
+    "message": "人大金仓数据库是一个国产关系型数据库管理系统，具有高安全性、可靠性，支持关键业务应用。"
+  },
+  "connector.datasource.vastbase.description": {
+    "message": "Vastbase G100 是海量数据自主研发的企业级关系型数据库。产品兼具高性能、高并发、高可用、高安全、高兼容等多种特性。"
+  },
   "downloadModal.termsOfService": {
     "message": "服务条款"
   },

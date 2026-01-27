@@ -1,8 +1,8 @@
 ---
 id: iceberg_vs_deltalake_vs_paimon
 description: A deep dive into how these open lake formats differ, and how to build a real-time data lake that actually works.
-title: Choosing Your Data Lake Format in 2025:Iceberg vs Delta Lake vs Paimon
-date: 2025-10-22
+title: Choosing Your Data Lake Format in 2026:Iceberg vs Delta Lake vs Paimon
+date: 2026-01-13
 authors: juantu 
 tags:
   - data_insights

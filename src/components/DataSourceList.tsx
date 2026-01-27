@@ -67,7 +67,10 @@ const dataSources = [
   { name: 'Amazon MSK', icon: 'AmazonMSK' },
   { name: 'PolarDb for PostgreSQL', icon: 'PolarDBPg' },
   { name: 'DeltaLake', icon: 'DeltaLake' },
-  { name: 'TDSQL-C', icon: 'TdsqlCMySQL' }
+  { name: 'TDSQL-C', icon: 'TdsqlCMySQL' },
+  { name: 'TDSQL', icon: 'TdsqlMySQL' },
+  { name: 'KingBase', icon: 'KingbaseES' },
+  { name: 'VastBase', icon: 'Vastbase' }
   // { name: 'ZhipuAI', icon: 'ZhipuAI' }
 ];
 

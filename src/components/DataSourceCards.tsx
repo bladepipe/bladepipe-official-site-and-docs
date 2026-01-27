@@ -600,6 +600,30 @@ const DataSourceCards: React.FC<DataSourceCardsProps> = ({
       isBusinessOnly: false,
       supportsSource: true,
       supportsTarget: true
+    },
+    {
+      name: 'TDSQL',
+      icon: 'TdsqlMySQL',
+      description: 'TDSQL is Tencent\'s high-performance distributed database with strong consistency, high availability, SQL compatibility, and horizontal scaling.',
+      isBusinessOnly: false,
+      supportsSource: true,
+      supportsTarget: true
+    },
+    {
+      name: 'KingBase',
+      icon: 'KingbaseES',
+      description: 'KingBase is a domestic relational database management system with high security, reliability, and support for mission-critical applications.',
+      isBusinessOnly: false,
+      supportsSource: true,
+      supportsTarget: false
+    },
+    {
+      name: 'VastBase',
+      icon: 'Vastbase',
+      description: 'Vastbase G100 is an independently developed enterprise-grade relational database by Vastdata. It features high performance, high concurrency, high availability, high security, and high compatibility.',
+      isBusinessOnly: false,
+      supportsSource: true,
+      supportsTarget: true
     }
     // {
     //   name: 'ZhipuAI',

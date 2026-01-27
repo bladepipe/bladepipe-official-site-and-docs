@@ -1,5 +1,5 @@
 ---
-id: cloudcanal_faq_list
+id: bladepipe_faq_list
 title: Overview
 ---
 

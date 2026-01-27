@@ -29,6 +29,7 @@ import {Dameng} from "./dameng";
 import {DynamoDB} from "./dynamodb";
 import {TdsqlCMySQL} from "./tdsqlcmysql";
 import {TdsqlMySQL} from "./tdsqlmysql";
+import { Vastbase } from "./vastbase";
 
 export const TargetInfo = {
     MySQL,
@@ -67,5 +68,6 @@ export const TargetInfo = {
     Dameng,
     DynamoDB,
     TdsqlCMySQL,
-    TdsqlMySQL
+    TdsqlMySQL,
+    Vastbase
 }
