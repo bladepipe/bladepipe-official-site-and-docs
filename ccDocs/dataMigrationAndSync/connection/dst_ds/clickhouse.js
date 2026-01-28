@@ -39,6 +39,10 @@ export const ClickHouse = {
         {
             key: 'autoOptimizeThresholdSec',
             desc: '定时优化表（<b>optimize table final</b>）间隔，<=0 则关闭此功能'
+        },
+        {
+            key:'enableTimeRangeClamping',
+            desc:'是否启用时间范围裁剪,强制将时间和日期值收束到 ClickHouse JDBC 的合法区间内，超出的数值将被截断至最小值或最大值。默认关闭（false）。\n\n 收束后范围(UTC)：\n- <b>Date：[1970-01-01, 2149-06-06]</b>\n- <b>Date32：[1925-01-01, 2283-11-11]</b>\n- <b>Timestamp：[1970-01-01 00:00:00, 2106-02-07 14:28:15]</b>\n- <b>Timestamp64：[1925-01-01 08:00:00.000, 2283-11-12 07:59:59.000]</b>'
         }
     ],
     master_function: [

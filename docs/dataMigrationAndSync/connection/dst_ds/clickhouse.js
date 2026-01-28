@@ -39,6 +39,9 @@ export const ClickHouse = {
         {
             key: 'autoOptimizeThresholdSec',
             desc: 'Interval of scheduled table optimization (<b>optimize table final</b>). If the value <=0, it means the feature is disabled.'
+        },{
+            key:'enableTimeRangeClamping',
+            desc: 'Whether to enable time range clamping. Forces date and time values to be constrained within the valid ClickHouse JDBC range. Values outside this range will be clamped to the minimum or maximum values. Disabled by default (false).\n\n Ranges after clamping(UTC)：\n- <b>Date：[1970-01-01, 2149-06-06]</b>\n- <b>Date32：[1925-01-01, 2283-11-11]</b>\n- <b>Timestamp：[1970-01-01 00:00:00, 2106-02-07 14:28:15]</b>\n- <b>Timestamp64：[1925-01-01 08:00:00.000, 2283-11-12 07:59:59.000]</b>'
         }
     ],
     master_function: [
