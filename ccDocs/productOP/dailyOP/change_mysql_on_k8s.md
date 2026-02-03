@@ -1,6 +1,6 @@
 ---
 id: change_mysql_on_k8s
-title: 更换元数据库(Kubernetes)
+title: 更换元数据库(K8s)
 description: CloudCanal 默认提供了元数据库镜像(MySQL), 但是用户上生产，希望能够用自有的、更加稳定、且得到良好维护的元数据库，本文档介绍 CloudCanal K8S 部署如何更换元数据库。
 ---
 

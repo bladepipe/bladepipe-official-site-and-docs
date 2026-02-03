@@ -1,0 +1,66 @@
+---
+id: install_all_in_one_k8s
+title: 全新安装(K8s 托管镜像)
+description:  本文介绍如何通过 Kubernetes 安装 CloudCanal
+---
+
+import InstallCommand from '@site/src/components/InstallCommand';
+
+本文介绍如何通过 Kubernetes 安装 CloudCanal。
+
+## 前置条件
+
+- Kubernetes 已安装，可参考 [最小化 K8s 安装 (CentOS)](../dailyOP/minimal_k8s_for_centos.md) 文档。
+- 以下端口未被占用。
+  
+   | 组件                   | 端口  | 用途                        |
+   |--------------------|-------|----------------------------|
+   | cloudcanal-mysql    | 32500 | 元数据库 MySQL 端口 |
+   | cloudcanal-console  | 31111 | 用户控制台访问端口    |
+   | cloudcanal-worker   | 32727 | Debug 任务端口 |
+   | cloudcanal-prometheus | 31900 | 监控指标查询端口   |
+
+## 步骤
+
+1. (可选但推荐) 在 K8s master 节点生成 ssh-key，并打通各节点免登录（包括 master 节点自身）。
+  
+   ```bash
+   ssh-keygen -t rsa -b 4096 -C "auto-login"
+   
+   ssh-copy-id user@remote_host1
+   ssh-copy-id user@remote_host2
+   ...
+   ```
+
+2. 替换以下命令中的 **&lt;version&gt;** 为安装版本，并执行。
+   
+   <InstallCommand 
+     command="curl -fsSL https://tgzdownload.clougence.com/support/install_on_k8s.sh | bash -s -- <version>"
+   />
+
+3. 成功安装 **CloudCanal**。
+
+   ```bash
+   ███████╗██╗   ██╗ ██████╗ ██████╗███████╗███████╗███████╗
+   ██╔════╝██║   ██║██╔════╝██╔════╝██╔════╝██╔════╝██╔════╝
+   ███████╗██║   ██║██║     ██║     █████╗  ███████╗███████╗
+   ╚════██║██║   ██║██║     ██║     ██╔══╝  ╚════██║╚════██║
+   ███████║╚██████╔╝╚██████╗╚██████╗███████╗███████║███████║
+   ╚══════╝ ╚═════╝  ╚═════╝ ╚═════╝╚══════╝╚══════╝╚══════╝
+
+   CloudCanal for Kubernetes is ready! visit console http://{ip}:31111 in an web explorer and have fun :)
+   ```
+
+## 开始使用
+
+- 浏览器打开地址(推荐Chrome): **http://`${ip}`:31111**
+- 默认账号: **test@clougence.com**
+- 默认密码: **clougence2021**
+- 默认验证码: **777777**
+
+  :::info
+  推荐参考以下文档修改系统敏感信息：
+    - [修改账号密码](../dailyOP/change_on_premise_password.md)
+    - [修改验证码](../dailyOP/change_verify_code_777777.md)
+    - [修改 AccessKey & SecretKey](../dailyOP/change_ak_sk.md)
+  :::

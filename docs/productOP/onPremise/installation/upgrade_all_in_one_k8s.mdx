@@ -1,0 +1,36 @@
+---
+id: upgrade_all_in_one_k8s
+title: Upgrade All-In-One (K8s)
+description: This page introduces how to upgrade BladePipe using Kubernetes
+---
+
+import InstallCommand from '@site/src/components/InstallCommand';
+
+This page introduces how to upgrade BladePipe using Kubernetes.
+
+## Prerequisite
+- Kubernetes has been installed. Please refer to [Minimal K8s Installation](../maintenance/minimal_k8s_for_centos.md) for guidance.
+- BladePipe has been installed with K8s. Please refer to [Install All-In-One(K8s)](install_all_in_one_k8s.mdx) for guidance.
+
+## Procedure
+
+1. Log in the **K8s master** node.
+
+2. Replace **version** in the following command with the target version, then execute it.
+   
+   <InstallCommand 
+     command="curl -fsSL https://bladepipe-docker.s3.ap-southeast-1.amazonaws.com/upgrade_on_k8s.sh | bash -s -- <version>"
+   />
+
+3. Successfully upgrade **BladePipe**.
+
+   ```bash
+   ███████╗██╗   ██╗ ██████╗ ██████╗███████╗███████╗███████╗
+   ██╔════╝██║   ██║██╔════╝██╔════╝██╔════╝██╔════╝██╔════╝
+   ███████╗██║   ██║██║     ██║     █████╗  ███████╗███████╗
+   ╚════██║██║   ██║██║     ██║     ██╔══╝  ╚════██║╚════██║
+   ███████║╚██████╔╝╚██████╗╚██████╗███████╗███████║███████║
+   ╚══════╝ ╚═════╝  ╚═════╝ ╚═════╝╚══════╝╚══════╝╚══════╝
+
+   BladePipe for Kubernetes is ready! visit console http://{ip}:31111 in an web explorer and have fun :)
+   ```

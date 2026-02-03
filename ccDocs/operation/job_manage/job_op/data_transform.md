@@ -22,22 +22,48 @@ return @fun.str.maskAfter(@params['col'],'-')
 
 ## 当前支持的脚本
 
-| 脚本| 说明|
-| --- | --- |
-|return @fun.str.trim(@params['col'],' ') | 去掉字符串前后的空格|
-|return @fun.str.trimEnd(@params['col'],' ') | 去掉字符串结尾的空格|
-|return @fun.str.trimStart(@params['col'],' ') | 去掉字符串头部的空格|
-|return @fun.str.upperCase(@params['col']) | 将字符串转大写|
-|return @fun.str.lowerCase(@params['col']) | 将字符串转小写|
-|return @fun.str.subStringAfter(@params['col'],'-') |截取'-'字符之后字符串|
-|return @fun.str.subStringBefore(@params['col'],'-') | 截取'-'字符之前字符串|
-|return @fun.str.maskAfter(@params['col'],'-') | 遮掩'-'字符之后的字符串，默认使用 *|
-|return @fun.str.maskBefore(@params['col'],'@') | 遮掩'@'字符之前的字符串，默认使用 * |
-|return @fun.str.maskBetweenIdx(@params['col'],2,8) | 遮掩 2 ~ 8 序号之间的字符串，序号从 0 开始, 开始位置包含, 结束位置排除|
-|return @fun.str.stringFormat(@params['col'],'prefix_%s_suffix') | 使用指定表达式格式化列的值|
-|return @fun.str.castToDateTimeWithFormat(@params['col'],'yyyy-MM-dd HH:mm:ss') | 将字符串转换为指定格式的日期时间数据|
-|return @fun.str.castToDateWithFormat(@params['col'],'yyyy-MM-dd') | 将字符串转换为指定格式的日期数据|
-|return @fun.str.castToTimeWithFormat(@params['col'],'HH:mm:ss') | 将字符串转换为指定格式的时间数据|
+### 字符串处理
+
+| 脚本                                                                         | 说明                                         |
+| ---------------------------------------------------------------------------- |--------------------------------------------|
+| return @fun.str.trim(@params['col'],' ')                                   | 去掉字符串前后的空格                                 |
+| return @fun.str.trimEnd(@params['col'],' ')                                | 去掉字符串结尾的空格                                 |
+| return @fun.str.trimStart(@params['col'],' ')                              | 去掉字符串头部的空格                                 |
+| return @fun.str.upperCase(@params['col'])                                  | 将字符串转大写                                    |
+| return @fun.str.lowerCase(@params['col'])                                  | 将字符串转小写                                    |
+| return @fun.str.subStringAfter(@params['col'],'-')                         | 截取'-'字符之后字符串                               |
+| return @fun.str.subStringBefore(@params['col'],'-')                        | 截取'-'字符之前字符串                               |
+| return @fun.str.maskAll(@params['col'])                                    | 遮掩整个字符串，默认使用*                              |
+| return @fun.str.maskAfter(@params['col'],'-')                              | 遮掩'-'字符之后的字符串，默认使用 *                       |
+| return @fun.str.maskBefore(@params['col'],'@')                             | 遮掩'@'字符之前的字符串，默认使用 *                       |
+| return @fun.str.maskBetweenIdx(@params['col'],2,8)                         | 遮掩 2 ~ 8 序号之间的字符串，序号从 0 开始, 开始位置包含, 结束位置排除 |
+| return @fun.str.stringFormat(@params['col'],'prefix_%s_suffix')            | 使用指定表达式格式化列的值                              |
+| return @fun.str.castToDateTimeWithFormat(@params['col'],'yyyy-MM-dd HH:mm:ss') | 将字符串转换为指定格式的日期时间数据                         |
+| return @fun.str.castToDateWithFormat(@params['col'],'yyyy-MM-dd')          | 将字符串转换为指定格式的日期数据                           |
+| return @fun.str.castToTimeWithFormat(@params['col'],'HH:mm:ss')            | 将字符串转换为指定格式的时间数据                           |
+| return @fun.str.regexReplaceAll(@params['col'],'regex','replacement')    | 使用正则表达式进行目标字符串匹配并替换                        |
+
+### 类型转换
+
+| 脚本                                                                         | 说明           |
+|----------------------------------------------------------------------------|--------------|
+| return @fun.type.typeCast(@params['col'],'target_type')                  | 将类型转换为目标类型     |
+:::info
+**目标类型(**target_type**)可选范围**：BOOLEAN / INTEGER / LONG / FLOAT / DOUBLE / DECIMAL / LOCAL_DATETIME / STRING / JSON
+:::
+
+### 条件替换
+
+| 脚本                                                                         | 说明                       |
+|----------------------------------------------------------------------------|--------------------------|
+| return @fun.rep.ifNullReplace(@params['col'],'replace_val','replace_type')                | 将 null 值替换为目标值          |
+| return @fun.rep.timestampReplace(@params['col'],'ts_format','relation','compare_val','replace_val')  | 和比较值进行比较，如果符合条件，则变换为替换值   |
+| return @fun.rep.numberReplace(@params['col'],'relation','compare_val','replace_val','replace_type')  | 和比较值进行比较，如果符合条件，则变换为替换值     |
+:::info
+**替换值类型(**replace_type**)可选范围**：BOOLEAN / INTEGER / LONG / FLOAT / DOUBLE / DECIMAL / LOCAL_DATETIME / STRING / JSON      
+**ts_format**：即时间戳格式，如 yyyy-MM-dd HH:mm:ss     
+**比较符(**relation**)可选范围**：EQ  (相等) / NEQ (不想等) /GT (大于) / LT (小于) / GTE (大于等于) / LTE (小于等于)  
+:::
 
 ## 操作说明
 

@@ -87,7 +87,7 @@ const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
   const [syncLinks, setSyncLinks] = useState(5);
   const [syncDuration, setSyncDuration] = useState(1);
   const [unitPrice, setUnitPrice] = useState(
-    priceMeta?.licensePriceVO?.priceOneJobPerHour ? parseFloat(priceMeta.licensePriceVO.priceOneJobPerHour) : 0.3
+    priceMeta?.licensePriceVO?.priceOneJobPerHour ? parseFloat(priceMeta.licensePriceVO.priceOneJobPerHour) : 0.2
   );
   const [consoleNodes, setConsoleNodes] = useState(1);
   const [metabaseNodes, setMetabaseNodes] = useState(1);

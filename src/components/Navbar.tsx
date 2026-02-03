@@ -668,7 +668,7 @@ export default function Navbar() {
                   }, 'try_cloud_free')
                 }>
                 <span className='text-sm lg:text-[15px] xl:text-[16px] font-bold'>
-                  <Translate id='navbar.tryCloud'>Try Cloud Free</Translate>
+                  <Translate id='navbar.tryCloud'>Try Cloud</Translate>
                 </span>
               </div>
             </>

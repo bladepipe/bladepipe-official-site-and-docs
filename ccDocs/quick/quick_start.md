@@ -9,7 +9,7 @@ CloudCanal 私有部署版 **将完整产品安装于用户私有环境中**。
 
 ## 安装并激活 
 
-1. [安装完整产品(Linux/MacOS)](../productOP/docker/install_linux_macos.md)。
+1. [全新安装(Docker 托管镜像)](../productOP/docker/install_all_in_one_docker.mdx)。
 2. [免费激活系统](../license/license_use.md)。
    :::info
    若全新部署，且环境联通互联网，则自动免费激活社区版 15 天。

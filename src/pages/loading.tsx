@@ -101,7 +101,10 @@ export default function Loading() {
           if (target === 'try_cloud_free') {
             window.location.href = getCloudUrl();
           } else if (target === 'download') {
-            localStorage.setItem('openDownloadModal', 'true');
+            localStorage.setItem('openCommunityDownloadModal', 'true');
+            history.push('/');
+          } else if (target === 'download_community') {
+            localStorage.setItem('openCommunityDownloadModal', 'true');
             history.push('/');
           } else if (target === 'buy_a_license') {
             window.location.href = getCloudUrl() + '/#/system/license';

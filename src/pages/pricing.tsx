@@ -13,6 +13,7 @@ import { loginCheckAndRedirect } from '@site/src/utils';
 import { isUserLogin } from '@site/src/store/user';
 import { listDownloadProduct, queryPriceMeta } from '@site/src/apis/constant';
 import DownloadModal from '@site/src/components/DownloadModal';
+import CommunityInstallModal from '@site/src/components/CommunityInstallModal';
 import siteConfig from '@generated/docusaurus.config';
 import { getPageMeta } from '@site/src/utils/meta';
 
@@ -79,7 +80,7 @@ const getPricingPlans = (siteBrand: string, priceMeta?: any) => {
         link: ""
       }
     ];
-  } else if (siteBrand === 'clougence') {
+  } else if (siteBrand === 'clougence' || siteBrand === 'bladepipe') {
     return [
       {
         id: 1,
@@ -201,7 +202,7 @@ const getPricingPlans = (siteBrand: string, priceMeta?: any) => {
 };
 
 // 版本卡片组件 - 响应式设计
-const PricingCard = ({ plan, onDownloadClick, siteBrand }) => {
+const PricingCard = ({ plan, onDownloadClick, onCommunityModalOpen, siteBrand }) => {
   return (
     <div className={`w-full max-w-[640px] h-[660px] sm:h-[780px] lg:h-[800px] ${plan.backgroundColor} border border-solid border-gray-200 rounded-[12px] p-[24px] sm:p-[36px] lg:p-[48px] flex flex-col relative`}>
       {/* 热门标签 */}
@@ -230,7 +231,7 @@ const PricingCard = ({ plan, onDownloadClick, siteBrand }) => {
           if (siteBrand === 'clougence') {
             if (plan.id === 1) {
               // CloudCanal 社区版下载逻辑
-              onDownloadClick();
+              onCommunityModalOpen();
             } else if (plan.id === 2) {
               // CloudCanal Cloud 版本 - 开始免费试用
               loginCheckAndRedirect(() => {
@@ -250,14 +251,29 @@ const PricingCard = ({ plan, onDownloadClick, siteBrand }) => {
               // CloudDM 商业版购买逻辑
               window.location.href = getCloudUrl() + '/#/system/license';
             }
-          } else {
+          } else if (siteBrand === 'bladepipe') {
             if (plan.id === 1) {
+              // BladePipe 社区版 - 显示社区版安装弹窗
+              onCommunityModalOpen();
+            } else if (plan.id === 2) {
               // BladePipe Cloud 版本 - 开始免费试用
               loginCheckAndRedirect(() => {
                 window.location.href = getCloudUrl();
               }, 'try_cloud_free');
-            } else if (plan.id === 2) {
+            } else if (plan.id === 3) {
               // BladePipe Enterprise 版本 - 购买许可证
+              loginCheckAndRedirect(() => {
+                window.location.href = getCloudUrl() + '/#/system/license';
+              }, 'buy_a_license');
+            }
+          } else {
+            if (plan.id === 1) {
+              // 其他品牌的 Cloud 版本 - 开始免费试用
+              loginCheckAndRedirect(() => {
+                window.location.href = getCloudUrl();
+              }, 'try_cloud_free');
+            } else if (plan.id === 2) {
+              // 其他品牌的 Enterprise 版本 - 购买许可证
               loginCheckAndRedirect(() => {
                 window.location.href = getCloudUrl() + '/#/system/license';
               }, 'buy_a_license');
@@ -327,6 +343,10 @@ export default function Pricing() {
   const [downloadLoading, setDownloadLoading] = React.useState(false);
   const [downloadProducts, setDownloadProducts] = React.useState([]);
   const [downloadType, setDownloadType] = React.useState<'enterprise' | 'personal'>('enterprise');
+  
+  // 社区版弹窗相关状态（仅用于 bladepipe）
+  const [communityModalVisible, setCommunityModalVisible] = React.useState(false);
+  const [communityModalInitialTab, setCommunityModalInitialTab] = React.useState<string>('docker');
   
   // 价格元数据相关状态
   const [priceMeta, setPriceMeta] = React.useState(null);
@@ -426,6 +446,14 @@ export default function Pricing() {
       setDownloadType('enterprise');
       handleDownloadClick();
     }
+
+    const shouldOpenCommunityDownloadModal = localStorage.getItem('openCommunityDownloadModal');
+    if (shouldOpenCommunityDownloadModal === 'true' && isUserLogin()) {
+      localStorage.removeItem('openCommunityDownloadModal');
+      // 自动触发下载社区版的逻辑，切换到 binary tab
+      setCommunityModalInitialTab('binary');
+      setCommunityModalVisible(true);
+    }
   }, []);
 
   return (
@@ -491,7 +519,13 @@ export default function Pricing() {
               <div className="w-full">
                 <div className="flex flex-col lg:flex-row gap-[24px] sm:gap-[28px] lg:gap-[32px] items-center lg:items-stretch justify-center">
                   {pricingPlans.map((plan) => (
-                    <PricingCard key={plan.id} plan={plan} onDownloadClick={handleDownloadClick} siteBrand={siteBrand} />
+                    <PricingCard 
+                      key={plan.id} 
+                      plan={plan} 
+                      onDownloadClick={handleDownloadClick}
+                      onCommunityModalOpen={() => setCommunityModalVisible(true)}
+                      siteBrand={siteBrand} 
+                    />
                   ))}
                 </div>
               </div>
@@ -523,6 +557,18 @@ export default function Pricing() {
           downloadProducts={downloadProducts}
           downloadType={downloadType}
         />
+        
+        {/* 社区版安装弹窗 - 仅 BladePipe */}
+        {(siteBrand === 'bladepipe' || siteBrand === 'clougence') && (
+          <CommunityInstallModal
+            visible={communityModalVisible}
+            onClose={() => {
+              setCommunityModalVisible(false);
+              setCommunityModalInitialTab('docker'); // 关闭时重置为默认 tab
+            }}
+            initialTab={communityModalInitialTab}
+          />
+        )}
       </div>
       <Footer />
     </Layout>

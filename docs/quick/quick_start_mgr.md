@@ -1,9 +1,9 @@
 ---
 id: quick_start_mgr
-title: Quickstart (SaaS Managed)
+title: Quickstart (Managed)
 ---
 
-BladePipe Cloud includes two modes: SaaS Managed and BYOC. SaaS Managed is a **cloud-hosted** service, where **both the Console and the Worker are fully managed by BladePipe**. You only need to operate through the web interface. No deployment or maintenance is required.
+BladePipe Cloud includes two modes: Managed and BYOC. Managed is a **cloud-hosted** SaaS service, where **both the Console and the Worker are fully managed by BladePipe**. You only need to operate through the web interface. No deployment or maintenance is required.
 
 This guide walks you through the process of quickly creating a data synchronization task.
 

@@ -37,7 +37,7 @@ export const useUserStore = create<UserState>()(
               window.location.href = getApiBaseUrl();
             } else if (loginSource === 'download') {
               // 跳转回首页并设置标识以打开下载弹窗
-              localStorage.setItem('openDownloadModal', 'true');
+              localStorage.setItem('openCommunityDownloadModal', 'true');
               window.location.href = '/';
             } else if (loginSource === 'buy_a_license') {
               window.location.href = getApiBaseUrl() + '/#/system/license';

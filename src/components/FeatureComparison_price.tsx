@@ -27,7 +27,7 @@ const getVersionConfig = (siteBrand: string) => {
         }
       }
     ];
-  } else if (siteBrand === 'clougence') {
+  } else if (siteBrand === 'clougence' || siteBrand === 'bladepipe') {
     return [
       {
         id: 'community',
@@ -38,7 +38,7 @@ const getVersionConfig = (siteBrand: string) => {
       },
       {
         id: 'cloud',
-        title: translate({ id: 'pricing.featureComparison.cloudTitle', message: 'Cloud (SaaS Managed & BYOC)' }),
+        title: translate({ id: 'pricing.featureComparison.cloudTitle', message: 'Cloud' }),
         titleStyle: 'text-[20px] font-bold text-[#0087c7]',
         headerStyle: 'bg-white border border-[#0087c7] rounded-[12px] flex items-center justify-center',
         badge: null
@@ -159,7 +159,7 @@ const getFeatureData = (siteBrand: string) => {
         ]
       }
     ];
-  } else if (siteBrand === 'clougence') {
+  } else if (siteBrand === 'clougence' || siteBrand === 'bladepipe') {
     return [
       {
         category: translate({ id: 'pricing.featureComparison.resources', message: 'Resources' }),
@@ -308,7 +308,7 @@ const getFeatureData = (siteBrand: string) => {
           {
             name: translate({ id: 'pricing.featureComparison.singleSignOn', message: 'Single Sign-On (SSO)' }),
             community: translate({ id: 'pricing.featureComparison.passwordLdapAdMore', message: 'PASSWORD / LDAP / AD / more' }),
-            cloud: translate({ id: 'pricing.featureComparison.wechatDingtalkSso', message: 'WeChat / DingTalk Login' }),
+            cloud: translate({ id: 'pricing.featureComparison.wechatDingtalkSso', message: 'Google / PASSWORD' }),
             enterprise: translate({ id: 'pricing.featureComparison.passwordLdapAdMore', message: 'PASSWORD / LDAP / AD / more' })
           },
           {

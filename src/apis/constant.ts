@@ -20,3 +20,7 @@ export function listDownloadProduct(params: any) {
 export function queryPriceMeta(params: any) {
   return http.post(`${BASE_URL_PREFIX}/saas/queryPriceMeta`, params);
 }
+
+export function latestVer(params?: any) {
+  return http.post(`${BASE_URL_PREFIX}/latestVer`, params);
+}
