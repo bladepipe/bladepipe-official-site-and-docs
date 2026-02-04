@@ -244,7 +244,10 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
                 <span 
                   className="text-[#0087c7] hover:text-[#0070a6] underline cursor-pointer"
                   onClick={() => {
-                    window.open('/docs/productOP/onPremise/installation/install_all_in_one_docker', '_blank');
+                    const dockerQuickStartUrl = siteBrand === 'clougence' 
+                      ? '/docs/productOP/docker/install_all_in_one_docker'
+                      : '/docs/productOP/onPremise/installation/install_all_in_one_docker';
+                    window.open(dockerQuickStartUrl, '_blank');
                   }}
                 >
                   <Translate id='banner.quickStartLink'>Quick Start</Translate>
@@ -293,7 +296,10 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
                 <span 
                   className="text-[#0087c7] hover:text-[#0070a6] underline cursor-pointer"
                   onClick={() => {
-                    window.open('/docs/productOP/onPremise/installation/install_all_in_one_k8s', '_blank');
+                    const k8sQuickStartUrl = siteBrand === 'clougence' 
+                      ? '/docs/productOP/kubernetes/install_all_in_one_k8s'
+                      : '/docs/productOP/onPremise/installation/install_all_in_one_k8s';
+                    window.open(k8sQuickStartUrl, '_blank');
                   }}
                 >
                   <Translate id='banner.quickStartLink'>Quick Start</Translate>
