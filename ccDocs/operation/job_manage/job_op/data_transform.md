@@ -62,7 +62,7 @@ return @fun.str.maskAfter(@params['col'],'-')
 :::info
 **替换值类型(**replace_type**)可选范围**：BOOLEAN / INTEGER / LONG / FLOAT / DOUBLE / DECIMAL / LOCAL_DATETIME / STRING / JSON      
 **ts_format**：即时间戳格式，如 yyyy-MM-dd HH:mm:ss     
-**比较符(**relation**)可选范围**：EQ  (相等) / NEQ (不想等) /GT (大于) / LT (小于) / GTE (大于等于) / LTE (小于等于)  
+**比较符(**relation**)可选范围**：EQ  (相等) / NEQ (不相等) /GT (大于) / LT (小于) / GTE (大于等于) / LTE (小于等于)  
 :::
 
 ## 操作说明
