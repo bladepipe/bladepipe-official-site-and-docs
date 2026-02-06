@@ -1,9 +1,9 @@
 ---
 id: ha_install_on_k8s
-title: 添加机器(Kubernetes)
+title: 添加机器(K8s Legacy)
 ---
 
-本文档主要介绍如何在 K8S 环境中添加 CloudCanal 节点，达到同步任务高可用目的。
+本文档主要介绍如何在 K8s 环境中添加 CloudCanal 节点，达到同步任务高可用目的。
 
 本文档前置条件为已安装一套 CloudCanal，如未安装，请先参考 [CloudCanal 全新安装(Kubernetes Linux/MacOs)](install_on_k8s) 文档进行安装。
 

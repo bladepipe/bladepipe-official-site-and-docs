@@ -18,8 +18,8 @@ const featureCards = [
     descriptionKey: 'solution1.feature1.description',
     titleHeight: 'h-[60px]',
     contentHeight: 'h-[126px]',
-    defaultTitle: 'Real-time Preparation & Analytics',
-    defaultDescription: 'Power diverse, data-driven applications.'
+    defaultTitle: 'Real-Time Analytics & Data Preparation',
+    defaultDescription: 'Power real-time analytics and data-driven applications with low-latency data preparation.'
   },
   {
     id: 'feature2',
@@ -29,7 +29,7 @@ const featureCards = [
     titleHeight: 'h-[30px]',
     contentHeight: 'h-[96px]',
     defaultTitle: 'Unified Data Integration',
-    defaultDescription: 'Connect all your business systems and data sources.'
+    defaultDescription: 'Integrate data from databases, streams, and business systems into a unified analytics pipeline.'
   },
   {
     id: 'feature3',
@@ -38,8 +38,8 @@ const featureCards = [
     descriptionKey: 'solution1.feature3.description',
     titleHeight: 'h-[30px]',
     contentHeight: 'h-[96px]',
-    defaultTitle: 'Resource-Efficient',
-    defaultDescription: 'Save bandwidth with incremental data replay.'
+    defaultTitle: 'Resource-Efficient Pipelines',
+    defaultDescription: 'Reduce compute and network costs with incremental data replay and CDC.'
   },
   {
     id: 'feature4',
@@ -48,8 +48,8 @@ const featureCards = [
     descriptionKey: 'solution1.feature4.description',
     titleHeight: 'h-[30px]',
     contentHeight: 'h-[96px]',
-    defaultTitle: 'Seamless Integration',
-    defaultDescription: 'Fit your existing data standards (ODS / DW / DWM).'
+    defaultTitle: 'Seamless Data Integration',
+    defaultDescription: 'Fit into existing ODS, DW, and DWM data warehouse standards.'
   }
 ];
 
@@ -145,7 +145,7 @@ export default function Solution1(): React.JSX.Element {
                 <div className="w-full flex gap-[12px] sm:gap-[16px] justify-start items-start">
                   <h1 className="w-full text-[24px] sm:text-[32px] lg:text-[40px] font-bold leading-[32px] sm:leading-[40px] lg:leading-[50px] text-black text-center lg:text-left">
                     <Translate id="solution1.banner.title">
-                      High-performance, Low-cost and Flexible Data Pipelines for Hundreds of Terabytes
+                      Real-Time Analytics Solution for Hundreds-of-Terabytes Data
                     </Translate>
                   </h1>
                 </div>
@@ -166,11 +166,11 @@ export default function Solution1(): React.JSX.Element {
         {/* 产品特性部分 - 响应式设计 */}
         <FadeInSection>
           <section className="w-full min-h-[300px] pt-[40px] sm:pt-[60px] lg:pt-[80px] pb-[40px] sm:pb-[60px] lg:pb-[80px] px-4 sm:px-8 flex justify-center items-start">
-            <div className="w-full max-w-[1320px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[16px] sm:gap-[18px] lg:gap-[20px] justify-items-center">
+            <div className={`w-full max-w-[1320px] grid grid-cols-1 sm:grid-cols-2 gap-[16px] sm:gap-[18px] lg:gap-[20px] ${siteBrand === 'bladepipe' ? 'lg:grid-cols-2' : 'lg:grid-cols-4'}`}>
               {featureCards.map((card) => (
                 <div 
                   key={card.id}
-                  className="w-full max-w-[315px] min-h-[240px] sm:min-h-[260px] lg:h-[274px] bg-white border border-solid border-black/10 rounded-[16px] p-[20px] sm:p-[25px] lg:p-[30px] flex flex-col gap-[20px] sm:gap-[24px] lg:gap-[28px] justify-start items-start transition-all duration-300 hover:border-[#0087c7] hover:shadow-[0_4px_8px_rgba(175,199,238,0.1),0_14px_14px_rgba(175,199,238,0.09),0_32px_19px_rgba(175,199,238,0.05),0_56px_22px_rgba(175,199,238,0.01),0_88px_25px_rgba(175,199,238,0)]"
+                  className="w-full min-h-[240px] sm:min-h-[260px] lg:h-[274px] bg-white border border-solid border-black/10 rounded-[16px] p-[20px] sm:p-[25px] lg:p-[30px] flex flex-col gap-[20px] sm:gap-[24px] lg:gap-[28px] justify-start items-start transition-all duration-300 hover:border-[#0087c7] hover:shadow-[0_4px_8px_rgba(175,199,238,0.1),0_14px_14px_rgba(175,199,238,0.09),0_32px_19px_rgba(175,199,238,0.05),0_56px_22px_rgba(175,199,238,0.01),0_88px_25px_rgba(175,199,238,0)]"
                 >
                   {/* 图标区域 */}
                   <div className="w-[50px] h-[50px] sm:w-[55px] sm:h-[55px] lg:w-[60px] lg:h-[60px] bg-[#e9f4ff] rounded-full p-[10px] sm:p-[11px] lg:p-[12px] flex gap-[10px] justify-start items-center">
@@ -183,11 +183,11 @@ export default function Solution1(): React.JSX.Element {
                   
                   {/* 文字内容 */}
                   <div className="w-full flex-1 flex flex-col gap-[12px] sm:gap-[15px] lg:gap-[18px] justify-start items-start">
-                    <h3 className="w-full text-[16px] sm:text-[18px] lg:text-[20px] font-bold leading-[24px] sm:leading-[27px] lg:leading-[30px] text-black">
+                    <h2 className="w-full text-[16px] sm:text-[18px] lg:text-[20px] font-bold leading-[24px] sm:leading-[27px] lg:leading-[30px] text-black">
                       <Translate id={card.titleKey}>
                         {card.defaultTitle}
                       </Translate>
-                    </h3>
+                    </h2>
                     <p className="w-full text-[14px] sm:text-[15px] lg:text-[16px] font-medium leading-[20px] sm:leading-[22px] lg:leading-[24px] text-black/80">
                       <Translate id={card.descriptionKey}>
                         {card.defaultDescription}
@@ -204,12 +204,19 @@ export default function Solution1(): React.JSX.Element {
         <FadeInSection>
           <section className="w-full min-h-[600px] py-[40px] sm:py-[60px] lg:py-[80px] px-4 sm:px-8 flex justify-center items-center">
             <div className="w-full max-w-[1320px] flex flex-col gap-[40px] sm:gap-[50px] lg:gap-[60px] justify-start items-center">
-              {/* 标题 - 在框外 */}
+              <div>
+                {/* 标题 - 在框外 */}
               <h2 className="w-full text-center text-[28px] sm:text-[38px] lg:text-[48px] font-bold leading-[36px] sm:leading-[48px] lg:leading-[60px] text-black">
                 <Translate id="solution1.architecture.title">
                   Solution Architecture
                 </Translate>
               </h2>
+              <p className="w-full text-center text-[14px] sm:text-[16px] lg:text-[18px] font-medium leading-[20px] sm:leading-[24px] lg:leading-[28px] text-black/70 -mt-4">
+                <Translate id="solution1.architecture.description">
+                  A scalable architecture designed for real-time analytics and large-scale data processing.
+                </Translate>
+              </p>
+              </div>
 
               {/* 内容框 - 包含架构图和描述 */}
               <div className="w-full min-h-[500px] bg-gradient-to-b from-[#e7f3ff] to-white border border-solid border-black/10 rounded-[16px] sm:rounded-[20px] lg:rounded-[24px] p-[20px] sm:p-[30px] lg:p-[40px] flex flex-col gap-[30px] sm:gap-[45px] lg:gap-[60px] justify-start items-center">
@@ -231,7 +238,7 @@ export default function Solution1(): React.JSX.Element {
                       <CheckIcon className="w-[16px] h-[16px] sm:w-[18px] sm:h-[18px] lg:w-[20px] lg:h-[20px] flex-shrink-0 mt-[2px] sm:mt-[3px] lg:mt-[3.5px]" />
                       <p className="text-[14px] sm:text-[15px] lg:text-[16px] font-medium leading-[20px] sm:leading-[22px] lg:leading-[24px] text-[#262729]">
                         <Translate id="solution1.architecture.feature1">
-                          Core Warehouse: Use StarRocks for analytics at the hundreds-of-terabytes scale
+                          Core Warehouse: Use StarRocks for real-time analytics at the hundreds-of-terabytes scale
                         </Translate>
                       </p>
                     </div>

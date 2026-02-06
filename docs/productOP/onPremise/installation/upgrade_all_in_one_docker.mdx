@@ -1,0 +1,38 @@
+---
+id: upgrade_all_in_one_docker
+title: Upgrade All-In-One (Docker)
+description: This document introduces how to upgrade BladePipe using Docker..
+---
+
+import InstallCommand from '@site/src/components/InstallCommand';
+
+This page introduces how to upgrade BladePipe using Docker.
+
+## Prerequisite
+
+- Docker has been installed. Please refer to [Minimal Docker Installation](../maintenance/minimal_docker_for_centos.md) for guidance.
+- BladePipe has been installed with Docker. Please refer to [Install All-In-One(Docker)](install_all_in_one_docker.mdx) for guidance.
+
+## Procedure
+
+1. Log in to the node which deployed BladePipe.
+
+2. Run the following command to download and execute the upgrade script.
+   
+   <InstallCommand 
+     command="curl -fsSL https://bladepipe-docker.s3.ap-southeast-1.amazonaws.com/upgrade_on_docker.sh | bash -s -- <version> <project_home>"
+     projectHome="./bp_home"
+   />
+
+3. Successfully upgrade the **BladePipe**.
+
+   ```bash
+   ███████╗██╗   ██╗ ██████╗ ██████╗███████╗███████╗███████╗
+   ██╔════╝██║   ██║██╔════╝██╔════╝██╔════╝██╔════╝██╔════╝
+   ███████╗██║   ██║██║     ██║     █████╗  ███████╗███████╗
+   ╚════██║██║   ██║██║     ██║     ██╔══╝  ╚════██║╚════██║
+   ███████║╚██████╔╝╚██████╗╚██████╗███████╗███████║███████║
+   ╚══════╝ ╚═════╝  ╚═════╝ ╚═════╝╚══════╝╚══════╝╚══════╝
+
+   BladePipe for Docker is ready! visit console http://{ip}:31111 in an web explorer and have fun :)
+   ```

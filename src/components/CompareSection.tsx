@@ -92,27 +92,42 @@ const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true })
       <div className="w-full max-w-[1320px] mx-auto px-4 md:px-8 flex flex-col items-center gap-12">
         {/* 标题区 */}
         <div className="flex flex-col items-center gap-3 mb-2">
-          <h1 className="text-[40px] font-bold text-black leading-[50px] text-center">
-            {siteBrand === 'clougence' ? (
-              <Translate id="compare.why.cloudcanal">Why CloudCanal</Translate>
-            ) : (
-              <Translate id="compare.why">Why BladePipe</Translate>
-            )}
-          </h1>
-        </div>
-        <div className="flex flex-row w-full justify-between items-center mb-8">
-          <div className="text-[24px] font-bold text-black">
-            <Translate id="compare.millionRows">Higher Performance.Lower Costs</Translate>
-          </div>
-          {showLearnMore && (
-            <a 
-              href="/why" 
-              className="button-link-white inline-flex items-center gap-2 px-7 py-3 bg-[#0087c7] rounded-full text-[18px] font-bold shadow hover:bg-[#0070a6] transition-all"
-            >
-              <Translate id="compare.learnMore">Learn More</Translate>
-              <svg className="inline-block w-5 h-5 ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 16 16"><path d="M4 8h8m0 0-3-3m3 3-3 3" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </a>
+          {showLearnMore ? (
+            <h2 className="text-[40px] font-bold text-black leading-[50px] text-center">
+              {siteBrand === 'clougence' ? (
+                <Translate id="compare.why.cloudcanal">Why CloudCanal</Translate>
+              ) : (
+                <Translate id="compare.why">Why Data Teams Choose BladePipe</Translate>
+              )}
+            </h2>
+          ) : (
+            <h1 className="text-[40px] font-bold text-black leading-[50px] text-center">
+              {siteBrand === 'clougence' ? (
+                <Translate id="compare.why.cloudcanal">Why CloudCanal</Translate>
+              ) : (
+                <Translate id="compare.why">Why BladePipe</Translate>
+              )}
+            </h1>
           )}
+        </div>
+        <div className="flex flex-col w-full mb-3">
+          <div className="flex flex-row w-full justify-between items-center">
+            <h2 className="text-[24px] font-bold text-black">
+              <Translate id="compare.millionRows">Better Performance at a Lower Cost</Translate>
+            </h2>
+            {showLearnMore && (
+              <a 
+                href="/why" 
+                className="button-link-white inline-flex items-center gap-2 px-7 py-3 bg-[#0087c7] rounded-full text-[18px] font-bold shadow hover:bg-[#0070a6] transition-all"
+              >
+                <Translate id="compare.learnMore">Learn More</Translate>
+                <svg className="inline-block w-5 h-5 ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 16 16"><path d="M4 8h8m0 0-3-3m3 3-3 3" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              </a>
+            )}
+          </div>
+          <p className="text-[16px] text-[#666]">
+            <Translate id="compare.cost.description">Cost Comparison: BladePipe vs. Airbyte vs. Fivetran</Translate>
+          </p>
         </div>
         {/* 柱状对比图 */}
         <div className="w-full flex flex-col mb-4">
@@ -177,9 +192,9 @@ const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true })
         <div className="w-full border-t border-black/10 border-solid border-0 border-l-0 border-r-0 border-b-0 my-2"></div>
         {/* 同步延迟对比条 */}
         <div className="w-full flex flex-col gap-4 mt-8">
-          <div className="text-[22px] font-bold text-black mb-2">
-            <Translate id="compare.syncLatency">Sync in Seconds</Translate>
-          </div>
+          <h2 className="text-[22px] font-bold text-black mb-2">
+            <Translate id="compare.syncLatency">Sync Data in Seconds</Translate>
+          </h2>
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 w-full">
             {/* 主品牌 */}
             <div className="flex flex-col w-full lg:w-1/3">

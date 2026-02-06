@@ -36,6 +36,10 @@ const sidebars: SidebarsConfig = {
     },
     {
       "type": "doc",
+      "id": "price/plans_diff",
+    },
+    {
+      "type": "doc",
       "id": "license/license_use"
     },
     {
@@ -333,8 +337,48 @@ const sidebars: SidebarsConfig = {
     },
     {
       "type": "category",
-      "label": "Installation and Maintenance",
+      "label": "Deployment",
       "items": [
+        {
+          "type": "category",
+          "label": "On-Premise",
+          "items": [
+            {
+              "type": "category",
+              "label": "Installation",
+              "items": [
+                  "productOP/onPremise/installation/install_all_in_one_docker",
+                  "productOP/onPremise/installation/add_worker_docker",
+                  "productOP/onPremise/installation/upgrade_all_in_one_docker",
+                  "productOP/onPremise/installation/uninstall_all_in_one_docker",
+                  "productOP/onPremise/installation/install_all_in_one_k8s",
+                  "productOP/onPremise/installation/upgrade_all_in_one_k8s",
+                  "productOP/onPremise/installation/uninstall_all_in_one_k8s",
+                  "productOP/onPremise/installation/install_all_in_one_binary",
+                  "productOP/onPremise/installation/add_worker_binary",
+                  "productOP/onPremise/installation/upgrade_all_in_one_binary"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Maintenance",
+              "items": [
+                  "productOP/onPremise/maintenance/minimal_docker_for_centos",
+                "productOP/onPremise/maintenance/minimal_k8s_for_centos",
+                "productOP/onPremise/maintenance/change_verify_code_777777",
+                "productOP/onPremise/maintenance/change_on_premise_password",
+                "productOP/onPremise/maintenance/change_ak_sk",
+                "productOP/onPremise/maintenance/change_console_config",
+                "productOP/onPremise/maintenance/get_log",
+                "productOP/onPremise/maintenance/alarm_conf",
+                "productOP/onPremise/maintenance/create_slack_group",
+                "productOP/onPremise/maintenance/create_discord_group",
+                "productOP/onPremise/maintenance/create_custom_alarm",
+                "productOP/onPremise/maintenance/clear_worker_log"
+              ]
+            }
+          ]
+        },
         {
           "type": "category",
           "label": "BYOC",
@@ -363,37 +407,6 @@ const sidebars: SidebarsConfig = {
                 "productOP/byoc/maintenance/create_discord_group",
                 "productOP/byoc/maintenance/create_custom_alarm",
                 "productOP/byoc/maintenance/clear_worker_log"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "category",
-          "label": "On-Premise",
-          "items": [
-            {
-              "type": "category",
-              "label": "Installation",
-              "items": [
-                "productOP/onPremise/installation/install_all_in_one_binary",
-                "productOP/onPremise/installation/add_worker_binary",
-                "productOP/onPremise/installation/upgrade_all_in_one_binary"
-              ]
-            },
-            {
-              "type": "category",
-              "label": "Maintenance",
-              "items": [
-                "productOP/onPremise/maintenance/change_verify_code_777777",
-                "productOP/onPremise/maintenance/change_on_premise_password",
-                "productOP/onPremise/maintenance/change_ak_sk",
-                "productOP/onPremise/maintenance/change_console_config",
-                "productOP/onPremise/maintenance/get_log",
-                "productOP/onPremise/maintenance/alarm_conf",
-                "productOP/onPremise/maintenance/create_slack_group",
-                "productOP/onPremise/maintenance/create_discord_group",
-                "productOP/onPremise/maintenance/create_custom_alarm",
-                "productOP/onPremise/maintenance/clear_worker_log"
               ]
             }
           ]
@@ -550,6 +563,7 @@ const sidebars: SidebarsConfig = {
       "type": "category",
       "label": "Release Note",
       "items": [
+        "releaseNote/rn-bladepipe-1-3-0",
         "releaseNote/rn-bladepipe-1-2-0",
         "releaseNote/rn-bladepipe-1-1-0",
         "releaseNote/rn-bladepipe-1-0-0",

@@ -72,6 +72,20 @@ const config: Config = {
           blogListComponent: '@theme/BlogListPage',
           blogPostComponent: '@theme/BlogPostPage'
         },
+        sitemap: {
+          // 排除不需要出现在 sitemap 中的页面路径（支持 glob 模式）
+          ignorePatterns: [
+            '/404',
+            '/clouddm',
+            '/clouddm_solution',
+            '/loading',
+            '/markdown-page',
+            '/authors',
+            '/tags'
+          ],
+          changefreq: 'weekly',
+          filename: 'sitemap.xml',
+        },
         theme: {
           customCss: [
             './src/css/custom.css',

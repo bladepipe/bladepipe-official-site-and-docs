@@ -56,7 +56,7 @@ const getTimelineData = (siteBrand: string) => {
       },
       {
         year: 'about.timeline.clouddm.2025.year',
-        yearText: '2025',
+        yearText: '2026',
         title: 'about.timeline.clouddm.2025.title',
         titleText: '未完待续（至今）',
         description: 'about.timeline.clouddm.2025.description',
@@ -108,7 +108,7 @@ const getTimelineData = (siteBrand: string) => {
       },
       {
         year: 'about.timeline.clouddm.2025.year',
-        yearText: '2025',
+        yearText: '2026',
         title: 'about.timeline.clouddm.2025.title',
         titleText: '未完待续（至今）',
         description: 'about.timeline.clouddm.2025.description',
@@ -152,7 +152,7 @@ const getTimelineData = (siteBrand: string) => {
       },
       {
         year: 'about.timeline.2024b.year',
-        yearText: '2025',
+        yearText: '2026',
         title: 'about.timeline.2024b.title',
         titleText: 'To be Continued(Until now)',
         description: 'about.timeline.2024b.description',

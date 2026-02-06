@@ -1,6 +1,6 @@
 ---
 id: upgrade_version
-title: 版本升级(Docker)
+title: 版本升级(Docker Legacy)
 description: 本文档主要介绍在 Linux/MacOS/Windows 操作系统下，已经安装 CloudCanal Docker 版用户如何升级 CloudCanal 新版本。
 ---
 

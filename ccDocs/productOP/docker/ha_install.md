@@ -1,6 +1,6 @@
 ---
 id: ha_install
-title: 添加机器(Docker)
+title: 添加机器(Docker Legacy)
 ---
 
 本文档主要介绍如何在 Docker 环境中添加 CloudCanal 节点，达到同步任务高可用目的。高可用特点如下：

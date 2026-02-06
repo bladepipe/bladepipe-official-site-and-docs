@@ -1,6 +1,6 @@
 ---
 id: install_linux_macos
-title: 全新安装(Docker Linux/MacOS)
+title: 全新安装(Docker Legacy)
 description: 本文档主要介绍如何在 Linux/MacOS 系统下，全新安装 CloudCanal Docker 版。
 ---
 

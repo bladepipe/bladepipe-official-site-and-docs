@@ -109,10 +109,13 @@ const ScenarioComparison: React.FC = () => {
     <section className="w-full py-24 flex flex-col items-center bg-white">
       <div className="w-full max-w-[1320px] mx-auto px-4 md:px-8 flex flex-col items-center gap-12">
         {/* 标题 */}
-        <div className="text-center">
-          <h2 className="text-[40px] font-bold text-black leading-[50px] font-['Plus_Jakarta_Sans']">
+        <div className="text-center mb-6">
+          <h2 className="text-[40px] font-bold text-black leading-[50px] font-['Plus_Jakarta_Sans'] mb-3">
             <Translate id="compare.scenarios.title">Critical Data Sync Scenarios</Translate>
           </h2>
+          <p className="text-[16px] text-[#666]">
+            <Translate id="compare.scenarios.description">Scenario Comparison: BladePipe vs. Airbyte vs. Fivetran</Translate>
+          </p>
         </div>
 
         {/* 对比表格 */}
@@ -123,9 +126,9 @@ const ScenarioComparison: React.FC = () => {
                           {/* Scenarios 标题 */}
             <div className="w-[400px] bg-white rounded-t-xl">
               <div className="py-8 bg-[#F5F9FF] rounded-t-xl flex items-center justify-center">
-                <h3 className="text-[20px] font-bold text-black font-['Plus_Jakarta_Sans'] leading-[30px]">
-                  <Translate id="compare.scenarios.title">Scenarios</Translate>
-                </h3>
+                <span className="text-[20px] font-bold text-black font-['Plus_Jakarta_Sans'] leading-[30px]">
+                  Scenarios
+                </span>
               </div>
             </div>
 

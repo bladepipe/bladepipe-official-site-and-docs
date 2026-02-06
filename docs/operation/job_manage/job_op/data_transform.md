@@ -24,6 +24,8 @@ return @fun.str.maskAfter(@params['col'],'-')
 
 ## Supported Scripts
 
+### String Conversion
+
 | Script| Description|
 | --- | --- |
 |return @fun.str.trim(@params['col'],' ') | Remove leading and trailing spaces from the string|
@@ -40,6 +42,29 @@ return @fun.str.maskAfter(@params['col'],'-')
 |return @fun.str.castToDateTimeWithFormat(@params['col'],'yyyy-MM-dd HH:mm:ss') | Convert strings to date and time in a specified format |
 |return @fun.str.castToDateWithFormat(@params['col'],'yyyy-MM-dd') | Convert strings to date in a specified format |
 |return @fun.str.castToTimeWithFormat(@params['col'],'HH:mm:ss') | Convert strings to time in a specified format |
+| return @fun.str.regexReplaceAll(@params['col'],'regex','replacement')    | Match and replace target strings using regular expressions   |
+
+### Data Type Conversion
+
+| Script                                                                         | Description           |
+|----------------------------------------------------------------------------|--------------|
+| return @fun.type.typeCast(@params['col'],'target_type')                  | Convert data to the target type     |
+:::info
+**Supported target types(target_type)**: BOOLEAN / INTEGER / LONG / FLOAT / DOUBLE / DECIMAL / LOCAL_DATETIME / STRING / JSON
+:::
+
+### Condition-based Replacement
+
+| Script                                                                        | Description                      |
+|----------------------------------------------------------------------------|--------------------------|
+| return @fun.rep.ifNullReplace(@params['col'],'replace_val','replace_type')                | Replace null to the target value      |
+| return @fun.rep.timestampReplace(@params['col'],'ts_format','relation','compare_val','replace_val')  | Compare with the reference timestamp, and replace it with the specified value when the condition is satisfied   |
+| return @fun.rep.numberReplace(@params['col'],'relation','compare_val','replace_val','replace_type')  | Compare with the reference value, and replace it with the specified value when the condition is satisfied    |
+:::info
+**Supported replacement value types(replace_type)**: BOOLEAN / INTEGER / LONG / FLOAT / DOUBLE / DECIMAL / LOCAL_DATETIME / STRING / JSON      
+**ts_format**: The timestamp format, such as yyyy-MM-dd HH:mm:ss     
+**Supported comparison operators (relation)**:EQ (equal to) / NEQ (not equal to) /GT (greater than) / LT (less than) / GTE (greater than or equal to) / LTE (less than or equal to)  
+:::
 
 
 ## Procedure

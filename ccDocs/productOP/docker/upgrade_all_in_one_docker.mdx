@@ -1,0 +1,38 @@
+---
+id: upgrade_all_in_one_docker
+title: 版本升级(Docker 托管镜像)
+description: 本文介绍如何通过托管镜像升级 CloudCanal
+---
+
+import InstallCommand from '@site/src/components/InstallCommand';
+
+本文介绍如何通过托管镜像升级 CloudCanal。
+
+## 前置条件
+
+- 已安装 Docker，可参考 [最小化 Docker 安装](../dailyOP/minimal_docker_for_centos.md) 文档。
+- 通过 Docker 已安装 CloudCanal，可参考 [安装 CloudCanal (托管镜像)](install_all_in_one_docker.mdx) 文档。
+
+## 步骤
+
+1. 登录已安装 CloudCanal 的机器节点。
+
+2. 执行以下脚本进行版本升级。
+   
+   <InstallCommand 
+     command="curl -fsSL https://tgzdownload.clougence.com/support/upgrade_on_docker.sh | bash -s -- <version> <project_home>"
+     projectHome="./cc_home"
+   />
+
+3. 成功升级 **CloudCanal**。
+
+   ```bash
+   ███████╗██╗   ██╗ ██████╗ ██████╗███████╗███████╗███████╗
+   ██╔════╝██║   ██║██╔════╝██╔════╝██╔════╝██╔════╝██╔════╝
+   ███████╗██║   ██║██║     ██║     █████╗  ███████╗███████╗
+   ╚════██║██║   ██║██║     ██║     ██╔══╝  ╚════██║╚════██║
+   ███████║╚██████╔╝╚██████╗╚██████╗███████╗███████║███████║
+   ╚══════╝ ╚═════╝  ╚═════╝ ╚═════╝╚══════╝╚══════╝╚══════╝
+
+   CloudCanal for Docker is ready! visit console http://{ip}:8111 in an web explorer and have fun :)
+   ```

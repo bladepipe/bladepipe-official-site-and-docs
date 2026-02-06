@@ -1,0 +1,65 @@
+---
+id: install_all_in_one_k8s
+title: Install All-In-One (K8s)
+description: This page introduces how to install BladePipe using Kubernetes.
+---
+import InstallCommand from '@site/src/components/InstallCommand';
+
+This page introduces how to install BladePipe using Kubernetes.
+
+## Prerequisite
+
+- Kubernetes has been installed. Please refer to [Minimal K8s Installation](../maintenance/minimal_k8s_for_centos.md) for guidance.
+- The following ports are not in use.
+
+   | Component                   | Port  | Use                 |
+   |--------------------|-------|----------------------------|
+   | bladepipe-mysql    | 32500 | The port of metadata database MySQL |
+   | bladepipe-console  | 31111 | The port of Web console    |
+   | bladepipe-worker   | 32727 | The port for debuggint DataJob |
+   | bladepipe-prometheus | 31900 | The port for prometheuse   |
+
+## Procedure
+
+1. (Optional but Recommended) Set up passwordless login between the K8s master node and all nodes (including itself).
+  
+   ```bash
+   ssh-keygen -t rsa -b 4096 -C "auto-login"
+   
+   ssh-copy-id user@remote_host1
+   ssh-copy-id user@remote_host2
+   ...
+   ```
+
+2. Run the following command to download and execute the installer script.
+   
+   <InstallCommand 
+     command="curl -fsSL https://bladepipe-docker.s3.ap-southeast-1.amazonaws.com/install_on_k8s.sh | bash -s -- <version>"
+   />
+
+3. Successfully installed the **BladePipe**.
+
+   ```bash
+   ███████╗██╗   ██╗ ██████╗ ██████╗███████╗███████╗███████╗
+   ██╔════╝██║   ██║██╔════╝██╔════╝██╔════╝██╔════╝██╔════╝
+   ███████╗██║   ██║██║     ██║     █████╗  ███████╗███████╗
+   ╚════██║██║   ██║██║     ██║     ██╔══╝  ╚════██║╚════██║
+   ███████║╚██████╔╝╚██████╗╚██████╗███████╗███████║███████║
+   ╚══════╝ ╚═════╝  ╚═════╝ ╚═════╝╚══════╝╚══════╝╚══════╝
+
+   BladePipe for Kubernetes is ready! visit console http://{ip}:31111 in an web explorer and have fun :)
+   ```
+
+## Get started
+
+- Console Address (Please visit it in Chrome): **http://`${k8s_master_ip}`:31111**
+- Default username: **test@clougence.com**
+- Default password: **clougence2021**
+- Default verification code: **777777**
+
+  :::info
+  It is recommended to change the credentials according to the following docs:
+    - [Change password](../maintenance/change_on_premise_password.md)
+    - [Change verification code](../maintenance/change_verify_code_777777.md)
+    - [Change AccessKey and SecretKey](../maintenance/change_ak_sk.md)
+  :::

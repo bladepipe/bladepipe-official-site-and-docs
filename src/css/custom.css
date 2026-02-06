@@ -768,7 +768,8 @@ article a:hover,
 }
 
 .theme-doc-markdown p:last-child,
-.theme-doc-markdown pre {
+.theme-doc-markdown pre,
+.theme-code-block pre {
   margin-bottom: 0 !important;
 }
 

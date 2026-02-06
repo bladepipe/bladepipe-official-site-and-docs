@@ -1,0 +1,58 @@
+---
+id: install_all_in_one_docker
+title: Install All-In-One (Docker)
+description: This document introduces how to install BladePipe using Docker.
+---
+
+import InstallCommand from '@site/src/components/InstallCommand';
+
+This page introduces how to install BladePipe using Docker.
+
+## Prerequisite
+
+- Docker has been installed. Please refer to [Minimal Docker Installation](../maintenance/minimal_docker_for_centos.md) for guidance.
+- The following ports are not in use.
+  
+   | Component                   | Port  | Use                                 |
+   |--------------------|-------|-------------------------------------|
+   | bladepipe-mysql    | 25000 | The port of metadata database MySQL |
+   | bladepipe-console  | 8111  | The port of Web console for user    |
+   | bladepipe-console  | 7007  | The port of Web console for Worker  |
+   | bladepipe-worker   | 18787 | The port for debuggint DataJob      |
+   | bladepipe-prometheus | 19090 | The port for prometheuse            |
+
+## Procedure
+
+1. Run the following command to download and execute the installer script.
+
+   <InstallCommand
+     command="curl -fsSL https://bladepipe-docker.s3.ap-southeast-1.amazonaws.com/install_on_docker.sh | bash -s -- <version> <project_home>"
+     projectHome="./bp_home"
+   />
+
+2. Successfully installed the **BladePipe**.
+
+   ```bash
+   ███████╗██╗   ██╗ ██████╗ ██████╗███████╗███████╗███████╗
+   ██╔════╝██║   ██║██╔════╝██╔════╝██╔════╝██╔════╝██╔════╝
+   ███████╗██║   ██║██║     ██║     █████╗  ███████╗███████╗
+   ╚════██║██║   ██║██║     ██║     ██╔══╝  ╚════██║╚════██║
+   ███████║╚██████╔╝╚██████╗╚██████╗███████╗███████║███████║
+   ╚══════╝ ╚═════╝  ╚═════╝ ╚═════╝╚══════╝╚══════╝╚══════╝
+
+   BladePipe for Docker is ready! visit console http://{ip}:8111 in an web explorer and have fun :)
+   ```
+
+## Get started
+
+- Web (Please visit it in Chrome): **http://`${ip}`:8111**
+- Account: **walter.bp@bladepipe.com**
+- Password: **bp_onpremise_2024**
+- Verification code: **777777**
+
+  :::info
+  It is recommended to change the credentials according to the following docs:
+    - [Change password](../maintenance/change_on_premise_password.md)
+    - [Change verification code](../maintenance/change_verify_code_777777.md)
+    - [Change AccessKey and SecretKey](../maintenance/change_ak_sk.md)
+  :::

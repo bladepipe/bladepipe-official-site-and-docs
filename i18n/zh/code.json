@@ -30,10 +30,61 @@
     "message": "加载中..."
   },
   "banner.buyLicense": {
-    "message": "免费获取许可证"
+    "message": "获取许可证"
   },
   "banner.downloadError": {
     "message": "获取下载信息失败，请稍后重试"
+  },
+  "banner.image.alt": {
+    "message": "横幅插图"
+  },
+  "banner.tryCommunityFreeBtn": {
+    "message": "免费社区版"
+  },
+  "banner.communityModalTitle": {
+    "message": "BladePipe 免费社区版"
+  },
+  "banner.communityModalTitle.clougence": {
+    "message": "CloudCanal 免费社区版"
+  },
+  "banner.communityModalDescription": {
+    "message": "一键快速安装 BladePipe 免费社区版："
+  },
+  "banner.communityModalDescription.clougence": {
+    "message": "一键快速安装 CloudCanal 免费社区版："
+  },
+  "banner.copy": {
+    "message": "复制"
+  },
+  "banner.copyError": {
+    "message": "复制失败，请手动复制"
+  },
+  "banner.moreInfoPrefix": {
+    "message": "了解更多信息："
+  },
+  "banner.quickStartLink": {
+    "message": "快速开始"
+  },
+  "banner.close": {
+    "message": "关闭"
+  },
+  "banner.communityModal.tab.docker": {
+    "message": "Docker"
+  },
+  "banner.communityModal.tab.k8s": {
+    "message": "K8S"
+  },
+  "banner.communityModal.tab.binaryPackage": {
+    "message": "二进制包"
+  },
+  "banner.communityModal.copied": {
+    "message": "已复制"
+  },
+  "banner.communityModal.crossPlatform": {
+    "message": "跨平台"
+  },
+  "banner.communityModal.success": {
+    "message": "成功"
   },
   "business.clients": {
     "message": "客户数"
@@ -2711,6 +2762,12 @@
   "downloadModal.directDownload": {
     "message": "下载"
   },
+  "downloadModal.back": {
+    "message": "返回"
+  },
+  "downloadModal.download": {
+    "message": "下载"
+  },
   "downloadModal.downloadInfoError": {
     "message": "获取下载信息失败"
   },
@@ -3220,5 +3277,9 @@
   "announcement.linkText": {
     "message": "了解更多",
     "description": "Announcement link text"
+  },
+  "blog.tags.backToBlogList": {
+    "message": "返回博客列表",
+    "description": "Link text to go back to blog list page"
   }
 }

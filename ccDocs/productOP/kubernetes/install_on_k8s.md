@@ -1,8 +1,10 @@
 ---
 id: install_on_k8s
-title: 全新安装(Kubernetes Linux/MacOs)
+title: 全新安装(K8s Legacy)
 description: 本文档主要介绍在 Linux/MacOS 操作系统下，全新安装 CloudCanal Kubernetes 版。
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 本文主要介绍如何在 Linux/MacOS 操作系统下安装 CloudCanal Kubernetes 版，仅适用于 [CloudCanal 商业版](../../intro/product_version.md)。
 
@@ -11,19 +13,14 @@ description: 本文档主要介绍在 Linux/MacOS 操作系统下，全新安装
 
 ### 硬件和系统准备
 
-- **操作系统**：CentOS/RHEL 或 Ubuntu 或 MacOS
-- **CPU架构**：x86 或 arm64v8
-    
-  :::info
-  不支持 vmware、virtualbox 和 windows 的 linux 子系统。
-  :::
-- **最低配置**
-    - Master 节点 (1台)
-        - 2Gi CPU
-        - 2GB Memory
-    - Node 节点 (1台)
-        - 6Gi CPU
-        - 8GB Memory
+| 项目         | 要求/说明                                                                 |
+|--------------|---------------------------------------------------------------------------|
+| **操作系统** | CentOS/RHEL 或 Ubuntu 或 macOS                                           |
+| **CPU 架构** | x86 或 arm64v8                                                           |
+| **最低配置** | **Master 节点（1 台）**：2 Gi CPU，2 GB Memory <br />**Node 节点（1 台）**：6 Gi CPU，8 GB Memory |
+:::warning
+当前不支持 VMware、VirtualBox 及 Windows Subsystem for Linux（WSL）。
+:::
 
 ### 运行环境准备
 
@@ -36,20 +33,18 @@ description: 本文档主要介绍在 Linux/MacOS 操作系统下，全新安装
 
 ### 环境准备
 
-部署前请确保以下端口未被占用
-
-| 组件                  | 端口    | 用途                            |
-|-------|-------------------------------|--------------------------|
-| cloudcanal-mysql     | 32500 | 元数据库 mysql 对外映射端口             |
-| cloudcanal-console   | 31111 | console web 控制台端口             |
-| cloudcanal-sidecar   | 32727 | 任务 debug 端口（e.g.,自定义代码 debug） |
-| cloudcanal-prometheus| 31900 | prometheuse 监控指标查询端口          |
+- 部署前请确保以下端口未被占用
+  
+  | 组件                  | 端口    | 用途                            |
+  |-------|-------------------------------|--------------------------|
+  | cloudcanal-mysql     | 32500 | 元数据库 mysql 对外映射端口             |
+  | cloudcanal-console   | 31111 | console web 控制台端口             |
+  | cloudcanal-sidecar   | 32727 | 任务 debug 端口（e.g.,自定义代码 debug） |
+  | cloudcanal-prometheus| 31900 | prometheuse 监控指标查询端口          |
 
 ### 软件准备
 
-- 安装 **Chrome 浏览器**。
-
-- 安装 **基础工具**。
+- **Kubernetes Master** 节点，安装 **基础工具**。
   ```shell
   ## centos / rhel
   sudo yum update
@@ -72,9 +67,8 @@ description: 本文档主要介绍在 Linux/MacOS 操作系统下，全新安装
 ### 安装包准备
 
 1. 登录[官方网站](https://www.clougence.com?src=cc-doc-install-linux)，点击**下载私有部署版**按钮，获取 **软件包下载链接**。
-  ![downloadtgz](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/quick_start/download.png)
 
-2. 下载安装包。
+2. 登录 **Kubernetes Master** 节点，下载安装包。
     ```shell
     wget -cO cloudcanal.7z "${软件包下载连接}"
     ```
@@ -103,29 +97,34 @@ description: 本文档主要介绍在 Linux/MacOS 操作系统下，全新安装
     | ./support/install_xxx_kubernetes.sh   | 辅助安装 kubernetes 脚本                           |
     | other                           | 其他辅助脚本                                       |
 
-5. （可选）额外镜像准备。    
-  CloudCanal 安装过程中，默认使用 local-path 存储方式，请根据实际网络环境准备：
-    ```shell
-    # Local Path Provisioner（local-path 存储）
-    docker pull registry.cn-hangzhou.aliyuncs.com/cloudcanal/rancher-local-path-provisioner:v0.0.24
-    docker tag registry.cn-hangzhou.aliyuncs.com/cloudcanal/rancher-local-path-provisioner:v0.0.24 clougence/rancher-local-path-provisioner:v0.0.24
-    
-    # Busybox（用于 local-path 启动初始化）
-    docker pull registry.cn-hangzhou.aliyuncs.com/cloudcanal/busybox:latest
-    docker tag registry.cn-hangzhou.aliyuncs.com/cloudcanal/busybox:latest clougence/busybox:latest
-    ```
-    
-    :::info
-    必须在所有参与部署的 Kubernetes 节点准备镜像，否则调度时会因缺镜像而导致节点拉取失败。
+5. CloudCanal 安装过程中，默认使用 local-path 本地存储，请根据实际情况选择其一。
 
-    如有私有仓库需求，可执行 docker tag 和 docker push 操作，将镜像上传至私有镜像仓库。
-    :::
+   :::info
+   必须在所有参与部署的 Kubernetes 节点准备镜像，否则调度时会因缺少镜像而导致节点拉取失败。
+
+   如有私有仓库需求，可执行 docker tag 和 docker push 操作，将镜像上传至私有镜像仓库。
+   :::
+
+   - 方式一：**使用本地存储**
+   ```shell
+   # Local Path Provisioner（local-path 存储）
+   docker pull registry.cn-hangzhou.aliyuncs.com/cloudcanal/rancher-local-path-provisioner:v0.0.24
+   docker tag registry.cn-hangzhou.aliyuncs.com/cloudcanal/rancher-local-path-provisioner:v0.0.24 clougence/rancher-local-path-provisioner:v0.0.24
+  
+   # Busybox（用于 local-path 启动初始化）
+   docker pull registry.cn-hangzhou.aliyuncs.com/cloudcanal/busybox:latest
+   docker tag registry.cn-hangzhou.aliyuncs.com/cloudcanal/busybox:latest clougence/busybox:latest
+   ```
+   - 方式二：**选择自有或公共云存储**
 
 ### 安装 CloudCanal
-使用以下任一种方式安装 CloudCanal。
-#### 方式一：使用脚本安装
+
+使用以下任一种方式安装。
+<Tabs groupId="installk8s">
+  <TabItem value="script" label="使用脚本安装" default>
+
 1. 执行安装脚本。
-    ```shell
+   ```shell
     ## centos / rhel / MacOS
     sh install.sh 
     
@@ -136,10 +135,10 @@ description: 本文档主要介绍在 Linux/MacOS 操作系统下，全新安装
     sudo sh install.sh
     ```
 
-2. 出现如下标识即安装成功。
-  ![k8s_install.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/k8s_install.png)
-
-#### 方式二：使用 Helm Chart 安装
+  2. 出现如下标识即安装成功。
+    ![k8s_install.png](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/operation-manual/k8s_install.png)
+</TabItem>
+<TabItem value="Helm Chart" label="使用 Helm Chart 安装">
 1. 使用脚本导入镜像到所有 Node 节点：
     ```shell
     cd ./cloudcanal_home/install_on_kubernetes/scripts/
@@ -178,7 +177,8 @@ description: 本文档主要介绍在 Linux/MacOS 操作系统下，全新安装
     ```shell
     helm install cloudcanal ./ -f values.yaml -n cloudcanal --create-namespace
     ```
-
+</TabItem>
+</Tabs>
 ### 开始使用
 
 1. 登录 CloudCanal 控制台：

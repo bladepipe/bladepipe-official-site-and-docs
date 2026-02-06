@@ -27,7 +27,7 @@ const getVersionConfig = (siteBrand: string) => {
         }
       }
     ];
-  } else if (siteBrand === 'clougence') {
+  } else if (siteBrand === 'clougence' || siteBrand === 'bladepipe') {
     return [
       {
         id: 'community',
@@ -38,7 +38,12 @@ const getVersionConfig = (siteBrand: string) => {
       },
       {
         id: 'cloud',
-        title: translate({ id: 'pricing.featureComparison.cloudTitle', message: 'Cloud (SaaS Managed & BYOC)' }),
+        title: (
+          <>
+            <span>{translate({ id: 'pricing.cloud.title', message: 'Cloud' })}</span>
+            <span className="hidden sm:inline"> (SaaS Managed & BYOC)</span>
+          </>
+        ),
         titleStyle: 'text-[20px] font-bold text-[#0087c7]',
         headerStyle: 'bg-white border border-[#0087c7] rounded-[12px] flex items-center justify-center',
         badge: null
@@ -59,7 +64,12 @@ const getVersionConfig = (siteBrand: string) => {
     return [
       {
         id: 'cloud',
-        title: translate({ id: 'pricing.featureComparison.cloudTitle', message: 'Cloud (SaaS Managed & BYOC)' }),
+        title: (
+          <>
+            <span>{translate({ id: 'pricing.cloud.title', message: 'Cloud' })}</span>
+            <span className="hidden sm:inline"> (SaaS Managed & BYOC)</span>
+          </>
+        ),
         titleStyle: 'text-[20px] font-bold text-[#0087c7]',
         headerStyle: 'bg-white border border-[#0087c7] rounded-[12px] flex items-center justify-center',
         badge: null
@@ -159,7 +169,7 @@ const getFeatureData = (siteBrand: string) => {
         ]
       }
     ];
-  } else if (siteBrand === 'clougence') {
+  } else if (siteBrand === 'clougence' || siteBrand === 'bladepipe') {
     return [
       {
         category: translate({ id: 'pricing.featureComparison.resources', message: 'Resources' }),
@@ -308,7 +318,7 @@ const getFeatureData = (siteBrand: string) => {
           {
             name: translate({ id: 'pricing.featureComparison.singleSignOn', message: 'Single Sign-On (SSO)' }),
             community: translate({ id: 'pricing.featureComparison.passwordLdapAdMore', message: 'PASSWORD / LDAP / AD / more' }),
-            cloud: translate({ id: 'pricing.featureComparison.wechatDingtalkSso', message: 'WeChat / DingTalk Login' }),
+            cloud: translate({ id: 'pricing.featureComparison.wechatDingtalkSso', message: 'Google / PASSWORD' }),
             enterprise: translate({ id: 'pricing.featureComparison.passwordLdapAdMore', message: 'PASSWORD / LDAP / AD / more' })
           },
           {
@@ -500,6 +510,14 @@ const FeatureComparison_price: React.FC = () => {
   return (
     <div className="w-full bg-white py-[40px] sm:py-[60px] lg:py-[80px] px-4 sm:px-8">
       <div className="w-full max-w-[1320px] mx-auto">
+        {/* 标题和描述 */}
+        {siteBrand !== 'clouddm' && (
+          <div className="flex flex-col items-center mb-12">
+            <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bold text-black leading-[40px] sm:leading-[50px] lg:leading-[60px] text-center mb-3">
+              <Translate id="pricing.featureComparison.mainTitle">Compare Cloud vs Enterprise Plans</Translate>
+            </h2>
+          </div>
+        )}
         {/* 功能对比表格 - 响应式设计 */}
         <div className="w-full overflow-x-auto">
           <div className="min-w-[800px]">
@@ -507,9 +525,9 @@ const FeatureComparison_price: React.FC = () => {
             <div className="w-full h-[60px] sm:h-[66px] lg:h-[72px] flex">
               {/* 功能列标题 */}
               <div className="w-[300px] sm:w-[350px] lg:w-[400px] h-[60px] sm:h-[66px] lg:h-[72px] flex items-center px-[16px] sm:px-[20px] lg:px-[24px]">
-                <h3 className="text-[18px] sm:text-[20px] lg:text-[22px] font-bold text-black">
+                <span className="text-[18px] sm:text-[20px] lg:text-[22px] font-bold text-black">
                   <Translate id="pricing.featureComparison.title">Features</Translate>
-                </h3>
+                </span>
               </div>
               
               {/* 版本列标题 */}

@@ -8,8 +8,8 @@ On-Premise deployment allows you to keep BladePipe and all your data in your own
 
 ## Step 1: Install BladePipe
 
-1. Follow the instructions in [Install All-In-One (Binary)](../productOP/onPremise/installation/install_all_in_one_binary.md) to deploy BladePipe.
-2. Follow the instructions in [Install a Worker](../productOP/onPremise/installation/add_worker_binary.md) to add a [Worker](../intro/product_nouns.md#worker).
+1. Follow the instructions in [Install All-In-One (Docker)](../productOP/onPremise/installation/install_all_in_one_docker.mdx) to deploy BladePipe. You can also choose deploy BladePipe in [Kubernetes](../productOP/onPremise/installation/install_all_in_one_k8s.mdx) or [Binary](../productOP/onPremise/installation/install_all_in_one_binary.md) method.
+2. Follow the instructions in [Install a Worker](../productOP/onPremise/installation/add_worker_docker.md) to add a [Worker](../intro/product_nouns.md#worker).
 
 ## Step 2: Add a DataSource
 Here we use a self-managed MySQL DataSource as an example. For more details, see [Add Self-managed DataSource](../operation/datasource_manage/add_self_maintain_ds.md). For the other supported DataSources, see [Supported DataSources](../dataMigrationAndSync/datasource_version.md).

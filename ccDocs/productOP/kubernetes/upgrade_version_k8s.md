@@ -1,6 +1,6 @@
 ---
 id: upgrade_version_on_k8s
-title: 版本升级(Kubernetes)
+title: 版本升级(K8s Legacy)
 description: 本文档主要介绍在 Linux/MacOS 操作系统下，已经安装 CloudCanal Kubernetes 版用户如何升级新版本。
 ---
 
