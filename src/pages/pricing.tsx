@@ -213,15 +213,15 @@ const PricingCard = ({ plan, onDownloadClick, onCommunityModalOpen, siteBrand })
       )}
       
       {/* 标题 */}
-      {(siteBrand !== 'clouddm' && siteBrand !== 'clougence' && (plan.id === 1 || plan.id === 2)) || 
+      {(siteBrand !== 'clouddm' && siteBrand !== 'clougence' && (plan.id === 1 || plan.id === 2)) ||
        (siteBrand === 'clougence' && (plan.id === 2 || plan.id === 3)) ? (
         <h2 translate="no" className="text-[22px] sm:text-[26px] lg:text-[28px] font-bold text-black mb-[2px] sm:mb-[4px]">
-          {(siteBrand !== 'clouddm' && siteBrand !== 'clougence' && plan.id === 1) || (siteBrand === 'clougence' && plan.id === 2) ? 'Cloud Plans' : 'Enterprise Plans'}
+            {plan.title}
         </h2>
       ) : (
-        <h3 translate="no" className="text-[22px] sm:text-[26px] lg:text-[28px] font-bold text-black mb-[2px] sm:mb-[4px]">
+        <h2 translate="no" className="text-[22px] sm:text-[26px] lg:text-[28px] font-bold text-black mb-[2px] sm:mb-[4px]">
           {plan.title}
-        </h3>
+        </h2>
       )}
       <span className="text-[14px] sm:text-[16px] lg:text-[18px] font-medium text-black mb-[24px] sm:mb-[30px] lg:mb-[36px]">
         {plan.subTitle}
@@ -510,7 +510,7 @@ export default function Pricing() {
                   </Translate>
                 ) : (
                   <Translate id="pricing.subtitle">
-                    BladePipe offers transparent pricing plans for different deployment models, including cloud and on-premise. Choose the plan that best suits your needs.
+                    BladePipe offers transparent pricing plans for different deployment models. Choose the plan that best suits your needs.
                   </Translate>
                 )}
               </p>
