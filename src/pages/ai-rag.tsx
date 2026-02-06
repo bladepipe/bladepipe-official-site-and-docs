@@ -18,8 +18,8 @@ const featureCards = [
     descriptionKey: 'solution2.feature1.description',
     titleHeight: 'h-[60px]',
     contentHeight: 'h-[126px]',
-    defaultTitle: 'Real-time Preparation & Analytics',
-    defaultDescription: 'Power diverse, data-driven applications.'
+    defaultTitle: 'Real-Time Data Preparation for RAG',
+    defaultDescription: 'Ingest and prepare unstructured data in real time for retrieval-augmented generation.'
   },
   {
     id: 'feature2',
@@ -29,7 +29,7 @@ const featureCards = [
     titleHeight: 'h-[30px]',
     contentHeight: 'h-[96px]',
     defaultTitle: 'Unified Data Integration',
-    defaultDescription: 'Connect all your business systems and data sources.'
+    defaultDescription: 'Connect multi-source, multi-format data into a unified RAG pipeline.'
   },
   {
     id: 'feature3',
@@ -38,8 +38,8 @@ const featureCards = [
     descriptionKey: 'solution2.feature3.description',
     titleHeight: 'h-[30px]',
     contentHeight: 'h-[96px]',
-    defaultTitle: 'Resource-Efficient',
-    defaultDescription: 'Save bandwidth with incremental data replay.'
+    defaultTitle: 'Resource-Efficient RAG Pipelines',
+    defaultDescription: 'Optimize ingestion and vectorization with incremental processing and efficient replay.'
   },
   {
     id: 'feature4',
@@ -48,8 +48,8 @@ const featureCards = [
     descriptionKey: 'solution2.feature4.description',
     titleHeight: 'h-[30px]',
     contentHeight: 'h-[96px]',
-    defaultTitle: 'Seamless Integration',
-    defaultDescription: 'Fits your existing data standards (ODS / DW / DWM).'
+    defaultTitle: 'Seamless Integration with AI & Data',
+    defaultDescription: 'Fit into existing data platforms, LLMs, and vector databases.'
   }
 ];
 
@@ -245,11 +245,11 @@ export default function Solution2(): React.JSX.Element {
                   
                   {/* 文字内容 */}
                   <div className="w-full flex-1 flex flex-col gap-[12px] sm:gap-[15px] lg:gap-[18px] justify-start items-start">
-                    <h3 className="w-full text-[16px] sm:text-[18px] lg:text-[20px] font-bold leading-[24px] sm:leading-[27px] lg:leading-[30px] text-black">
+                    <h2 className="w-full text-[16px] sm:text-[18px] lg:text-[20px] font-bold leading-[24px] sm:leading-[27px] lg:leading-[30px] text-black">
                       <Translate id={card.titleKey}>
                         {card.defaultTitle}
                       </Translate>
-                    </h3>
+                    </h2>
                     <p className="w-full text-[14px] sm:text-[15px] lg:text-[16px] font-medium leading-[20px] sm:leading-[22px] lg:leading-[24px] text-black/80">
                       <Translate id={card.descriptionKey}>
                         {card.defaultDescription}
@@ -350,8 +350,16 @@ export default function Solution2(): React.JSX.Element {
         {/* 方案步骤部分 - 响应式设计 */}
         <FadeInSection>
           <section className="w-full min-h-[800px] py-[40px] sm:py-[50px] lg:py-[60px] px-4 sm:px-8 flex justify-center items-start bg-white">
-            <div className="w-full max-w-[1320px] flex flex-col gap-[16px] sm:gap-[18px] lg:gap-[20px] justify-center items-center">
-              {/* 顶部数据源图标 */}
+            <div className="w-full max-w-[1320px] flex flex-col gap-[40px] sm:gap-[50px] lg:gap-[60px] justify-center items-center">
+              {/* 标题 */}
+              <h2 className="w-full text-center text-[28px] sm:text-[38px] lg:text-[48px] font-bold leading-[36px] sm:leading-[48px] lg:leading-[60px] text-black">
+                <Translate id="solution2.steps.title">
+                  RAG Pipeline: From Data to API
+                </Translate>
+              </h2>
+              
+              <div className="w-full flex flex-col gap-[16px] sm:gap-[18px] lg:gap-[20px] justify-center items-center">
+                {/* 顶部数据源图标 */}
               <div className="w-full max-w-[153px] flex flex-col gap-[8px] sm:gap-[10px] justify-start items-center">
                 <div className="w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] lg:w-[80px] lg:h-[80px] flex justify-start items-start">
                   <img 
@@ -425,6 +433,7 @@ export default function Solution2(): React.JSX.Element {
                     RAG API
                   </Translate>
                 </p>
+              </div>
               </div>
             </div>
           </section>

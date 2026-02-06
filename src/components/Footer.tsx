@@ -142,6 +142,167 @@ export default function Footer() {
                 <a href="https://trust.bladepipe.com/" target="_blank"><img src="/img/home/certifications/soc2 2 1.svg" alt="SOC2" className="h-[36px] md:h-[50px] w-auto" /></a>
               </div>
             )}
+            {/* 社交图标 */}
+            <div className="flex flex-row gap-3 md:gap-4 mt-2">
+              {siteBrand === 'clouddm' ? (
+                // DM 品牌的社交媒体图标：公众号、微信、QQ、邮件
+                <>
+                  <Popover
+                    content={
+                      <div className="text-center">
+                        <div className="mb-2">
+                          <span className="text-[12px] text-gray-600">
+                            扫码关注 CloudDM 公众号
+                          </span>
+                        </div>
+                        <img 
+                          src="/img/contact/wechat-official-code.jpg"
+                          alt="CloudDM 公众号"
+                          className="w-[140px] h-[140px] rounded-[4px]"
+                        />
+                      </div>
+                    }
+                    title={null}
+                    trigger="click"
+                    placement="top"
+                    overlayClassName="wechat-qr-popover"
+                  >
+                    <div className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black cursor-pointer" title="微信">
+                      <img src="/img/contact/wechat-official.svg" alt="公众号" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-400" />
+                    </div>
+                  </Popover>
+                  <Popover
+                    content={
+                      <div className="text-center">
+                        <div className="mb-2">
+                          <span className="text-[12px] text-gray-600">
+                            扫描二维码添加微信小助手
+                          </span>
+                        </div>
+                        <img 
+                          src="/img/contact/wechat-clouddm.png"
+                          alt="CloudDM 微信小助手二维码"
+                          className="w-[120px] h-[120px] rounded-[4px]"
+                        />
+                      </div>
+                    }
+                    title={null}
+                    trigger="click"
+                    placement="top"
+                    overlayClassName="wechat-qr-popover"
+                  >
+                    <div className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black cursor-pointer" title="微信">
+                      <img src="/img/contact/wechat.svg" alt="微信" className="w-6 h-6 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-400" />
+                    </div>
+                  </Popover>
+                  <a href="https://qm.qq.com/cgi-bin/qm/qr?k=yKGD9ByfkVxuUB3Z2-mHXugUQcbfcQlV&jump_from=webapi&authKey=K1nBsLZ8YGsUhIG56BTJ0j9vQOow6g8oBCM2UufnU69TBIQ48T5iJdQ1sZVyrdSX" target="_blank" className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black" title="QQ">
+                    <img src="/img/contact/qq.svg" alt="QQ" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-400" />
+                  </a>
+                  <a href="mailto:clouddm_support@clougence.com" className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black" title="邮件">
+                    <img src="/img/contact/email.svg" alt="邮件" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />
+                  </a>
+                </>
+              ) : siteBrand === 'clougence' ? (
+                // ClouGence 品牌的社交媒体图标：微信、微信公众号、邮箱、电话
+                <>
+                  <Popover
+                    content={
+                      <div className="text-center">
+                        <div className="mb-2">
+                          <span className="text-[12px] text-gray-600">
+                            <Translate id="footer.wechat.scan">扫码添加微信</Translate>
+                          </span>
+                        </div>
+                        <img 
+                          src="/img/contact/wechat.png"
+                          alt="ClouGence 微信小助手"
+                          className="w-[140px] h-[140px] rounded-[4px]"
+                        />
+                      </div>
+                    }
+                    title={null}
+                    trigger="click"
+                    placement="top"
+                    overlayClassName="wechat-qr-popover"
+                  >
+                    <div className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black cursor-pointer" title="微信">
+                      <img src="/img/contact/wechat.svg" alt="微信" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-400" />
+                    </div>
+                  </Popover>
+                  <Popover
+                    content={
+                      <div className="text-center">
+                        <div className="mb-2">
+                          <span className="text-[12px] text-gray-600">
+                            <Translate id="footer.wechat.official.scan">扫码关注 ClouGence 微信公众号</Translate>
+                          </span>
+                        </div>
+                        <img 
+                          src="/img/contact/wechat-cc-official-code.jpg"
+                          alt="ClouGence 官微"
+                          className="w-[140px] h-[140px] rounded-[4px]"
+                        />
+                      </div>
+                    }
+                    title={null}
+                    trigger="click"
+                    placement="top"
+                    overlayClassName="wechat-qr-popover"
+                  >
+                    <div className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black cursor-pointer" title="微信公众号">
+                      <img src="/img/contact/wechat-official.svg" alt="微信公众号" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-400" />
+                    </div>
+                  </Popover>
+                  <a href="mailto:cloudcanal_support@clougence.com" className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black" title="邮箱">
+                    <img src="/img/contact/email.svg" alt="邮箱" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />
+                  </a>
+                  <Popover
+                    content={
+                      <div className="text-center">
+                        <div className="mb-2">
+                          <span className="text-[12px] text-gray-600">
+                            <Translate id="footer.phone.title">联系电话</Translate>
+                          </span>
+                        </div>
+                        <p className="text-[14px] font-medium text-black">
+                          <Translate id="footer.phone.number">0571-88603096</Translate>
+                        </p>
+                      </div>
+                    }
+                    title={null}
+                    trigger="click"
+                    placement="top"
+                    overlayClassName="phone-popover"
+                  >
+                    <div className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black cursor-pointer" title="电话">
+                      <img src="/img/about/contact/phone.svg" alt="电话" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />
+                    </div>
+                  </Popover>
+                </>
+              ) : (
+                // 其他品牌的社交媒体图标：LinkedIn、Twitter、Email、Slack
+                <>
+                  <a href="https://www.linkedin.com/company/bladepipe"
+                    className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black"
+                    title="LinkedIn"
+                  >
+                    <img src="/img/contact/linkedin.svg" alt="LinkedIn" className="w-4 h-4 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />
+                  </a>
+                  <a href="https://x.com/bladepipe" className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black" title="Twitter">
+                    <img src="/img/contact/twitter.svg" alt="Twitter" className="w-4 h-4 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />
+                  </a>
+                  <a href="mailto:support@bladepipe.com" className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black" title="Email">
+                    <img src="/img/contact/email.svg" alt="Email" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />
+                  </a>
+                  {/*<a href="https://join.slack.com/t/bladepipehq/shared_invite/zt-2sh9op2yo-JIsDrstycVMdKM4auCTm8g" className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black" title="Slack">*/}
+                  {/*  <img src="/img/contact/slack.svg" alt="Slack" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />*/}
+                  {/*</a>*/}
+                  <a href="https://discord.gg/HMnThuQMup" target="_blank" className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black" title="Slack">
+                    <img src="/img/contact/discord.svg" alt="Discord" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />
+                  </a>
+                </>
+              )}
+            </div>
           </div>
           {/* 右侧链接区 */}
           <div className="w-full md:w-[680px] flex flex-col sm:flex-row md:flex-row flex-wrap md:flex-nowrap gap-8 md:gap-[60px]">
@@ -242,167 +403,6 @@ export default function Footer() {
               </div>
             ) : (
               <Translate id="footer.copyright">© 2025 BladePipe Co., Ltd. All rights reserved.</Translate>
-            )}
-          </div>
-          {/* 社交图标 */}
-          <div className="flex flex-row gap-3 md:gap-4">
-            {siteBrand === 'clouddm' ? (
-              // DM 品牌的社交媒体图标：公众号、微信、QQ、邮件
-              <>
-                              <Popover
-                  content={
-                    <div className="text-center">
-                      <div className="mb-2">
-                        <span className="text-[12px] text-gray-600">
-                          扫码关注 CloudDM 公众号
-                        </span>
-                      </div>
-                      <img 
-                        src="/img/contact/wechat-official-code.jpg"
-                        alt="CloudDM 公众号"
-                        className="w-[140px] h-[140px] rounded-[4px]"
-                      />
-                    </div>
-                  }
-                  title={null}
-                  trigger="click"
-                  placement="top"
-                  overlayClassName="wechat-qr-popover"
-                >
-                  <div className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black cursor-pointer" title="微信">
-                    <img src="/img/contact/wechat-official.svg" alt="公众号" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-400" />
-                  </div>
-                </Popover>
-                <Popover
-                  content={
-                    <div className="text-center">
-                      <div className="mb-2">
-                        <span className="text-[12px] text-gray-600">
-                          扫描二维码添加微信小助手
-                        </span>
-                      </div>
-                      <img 
-                        src="/img/contact/wechat-clouddm.png"
-                        alt="CloudDM 微信小助手二维码"
-                        className="w-[120px] h-[120px] rounded-[4px]"
-                      />
-                    </div>
-                  }
-                  title={null}
-                  trigger="click"
-                  placement="top"
-                  overlayClassName="wechat-qr-popover"
-                >
-                  <div className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black cursor-pointer" title="微信">
-                    <img src="/img/contact/wechat.svg" alt="微信" className="w-6 h-6 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-400" />
-                  </div>
-                </Popover>
-                <a href="https://qm.qq.com/cgi-bin/qm/qr?k=yKGD9ByfkVxuUB3Z2-mHXugUQcbfcQlV&jump_from=webapi&authKey=K1nBsLZ8YGsUhIG56BTJ0j9vQOow6g8oBCM2UufnU69TBIQ48T5iJdQ1sZVyrdSX" target="_blank" className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black" title="QQ">
-                  <img src="/img/contact/qq.svg" alt="QQ" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-400" />
-                </a>
-                <a href="mailto:clouddm_support@clougence.com" className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black" title="邮件">
-                  <img src="/img/contact/email.svg" alt="邮件" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />
-                </a>
-              </>
-            ) : siteBrand === 'clougence' ? (
-              // ClouGence 品牌的社交媒体图标：微信、微信公众号、邮箱、电话
-              <>
-                <Popover
-                  content={
-                    <div className="text-center">
-                      <div className="mb-2">
-                        <span className="text-[12px] text-gray-600">
-                          <Translate id="footer.wechat.scan">扫码添加微信</Translate>
-                        </span>
-                      </div>
-                      <img 
-                        src="/img/contact/wechat.png"
-                        alt="ClouGence 微信小助手"
-                        className="w-[140px] h-[140px] rounded-[4px]"
-                      />
-                    </div>
-                  }
-                  title={null}
-                  trigger="click"
-                  placement="top"
-                  overlayClassName="wechat-qr-popover"
-                >
-                  <div className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black cursor-pointer" title="微信">
-                    <img src="/img/contact/wechat.svg" alt="微信" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-400" />
-                  </div>
-                </Popover>
-                <Popover
-                  content={
-                    <div className="text-center">
-                      <div className="mb-2">
-                        <span className="text-[12px] text-gray-600">
-                          <Translate id="footer.wechat.official.scan">扫码关注 ClouGence 微信公众号</Translate>
-                        </span>
-                      </div>
-                      <img 
-                        src="/img/contact/wechat-cc-official-code.jpg"
-                        alt="ClouGence 官微"
-                        className="w-[140px] h-[140px] rounded-[4px]"
-                      />
-                    </div>
-                  }
-                  title={null}
-                  trigger="click"
-                  placement="top"
-                  overlayClassName="wechat-qr-popover"
-                >
-                  <div className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black cursor-pointer" title="微信公众号">
-                    <img src="/img/contact/wechat-official.svg" alt="微信公众号" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-400" />
-                  </div>
-                </Popover>
-                <a href="mailto:cloudcanal_support@clougence.com" className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black" title="邮箱">
-                  <img src="/img/contact/email.svg" alt="邮箱" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />
-                </a>
-                <Popover
-                  content={
-                    <div className="text-center">
-                      <div className="mb-2">
-                        <span className="text-[12px] text-gray-600">
-                          <Translate id="footer.phone.title">联系电话</Translate>
-                        </span>
-                      </div>
-                      <p className="text-[14px] font-medium text-black">
-                        <Translate id="footer.phone.number">0571-88603096</Translate>
-                      </p>
-                    </div>
-                  }
-                  title={null}
-                  trigger="click"
-                  placement="top"
-                  overlayClassName="phone-popover"
-                >
-                  <div className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black cursor-pointer" title="电话">
-                    <img src="/img/about/contact/phone.svg" alt="电话" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />
-                  </div>
-                </Popover>
-              </>
-            ) : (
-              // 其他品牌的社交媒体图标：LinkedIn、Twitter、Email、Slack
-              <>
-                <a href="https://www.linkedin.com/company/bladepipe"
-                  className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black"
-                  title="LinkedIn"
-                >
-                  <img src="/img/contact/linkedin.svg" alt="LinkedIn" className="w-4 h-4 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />
-                </a>
-                <a href="https://x.com/bladepipe" className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black" title="Twitter">
-                  <img src="/img/contact/twitter.svg" alt="Twitter" className="w-4 h-4 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />
-                </a>
-                <a href="mailto:support@bladepipe.com" className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black" title="Email">
-                  <img src="/img/contact/email.svg" alt="Email" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />
-                </a>
-                {/*<a href="https://join.slack.com/t/bladepipehq/shared_invite/zt-2sh9op2yo-JIsDrstycVMdKM4auCTm8g" className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black" title="Slack">*/}
-                {/*  <img src="/img/contact/slack.svg" alt="Slack" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />*/}
-                {/*</a>*/}
-                <a href="https://discord.gg/HMnThuQMup" target="_blank" className="w-[36px] h-[36px] md:w-[42px] md:h-[42px] bg-white border border-[#11101a]/10 rounded-full flex items-center justify-center transition-colors duration-200 group hover:bg-black" title="Slack">
-                  <img src="/img/contact/discord.svg" alt="Discord" className="w-5 h-5 transition-all duration-200 group-hover:filter group-hover:invert group-hover:brightness-200" />
-                </a>
-              </>
             )}
           </div>
         </div>

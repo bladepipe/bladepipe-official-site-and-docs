@@ -3277,5 +3277,9 @@
   "announcement.linkText": {
     "message": "了解更多",
     "description": "Announcement link text"
+  },
+  "blog.tags.backToBlogList": {
+    "message": "返回博客列表",
+    "description": "Link text to go back to blog list page"
   }
 }

@@ -76,6 +76,7 @@ const NumberInput = ({ value, onChange, className = "" }: { value: number, onCha
 const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
   const siteBrand = siteConfig.customFields?.siteBrand as string;
   const [activeTab, setActiveTab] = useState('cloud-byoc');
+  const [isMobile, setIsMobile] = useState(false);
   const [etlValue, setEtlValue] = useState(40);
   const [cdcValue, setCdcValue] = useState(25);
   
@@ -350,7 +351,7 @@ const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
                   <Translate id="pricing.calculator.aliyunReference">*This Aliyun ECS reference price is included for total cost estimation. To view only the CloudCanal cost, set the quantity to 0.</Translate>
                 )}
                 {siteBrand === 'bladepipe' && (
-                  <Translate id="pricing.calculator.awsReference">*This AWS EC2 reference price is included for total cost estimation. To view only the CloudCanal cost, set the quantity to 0.</Translate>
+                  <Translate id="pricing.calculator.awsReference">*This AWS EC2 reference price is included for total cost estimation. To view only the BladePipe cost, set the quantity to 0.</Translate>
                 )}
               </div>
             </div>
@@ -464,7 +465,7 @@ const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
                   <Translate id="pricing.calculator.aliyunReference">*This Aliyun ECS reference price is included for total cost estimation. To view only the CloudCanal cost, set the quantity to 0.</Translate>
                 )}
                 {siteBrand === 'bladepipe' && (
-                  <Translate id="pricing.calculator.awsReference">*This AWS EC2 reference price is included for total cost estimation. To view only the CloudCanal cost, set the quantity to 0.</Translate>
+                  <Translate id="pricing.calculator.awsReference">*This AWS EC2 reference price is included for total cost estimation. To view only the BladePipe cost, set the quantity to 0.</Translate>
                 )}
               </div>
             </div>
@@ -481,6 +482,21 @@ const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
       ),
     },
   ];
+
+  // 监听窗口宽度，移动端直接上下平铺计算器，不使用 Tab
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <div className="w-full bg-gradient-to-b from-[#eaf6ff] to-[#f8fbff] py-[40px] sm:py-[60px] lg:py-[80px] px-4 sm:px-8">
@@ -587,20 +603,40 @@ const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
       `}</style>
       <div className="w-full max-w-[1320px] mx-auto" id="calculator">
         {/* 标题 */}
-        <div className="w-full flex justify-center mb-[32px] sm:mb-[40px] lg:mb-[48px]">
-          <h2 className="text-[28px] sm:text-[38px] lg:text-[48px] font-bold text-black text-center">
-            <Translate id="pricing.calculator.title">Estimate your Costs</Translate>
+        <div className="w-full flex flex-col items-center mb-[32px] sm:mb-[40px] lg:mb-[48px]">
+          <h2 className="text-[28px] sm:text-[38px] lg:text-[48px] font-bold text-black text-center mb-3">
+            <Translate id="pricing.calculator.title">BladePipe Pricing Calculator</Translate>
           </h2>
+          <p className="text-[16px] sm:text-[18px] text-[#666] text-center max-w-[800px]">
+            <Translate id="pricing.calculator.description">Estimate your monthly cost based on pipeline usage, links, and data volume — with transparent, usage-based pricing.</Translate>
+          </p>
         </div>
 
-        {/* Tab切换 */}
-        <Tabs
-          activeKey={activeTab}
-          onChange={setActiveTab}
-          items={items}
-          className="price-calculator-tabs"
-          destroyInactiveTabPane={true}
-        />
+        {/* 桌面端：使用 Tab 切换；移动端：上下平铺两个计算器 */}
+        {isMobile ? (
+          <div className="flex flex-col gap-6 sm:gap-8">
+            <section className="w-full">
+              <h3 className="text-[20px] sm:text-[22px] font-bold text-black mb-3 text-center">
+                <Translate id="pricing.calculator.cloudByoc">Cloud (SaaS Managed & BYOC)</Translate>
+              </h3>
+              {items[0].children}
+            </section>
+            <section className="w-full">
+              <h3 className="text-[20px] sm:text-[22px] font-bold text-black mb-3 text-center">
+                <Translate id="pricing.calculator.enterprise">Enterprise</Translate>
+              </h3>
+              {items[1].children}
+            </section>
+          </div>
+        ) : (
+          <Tabs
+            activeKey={activeTab}
+            onChange={setActiveTab}
+            items={items}
+            className="price-calculator-tabs"
+            destroyInactiveTabPane={true}
+          />
+        )}
       </div>
     </div>
   );

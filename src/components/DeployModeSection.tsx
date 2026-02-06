@@ -67,7 +67,7 @@ const DeployModeSection: React.FC = () => {
               </div>
               {/* 内容区 */}
               <div className="flex flex-col gap-4 px-6 sm:px-8 lg:px-10 pt-6 sm:pt-7 lg:pt-8 pb-8 sm:pb-9 lg:pb-10 flex-1">
-                <div className="text-[16px] sm:text-[18px] lg:text-[20px] font-bold text-[#18181B] leading-[24px] sm:leading-[27px] lg:leading-[30px] mb-4 sm:mb-5 lg:mb-6">{mode.title}</div>
+                <h3 className="text-[16px] sm:text-[18px] lg:text-[20px] font-bold text-[#18181B] leading-[24px] sm:leading-[27px] lg:leading-[30px] mb-4 sm:mb-5 lg:mb-6">{mode.title}</h3>
                 <ul className="flex flex-col gap-2 mb-6 sm:mb-7 lg:mb-8 list-none p-0 m-0">
                   {mode.highlights.map((h, i) => (
                     <li key={i} className="flex flex-row items-start gap-2 sm:gap-2.5 lg:gap-3 text-[14px] sm:text-[15px] lg:text-[16px] text-[#26272B] font-medium list-none p-0 m-0">

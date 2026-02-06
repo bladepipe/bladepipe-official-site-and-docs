@@ -220,5 +220,8 @@ If your team needs **sub-second replication, schema evolution, and verifiable da
 
 [**Try BladePipe for free**](https://www.bladepipe.com/) to see how fast your pipelines can be.
 
-
+> **Suggested Reading**
+>  
+> - [10 Best Data Migration Tools](best_data_migration_tools.md)
+> - [7 Best CDC Tools](top_cdc_tool.md)
 

@@ -39,7 +39,7 @@ const SceneSection: React.FC = () => {
         {/* 标题区 */}
         <div className="flex flex-col items-center gap-2 sm:gap-2.5 lg:gap-3">
           <h2 className="text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-black leading-[36px] sm:leading-[42px] lg:leading-[50px] text-center  mb-3 sm:mb-4">
-            <Translate id="scene.title">Scene</Translate>
+            <Translate id="scene.title">Data Integration Use Cases</Translate>
           </h2>
           <div className="text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] font-medium leading-[1.56] text-[#262728] font-['Plus Jakarta Sans'] max-w-[600px]">
             <Translate id="product.scene.subtitle">Let me show you some typical scenarios.</Translate>

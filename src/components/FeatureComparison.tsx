@@ -113,7 +113,16 @@ const FeatureComparison: React.FC = () => {
     return (
     <section className="w-full py-16 flex flex-col items-center bg-white">
       <div className="w-full max-w-[1320px] mx-auto px-4 md:px-8">
-                {/* 对比表格 */}
+        {/* 标题和描述 */}
+        <div className="flex flex-col items-center mb-12">
+          <h2 className="text-[40px] font-bold text-black leading-[50px] text-center mb-3 font-['Plus_Jakarta_Sans']">
+            <Translate id="compare.features.title">Essential Features for Real-Time Data Pipelines</Translate>
+          </h2>
+          <p className="text-[16px] text-[#666] text-center">
+            <Translate id="compare.features.description">Feature Comparison: BladePipe vs. Airbyte vs. Fivetran</Translate>
+          </p>
+        </div>
+        {/* 对比表格 */}
         <div className="w-full overflow-x-auto">
           <div className="min-w-[1200px]">
           {/* 标题行 */}
@@ -121,9 +130,9 @@ const FeatureComparison: React.FC = () => {
             {/* Feature 标题 */}
             <div className="w-[400px] bg-white rounded-t-xl">
               <div className="py-8 bg-[#F5F9FF] rounded-t-xl flex items-center justify-center">
-                <h3 className="text-[20px] font-bold text-black font-['Plus_Jakarta_Sans'] leading-[30px]">
+                <span className="text-[20px] font-bold text-black font-['Plus_Jakarta_Sans'] leading-[30px]">
                   <Translate id="compare.feature.title">Feature</Translate>
-                </h3>
+                </span>
               </div>
             </div>
 

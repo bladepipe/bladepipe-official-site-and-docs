@@ -82,10 +82,10 @@ export default function UserGuide() {
       <div className='w-[1320px] flex flex-col items-center justify-center gap-12 relative z-10'>
         <div className='flex flex-col items-center gap-5'>
           <h2 className="text-[48px] font-bold leading-[60px] text-white text-center font-['Plus Jakarta Sans']">
-            <Translate id='userguide.title.line1'>Data Must Live and Move.</Translate>
+            <Translate id='userguide.title.line1'>Moving Data in Real Time.</Translate>
           </h2>
           <div className="text-[18px] font-medium leading-[28px] text-white/60 font-['Plus Jakarta Sans'] mt-[20px]">
-            <Translate id='userguide.subtitle'>Unlock the great potential of your data.</Translate>
+            <Translate id='userguide.subtitle'>Build continuous,incremental data pipelines with BladePipe.</Translate>
           </div>
         </div>
 

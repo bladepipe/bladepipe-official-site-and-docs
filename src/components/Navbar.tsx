@@ -39,6 +39,8 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const scrollYRef = useRef<number>(0);
   const [SearchBarComponent, setSearchBarComponent] = useState<any>(null);
+  const centerNavRef = useRef<HTMLDivElement | null>(null);
+  const [collapsedNavItems, setCollapsedNavItems] = useState<string[]>([]);
 
   // 动态加载 SearchBar
   useEffect(() => {
@@ -148,6 +150,99 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // 桌面端导航折叠：空间不足时，将右侧项目折叠到“更多”中
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (!centerNavRef.current) return;
+
+    const measure = () => {
+      const container = centerNavRef.current;
+      if (!container) return;
+
+      // 仅在桌面端生效（与 xl 断点保持一致）
+      const isDesktop = window.innerWidth >= 1280;
+      const items = Array.from(
+        container.querySelectorAll<HTMLElement>('[data-desktop-nav-item]')
+      );
+
+      if (!isDesktop) {
+        // 移动端/小屏时不折叠
+        items.forEach((item) => {
+          item.style.display = '';
+        });
+        if (collapsedNavItems.length) {
+          setCollapsedNavItems([]);
+        }
+        return;
+      }
+
+      // 先全部显示，方便重新测量宽度
+      items.forEach((item) => {
+        item.style.display = '';
+      });
+
+      const containerWidth = container.offsetWidth;
+      if (!containerWidth) return;
+
+      // 预留“更多”按钮的宽度
+      const moreReserveWidth = 120;
+      let used = 0;
+      const newCollapsed: string[] = [];
+
+      // 从右往左折叠：先按 DOM 顺序收集，再反转
+      const itemsForCalc = [...items];
+      itemsForCalc.forEach((item) => {
+        used += item.offsetWidth;
+      });
+
+      // 如果全部都能放下，则不折叠
+      if (used + moreReserveWidth <= containerWidth) {
+        if (collapsedNavItems.length) {
+          setCollapsedNavItems([]);
+        }
+        return;
+      }
+
+      // 重新计算：从左到右逐个放入，超出则折叠
+      used = 0;
+      itemsForCalc.forEach((item) => {
+        const key = item.dataset.navKey;
+        if (!key) return;
+
+        const w = item.offsetWidth;
+        if (used + w + moreReserveWidth <= containerWidth) {
+          used += w;
+          item.style.display = '';
+        } else {
+          newCollapsed.push(key);
+          item.style.display = 'none';
+        }
+      });
+
+      setCollapsedNavItems(newCollapsed);
+    };
+
+    measure();
+
+    let resizeObserver: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== 'undefined') {
+      resizeObserver = new ResizeObserver(() => {
+        measure();
+      });
+      resizeObserver.observe(centerNavRef.current);
+    }
+
+    window.addEventListener('resize', measure);
+
+    return () => {
+      if (resizeObserver && centerNavRef.current) {
+        resizeObserver.unobserve(centerNavRef.current);
+      }
+      window.removeEventListener('resize', measure);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [centerNavRef.current]);
+
   // 移动端菜单打开时禁用背景滚动
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -221,11 +316,20 @@ export default function Navbar() {
             )}
           </button>
         </div>
-        {/* 中间导航栏 - 使用flex布局，自动隐藏溢出项（大屏显示） */}
-        <div className='hidden xl:flex items-center justify-center gap-2 xl:gap-4 ml-4 xl:ml-8 flex-1 min-w-0 overflow-hidden'>
+        {/* 中间导航栏 - 使用flex布局，空间不足时折叠到“更多”中（大屏显示） */}
+        <div
+          ref={centerNavRef}
+          className='hidden xl:flex items-center justify-center gap-2 xl:gap-4 ml-4 xl:ml-8 flex-1 min-w-0 overflow-hidden'
+        >
           {/* Product 下拉 - clouddm 时显示为简单链接 */}
           {siteBrand === 'clouddm' ? (
-            <Link to="/" className="no-underline flex-shrink-0" onClick={() => setActiveNav('product')}>
+            <Link
+              to="/"
+              className="no-underline flex-shrink-0"
+              onClick={() => setActiveNav('product')}
+              data-desktop-nav-item
+              data-nav-key="product"
+            >
               <div
                 data-menu-item
                 className={`flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full cursor-pointer transition-all duration-200 ${activeNav === 'product'
@@ -239,7 +343,7 @@ export default function Navbar() {
               </div>
             </Link>
           ) : (
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0" data-desktop-nav-item data-nav-key="product">
               <Dropdown
                 menu={{
                   items: siteBrand === 'clougence' ? [
@@ -343,7 +447,7 @@ export default function Navbar() {
             </div>
           )}
           {/* Solutions 下拉 */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0" data-desktop-nav-item data-nav-key="solutions">
             <Dropdown
               menu={{
                 items: siteBrand === 'clouddm' ? [
@@ -433,7 +537,7 @@ export default function Navbar() {
             </Dropdown>
           </div>
           {/* Resources 下拉 */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0" data-desktop-nav-item data-nav-key="resources">
             <Dropdown
               menu={{
                 items: siteBrand === 'clougence' ? [
@@ -510,7 +614,12 @@ export default function Navbar() {
             </Dropdown>
           </div>
           {/* Pricing */}
-          <Link to="/pricing" className="no-underline flex-shrink-0">
+          <Link
+            to="/pricing"
+            className="no-underline flex-shrink-0"
+            data-desktop-nav-item
+            data-nav-key="pricing"
+          >
             <div
               data-menu-item
               className={`flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full cursor-pointer transition-all duration-200 ${activeNav === 'pricing'
@@ -525,7 +634,12 @@ export default function Navbar() {
             </div>
           </Link>
           {/* About */}
-          <Link to="/about" className="no-underline flex-shrink-0">
+          <Link
+            to="/about"
+            className="no-underline flex-shrink-0"
+            data-desktop-nav-item
+            data-nav-key="about"
+          >
             <div
               data-menu-item
               className={`flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full cursor-pointer transition-all duration-200 ${activeNav === 'about'
@@ -541,7 +655,11 @@ export default function Navbar() {
           </Link>
           {/* 了解更多 - 仅 clougence 显示 */}
           {siteBrand === 'clougence' && (
-            <div className="flex-shrink-0">
+            <div
+              className="flex-shrink-0"
+              data-desktop-nav-item
+              data-nav-key="learnmore"
+            >
               <Dropdown
                 menu={{
                   items: [
@@ -594,6 +712,140 @@ export default function Navbar() {
                 </div>
               </Dropdown>
             </div>
+          )}
+          {/* 更多（折叠）菜单 */}
+          {collapsedNavItems.length > 0 && (
+            <Dropdown
+              menu={{
+                items: collapsedNavItems
+                  .map<MenuProps['items'][number] | null>((key) => {
+                    if (key === 'product') {
+                      return {
+                        key: 'more-product',
+                        label: siteBrand === 'clouddm' ? (
+                          <Link
+                            to="/"
+                            className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                            onClick={() => setActiveNav('product')}
+                          >
+                            <Translate id="navbar.home">首页</Translate>
+                          </Link>
+                        ) : (
+                          <Link
+                            to="/"
+                            className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                            onClick={() => setActiveNav('product')}
+                          >
+                            <Translate id="navbar.product">Product</Translate>
+                          </Link>
+                        ),
+                      };
+                    }
+                    if (key === 'solutions') {
+                      if (siteBrand === 'clouddm') {
+                        return {
+                          key: 'more-solutions-clouddm',
+                          label: (
+                            <Link
+                              to="/clouddm_solution"
+                              className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                              onClick={() => setActiveNav('solutions')}
+                            >
+                              <Translate id="navbar.teamDatabaseCollaboration">团队数据库协作</Translate>
+                            </Link>
+                          ),
+                        };
+                      }
+                      return {
+                        key: 'more-solutions',
+                        label: (
+                          <Link
+                            to="/real-time-analytics"
+                            className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                            onClick={() => setActiveNav('solutions')}
+                          >
+                            <Translate id="navbar.solutions">Solutions</Translate>
+                          </Link>
+                        ),
+                      };
+                    }
+                    if (key === 'resources') {
+                      return {
+                        key: 'more-resources',
+                        label: (
+                          <Link
+                            to="/blog"
+                            className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                            onClick={() => setActiveNav('resources')}
+                          >
+                            <Translate id="navbar.resources">Resources</Translate>
+                          </Link>
+                        ),
+                      };
+                    }
+                    if (key === 'pricing') {
+                      return {
+                        key: 'more-pricing',
+                        label: (
+                          <Link
+                            to="/pricing"
+                            className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                            onClick={() => setActiveNav('pricing')}
+                          >
+                            <Translate id="navbar.pricing">Pricing</Translate>
+                          </Link>
+                        ),
+                      };
+                    }
+                    if (key === 'about') {
+                      return {
+                        key: 'more-about',
+                        label: (
+                          <Link
+                            to="/about"
+                            className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                            onClick={() => setActiveNav('about')}
+                          >
+                            <Translate id="navbar.about">About</Translate>
+                          </Link>
+                        ),
+                      };
+                    }
+                    if (key === 'learnmore' && siteBrand === 'clougence') {
+                      return {
+                        key: 'more-learnmore',
+                        label: (
+                          <a
+                            href="https://www.bladepipe.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                          >
+                            <Translate id="navbar.learnMore">Learn More</Translate>
+                          </a>
+                        ),
+                      };
+                    }
+                    return null;
+                  })
+                  .filter((item): item is MenuProps['items'][number] => item !== null),
+              }}
+              trigger={['hover']}
+              placement="bottomLeft"
+              overlayClassName="navbar-dropdown"
+              destroyPopupOnHide={true}
+              getPopupContainer={(trigger) => trigger.parentElement || document.body}
+            >
+              <div
+                data-menu-item
+                className="flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full gap-1 cursor-pointer transition-all duration-200 hover:bg-gray-100 flex-shrink-0"
+              >
+                <span className="text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#262728]">
+                  ...
+                </span>
+                <ChevronDownIcon className="ml-[6px] w-4 h-4 text-[#262728]" />
+              </div>
+            </Dropdown>
           )}
         </div>
         {/* 右侧操作区（大屏显示） */}
@@ -942,116 +1194,122 @@ export default function Navbar() {
             </div>
 
             {/* 底部按钮区域 */}
-            <div className="mt-auto px-5 py-[30px] flex items-end gap-3 flex-shrink-0">
-              {/* Discord 图标链接 - 移动端，仅在 bladepipe 时显示 */}
-              {siteBrand === 'bladepipe' && (
-                <a
-                  href="https://discord.gg/HMnThuQMup"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-black/20 bg-white flex items-center justify-center transition-all duration-200 hover:bg-gray-100 hover:border-black/30 mb-4 flex-shrink-0"
-                  title="Discord"
-                  aria-label="Discord"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  <img
-                    src="/img/about/contact/discord.svg"
-                    alt="Discord"
-                    className="w-6 h-6"
-                  />
-                </a>
-              )}
+            <div className="mt-auto px-5 py-[30px] flex flex-col gap-4 flex-shrink-0">
+              {/* 第一行：Discord 和语言切换 - 左侧水平排列 */}
+              <div className="flex items-center gap-3">
+                {/* Discord 图标链接 - 移动端，仅在 bladepipe 时显示 */}
+                {siteBrand === 'bladepipe' && (
+                  <a
+                    href="https://discord.gg/HMnThuQMup"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-full border border-black/20 bg-white flex items-center justify-center transition-all duration-200 hover:bg-gray-100 hover:border-black/30 flex-shrink-0"
+                    title="Discord"
+                    aria-label="Discord"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <img
+                      src="/img/about/contact/discord.svg"
+                      alt="Discord"
+                      className="w-6 h-6"
+                    />
+                  </a>
+                )}
 
-              {/* Google Translate - 移动端，仅在 bladepipe 时显示 */}
-              {siteBrand === 'bladepipe' && (
-                <div className="mobile-google-translate mb-4 flex-1">
-                  <GoogleTranslate position="navbar" />
-                </div>
-              )}
-              
-              {/* 语言切换按钮 */}
-              {/* <MobileLanguageDropdown /> */}
+                {/* Google Translate - 移动端，仅在 bladepipe 时显示，语言切换 */}
+                {siteBrand === 'bladepipe' && (
+                  <div className="mobile-google-translate">
+                    <GoogleTranslate position="navbar" />
+                  </div>
+                )}
+                
+                {/* 语言切换按钮 */}
+                {/* <MobileLanguageDropdown /> */}
+              </div>
 
-              {/* 用户认证区域 */}
-              {isLoggedIn ? (
-                <div className="flex flex-col gap-3 flex-1 min-w-0">
-                  {/* 用户信息显示 */}
-                  <div className='flex items-center justify-center px-5 h-[50px] rounded-lg border border-black/20 bg-gray-50'>
-                    <span translate="no" className='text-[16px] font-bold text-[#131316]'>
-                      <Translate id='navbar.hello'>Hello</Translate>, {userInfo?.username || userInfo?.email || 'User'}
-                    </span>
-                  </div>
-                  {/* 用户菜单项 */}
-                  <div className="flex flex-col gap-2">
-                    <a
-                      href={`${getCloudUrl()}/#/system/profile`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center px-5 h-[40px] rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors no-underline"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      <span className='text-[14px] font-medium text-[#131316]'>
-                        <Translate id="navbar.userCenter">Profile</Translate>
+              {/* 第二行：登录和跳转按钮 - 左侧垂直排列 */}
+              <div className="flex flex-col gap-3 w-full">
+                {/* 用户认证区域 */}
+                {isLoggedIn ? (
+                  <>
+                    {/* 用户信息显示 */}
+                    <div className='flex items-center justify-center px-5 h-[50px] rounded-lg border border-black/20 bg-gray-50'>
+                      <span translate="no" className='text-[16px] font-bold text-[#131316]'>
+                        <Translate id='navbar.hello'>Hello</Translate>, {userInfo?.username || userInfo?.email || 'User'}
                       </span>
-                    </a>
-                    <a
-                      href={siteBrand === 'clouddm' ? `${getCloudUrl()}/#/system/order` : `${getCloudUrl()}/#/system/billing`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center px-5 h-[40px] rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors no-underline"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      <span className='text-[14px] font-medium text-[#131316]'>
-                        {siteBrand === 'clouddm' ? (
-                          <Translate id="navbar.myOrder">My Order</Translate>
-                        ) : (
-                          <Translate id="navbar.myBilling">My Billing</Translate>
-                        )}
+                    </div>
+                    {/* 用户菜单项 */}
+                    <div className="flex flex-col gap-2">
+                      <a
+                        href={`${getCloudUrl()}/#/system/profile`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center px-5 h-[40px] rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors no-underline"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        <span className='text-[14px] font-medium text-[#131316]'>
+                          <Translate id="navbar.userCenter">Profile</Translate>
+                        </span>
+                      </a>
+                      <a
+                        href={siteBrand === 'clouddm' ? `${getCloudUrl()}/#/system/order` : `${getCloudUrl()}/#/system/billing`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center px-5 h-[40px] rounded-lg border border-gray-200 cursor-pointer hover:bg-gray-100 transition-colors no-underline"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        <span className='text-[14px] font-medium text-[#131316]'>
+                          {siteBrand === 'clouddm' ? (
+                            <Translate id="navbar.myOrder">My Order</Translate>
+                          ) : (
+                            <Translate id="navbar.myBilling">My Billing</Translate>
+                          )}
+                        </span>
+                      </a>
+                      <button
+                        onClick={() => {
+                          setMobileOpen(false);
+                          logout();
+                        }}
+                        className="flex items-center justify-center px-5 h-[40px] rounded-lg border border-red-200 cursor-pointer hover:bg-red-50 transition-colors bg-white"
+                      >
+                        <span className='text-[14px] font-medium text-red-600'>
+                          <Translate id="navbar.logout">Log out</Translate>
+                        </span>
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <Link
+                    to="/login"
+                    onClick={() => {
+                      setMobileOpen(false);
+                      localStorage.setItem('loginSource', 'sign_in');
+                    }}
+                    className="no-underline w-full"
+                  >
+                    <div className='flex items-center justify-center px-5 h-[50px] w-full rounded-lg border border-black/20 cursor-pointer hover:bg-gray-100'>
+                      <span className='text-[16px] font-bold text-[#131316]'>
+                        <Translate id='navbar.signin'>Log in</Translate>
                       </span>
-                    </a>
-                    <button
-                      onClick={() => {
-                        setMobileOpen(false);
-                        logout();
-                      }}
-                      className="flex items-center justify-center px-5 h-[40px] rounded-lg border border-red-200 cursor-pointer hover:bg-red-50 transition-colors bg-white"
-                    >
-                      <span className='text-[14px] font-medium text-red-600'>
-                        <Translate id="navbar.logout">Log out</Translate>
-                      </span>
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <Link
-                  to="/login"
+                    </div>
+                  </Link>
+                )}
+
+                {/* Try Cloud Free 按钮 */}
+                <div
+                  className='flex items-center justify-center px-5 h-[50px] w-full rounded-lg bg-[#0087c7] text-white cursor-pointer hover:bg-[#0070a6]'
                   onClick={() => {
                     setMobileOpen(false);
-                    localStorage.setItem('loginSource', 'sign_in');
+                    loginCheckAndRedirect(() => {
+                      window.location.href = getCloudUrl();
+                    }, 'try_cloud_free');
                   }}
-                  className="no-underline"
                 >
-                  <div className='flex items-center justify-center px-5 h-[50px] w-[91px] rounded-lg border border-black/20 cursor-pointer hover:bg-gray-100'>
-                    <span className='text-[16px] font-bold text-[#131316]'>
-                      <Translate id='navbar.signin'>Log in</Translate>
-                    </span>
-                  </div>
-                </Link>
-              )}
-
-              {/* Try Cloud Free 按钮 - 固定在右侧底部 */}
-              <div
-                className='flex items-center justify-center px-5 h-[50px] w-[172px] rounded-lg bg-[#0087c7] text-white cursor-pointer hover:bg-[#0070a6] flex-shrink-0'
-                onClick={() => {
-                  setMobileOpen(false);
-                  loginCheckAndRedirect(() => {
-                    window.location.href = getCloudUrl();
-                  }, 'try_cloud_free');
-                }}
-              >
-                <span className='text-[16px] font-bold'>
-                  <Translate id='navbar.tryCloud'>Try Cloud Free</Translate>
-                </span>
+                  <span className='text-[16px] font-bold'>
+                    <Translate id='navbar.tryCloud'>Try Cloud Free</Translate>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -1178,12 +1436,10 @@ function MobileLanguageDropdown() {
       destroyPopupOnHide={true}
       getPopupContainer={(trigger) => trigger.parentElement || document.body}
     >
-      <div className="w-[68px] h-[50px] flex items-center justify-center cursor-pointer">
-        <div className="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-100">
-          <svg className='w-6 h-6 text-black' fill='none' stroke='currentColor' strokeWidth='2' viewBox='0 0 24 24'>
-            <path d='M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 0c2.21 0 4 4.03 4 9s-1.79 9-4 9-4-4.03-4-9 1.79-9 4-9z' />
-          </svg>
-        </div>
+      <div className="w-10 h-10 rounded-full border border-black/20 bg-white flex items-center justify-center transition-all duration-200 hover:bg-gray-100 hover:border-black/30 cursor-pointer flex-shrink-0">
+        <svg className='w-6 h-6 text-black' fill='none' stroke='currentColor' strokeWidth='2' viewBox='0 0 24 24'>
+          <path d='M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 0c2.21 0 4 4.03 4 9s-1.79 9-4 9-4-4.03-4-9 1.79-9 4-9z' />
+        </svg>
       </div>
     </Dropdown>
   );
