@@ -656,6 +656,10 @@ export default function About(): React.JSX.Element {
         {/* 公司历程时间轴部分 - 响应式设计 */}
         <FadeInSection>
           <section className="w-full min-h-[600px] py-[24px] sm:py-[36px] lg:py-[48px] px-4 sm:px-8 lg:px-[80px] flex justify-center items-start bg-gradient-to-b from-[#eaf6ff] to-white relative">
+          {/* SEO 标题 - 不可见但可被搜索引擎和屏幕阅读器读取 */}
+          <h2 className="sr-only">
+            <Translate id="about.timeline.seoTitle">Our Story</Translate>
+          </h2>
           {/* 贯穿的横线 - 仅在大屏幕显示 */}
           <div className="hidden lg:block absolute top-[118px] left-0 w-full h-[0px] bg-[#b1cef8]/70 border border-solid border-[#b1cef8]/70"></div>
           <div className="hidden lg:block absolute top-[406px] left-0 w-full h-[0px] bg-[#b1cef8]/70 border border-solid border-[#b1cef8]/70"></div>

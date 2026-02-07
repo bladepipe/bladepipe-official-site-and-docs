@@ -514,7 +514,7 @@ const FeatureComparison_price: React.FC = () => {
         {siteBrand !== 'clouddm' && (
           <div className="flex flex-col items-center mb-12">
             <h2 className="text-[32px] sm:text-[40px] lg:text-[48px] font-bold text-black leading-[40px] sm:leading-[50px] lg:leading-[60px] text-center mb-3">
-              <Translate id="pricing.featureComparison.mainTitle">Compare Cloud vs Enterprise Plans</Translate>
+              <Translate id="pricing.featureComparison.mainTitle">Compare Community vs Cloud vs Enterprise Plans</Translate>
             </h2>
           </div>
         )}

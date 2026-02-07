@@ -112,9 +112,9 @@ const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true })
         </div>
         <div className="flex flex-col w-full mb-3">
           <div className="flex flex-row w-full justify-between items-center">
-            <h2 className="text-[24px] font-bold text-black">
+            <h3 className="text-[24px] font-bold text-black">
               <Translate id="compare.millionRows">Better Performance at a Lower Cost</Translate>
-            </h2>
+            </h3>
             {showLearnMore && (
               <a 
                 href="/why" 
@@ -192,9 +192,9 @@ const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true })
         <div className="w-full border-t border-black/10 border-solid border-0 border-l-0 border-r-0 border-b-0 my-2"></div>
         {/* 同步延迟对比条 */}
         <div className="w-full flex flex-col gap-4 mt-8">
-          <h2 className="text-[22px] font-bold text-black mb-2">
+          <h3 className="text-[22px] font-bold text-black mb-2">
             <Translate id="compare.syncLatency">Sync Data in Seconds</Translate>
-          </h2>
+          </h3>
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 w-full">
             {/* 主品牌 */}
             <div className="flex flex-col w-full lg:w-1/3">
