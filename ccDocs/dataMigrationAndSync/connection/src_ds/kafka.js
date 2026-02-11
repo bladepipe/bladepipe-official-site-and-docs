@@ -33,6 +33,9 @@ export const Kafka = {
         {
             key: 'dbHeartbeatToleranceStep',
             desc: '配置对源端数据库心跳操作可容忍的位点差值'
+        },{
+            key:'customClientProps',
+            desc:'自定义传入到 Kafka Client 参数，JSON 格式，key为参数名，value为参数值。此配置项以最高优先级生效。例如：[AWS IAM 访问控制](../datasource_func/Kafka/kafka_iam_auth)'
         }
     ],
     faq: [

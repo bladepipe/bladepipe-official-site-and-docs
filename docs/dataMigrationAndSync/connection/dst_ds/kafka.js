@@ -45,6 +45,10 @@ export const Kafka = {
         {
             key: 'envelopSchemaInclude',
             desc: 'When schemaFormat is set to <b>DEBEZIUM_ENVELOP_JSON_FOR_MQ</b>, it means whether the message body contains schema information.'
+        },
+        {
+            key: 'customClientProps',
+            desc: 'Custom properties passed to the Kafka client in JSON format. The key is the parameter name and the value is the parameter value. This setting takes the highest priority. For example: [AWS IAM Access Control](../datasource_func/Kafka/kafka_iam_auth)'
         }
     ],
     examples: [
