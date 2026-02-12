@@ -45,6 +45,10 @@ export const Kafka = {
         {
             key: 'envelopSchemaInclude',
             desc: '当 schemaFormat 设置为 <b>DEBEZIUM_ENVELOP_JSON_FOR_MQ</b> 时，消息体是否包含 schema 信息'
+        },
+        {
+            key:'customClientProps',
+            desc:'自定义传入到 Kafka Client 参数，JSON 格式，key为参数名，value为参数值。此配置项以最高优先级生效。例如：[AWS IAM 访问控制](../datasource_func/Kafka/kafka_iam_auth)'
         }
     ],
     examples: [

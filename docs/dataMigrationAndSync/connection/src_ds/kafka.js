@@ -33,6 +33,10 @@ export const Kafka = {
         {
             key: 'dbHeartbeatToleranceStep',
             desc: 'The threshold of gap between the latest offset and the current offset. If the actual gap is bigger than the threshold, BladePipe won‘t send heartbeat message.'
+        },
+        {
+            key: 'customClientProps',
+            desc: 'Custom properties passed to the Kafka client in JSON format. The key is the parameter name and the value is the parameter value. This setting takes the highest priority. For example: [AWS IAM Access Control](../datasource_func/Kafka/kafka_iam_auth)'
         }
     ],
     faq: [

@@ -293,7 +293,8 @@ const sidebars: SidebarsConfig = {
               "label": "Kafka",
               "items": [
                 "dataMigrationAndSync/datasource_func/Kafka/privs_for_kafka",
-                "dataMigrationAndSync/datasource_func/Kafka/open_kafka_heartbeat"
+                "dataMigrationAndSync/datasource_func/Kafka/open_kafka_heartbeat",
+                "dataMigrationAndSync/datasource_func/Kafka/kafka_iam_auth"                
               ]
             },
             {
