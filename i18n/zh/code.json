@@ -3284,5 +3284,11 @@
   "blog.tags.backToBlogList": {
     "message": "返回博客列表",
     "description": "Link text to go back to blog list page"
+  },
+  "pricing.featureComparison.mainTitle": {
+    "message": "社区版 vs 云版 vs 企业版"
+  },
+  "pricing.calculator.description": {
+    "message": "根据链路使用量和数据量估算每月成本，透明、基于使用的定价。"
   }
 }

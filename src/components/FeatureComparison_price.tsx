@@ -41,7 +41,7 @@ const getVersionConfig = (siteBrand: string) => {
         title: (
           <>
             <span>{translate({ id: 'pricing.cloud.title', message: 'Cloud' })}</span>
-            <span className="hidden sm:inline"> (SaaS Managed & BYOC)</span>
+            <span className="hidden sm:inline">{translate({ id: 'pricing.cloud.subtitle', message: '(SaaS Managed & BYOC)' })}</span>
           </>
         ),
         titleStyle: 'text-[20px] font-bold text-[#0087c7]',
@@ -67,7 +67,7 @@ const getVersionConfig = (siteBrand: string) => {
         title: (
           <>
             <span>{translate({ id: 'pricing.cloud.title', message: 'Cloud' })}</span>
-            <span className="hidden sm:inline"> (SaaS Managed & BYOC)</span>
+            <span className="hidden sm:inline">{translate({ id: 'pricing.cloud.subtitle', message: '(SaaS Managed & BYOC)' })}</span>
           </>
         ),
         titleStyle: 'text-[20px] font-bold text-[#0087c7]',
