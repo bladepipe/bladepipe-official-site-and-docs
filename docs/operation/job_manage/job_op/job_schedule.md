@@ -1,6 +1,7 @@
 ---
 id: job_schedule
 title: Schedule DataJobs
+description: BladePipe's architecture is designed for HA(high availability). DataJobs can be scheduled automatically or manually.
 ---
 
 BladePipe supports high availability for DataJob and enables automatic and manual DataJob scheduling.

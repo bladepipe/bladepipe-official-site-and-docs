@@ -1,7 +1,7 @@
 ---
 id: paimon_selectdb_lakehouse
-description: By integrating BladePipe, Paimon, and SelectDB within a unified architecture, it connects data ingestion, lake storage, and real-time analytics, enabling a truly real-time lakehouse.
-title: Building a Real-Time Lakehouse from Scratch with BladePipe, Paimon, and SelectDB
+description: Struggling with slow pipelines and stale analytics? Learn how BladePipe, Paimon, and SelectDB form a real-time lakehouse that unifies ingestion, storage, and analytics.
+title: How to Build a Real-Time Lakehouse with BladePipe, Paimon, and SelectDB
 date: 2025-09-25
 authors: mumu
 tags:
@@ -77,7 +77,7 @@ Here’s how you can build it yourself.
 ![](../assets/blog/data_insights/paimon_selectdb_lakehouse/3.png)
 
 #### Create a Sync Task
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Select the source and target DataSources, and click **Test Connection** to ensure the connection to the source and target DataSources are both successful.
 ![](../assets/blog/data_insights/paimon_selectdb_lakehouse/4.png)
 3. Select **Incremental** for DataJob Type, together with the **Full Data** option.

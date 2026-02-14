@@ -1,7 +1,7 @@
 ---
 id: redis_big_key_opt
-description: Big keys don’t have to be big problems. With lazy loading and sharded sync, BladePipe provides a reliable and memory-safe way to handle big keys in full Redis migrations.
-title: Redis Sync at Scale-A Smarter Way to Handle Big Keys
+description: Struggling with big keys during Redis migration or full sync? Learn how lazy loading and sharded sync prevent OOM, command limits, and sync failures.
+title: How to Handle Big Keys in Redis Migration and Sync
 date: 2025-06-24
 authors: juantu
 tags:

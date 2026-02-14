@@ -1,7 +1,7 @@
 ---
 id: create_period_verification_correction_job
 title: Verification and Correction
-description: introduces how to create a scheduled Verification and Correction DataJob
+description: Through a Verification and Correction pipeline, users easily check the data consistency and integrity.
 ---
 BladePipe supports data verification and correction. In this process, data differences between source and target databases are located, and inconsistent and missing data is revised. BladePipe verifies data differences for two times, greatly reducing verification errors caused by latency and ensuring data accuracy.
 

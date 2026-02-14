@@ -1,6 +1,7 @@
 ---
 id: create_full_incre_task
 title: Incremental 
+description: It tells how to set up a data pipeline that covers scheme evolution, data migration and synchronization in BladePipe. 
 ---
 
 With BladePipe, you can create a Full Data & Incremental DataJob in minutes. It includes schema migration, existing data migration, incremental data synchronization and other stages. Once the DataJob is started, BladePipe will automatically finish the multiple DataTasks in order.

@@ -1,7 +1,7 @@
 ---
 id: product_price
 title: Pricing
-description: BladePipe Private Deployments are available in three editions, including Community, Standard, and Enterprise. This article introduces the pricing and differences between the different editions.
+description: BladePipe has different pricing models for Cloud and Enterprise plans. Cloud is based on pay-as-you-go model, and Enterprise is license-based pricing model.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

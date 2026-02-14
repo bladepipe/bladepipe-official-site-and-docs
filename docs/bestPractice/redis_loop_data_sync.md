@@ -1,6 +1,6 @@
 ---
 id: redis_loop_data_sync
-description: introduces how BladePipe does Redis bidirectional synchronization and anti-loop
+description: BladePipe supports Redis sync in a bidirectional way using BladePipe, without getting data into a loop. 
 title: Redis Two-Way Sync
 image: https://www.cloudcanalx.com/us/_nuxt/redis_Bidirectional.8c731420.png
 ---

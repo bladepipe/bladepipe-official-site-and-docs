@@ -1,6 +1,7 @@
 ---
 id: cluster_manage
 title: Manage Clusters
+description: It introduces how to create, search and delete a Worker cluster.
 ---
 
 Cluster is a logical concept in BladePipe for grouping Workers. Users can divide many Workers into several clusters based on business attributes, geography, and other information.

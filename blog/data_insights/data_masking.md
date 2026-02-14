@@ -1,7 +1,7 @@
 ---
 id: data_masking
-description: Show how to realize data masking in the process of data replication
-title: Data Masking in Real-time Replication
+description: Learn how to apply data masking during real-time data replication. Explore practical techniques to protect sensitive data while syncing and migrating databases.
+title: Data Masking During Real-Time Data Replication
 date: 2025-04-24
 authors: mumu 
 tags:
@@ -68,7 +68,7 @@ Here we show how to mask data in real time while replicating data from MySQL to 
 
 ### Step 1: Install BladePipe
 
-Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
 
 ### Step 2: Add DataSources
 
@@ -79,7 +79,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 
 ### Step 3: Create a DataJob
 
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task/).
 2. Select the source and target DataSources.
    ![](../assets/blog/data_insights/data_masking/datamasking_1.png)
 3. Select **Incremental** for DataJob Type, together with the **Full Data** option.

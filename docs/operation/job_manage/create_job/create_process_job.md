@@ -1,7 +1,7 @@
 ---
 id: create_process_job
 title: Custom Code Processing
-description: Introduces BladePipe **Custom Code**, covering code development, task creation and updates, troubleshooting.
+description: Upload custom code in BladePipe for complex data transformation. This page tells how to prepare and upload the custom code. 
 ---
 This page briefly introduces BladePipe **Custom Code**, covering coding, DataJob creation, code updating and troubleshooting.
 

@@ -1,7 +1,7 @@
 ---
 id: prepare_for_oracle_olr
 title: Oracle OpenLogReplicator
-description: BladePipe uses OpenLogReplicator to synchronize the Oracle data. This page describes the preparation actions before synchronization. 
+description: BladePipe allows to use OpenLogReplicator to replicate Oracle data. This page tells the prerequisites before OpenLogReplicator-based Oracle sync. 
 ---
 
 [BladePipe](https://www.bladepipe.com/) can use [OpenLogReplicator](https://github.com/bersler/OpenLogReplicator) to synchronize the incremental data in Oracle. This page describes the preparations before data sync.

@@ -1,7 +1,7 @@
 ---
 id: quick_start
 title: Quickstart (On-Premise)
-description: This page introduces how to get started with BladePipe On-Premise
+description: This page introduces how to get started with BladePipe Community and Enterprise.
 ---
 
 On-Premise deployment allows you to keep BladePipe and all your data in your own local environment. This page describes how to move data using **BladePipe On-Premise** in just a few steps.

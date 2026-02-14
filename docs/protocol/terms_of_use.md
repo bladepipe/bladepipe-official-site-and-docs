@@ -1,6 +1,7 @@
 ---
 id: terms_of_use
 title: Terms of Service
+description: It explains the general rules when users using BladePipe.
 ---
 Effective Date: September 27, 2024
 

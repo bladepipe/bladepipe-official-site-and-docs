@@ -1,6 +1,7 @@
 ---
 id: alarm_conf
 title: Configure Alert Methods
+description: This page guides you to configure alert notification via Email and IM, so that users can be notified instantly.
 ---
 This page describes how to configure different tools to send alert notifications.
 

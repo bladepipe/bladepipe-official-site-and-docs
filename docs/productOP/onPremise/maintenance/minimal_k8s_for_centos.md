@@ -1,7 +1,7 @@
 ---
 id: minimal_k8s_for_centos
 title: Minimal K8s for CentOS
-description: This page introduces how to install a Minimal K8s for BladePipe
+description: This page introduces how to install a Minimal K8s for BladePipe installation.
 ---
 
 This page introduces how to install a Minimal K8s for CentOS.

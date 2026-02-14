@@ -1,6 +1,6 @@
 ---
 id: redis_redis_sync
-description: In this tutorial, we depicts a no-code intuitive way to sync data from Redis to Redis using BladePipe. With BladePipe, even a non-developer can finish Redis data replication in a few clicks.
+description: Sync Redis data seamlessly with BladePipe’s no-code, intuitive interface. Even non-developers can set up Redis-to-Redis replication in just a few clicks.
 title: Sync Data from Redis to Redis - A No-code Intuitive Way
 date: 2025-02-18
 authors: junyu 
@@ -35,7 +35,7 @@ Cloud-hosted Redis data sync is not supported yet, because cloud-hosted Redis ad
 
 ### Step 1: Install BladePipe
 
-Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
 
 ### Step 2: Add DataSources
 
@@ -46,7 +46,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 
 ### Step 3: Create a DataJob
 
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Select the source and target DataSources, and click **Test Connection** to ensure the connection to the source and target DataSources are both successful.
 3. In **Advanced** setting below the source instance, select **Enable DB Mapping**: yes / no.
     
@@ -64,7 +64,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 5. Confirm the DataJob creation.
    
    :::info
-   The DataJob creation process involves several steps. Click **Sync Settings** > [**ConsoleJob**](https://doc.bladepipe.com/operation/job_setting/console_job_manage), find the DataJob creation record, and click **Details** to view it.
+   The DataJob creation process involves several steps. Click **Sync Settings** > [**ConsoleJob**](https://www.bladepipe.com/docs/operation/job_setting/console_job_manage/), find the DataJob creation record, and click **Details** to view it.
 
    The DataJob creation with a source Redis instance includes the following steps:
     - Allocation of DataJobs to BladePipe Workers

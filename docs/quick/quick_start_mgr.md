@@ -1,6 +1,7 @@
 ---
 id: quick_start_mgr
 title: Quickstart (Managed)
+description: This page introduces how to get started with BladePipe SaaS Managed.
 ---
 
 BladePipe Cloud includes two modes: Managed and BYOC. Managed is a **cloud-hosted** SaaS service, where **both the Console and the Worker are fully managed by BladePipe**. You only need to operate through the web interface. No deployment or maintenance is required.

@@ -1,6 +1,7 @@
 ---
 id: create_slack_group
 title: Create a Slack Bot
+description: It guides you to set up a Slack bot, so that users can receive alert notifications on Slack.
 ---
 BladePipe integrates with the **Incoming WebHook** application on Slack channels by configuring the webhook to send alert messages to specified Slack channels. This document provides a brief introduction on how to obtain a valid webhook for use.
 

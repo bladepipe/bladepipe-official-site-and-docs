@@ -1,6 +1,7 @@
 ---
 id: create_custom_alarm
 title: Create Webhook Alerts
+description: It guides you to set up custom webhooks, so that users can receive alert notifications via IM.
 ---
 
 BladePipe allows you to configure custom Webhooks. Taking Java as an example, this article introduces custom Webhook request parameters.

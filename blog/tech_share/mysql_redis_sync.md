@@ -1,6 +1,6 @@
 ---
 id: mysql_redis_sync
-description: This tutorial delves into how to use BladePipe to move data from MySQL to Redis
+description: Need real-time MySQL data in Redis? This tutorial shows how to build a low-latency MySQL-to-Redis pipeline with cluster awareness and cache expiration.
 title: How to Move Data From MySQL to Redis in Real Time
 date: 2024-11-08
 authors: juantu 
@@ -34,7 +34,7 @@ When creating a BladePipe DataJob, you can optionally set the expiration time (i
 ## Procedure
 
 ### Step 1: Install BladePipe
-Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
 
 ### Step 2: Add DataSources
 1. Log in to the [BladePipe Cloud](https://cloud.bladepipe.com).
@@ -50,7 +50,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
     :::
 
 ### Step 3: Create a DataJob
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Select the source and target DataSources. Set the cache expiration time (in seconds) in **Advanced** configuration of the target DataSource. The number &lt;=0 means the cache won't expire.
     
     ![](../assets/blog/tech_share/mysql_redis_sync/mysql_redis_2.png)
@@ -67,12 +67,12 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 
     :::
 
-5. Select the columns to be replicated. [Filter the data](https://doc.bladepipe.com/operation/job_manage/create_job/create_data_filter_job) if needed.
+5. Select the columns to be replicated. [Filter the data](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_data_filter_job/) if needed.
     
     ![](../assets/blog/tech_share/mysql_redis_sync/mysql_redis_5.png)
 6. Confirm the creation.
    :::info
-   The DataJob creation process involves several steps. Click **Sync Settings** > [**ConsoleJob**](https://doc.bladepipe.com/operation/job_setting/console_job_manage), find the DataJob creation record, and click **Details** to view it.
+   The DataJob creation process involves several steps. Click **Sync Settings** > [**ConsoleJob**](https://www.bladepipe.com/docs/operation/job_setting/console_job_manage/), find the DataJob creation record, and click **Details** to view it.
 
    The DataJob creation with a source MySQL instance includes the following steps:
 

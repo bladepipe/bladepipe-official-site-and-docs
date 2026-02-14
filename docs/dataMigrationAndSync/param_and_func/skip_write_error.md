@@ -1,7 +1,7 @@
 ---
 id: skip_write_error
 title: Skip Write Exceptions
-description: When the task fails to continue synchronization due to exceptions, and these exceptions can be slightly outdated, measures can be taken to skip the exception, so that the data caused by the exception can continue to synchronize without affecting the subsequent data written to the peer.
+description: Data write exceptions can be skipped for continuous sychronization by adjusting a parameter.
 ---
 
 ## Function

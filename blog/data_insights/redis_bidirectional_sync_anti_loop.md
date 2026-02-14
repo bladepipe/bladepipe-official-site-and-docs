@@ -1,6 +1,6 @@
 ---
 id: redis_bidirectional_sync_anti_loop
-description: Comprehensive Guide to Loop Detection in Redis Bidirectional Synchronization.
+description: Learn why loops occur in Redis bidirectional synchronization and how to prevent them using auxiliary tags, transaction tags, and a hands-on BladePipe demo.
 title: How to Prevent Loops in Redis Bidirectional Sync
 date: 2025-09-15
 authors: juantu
@@ -17,7 +17,7 @@ Take two Redis instances, A and B, as an example, with sync tasks configured in 
 
 Data written to A will be synchronized to B. Once B receives it, the data will be sent back to A. Without a loop detection mechanism, the same event just “ping-pong” between A and B endlessly.
 
-[BladePipe](https://www.bladepipe.com/) already solves this for MySQL and PostgreSQL using incremental [event tags](https://www.bladepipe.com/docs/bestPractice/mysql_loop_data_sync) and [transaction records](../tech_share/pg_pg_sync.md#bidirectional-sync-loop-prevention) separately to filter loop events. Each sync task checks whether a transaction contains a marker, and if so, filters it out, breaking the data loop.
+[BladePipe](https://www.bladepipe.com/) already solves this for MySQL and PostgreSQL using incremental [event tags](https://www.bladepipe.com/docs/bestPractice/mysql_loop_data_sync/) and [transaction records](../tech_share/pg_pg_sync.md#bidirectional-sync-loop-prevention) separately to filter loop events. Each sync task checks whether a transaction contains a marker, and if so, filters it out, breaking the data loop.
 
 ![](../assets/blog/data_insights/redis_bidirectional_sync_anti_loop/anti_loop_1.png)
 
@@ -65,7 +65,7 @@ However, it is important to note that in sharded cluster mode, Redis transaction
 Let’s look at how to quickly set up Redis bidirectional sync with the transaction tag method using BladePipe.
 
 ### Step 1: Install BladePipe
-Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
 
 ### Step 2: Add DataSources
 

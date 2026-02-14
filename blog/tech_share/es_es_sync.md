@@ -1,7 +1,7 @@
 ---
 id: es_es_sync
 description: This article describes how to migrate and sync data from Elasticsearch to Elasticsearch using BladePipe and the Elasticsearch incremental data capture plugin.
-title: Sync Data from Elasticsearch to Elasticsearch
+title: How to Sync Data from Elasticsearch to Elasticsearch
 date: 2024-10-21
 authors: junyu 
 tags:
@@ -88,11 +88,11 @@ Given the impracticality of releasing numerous pre-compiled packages and to enco
 
 ### Step 1: Install the Plugin on Source Elasticsearch
 
-Follow the instructions in **[Preparation for Elasticsearch CDC](https://www.bladepipe.com/docs/dataMigrationAndSync/datasource_func/ElasticSearch/prepare_for_es_as_src)** to install the incremental data capture plugin.
+Follow the instructions in **[Preparation for Elasticsearch CDC](https://www.bladepipe.com/docs/dataMigrationAndSync/datasource_func/ElasticSearch/prepare_for_es_as_src/)** to install the incremental data capture plugin.
 
 ### Step 2: Install BladePipe
 
-Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
 
 ### Step 3: Add DataSources
 
@@ -100,7 +100,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 2. Click **DataSource** > **Add DataSource**, and add 2 DataSources.
 
 ### Step 4: Create a DataJob
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Select the source and target DataSources, and click **Test Connection** to ensure the connection to the source and target DataSources are both successful.
 3. Select **Incremental** for DataJob Type, together with the **Full Data** option.
 
@@ -120,7 +120,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 6. Confirm the DataJob creation.
 
    :::info
-   The DataJob creation process involves several steps. Click **Sync Settings** > [**ConsoleJob**](https://doc.bladepipe.com/operation/job_setting/console_job_manage), find the DataJob creation record, and click **Details** to view it.
+   The DataJob creation process involves several steps. Click **Sync Settings** > [**ConsoleJob**](https://www.bladepipe.com/docs/operation/job_setting/console_job_manage/), find the DataJob creation record, and click **Details** to view it.
 
    The DataJob creation with a source Elasticsearch instance includes the following steps:
    

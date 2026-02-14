@@ -1,6 +1,7 @@
 ---
 id: kafka_msg_format_type
 title: Message Format
+description: BladePipe supports various message formats in data synchronization pipelines.
 ---
 
 BladePipe supports selecting the synchronized message store format with MQ, this article introduces the definition and description of multiple message formats of MQ, which facilitates downstream consumption and use.

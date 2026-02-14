@@ -1,7 +1,7 @@
 ---
 id: data_sync_faq_1
-description: This article is Part 1 of a practical Q&A series on real-time data sync.
-title: Real-Time Data Sync-4 Questions We Get All the Time
+description: Part 1 of a real-world Q&A series on real-time data sync, addressing latency, third-party tools, pipeline stability, and data consistency.
+title: Real-Time Data Sync:4 Questions We Get All the Time
 date: 2025-06-20
 authors: junyu 
 tags:

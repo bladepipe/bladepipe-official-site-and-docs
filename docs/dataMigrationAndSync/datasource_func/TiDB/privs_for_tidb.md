@@ -1,6 +1,7 @@
 ---
 id: privs_for_tidb
 title:  Required Privileges for TiDB
+description: To migrate or sync data from or to TiDB instances, BladePipe requires certain user privileges to be granted.
 ---
 This article describes the permissions required by BladePipe for database accounts when TiDB is used as the Source or Target DataSource for migrating or synchronizing data.
 

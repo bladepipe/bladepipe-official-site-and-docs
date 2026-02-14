@@ -1,6 +1,6 @@
 ---
 id: encrypt_data_when_sync
-description: introduces how to use BladePipe to mask specified data when data migrating and synchronizing.
+description: BladePipe supports dynamic data masking in a data pipeline, protecting sensitive data. 
 title: Data Masking
 ---
 

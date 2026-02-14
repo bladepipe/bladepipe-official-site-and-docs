@@ -1,7 +1,7 @@
 ---
 id: get_log
 title: Get Component Logs
-description: BladePipe offers various system logs to help troubleshoot errors. This article explains how to obtain component logs.
+description: BladePipe offers various system logs (Worker and DataJob) to help troubleshoot errors. This article explains how to obtain component logs.
 ---
 
 When an error occurs, if its root cause cannot be found in the BladePipe Cloud, it may be necessary to provide the related system logs.

@@ -1,6 +1,6 @@
 ---
 id: mongodb_mongodb_sync
-description: Describe how to use BladePipe to build a MongoDB-to-MongoDB data pipeline
+description: Step-by-step guide to building a MongoDB-to-MongoDB data pipeline with BladePipe for real-time synchronization and replication.
 title: Move Data from MongoDB to MongoDB in 3 Steps
 date: 2024-12-28
 authors: mumu 
@@ -47,7 +47,7 @@ The supported data types are expanding along with the requests from the increasi
 
 ### Step 1: Install BladePipe
 
-Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
 
 ### Step 2: Add DataSources
 
@@ -57,7 +57,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 
 ### Step 3: Create a DataJob
 
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 
 2. Select the source and target DataSources, and click **Test Connection** to ensure the connection to the source and target DataSources are both successful.
    
@@ -71,7 +71,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 5. Confirm the DataJob creation.
    
    :::info
-   The DataJob creation process involves several steps. Click **Sync Settings** > [**ConsoleJob**](https://doc.bladepipe.com/operation/job_setting/console_job_manage), find the DataJob creation record, and click **Details** to view it.
+   The DataJob creation process involves several steps. Click **Sync Settings** > [**ConsoleJob**](https://www.bladepipe.com/docs/operation/job_setting/console_job_manage/), find the DataJob creation record, and click **Details** to view it.
    
    The DataJob creation with a source MongoDB instance includes the following steps:
    - Schema Migration 

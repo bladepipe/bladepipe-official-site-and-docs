@@ -1,7 +1,7 @@
 ---
 id: prepare_for_es_as_src
 title:  Required Privileges for ElasticSearch CDC
-description: Preparation Steps for Synchronizing ElasticSearch Data with BladePipe
+description: To replicate data from ElasticSearch via Change Data Capture(CDC) using BladePipe, a ElasticSearch user needs to have certain privileges.
 ---
 
 BladePipe uses the [cloudcanal-es-trigger](https://github.com/ClouGence/cloudcanal-es-trigger) plugin to sync incremental data from ElasticSearch. This article describes the preparation required before sync, which include **compiling the plugin** and **installing the plugin**.

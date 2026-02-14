@@ -92,9 +92,9 @@ For easy and secure healthcare data integration, you may try [**BladePipe**](htt
 ![w750_h380](../assets/blog/data_insights/healthcare_data_integration/2.png)
 
 **Key Features of BladePipe for Healthcare Data Integration**:
-- **[Real-time CDC](https://www.bladepipe.com/solution1)**: Capture changes from multiple source systems and deliver data in near real time, with end-to-end latency typically under 3 seconds.
+- **[Real-time CDC](https://www.bladepipe.com/real-time-analytics/)**: Capture changes from multiple source systems and deliver data in near real time, with end-to-end latency typically under 3 seconds.
 - **Automated pipelines**: Automate the entire flow from schema evolution to incremental synchronization, reducing manual effort and operational complexity.
-- **Broad connectors support**: Support [60+ connectors](https://www.bladepipe.com/connector), each validated for reliability in long-running, production-grade pipelines.
+- **Broad connectors support**: Support [60+ connectors](https://www.bladepipe.com/connector/), each validated for reliability in long-running, production-grade pipelines.
 - **Proven security**: Encrypted data transfer, RBAC-based access control, and audit logging, with compliance support for [SOC 2, GDPR, and ISO 27001](https://trust.bladepipe.com/).
 - **Flexible deployment options**: Run BladePipe on-premises, in your own cloud (BYOC), or as a fully managed SaaS.
 - **Enhanced data consistency**: Built-in data verification and correction help maintain end-to-end data integrity, ensuring data quality.

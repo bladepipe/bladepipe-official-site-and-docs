@@ -1,7 +1,7 @@
 ---
 id: solve_incre_task_delay
 title: Incremental DataTask Latency
-description: This article outlines the steps for troubleshooting incremental delay after creating a synchronization task in BladePipe.
+description: It outlines the steps for troubleshooting incremental latency for a pipeline created in BladePipe.
 ---
 This article outlines the steps for troubleshooting Incremental DataTask latency in BladePipe.
 

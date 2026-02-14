@@ -21,7 +21,7 @@ Based on such rigidity, you must define the schema before you can save it into a
 
 ### Structured Data Pros
 + **Fast search and retrieval:** Because each field has a fixed meaning, databases can use indexes and SQL to retrieve records in milliseconds, even at large scale.
-+ **Works well with BI tools:** It is easily consumed by BI tools like Excel, Power BI, or Tableau. That makes it easy for [data analytics](https://www.bladepipe.com/real-time-analytics) and reporting.
++ **Works well with BI tools:** It is easily consumed by BI tools like Excel, Power BI, or Tableau. That makes it easy for [data analytics](https://www.bladepipe.com/real-time-analytics/) and reporting.
 + **HIgh efficiency:** The database knows exactly where every value is stored, which reduces compute and memory overhead during queries.
 + **Strong** [**data consistency**](https://www.bladepipe.com/blog/data_insights/data_verification/): Schemas and constraints enforce data quality and relationships between tables.
 

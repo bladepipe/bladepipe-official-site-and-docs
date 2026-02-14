@@ -1,6 +1,7 @@
 ---
 id: third_party_setting
 title: Configure Alibaba Cloud AK/SK
+description: It tells how to configure Alibaba Cloud AK/SK.
 ---
 
 To access and add Alibaba Cloud DataSources and create DataJobs using OpenAPI, it is required to set the AccessKey ID and AccessKey Secret, which can be cleared or reset at any time, ensuring the security of cloud resources.

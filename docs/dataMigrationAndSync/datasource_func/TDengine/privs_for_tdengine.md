@@ -1,7 +1,7 @@
 ---
 id: privs_for_tdengine
 title:  Required Privileges for TDengine
-description: To migrate or sync data from or to TDengine instances, BladePipe requires certain user permissions to be granted.
+description: To migrate or sync data from or to TDengine instances, BladePipe requires certain user privileges to be granted.
 ---
 
 To migrate or sync data from or to TDengine instances, BladePipe requires certain user permissions to be granted. If you are the root user, you can skip the following steps.

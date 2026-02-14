@@ -1,6 +1,7 @@
 ---
 id: change_job_setting
 title: Modify DataJob Settings
+description: This page guides you to edit the DataJob settings in BladePipe.
 ---
 This article describes how to modify the DataJob settings in BladePipe.
 

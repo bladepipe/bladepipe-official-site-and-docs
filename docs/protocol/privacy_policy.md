@@ -1,6 +1,7 @@
 ---
 id: privacy_policy
 title: Privacy Policy
+description: It explains how BladePipe collects, uses, discloses, protects, stores and transfers users' data.
 ---
 Effective Date: September 27, 2024
 

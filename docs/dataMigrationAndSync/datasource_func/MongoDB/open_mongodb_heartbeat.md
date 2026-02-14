@@ -1,6 +1,7 @@
 ---
 id:  open_mongodb_heartbeat
 title: Enable MongoDB Heartbeat
+description: It guides you to enable MongoDB heartbeat so that BladePipe can display accurate latency.
 ---
 
 This page describes how to enable MongoDB heartbeat in Incremental stage when there is no data written to MongoDB, so that the latency can be displayed accurately.

@@ -1,7 +1,7 @@
 ---
 id: etl_tranform
-description: Show the common types of transformation in ETL
-title: Data Transformation in ETL (2026 Guide)
+description: A practical guide to data transformation in ETL, covering common types, examples, and how modern tools automate transformation in pipelines.
+title: Data Transformation in ETL:Types, Examples and Benefits
 date: 2026-01-21
 authors: junyu 
 tags:
@@ -57,7 +57,7 @@ Compared with tranditional data transformation ways, BladePipe offers the follow
 
 - **Flexibility**: BladePipe offers multiple built-in transformation without manual scripting requirements. For special transformation, custom code can cater to personalized needs.  
 
-- **Ease of Use**: Most operations are done in an intuitive interface with wizards. Except transformation via [custom code](https://doc.bladepipe.com/operation/job_manage/create_job/create_process_job), the other data transformations don't require any code.
+- **Ease of Use**: Most operations are done in an intuitive interface with wizards. Except transformation via [custom code](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_process_job/), the other data transformations don't require any code.
 
 ### Data Filtering
 BladePipe allows to specify a condition to filter out data by SQL WHERE clause, so that only relevant records are processed and loaded, improving the ETL performance.

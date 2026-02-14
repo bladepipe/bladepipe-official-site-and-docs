@@ -1,7 +1,7 @@
 ---
 id: job_transfer
 title: Import DataJobs
-description: Import jobs from other BladePipe clusters into the current cluster via the Open API.
+description: Import DataJobs from other BladePipe clusters into the current cluster via the Open API.
 ---
 
 The DataJob import function is important for BladePipe upgrade and system migration. This article describes the prerequisites and procedures of using this function.

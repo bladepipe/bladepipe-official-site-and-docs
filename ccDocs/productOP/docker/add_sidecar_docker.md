@@ -8,7 +8,7 @@ description: 本文介绍如何通过 Docker 托管镜像安装 CloudCanal
 
 ## 前置条件
 
-- 已安装 Docker，可参考 [最小化 Docker 安装](../dailyOP/minimal_docker_for_centos.md) 文档。
+- 已安装 Docker 和 [Docker Compose](https://docs.docker.com/compose/install/)，可参考 [最小化 Docker 安装](../dailyOP/minimal_docker_for_centos.md) 文档。
 - 通过 Docker 已安装 CloudCanal，可参考 [安装 CloudCanal (托管镜像)](install_all_in_one_docker.mdx) 文档。
 
 ## 步骤

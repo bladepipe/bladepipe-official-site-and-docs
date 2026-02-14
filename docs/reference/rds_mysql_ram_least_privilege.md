@@ -1,6 +1,7 @@
 ---
 id: rds_mysql_ram_least_privilege
 title: Least-privilege Permissions of a RAM User
+description: This page describes the required least privileges for a Alibaba Cloud RAM user.
 ---
 
 When adding a Alibaba Cloud DataSource to BladePipe or synchronizing its data with BladePipe, AccessKey ID and AccessKey Secret (AK/SK) are required to provide, together with certain permissions of the RAM user. This page introduces the least-privilege permissions for BladePipe to synchronize data in RDS for MySQL.

@@ -1,6 +1,6 @@
 ---
 id: file_to_aliyun_pg_vector
-description: It introduces how to create vectors in RDS PostgreSQL using BladePipe. 
+description: This page introduces how to automatically turn files into embeddings and store them in PGVector.   
 title: Create and Store Vectors in PGVector
 ---
 
@@ -8,8 +8,8 @@ title: Create and Store Vectors in PGVector
 
 This is part of a series of articles about building RAG applications. 
 
-1. Create and Store Vectors in PGVector
-2. [Create RAG API with PGVector](./pg_vector_to_rag_api)
+1. [Create and Store Vectors in PGVector](./file_to_aliyun_pg_vector)
+2. Build a RAG API with PGVector
 
 This article introduces how to create vectors and store them in PGVector using [BladePipe](https://www.bladepipe.com), preparing for retrieval-augmented generation (RAG).
 

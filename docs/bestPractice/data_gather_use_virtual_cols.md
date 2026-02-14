@@ -1,6 +1,6 @@
 ---
 id: data_gather_use_virtual_cols
-description: Introduction to how BladePipe aggregates data from multiple sources
+description: BladePipe supports adding various virtual columns, and setting a virtual column as the primary key, making data aggregation easier.
 title: Avoid Duplicates in Data Aggregation
 ---
 

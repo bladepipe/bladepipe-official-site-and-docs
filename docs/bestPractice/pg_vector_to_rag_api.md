@@ -1,6 +1,6 @@
 ---
 id: pg_vector_to_rag_api
-description: This page introduces how to automatically generate a chat service based on embeddings in PGVector.
+description: It guides you to create a RAG-based chatbot using BladePipe with the vectors stored in PGVector.
 title: Create RAG API with PGVector 
 ---
 
@@ -8,8 +8,8 @@ title: Create RAG API with PGVector
 
 This is part of a series of articles about building RAG applications. 
 
-1. [Create and Store Vectors in PGVector](./file_to_aliyun_pg_vector)
-2. Build a RAG API with PGVector
+1. Create and Store Vectors in PGVector
+2. [Create RAG API with PGVector](./pg_vector_to_rag_api)
 
 BladePipe can automatically generate a chat service based on embeddings, named **RagApi**. It is compatible with the OpenAI interface, and the creation process doesn't use any code. This article dives into how to create a **RagApi**.
 

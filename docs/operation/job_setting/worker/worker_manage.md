@@ -1,6 +1,7 @@
 ---
 id: worker_manage
 title: Manage Workers
+description: It describes the various opeations related to a Worker.
 ---
 
 This article introduces various operations related to the Worker.

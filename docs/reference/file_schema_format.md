@@ -1,6 +1,7 @@
 ---
 id: file_schema_format
 title: Explanation on File Schema
+description: BladePipe supports file type data sources. This page explains the file schema definition.
 ---
 
 BladePipe supports file type data sources. When adding this type of data source, you can define the parsing format. This page introduces the format definition to facilitate users to integrate data.

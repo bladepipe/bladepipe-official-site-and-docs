@@ -1,6 +1,7 @@
 ---
 id: rn-bladepipe-0-7-0
 title: BladePipe 0.7.0
+description: BladePipe 0.7.0 supports Google Drive (Docs/Sheet)-PostgreSQL, MySQL/Kafka-Paimon, Doris/SelectDB-MySQL pipelines.
 ---
 Release Date: July 8, 2025
 

@@ -1,6 +1,7 @@
 ---
 id: job_detail
 title: View Details
+description: It tells how to check the details of a DataJob in BladePipe, including the data mapping, running status, and logs.
 ---
 After a DataJob is created, you can view the detailed information of the DataJob in the DataJob Details page, including the DataJob configuration, DataSource, DataTask details, monitoring charts, etc.
 

@@ -1,7 +1,7 @@
 ---
 id: solve_hana_test_connection_fail
 title: Sap Hana Connection Test Error
-description: This article describes how to resolve the issue of a failed schedule DataTask when creating DataJob in BladePipe.
+description: It describes how to resolve the SAP HANA connection test error when adding a connector in BladePipe.
 ---
 This page describes how to solve the issue of a Sap Hana connection test error.
 

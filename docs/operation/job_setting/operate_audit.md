@@ -1,6 +1,7 @@
 ---
 id: operate_audit
 title: View DataJob Operation Audit
+description: It describes how to view pipeline-related audit logs.
 ---
 BladePipe allows auditing any user's important operations, facilitating subsequent tracking.
 This article describes how to view the DataJob-related operation audit, including DataJob creation, management, and DataJob-related settings.

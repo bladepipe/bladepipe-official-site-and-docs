@@ -1,6 +1,7 @@
 ---
 id: job_group
 title: Group DataJobs
+description: It tells how to create DataJob groups for better management, or for parallel migration and synchronization.
 ---
 
 BladePipe supports DataJob groups, where multiple DataJobs with the same business purpose can be placed in one DataJob group for convenient management and operation.

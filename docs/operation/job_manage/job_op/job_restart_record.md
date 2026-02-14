@@ -1,6 +1,7 @@
 ---
 id: job_restart_record
 title: View Restart History
+description: BladePipe supports replaying DataJob. You can rerun a data pipeline in a click.
 ---
 BladePipe supports viewing DataJob restart history.
 

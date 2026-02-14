@@ -1,7 +1,7 @@
 ---
 id: plans_diff
 title: Plans
-description: BladePipe Private Deployments are available in three editions, including Community, Standard, and Enterprise. This article introduces the pricing and differences between the different editions.
+description: BladePipe offers four plans - Community, Cloud, Enterprise Trial and Enterprise. They differ in features, use cases and prices.
 ---
 
 BladePipe offers both **free** and **paid** plan options. The paid plan is detailed in the [Pricing](product_price.md) document.

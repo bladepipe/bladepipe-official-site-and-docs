@@ -1,7 +1,7 @@
 ---
 id: mfa_usage
 title: Use MFA 
-description: This page introduces how to use MFA in BladePipe.
+description: This page introduces how to enable MFA in BladePipe for enhanced security.
 ---
 ## Introduction to 2FA
 Two-Factor Authentication (2FA) is a kind of Multi-Factor Authentication (MFA).

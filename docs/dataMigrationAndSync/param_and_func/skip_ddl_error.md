@@ -1,6 +1,7 @@
 ---
 id: skip_ddl_error
 title: Skip DDL Sync Exception
+description: When a data pipeline is interrupted by a DDL synchronization exception, you can manually change the target structure and skip the error. 
 ---
 
 ## Function description

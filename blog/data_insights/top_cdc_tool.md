@@ -1,6 +1,6 @@
 ---
 id: top_cdc_tool
-description: Show the best 7 CDC tools in 2026
+description: Looking for the best CDC tools in 2026? This guide compares 7 change data capture platforms, use cases, pros, and how to choose the right one.
 title: 7 Best Change Data Capture (CDC) Tools in 2026
 date: 2026-01-14
 authors: junyu 
@@ -55,7 +55,7 @@ Change Data Capture (CDC) is a technique that identifies and tracks changes to d
 - **Orchestration Integration**: It is compatible with Airflow and Dagster, allowing integration into existing workflows.
 
 ### BladePipe
-[BladePipe](https://www.bladepipe.com/) is a real-time end-to-end data replication tool that moves data between 30+ databases, message queues, search engines, caching, real-time data warehouses, data lakes, etc.
+[BladePipe](https://www.bladepipe.com/) is a real-time end-to-end data replication tool that moves data between 60+ databases, message queues, search engines, caching, real-time data warehouses, data lakes, etc.
 
 BladePipe tracks, captures and delivers data changes automatically and accurately with ultra-low latency (less than 3 seconds), greatly improving the efficiency of data integration. It provides sound solutions for use cases requiring real-time data replication, fueling data-driven decision-making and business agility. 
 
@@ -65,9 +65,9 @@ BladePipe tracks, captures and delivers data changes automatically and accuratel
 
 - **Real-time Data Sync**: The latency is extremely low, less than 3 seconds in most cases.
 - **Intuitive Operation**: It offers visual management interface for easy creation and monitoring of DataJobs. Almost all operations can be done by clicking the mouse. 
-- **Flexibility of Transformation**: It supports filtering and mapping, and has multiple [built-in data transformation scripts](https://doc.bladepipe.com/operation/job_manage/job_op/data_transform), which is friendly for non-developers. Also, users can realize special transformation using custom code.
-- **Data Accuracy**: It supports [data verification and correction](https://doc.bladepipe.com/operation/job_manage/create_job/create_period_verification_correction_job) right after replication, making it easy for users to check the accuracy and integrity of data in the target instance.
-- **Monitoring & Alerting**: It has [built-in tools](https://doc.bladepipe.com/operation/job_manage/job_op/job_monitor) for monitoring task health, performance metrics, and error handling. It also supports various ways for alert notification.
+- **Flexibility of Transformation**: It supports filtering and mapping, and has multiple [built-in data transformation scripts](https://www.bladepipe.com/docs/operation/job_manage/job_op/data_transform/), which is friendly for non-developers. Also, users can realize special transformation using custom code.
+- **Data Accuracy**: It supports [data verification and correction](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_period_verification_correction_job/) right after replication, making it easy for users to check the accuracy and integrity of data in the target instance.
+- **Monitoring & Alerting**: It has [built-in tools](https://www.bladepipe.com/docs/operation/job_manage/job_op/job_monitor/) for monitoring task health, performance metrics, and error handling. It also supports various ways for alert notification.
 
 ### Qlik Replicate
 [Qlik Replicate](https://www.qlik.com/us/products/qlik-replicate) is a high-performance data replication and change data capture (CDC) solution designed to enable real-time data movement across diverse systems. It supports a wide range of source and target platforms, including relational databases, data warehouses, cloud services, and big data environments.

@@ -1,7 +1,7 @@
 ---
 id: mysql_clickhouse_sync
-description: Introduce how to synchronize MySQL Data to ClickHouse
-title: Move Data from MySQL to ClickHouse in Minutes
+description: Learn the best way to move data from MySQL to ClickHouse using a real-time data integration pipeline. Sync historical and incremental data with ease.
+title: Best Way to Move Data from MySQL to ClickHouse
 date: 2024-10-18
 authors: junyu 
 tags:
@@ -59,7 +59,7 @@ The two additional fields comply with [the ClickHouse ReplacingMergeTree definit
 
 ### Step 1: Install BladePipe
 
-Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
 
 ### Step 2: Add DataSources
 
@@ -67,7 +67,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 2. Click **DataSource** > **Add DataSource**, and add 2 DataSources.
 
 ### Step 3: Create a DataJob
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Select the source and target DataSources, and click **Test Connection** to ensure the connection to the source and target DataSources are both successful.
 3. In the **Advanced** configuration of the target DataSource, choose the table engine as **ReplacingMergeTree** (or **ReplicatedReplacingMergeTree**).
 
@@ -100,4 +100,4 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
    Alternatively, you can run the `CREATE VIEW xxx_v AS SELECT * FROM xxx FINAL;` command to create a view and perform queries on the view to ensure the data is fully merged.
    :::
 
-2. [Create a Verification DataJob](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_period_verification_correction_job). Once the Verification DataJob is completed, review the results to confirm that the data in ClickHouse are the same as the data in MySQL.
+2. [Create a Verification DataJob](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_period_verification_correction_job/). Once the Verification DataJob is completed, review the results to confirm that the data in ClickHouse are the same as the data in MySQL.

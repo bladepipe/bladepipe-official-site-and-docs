@@ -1,7 +1,7 @@
 ---
 id: enable_sql_server_heartbeat
 title: Enable SQL Server Source Heartbeat
-description: Enable SQL Server source heartbeat to resolve false latency alerts during incremental sync when source data remains unchanged, ensuring accurate monitoring display.
+description: Enable SQL Server source heartbeat to resolve false latency alerts during incremental sync when source data remains unchanged, ensuring accurate latency display.
 ---
 
 import SqlServerCdcGeneratorEn from '@site/src/components/SqlServerCdcGeneratorEn';

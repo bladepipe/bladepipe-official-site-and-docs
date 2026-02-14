@@ -1,6 +1,7 @@
 ---
 id: rn-bladepipe-0-5-0
 title: BladePipe 0.5.0
+description: BladePipe 0.5.0 supports on-premise deployment, and building PGVector-based RAG chabots.
 ---
 
 Release Date: April 25, 2025

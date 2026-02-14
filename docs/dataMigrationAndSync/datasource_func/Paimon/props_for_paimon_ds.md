@@ -1,7 +1,7 @@
 ---
 id: props_for_paimon_ds
 title: Add a Paimon DataSource
-description: Configurations when adding Paimon DataSource in BladePipe
+description: It describes how to configure when adding Paimon as a connector in BladePipe.
 ---
 
 This page explains the configuration required when adding a Paimon DataSource.

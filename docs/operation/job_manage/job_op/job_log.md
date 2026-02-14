@@ -1,6 +1,7 @@
 ---
 id: job_log
 title: View DataJob Logs
+description: It guides you to view the DataJob logs.
 ---
 
 The DataJob Details page provides the ability to view logs online, making maintenance DataJob simpler.

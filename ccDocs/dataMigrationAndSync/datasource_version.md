@@ -37,6 +37,7 @@ description: CloudCanal 支持的数据源版本支持
 | GaussDB for MySQL     | 8.0                                                                                            |
 | OceanBase for Oracle  | 3.0, 3.1, 3.2                                                                                  |
 | Iceberg               | 1.0.x - 1.5.x                                                                                  |
+| Delta Lake            | 全部支持                                                                                         |
 | Pulsar                | 3.x, 4.x                                                                                       |
 | Greptime              | 0.7, 0.8, 0.9, 0.10, 0.11                                                                      |
 | TDengine              | 3.x                                                                                            |

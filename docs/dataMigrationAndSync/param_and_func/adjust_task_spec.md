@@ -1,7 +1,7 @@
 ---
 id: adjust_task_spec
 title: Adjust DataJob Specification
-description: The task specification in BladePipe mainly affects the memory size allocated by the task process. The memory size for different task phases such as full and incremental is specified when the task is created. During the course of the task operation, the user is allowed to readjust the specification by parameter tuning.
+description: It tells how to adjust a DataJob's specification to satisfy its memory need.
 ---
 
 ## Function

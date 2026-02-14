@@ -1,6 +1,7 @@
 ---
 id: create_regex_table_job
 title: Regular Expression
+description: Users can define the tables to be replicated using regular expressions, allowing moving hundreds of thousands of tables with one expression.
 ---
 BladePipe supports selecting tables by **regular expression** when creating DataJobs. The capability is applicable to **schema migration**, **full data load** and **incremental sync**. The expression is allowed to be changed in editing subscription.
 

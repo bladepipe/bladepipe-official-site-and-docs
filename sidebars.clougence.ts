@@ -359,6 +359,7 @@ const sidebars: SidebarsConfig = {
               "type": "category",
               "label": "Redis",
               "items": [
+                "dataMigrationAndSync/datasource_func/Redis/redis_datasource_add",
                 "dataMigrationAndSync/datasource_func/Redis/redis_check_simple",
                 "dataMigrationAndSync/datasource_func/Redis/performance_optimization_redis_src"
               ]

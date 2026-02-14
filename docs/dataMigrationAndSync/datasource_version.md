@@ -1,7 +1,7 @@
 ---
 id: datasource_version
 title: Supported DataSources 
-description: BladePipe The datasource source and target, The versions supported
+description: BladePipe supports 60+ connectors, like MySQL, PostgreSQL, SQL Server, Kafka, Iceberg, Databricks, Redis, ClickHouse, etc.
 ---
 ## Overview
 
@@ -36,6 +36,7 @@ description: BladePipe The datasource source and target, The versions supported
 | GaussDB for MySQL     | 8.0     |
 | OceanBase for Oracle  | 3.0, 3.1, 3.2      |
 | Iceberg               | 1.0.x - 1.5.x   |
+| Delta Lake            | All supported       |
 | Pulsar                | 3.x, 4.x     |
 | Greptime              | 0.7, 0.8, 0.9, 0.10, 0.11      |
 | TDengine              | 3.x     |

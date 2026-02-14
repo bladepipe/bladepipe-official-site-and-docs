@@ -1,7 +1,7 @@
 ---
 id: license_use 
 title: License 
-description: This page introduces how to activate BladePipe On-Premise.
+description: BladePipe Community and Enterprise editions are activated using a license. This page tells how to activate BladePipe with a license.
 ---
 This page introduces how to activate BladePipe On-Premise.
 

@@ -1,6 +1,7 @@
 ---
 id: add_self_maintain_ds
 title: Add Self-managed DataSources
+description: It describes how to add a self-managed data source as a connector in BladePipe.
 ---
 
 BBladePipe supports both **self-managed DataSources** and **cloud DataSources**. This article briefly describes how to add a self-managed DataSource to BladePipe.

@@ -1,6 +1,6 @@
 ---
 id: paimon_starrocks_lakehouse
-description: This article compares BladePipe and Airbyte.
+description: Learn how to build a real-time lakehouse using BladePipe, Apache Paimon, and StarRocks, from architecture design to hands-on steps for ingestion, sync, and real-time analytics.
 title: How to Build a Real-Time Lakehouse with BladePipe, Paimon and StarRocks
 date: 2025-08-05
 authors: juantu 
@@ -81,9 +81,9 @@ While you can use Flink to ingest data into Paimon, it often requires managing j
 Here’s how to set up a real-time pipeline from MySQL to Paimon and query the results via StarRocks.
 
 ### Step 1: Install BladePipe
-Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
 
-Alternatively, you can deploy BladePipe [on-premises](https://doc.bladepipe.com/productOP/onPremise/installation/install_all_in_one_binary). 
+Alternatively, you can deploy BladePipe [on-premises](https://www.bladepipe.com/docs/productOP/onPremise/installation/install_all_in_one_binary/). 
 
 ### Step 2: Add Data Sources
 1. Log in to the [BladePipe Cloud](https://cloud.bladepipe.com).
@@ -93,7 +93,7 @@ Alternatively, you can deploy BladePipe [on-premises](https://doc.bladepipe.com/
 ![](../assets/blog/data_insights/paimon_starrocks_lakehouse/2.png)
 
 ### Step 3: Create a Sync DataJob
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Select the source and target DataSources, and click **Test Connection** to ensure the connection to the source and target DataSources are both successful.
 ![](../assets/blog/data_insights/paimon_starrocks_lakehouse/3.png)
 3. Select **Incremental** for DataJob Type, together with the **Full Data** option.

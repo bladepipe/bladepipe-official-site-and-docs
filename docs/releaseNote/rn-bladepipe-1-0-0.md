@@ -1,6 +1,7 @@
 ---
 id: rn-bladepipe-1-0-0
 title: BladePipe 1.0.0
+description: BladePipe 1.0.0 supports Tencent Cloud TDSQL-C MySQL as both source and target.
 ---
 Release Date: November 17, 2025
 

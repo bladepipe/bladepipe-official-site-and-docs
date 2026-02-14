@@ -1,7 +1,7 @@
 ---
 id: props_for_iceberg_ds
 title: Add an Iceberg DataSource
-description: Configurations when adding Iceberg DataSource 
+description: It guides you to add Iceberg as a connector in BladePipe.
 ---
 
 This page explains the configuration required when adding an Iceberg DataSource.

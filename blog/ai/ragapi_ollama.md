@@ -1,6 +1,6 @@
 ---
 id: ragapi_ollama
-description: Show how to create local RAG services with BladePipe and Ollama
+description: Learn how to build a secure, local RAG service with Ollama and BladePipe. Run a fully private, enterprise-ready RAG system on your own infrastructure—no code required.
 title: Build a Local RAG Using Ollama, PostgreSQL and BladePipe
 tags:
   - ai
@@ -138,14 +138,14 @@ After execution, local PostgreSQL will automatically enable the pgvector extensi
 
 
 ### Deploy BladePipe (Enterprise)
-Follow the [installation guide](https://doc.bladepipe.com/productOP/onPremise/installation/install_all_in_one_binary) to download [BladePipe (Enterprise)](https://www.bladepipe.com/).
+Follow the [installation guide](https://www.bladepipe.com/docs/productOP/onPremise/installation/install_all_in_one_binary/) to download [BladePipe (Enterprise)](https://www.bladepipe.com/).
 
 ## RAG Building
 ### Add DataSources
 Log in to BladePipe. Click **DataSource** > **Add DataSource**.
 
 **Files(SshFile):**   
-Select **Self Maintenance** > **SshFile**. You can set [extra parmeters](https://doc.bladepipe.com/reference/file_schema_format).
+Select **Self Maintenance** > **SshFile**. You can set [extra parmeters](https://www.bladepipe.com/docs/reference/file_schema_format/).
 
 - **Address**: Fill in the machine IP where the files are stored and SSH port (default 22).
 - **Account & Password**: Username and password of the machine.

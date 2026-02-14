@@ -1,7 +1,7 @@
 ---
 id: privs_for_sqlserver
-title:  Required Privileges for SQL Server
-description: BladePipe needs to provide some permissions for the account when doing the data migration synchronization of SQLServer as source/peer.
+title: Required Privileges for SQL Server
+description: To migrate and sync data from or to SQL Server in BladePipe, users need to have certain privileges.
 ---
 
 ## Overview

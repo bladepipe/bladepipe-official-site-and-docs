@@ -1,14 +1,14 @@
 ---
 id: add_worker_docker
 title: Add a Worker (Docker)
-description: This page introduces how to use the Docker to add a BladePipe Worker.
+description: This page introduces how to add a BladePipe Worker using the Docker.
 ---
 
 This page introduces how to use the Docker to add a BladePipe Worker.
 
 ## Prerequisite
 
-- Docker has been installed. Please refer to [Minimal Docker Installation](../maintenance/minimal_docker_for_centos.md) for guidance.
+- Docker and [Docker Compose](https://docs.docker.com/compose/install/) have been installed. Please refer to [Minimal Docker Installation](../maintenance/minimal_docker_for_centos.md) for guidance.
 - BladePipe has been installed with Docker. Please refer to [Install All-In-One(Docker)](install_all_in_one_docker.mdx) for guidance.
 
 ## Procedure

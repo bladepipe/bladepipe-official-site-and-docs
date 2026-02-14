@@ -1,6 +1,7 @@
 ---
 id: worker_monitor_alarm
 title: Monitor Workers
+description: It tells how to check Worker monitoring charts and configure alert notifications for Workers.
 ---
 BladePipe allows you to view Worker monitoring metrics and configure alert rules for Workers. The Worker monitoring metrics help to troubleshoot the problem of DataJob sluggishness. This article describes how to view Worker monitoring metrics and how to configure Worker alerts.
 

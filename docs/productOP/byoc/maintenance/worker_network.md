@@ -1,9 +1,9 @@
 ---
 id: worker_network
 title: Connect Worker to BladePipe Cloud
-description: The worker network with BladePipe Cloud.
+description: This page describes the principle of and the port for Worker's connectivity to BladePipe Cloud(BYOC).
 ---
-This page describes the principle of and the port for Worker's connectivity to BladePipe Cloud.
+This page describes the principle of and the port for Worker's connectivity to BladePipe Cloud(BYOC).
 
 ## Principle
 

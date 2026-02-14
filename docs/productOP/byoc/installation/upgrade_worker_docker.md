@@ -1,7 +1,7 @@
 ---
 id: upgrade_worker_docker
 title: Upgrade Worker (Docker)
-description: Upgrade BladePipe Worker in your local environment using Docker Compose.
+description: It guides you to upgrade a BladePipe Worker in your local environment using Docker Compose.
 ---
 This page describes how to upgrade a **BladePipe Worker** in your local environment using **Docker Compose**.
 

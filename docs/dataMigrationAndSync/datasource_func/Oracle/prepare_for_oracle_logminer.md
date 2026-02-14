@@ -1,7 +1,7 @@
 ---
 id: prepare_for_oracle_logminer
 title: Oracle LogMiner
-description: BladePipe uses LogMiner to synchronize the Oracle. This paper describes the preparation actions before synchronization.
+description: BladePipe uses LogMiner to synchronize Oracle data. This page describes the prerequisites before LogMiner-based Oracle CDC synchronization in BladePipe.
 ---
 BladePipe uses LogMiner to synchronize the incremental data in Oracle. This article describes the preparations before data synchronization.
 

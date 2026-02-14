@@ -1,7 +1,7 @@
 ---
 id: change_ak_sk
 title: Change AccessKey and SecretKey
-description: The doc shows how to change AccessKey and SecretKey.
+description: It guides you to change built-in AccessKey and SecretKey for calling open APIs.
 ---
 
 By default, BladePipe provides built-in AccessKey and SecretKey for calling its open APIs. If you need to change these credentials, follow the steps below:

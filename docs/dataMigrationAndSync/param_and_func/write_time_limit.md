@@ -1,7 +1,7 @@
 ---
 id: write_time_limit
 title: Limit Write Requests
-description: When the amount of data written to the peer database is large, the peer database load may be high, which may affect other applications from reading and writing the peer database. In order to avoid a large number of data written to the database, you can enable the write stream limiting function to reduce the write frequency.
+description: Users can limit write volume to the target to maintain stable performance of the target system.
 ---
 
 ## Function

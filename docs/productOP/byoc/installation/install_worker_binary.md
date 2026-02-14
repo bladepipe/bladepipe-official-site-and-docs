@@ -1,7 +1,7 @@
 ---
 id: install_worker_binary
 title: Install Worker (Binary)
-description: Install BladePipe Worker in your local environment using Binary Package.
+description: It guides you to install a BladePipe Worker in your local environment using Binary Package.
 ---
 
 This page describes how to install a **BladePipe Worker** in your local environment using a **binary package**.

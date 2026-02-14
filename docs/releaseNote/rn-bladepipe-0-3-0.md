@@ -1,6 +1,7 @@
 ---
 id: rn-bladepipe-0-3-0
 title: BladePipe 0.3.0
+description: BladePipe 0.3.0 supports MySQL-Pulsar pipeline, and REST + S3 formats for target Iceberg instances.
 ---
 
 Release Date: January 21, 2025

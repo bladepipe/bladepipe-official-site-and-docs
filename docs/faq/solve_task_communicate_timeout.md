@@ -1,7 +1,7 @@
 ---
 id:  solve_task_communicate_timeout
 title: DataJob Communication Timeout
-description: This article describes the steps to troubleshoot communication timeout issues in data synchronization tasks when resources are limited.
+description: This article describes the steps to solve the communication timeout issues in data synchronization pipelines when resources are limited.
 ---
 This article describes the steps to troubleshoot communication timeout issues in data synchronization tasks when resources are limited.
 

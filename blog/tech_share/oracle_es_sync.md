@@ -1,6 +1,6 @@
 ---
 id: oracle_es_sync
-description: Describes how to use BladePipe build a Oracle-to-Elasticsearch data sync pipeline
+description: Sync data from Oracle to Elasticsearch with BladePipe. Utilize Oracle LogMiner for real-time change data capture and automatically create Elasticsearch indexes with mappings.
 title: Sync Data from Oracle to Elasticsearch
 date: 2025-03-05
 authors: junyu 
@@ -44,7 +44,7 @@ BladePipe supports automatical conversion of the source database table structure
 
 ### Step 1: Install BladePipe
 
-Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
 
 ### Step 2: Add DataSources
 1. Log in to the [BladePipe Cloud](https://cloud.bladepipe.com).
@@ -54,7 +54,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 
 ### Step 3: Create a DataJob
 
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Configure the source and target DataSources.
    1. Select the source and target DataSources, and click **Test Connection** to ensure the connection to the source and target DataSources are both successful.
    2. Select the Incremental mode in **Advanced** setting under the source instance: **LogMiner** / **materialized view**.
@@ -77,7 +77,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 6. Confirm the DataJob creation.
 
    :::info
-   The DataJob creation process involves several steps. Click **Sync Settings** > [**ConsoleJob**](https://doc.bladepipe.com/operation/job_setting/console_job_manage), find the DataJob creation record, and click **Details** to view it.
+   The DataJob creation process involves several steps. Click **Sync Settings** > [**ConsoleJob**](https://www.bladepipe.com/docs/operation/job_setting/console_job_manage/), find the DataJob creation record, and click **Details** to view it.
    
    The DataJob creation with a source Oracle instance includes the following steps:
    - Schema migration

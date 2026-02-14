@@ -1,7 +1,7 @@
 ---
 id: log_in_customer_code
 title: Logging in Custom Code
-description: Introduces how to print logs in BladePipe Custom Code
+description: It introduces how to print logs when using Custom Code in BladePipe.
 ---
 This article introduces how to print logs in BladePipe Custom Code.
 

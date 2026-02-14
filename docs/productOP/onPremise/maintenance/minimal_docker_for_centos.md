@@ -1,7 +1,7 @@
 ---
 id: minimal_docker_for_centos
 title: Minimal Docker for CentOS
-description: This page introduces how to install a Minimal Docker for BladePipe
+description: This page introduces how to install a Minimal Docker for BladePipe installation.
 ---
 
 This page introduces how to install a Minimal Docker for CentOS.

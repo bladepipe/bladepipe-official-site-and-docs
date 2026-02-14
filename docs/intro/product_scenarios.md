@@ -1,7 +1,7 @@
 ---
 id: product_scenarios
 title: Use Cases
-description: The application scenarios of BladePipe products to help you implement data application requirements.
+description: BladePipe is usually used for enterprise data warehousing, big data analysis, cloud data migration, and homogeneous and heterogeneous data sync.
 ---
 
 This topic describes some of the use cases of BladePipe to help you leverage data in business.

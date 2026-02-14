@@ -1,6 +1,7 @@
 ---
 id: rn-bladepipe-0-8-0
 title: BladePipe 0.8.0
+description: BladePipe 0.8.0 supports AWS DynamoDB, AWS ElastiCache (Valkey/Redis) and GaussDB as new source connectors.
 ---
 Release Date: August 15, 2025
 

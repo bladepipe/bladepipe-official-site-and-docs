@@ -1,6 +1,7 @@
 ---
 id: rn-bladepipe-0-6-0
 title: BladePipe 0.6.0
+description: BladePipe 0.6.0 supports PostgreSQL & Oracle & SQL Server-Iceberg pipelines, and creating wide tables in a visual way.
 ---
 Release Date: June 5, 2025
 

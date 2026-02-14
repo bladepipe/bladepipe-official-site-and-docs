@@ -1,7 +1,7 @@
 ---
 id: quick_start_byoc
 title: Quickstart (BYOC)
-description: This page introduces how to get started with BladePipe BYOC
+description: This page introduces how to get started with BladePipe BYOC.
 ---
 
 BladePipe Cloud includes two modes: SaaS Managed and BYOC. BYOC allows you to deploy BladePipe on your own cloud insfrastructure. This page describes how to move data using **BladePipe BYOC** in just a few steps.

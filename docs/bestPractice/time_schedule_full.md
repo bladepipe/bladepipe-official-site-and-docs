@@ -1,5 +1,6 @@
 ---
 id: time_schedule_full
+description: BladePipe supports schedule to perform data migration periodically.
 title: Scheduled Full Data Migration
 ---
 

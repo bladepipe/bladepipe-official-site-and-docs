@@ -1,6 +1,7 @@
 ---
 id: ds_manage
 title: Manage DataSources
+description: It describes how to view, modify and delete a connector in BladePipe.
 ---
 
 This article describes how to manage the added DataSources, including modifying addresses, accounts, etc.

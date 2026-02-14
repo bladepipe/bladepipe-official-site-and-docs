@@ -1,6 +1,7 @@
 ---
 id: data_transform
 title: Transform Data
+description: This page shows a no-code data transformation way. Select one built-in script and the data can be transformed automatically before reaching the target system.
 ---
 
 In BladePipe, you can transform data in an easy way. What you need to do is to configure scripts for specific fields in a visual interface. The scripts can be automatically invoked during DataJob to transform the field values.

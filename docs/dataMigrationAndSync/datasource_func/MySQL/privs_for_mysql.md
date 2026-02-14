@@ -1,7 +1,7 @@
 ---
 id: privs_for_mysql
 title:  Required Privileges for MySQL
-description: When BladePipe does MySQL source or peer data migration synchronization, it needs to provide some permissions for the account.
+description: To replicate data from or to MySQL using BladePipe, users need certain privileges. 
 ---
 
 ## Overview

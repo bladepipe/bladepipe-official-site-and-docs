@@ -1,6 +1,7 @@
 ---
 id: operate_audit
 title: View Operation Audit
+description: It tells how to view the system-related audit logs in BladePipe.
 ---
 BladePipe allows auditing any user's important operations, facilitating subsequent tracking.
 This article describes how to view the system-related and DataSource-related operation audit.

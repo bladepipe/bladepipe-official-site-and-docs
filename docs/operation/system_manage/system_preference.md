@@ -1,6 +1,7 @@
 ---
 id: preference
 title: Configure Preferences
+description: It tells how to edit parameters to configure personalized system preferences.
 ---
 BladePipe supports advanced features such as setting preferences for DataJob creation and alert rule configuration. This page describes how to set system preferences and the supported parameter categories and usages.
 

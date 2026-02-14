@@ -1,6 +1,7 @@
 ---
 id: rn-bladepipe-0-2-0
 title: BladePipe 0.2.0
+description: BladePipe 0.2.0 supports MySQL-Iceberg, OceanBase for Oracle-Kafka and other data pipelines.
 ---
 
 Release Date: December 13, 2024 

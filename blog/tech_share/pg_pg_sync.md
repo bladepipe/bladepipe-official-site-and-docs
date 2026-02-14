@@ -1,6 +1,6 @@
 ---
 id: pg_pg_sync
-description: This tutorial introduces how to sync data from PostgreSQL to PostgreSQL using BladePipe in minutes.
+description: Sync PostgreSQL data to PostgreSQL in minutes with BladePipe. Enable logical replication, DDL sync, and loop prevention in just a few clicks.
 title: How to Move Data from PostgreSQL to PostgreSQL in Minutes
 date: 2024-11-29
 authors: mumu 
@@ -51,7 +51,7 @@ If BladePipe retrieves the event from the decycle table in the PostgreSQL instan
 
 ### Step 1: Modify PostgreSQL wal_level
 
-1. Please refer to [Permissions Required for PostgreSQL](https://www.bladepipe.com/docs/dataMigrationAndSync/datasource_func/PostgreSQL/privs_for_pg) to create a user and grant the necessary permissions.
+1. Please refer to [Permissions Required for PostgreSQL](https://www.bladepipe.com/docs/dataMigrationAndSync/datasource_func/PostgreSQL/privs_for_pg/) to create a user and grant the necessary permissions.
 2. Set PostgreSQL's **wal_level** to **logical**.
 
    :::info
@@ -71,7 +71,7 @@ If BladePipe retrieves the event from the decycle table in the PostgreSQL instan
 
 ### Step 2: Install BladePipe
 
-Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
 
 ### Step 3: Add DataSources
 
@@ -82,7 +82,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 
 ### Step 4: Create a DataJob
 
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Select the source and target DataSources, and click **Test Connection** to ensure the connection to the source and target DataSources are both successful.
    
    ![](../assets/blog/tech_share/pg_pg_sync/pg_pg_2.png)
@@ -106,7 +106,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 6. Confirm the DataJob creation.
    
    :::info
-   The DataJob creation process involves several steps. Click **Sync Settings** > [**ConsoleJob**](https://doc.bladepipe.com/operation/job_setting/console_job_manage), find the DataJob creation record, and click **Details** to view it.
+   The DataJob creation process involves several steps. Click **Sync Settings** > [**ConsoleJob**](https://www.bladepipe.com/docs/operation/job_setting/console_job_manage/), find the DataJob creation record, and click **Details** to view it.
    
    The DataJob creation with a source PostgreSQL instance includes the following steps:
    - Schema migration 

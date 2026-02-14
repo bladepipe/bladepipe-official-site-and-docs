@@ -1,7 +1,7 @@
 ---
 id: add_worker_binary
 title: Add a Worker (Binary)
-description: This page introduces how to use the Binary package to add a BladePipe Worker.
+description: This page introduces how to add a BladePipe Worker using the Binary package.
 ---
 
 This page introduces how to use the Binary package to add a BladePipe Worker.

@@ -1,7 +1,7 @@
 ---
 id: mysql_iceberg_sync
-description: Walk you through how to build a real-time data sync pipeline from MySQL to Iceberg using BladePipe
-title: How to Load Data From MySQL to Iceberg in Real Time？
+description: Learn how to sync data from MySQL to Iceberg in real time using a CDC-based data pipeline. Ideal for building modern data lakes and lakehouses.
+title: How to Sync Data From MySQL to Iceberg in Real Time？
 date: 2025-05-28
 authors: junyu 
 tags:
@@ -80,7 +80,7 @@ Let’s go step-by-step.
 
 
 ### Step 1: Install BladePipe
-Follow the instructions in [Install Worker (Docker)](https://doc.bladepipe.com/productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](https://doc.bladepipe.com/productOP/byoc/installation/install_worker_binary) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
 
 ### Step 2: Add DataSources
 
@@ -117,7 +117,7 @@ Follow the instructions in [Install Worker (Docker)](https://doc.bladepipe.com/p
 
 
 ### Step 3: Create a DataJob
-1. Go to **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Go to **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Select the source and target DataSources, and click **Test Connection** for both. Here's the recommended Iceberg structure configuration:  
     ```json
     {

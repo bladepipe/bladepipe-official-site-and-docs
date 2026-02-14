@@ -1,6 +1,7 @@
 ---
 id: job_params
 title: Modify Parameters
+description: It tells how to edit DataJob paramenters for a better performance.
 ---
 
 BladePipe supports modifying the runtime parameters for DataJob. DataJob parameters are closely related to its performance and operation mechanisms. Many of BladePipe's capabilities are also enabled by setting DataJob parameters.
