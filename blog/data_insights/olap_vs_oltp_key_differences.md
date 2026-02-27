@@ -223,7 +223,7 @@ It replaces nightly batch ETL jobs with continuous Change Data Capture (CDC), st
 Key features:
 - Real-time CDC pipelines with low latency
 - Schema-aware data integrity across databases
-- Supports managed [SaaS](https://www.bladepipe.com/docs/quick/quick_start_mgr/), [BYOC](https://https://www.bladepipe.com/docs/quick/quick_start_byoc/), and [on-premise](https://www.bladepipe.com/docs/quick/quick_start/) deployment
+- Supports managed [SaaS](https://www.bladepipe.com/docs/quick/quick_start_mgr/), [BYOC](https://www.bladepipe.com/docs/quick/quick_start_byoc/), and [on-premise](https://www.bladepipe.com/docs/quick/quick_start/) deployment
 
 If you want to explore real-time data synchronization between transactional and analytical systems, you can [try BladePipe’s free trial](https://www.bladepipe.com/login/) to see how it fits into your architecture.
 
