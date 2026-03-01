@@ -6,6 +6,9 @@ title: 5.4.1.0
 
 发版时间:2026年2月28日 版本号: 5.4.1.0
 
+## 亮点
+- 新增 阿里云 Lindorm（Lindorm新版，宽表引擎）为对端数据源，并开放 MySQL -> Lindorm 链路
+
 ## 新链路
 
 - 开放 AWS Amazon MSK -> StarRocks 增量同步
