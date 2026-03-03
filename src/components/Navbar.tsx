@@ -401,7 +401,7 @@ export default function Navbar() {
                       key: 'why-bladepipe',
                       label: (
                         <Link
-                          to="/why"
+                          to="/why/"
                           className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                           onClick={() => setActiveNav('product')}
                           translate="no"
@@ -414,7 +414,7 @@ export default function Navbar() {
                       key: 'connectors',
                       label: (
                         <Link
-                          to="/connector"
+                          to="/connector/"
                           className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                           onClick={() => setActiveNav('product')}
                         >
@@ -493,7 +493,7 @@ export default function Navbar() {
                     key: 'solution1',
                     label: (
                       <Link
-                        to="/real-time-analytics"
+                        to="/real-time-analytics/"
                         className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                         onClick={() => setActiveNav('solutions')}
                       >
@@ -505,7 +505,7 @@ export default function Navbar() {
                     key: 'solution2',
                     label: (
                       <Link
-                        to="/ai-rag"
+                        to="/ai-rag/"
                         className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                         onClick={() => setActiveNav('solutions')}
                       >
@@ -570,7 +570,7 @@ export default function Navbar() {
                     key: 'blog',
                     label: (
                       <Link
-                        to="/blog"
+                        to="/blog/"
                         className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                         onClick={() => setActiveNav('resources')}
                       >
@@ -582,7 +582,7 @@ export default function Navbar() {
                     key: 'documents',
                     label: (
                       <Link
-                        to="/docs/intro/product_intro"
+                        to="/docs/intro/product_intro/"
                         className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                         onClick={() => setActiveNav('resources')}
                       >
@@ -615,7 +615,7 @@ export default function Navbar() {
           </div>
           {/* Pricing */}
           <Link
-            to="/pricing"
+            to={siteBrand === 'bladepipe' ? "/pricing/" : "/pricing"}
             className="no-underline flex-shrink-0"
             data-desktop-nav-item
             data-nav-key="pricing"
@@ -635,7 +635,7 @@ export default function Navbar() {
           </Link>
           {/* About */}
           <Link
-            to="/about"
+            to={siteBrand === 'bladepipe' ? "/about/" : "/about"}
             className="no-underline flex-shrink-0"
             data-desktop-nav-item
             data-nav-key="about"
@@ -760,7 +760,7 @@ export default function Navbar() {
                         key: 'more-solutions',
                         label: (
                           <Link
-                            to="/real-time-analytics"
+                            to={siteBrand === 'bladepipe' ? "/real-time-analytics/" : "/real-time-analytics"}
                             className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                             onClick={() => setActiveNav('solutions')}
                           >
@@ -774,7 +774,7 @@ export default function Navbar() {
                         key: 'more-resources',
                         label: (
                           <Link
-                            to="/blog"
+                            to={siteBrand === 'bladepipe' ? "/blog/" : "/blog"}
                             className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                             onClick={() => setActiveNav('resources')}
                           >
@@ -788,7 +788,7 @@ export default function Navbar() {
                         key: 'more-pricing',
                         label: (
                           <Link
-                            to="/pricing"
+                            to={siteBrand === 'bladepipe' ? "/pricing/" : "/pricing"}
                             className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                             onClick={() => setActiveNav('pricing')}
                           >
@@ -802,7 +802,7 @@ export default function Navbar() {
                         key: 'more-about',
                         label: (
                           <Link
-                            to="/about"
+                            to={siteBrand === 'bladepipe' ? "/about/" : "/about"}
                             className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
                             onClick={() => setActiveNav('about')}
                           >
@@ -898,7 +898,7 @@ export default function Navbar() {
                 </Dropdown>
               ) : (
                 <Link
-                  to="/login"
+                  to={siteBrand === 'bladepipe' ? "/login/" : "/login"}
                   className="no-underline"
                   onClick={() => {
                     localStorage.setItem('loginSource', 'sign_in');
@@ -1002,14 +1002,14 @@ export default function Navbar() {
                                 </span>
                               </div>
                             </Link>
-                            <Link to="/why" onClick={() => setMobileOpen(false)} className="no-underline">
+                            <Link to="/why/" onClick={() => setMobileOpen(false)} className="no-underline">
                               <div className='flex items-center px-5 py-[10px] h-[44px] cursor-pointer hover:bg-gray-100'>
                                 <span className="text-[16px] font-medium text-black/80">
                                   <Translate id="navbar.whyBladepipe">Why BladePipe</Translate>
                                 </span>
                               </div>
                             </Link>
-                            <Link to="/connector" onClick={() => setMobileOpen(false)} className="no-underline">
+                            <Link to="/connector/" onClick={() => setMobileOpen(false)} className="no-underline">
                               <div className='flex items-center px-5 py-[10px] h-[44px] cursor-pointer hover:bg-gray-100'>
                                 <span className="text-[16px] font-medium text-black/80">
                                   <Translate id="navbar.connectors">Connectors</Translate>
@@ -1060,14 +1060,14 @@ export default function Navbar() {
                         </Link>
                       ) : (
                         <>
-                          <Link to="/real-time-analytics" onClick={() => setMobileOpen(false)} className="no-underline">
+                          <Link to={siteBrand === 'bladepipe' ? "/real-time-analytics/" : "/real-time-analytics"} onClick={() => setMobileOpen(false)} className="no-underline">
                             <div className='flex items-center px-5 py-[10px] h-[44px] cursor-pointer hover:bg-gray-100'>
                               <span className="text-[16px] font-medium text-black/80">
                                 <Translate id="navbar.realtimeAnalytics">Real-time Analytics</Translate>
                               </span>
                             </div>
                           </Link>
-                          <Link to="/ai-rag" onClick={() => setMobileOpen(false)} className="no-underline">
+                          <Link to={siteBrand === 'bladepipe' ? "/ai-rag/" : "/ai-rag"} onClick={() => setMobileOpen(false)} className="no-underline">
                             <div className='flex items-center px-5 py-[10px] h-[44px] cursor-pointer hover:bg-gray-100'>
                               <span className="text-[16px] font-medium text-black/80">
                                 <Translate id="navbar.aiRag">AI & RAG</Translate>
@@ -1099,14 +1099,14 @@ export default function Navbar() {
                 {mobileMenuExpanded === 'resources' && (
                   <div className="bg-white px-[10px] py-[10px]">
                     <div className="flex flex-col gap-[3px]">
-                      <Link to="/blog" onClick={() => setMobileOpen(false)} className="no-underline">
+                      <Link to={siteBrand === 'bladepipe' ? "/blog/" : "/blog"} onClick={() => setMobileOpen(false)} className="no-underline">
                         <div className='flex items-center px-5 py-[10px] h-[44px] cursor-pointer hover:bg-gray-100'>
                           <span className="text-[16px] font-medium text-black/80">
                             <Translate id="navbar.blog">Blog</Translate>
                           </span>
                         </div>
                       </Link>
-                      <Link to="/docs/intro/product_intro" onClick={() => setMobileOpen(false)} className="no-underline">
+                      <Link to={siteBrand === 'bladepipe' ? "/docs/intro/product_intro/" : "/docs/intro/product_intro"} onClick={() => setMobileOpen(false)} className="no-underline">
                         <div className='flex items-center px-5 py-[10px] h-[44px] cursor-pointer hover:bg-gray-100'>
                           <span className="text-[16px] font-medium text-black/80">
                             <Translate id="navbar.documents">Documents</Translate>
@@ -1120,7 +1120,7 @@ export default function Navbar() {
               <div className='h-px bg-black/[0.08] w-full' />
 
               {/* Pricing */}
-              <Link to="/pricing" onClick={() => setMobileOpen(false)} className="no-underline">
+              <Link to={siteBrand === 'bladepipe' ? "/pricing/" : "/pricing"} onClick={() => setMobileOpen(false)} className="no-underline">
                 <div className="flex items-center justify-between px-5 h-[50px] cursor-pointer">
                   <span className="text-[16px] font-bold text-[#262728]">
                     <Translate id='navbar.pricing'>Pricing</Translate>
@@ -1130,7 +1130,7 @@ export default function Navbar() {
               <div className='h-px bg-black/[0.08] w-full' />
 
               {/* About */}
-              <Link to="/about" onClick={() => setMobileOpen(false)} className="no-underline">
+              <Link to={siteBrand === 'bladepipe' ? "/about/" : "/about"} onClick={() => setMobileOpen(false)} className="no-underline">
                 <div className="flex items-center justify-between px-5 h-[50px] cursor-pointer">
                   <span className="text-[16px] font-bold text-[#262728]">
                     <Translate id='navbar.about'>About</Translate>
@@ -1281,7 +1281,7 @@ export default function Navbar() {
                   </>
                 ) : (
                   <Link
-                    to="/login"
+                    to={siteBrand === 'bladepipe' ? "/login/" : "/login"}
                     onClick={() => {
                       setMobileOpen(false);
                       localStorage.setItem('loginSource', 'sign_in');

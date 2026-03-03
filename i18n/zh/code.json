@@ -86,6 +86,21 @@
   "banner.communityModal.success": {
     "message": "成功"
   },
+  "banner.communityModal.freeLicenseRenewal": {
+    "message": "社区版 License 完全免费，支持无限次续期，永久免费使用。"
+  },
+  "banner.communityModal.freeTag.foreverFree": {
+    "message": "永久免费"
+  },
+  "banner.communityModal.freeTag.unlimitedRenewal": {
+    "message": "无限续期"
+  },
+  "banner.communityModal.freeTag.zeroCost": {
+    "message": "无需绑卡"
+  },
+  "banner.communityModal.freeTag.subtitle": {
+    "message": "社区版 License 完全免费，无限续期，放心使用"
+  },
   "business.clients": {
     "message": "客户数"
   },

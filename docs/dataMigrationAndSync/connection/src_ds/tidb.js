@@ -33,6 +33,10 @@ const TiDB = {
         {
             key: 'cdcStubTimeout',
             desc: '<b>Timeout for each stub in gRPC channel, in ms. Auto-resubscribe the stub in case of time out</b>.'
+        },
+        {
+            key: 'fastFailKeywords',
+            desc: 'A comma-separated array of strings. When an exception message contains any of these keywords, the task will skip reconnection attempts and restart directly. For example, <b>DEADLINE_EXCEEDED</b> means the task will restart directly instead of reconnecting when a gRPC timeout exception occurs.'
         }
     ]
 }

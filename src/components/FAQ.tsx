@@ -61,7 +61,7 @@ const FAQ: React.FC = () => {
   const toggleFAQ = (id: number) => {
     setFaqItems(prevItems =>
       prevItems.map(item =>
-        item.id === id ? { ...item, isOpen: !item.isOpen } : item
+        item.id === id ? { ...item, isOpen: !item.isOpen } : { ...item, isOpen: false }
       )
     );
   };

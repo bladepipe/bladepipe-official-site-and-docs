@@ -143,7 +143,7 @@ export default function Solution1(): React.JSX.Element {
               {/* 左侧内容区域 */}
               <div className="w-full lg:w-[509px] flex flex-col gap-[8px] sm:gap-[10px] justify-start items-start order-2 lg:order-1">
                 <div className="w-full flex gap-[12px] sm:gap-[16px] justify-start items-start">
-                  <h1 className="w-full text-[24px] sm:text-[32px] lg:text-[40px] font-bold leading-[32px] sm:leading-[40px] lg:leading-[50px] text-black text-center lg:text-left">
+                  <h1 className="w-full text-[28px] sm:text-[36px] lg:text-[48px] font-bold leading-[36px] sm:leading-[46px] lg:leading-[60px] text-black text-center lg:text-left">
                     <Translate id="solution1.banner.title">
                       Real-Time Analytics Solution for Hundreds-of-Terabytes Data
                     </Translate>

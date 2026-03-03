@@ -79,7 +79,12 @@ export default function Banner() {
     if (!isUserLogin()) {
       // 设置来源标识，登录后返回首页并打开下载弹窗
       localStorage.setItem('loginSource', 'download');
-      window.location.href = '/login';
+      // 如果sitebrand为bladepipe，则路由末尾加/
+      if (siteBrand === 'bladepipe') {
+        window.location.href = '/login/';
+      } else {
+        window.location.href = '/login';
+      }
       return;
     }
 

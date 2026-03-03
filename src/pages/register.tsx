@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from '@docusaurus/Link';
+import Head from '@docusaurus/Head';
 import Translate, { translate } from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { Form, Input, Button, message } from 'antd';
+import { getPageMeta } from '@site/src/utils/meta';
 import { signIn } from '@site/src/apis/user';
 import { getPublicKey } from '@site/src/apis/constant';
 import { sm2 } from 'sm-crypto';
@@ -96,7 +98,7 @@ export default function Register() {
             setRegisterLoading(false);
             if (res && res.success) {
                 message.success(translate({ id: 'register.message.success', message: 'Registration successful' }));
-                window.location.href = '/login';
+                window.location.href = siteBrand === 'bladepipe' ? '/login/' : '/login';
             } else {
                 form.setFields([
                     {
@@ -117,7 +119,14 @@ export default function Register() {
         }
     };
 
+    const registerMeta = getPageMeta('register');
+
     return (
+        <>
+        <Head>
+            <title>{registerMeta.title}</title>
+            <meta name="description" content={registerMeta.description} />
+        </Head>
         <div className="w-full min-h-screen flex overflow-hidden">
             <LoginSidebar
                 title={siteBrand === 'clougence' ? (
@@ -554,7 +563,7 @@ export default function Register() {
                                 <div className="w-full h-auto flex justify-center items-start">
                                     <p className="text-[14px] leading-[20px] text-black text-center">
                                         <Translate id="register.link.alreadyHaveAccount">Already have an account?</Translate>{' '}
-                                        <Link to="/login" className="text-[#0087c7] font-bold hover:underline">
+                                        <Link to={siteBrand === 'bladepipe' ? '/login/' : '/login'} className="text-[#0087c7] font-bold hover:underline">
                                             <Translate id="register.link.logIn">Log in</Translate>
                                         </Link>
                                     </p>
@@ -589,5 +598,6 @@ export default function Register() {
 
 
         </div >
+        </>
     );
 } 

@@ -33,6 +33,10 @@ const TiDB = {
         {
             key: 'cdcStubTimeout',
             desc: '<b>gRpc 通道中的每个 stub 的超时时间，超过该时间会自动重新订阅</b>，单位ms'
+        },
+        {
+            key: 'fastFailKeywords',
+            desc: '字符串数组，以逗号分隔，当异常信息中包含这些关键字时，任务不再尝试重连，直接重启。例如 <b>DEADLINE_EXCEEDED</b> 表示当 gRPC 超时异常时不再重连，直接重启任务'
         }
     ]
 }

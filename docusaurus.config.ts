@@ -16,6 +16,7 @@ const CLOUD_URL = {
 };
 const config: Config = {
   title: 'BladePipe',
+  trailingSlash: true,
   tagline:
     'Build end-to-end data pipelines between 60+ datasources for analytics or AI in minutes. Move data faster and easier than ever in Cloud or On-Premise, with ultra-low latency less than 3 seconds.',
   favicon: 'img/favicon.ico',
