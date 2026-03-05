@@ -20,6 +20,7 @@ import {Db2} from './db2';
 import {ObForOracle} from './obfororacle';
 import {Pulsar} from "./pulsar";
 import {TDengine} from "./tdengine";
+import {Spanner} from "./spanner";
 import {GoogleDrive} from "./googledrive";
 import {Dameng} from "./dameng";
 import {GaussDB} from "./gaussdb";
@@ -58,6 +59,7 @@ export const SourceInfo = {
     ObForOracle,
     Pulsar,
     TDengine,
+    Spanner,
     GoogleDrive,
     Dameng,
     GaussDB,

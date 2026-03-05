@@ -221,7 +221,8 @@ const sidebars: SidebarsConfig = {
             "dataMigrationAndSync/connection/vastbase2",
             "dataMigrationAndSync/connection/clickhouse2",
             "dataMigrationAndSync/connection/tdsqlcmysql2",
-            "dataMigrationAndSync/connection/tdsqlmysql2"
+            "dataMigrationAndSync/connection/tdsqlmysql2",
+            "dataMigrationAndSync/connection/spanner2"
           ]
         },
         {
@@ -394,6 +395,13 @@ const sidebars: SidebarsConfig = {
                     "dataMigrationAndSync/datasource_func/Vastbase/privs_for_vastbase",
                     "dataMigrationAndSync/datasource_func/Vastbase/set_vastbase_replica_identity"
                 ]
+            },
+            {
+              "type": "category",
+              "label": "Spanner",
+              "items": [
+                "dataMigrationAndSync/datasource_func/Spanner/privs_for_spanner"
+              ]
             }
           ]
         },

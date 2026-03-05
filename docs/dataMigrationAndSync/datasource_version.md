@@ -1,59 +1,61 @@
 ---
 id: datasource_version
-title: Supported DataSources 
+title: Supported DataSources
 description: BladePipe supports 60+ connectors, like MySQL, PostgreSQL, SQL Server, Kafka, Iceberg, Databricks, Redis, ClickHouse, etc.
 ---
+
 ## Overview
 
-| DataSource           | Version                                                                         |
-|----------------------|---------------------------------------------------------------------------------|
-| MySQL                 | 5.6, 5.7, 8.0, 8.1, 8.2, 8.3, 8.4   |
-| MariaDB               | 10.x, 11.0, 11.1, 11.2    |
-| TiDB                  | 4.x, 5.x, 6.x, 7.x, 8.x    |
-| PostgreSQL            | 9.0 ~ 9.6, 10, 11, 12, 13, 14, 15, 16, 17       |
-| Greenplum             | 6.x      |
-| Elasticsearch         | 6.8, 6.9, 6.10, 7.x, 8.0 ~ 8.15       |
-| ClickHouse            | 20.x, 21.x, 22.x, 23.x, 24.0 ~ 24.3     |
-| Kafka                 | 0.7, 0.8, 0.9, 0.10, 0.11, 1.0, 1.1, 2.x, 3.0 ~ 3.8   |
-| RocketMQ              | 4.x, 5.0 ~ 5.3    |
-| RabbitMQ              | 3.9.x, 3.10.x, 3.11.x, 3.12.x    |
-| Hive(Beta)            | 2.x, 3.x   |
+| DataSource            | Version                                                                                            |
+| --------------------- | -------------------------------------------------------------------------------------------------- |
+| MySQL                 | 5.6, 5.7, 8.0, 8.1, 8.2, 8.3, 8.4                                                                  |
+| MariaDB               | 10.x, 11.0, 11.1, 11.2                                                                             |
+| TiDB                  | 4.x, 5.x, 6.x, 7.x, 8.x                                                                            |
+| PostgreSQL            | 9.0 ~ 9.6, 10, 11, 12, 13, 14, 15, 16, 17                                                          |
+| Greenplum             | 6.x                                                                                                |
+| Elasticsearch         | 6.8, 6.9, 6.10, 7.x, 8.0 ~ 8.15                                                                    |
+| ClickHouse            | 20.x, 21.x, 22.x, 23.x, 24.0 ~ 24.3                                                                |
+| Kafka                 | 0.7, 0.8, 0.9, 0.10, 0.11, 1.0, 1.1, 2.x, 3.0 ~ 3.8                                                |
+| RocketMQ              | 4.x, 5.0 ~ 5.3                                                                                     |
+| RabbitMQ              | 3.9.x, 3.10.x, 3.11.x, 3.12.x                                                                      |
+| Hive(Beta)            | 2.x, 3.x                                                                                           |
 | Oracle                | 10.0, 10.1, 10.2, 11.0, 11.1, 11.2, 12.0, 12.1, 12.2, 18.0, 18.1, 18.2, 18.3, 19.0, 19.1, 19.2, 21 |
-| Kudu                  | 1.4.0, 1.5.0, 1.6.0, 1.7.0, 1.8.0, 1.9.0, 1.10.0, 1.11.0, 1.12.0, 1.13.0, 1.14.0, 1.15.0       |
-| MongoDB               | 3.x, 4.x, 5.x, 6.x, 7.x, 8.x   |
-| SQL Server            | 2000, 2008, 2012, 2014, 2016, 2017, 2019, 2022      |
-| SAP HANA              | 1.x, 2.x      |
-| Redis                 | 3.x, 4.x, 5.x, 6.x, 7.x    |
-| StarRocks             | 1.18, 1.19, 2.0, 2.1, 2.2, 2.3, 2.4, 2.5, 3.0, 3.1, 3.2, 3.3       |
-| Doris                 | 1.0, 1.1, 1.2, 2.x, 3.0, 3.1      |
-| SelectDB              | 1.0, 1.1, 1.2, 2.x, 3.0, 3.1      |
-| OceanBase             | 3.0, 3.1, 3.2, 4.0, 4.1, 4.2, 4.3     |
-| Db2                   | 9.7, 10.2, 10.5, 11.1, 11.5   |
-| PolarDb for MySQL     | 5.6, 5.7, 8.0      |
-| ADB for MySQL         | 3.0     |
-| PolarDB-X             | 5.4.9, 5.4.10, 5.4.11, 5.4.12, 5.4.13, 5.4.14, 5.5.0, 5.5.1, 5.5.2     |
-| GaussDB for OpenGauss | 5.0.0 ~ 5.0.6    |
-| GaussDB for MySQL     | 8.0     |
-| OceanBase for Oracle  | 3.0, 3.1, 3.2      |
-| Iceberg               | 1.0.x - 1.5.x   |
-| Delta Lake            | All supported       |
-| Pulsar                | 3.x, 4.x     |
-| Greptime              | 0.7, 0.8, 0.9, 0.10, 0.11      |
-| TDengine              | 3.x     |
-| Vastbase              | G100V3.0    |
-| OssFile               | ~       |
-| S3File                | ~       |
-| SshFile               | ~       |
-| RagApi                | ~       |
-| OpenAI                | ~       |
-| DashScope             | ~       |
-| HuggingFace           | ~       |
-| Cohere                | ~       |
-| DeepSeek              | ~       |
-| LocalAI               | ~       |
-
+| Kudu                  | 1.4.0, 1.5.0, 1.6.0, 1.7.0, 1.8.0, 1.9.0, 1.10.0, 1.11.0, 1.12.0, 1.13.0, 1.14.0, 1.15.0           |
+| MongoDB               | 3.x, 4.x, 5.x, 6.x, 7.x, 8.x                                                                       |
+| SQL Server            | 2000, 2008, 2012, 2014, 2016, 2017, 2019, 2022                                                     |
+| SAP HANA              | 1.x, 2.x                                                                                           |
+| Redis                 | 3.x, 4.x, 5.x, 6.x, 7.x                                                                            |
+| StarRocks             | 1.18, 1.19, 2.0, 2.1, 2.2, 2.3, 2.4, 2.5, 3.0, 3.1, 3.2, 3.3                                       |
+| Doris                 | 1.0, 1.1, 1.2, 2.x, 3.0, 3.1                                                                       |
+| SelectDB              | 1.0, 1.1, 1.2, 2.x, 3.0, 3.1                                                                       |
+| OceanBase             | 3.0, 3.1, 3.2, 4.0, 4.1, 4.2, 4.3                                                                  |
+| Db2                   | 9.7, 10.2, 10.5, 11.1, 11.5                                                                        |
+| PolarDb for MySQL     | 5.6, 5.7, 8.0                                                                                      |
+| ADB for MySQL         | 3.0                                                                                                |
+| PolarDB-X             | 5.4.9, 5.4.10, 5.4.11, 5.4.12, 5.4.13, 5.4.14, 5.5.0, 5.5.1, 5.5.2                                 |
+| GaussDB for OpenGauss | 5.0.0 ~ 5.0.6                                                                                      |
+| GaussDB for MySQL     | 8.0                                                                                                |
+| OceanBase for Oracle  | 3.0, 3.1, 3.2                                                                                      |
+| Iceberg               | 1.0.x - 1.5.x                                                                                      |
+| Delta Lake            | All supported                                                                                      |
+| Pulsar                | 3.x, 4.x                                                                                           |
+| Greptime              | 0.7, 0.8, 0.9, 0.10, 0.11                                                                          |
+| TDengine              | 3.x                                                                                                |
+| Vastbase              | G100V3.0                                                                                           |
+| OssFile               | ~                                                                                                  |
+| S3File                | ~                                                                                                  |
+| SshFile               | ~                                                                                                  |
+| Spanner               | Latest                                                                                             |
+| RagApi                | ~                                                                                                  |
+| OpenAI                | ~                                                                                                  |
+| DashScope             | ~                                                                                                  |
+| HuggingFace           | ~                                                                                                  |
+| Cohere                | ~                                                                                                  |
+| DeepSeek              | ~                                                                                                  |
+| LocalAI               | ~                                                                                                  |
 
 ## Note
+
 - Supported versions represent only those tested or used by BladePipe team or users. They may not cover all functions or features.
 - The supported versions are applicable to both Source and Target.
 - There is a certain lag in the supported version updates. If you encounter a version not mentioned in this table, you can try it and welcome feedback.
