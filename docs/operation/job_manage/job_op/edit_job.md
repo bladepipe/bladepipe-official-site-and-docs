@@ -1,6 +1,7 @@
 ---
 id: edit_job
 title: Modify Subscription
+description: It guides you how to edit the table and column subscription of a pipeline.
 ---
 
 BladePipe supports modifying subscriptions for DataJob, currently only for DataJob in Incremental step.

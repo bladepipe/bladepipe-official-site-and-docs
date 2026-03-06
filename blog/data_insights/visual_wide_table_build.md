@@ -1,7 +1,7 @@
 ---
 id: visual_wide_table_build
-description: introduce how to create a wide table in BladePipe
-title: A Comprehensive Guide to Wide Table
+description: Learn what a wide table is, when to use it, and how to build wide tables to optimize complex queries and analytics with BladePipe.
+title: How to Build a Wide Table for Analytics and Faster Queries
 date: 2025-07-10
 authors: junyu
 tags:

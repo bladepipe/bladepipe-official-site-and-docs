@@ -68,7 +68,12 @@ export default function Loading() {
 
           if (!stateBase64 || !accessToken) {
             message.error('Invalid authentication parameters');
-            history.push('/login');
+            // 如果sitebrand为bladepipe，则路由末尾加/
+            if (siteBrand === 'bladepipe') {
+              history.push('/login/');
+            } else {
+              history.push('/login');
+            }
             return;
           }
 
@@ -120,13 +125,21 @@ export default function Loading() {
             setShowAddPhone(true);
           } else {
             message.error(res?.msg || 'Authentication failed');
-            history.push('/login');
+            if (siteBrand === 'bladepipe') {
+              history.push('/login/');
+            } else {
+              history.push('/login');
+            }
           }
         }
       } catch (error) {
         console.error('Auth error:', error);
         message.error('Authentication failed');
-        history.push('/login');
+        if (siteBrand === 'bladepipe') {
+          history.push('/login/');
+        } else {
+          history.push('/login');
+        }
       }
     };
 

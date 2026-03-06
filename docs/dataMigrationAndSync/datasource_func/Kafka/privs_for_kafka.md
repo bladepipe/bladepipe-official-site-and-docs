@@ -1,7 +1,7 @@
 ---
 id: privs_for_kafka
 title:  Required Privileges for Kafka
-description: BladePipe needs to provide some privileges to the account when doing the data migration synchronization of Kafka source or peer.
+description: To integrate data from or to Kafka in BladePipe, users need certain privileges.
 ---
 ### Overview
 Kafka Topic permission control can be implemented by using Apache Kafka's built-in security features. There are two main aspects to this: Authentication and Authorization.

@@ -1,7 +1,7 @@
 ---
 id: monitor
 title: Monitoring Metrics
-description: During the running of the BladePipe DataJob, different monitoring indicators can be displayed based on different types of source and peer data sources
+description: BladePipe displays various monitoring metrics based on different connectors. This page explains the common monitoring metrics.
 ---
 
 ## Overview

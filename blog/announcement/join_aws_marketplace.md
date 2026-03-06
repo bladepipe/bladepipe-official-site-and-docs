@@ -1,6 +1,6 @@
 ---
 id: join_aws_marketplace
-description: BladePipe is officially available on AWS marketplace.
+description: BladePipe is now available on AWS Marketplace, enabling easy subscription, unified AWS billing, and flexible access to real-time data integration services.
 title: BladePipe is Now Available on AWS Marketplace
 date: 2025-07-17
 authors: mumu

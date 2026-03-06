@@ -1,6 +1,6 @@
 ---
 id: becheery_data_integration
-description: Discover how Be & Cheery builds a unified data-integration platform using BladePipe to support data-driven decision-making.
+description: Discover how Be & Cheery simplifies retail analytics with BladePipe, enabling data integration, improved decision-making, and faster reporting cycles for its teams.
 title: Be & Cheery Drives Retail Analytics in Real Time with BladePipe
 date: 2025-11-17
 authors: mumu

@@ -1,8 +1,7 @@
 ---
 id: performance_optimization
 title: Performance Tuning
-description: This article will detail how to optimize the performance of BladePipe DataJob.
-
+description: It details on how to optimize the performance of BladePipe DataJobs, making data pipelines running more efficiently.
 ---
 This page provides a general process for BladePipe DataJob performance tuning.
 

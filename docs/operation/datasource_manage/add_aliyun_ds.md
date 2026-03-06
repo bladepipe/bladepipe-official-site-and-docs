@@ -1,6 +1,7 @@
 ---
 id: add_aliyun_ds
 title: Add Alibaba Cloud DataSources
+description: It describes how to add a Alibaba Cloud data source as a connector in BladePipe.
 ---
 BladePipe supports both **self-managed DataSources** and **cloud DataSources**. This page introduces how to add a **Alibaba Cloud DataSource** to BladePipe.
 

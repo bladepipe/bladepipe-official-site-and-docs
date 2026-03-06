@@ -86,6 +86,21 @@
   "banner.communityModal.success": {
     "message": "成功"
   },
+  "banner.communityModal.freeLicenseRenewal": {
+    "message": "社区版 License 完全免费，支持无限次续期，永久免费使用。"
+  },
+  "banner.communityModal.freeTag.foreverFree": {
+    "message": "永久免费"
+  },
+  "banner.communityModal.freeTag.unlimitedRenewal": {
+    "message": "无限续期"
+  },
+  "banner.communityModal.freeTag.zeroCost": {
+    "message": "无需绑卡"
+  },
+  "banner.communityModal.freeTag.subtitle": {
+    "message": "社区版 License 完全免费，无限续期，放心使用"
+  },
   "business.clients": {
     "message": "客户数"
   },
@@ -3284,5 +3299,14 @@
   "blog.tags.backToBlogList": {
     "message": "返回博客列表",
     "description": "Link text to go back to blog list page"
+  },
+  "pricing.featureComparison.mainTitle": {
+    "message": "社区版 vs 云版 vs 企业版"
+  },
+  "pricing.calculator.description": {
+    "message": "根据链路使用量和数据量估算每月成本，透明、基于使用的定价。"
+  },
+  "banner.freeRenewLink": {
+    "message": "免费续期"
   }
 }

@@ -1,7 +1,7 @@
 ---
 id: create_period_full_job
 title: Scheduled Full Data
-description: introduces how to create a scheduled Full Data DataJob
+description: BladePipe supports migrating data periodically based on the configured interval. Users can build ETL pipelines easily and run them on a scheduled basis.
 ---
 
 This article introduces how to create a scheduled Full Data DataJob using MySQL to MySQL data migration as an example.

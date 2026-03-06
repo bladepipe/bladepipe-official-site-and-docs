@@ -1,6 +1,7 @@
 ---
 id: db2_incr_ddl_notice
 title: Db2 DDL Execution Requirements
+description: It explains the requriements of executing DDL during incremental data sync from Db2.
 ---
 BladePipe, which is based on IBM DB2's CDC replication technology, synchronizes incremental update data from Db2 databases to target databases. However, CDC replication technology itself has limitations, please refer to the [General data restrictions for SQL Replication](https://www.ibm.com/support/knowledgecenter/SSTRGZ_11.4.0/com.ibm.swg.im.iis.db.repl.sqlrepl.doc/topics/iiyrssubdatarestrict.html).
 

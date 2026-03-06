@@ -1,6 +1,7 @@
 ---
 id: rn-bladepipe-0-6-0
 title: BladePipe 0.6.0
+description: BladePipe 0.6.0 supports PostgreSQL & Oracle & SQL Server-Iceberg pipelines, and creating wide tables in a visual way.
 ---
 Release Date: June 5, 2025
 
@@ -16,7 +17,7 @@ Version: 0.6.0
 
 ## New Features
 
-- [Create wide tables from MySQL to MySQL/StarRocks/Doris/SelectDB in a visual way](../operation/job_manage/job_op/visual_widetable_create)(Left Join).
+- [Create wide tables from MySQL to MySQL/StarRocks/Doris/SelectDB in a visual way](https://www.bladepipe.com/docs/operation/job_manage/job_op/visual_widetable_create/)(Left Join).
 - Support scheduled full data migration from Dameng & SQL Server.
 - Support Redis &lt;-&gt; Redis LPop, RPop, LTrim, Publish, ZRemRangeByRank, ZRemRangeByLex instructions.
 - Allow to add custom virtual columnSQL in Server - Oracle pipeline.

@@ -1,7 +1,7 @@
 ---
 id: change_on_premise_password
 title: Change Password
-description: This page introduces how to change the default password  
+description: This page introduces how to change the default password for BladePipe On-Premise.
 ---
 
 For ease of use, BladePipe On-Premise sets a default username and password. If you need to modify it, please follow the steps below.

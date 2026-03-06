@@ -7,6 +7,7 @@ import { isUserLogin } from '@site/src/store/user';
 import { listDownloadProduct } from '@site/src/apis/constant';
 import DownloadModal from './DownloadModal';
 import CommunityInstallModal from './CommunityInstallModal';
+import { trackCommunityEditionDownload } from '@site/src/utils/analytics';
 import { Tabs } from 'antd';
 
 export default function Banner() {
@@ -63,7 +64,10 @@ export default function Banner() {
   // Try Cloud Free / Try Community Free 按钮点击逻辑
   const handleTryCloudFree = () => {
     if (siteBrand === 'bladepipe' || siteBrand === 'clougence') {
-      // BladePipe 显示社区版安装弹窗
+      // BladePipe：记录「点击免费社区版」用于谷歌分析
+      if (siteBrand === 'bladepipe') {
+        trackCommunityEditionDownload();
+      }
       setCommunityModalVisible(true);
     } else {
       // 其他品牌跳转到云平台
@@ -79,7 +83,12 @@ export default function Banner() {
     if (!isUserLogin()) {
       // 设置来源标识，登录后返回首页并打开下载弹窗
       localStorage.setItem('loginSource', 'download');
-      window.location.href = '/login';
+      // 如果sitebrand为bladepipe，则路由末尾加/
+      if (siteBrand === 'bladepipe') {
+        window.location.href = '/login/';
+      } else {
+        window.location.href = '/login';
+      }
       return;
     }
 

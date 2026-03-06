@@ -369,7 +369,7 @@ export default function Pricing() {
     if (!isUserLogin()) {
       // 设置来源标识，登录后返回首页并打开下载弹窗
       localStorage.setItem('loginSource', 'download');
-      window.location.href = '/login';
+      window.location.href = siteBrand === 'bladepipe' ? '/login/' : '/login';
       return;
     }
 
@@ -399,7 +399,7 @@ export default function Pricing() {
     if (!isUserLogin()) {
       // 设置来源标识，登录后返回首页并打开下载弹窗
       localStorage.setItem('loginSource', 'download');
-      window.location.href = '/login';
+      window.location.href = siteBrand === 'bladepipe' ? '/login/' : '/login';
       return;
     }
 

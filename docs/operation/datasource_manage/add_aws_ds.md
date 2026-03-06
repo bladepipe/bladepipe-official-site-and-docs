@@ -1,6 +1,7 @@
 ---
 id: add_aws_ds
 title: Add AWS DataSources
+description: It describes how to add an AWS data source as a connector in BladePipe.
 ---
 BladePipe supports both **self-managed DataSources** and **cloud DataSources**. This page introduces how to add a **AWS DataSource** to BladePipe.
 

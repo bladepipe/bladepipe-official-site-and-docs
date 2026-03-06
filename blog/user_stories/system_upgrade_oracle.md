@@ -1,7 +1,7 @@
 ---
 id: system_upgrade_oracle
-description: Dive into a real case from a top HR service company to see how it replaced its HR management system seamlessly.
-title: A Top HR Service Company Replaces its System Seamlessly with BladePipe
+description: Learn how BladePipe enables real-time data sync for seamless HR system migration, ensuring minimal downtime and data integrity throughout the process.
+title: Real-Time Data Sync for HR System Migration:BladePipe in Action
 date: 2025-01-09
 authors: mumu
 tags:

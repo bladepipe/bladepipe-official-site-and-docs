@@ -1,7 +1,7 @@
 ---
 id: print_message_detail
 title: Print Message Details
-description: When you need to troubleshooting data synchronization issues, you can enable the parameters to print the details of the message.
+description: When you need to troubleshoot data synchronization issues, you can enable the parameters to print the details of the message.
 ---
 
 ## Function

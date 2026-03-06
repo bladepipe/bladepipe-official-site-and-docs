@@ -1,7 +1,7 @@
 ---
 id: product_advantage
 title: Advantages
-description: BladePipe has the advantages of real-time efficiency, precise interconnection, stability and scalability, one-stop, hybrid deployment, and complex data transformation, and is more focused, meticulous, and professional than similar products.
+description: BladePipe features real-time efficiency, precise data mapping, stability and scalability, one-stop management, flexible deployment, etc.
 ---
 
 BladePipe features efficiency, stability and scalability, one-stop management, BYOC deployment, and complex data transformation, and it supports diverse database engines. It focuses on data migration and synchronization, providing more professional services compared with the other similar products.
@@ -26,9 +26,9 @@ BladePipe enables schema migration, data migration, data synchronization, data v
 
 BladePipe supports for user data preparation and long-term data synchronization through the one-stop management.
 
-## BYOC Deployment
+## Flexible Deployment
 
-BladePipe supports BYOC deployment, and attaches great importance to user data security. It enables secure data synchronization between data centers in different regions, between cloud and on-premises infrastructure, and between multi-clouds.
+BladePipe supports self-hosted and cloud (fully-managed & BYOC) deployment options, and attaches great importance to user data security. Teams can make the choice based on the size, needs and budget.
 
 ## Complex Data Transformation
  

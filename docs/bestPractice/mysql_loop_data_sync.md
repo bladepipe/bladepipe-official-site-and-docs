@@ -1,6 +1,6 @@
 ---
 id: mysql_loop_data_sync
-description: introduces how BladePipe do MySQL bidirectional synchronization and anti-loop
+description: It guides you to build MySQL bidirectional synchronization pipelines with BladePipe, and the data won't get into an infinite loop.
 title: MySQL Two-Way Sync
 ---
 

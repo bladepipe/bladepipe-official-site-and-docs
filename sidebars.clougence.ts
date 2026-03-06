@@ -221,7 +221,8 @@ const sidebars: SidebarsConfig = {
             "dataMigrationAndSync/connection/vastbase2",
             "dataMigrationAndSync/connection/clickhouse2",
             "dataMigrationAndSync/connection/tdsqlcmysql2",
-            "dataMigrationAndSync/connection/tdsqlmysql2"
+            "dataMigrationAndSync/connection/tdsqlmysql2",
+            "dataMigrationAndSync/connection/spanner2"
           ]
         },
         {
@@ -359,6 +360,7 @@ const sidebars: SidebarsConfig = {
               "type": "category",
               "label": "Redis",
               "items": [
+                "dataMigrationAndSync/datasource_func/Redis/redis_datasource_add",
                 "dataMigrationAndSync/datasource_func/Redis/redis_check_simple",
                 "dataMigrationAndSync/datasource_func/Redis/performance_optimization_redis_src"
               ]
@@ -393,6 +395,13 @@ const sidebars: SidebarsConfig = {
                     "dataMigrationAndSync/datasource_func/Vastbase/privs_for_vastbase",
                     "dataMigrationAndSync/datasource_func/Vastbase/set_vastbase_replica_identity"
                 ]
+            },
+            {
+              "type": "category",
+              "label": "Spanner",
+              "items": [
+                "dataMigrationAndSync/datasource_func/Spanner/privs_for_spanner"
+              ]
             }
           ]
         },
@@ -673,6 +682,7 @@ const sidebars: SidebarsConfig = {
       "type": "category",
       "label": "版本说明",
       "items": [
+        "releaseNote/rn-cloudcanal-5-4-1-0",
         "releaseNote/rn-cloudcanal-5-4-0-0",
         "releaseNote/rn-cloudcanal-5-3-1-0",
         "releaseNote/rn-cloudcanal-5-3-0-0",

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 39
-description: This tutorial introduces how to use BladePipe to create a Kafka-Kafka real-time data pipeline.
+description: This tutorial introduces how to build a Kafka-to-Kafka data pipeline with BladePipe, enabling efficient data streaming, replication, and synchronization.
 title: How to Stream Data from Kafka to Kafka
 id: kafka_kafka_sync
 date: 2024-12-05
@@ -27,17 +27,17 @@ After a DataJob is created, BladePipe automatically creates a consumer group and
 
 When no messages were produced at the Source Kafka, BladePipe was unable to accurately calculate the message latency.
 
-To address the problem, BladePipe monitors the Kafka heartbeat. After [Kafka heartbeat is enabled](https://doc.bladepipe.com/dataMigrationAndSync/datasource_func/Kafka/open_kafka_heartbeat), BladePipe will monitor the consumer offsets of all partitions. If the differences between the latest offset and the current offset of all partitions are all smaller than the tolerant offset interval (configured by parameter **dbHeartbeatToleranceStep**), a heartbeat record containing the current system time will be generated. Upon consuming this record, BladePipe will calculate the latency based on the time included in it.
+To address the problem, BladePipe monitors the Kafka heartbeat. After [Kafka heartbeat is enabled](https://www.bladepipe.com/docs/dataMigrationAndSync/datasource_func/Kafka/open_kafka_heartbeat/), BladePipe will monitor the consumer offsets of all partitions. If the differences between the latest offset and the current offset of all partitions are all smaller than the tolerant offset interval (configured by parameter **dbHeartbeatToleranceStep**), a heartbeat record containing the current system time will be generated. Upon consuming this record, BladePipe will calculate the latency based on the time included in it.
 
 ## Procedure
 
 ### Step 1: Grant Permissions
 
-Please refer to [Permissions Required for Kafka](https://www.bladepipe.com/docs/dataMigrationAndSync/datasource_func/Kafka/privs_for_kafka) to grant the required permissions to a user for data movement using BladePipe.
+Please refer to [Permissions Required for Kafka](https://www.bladepipe.com/docs/dataMigrationAndSync/datasource_func/Kafka/privs_for_kafka/) to grant the required permissions to a user for data movement using BladePipe.
 
 ### Step 2: Install BladePipe
 
-Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
 
 ### Step 3: Add DataSources
 
@@ -47,13 +47,13 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 
 ### Step 4: Create a DataJob
 
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 
 2. Select the source and target DataSources and click **Test Connection** to ensure the connection to the source and target DataSources are both successful.
    
    ![create_job_1st](assets/kafka_kafka_sync/create_job_1st.png)
 
-3. Select the [**message format**](https://doc.bladepipe.com/reference/kafka_msg_format_type).
+3. Select the [**message format**](https://www.bladepipe.com/docs/reference/kafka_msg_format_type/).
 
    :::info
    If there is no specific message format, please select **Raw Message Format**.
@@ -70,7 +70,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 6. Confirm the DataJob creation.
 
    :::info
-   The DataJob creation process involves several steps. Click **Sync Settings** > [**ConsoleJob**](https://doc.bladepipe.com/operation/job_setting/console_job_manage), find the DataJob creation record, and click **Details** to view it.
+   The DataJob creation process involves several steps. Click **Sync Settings** > [**ConsoleJob**](https://www.bladepipe.com/docs/operation/job_setting/console_job_manage/), find the DataJob creation record, and click **Details** to view it.
 
    The DataJob creation with a source Kafka instance includes the following steps:
 

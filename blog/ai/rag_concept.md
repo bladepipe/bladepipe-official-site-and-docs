@@ -1,6 +1,6 @@
 ---
 id: rag_concept
-description: Show the core concepts of GenAI
+description: A beginner-friendly guide to core GenAI concepts like RAG, function calling, MCP, and AI agent. Plain language, clear examples, and diagrams to explain modern LLM systems.
 title: GenAI Core Concepts Explained (RAG, Function Calling, MCP, AI Agent)
 authors: juantu
 tags:
@@ -655,8 +655,8 @@ To do more beyond getting info, we need MCP. With MCP integration, RagApi can us
 
 The specific procedures are shown in the following blogs:
 
-1. [Create and Store Embeddings in PGVector](https://doc.bladepipe.com/bestPractice/file_to_aliyun_pg_vector)   
-2. [Create RAG API with PGVector](https://doc.bladepipe.com/bestPractice/pg_vector_to_rag_api)
+1. [Create and Store Embeddings in PGVector](https://www.bladepipe.com/docs/bestPractice/file_to_aliyun_pg_vector/)   
+2. [Create RAG API with PGVector](https://www.bladepipe.com/docs/bestPractice/pg_vector_to_rag_api/)
 
 After the two DataJobs are running, the RAG service that can **answer industry-specific questions** and **automate tasks based on MCP** is available. The **OpenAI-compatible** RAG API is an enhanced version of the existing LLM APIs, with no need of client code change. 
 

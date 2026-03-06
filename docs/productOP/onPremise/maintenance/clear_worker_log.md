@@ -1,7 +1,7 @@
 ---
 id: clear_worker_log
 title: Clean Up Worker Logs
-description: BladePipe allows to clean up the remaining Worker logs.
+description: BladePipe allows to clean up the Worker logs to free up the storage.
 ---
 
 ## Overview

@@ -1,10 +1,11 @@
 ---
 id: job_replay
 title: Replay DataJobs
+description: BladePipe supports replaying DataJob. You can rerun a data pipeline in a click.
 ---
 
 ## Overview
-BladePipe supports the replay DataJob. Users do not need to recreate the DataJob. 
+BladePipe supports replaying DataJobs. Users do not need to recreate the DataJob. 
 
 The following scenarios may require to use DataJob replay:
 

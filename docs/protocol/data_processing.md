@@ -1,6 +1,7 @@
 ---
 id: data_processing
 title: Data Protection Addendum
+description: BladePipe is compliant with SOC2, GDPR and ISO 27001, and attaches importance to data protection. It processes users' data adhere to laws and regulations.
 ---
 Last Updated: March 25, 2025
 

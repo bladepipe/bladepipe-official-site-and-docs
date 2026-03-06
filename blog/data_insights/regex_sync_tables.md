@@ -1,7 +1,7 @@
 ---
 id: regex_sync_tables
-description: A new approach to syncing thousands of tables -- Regex-based pipeline. 
-title: Syncing 10K Tables with a Single Expression
+description: Syncing thousands of database tables can be slow and hard to manage. Learn how regex-based pipelines simplify large-scale table sync with one rule. 
+title: How to Sync Thousands of Tables Efficiently in One Pipeline
 date: 2025-12-31
 authors: junyu
 tags:

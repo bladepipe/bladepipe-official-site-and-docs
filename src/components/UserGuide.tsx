@@ -2,13 +2,16 @@ import React, { useEffect, useState, useRef } from 'react';
 import Translate from '@docusaurus/Translate';
 import { getCloudUrl } from '@site/src/utils/api';
 import { isUserLogin } from '@site/src/store/user';
-
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 export default function UserGuide() {
   const [offsetY, setOffsetY] = useState(0);
   const [section, setSection] = useState(false);
   const sectionRef = useRef(null);
   const startScrollY = useRef<number | null>(null);
   const startOffset = 500;
+  //初始化sitebrand
+  const { siteConfig } = useDocusaurusContext();
+  const siteBrand = siteConfig.customFields?.siteBrand;
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -100,7 +103,7 @@ export default function UserGuide() {
                 window.location.href = getCloudUrl();
               } else {
                 localStorage.setItem('loginSource', 'try_cloud_free');
-                window.location.href = '/login';
+                window.location.href = siteBrand === 'bladepipe' ? '/login/' : '/login';
               }
             }}>
             <Translate id='userguide.tryCloudBtn'>Try Cloud Free</Translate>
@@ -117,7 +120,7 @@ export default function UserGuide() {
                 window.location.reload();
               } else {
                 localStorage.setItem('loginSource', 'download');
-                window.location.href = '/login';
+                window.location.href = siteBrand === 'bladepipe' ? '/login/' : '/login';
               }
             }}>
             <Translate id='userguide.downloadBtn'>Download Enterprise</Translate>

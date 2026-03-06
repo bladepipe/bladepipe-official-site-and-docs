@@ -1,7 +1,7 @@
 ---
 id: product_arch
 title: Architecture
-description: Introduces the BladePipe technical architecture
+description: BladePipe is carefully designed for disaster recovery. Its architecture supports self-healing and auto failover. It can also scale easily.
 ---
 
 This topic mainly introduces the architecture of BladePipe.

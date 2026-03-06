@@ -23,7 +23,7 @@ description: This page introduces how to install a Minimal K8s for BladePipe
    /bin/bash -c "$(curl -fsSL https://tgzdownload.clougence.com/support/install_centos_k8s.sh)"
    ```
 
-2. 等待上述步骤完成，替换以下脚本中的 **&lt;local_ip&lt;** 为当前节点 IP，并执行。
+2. 等待上述步骤完成，替换以下脚本中的 **&lt;local_ip&gt;** 为当前节点 IP，并执行。
 
    ```bash
    kubeadm init \

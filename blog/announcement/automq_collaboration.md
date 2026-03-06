@@ -1,7 +1,7 @@
 ---
 id: automq_collaboration
-description: BladePipe and AutoMQ together offers a fully integrated solution that connects operational databases to real-time processing engines.
-title: BladePipe and AutoMQ Announce Strategic Collaboration
+description: BladePipe and AutoMQ partner to deliver an integrated CDC and Kafka-compatible pipeline from operational databases to real-time processing engines.
+title: BladePipe and AutoMQ Partner on Real-Time CDC Pipelines
 tags:
   - announcement
 image: /img/blog/announcement/automq_collaboration.png

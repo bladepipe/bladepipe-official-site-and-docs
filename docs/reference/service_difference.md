@@ -1,6 +1,7 @@
 ---
 id: service_difference
 title: Granularity and Specifications
+description: This page describes how BladePipe define a link for different connectors.
 ---
 ## DataJob Granularity
 

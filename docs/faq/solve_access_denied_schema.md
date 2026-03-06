@@ -1,7 +1,7 @@
 ---
 id: solve_access_denied_schema
 title: Access Denied for User to Schema in MySQL as Source
-description: This page describes how to resolve the insufficient permission error occurred when BladePipe tries to obtain the schema of a specified table in MySQL as Source.
+description: It describes how to resolve the insufficient permission error occurred when BladePipe tries to obtain the schema of a specified table in MySQL source.
 ---
 This page describes how to resolve the insufficient permission error occurred when BladePipe tries to obtain the schema of a specified table in MySQL as Source.
 

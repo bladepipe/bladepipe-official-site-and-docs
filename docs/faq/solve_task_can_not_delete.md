@@ -1,7 +1,7 @@
 ---
 id: solve_task_can_not_delete
 title: Task Deletion Failure
-description: This article describes the steps to troubleshoot task deletion failure in BladePipe.
+description: This article describes the steps to solve task deletion failure in BladePipe.
 ---
 This article describes the steps to troubleshoot task deletion failure in BladePipe.
 

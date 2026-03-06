@@ -1,7 +1,7 @@
 ---
 id: sap_hana_ddl
 title: Change Schema in a Source SAP HANA Instance
-description: BladePipe captures data changes in a source SAP HANA instance through triggers. DDL synchronization is not supported. If there are DDL changes, please handle them as follows.
+description: To enable schema evolution during trigger-based CDC from SAP HANA in BladePipe, users have to finish the procedures described in the article. 
 ---
 
 ## Overview

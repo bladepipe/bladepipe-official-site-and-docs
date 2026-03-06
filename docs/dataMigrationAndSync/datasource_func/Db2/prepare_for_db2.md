@@ -1,6 +1,7 @@
 ---
 id: prepare_for_db2
 title:  Required Privileges for Db2 CDC
+description: To replicate data from Db2 via Change Data Capture(CDC) using BladePipe, a Db2 user needs to have certain privileges.
 ---
 
 If you only need to migrate the existing data, you can skip this article.

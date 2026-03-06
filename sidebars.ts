@@ -66,7 +66,6 @@ const sidebars: SidebarsConfig = {
                 "operation/job_manage/create_job/create_full_incre_task",
                 "operation/job_manage/create_job/create_process_job",
                 "operation/job_manage/create_job/create_data_filter_job",
-                // "operation/job_manage/create_job/create_db_sync_job",
                 "operation/job_manage/create_job/create_period_full_job",
                 "operation/job_manage/create_job/create_regex_table_job",
                 "operation/job_manage/create_job/create_period_verification_correction_job"
@@ -194,6 +193,7 @@ const sidebars: SidebarsConfig = {
             "dataMigrationAndSync/connection/obfororacle2",
             "dataMigrationAndSync/connection/pulsar2",
             "dataMigrationAndSync/connection/tdengine2",
+            "dataMigrationAndSync/connection/spanner2",
           ]
         },
         // {
@@ -330,6 +330,13 @@ const sidebars: SidebarsConfig = {
               "label": "Paimon",
               "items": [
                 "dataMigrationAndSync/datasource_func/Paimon/props_for_paimon_ds"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Spanner",
+              "items": [
+                "dataMigrationAndSync/datasource_func/Spanner/privs_for_spanner"
               ]
             },
           ]

@@ -1,7 +1,7 @@
 ---
 id: iceberg_vs_deltalake_vs_paimon
-description: A deep dive into how these open lake formats differ, and how to build a real-time data lake that actually works.
-title: Choosing Your Data Lake Format in 2026:Iceberg vs Delta Lake vs Paimon
+description: Compare Apache Iceberg, Delta Lake, and Paimon—key differences in metadata organization, update models, and how to build a real-time data lake that scales.
+title: Iceberg vs Delta Lake vs Paimon:Data Lake Formats in 2026
 date: 2026-01-13
 authors: juantu 
 tags:
@@ -196,7 +196,7 @@ Next, we'll set up a real-time data lake using BladePipe SaaS Managed and DeltaL
 ![](../assets/blog/data_insights/iceberg_vs_deltalake_paimon/10.png)
 
 #### Create Sync Job
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Select the source and target DataSources, and click **Test Connection** to ensure the connection to the source and target DataSources are both successful.
 
 ![](../assets/blog/data_insights/iceberg_vs_deltalake_paimon/11.png)

@@ -73,7 +73,7 @@ http.interceptors.response.use(
       error.config &&
       error.config.url !== '/rdp/console/api/v1/user/queryLoginUser'
     ) {
-      window.location.href = '/login';
+      window.location.href = '/login/';
     }
     return Promise.reject(error);
   }

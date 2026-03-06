@@ -121,6 +121,22 @@ export function getPageMeta(
       'blog-list': {
         title: 'BladePipe Blog | Insights on Data Strategy and Engineering',
         description: 'Read expert insights and best practices on data integration, real-time sync, migration, replication, and data pipelines for analytics and AI.'
+      },
+      'login': {
+        title: 'BladePipe Login | Access Your Account',
+        description: 'Access your BladePipe dashboard to manage and monitor your data integration workflows.'
+      },
+      'register': {
+        title: 'BladePipe Registration | Create Your Account',
+        description: 'Start building data pipelines with BladePipe. Create your free account today—no credit card required.'
+      },
+      'registerFromMarket': {
+        title: 'BladePipe Registration | AWS Marketplace',
+        description: 'Complete your BladePipe registration after subscribing via AWS Marketplace.'
+      },
+      'resetPwd': {
+        title: 'Reset Your Password | BladePipe',
+        description: 'Reset your password to access your BladePipe account.'
       }
     }
   };

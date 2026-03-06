@@ -1,7 +1,7 @@
 ---
 id: plans_diff
 title: Plans
-description: BladePipe Private Deployments are available in three editions, including Community, Standard, and Enterprise. This article introduces the pricing and differences between the different editions.
+description: BladePipe offers four plans - Community, Cloud, Enterprise Trial and Enterprise. They differ in features, use cases and prices.
 ---
 
 BladePipe offers both **free** and **paid** plan options. The paid plan is detailed in the [Pricing](product_price.md) document.
@@ -34,13 +34,13 @@ This page provides a concise comparison of the differences between these plan op
     <th>/</th>
     <td align="center"><b>Free</b>&nbsp;&nbsp;<sup>[1]</sup></td>
     <td align="center">Paid</td>
-    <td align="center">Paid</td>
+    <td align="center">Free</td>
     <td align="center">Paid</td>
   </tr>
   <tr>
     <th rowspan="4">Resouces</th>
-    <th>Links</th>
-    <td align="center">5&nbsp;&nbsp;<sup>[2]</sup></td>
+    <th>Links&nbsp;&nbsp;<sup>[2]</sup></th>
+    <td align="center">5</td>
     <td align="center">30</td>
     <td align="center">30</td>
     <td align="center">By Contract</td>
@@ -201,3 +201,8 @@ This page provides a concise comparison of the differences between these plan op
 
 **2.** For different DataSources, the granularity of a link varies. For details, please refer to [Granularity and Specifications](../reference/service_difference.md).
 :::
+
+## Note
+- Community edition can be upgraded to Enterprise Trial or Enterprise edition.
+- Enterprise Trial edition can be upgraded to Enterprise edition, but it **CANNOT** be downgraded to Community Edition.
+- Enterprise edition **CANNOT** be downgraded to either Enterprise Trial edition or Community Edition.

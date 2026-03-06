@@ -1,6 +1,6 @@
 ---
 id: http_internet_data_sync
-description: introduces how BladePipe performs cross internet secure data synchronization
+description: BladePipe supports data replication between two clouds without exposing databases to the public network. 
 title: Cross-network Data Movement
 ---
 

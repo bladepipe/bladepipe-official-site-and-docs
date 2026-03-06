@@ -1,6 +1,7 @@
 ---
 id: rn-bladepipe-1-1-0
 title: BladePipe 1.1.0
+description: BladePipe 1.1.0 supports regular-expression-based table selection, and data migration and synchronization from AWS RDS Oracle.
 ---
 Release Date: December 10, 2025
 

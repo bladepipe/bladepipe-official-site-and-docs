@@ -20,6 +20,7 @@ import {Db2} from './db2';
 import {ObForOracle} from './obfororacle';
 import {Pulsar} from "./pulsar";
 import {TDengine} from "./tdengine";
+import {Spanner} from "./spanner";
 
 export const SourceInfo = {
     MySQL,
@@ -48,6 +49,7 @@ export const SourceInfo = {
     Tunnel,
     ObForOracle,
     Pulsar,
-    TDengine
+    TDengine,
+    Spanner
 }
 

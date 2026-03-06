@@ -1,7 +1,7 @@
 ---
 id: zero
 title: Replace Zero Time Values
-description: When the time is '0000-00-00 00:00:00'/'0000-00-00', many databases do not support this type of zero-valued time writing or require a special setting.
+description: Many databases do not support zero-valued time writing or require a special setting. This page tells how to configure zero-valued time to a specific value.
 ---
 
 ## Function

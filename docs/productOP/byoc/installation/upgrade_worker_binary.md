@@ -1,7 +1,7 @@
 ---
 id: upgrade_worker_binary
 title: Upgrade Worker (Binary)
-description: Upgrade BladePipe Worker in your local environment using Binary Package.
+description: It guides you to upgrade a BladePipe Worker in your local environment using Binary Package.
 ---
 This page describes how to upgrade a **BladePipe Worker** in your local environment using a **binary package**.
 

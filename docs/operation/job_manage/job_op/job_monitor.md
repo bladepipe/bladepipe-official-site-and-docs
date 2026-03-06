@@ -1,12 +1,13 @@
 ---
 id: job_monitor
 title: View Monitoring Charts
+description: It guides you to check the DataJob status and monitoring charts.
 ---
 
 This article introduces commonly used methods of task monitoring.
 
 ## DataJob Status
-The DataJob list displays the progress and status , which health can be monitored in three ways:
+The DataJob list displays the progress and status, which health can be monitored in three ways:
 
 - **Status**: Running tasks will show either "Normal" or "Abnormal" status. If "Abnormal" is displayed, the task currently has an exception that requires troubleshooting the root cause.
 - **Progress**: Running tasks will show their current progress, with automatic transitions between stages. If progress remains unchanged, progresses slowly, or a stage immediately turns red, the task has an exception requiring root cause identification.

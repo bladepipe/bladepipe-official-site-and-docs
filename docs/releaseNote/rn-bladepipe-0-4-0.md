@@ -1,6 +1,7 @@
 ---
 id: rn-bladepipe-0-4-0
 title: BladePipe 0.4.0
+description: BladePipe 0.4.0 supports TDengine-MySQL, MySQL-GreptimeDB, StarRocks-StarRocks, Kafka-Iceberg and other pipelines.
 ---
 
 Release Date: March 14, 2025

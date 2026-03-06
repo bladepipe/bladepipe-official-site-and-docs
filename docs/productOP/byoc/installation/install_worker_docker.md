@@ -1,7 +1,7 @@
 ---
 id: install_worker_docker
 title: Install Worker (Docker)
-description: Install BladePipe Worker in your local environment using Docker Compose.
+description: It guides you to install a BladePipe Worker in your local environment using Docker Compose.
 ---
 
 This page describes how to install a **BladePipe Worker** in your local environment using **Docker Compose**.

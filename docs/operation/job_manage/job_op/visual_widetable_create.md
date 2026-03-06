@@ -1,6 +1,7 @@
 ---
 id: visual_widetable_create
 title: Create Wide Tables
+description: Create wide tables in a visualized way in BladePipe.
 ---
 
 BladePipe supports a visual approach to wide table construction. By selecting a driving table, one or more lookup tables, and defining their join relationships, BladePipe completes wide table records through reverse lookups during both data migration and sync.

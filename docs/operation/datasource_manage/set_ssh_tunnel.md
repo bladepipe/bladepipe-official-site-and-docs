@@ -1,6 +1,7 @@
 ---
 id: set_ssh_tunnel
 title: Connect using SSH
+description: It tells how to connect BladePipe to connectors via an SSH tunnel.
 ---
 BladePipe supports connecting to data sources via an **SSH tunnel**. This guide explains how to configure SSH tunnel access in BladePipe.
 

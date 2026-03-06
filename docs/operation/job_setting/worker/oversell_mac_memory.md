@@ -1,7 +1,7 @@
 ---
 id: oversell_mac_memory
 title: Overcommit Memory
-description: This article describes how to adjust the oversold parameters for Workers on BladePipe.
+description: It describes how to adjust the overcommit ratio for Workers in BladePipe.
 ---
 
 BladePipe creates DataTask that pre-allocate memory, with the scheduling mechanism reserving 10% of the memory by default. This can lead to DataTask creation failures due to insufficient Worker memory (as determined by logic).

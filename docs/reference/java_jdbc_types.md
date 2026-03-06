@@ -1,6 +1,7 @@
 ---
 id: java_jdbc_types 
 title: Explanation on Java Types 
+description: This page explains the jdbcType attribute when defining schema for message, files and other connectors.
 ---
 
 In BladePipe, for DataSources or DataJobs that need to define schema, the **jdbcType** attribute of the column usually needs to be described, such as **message**, **Tunnel**, **file** and other data sources and related connections.

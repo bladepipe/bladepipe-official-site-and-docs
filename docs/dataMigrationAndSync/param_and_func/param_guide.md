@@ -1,7 +1,7 @@
 ---
 id: param_guide
 title: Overview
-description: General parameters and functions of BladePipe
+description: Overview of common parameters and their use cases in BladePipe
 ---
 - [Replace Zero Time Values 0](zero.md)
 - [Print Message Detail](print_message_detail.md)

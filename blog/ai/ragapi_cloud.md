@@ -1,7 +1,7 @@
 ---
 id: ragapi_cloud
-description: Show how to create RagApi with BladePipe
-title: Build A RAG Chatbot with OpenAI - A Beginner's Guide
+description: Bladepipe shows you how to build a RAG chatbot with OpenAI using a no-code RAG API. Set up vector search and Q&A workflows without LangChain.
+title: Build A RAG Chatbot with OpenAI - A No-Code Beginner's Guide
 authors: juantu
 tags:
   - ai
@@ -9,7 +9,7 @@ image: /img/blog/ai/ragapi_cloud.png
 date: 2025-06-06
 ---
 
-In [a previous article](https://doc.bladepipe.com/blog/ai/rag_concept), we explained key GenAI concepts like RAG, Function Calling, MCP, and AI Agents. Now the question is: how do we go from concepts to practice?  
+In [a previous article](https://www.bladepipe.com/blog/ai/rag_concept/), we explained key GenAI concepts like RAG, Function Calling, MCP, and AI Agents. Now the question is: how do we go from concepts to practice?  
 
 Currently, you can find plenty of RAG building tutorials online, but most of them are based on frameworks like LangChain, which still have a learning curve for beginners.
 
@@ -41,7 +41,7 @@ Here’s the overall workflow:
 
 ## Step-by-Step Setup
 ### Install BladePipe
-Follow the instructions in [Install Worker (Docker)](https://doc.bladepipe.com/productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](https://doc.bladepipe.com/productOP/byoc/installation/install_worker_binary) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
 
 ### Prepare Your Resources
 1. Log in [OpenAI API platform](https://openai.com/index/openai-api/) and create the API key. 
@@ -89,7 +89,7 @@ Log in to the [BladePipe Cloud](https://cloud.bladepipe.com). Click **DataSource
 
 **Add Files:**   
 
-Select **Self Maintenance** > **SshFile**. You can set [extra parmeters](https://doc.bladepipe.com/reference/file_schema_format).
+Select **Self Maintenance** > **SshFile**. You can set [extra parmeters](https://www.bladepipe.com/docs/reference/file_schema_format/).
 
 + **Address**: Fill in the machine IP where the files are stored and SSH port (default 22).
 + **Account & Password**: Username and password of the machine.
@@ -133,7 +133,7 @@ Choose **Self Maintenance** > **RagApi**.
 ![](../assets/blog/ai/ragapi_cloud/4.png)
 
 ### DataJob 1: Vectorize Your Data
-1. Go to **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Go to **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Choose source: **SshFile**, target: **PostgreSQL**, and test the connection.
 
 ![](../assets/blog/ai/ragapi_cloud/5.png)
@@ -157,7 +157,7 @@ Choose **Self Maintenance** > **RagApi**.
 ![](../assets/blog/ai/ragapi_cloud/10.png)
 
 ### DataJob 2: Build RagApi Service
-1. Go to **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Go to **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Choose source: **PostgreSQL**(with vectors stored), target: **RagApi**, and test the connection.
    
 ![](../assets/blog/ai/ragapi_cloud/11.png)

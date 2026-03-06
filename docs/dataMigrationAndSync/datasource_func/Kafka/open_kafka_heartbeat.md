@@ -1,6 +1,7 @@
 ---
 id:  open_kafka_heartbeat
 title: Enable Kafka Heartbeat
+description: It guides you to enable Kafka heartbeat so that BladePipe can display accurate latency.
 ---
 :::info
 This feature is also applicable to AutoMQ.

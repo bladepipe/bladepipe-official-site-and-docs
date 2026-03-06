@@ -1,7 +1,7 @@
 ---
 id: product_nouns
 title: Glossary
-description: Introduces on the terminologies included in BladePipe.
+description: It introduces the terminologies in BladePipe.
 ---
 
 This article introduces the terminologies in BladePipe.

@@ -1,7 +1,7 @@
 ---
 id: privs_for_oracle
 title:  Required Privileges for Oracle
-description: When BladePipe performs data migration synchronization with Oracle as source/peer, it needs to provide some permissions for the account.
+description: To replicate data from or to Oracle using BladePipe, an Oracle user needs certain privileges. 
 ---
 
 ## Overview

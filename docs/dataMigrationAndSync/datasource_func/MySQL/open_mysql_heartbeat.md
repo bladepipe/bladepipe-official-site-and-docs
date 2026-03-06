@@ -1,7 +1,7 @@
 ---
 id:  open_mysql_heartbeat
 title: Enable MySQL Heartbeat
-description: This page describes how to enable MySQL heartbeat in Incremental stage when there is no data written to MySQL, so that the latency can be displayed accurately.
+description: It tells how to enable MySQL heartbeat in Incremental stage when there is no data written to MySQL, so that the latency can be displayed accurately.
 ---
 :::info
 This page is also applicable to MariaDB, AuroraMySQL.

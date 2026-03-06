@@ -1,6 +1,6 @@
 ---
 id: mysql_starrocks_sync
-description: Describe how to use BladePipe build a MySQL-to-StarRocks data pipeline
+description: Step-by-step guide to loading data from MySQL to StarRocks with BladePipe, enabling fast and scalable real-time analytics.
 title: Load Data from MySQL to StarRocks in Minutes
 date: 2025-01-18
 authors: mumu 
@@ -33,7 +33,7 @@ Here's a step-by-step guidance.
 
 ### Step 1: Install BladePipe
 
-Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
 
 ### Step 2: Add DataSources
 
@@ -51,7 +51,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 
 ### Step 3: Create a DataJob
 
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Select the source and target DataSources, and click **Test Connection** to ensure the connection to the source and target DataSources are both successful.
    ![](../assets/blog/tech_share/mysql_sr/bp_mysql_sr_2.png)
 1. Select **Incremental** for DataJob Type, together with the **Full Data** option.

@@ -1,6 +1,7 @@
 ---
 id: rn-bladepipe-0-0-1
 title: BladePipe 0.0.1
+description: BladePipe 0.0.1 supports various new connections, like PostgreSQL to PostgreSQL data sync, MySQL to ClickHouse data pipelines, etc.
 ---
 
 Release Date: October 15, 2024 

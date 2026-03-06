@@ -155,7 +155,7 @@ const config: Config = {
 
   scripts: [
     { src: 'https://hm.baidu.com/hm.js?eba8aea455554532bd40288e83ed0125', async: true },
-    { src: '/analytics.js' },
+    // 谷歌分析仅 BladePipe 使用，此处不加载
     '/iconfont/datasource.js',
     '/js/ai-bot-config.js',
     { src: 'https://aibot.clougence.com/marked.min.js', defer: true },

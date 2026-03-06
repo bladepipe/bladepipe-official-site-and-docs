@@ -6,15 +6,19 @@ import { resetPwdUnLogin } from '@site/src/apis/user';
 import { sm2 } from 'sm-crypto';
 import CountDownButton from '@site/src/components/CountDownButton';
 import Link from '@docusaurus/Link';
+import Head from '@docusaurus/Head';
 import LoginSidebar from '@site/src/components/LoginSidebar';
 import PasswordTooltip from '@site/src/components/PasswordTooltip';
 import Translate, { translate } from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { getPageMeta } from '@site/src/utils/meta';
 
 export default function ResetPwd() {
   const { siteConfig } = useDocusaurusContext();
   const siteBrand = siteConfig.customFields?.siteBrand;
-  
+
+  const resetPwdMeta = getPageMeta('resetPwd');
+
   const [form] = Form.useForm();
   const [publicKey, setPublicKey] = useState('');
   const [resetPwdLoading, setResetPwdLoading] = useState(false);
@@ -122,7 +126,7 @@ export default function ResetPwd() {
           id: 'resetPwd.form.success',
           message: 'Password reset successfully'
         }));
-        window.location.href = '/login';
+        window.location.href = siteBrand === 'bladepipe' ? '/login/' : '/login';
       } else {
         setResetPwdError(res?.showMsg || translate({
           id: 'resetPwd.form.error',
@@ -143,6 +147,11 @@ export default function ResetPwd() {
   };
 
   return (
+    <>
+    <Head>
+      <title>{resetPwdMeta.title}</title>
+      <meta name="description" content={resetPwdMeta.description} />
+    </Head>
     <div className="w-full min-h-screen flex overflow-hidden">
       <LoginSidebar 
         title={siteBrand === 'clougence' ? (
@@ -462,7 +471,7 @@ export default function ResetPwd() {
             {/* 底部按钮和链接 - 响应式设计 */}
             <div className="w-full h-auto flex flex-col gap-[16px] justify-start items-center">
               <div className="w-full h-auto flex justify-center items-start">
-                <Link to="/login" className="text-[14px] leading-[20px] text-black text-center hover:underline">
+                <Link to={siteBrand === 'bladepipe' ? '/login/' : '/login'} className="text-[14px] leading-[20px] text-black text-center hover:underline">
                   <Translate id="resetPwd.form.backTo">Back to</Translate> <span className="font-bold"><Translate id="resetPwd.form.backToLogin">Log in</Translate></span>
                 </Link>
               </div>
@@ -501,5 +510,6 @@ export default function ResetPwd() {
         </div>
       )}
     </div>
+    </>
   );
 }

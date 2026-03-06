@@ -1,7 +1,7 @@
 ---
 id: perf_param
 title: Optimize Performance
-description: BladePipe DataJobs can be configured with common performance parameters to improve the performance of task execution. Adjusting the parameters to improve the performance requires several attempts according to the specific data load and experience to achieve the desired effect. This article does not specifically teach how to do performance tuning, but only shows the function of performance parameters.
+description: Users can do performance tuning through modifying several parameters. This page explains these parameters. 
 ---
 
 ## Function

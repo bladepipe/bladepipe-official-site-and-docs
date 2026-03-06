@@ -1,7 +1,7 @@
 ---
 id: saas_mode
-description: BladePipe has officially launched its new SaaS Managed mode.
-title: BladePipe SaaS Managed is Now Available
+description: BladePipe launches SaaS Managed mode for secure, zero-deployment real-time data replication across clouds and regions—no infrastructure or maintenance required.
+title: BladePipe SaaS Managed Mode is Now Available
 date: 2025-10-20
 authors: mumu
 tags:

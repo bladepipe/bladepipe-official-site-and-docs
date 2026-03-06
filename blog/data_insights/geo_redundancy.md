@@ -1,6 +1,6 @@
 ---
 id: geo_redundancy
-description: Introduce what geo-redundancy is, how it works and how to use BladePipe to realize geo-redundancy.
+description: Understand what geo-redundancy is, how geo replication works, and how to design active-active or active-passive architectures for high availability.
 title: What is Geo-Redundancy? A Comprehensive Guide
 date: 2025-03-27
 authors: junyu 
@@ -14,7 +14,7 @@ Geo-redundancy is the practice of replicating and storing your critical IT infra
 
 ![](../assets/blog/data_insights/geo_redundancy/geo_redundancy.png)
 
-## Why Geo-Redundancy is Neeeded?
+## Why Geo-Redundancy is Needed?
 The main aim is to ensure continuous availability and resilience against local failures or disasters. Imagine that your system is built in a single data center or region, what will happen if a power outage hits the region? A catastrophe for your business. However, if you replicates systems and data in different regions in advance, your data will failover to another available data center, and the service will awalys be online. 
 
 Another vital purpose of geo-redundancy is backing up and data protection. Compared with single-location data storage, geo-redundancy safeguards data by replicating and maintaining copies of data in multiple places, minimizing the risk of data loss.
@@ -54,9 +54,9 @@ Setting up and maintaining a running geo-redundant system is a complex process, 
 
 - **Real-time Data Sync**: BladePipe replicates data between databases, data warehouses and other data sources using change data capture (CDC) technique. Only change data is replicated, making latency extremely low.
 
-- **Bidirectional Data Flow**: BladePipe can realize [two-way data sync](https://doc.bladepipe.com/bestPractice/mysql_loop_data_sync) without circular data replication. This functionality plays a key role in realizing Active-Active geo-redundancy.
+- **Bidirectional Data Flow**: BladePipe can realize [two-way data sync](https://www.bladepipe.com/docs/bestPractice/mysql_loop_data_sync/) without circular data replication. This functionality plays a key role in realizing Active-Active geo-redundancy.
 
-- **Data Verification and Correction**: The built-in [data verification and correction](https://doc.bladepipe.com/operation/job_manage/create_job/create_period_verification_correction_job) functionality helps to check the data on a regular basis, safeguarding data integrity and consistency.
+- **Data Verification and Correction**: The built-in [data verification and correction](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_period_verification_correction_job/) functionality helps to check the data on a regular basis, safeguarding data integrity and consistency.
 
 - **User-friendly Interface**: All operations in BladePipe is done in an intuitive way by clicking the mouse. No code requirements.
 

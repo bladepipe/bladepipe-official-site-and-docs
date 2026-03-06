@@ -1,6 +1,7 @@
 ---
 id: create_similar_job
 title: Create Similar DataJobs
+description: This page guides you to create a similar pipeline quickly with a few clicks in BladePipe.
 ---
 
 In some scenarios, it may be very complex for users to select and configure tables when creating a DataJob. BladePipe provides a "Create Similar DataJob" feature, which allows users to quickly create a new DataJob with similar configurations and subscription based on a previously created DataJob. This can greatly improve the efficiency of DataJob creation.

@@ -1,6 +1,7 @@
 ---
 id: rn-bladepipe-0-1-0
 title: BladePipe 0.1.0
+description: BladePipe 0.1.0 supports TiDB 4.x, and optimized data sync from StarRocks.
 ---
 
 Release Date: October 31, 2024 

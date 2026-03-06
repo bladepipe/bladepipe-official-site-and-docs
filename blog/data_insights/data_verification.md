@@ -1,7 +1,7 @@
 ---
 id: data_verification
-description: Introduce what data verification is, why it is needed and how to use BladePipe to verify and correct data.
-title: Data Verification - Definition, Benefits and Best Practice 
+description: Data verification ensures data is accurately and consistently transferred from source to target. Learn why it matters and best practices for data migration.
+title: Data Verification - Definition, Benefits and Best Practice
 date: 2025-03-13
 authors: mumu 
 tags:
@@ -53,7 +53,7 @@ With BladePipe, data can be verified and corrected in a few clicks.
 
 ### Step 1: Install BladePipe
 
-Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
 
 ### Step 2: Add DataSources
 
@@ -64,7 +64,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 
 ### Step 3: Create a DataJob
 
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task/).
 
 2. Select the source and target DataSources, and click **Test Connection** to ensure the connection to the source and target DataSources are both successful.
 

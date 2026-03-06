@@ -25,7 +25,7 @@ A typical CDC system:
 + Preserves the order of changes
 + Delivers changes in a queryable or streamable form
 
-Compared to batch-based approaches (like full table dumps), [CDC tools](http://localhost:3000/blog/data_insights/top_cdc_tool/) significantly reduces database load and latency, making it suitable for real-time data pipelines.
+Compared to batch-based approaches (like full table dumps), [CDC tools](https://www.bladepipe.com/blog/data_insights/top_cdc_tool/) significantly reduces database load and latency, making it suitable for real-time data pipelines.
 
 ## What Is CDC in SQL Server?
 **SQL Server CDC** is a built-in feature that tracks row-level changes in a database and makes them available for incremental consumption. Instead of repeatedly querying tables to figure out what changed, CDC captures inserts, updates, and deletes directly from the SQL Server **transaction log**.

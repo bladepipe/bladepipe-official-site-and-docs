@@ -1,6 +1,6 @@
 ---
 id: verification_and_correction
-description: introduces how to use BladePipe to perform data verification and correction
+description: It introduces how to use BladePipe to perform data verification and correction.
 title: Data Verification and Correction
 ---
 

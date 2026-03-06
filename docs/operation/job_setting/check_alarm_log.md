@@ -1,6 +1,7 @@
 ---
 id: check_alarm_log
 title: View Alert Logs
+description: It tells how to view alert logs so that you can track the alert history.
 ---
 
 BladePipe provides alert logs so that you can have a clear picture of the alert history. This article describes how to view the alert logs in the BladePipe Cloud.

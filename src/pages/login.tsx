@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import Link from '@docusaurus/Link';
+import Head from '@docusaurus/Head';
 import Translate, { translate } from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { Button } from 'antd';
+import { getPageMeta } from '@site/src/utils/meta';
 import LoginSidebar from '@site/src/components/LoginSidebar';
 import { getPublicKey } from '@site/src/apis/constant';
 import { sm2 } from 'sm-crypto';
@@ -157,7 +159,14 @@ export default function Login() {
     return CloudCanalLoginForm;
   }, [siteBrand]);
 
+  const loginMeta = getPageMeta('login');
+
   return (
+    <>
+    <Head>
+      <title>{loginMeta.title}</title>
+      <meta name="description" content={loginMeta.description} />
+    </Head>
     <div className="w-full min-h-screen flex overflow-hidden">
       <LoginSidebar
         title={<Translate id="login.sidebar.title">Your Free 90-day Trial Includes</Translate>}
@@ -234,11 +243,11 @@ export default function Login() {
                 <div className="w-full h-auto flex flex-col sm:flex-row sm:justify-between items-start gap-2 sm:gap-0">
                   <p className="text-[14px] leading-[20px] text-black">
                     <Translate id="login.link.noAccount">Don't have an account?</Translate>{' '}
-                    <Link to="/register" className="text-[#0087c7] font-bold hover:underline">
+                    <Link to={siteBrand === 'bladepipe' ? '/register/' : '/register'} className="text-[#0087c7] font-bold hover:underline">
                       <Translate id="login.link.signUp">Sign Up</Translate>
                     </Link>
                   </p>
-                  <Link to="/resetPwd" className="text-[14px] leading-[20px] text-black hover:underline">
+                  <Link to={siteBrand === 'bladepipe' ? '/resetPwd/' : '/resetPwd'} className="text-[14px] leading-[20px] text-black hover:underline">
                     <Translate id="login.link.forgotPassword">Forgot your password?</Translate>
                   </Link>
                 </div>
@@ -282,5 +291,6 @@ export default function Login() {
         </div>
       </div>
     </div>
+    </>
   );
 }

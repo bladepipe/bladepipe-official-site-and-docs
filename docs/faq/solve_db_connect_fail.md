@@ -1,7 +1,7 @@
 ---
 id: solve_db_connect_fail
 title: DataSource Connection Failures
-description: When adding a data source or creating a task in BladePipe, the test connection may sometimes fail due to various reasons. This article outlines the steps for troubleshooting.
+description: When adding a connector or creating a task in BladePipe, the test connection may fail due to various reasons. This page tells how to solve the issue.
 ---
 When adding a data source or creating a task in BladePipe, the **Test connection** may sometimes fail due to various reasons. This article outlines the steps for troubleshooting.
 

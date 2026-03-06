@@ -9,10 +9,10 @@ description: CloudCanal可以通过申请许可证来获取任务数容量和时
 - **许可证**：用于激活 CloudCanal 系统，包含授权时长和授权任务数等。
 
 ## 安装 CloudCanal 
-参考 [Linux/Mac 安装文档](../productOP/docker/install_linux_macos)，在官网[下载 CloudCanal](https://www.clougence.com?src=cc-doc) 并安装。
+参考 [全新安装（Docker）](../productOP/docker/install_all_in_one_docker.mdx)文档，在[官网](https://www.clougence.com?src=cc-doc)下载安装 CloudCanal。
 
 ## 获取申请码
-1. 进入 CloudCanal 控制台，点击右上角 **未激活** 文本。
+1. 进入 CloudCanal 控制台，点击右上角 **未激活/已激活** 文本。
 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/license/1_click_inactivated.png)
 2. 弹窗显示 **申请码**，点击 **复制** 按钮或直接选中复制文本。
 ![](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/license/2_get_apply_code.png)

@@ -1,6 +1,7 @@
 ---
 id: worker_log
 title: View Worker Logs
+description: It tells how to check the logs of BladePipe Workers for easy troubleshooting.
 ---
 BladePipe allows you to view Worker logs in the BladePipe Cloud. The logs can help you understand the current situation of the running Workers.
 

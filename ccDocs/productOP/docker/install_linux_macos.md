@@ -127,10 +127,10 @@ description: 本文档主要介绍如何在 Linux/MacOS 系统下，全新安装
 ### 开始使用
 
 1. 登录 CloudCanal 控制台：
-   - 控制台地址(请使用 **Chrome** 浏览器访问): **http://`${你部署CloudCanal的机器ip}`:8111**
-   - 默认账号: **test@clougence.com**
-   - 默认密码: **clougence2021**
-   - 默认验证码: **777777**
+   - 控制台地址(请使用 **Chrome** 浏览器访问): `http://${你部署CloudCanal的机器ip}:8111`
+   - 默认账号: `test@clougence.com`
+   - 默认密码: `clougence2021`
+   - 默认验证码: `777777`
 
     :::info
     推荐参考以下文档修改系统敏感信息：

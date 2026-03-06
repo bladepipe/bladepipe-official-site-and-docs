@@ -1,7 +1,7 @@
 ---
 id: create_data_filter_job
 title: Data Filtering
-description: introduces how to create a DataJob with data filtering
+description: BladePipe supports data filtering in a pipeline. Only filtered data is delivered to the target system, saving computing resources.
 ---
 
 BladePipe supports data filtering for Incremental DataJobs to address different scenarios and requirements.

@@ -218,10 +218,10 @@ Log in to the machine to deploy BladePipe as the root user.
    
 ## Log in to the Console
 
-- Console Address (Please visit it in Chrome): **http://`${your_bladepipe_console_ip}`:8111**
-- Default username: **test@clougence.com**
-- Default password: **clougence2021**
-- Default verification code: **777777**
+- Console Address (Please visit it in Chrome): `http://${your_bladepipe_console_ip}:8111`
+- Default username: `test@clougence.com`
+- Default password: `clougence2021`
+- Default verification code: `777777`
   :::info
   It is recommended to change the credentials according to the following docs:
     - [Change password](../maintenance/change_on_premise_password.md)

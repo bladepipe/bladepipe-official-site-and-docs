@@ -4,11 +4,14 @@ import {EyeInvisibleOutlined, EyeTwoTone, CheckCircleOutlined, CloseCircleOutlin
 import {sm2} from 'sm-crypto';
 import {useConstantStore} from '@site/src/store/constant';
 import {useHistory} from '@docusaurus/router';
-import {registerFromMarket} from '@site/src/apis/user'; // 你需要实现该接口
+import {registerFromMarket} from '@site/src/apis/user';
 import CountDownButton from '@site/src/components/CountDownButton';
 import Link from '@docusaurus/Link';
+import Head from '@docusaurus/Head';
 import LoginSidebar from '@site/src/components/LoginSidebar';
 import Translate, { translate } from '@docusaurus/Translate';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { getPageMeta } from '@site/src/utils/meta';
 
 function getAgentId(callback: (hash: string) => void) {
     try {
@@ -58,6 +61,8 @@ const PasswordTips = ({value}: { value: string }) => {
 };
 
 export default function RegisterFromMarket() {
+    const { siteConfig } = useDocusaurusContext();
+    const siteBrand = siteConfig.customFields?.siteBrand as string;
     const [form] = Form.useForm();
     const [registerLoading, setRegisterLoading] = useState(false);
     const [registerError, setRegisterError] = useState('');
@@ -122,7 +127,7 @@ export default function RegisterFromMarket() {
             }
             if (success) {
                 message.success('注册成功');
-                history.push('/login');
+                history.push(siteBrand === 'bladepipe' ? '/login/' : '/login');
             } else {
                 form.setFields([
                     {
@@ -155,7 +160,14 @@ export default function RegisterFromMarket() {
         return Promise.resolve();
     };
 
+    const registerFromMarketMeta = getPageMeta('registerFromMarket');
+
     return (
+        <>
+        <Head>
+            <title>{registerFromMarketMeta.title}</title>
+            <meta name="description" content={registerFromMarketMeta.description} />
+        </Head>
         <div className="w-full min-h-screen flex overflow-hidden">
             <LoginSidebar 
                 title="Your Free 90-day Trial Includes"
@@ -533,7 +545,7 @@ export default function RegisterFromMarket() {
                                 <div className="w-full h-auto flex justify-center items-start">
                                     <p className="text-[14px] leading-[20px] text-black text-center">
                                         <Translate id="register.form.haveAccount">Already have an account?</Translate>{' '}
-                                        <Link to="/login" className="text-[#0087c7] font-semibold hover:underline">
+                                        <Link to={siteBrand === 'bladepipe' ? '/login/' : '/login'} className="text-[#0087c7] font-semibold hover:underline">
                                             <Translate id="register.form.signIn">Log in</Translate>
                                         </Link>
                                     </p>
@@ -546,5 +558,6 @@ export default function RegisterFromMarket() {
             
 
         </div>
+        </>
     );
 } 

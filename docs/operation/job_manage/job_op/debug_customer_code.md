@@ -1,7 +1,7 @@
 ---
 id: debug_customer_code
 title: Debug Custom Code
-description: introduces how to enable debug mode and troubleshoot code problems when using BladePipe Custom Code.
+description: It displays how to enable debug mode and troubleshoot code problems when using BladePipe Custom Code.
 ---
 
 This article introduces how to enable debug mode and troubleshoot code problems when using BladePipe custom code.

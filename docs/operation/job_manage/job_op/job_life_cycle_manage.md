@@ -1,6 +1,7 @@
 ---
 id: job_life_cycle_manage
 title: Manage Lifecycle
+description: It guides you how to start, stop, delete, mount, unmount, rerun and schedule a DataJob.
 ---
 This page describes the management of DataJob lifecycle, including start/stop DataJob, delete DataJob and other operations.
 

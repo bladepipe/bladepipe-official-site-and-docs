@@ -1,6 +1,7 @@
 ---
 id: add_azure_ds
 title: Add Azure DataSources
+description: It describes how to add an Azure data source as a connector in BladePipe.
 ---
 
 BladePipe supports both **self-managed DataSources** and **cloud DataSources**. This page introduces how to add a **Azure DataSource** to BladePipe.

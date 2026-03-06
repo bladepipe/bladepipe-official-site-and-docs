@@ -1,6 +1,6 @@
 ---
 id: oracle_clickhouse_sync
-description: This tutorial describes how to move data from Oracle to ClickHouse with BladePipe
+description: Migrate Oracle data to ClickHouse in minutes and unlock fast OLAP analytics. This guide covers schema migration, optimized writes, and data verification.
 title: Move Data from Oracle to ClickHouse in Minutes
 date: 2025-03-05
 authors: juantu 
@@ -102,7 +102,7 @@ FROM `console`.`worker_stats` final;
 
 ### Step 1: Install BladePipe
 
-Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
 
 ### Step 2: Add DataSources
 
@@ -112,7 +112,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 ![](../assets/blog/tech_share/oracle_ch_sync/oracle_ch_1.png)
 
 ### Step 3: Create a DataJob
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
    
 2. Select the source and target DataSources, and click **Test Connection** to ensure the connection to the source and target DataSources are both successful.
    
@@ -150,6 +150,6 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
    Alternatively, you can run the `create view xxx_v as select * from xxx final` command to create a view and perform queries on the view to ensure the data is fully merged.
    :::
 
-2. [Create a Verification DataJob](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_period_verification_correction_job). Once the Verification DataJob is completed, review the results to confirm that the data in ClickHouse is the same as that in Oracle.
+2. [Create a Verification DataJob](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_period_verification_correction_job/). Once the Verification DataJob is completed, review the results to confirm that the data in ClickHouse is the same as that in Oracle.
    
    ![](../assets/blog/tech_share/oracle_ch_sync/oracle_ch_8.png)

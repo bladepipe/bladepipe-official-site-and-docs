@@ -29,7 +29,7 @@ Let’s break this down step by step.
 ## A Simple Analogy to Understand the Difference
 To make the difference easier to grasp, let’s step away from technical terms for a moment and look at a simple, everyday analogy.
 ### Data Ingestion
-Imagine going to different supermarkets and markets (your [data sources](https://https://www.bladepipe.com/connector/)) to buy vegetables, meat, and ingredients (raw data).
+Imagine going to different supermarkets and markets (your [data sources](https://www.bladepipe.com/connector/)) to buy vegetables, meat, and ingredients (raw data).
 
 **Data ingestion is the act of bringing all those ingredients into your kitchen (a data lake or storage system).**
 

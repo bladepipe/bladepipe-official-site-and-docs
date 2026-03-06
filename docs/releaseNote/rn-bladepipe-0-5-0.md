@@ -1,6 +1,7 @@
 ---
 id: rn-bladepipe-0-5-0
 title: BladePipe 0.5.0
+description: BladePipe 0.5.0 supports on-premise deployment, and building PGVector-based RAG chabots.
 ---
 
 Release Date: April 25, 2025
@@ -10,8 +11,8 @@ Version: 0.5.0
 ## Highlights
 
 - Support on-premise deployment.
-- [Provide RAG services using PGVector and large languange models (data source type: RagApi)](../bestPractice/pg_vector_to_rag_api), compatible with standard OpenAI protocols, and support operations using Cherry Studio.
-- Support [data migration from files (data source type: SshFile, S3File, OssFile) to PostgreSQL and text embedding using embedding models](../bestPractice/file_to_aliyun_pg_vector). Combined with RagApi, RAG applications based on private data can be built.
+- [Provide RAG services using PGVector and large languange models (data source type: RagApi)](https://www.bladepipe.com/docs/bestPractice/pg_vector_to_rag_api/), compatible with standard OpenAI protocols, and support operations using Cherry Studio.
+- Support [data migration from files (data source type: SshFile, S3File, OssFile) to PostgreSQL and text embedding using embedding models](https://www.bladepipe.com/docs/bestPractice/file_to_aliyun_pg_vector/). Combined with RagApi, RAG applications based on private data can be built.
 - Support PostgreSQL text embedding using embedding models and storing embeddings in PGVector. 
 - Support MySQL text embedding using embedding models and storing embeddings in PGVector. 
 - Support adding OpenAI, Alibaba Cloud DashScope, DeepSeek, HuggingFace, Cohere, LocalAI and other LLM type data sources for text embedding and RagApi services.
@@ -28,7 +29,7 @@ Version: 0.5.0
 
 ## New Features
 
-- Support [POSIX file system files obtained over SSH (SshFile), AWS S3 files (S3File), Alibaba Cloud OSS files (OssFile) data sources](../reference/file_schema_format).
+- Support [POSIX file system files obtained over SSH (SshFile), AWS S3 files (S3File), Alibaba Cloud OSS files (OssFile) data sources](https://www.bladepipe.com/docs/reference/file_schema_format/).
 - Support full data migration from text files (txt, markdown, json, .java, .c, etc.), Excel, CSV to MySQL or PostgreSQL.
 - Support MariaDB v11.8 (actually BladePipe is compatible with all 11.x versions).
 - Support Aliyun RocketMQ v5.0.

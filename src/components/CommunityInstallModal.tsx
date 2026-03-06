@@ -77,7 +77,12 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
     if (!isUserLogin()) {
       // 设置来源标识，登录后返回首页并打开下载弹窗
       localStorage.setItem('loginSource', 'download');
-      window.location.href = '/login';
+      // 如果sitebrand为bladepipe，则路由末尾加/
+      if (siteBrand === 'bladepipe') {
+        window.location.href = '/login/';
+      } else {
+        window.location.href = '/login';
+      }
       return;
     }
     try {
@@ -138,13 +143,47 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
         </button>
         
         {/* 标题 */}
-        <div className='text-center text-[24px] font-bold mb-[30px]'>
+        <div className='text-center text-[24px] font-bold mb-[16px]'>
           {siteBrand === 'clougence' ? (
             <Translate id='banner.communityModalTitle.clougence'>CloudCanal Free Community Edition</Translate>
           ) : (
             <Translate id='banner.communityModalTitle'>BladePipe Free Community Edition</Translate>
           )}
         </div>
+
+        {/* 免费续期提示 */}
+        {/*{!showDownloadInfo && (*/}
+        {/*  <div className='mb-[16px]'>*/}
+        {/*    <div className='flex items-center justify-center gap-[16px] flex-wrap'>*/}
+        {/*      <div className='flex items-center gap-[6px]'>*/}
+        {/*        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">*/}
+        {/*          <path d="M8 1C4.13401 1 1 4.13401 1 8C1 11.866 4.13401 15 8 15C11.866 15 15 11.866 15 8C15 4.13401 11.866 1 8 1ZM11.0607 6.56066L7.56066 10.0607C7.26777 10.3536 6.79289 10.3536 6.5 10.0607L4.93934 8.5C4.64645 8.20711 4.64645 7.73223 4.93934 7.43934C5.23223 7.14645 5.70711 7.14645 6 7.43934L7.03033 8.46967L9.93934 5.56066C10.2322 5.26777 10.7071 5.26777 11 5.56066C11.2929 5.85355 11.2929 6.32843 11.0607 6.56066Z" fill="#0087c7"/>*/}
+        {/*        </svg>*/}
+        {/*        <span className='text-[15px] font-bold' style={{ color: '#005f8c' }}>*/}
+        {/*          <Translate id='banner.communityModal.freeTag.foreverFree'>Forever Free</Translate>*/}
+        {/*        </span>*/}
+        {/*      </div>*/}
+        {/*      <span className='text-[16px] select-none' style={{ color: '#b8dff0' }}>|</span>*/}
+        {/*      <div className='flex items-center gap-[6px]'>*/}
+        {/*        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">*/}
+        {/*          <path d="M8 1C4.13401 1 1 4.13401 1 8C1 11.866 4.13401 15 8 15C11.866 15 15 11.866 15 8C15 4.13401 11.866 1 8 1ZM11.0607 6.56066L7.56066 10.0607C7.26777 10.3536 6.79289 10.3536 6.5 10.0607L4.93934 8.5C4.64645 8.20711 4.64645 7.73223 4.93934 7.43934C5.23223 7.14645 5.70711 7.14645 6 7.43934L7.03033 8.46967L9.93934 5.56066C10.2322 5.26777 10.7071 5.26777 11 5.56066C11.2929 5.85355 11.2929 6.32843 11.0607 6.56066Z" fill="#0087c7"/>*/}
+        {/*        </svg>*/}
+        {/*        <span className='text-[15px] font-bold' style={{ color: '#005f8c' }}>*/}
+        {/*          <Translate id='banner.communityModal.freeTag.unlimitedRenewal'>Unlimited Renewal</Translate>*/}
+        {/*        </span>*/}
+        {/*      </div>*/}
+        {/*      <span className='text-[16px] select-none' style={{ color: '#b8dff0' }}>|</span>*/}
+        {/*      <div className='flex items-center gap-[6px]'>*/}
+        {/*        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0">*/}
+        {/*          <path d="M8 1C4.13401 1 1 4.13401 1 8C1 11.866 4.13401 15 8 15C11.866 15 15 11.866 15 8C15 4.13401 11.866 1 8 1ZM11.0607 6.56066L7.56066 10.0607C7.26777 10.3536 6.79289 10.3536 6.5 10.0607L4.93934 8.5C4.64645 8.20711 4.64645 7.73223 4.93934 7.43934C5.23223 7.14645 5.70711 7.14645 6 7.43934L7.03033 8.46967L9.93934 5.56066C10.2322 5.26777 10.7071 5.26777 11 5.56066C11.2929 5.85355 11.2929 6.32843 11.0607 6.56066Z" fill="#0087c7"/>*/}
+        {/*        </svg>*/}
+        {/*        <span className='text-[14px] font-bold' style={{ color: '#005f8c' }}>*/}
+        {/*          <Translate id='banner.communityModal.freeTag.zeroCost'>No Credit Cards</Translate>*/}
+        {/*        </span>*/}
+        {/*      </div>*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*)}*/}
         
         {/* Tab栏 - 撑满整个弹窗宽度 */}
         {!showDownloadInfo && (
@@ -252,6 +291,18 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
                 >
                   <Translate id='banner.quickStartLink'>Quick Start</Translate>
                 </span>
+                <span className="mx-[6px] text-black/40 select-none">|</span>
+                <span
+                  className="text-[#0087c7] hover:text-[#0070a6] underline cursor-pointer"
+                  onClick={() => {
+                    const licenseUrl = siteBrand === 'clougence'
+                      ? '/docs/license/license_use'
+                      : '/docs/license/license_use/#get-apply-code';
+                    window.open(licenseUrl, '_blank');
+                  }}
+                >
+                  <Translate id='banner.freeRenewLink'>Free Renewal</Translate>
+                </span>
               </div>
             </>
           )}
@@ -304,6 +355,18 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
                 >
                   <Translate id='banner.quickStartLink'>Quick Start</Translate>
                 </span>
+                <span className="mx-[6px] text-black/40 select-none">|</span>
+                <span
+                  className="text-[#0087c7] hover:text-[#0070a6] underline cursor-pointer"
+                  onClick={() => {
+                    const licenseUrl = siteBrand === 'clougence'
+                      ? 'https://www.clougence.com/docs/license/license_use'
+                      : '/docs/license/license_use/#get-apply-code';
+                    window.open(licenseUrl, '_blank');
+                  }}
+                >
+                  <Translate id='banner.freeRenewLink'>Free Renewal</Translate>
+                </span>
               </div>
             </>
           )}
@@ -346,6 +409,18 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
                 >
                   <Translate id='banner.quickStartLink'>Quick Start</Translate>
                 </span>
+                <span className="mx-[6px] text-black/40 select-none">|</span>
+                <span
+                  className="text-[#0087c7] hover:text-[#0070a6] underline cursor-pointer"
+                  onClick={() => {
+                    const licenseUrl = siteBrand === 'clougence'
+                      ? 'https://www.clougence.com/docs/license/license_use'
+                      : '/docs/license/license_use/#get-apply-code';
+                    window.open(licenseUrl, '_blank');
+                  }}
+                >
+                  <Translate id='banner.freeRenewLink'>Free Renewal</Translate>
+                </span>
               </div>
             </>
           )}
@@ -355,7 +430,7 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
         
         {/* 底部关闭按钮 - 仅在非下载信息视图时显示 */}
         {!showDownloadInfo && (
-          <div className='mt-[30px] flex justify-center'>
+          <div className='mt-[20px] flex justify-center'>
             <button
               className='w-full h-[40px] bg-[#0087c7] rounded-[8px] flex items-center justify-center text-white text-[16px] font-bold hover:bg-[#0070a6] transition-colors'
               style={{ border: 'none', outline: 'none' }}
@@ -374,7 +449,7 @@ function DownloadInfoView({
   info, 
   loading, 
   onBack, 
-  onClose 
+  onClose,
 }: { 
   info: any; 
   loading?: boolean; 

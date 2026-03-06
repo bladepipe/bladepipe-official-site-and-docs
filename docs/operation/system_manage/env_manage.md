@@ -1,6 +1,7 @@
 ---
 id: env_manage
 title: Manage Environment
+description: It tells how to set up, configure and delete an environment.
 ---
 BladePipe allows you to set up custom environments for DataSources to differentiate the business scenarios of the DataSources, which makes it easy for you to identify and manage the DataSources.
 

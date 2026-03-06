@@ -15,7 +15,7 @@ export async function loginCheckAndRedirect(onSuccess: () => void, loginSource?:
       if (loginSource) {
         localStorage.setItem('loginSource', loginSource);
       }
-      window.location.href = '/login';
+      window.location.href = '/login/';
     }
   }
 }

@@ -1,6 +1,7 @@
 ---
 id: privs_for_hana
 title:  Required Privileges for SAP HANA
+description: To migrate and synchronize data from or to SAP HANA using BladePipe, a SAP HANA user needs to have certain privileges.
 ---
 
 This article describes the permissions required by BladePipe for database accounts when SAP HANA is used as the Source or Target DataSource for migrating or synchronizing data.

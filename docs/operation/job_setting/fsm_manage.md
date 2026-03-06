@@ -1,6 +1,7 @@
 ---
 id: fsm_manage
 title: Manage FSM
+description: It describes how to view, activate and inactivate a finite-state machine (FSM).
 ---
 BladePipe controls the automatic flow of DataTasks by virtue of a finite-state machine (FSM). For example, the stage of a DataJob moves from a Full Data DataTask to an Incremental DataTask is a process of DataTask flow. This article describes how to view and manage FSMs.
 

@@ -1,7 +1,7 @@
 ---
 id: product_price
 title: Pricing
-description: BladePipe Private Deployments are available in three editions, including Community, Standard, and Enterprise. This article introduces the pricing and differences between the different editions.
+description: BladePipe has different pricing models for Cloud and Enterprise plans. Cloud is based on pay-as-you-go model, and Enterprise is license-based pricing model.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -94,7 +94,7 @@ BladePipe Cloud accepts payment through **Stripe** by using it's subscription.
  <TabItem value="enterprise" label="Enterprise">
 ### Payment
 1. Log in to [BladePipe](https://www.bladepipe.com/) and download the BladePipe On-Premise package. 
-2. [Install BladePipe On-Premise](../productOP/onPremise/installation/install_all_in_one_docker.md).
+2. [Install BladePipe On-Premise](https://www.bladepipe.com/docs/productOP/onPremise/installation/install_all_in_one_docker/).
 3. [Get License](../license/license_use.md) and activate BladePipe.
 
 :::info

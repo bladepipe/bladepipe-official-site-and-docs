@@ -1,7 +1,7 @@
 ---
 id: change_console_config
 title: Configure Console
-description: This page introduces how to change the Console configuration. 
+description: It introduces how to change the Console configuration. 
 ---
 
 This page introduces how to change the BladePipe Console configuration. 

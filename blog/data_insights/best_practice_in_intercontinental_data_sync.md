@@ -1,6 +1,6 @@
 ---
 id: best_practice_in_intercontinental_data_sync
-description: This article explores the best practice for intercontinental data migration and sync, blending theory with hands-on insights from real-world experiments.
+description: Intercontinental data sync is slow and unpredictable? Discover how BladePipe optimizes cross-region data migration using tested performance tuning techniques.
 title: Intercontinental Data Sync - A Comparative Study for Performance Tuning
 date: 2025-06-17
 authors: junyu 

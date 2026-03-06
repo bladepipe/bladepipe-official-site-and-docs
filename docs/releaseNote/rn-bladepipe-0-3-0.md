@@ -1,6 +1,7 @@
 ---
 id: rn-bladepipe-0-3-0
 title: BladePipe 0.3.0
+description: BladePipe 0.3.0 supports MySQL-Pulsar pipeline, and REST + S3 formats for target Iceberg instances.
 ---
 
 Release Date: January 21, 2025
@@ -18,7 +19,7 @@ Version: 0.3.0
 * Allow to clear target tables (without deleting stored data) and re-create target tables for Iceberg DataSource.
 * Support time zone conversion for target Iceberg DataSource. No conversion is done by default (parameters: enableTimeZoneProcess, Timezone).
 * Support MongoDB 8.X version as both source and target DataSource.
-* Support [ChangeStream heartbeat for source MongoDB and AWS DocumentDB DataSources](../dataMigrationAndSync/datasource_func/MongoDB/open_mongodb_heartbeat) (parameters: dbHeartbeatEnable, dbHeartbeatCollection, dbHeartbeatIntervalSec).
+* Support [ChangeStream heartbeat for source MongoDB and AWS DocumentDB DataSources](https://www.bladepipe.com/docs/dataMigrationAndSync/datasource_func/MongoDB/open_mongodb_heartbeat/) (parameters: dbHeartbeatEnable, dbHeartbeatCollection, dbHeartbeatIntervalSec).
 * Support Unique Index in schema migration from Oracle to Oracle. 
 * Support RANGE COLUMNS partition in MySQL - MySQL schema migration.
 * Migrate schema (including clearing target tables and re-creating target tables) from TiDB to TiDB and from MySQL to TiDB using new architecture.

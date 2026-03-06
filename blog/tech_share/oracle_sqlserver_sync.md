@@ -39,13 +39,13 @@ Here are two common ways to replicate Oracle to SQL Server.
 ### Method 1: Automated way using BladePipe
 To migrate data from Oracle to SQL Server quickly and reliably, an automated approach is usually the safest place to start. This is where BladePipe fits in.   
 
-[**BladePipe**](https://www.bladepipe.com/) is a [real-time,](https://www.bladepipe.com/real-time-analytics/) end-to-end data replication tool. It supports automated replication from [Oracle](https://www.bladepipe.com/docs/dataMigrationAndSync/connection/oracle2) to SQL Server in just a few clicks. 
+[**BladePipe**](https://www.bladepipe.com/) is a [real-time,](https://www.bladepipe.com/real-time-analytics/) end-to-end data replication tool. It supports automated replication from [Oracle](https://www.bladepipe.com/docs/dataMigrationAndSync/connection/oracle2/) to SQL Server in just a few clicks. 
 
 With BladePipe, you can:
 
-+ **Extract and load data automatically**: BladePipe supports [60+ out-of-the-box connectors](https://www.bladepipe.com/connector), including Oracle and SQL Server. All connector are ready for production environment.
-+ **Transform data without effort**: Common data type conversions are handled automatically, reducing manual work. It also allows complex transformations using [custom code](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_process_job).
-+ **Enhance data consistency**: [Built-in data verification and correction](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_period_verification_correction_job) function helps check data integrity and accuracy.
++ **Extract and load data automatically**: BladePipe supports [60+ out-of-the-box connectors](https://www.bladepipe.com/connector/), including Oracle and SQL Server. All connector are ready for production environment.
++ **Transform data without effort**: Common data type conversions are handled automatically, reducing manual work. It also allows complex transformations using [custom code](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_process_job/).
++ **Enhance data consistency**: [Built-in data verification and correction](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_period_verification_correction_job/) function helps check data integrity and accuracy.
 + **Get always fresh data**: Seamlessly switch to incremental sync. Keep second-level latency to replicate data continuously.
 
 [![](../assets/blog/tech_share/oracle_sqlserver_sync/banner.png)](https://www.bladepipe.com/login/)
@@ -55,7 +55,7 @@ With BladePipe, you can:
 
 Log in to [BladePipe Cloud](https://www.bladepipe.com/login/), and connect to both Oracle and SQL Server.
 
-1. Go to **DataSource** > [**Add DataSource**](https://www.bladepipe.com/docs/operation/datasource_manage/add_self_maintain_ds).
+1. Go to **DataSource** > [**Add DataSource**](https://www.bladepipe.com/docs/operation/datasource_manage/add_self_maintain_ds/).
 2. Configure:  
     - **Deployment:** Self-managed  
     - **Type:** Oracle / SQL Server
@@ -65,7 +65,7 @@ Log in to [BladePipe Cloud](https://www.bladepipe.com/login/), and connect to bo
 ![](../assets/blog/tech_share/oracle_sqlserver_sync/1.png)
 
 **Step 2: Create a Pipeline**
-1. Go to **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Go to **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Select the source and target DataSources, and click **Test Connection** for both. 
 ![](../assets/blog/tech_share/oracle_sqlserver_sync/3.png)
 3. For one-time migration, select **Full Data** for DataJob Type. For continuous replication, select **Incremental**, together with the **Full Data** option.

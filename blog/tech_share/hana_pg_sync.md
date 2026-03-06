@@ -96,7 +96,7 @@ The table-level CDC table mode has several benefits:
 
 ### Step 1: Install BladePipe
 
-Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
 
 ### Step 2: Add DataSources
 
@@ -106,7 +106,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 ![](../assets/blog/tech_share/hana_pg_sync/hana_pg_1.png)
 ### Step 3: Create a DataJob
 
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Configure the source and target DataSources:
    1. Select the source and target DataSources, and click **Test Connection**.
    2. In the **Advanced** configuration of the source DataSource, select the CDC table mode: **Single CDC table** / **Table-level CDC table**.
@@ -128,7 +128,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 
 4. Confirm the DataJob creation.
    :::info
-   The DataJob creation process involves several steps. Click **Sync Settings** > [**ConsoleJob**](https://doc.bladepipe.com/operation/job_setting/console_job_manage), find the DataJob creation record, and click **Details** to view it.
+   The DataJob creation process involves several steps. Click **Sync Settings** > [**ConsoleJob**](https://www.bladepipe.com/docs/operation/job_setting/console_job_manage/), find the DataJob creation record, and click **Details** to view it.
 
    The DataJob creation with a source Hana instance includes the following steps:
     - Schema Migration

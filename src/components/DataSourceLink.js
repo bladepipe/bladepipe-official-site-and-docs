@@ -120,6 +120,7 @@ const DATA_SOURCE_LINK = {
   "Google Drive": ["PostgreSQL"],
   "语雀": ["PostgreSQL"],
   "Tunnel": ["MySQL/MariaDB/AuroraMySQL"],
+  "Spanner": ["StarRocks", "Doris"],
 }
 
 const DataSourceLink = ({ locale }) => {

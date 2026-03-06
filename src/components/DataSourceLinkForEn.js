@@ -96,6 +96,7 @@ const DATA_SOURCE_LINK = {
   "S3File": ["MySQL/MariaDB/AuroraMySQL", "PostgreSQL"],
   "OssFile": ["MySQL/MariaDB/AuroraMySQL", "PostgreSQL"],
   "Tunnel": ["MySQL/MariaDB/AuroraMySQL"],
+  "Spanner": ["StarRocks", "Doris"],
 }
 
 const DataSourceLink = ({locale}) => {

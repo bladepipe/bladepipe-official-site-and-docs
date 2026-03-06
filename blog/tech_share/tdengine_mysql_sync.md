@@ -1,6 +1,6 @@
 ---
 id: tdengine_mysql_sync
-description: How to move data from TDengine to MySQL using BladePipe
+description: Easily move data from TDengine to MySQL with BladePipe. Real-time integration for backup, analysis, and long-term storage.
 title: TDengine to MySQL in Real Time - A Complete Integration Guide
 date: 2025-04-15
 authors: junyu 
@@ -27,7 +27,7 @@ This tutorial introduces how to sync data from TDengine to MySQL using [BladePip
 
 ### Step 1: Install BladePipe
 
-Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
 
 ### Step 2: Add DataSources
 
@@ -38,7 +38,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 
 ### Step 3: Create a DataJob
 
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Select the source and target DataSources, and click **Test Connection** to ensure the connection to the source and target DataSources are both successful.
    
    ![](../assets/blog/tech_share/tdengine_mysql/td_mysql_2.png)
@@ -59,7 +59,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
 6. Confirm the DataJob creation.
 
    :::info
-   The DataJob creation process involves several steps. Click **Sync Settings** > [**ConsoleJob**](https://doc.bladepipe.com/operation/job_setting/console_job_manage), find the DataJob creation record, and click **Details** to view it.
+   The DataJob creation process involves several steps. Click **Sync Settings** > [**ConsoleJob**](https://www.bladepipe.com/docs/operation/job_setting/console_job_manage/), find the DataJob creation record, and click **Details** to view it.
 
    The DataJob creation with a source TDengine instance includes the following steps:
    - Allocation of DataJobs to BladePipe Workers 
@@ -67,7 +67,7 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
    - Completion of DataJob creation
    :::
 
-7. Go to the DataJob Details page. Click **Functions** > **[Modify DataJob Params](https://doc.bladepipe.com/operation/job_manage/job_op/job_params)** in the upper-right corner, and modify the values of the following parameters if needed.   
+7. Go to the DataJob Details page. Click **Functions** > **[Modify DataJob Params](https://www.bladepipe.com/docs/operation/job_manage/job_op/job_params/)** in the upper-right corner, and modify the values of the following parameters if needed.   
    - **srcTimezone** (source parameter): It represents the time zone of the source data source. UTC by default. Please make sure that the time zone here is consistent with the exact time zone of the source data source. 
    - **supportTimestampToEpochNano** (source parameter): Choose whether to enable Timestamp-Number conversion. False by default. 
    - **dstTimezone** (target parameter): It represents the time zone of the target data source. Please make sure that the time zone here is consistent with the exact time zone of the target data source. 

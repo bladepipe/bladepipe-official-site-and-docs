@@ -1,6 +1,7 @@
 ---
 id: job_position
 title: Reset Position
+description: It guides you to reset the position in case you need to re-consume data or skip current data.
 ---
 
 BladePipe supports the clear and reset of position to handle scenarios where it is necessary to re-consume previous data or skip current data.

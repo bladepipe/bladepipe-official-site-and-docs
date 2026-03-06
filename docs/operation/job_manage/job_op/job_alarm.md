@@ -1,6 +1,7 @@
 ---
 id: job_alarm
 title: Configure Alerts
+description: It displays how to configure alert notification for pipelines.
 ---
 
 BladePipe supports alert configuration for tasks, and this article describes how to configure and view alerts.

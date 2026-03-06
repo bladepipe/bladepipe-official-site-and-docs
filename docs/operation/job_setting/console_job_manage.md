@@ -1,6 +1,7 @@
 ---
 id: console_job_manage
 title: Manage ConsoleJobs
+description: It tells how to check the console-related tasks in BladePipe.
 ---
 The BladePipe console has many capabilities that are completed using asynchronous tasks which called ConsoleJob. 
 
