@@ -164,11 +164,7 @@ const config: Config = {
       src: "https://hm.baidu.com/hm.js?05353b0ff2c80cb3ade3c53ee1ae2d71",
       async: true,
     },
-    {
-      src: "https://www.googletagmanager.com/gtag/js?id=G-0NCQHMHBDL",
-      async: true,
-    },
-    { src: "/analytics.js" },
+    // 谷歌分析仅 BladePipe 使用，CloudDM 不加载 gtag / analytics.js
     "/iconfont/datasource.js",
   ],
   customFields: {

@@ -3305,5 +3305,8 @@
   },
   "pricing.calculator.description": {
     "message": "根据链路使用量和数据量估算每月成本，透明、基于使用的定价。"
+  },
+  "banner.freeRenewLink": {
+    "message": "免费续期"
   }
 }

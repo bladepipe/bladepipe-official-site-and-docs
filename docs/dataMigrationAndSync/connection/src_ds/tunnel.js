@@ -42,12 +42,6 @@ const Tunnel = {
             key: 'printCustomCodeDebugLog',
             desc: 'Print custom code DEBUG logs (Note that it will print data before and after processing, which may increase disk usage and impact sync performance). This parameter takes effect dynamically and DataJob restart is not required.'
         }
-    ],
-    examples: [
-        {
-            key: 'Cross-Internet Data Synchronization',
-            desc: 'See [Cross-Internet Data Synchronization](../../bestPractice/http_internet_data_sync).'
-        }
     ]
 }
 

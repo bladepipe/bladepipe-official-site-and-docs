@@ -291,6 +291,18 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
                 >
                   <Translate id='banner.quickStartLink'>Quick Start</Translate>
                 </span>
+                <span className="mx-[6px] text-black/40 select-none">|</span>
+                <span
+                  className="text-[#0087c7] hover:text-[#0070a6] underline cursor-pointer"
+                  onClick={() => {
+                    const licenseUrl = siteBrand === 'clougence'
+                      ? '/docs/license/license_use'
+                      : '/docs/license/license_use/#get-apply-code';
+                    window.open(licenseUrl, '_blank');
+                  }}
+                >
+                  <Translate id='banner.freeRenewLink'>Free Renewal</Translate>
+                </span>
               </div>
             </>
           )}
@@ -343,6 +355,18 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
                 >
                   <Translate id='banner.quickStartLink'>Quick Start</Translate>
                 </span>
+                <span className="mx-[6px] text-black/40 select-none">|</span>
+                <span
+                  className="text-[#0087c7] hover:text-[#0070a6] underline cursor-pointer"
+                  onClick={() => {
+                    const licenseUrl = siteBrand === 'clougence'
+                      ? 'https://www.clougence.com/docs/license/license_use'
+                      : '/docs/license/license_use/#get-apply-code';
+                    window.open(licenseUrl, '_blank');
+                  }}
+                >
+                  <Translate id='banner.freeRenewLink'>Free Renewal</Translate>
+                </span>
               </div>
             </>
           )}
@@ -385,6 +409,18 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
                 >
                   <Translate id='banner.quickStartLink'>Quick Start</Translate>
                 </span>
+                <span className="mx-[6px] text-black/40 select-none">|</span>
+                <span
+                  className="text-[#0087c7] hover:text-[#0070a6] underline cursor-pointer"
+                  onClick={() => {
+                    const licenseUrl = siteBrand === 'clougence'
+                      ? 'https://www.clougence.com/docs/license/license_use'
+                      : '/docs/license/license_use/#get-apply-code';
+                    window.open(licenseUrl, '_blank');
+                  }}
+                >
+                  <Translate id='banner.freeRenewLink'>Free Renewal</Translate>
+                </span>
               </div>
             </>
           )}
@@ -413,7 +449,7 @@ function DownloadInfoView({
   info, 
   loading, 
   onBack, 
-  onClose 
+  onClose,
 }: { 
   info: any; 
   loading?: boolean; 

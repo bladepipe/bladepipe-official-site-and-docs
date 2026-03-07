@@ -183,7 +183,8 @@ const config: Config = {
 
   scripts: [
     { src: 'https://hm.baidu.com/hm.js?9a18d2c0bad7c7472febb245db950168', async: true },
-    { src: 'https://www.googletagmanager.com/gtag/js?id=G-0NCQHMHBDL', async: true },
+    // 仅 BladePipe 站点加载谷歌分析
+    { src: 'https://www.googletagmanager.com/gtag/js?id=G-QFL3CQMTBN', async: true },
     { src: '/analytics.js' },
     '/iconfont/datasource.js',
     // 本地预加载 Google Translate 脚本（需将 element.js 放入 static/translate/）
