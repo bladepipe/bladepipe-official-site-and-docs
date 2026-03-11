@@ -131,7 +131,7 @@ CREATE EXTENSION IF NOT EXISTS vector;
 Log in to the [BladePipe Cloud](https://cloud.bladepipe.com). Click **DataSource** > **Add DataSource**.     
    
 **Add Files:**   
-Select **Self Maintenance** > **SshFile**. You can set [extra parmeters](https://doc.bladepipe.com/reference/file_schema_format).
+Select **Self Maintenance** > **SshFile**. You can set [extra parmeters](https://www.bladepipe.com/docs/reference/file_schema_format/).
 
 + **Address**: Fill in the machine IP where the files are stored and SSH port (default 22).
 + **Account & Password**: Username and password of the machine.
@@ -165,7 +165,7 @@ Choose **Independent Cloud Platform** > **Manually Fill** > **OpenAI**, and fill
 ![](../assets/file_to_aliyun_pg_vector/3.png)
 
 ### Step 4: Create a DataJob
-1. Go to **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Go to **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Choose source: **SshFile**, target: **PostgreSQL**, and test the connection.
 
 ![](../assets/file_to_aliyun_pg_vector/5.png)

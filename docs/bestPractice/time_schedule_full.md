@@ -70,7 +70,7 @@ Follow the instructions in [Install Worker (Docker)](../productOP/byoc/installat
 2. Click **DataSource** > **Add DataSource**, and add 2 DataSources.
 
 ### Create a DataJob
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Select the source and target DataSources, and click **Test Connection** to ensure the connection to the source and target DataSources are both successful.
    :::tip
    If the test link does not return for a long time, you can refresh the page and reselect. Database information errors or network failures may cause this phenomenon.

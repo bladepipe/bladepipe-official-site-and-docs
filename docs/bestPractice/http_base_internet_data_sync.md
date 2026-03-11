@@ -112,7 +112,7 @@ After adding all the mentioned DataSources, the result is as follows:
 ![http_sync_en_12.png](../assets/http_sync/http_sync_en_12.png)
 
 ### Step 6: Create a Target DataJob
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Select the Tunnel Server as the target database, and choose the cluster in Tokyo for the Incremental DataJob.
 
 ![http_sync_en_13.png](../assets/http_sync/http_sync_en_13.png)
@@ -126,7 +126,7 @@ At this stage, since data transmission has not started yet, the increased latenc
 
 ### Step 7: Create a Source DataJob
 
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Select the Tunnel Client as the source database, and choose the cluster in California for Incremental DataJob.
 
 ![http_sync_en_9.png](../assets/http_sync/http_sync_en_9.png)

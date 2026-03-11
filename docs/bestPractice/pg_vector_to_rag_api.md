@@ -96,7 +96,7 @@ Choose **Self Maintenance** > **RagApi**.
 
 ### Step 3: Create DataJob
 
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Select the source DataSource (**PostgreSQL** with embeddings stored) and target DataSource (**RagApi**), and click **Test Connection**.   
 
 ![](../assets/pg_vector_to_rag_api/11.png)

@@ -21,7 +21,7 @@ In Managed mode, both the Console and the Worker are fully managed by BladePipe.
 
 In BYOC mode, BladePipe Worker is deployed in your local network, and the Worker is connected to the BladePipe Console on the cloud for management and control. Only necessary information is kept at BladePipe Console, such as database authentication information, schema information, and performance statistics. The specific business data is maintained in your own network.
 
-For now, the unit price for Managed and BYOC are the same as shown in the table below. You can also estimate the cost based on the [price calculator](https://www.bladepipe.com/pricing).
+For now, the unit price for Managed and BYOC are the same as shown in the table below. You can also estimate the cost based on the [price calculator](https://www.bladepipe.com/pricing/).
 
 |      Function     | Pricing                       | 
 | ------------      | -------------------------------|
