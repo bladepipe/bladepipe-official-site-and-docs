@@ -2,7 +2,7 @@ const SQLServer = {
     prepare: [
         {
             key: 'Permissions for Account',
-            desc: 'See [Required Permissions for SQL Server](../datasource_func/SqlServer/privs_for_sqlserver).'
+            desc: 'See [Required Permissions for SQL Server](../../datasource_func/SqlServer/privs_for_sqlserver).'
         },
         {
             key: 'Enable SQL Server CDC',
@@ -24,7 +24,7 @@ const SQLServer = {
         }
     ],
     faq: [
-        '[What should I do if TLS10 is not accepted?](../../faq/solve_sqlserver_tls)'
+        '[What should I do if TLS10 is not accepted?](../../../faq/solve_sqlserver_tls)'
     ]
 }
 

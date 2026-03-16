@@ -12,7 +12,7 @@ const MySQL = {
     prepare: [
         {
             key: 'Permissions for Account',
-            desc: 'See [Permissions Required for MySQL/MariaDB](../datasource_func/MySQL/privs_for_mysql).'
+            desc: 'See [Permissions Required for MySQL/MariaDB](../../datasource_func/MySQL/privs_for_mysql).'
         },
         {
             key: 'Enabling Binlog',
@@ -54,9 +54,9 @@ const MySQL = {
         }
     ],
     faq: [
-        '[How to handle MySQL DataJob latency?](../../faq/solve_incre_task_delay)',
-        '[What to do when binary Log cannot be found in MySQL Source?](../../faq/solve_mysql_src_could_not_find_binlog)',
-        '[What to do when access to schema in MySQL Source is denied?](../../faq/solve_access_denied_schema)',
+        '[How to handle MySQL DataJob latency?](../../../faq/solve_incre_task_delay)',
+        '[What to do when binary Log cannot be found in MySQL Source?](../../../faq/solve_mysql_src_could_not_find_binlog)',
+        '[What to do when access to schema in MySQL Source is denied?](../../../faq/solve_access_denied_schema)',
     ],
 }
 

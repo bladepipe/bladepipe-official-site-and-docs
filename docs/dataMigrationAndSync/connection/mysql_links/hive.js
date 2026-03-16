@@ -28,11 +28,11 @@ const Hive = {
     master_function: [
         {
             key: 'Scheduled Full Data Migration',
-            desc: 'For more information, see [Create Scheduled Full Data DataJob](../../operation/job_manage/create_job/create_period_full_job).'
+            desc: 'For more information, see [Create Scheduled Full Data DataJob](../../../operation/job_manage/create_job/create_period_full_job).'
         },
         {
             key: 'Custom Code',
-            desc: 'For more information, see [Custom Code Processing](../../operation/job_manage/create_job/create_process_job), [Debug Custom Code](../../operation/job_manage/job_op/debug_customer_code) and [Logging in Custom Code](../../operation/job_manage/job_op/log_in_customer_code).'
+            desc: 'For more information, see [Custom Code Processing](../../../operation/job_manage/create_job/create_process_job), [Debug Custom Code](../../../operation/job_manage/job_op/debug_customer_code) and [Logging in Custom Code](../../../operation/job_manage/job_op/log_in_customer_code).'
         },
         {
             key: 'Setting Target Primary Key',
@@ -40,7 +40,7 @@ const Hive = {
         },
         {
             key: 'Data Filtering Conditions',
-            desc: 'Support data filtering using WHERE conditions, with SQL-92 as the SQL language. For more information, see [Data Filtering](../../operation/job_manage/create_job/create_data_filter_job).'
+            desc: 'Support data filtering using WHERE conditions, with SQL-92 as the SQL language. For more information, see [Data Filtering](../../../operation/job_manage/create_job/create_data_filter_job).'
         }
     ],
     notice: [],

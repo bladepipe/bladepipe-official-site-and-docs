@@ -8,7 +8,7 @@ export const Pulsar = {
     params: [
         {
             key: 'schemaFormat',
-            desc: 'Message format. For more information, see [Message Format](../../reference/kafka_msg_format_type).'
+            desc: 'Message format. For more information, see [Message Format](../../../reference/kafka_msg_format_type).'
         },
         {
             key: 'batchWriteSize',
@@ -40,7 +40,7 @@ export const Pulsar = {
     master_function: [
         {
             key: 'Message Format',
-            desc: 'The following message formats are supported. See [Message Format](../../reference/kafka_msg_format_type). \n- <b>CloudCanal format</b> \n- <b>AlibabaCanal format</b>'
+            desc: 'The following message formats are supported. See [Message Format](../../../reference/kafka_msg_format_type). \n- <b>CloudCanal format</b> \n- <b>AlibabaCanal format</b>'
         }
     ]
 }

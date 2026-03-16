@@ -18,7 +18,7 @@ export const ClickHouse = {
         },
         {
             key: 'Modify Subscription',
-            desc: 'Add, delete, or modify subscription tables, with support for historical data migration. Documentation: [Modify Subscription](../../operation/job_manage/job_op/edit_job).'
+            desc: 'Add, delete, or modify subscription tables, with support for historical data migration. Documentation: [Modify Subscription](../../../operation/job_manage/job_op/edit_job).'
         },
         {
             key: 'Reset Position',
@@ -40,15 +40,15 @@ export const ClickHouse = {
     master_function: [
         {
             key: 'Scheduled Full Migration',
-            desc: 'Documentation 1: [Create Scheduled Full Task](../../operation/job_manage/create_job/create_period_full_job) <br /> Documentation 2: [Use Scheduled Full Migration for Incremental Data](../../bestPractice/time_schedule_full).'
+            desc: 'Documentation 1: [Create Scheduled Full Task](../../../operation/job_manage/create_job/create_period_full_job) <br /> Documentation 2: [Use Scheduled Full Migration for Incremental Data](../../bestPractice/time_schedule_full).'
         },
         {
             key: 'Custom Code',
-            desc: 'Documentation 1: [Create a Custom Code Task](../../operation/job_manage/create_job/create_process_job) <br /> Documentation 2: [Debug Custom Code Task](../../operation/job_manage/job_op/debug_customer_code) <br /> Documentation 3: [Log in Custom Code](../../operation/job_manage/job_op/log_in_customer_code).'
+            desc: 'Documentation 1: [Create a Custom Code Task](../../../operation/job_manage/create_job/create_process_job) <br /> Documentation 2: [Debug Custom Code Task](../../../operation/job_manage/job_op/debug_customer_code) <br /> Documentation 3: [Log in Custom Code](../../../operation/job_manage/job_op/log_in_customer_code).'
         },
         {
             key: 'Data Filtering Conditions',
-            desc: 'Supports WHERE conditions for data filtering, using SQL 92 subset. Documentation: [Create Data Filter Task](../../operation/job_manage/create_job/create_data_filter_job).'
+            desc: 'Supports WHERE conditions for data filtering, using SQL 92 subset. Documentation: [Create Data Filter Task](../../../operation/job_manage/create_job/create_data_filter_job).'
         },
         {
             key: 'Set Target Primary Key',

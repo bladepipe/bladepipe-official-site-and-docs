@@ -2,7 +2,7 @@ const Db2 = {
     prepare: [
         {
             key: 'Preparation for Db2 CDC (Incremental)',
-            desc: 'See [Preparation for Db2 CDC](../datasource_func/Db2/prepare_for_db2)'
+            desc: 'See [Preparation for Db2 CDC](../../datasource_func/Db2/prepare_for_db2)'
         }
     ],
     params: [

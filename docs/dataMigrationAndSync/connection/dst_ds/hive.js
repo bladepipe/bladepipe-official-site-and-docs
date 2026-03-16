@@ -2,7 +2,7 @@ export const Hive = {
     prepare: [
         {
             key: 'Port Preparation',
-            desc: 'Allow the migration and sync node (Worker) to connect to the Hdfs/Hive port.'
+            desc: 'Allow the migration and sync node (Worker) to connect to the HDFS/Hive port.'
         }
     ],
     params: [

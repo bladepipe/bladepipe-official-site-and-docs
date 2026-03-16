@@ -2,7 +2,7 @@ const SQLServer = {
     prepare: [
         {
             key: 'Permissions for Account',
-            desc: 'See [Permissions Required for SQL Server](../datasource_func/SqlServer/privs_for_sqlserver)'
+            desc: 'See [Permissions Required for SQL Server](../../datasource_func/SqlServer/privs_for_sqlserver)'
         },
         {
             key: 'Port Preparation',

@@ -2,7 +2,7 @@ const TiDB = {
     prepare: [
         {
             key: 'Permissions for Account',
-            desc: 'See [Permissions Required for TiDB](../datasource_func/TiDB/privs_for_tidb).'
+            desc: 'See [Permissions Required for TiDB](../../datasource_func/TiDB/privs_for_tidb).'
         },
         {
             key: 'Connection to PD Nodes',

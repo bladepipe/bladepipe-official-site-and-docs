@@ -3,7 +3,7 @@ export const TDengine = {
     prepare: [
         {
             key: 'Permissions for Account',
-            desc: 'See [Permissions Required for TDengine](../datasource_func/TDengine/privs_for_tdengine)'
+            desc: 'See [Permissions Required for TDengine](../../datasource_func/TDengine/privs_for_tdengine)'
         },
         {
             key: 'Port Preparation',

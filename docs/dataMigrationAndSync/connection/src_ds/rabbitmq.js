@@ -8,7 +8,7 @@ export const RabbitMQ = {
     params: [
         {
             key: "schemaFormat",
-            desc: "MQ message format. For more information, see [Message Format](../../reference/kafka_msg_format_type)."
+            desc: "MQ message format. For more information, see [Message Format](../../../reference/kafka_msg_format_type)."
         },
         {
             key: "consumeParallel",
@@ -30,7 +30,7 @@ export const RabbitMQ = {
     master_function: [
         {
             key: "Message Format",
-            desc: 'The following message formats are supported. See [Message Format](../../reference/kafka_msg_format_type). \n- <b>CloudCanal format</b> \n- <b>AlibabaCanal format</b>'
+            desc: 'The following message formats are supported. See [Message Format](../../../reference/kafka_msg_format_type). \n- <b>CloudCanal format</b> \n- <b>AlibabaCanal format</b>'
         }
     ]
 }

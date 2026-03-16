@@ -10,7 +10,7 @@ export const Kafka = {
         },
         {
             key: 'Subscription Modification',
-            desc: 'Add, delete, or modify the subscribed tables with support for historical data migration. For more information, see [Modify Subscription](../../operation/job_manage/job_op/edit_job).'
+            desc: 'Add, delete, or modify the subscribed tables with support for historical data migration. For more information, see [Modify Subscription](../../../operation/job_manage/job_op/edit_job).'
         },
         {
             key: 'Position Resetting',
