@@ -2,7 +2,7 @@ const Tunnel = {
     prepare: [
         {
             key: 'Port Preparation',
-            desc: 'For CloudCanal (Docker version), modify the docker-compose.yml port mappings before installing/upgrading after extraction, and open relevant ECS security group ports for remote connection.'
+            desc: 'For BladePipe (Docker version), modify the docker-compose.yml port mappings before installing/upgrading after extraction, and open relevant ECS security group ports for remote connection.'
         }
     ],
     params: [

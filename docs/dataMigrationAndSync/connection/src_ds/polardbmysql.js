@@ -40,9 +40,9 @@ const PolarDbMySQL = {
         }
     ],
     faq: [
-        '[How to handle MySQL DataJob latency?](../../faq/solve_incre_task_delay)',
-        '[What to do when binary Log cannot be found in MySQL Source?](../../faq/solve_mysql_src_could_not_find_binlog)',
-        '[What to do when access to schema in MySQL Source is denied?](../../faq/solve_access_denied_schema)',
+        '[How to handle MySQL DataJob latency?](../../../faq/solve_incre_task_delay)',
+        '[What to do when binary Log cannot be found in MySQL Source?](../../../faq/solve_mysql_src_could_not_find_binlog)',
+        '[What to do when access to schema in MySQL Source is denied?](../../../faq/solve_access_denied_schema)',
         '> Tips: MySQL source-related FAQs are also applicable to MySQL-compatible data sources.'
     ]
 }

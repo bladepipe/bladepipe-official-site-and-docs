@@ -83,7 +83,7 @@ Follow the instructions in [Install Worker (Docker)](../productOP/byoc/installat
   ![](../assets/gather_data/bp_mysql_sr_1.png)
 ### Step 3: Create a DataJob
 
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Select the source and target DataSources, and click **Test Connection** to ensure the connection to the source and target DataSources are both successful.
    
    ![](../assets/gather_data/bp_mysql_sr_2.png)

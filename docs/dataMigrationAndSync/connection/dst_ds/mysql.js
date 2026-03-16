@@ -2,7 +2,7 @@ const MySQL = {
     prepare: [
         {
             key: 'Permissions for Account',
-            desc: 'See [Permissions Required for MySQL/MariaDB](../datasource_func/MySQL/privs_for_mysql).'
+            desc: 'See [Permissions Required for MySQL/MariaDB](../../datasource_func/MySQL/privs_for_mysql).'
         },
         {
             key: 'Port Preparation',

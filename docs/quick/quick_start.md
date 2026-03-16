@@ -17,7 +17,7 @@ Here we use a self-managed MySQL DataSource as an example. For more details, see
 2. In the upper right corner of the page, click **Add DataSource**.
 3. Configure the following information:
    - **Deployment**: Choose **Self Maintenance**.
-   - **Type**: Choose the datasource type. Here we choose **[MySQL](../dataMigrationAndSync/connection/mysql2)**.
+   - **Type**: Choose the datasource type. Here we choose **[MySQL](https://www.bladepipe.com/docs/dataMigrationAndSync/connection/mysql2/)**.
    - **Address**: Fill out the endpoint to connect to the [DataSource](../intro/product_nouns.md#datasource).
    - **Account & Password**: Fill out the username and password.
 4. Click **Test Connection** to verify the connection. 

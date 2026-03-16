@@ -2,7 +2,7 @@ export const Hana = {
     notice: [
         {
             key: "DDL Change Handling",
-            desc: "BladePipe captures data changes in a source SAP HANA instance through triggers. DDL synchronization is not supported. If there are DDL changes, follow the steps in [Change Schema in a Source SAP HANA Instance](../datasource_func/Hana/sap_hana_ddl)."
+            desc: "BladePipe captures data changes in a source SAP HANA instance through triggers. DDL synchronization is not supported. If there are DDL changes, follow the steps in [Change Schema in a Source SAP HANA Instance](../../datasource_func/Hana/sap_hana_ddl)."
         },
         {
             key: "Hana Data Types in Incremental Sync",
@@ -10,12 +10,12 @@ export const Hana = {
         }
     ],
     faq: [
-        '[What should I do if an error occurs when connecting to a Sap Hana instance?](../../faq/solve_hana_test_connection_fail)'
+        '[What should I do if an error occurs when connecting to a Sap Hana instance?](../../../faq/solve_hana_test_connection_fail)'
     ],
     prepare: [
         {
             key: "Permissions for Account",
-            desc: "See [Permissions Required for Hana](../datasource_func/Hana/privs_for_hana)"
+            desc: "See [Permissions Required for Hana](../../datasource_func/Hana/privs_for_hana)"
         }
     ],
     params: [

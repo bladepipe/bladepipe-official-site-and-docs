@@ -2,7 +2,7 @@ export const MongoDB = {
     prepare: [
         {
             key: 'Permissions for Account',
-            desc: 'See [Permissions Required for MongoDB](../datasource_func/MongoDB/privs_for_mongo).'
+            desc: 'See [Permissions Required for MongoDB](../../datasource_func/MongoDB/privs_for_mongo).'
         },
         {
             key: 'Port Preparation',

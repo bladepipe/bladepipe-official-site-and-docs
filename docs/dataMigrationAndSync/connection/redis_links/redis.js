@@ -26,7 +26,7 @@ export const Redis = {
     master_function: [
         {
             key: 'Bidirectional Redis Synchronization',
-            desc: 'Support full data migration and incremental data synchronization in which the circular data replication is prevented. See [Redis Bidirectional Data Synchronization](../../bestPractice/redis_loop_data_sync).'
+            desc: 'Support full data migration and incremental data synchronization in which the circular data replication is prevented. See [Redis Bidirectional Data Synchronization](../../../bestPractice/redis_loop_data_sync).'
         },
         {
             key: 'Supported Commands for Redis Bidirectional Synchronization',
@@ -42,7 +42,7 @@ export const Redis = {
     examples: [
         {
             key: 'Redis Bidirectional Data Synchronization',
-            desc: 'See [Redis Bidirectional Data Synchronization](../../bestPractice/redis_loop_data_sync).'
+            desc: 'See [Redis Bidirectional Data Synchronization](../../../bestPractice/redis_loop_data_sync).'
         }
     ],
     faq: [],

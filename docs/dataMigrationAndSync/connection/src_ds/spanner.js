@@ -8,7 +8,7 @@ const Spanner = {
     prepare: [
         {
             key: 'Permissions for Service Account',
-            desc: 'See [Permissions Required for Spanner](../datasource_func/Spanner/privs_for_spanner).'
+            desc: 'See [Permissions Required for Spanner](../../datasource_func/Spanner/privs_for_spanner).'
         },
         {
             key: 'Change Streams',

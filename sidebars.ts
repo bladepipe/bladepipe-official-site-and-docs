@@ -571,6 +571,7 @@ const sidebars: SidebarsConfig = {
       "type": "category",
       "label": "Release Note",
       "items": [
+        "releaseNote/rn-bladepipe-1-4-0",
         "releaseNote/rn-bladepipe-1-3-0",
         "releaseNote/rn-bladepipe-1-2-0",
         "releaseNote/rn-bladepipe-1-1-0",

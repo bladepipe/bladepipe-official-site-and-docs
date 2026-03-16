@@ -61,7 +61,7 @@ This page provides a concise comparison of the differences between these plan op
   </tr>
   <tr>
     <th rowspan="1">DataSources</th>
-    <th><a href="../dataMigrationAndSync/datasource_version">60+</a></th>
+    <th><a href="../../dataMigrationAndSync/datasource_version">60+</a></th>
     <td align="center" colspan="3">60+ <b>plus Oracle、SAP HANA、OceanBase for Oracle、SQL Server</b></td>
   </tr>
   <tr>
@@ -73,28 +73,28 @@ This page provides a concise comparison of the differences between these plan op
     <td align="center">✔️</td>
   </tr>
   <tr>
-    <th><a href="../operation/job_manage/create_job/create_full_incre_task">Data Migration</a></th>
+    <th><a href="../../operation/job_manage/create_job/create_full_incre_task">Data Migration</a></th>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
   </tr>
   <tr>
-    <th><a href="../operation/job_manage/create_job/create_full_incre_task">Data Sync</a></th>
+    <th><a href="../../operation/job_manage/create_job/create_full_incre_task">Data Sync</a></th>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
   </tr>
   <tr>
-    <th><a href="../operation/job_manage/create_job/create_period_verification_correction_job">Data Verification and Correction</a></th>
+    <th><a href="../../operation/job_manage/create_job/create_period_verification_correction_job">Data Verification and Correction</a></th>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
   </tr>
   <tr>
-    <th><a href="../operation/job_manage/create_job/create_full_incre_task">DDL Sync</a></th>
+    <th><a href="../../operation/job_manage/create_job/create_full_incre_task">DDL Sync</a></th>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
@@ -102,28 +102,28 @@ This page provides a concise comparison of the differences between these plan op
   </tr>
   <tr>
     <th rowspan="8">Advanced Functions</th>
-    <th><a href="../operation/job_manage/create_job/create_process_job">Custom Code</a></th>
+    <th><a href="../../operation/job_manage/create_job/create_process_job">Custom Code</a></th>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
   </tr>
   <tr>
-    <th><a href="../bestPractice/mysql_loop_data_sync">Two-way Sync</a></th>
+    <th><a href="../../bestPractice/mysql_loop_data_sync">Two-way Sync</a></th>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
   </tr>
   <tr>
-    <th><a href="../operation/job_manage/job_op/data_transform">Data Transform</a></th>
+    <th><a href="../../operation/job_manage/job_op/data_transform">Data Transform</a></th>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
   </tr>
   <tr>
-    <th><a href="../operation/job_manage/job_op/visual_widetable_create">Data Joint</a></th>
+    <th><a href="../../operation/job_manage/job_op/visual_widetable_create">Data Joint</a></th>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
@@ -137,7 +137,7 @@ This page provides a concise comparison of the differences between these plan op
     <td align="center">✔️</td>
   </tr>
   <tr>
-    <th><a href="../operation/job_manage/job_op/job_transfer">DataJob Import</a></th>
+    <th><a href="../../operation/job_manage/job_op/job_transfer">DataJob Import</a></th>
     <td align="center">-</td>
     <td align="center">✔️</td>
     <td align="center">-</td>
@@ -151,7 +151,7 @@ This page provides a concise comparison of the differences between these plan op
     <td align="center">✔️</td>
   </tr>
   <tr>
-    <th><a href="../operation/job_manage/job_op/job_group">DataJob Group</a></th>
+    <th><a href="../../operation/job_manage/job_op/job_group">DataJob Group</a></th>
     <td align="center">-</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
@@ -159,7 +159,7 @@ This page provides a concise comparison of the differences between these plan op
   </tr>
   <tr>
     <th rowspan="6">Security</th>
-    <th><a href="../operation/job_setting/operate_audit">Operation Audit</a></th>
+    <th><a href="../../operation/job_setting/operate_audit">Operation Audit</a></th>
     <td align="center">-</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
@@ -173,14 +173,14 @@ This page provides a concise comparison of the differences between these plan op
     <td align="center">✔️</td>
   </tr>
   <tr>
-    <th><a href="../operation/system_manage/mfa_usage">MFA</a></th>
+    <th><a href="../../operation/system_manage/mfa_usage">MFA</a></th>
     <td align="center">-</td>
     <td align="center">-</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
   </tr>
   <tr>
-    <th><a href="../operation/job_manage/job_op/job_alarm">Alert</a></th>
+    <th><a href="../../operation/job_manage/job_op/job_alarm">Alert</a></th>
     <td align="center">-️</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
@@ -199,7 +199,7 @@ This page provides a concise comparison of the differences between these plan op
 :::info
 **1.** The Community is **authorized for a period of 3 months at a time**. Before the 3-month authorization expires, you can log in to BladePipe to reapply for the license and extend the validity period free of charge.
 
-**2.** For different DataSources, the granularity of a link varies. For details, please refer to [Granularity and Specifications](../reference/service_difference.md).
+**2.** For different DataSources, the granularity of a link varies. For details, please refer to [Granularity and Specifications](..//reference/service_difference.md).
 :::
 
 ## Note

@@ -228,7 +228,7 @@ const DataSourceSelect = ({data, sourceType, mapping}) => {
                         />
                     </Table>
                     <ReactMarkdown
-                        children={'> Tips: To modify the general parameters, see [General Parameters and Functions](../param_and_func/param_guide).'}
+                        children={'> Tips: To modify the general parameters, see [General Parameters and Functions](../../param_and_func/param_guide).'}
                         rehypePlugins={[rehypeRaw]}
                         remarkPlugins={[remarkGfm]}/>
                 </div> : null
@@ -283,7 +283,7 @@ const DataSourceSelect = ({data, sourceType, mapping}) => {
                         />
                     </Table>
                     <ReactMarkdown
-                        children={'> Tips: To modify the general parameters, see [General Parameters and Functions](../param_and_func/param_guide).'}
+                        children={'> Tips: To modify the general parameters, see [General Parameters and Functions](../../param_and_func/param_guide).'}
                         rehypePlugins={[rehypeRaw]}
                         remarkPlugins={[remarkGfm]}/>
                 </div> : null

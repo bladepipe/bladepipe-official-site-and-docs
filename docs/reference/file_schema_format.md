@@ -89,7 +89,7 @@ dbsJson is the file format definition, which can be applied to all text files. I
   - Explanation:
     - **schema**: For SshFile, its value cannot be empty and needs to be selected when creating a DataJob. For OssFile and S3File,  its value can be empty and it needs to be filled in only when the file column information needs to be defined. 
     - **tables**: Its value can be empty and is only filled in when the file column information needs to be defined.
-    - **jdbcType**: The integer value of the Java Types corresponding to the jdbcType. For details, refer to the [Explanation on Java Types](java_jdbc_types).
+    - **jdbcType**: The integer value of the Java Types corresponding to the jdbcType. For details, refer to the [Explanation on Java Types](./java_jdbc_types.md).
     - **typeName**: Type name. For specific values, please refer to [Supported TypeNames of File Schema](#supported-typenames-of-file-schema).
     - **precise**: For boolean (BOOLEAN), integer (INTEGER, BIGINT), long text (TEXT), and time (DATE, TIME, TIMESTAMP) types, the value can be empty. For string (VARCHAR), decimal (DECIMAL), and binary (BYTES) types, it needs to be specified. 
     - **scale**: For decimal (DECIMAL) type, the value cannot be empty. For other types, it can be empty.

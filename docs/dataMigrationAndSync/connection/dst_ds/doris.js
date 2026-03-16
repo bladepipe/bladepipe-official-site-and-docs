@@ -70,7 +70,7 @@ const Doris = {
         }
     ],
     faq: [
-        '[Doris/SelectDB Target Write Error](../../faq/solve_sr_dr_dst_writer_http_host)',
+        '[Doris/SelectDB Target Write Error](../../../faq/solve_sr_dr_dst_writer_http_host)',
     ],
     master_function: [
         {

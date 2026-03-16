@@ -2,7 +2,7 @@ export const Oracle = {
     prepare: [
         {
             key: 'Permissions for Account',
-            desc: 'See [Permissions Required for Oracle](../datasource_func/Oracle/privs_for_oracle).'
+            desc: 'See [Permissions Required for Oracle](../../datasource_func/Oracle/privs_for_oracle).'
         },
         {
             key: 'Port Preparation',

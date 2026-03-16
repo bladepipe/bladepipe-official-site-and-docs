@@ -18,7 +18,7 @@ export const OceanBase = {
         },
         {
             key: 'Modify Subscription',
-            desc: 'Add, delete, or modify subscription tables, supporting historical data migration. Documentation: [Modify Subscription](../../operation/job_manage/job_op/edit_job)'
+            desc: 'Add, delete, or modify subscription tables, supporting historical data migration. Documentation: [Modify Subscription](../../../operation/job_manage/job_op/edit_job)'
         },
         {
             key: 'Reset Position',
@@ -40,15 +40,15 @@ export const OceanBase = {
     master_function: [
         {
             key: 'Scheduled Full Data Migration',
-            desc: 'Documentation 1: [Create Scheduled Full Data Job](../../operation/job_manage/create_job/create_period_full_job) <br /> Documentation 2: [Scheduled Full Data for Incremental Data Migration](../../bestPractice/time_schedule_full)'
+            desc: 'Documentation 1: [Create Scheduled Full Data Job](../../../operation/job_manage/create_job/create_period_full_job) <br /> Documentation 2: [Scheduled Full Data for Incremental Data Migration](../../bestPractice/time_schedule_full)'
         },
         {
             key: 'Custom Code',
-            desc: 'Documentation 1: [Create Custom Code Job](../../operation/job_manage/create_job/create_process_job) <br /> Documentation 2: [Debug Custom Code Job](../../operation/job_manage/job_op/debug_customer_code) <br /> Documentation 3: [Logging in Custom Code](../../operation/job_manage/job_op/log_in_customer_code)'
+            desc: 'Documentation 1: [Create Custom Code Job](../../../operation/job_manage/create_job/create_process_job) <br /> Documentation 2: [Debug Custom Code Job](../../../operation/job_manage/job_op/debug_customer_code) <br /> Documentation 3: [Logging in Custom Code](../../../operation/job_manage/job_op/log_in_customer_code)'
         },
         {
             key: 'Data Filtering Conditions',
-            desc: 'Supports data filtering with WHERE conditions using SQL 92 subset. Documentation: [Create Data Filtering Job](../../operation/job_manage/create_job/create_data_filter_job)'
+            desc: 'Supports data filtering with WHERE conditions using SQL 92 subset. Documentation: [Create Data Filtering Job](../../../operation/job_manage/create_job/create_data_filter_job)'
         },
         {
             key: 'Set Target Primary Key',

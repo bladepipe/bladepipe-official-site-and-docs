@@ -8,8 +8,8 @@ title: Create RAG API with PGVector
 
 This is part of a series of articles about building RAG applications. 
 
-1. Create and Store Vectors in PGVector
-2. [Create RAG API with PGVector](./pg_vector_to_rag_api)
+1. [Create and Store Vectors in PGVector](./sshfile_to_aliyun_pg_vector.md)
+2. Create RAG API with PGVector
 
 BladePipe can automatically generate a chat service based on embeddings, named **RagApi**. It is compatible with the OpenAI interface, and the creation process doesn't use any code. This article dives into how to create a **RagApi**.
 
@@ -68,12 +68,12 @@ The demonstration will be shown in an environment with:
 
 
 ### Step 1: Install BladePipe
-Follow the instructions in [Install Worker (Docker)](../productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](../productOP/byoc/installation/install_worker_binary.md) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](../productOP/onPremise/installation/install_all_in_one_docker.mdx) to download and install BladePipe.
 
 
 ### Step 2: Add DataSources
 
-Log in to the [BladePipe Cloud](https://cloud.bladepipe.com). Click **DataSource** > **Add DataSource**.    
+Log in to BladePipe Console. Click **DataSource** > **Add DataSource**.    
 
 **Add the Vector Database:**   
 Choose **Self Maintenance** > **PostgreSQL**, then connect.   
@@ -96,7 +96,7 @@ Choose **Self Maintenance** > **RagApi**.
 
 ### Step 3: Create DataJob
 
-1. Click **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Click **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Select the source DataSource (**PostgreSQL** with embeddings stored) and target DataSource (**RagApi**), and click **Test Connection**.   
 
 ![](../assets/pg_vector_to_rag_api/11.png)

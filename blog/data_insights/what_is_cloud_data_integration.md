@@ -152,7 +152,7 @@ Cloud data integration is no longer just a technical upgrade—it directly affec
 Bladepipe is built for teams that need **real-time, reliable cloud data integration** without unnecessary complexity. With ultra-low latency, CDC-based incremental sync, flexible [deployment options (SaaS managed, BYOC, or on-premise)](https://www.bladepipe.com/docs/price/product_price/), and built-in [monitoring and alerting](https://www.bladepipe.com/docs/operation/job_manage/job_op/job_alarm/), Bladepipe helps data teams keep pipelines stable, accurate, and easy to operate.
 
 **Next steps:**
-- [**Try Bladepipe with a free trial**](https://www.www.bladepipe.com/login) to see how real-time cloud data integration works in practice.
+- [**Try Bladepipe with a free trial**](https://www.bladepipe.com/login) to see how real-time cloud data integration works in practice.
 - [**Request a personalized demo**](https://cal.com/bladepipe-xxypci/30min) to explore how Bladepipe fits your data sources, scale, and architecture.
 - [**Contact our team**](https://www.bladepipe.com/about/) to discuss your use case—our customer support works closely with data and engineering teams to ensure a smooth setup and long-term success.
 

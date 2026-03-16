@@ -8,8 +8,8 @@ title: Create and Store Vectors in PGVector
 
 This is part of a series of articles about building RAG applications. 
 
-1. [Create and Store Vectors in PGVector](./file_to_aliyun_pg_vector)
-2. Build a RAG API with PGVector
+1. Create and Store Vectors in PGVector
+2. [Build a RAG API with PGVector](./pg_vector_to_rag_api.md)
 
 This article introduces how to create vectors and store them in PGVector using [BladePipe](https://www.bladepipe.com), preparing for retrieval-augmented generation (RAG).
 
@@ -84,7 +84,7 @@ In this article, we show how to create and store vectors with the following sour
 - Embedding model: **OpenAI text-embedding-3-large**
 
 ### Step 1: Install BladePipe
-Follow the instructions in [Install Worker (Docker)](../productOP/byoc/installation/install_worker_docker) or [Install Worker (Binary)](../productOP/byoc/installation/install_worker_binary.md) to download and install a BladePipe Worker.
+Follow the instructions in [Install Worker (Docker)](../productOP/onPremise/installation/install_all_in_one_docker.mdx) to download and install BladePipe.
 
 ### Step 2: Prepare DataSources
 1. Log in [OpenAI API platform](https://openai.com/index/openai-api/) and create the API key. 
@@ -128,10 +128,10 @@ CREATE EXTENSION IF NOT EXISTS vector;
 ```
 
 ### Step 3: Add DataSources
-Log in to the [BladePipe Cloud](https://cloud.bladepipe.com). Click **DataSource** > **Add DataSource**.     
+Log in to BladePipe Console. Click **DataSource** > **Add DataSource**.     
    
 **Add Files:**   
-Select **Self Maintenance** > **SshFile**. You can set [extra parmeters](https://doc.bladepipe.com/reference/file_schema_format).
+Select **Self Maintenance** > **SshFile**. You can set [extra parmeters](https://www.bladepipe.com/docs/reference/file_schema_format/).
 
 + **Address**: Fill in the machine IP where the files are stored and SSH port (default 22).
 + **Account & Password**: Username and password of the machine.
@@ -165,7 +165,7 @@ Choose **Independent Cloud Platform** > **Manually Fill** > **OpenAI**, and fill
 ![](../assets/file_to_aliyun_pg_vector/3.png)
 
 ### Step 4: Create a DataJob
-1. Go to **DataJob** > [**Create DataJob**](https://doc.bladepipe.com/operation/job_manage/create_job/create_full_incre_task).
+1. Go to **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
 2. Choose source: **SshFile**, target: **PostgreSQL**, and test the connection.
 
 ![](../assets/file_to_aliyun_pg_vector/5.png)

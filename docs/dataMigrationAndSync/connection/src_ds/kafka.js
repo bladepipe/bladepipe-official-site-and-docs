@@ -8,7 +8,7 @@ export const Kafka = {
     params: [
         {
             key: "schemaFormat",
-            desc: 'MQ Message format. For more information, see [Message Format](../../reference/kafka_msg_format_type).'
+            desc: 'MQ Message format. For more information, see [Message Format](../../../reference/kafka_msg_format_type).'
         },
         {
             key: "consumerGroupId",
@@ -36,7 +36,7 @@ export const Kafka = {
         },
         {
             key: 'customClientProps',
-            desc: 'Custom properties passed to the Kafka client in JSON format. The key is the parameter name and the value is the parameter value. This setting takes the highest priority. For example: [AWS IAM Access Control](../datasource_func/Kafka/kafka_iam_auth)'
+            desc: 'Custom properties passed to the Kafka client in JSON format. The key is the parameter name and the value is the parameter value. This setting takes the highest priority. For example: [AWS IAM Access Control](../../datasource_func/Kafka/kafka_iam_auth)'
         }
     ],
     faq: [
@@ -56,7 +56,7 @@ export const Kafka = {
     master_function: [
         {
             key: "Message Format",
-            desc: 'The following message formats are supported. See [Message Format](../../reference/kafka_msg_format_type). \n- <b>CloudCanal format</b> \n- <b>AlibabaCanal format</b>'
+            desc: 'The following message formats are supported. See [Message Format](../../../reference/kafka_msg_format_type). \n- <b>CloudCanal format</b> \n- <b>AlibabaCanal format</b>'
         }
     ]
 }
