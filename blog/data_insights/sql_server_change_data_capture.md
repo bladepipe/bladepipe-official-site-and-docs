@@ -16,7 +16,7 @@ In this guide, we’ll walk through how Change Data Capture (CDC) works in SQL S
 ## What Is CDC and How It Works
 Before diving into SQL Server CDC, we need to understand what is CDC first. 
 
-Change Data Capture (CDC) is a technique used to track data changes, such as inserts, updates, and deletes in a database. Unlike traditional ETL that repeatedly scans entire tables, CDC records only the changes that occur, enabling incremental data processing.
+[Change Data Capture (CDC)](change_data_capture_cdc.md) is a technique used to track data changes, such as inserts, updates, and deletes in a database. Unlike traditional ETL that repeatedly scans entire tables, CDC records only the changes that occur, enabling incremental data processing.
 
 A typical CDC system:
 

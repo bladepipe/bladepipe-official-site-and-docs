@@ -761,7 +761,6 @@ const sidebars: SidebarsConfig = {
         "faq/solve_mysql_src_json_invalid",
         "faq/solve_hana_test_connection_fail",
         "faq/solve_sqlserver_tls",
-        "faq/solve_install_fail_docker",
         "faq/solve_mysql_src_could_not_find_binlog",
         "faq/solve_sr_dr_dst_writer_http_host",
         "faq/solve_get_meta_time_out",
@@ -769,7 +768,8 @@ const sidebars: SidebarsConfig = {
         "faq/solve_login_empty_key_error",
         "faq/solve_structure_migration_error",
         "faq/solve_access_denied_schema",
-        "faq/solve_activate_data_truncation"
+        "faq/solve_activate_data_truncation",
+        "faq/solve_upgrade_console_failed"
       ]
     },
     {

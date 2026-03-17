@@ -200,8 +200,8 @@ description: 本文档主要介绍如何以 TGZ 方式来安装部署 CloudCanal
 
 7. **设置必要参数**。
   
-    | 参数名      |版本| 说明                  |      
-    | --------------------------------| ---------------|-----------------------------------------| 
+    | 参数名      |版本| 说明                                                         |      
+    | --------------------------------| ---------------|------------------------------------------------------------| 
     | spring.datasource.url          | 3.x | 元数据库 cloudcanal_console 地址，修改 host:port, 数据库名称, 时区配置（如有变化） |
     | spring.datasource.username     |3.x| 元数据库 cloudcanal_console 用户名                                |
     | spring.datasource.password     |3.x| 元数据库 cloudcanal_console 密码                                 |
@@ -212,8 +212,9 @@ description: 本文档主要介绍如何以 TGZ 方式来安装部署 CloudCanal
     | spring.datasource-rdp.username* |4.x| 元数据库 clougence_rdp 用户名                                     |
     | spring.datasource-rdp.password* |4.x| 元数据库 clougence_rdp 密码                                      |
     | jwt.secret                      | all | 系统登录验证算法的密钥，可以是一个 64 位随机码                                  |
+    | console.config.node.uid      | all | Console 实例标识，可以填写任意字符串，不同 Console 实例请勿重复使用<br/>(例: console.config.node.uid=cloudcanal-console-1)            |
     | console.rsocket.dns             | all | 部署机器内网 host (不带端口)                                         |
-    | prometheus.host                 | all | 部署机器内网 host (带端口，e.g. http://127.0.0.1:9090)      |
+    | prometheus.host                 | all | 部署机器内网 host (带端口，e.g. http://127.0.0.1:9090)               |
     
     :::info  
     *：变化配置  
