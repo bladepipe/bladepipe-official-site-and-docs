@@ -8,11 +8,15 @@ import { useLocation } from '@docusaurus/router';
 import Translate from '@docusaurus/Translate';
 import { useBlogTagsPostsPageTitle } from '@docusaurus/theme-common/internal';
 import Pagination from '@site/src/components/Pagination';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { normalizeLinkForSiteBrand } from '@site/src/utils/nav';
 
 export default function BlogTagsPostsPage(props: Props): React.JSX.Element {
   const { tag, items, sidebar, listMetadata } = props;
   const title = useBlogTagsPostsPageTitle(tag);
   const location = useLocation();
+  const { siteConfig } = useDocusaurusContext();
+  const siteBrand = siteConfig.customFields?.siteBrand as string | undefined;
 
   // 获取当前路径的语言前缀，构建正确的博客列表页路径
   const pathname = location.pathname;
@@ -97,7 +101,7 @@ export default function BlogTagsPostsPage(props: Props): React.JSX.Element {
             {paged.map(blog => (
               <div key={blog.title} className="bg-white rounded-2xl flex flex-col overflow-hidden h-[520px] min-w-[300px]">
                 {/* 图片区域 */}
-                <a href={blog.permalink} className="w-full h-[280px] overflow-hidden">
+                <a href={normalizeLinkForSiteBrand(blog.permalink, siteBrand)} className="w-full h-[280px] overflow-hidden">
                   <img 
                     src={blog.image} 
                     alt={blog.title} 
@@ -135,7 +139,7 @@ export default function BlogTagsPostsPage(props: Props): React.JSX.Element {
                   {/* 标题和描述 */}
                   <div className="flex flex-col gap-3 px-0 pb-4" style={{ gap: '12px' }}>
                     <a 
-                      href={blog.permalink} 
+                      href={normalizeLinkForSiteBrand(blog.permalink, siteBrand)} 
                       className="flex items-start gap-4 text-[#131316] hover:text-[#0087c7] transition-colors cursor-pointer no-underline group"
                       style={{ gap: '16px' }}
                     >

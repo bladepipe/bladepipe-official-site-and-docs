@@ -8,7 +8,7 @@ tags:
   - data_insights
 image: /img/blog/data_insights/top_cdc_tool.png
 ---
-Change Data Capture (CDC) is a technique that identifies and tracks changes to data stored in a database, such as inserts, updates, and deletes. By capturing these changes, CDC enables efficient data replication between systems without full data reloads. It’s widely used in modern data pipelines to power real-time analytics, maintain data lakes, update caches, and support event-driven architectures.
+[Change Data Capture (CDC)](change_data_capture_cdc.md) is a technique that identifies and tracks changes to data stored in a database, such as inserts, updates, and deletes. By capturing these changes, CDC enables efficient data replication between systems without full data reloads. It’s widely used in modern data pipelines to power real-time analytics, maintain data lakes, update caches, and support event-driven architectures.
 
 
 ## Why do You Need CDC?

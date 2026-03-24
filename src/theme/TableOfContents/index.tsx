@@ -1,9 +1,8 @@
 import React from 'react';
-import type { Props as TableOfContentsProps } from '@theme/TableOfContents';
 import TableOfContents from '@theme-original/TableOfContents';
 
-type Props = TableOfContentsProps & {
-  children: React.ReactNode;
+type Props = React.ComponentProps<typeof TableOfContents> & {
+  children?: React.ReactNode;
 };
 
 export default function TableOfContentsWrapper(props: Props): React.JSX.Element {

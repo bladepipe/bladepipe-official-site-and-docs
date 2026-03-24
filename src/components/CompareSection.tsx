@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Translate, {translate} from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { normalizeLinkForSiteBrand } from '@site/src/utils/nav';
 
 // 计算每组内最大 price 用于高度比例
 const getBarHeight = (price: string, groupMaxPrice: number) => {
@@ -117,7 +118,7 @@ const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true })
             </h3>
             {showLearnMore && (
               <a 
-                href="/why" 
+                href={normalizeLinkForSiteBrand('/why', siteBrand)}
                 className="button-link-white inline-flex items-center gap-2 px-7 py-3 bg-[#0087c7] rounded-full text-[18px] font-bold shadow hover:bg-[#0070a6] transition-all"
               >
                 <Translate id="compare.learnMore">Learn More</Translate>

@@ -273,7 +273,7 @@ export default function Login() {
                         <Translate id="login.policy.termsOfService">Terms of Service</Translate>
                       </Link>{' '}
                       <Translate id="login.policy.and">and</Translate>{' '}
-                      <Link to="/docs/protocol/privacy_policy " className="text-[#0087c7] hover:underline">
+                      <Link to="/docs/protocol/privacy_policy" className="text-[#0087c7] hover:underline">
                         <Translate id="login.policy.privacyPolicy">Privacy Policy</Translate>
                       </Link>
                       <Translate id="login.policy.period">.</Translate>

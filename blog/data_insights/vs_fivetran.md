@@ -116,7 +116,7 @@ Here's a quick comparison of costs between BladePipe Managed and Fivetran(Standa
 | 100 M | $1000  | $2900+  |
 
 
-**In summary**, BladePipe is an ideal Fivetran alternative when it comes to costs, considering the following factors:
+**In summary**, BladePipe is an ideal [Fivetran alternative](free_fivetran_alternative_bladepipe.md) when it comes to costs, considering the following factors:
 
 - **Cost-effectiveness**: BladePipe is much more cheaper than Fivetran when moving the same amount of data. Besides, BladePipe doesn't charge for data transformation separately.
 

@@ -20,7 +20,7 @@ const footerLinks = [
       { name: translate({id: 'footer.resources.quickstart', message: 'Quick Start'}), href: '/docs/quick/quick_start_byoc/' },
       { name: translate({id: 'footer.resources.license', message: 'Get a License'}), href: '/docs/license/license_use/' },
       { name: translate({id: 'footer.resources.spec', message: 'Granularity & Specifications'}), href: '/docs/reference/service_difference/' },
-      { name: translate({id: 'footer.resources.blog', message: 'Blog'}), href: '/blog' },
+      { name: translate({id: 'footer.resources.blog', message: 'Blog'}), href: '/blog/' },
     ],
   },
   {
@@ -36,10 +36,10 @@ const footerLinks = [
   {
     title: translate({id: 'footer.company', message: 'Company'}),
     links: [
-      { name: translate({id: 'footer.company.about', message: 'About'}), href: '/about' },
-      { name: translate({id: 'footer.company.contact', message: 'Contact Us'}), href: '/about#contact' },
-      { name: translate({id: 'footer.company.terms', message: 'Terms of Service'}), href: '/docs/protocol/terms_of_use' },
-      { name: translate({id: 'footer.company.privacy', message: 'Privacy Policy'}), href: '/docs/protocol/privacy_policy' },
+      { name: translate({id: 'footer.company.about', message: 'About'}), href: '/about/' },
+      { name: translate({id: 'footer.company.contact', message: 'Contact Us'}), href: '/about/#contact' },
+      { name: translate({id: 'footer.company.terms', message: 'Terms of Service'}), href: '/docs/protocol/terms_of_use/' },
+      { name: translate({id: 'footer.company.privacy', message: 'Privacy Policy'}), href: '/docs/protocol/privacy_policy/' },
     ],
   },
 ];

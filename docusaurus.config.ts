@@ -4,6 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 const current_env = process.env.DEPLOYMENT_ENV || 'development';
+const isDevelopment = current_env === 'development';
 const SERVICE_URL = {
   development: 'http://localhost:8111',
   staging: 'https://test-cloud.askcug.cn',
@@ -183,9 +184,13 @@ const config: Config = {
 
   scripts: [
     { src: 'https://hm.baidu.com/hm.js?9a18d2c0bad7c7472febb245db950168', async: true },
-    // 仅 BladePipe 站点加载谷歌分析
-    { src: 'https://www.googletagmanager.com/gtag/js?id=G-QFL3CQMTBN', async: true },
-    { src: '/analytics.js' },
+    // 仅在非 development 环境加载 GA4，避免本地 start 产生统计数据
+    ...(!isDevelopment
+      ? [
+          { src: 'https://www.googletagmanager.com/gtag/js?id=G-QFL3CQMTBN', async: true },
+          { src: '/analytics.js' },
+        ]
+      : []),
     '/iconfont/datasource.js',
     // 本地预加载 Google Translate 脚本（需将 element.js 放入 static/translate/）
     { src: '/translate/element.js', async: true }
@@ -224,6 +229,7 @@ const config: Config = {
       };
     },
     require.resolve('./src/plugins/robots-txt-plugin'),
+    require.resolve('./src/plugins/gtm-plugin'),
   ],
 };
 

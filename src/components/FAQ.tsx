@@ -3,6 +3,7 @@ import Translate, { translate } from '@docusaurus/Translate';
 import PlusIcon from '@site/static/img/home/icon/plus.svg';
 import MinusIcon from '@site/static/img/home/icon/minus.svg';
 import siteConfig from '@generated/docusaurus.config';
+import { normalizeLinkForSiteBrand } from '@site/src/utils/nav';
 
 interface FAQItem {
   id: number;
@@ -92,7 +93,7 @@ const FAQ: React.FC = () => {
       parts.push(
         <a 
           key={match.index} 
-          href={match[2]} 
+          href={normalizeLinkForSiteBrand(match[2], siteBrand)} 
           className="text-[#0087c7] hover:underline"
         >
           {match[1]}
@@ -124,7 +125,7 @@ const FAQ: React.FC = () => {
             <Translate id="faq.subtitle">
               Can't find the answer you're looking for? 
             </Translate>
-            <a href="/about#ContactUs" className="text-[#0087c7]">
+            <a href={normalizeLinkForSiteBrand('/about#ContactUs', siteBrand)} className="text-[#0087c7]">
               <Translate id="faq.contact_support">
                 Reach out to our support team.
               </Translate>

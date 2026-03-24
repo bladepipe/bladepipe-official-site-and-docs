@@ -15,7 +15,6 @@ title: FAQ 索引
 - [MySQL 源端 JSON 写入异常](solve_mysql_src_json_invalid.md)
 - [SAP HANA 测试链接报错](solve_hana_test_connection_fail.md)
 - [SQL Server TLS10 报错](solve_sqlserver_tls.md)
-- [Docker 版本安装失败](solve_install_fail_docker.md)
 - [MySQL 源端找不到 binlog 文件](solve_mysql_src_could_not_find_binlog.md)
 - [StarRocks / Doris 目标端写入报错](solve_sr_dr_dst_writer_http_host.md)
 - [获取元信息超时](solve_get_meta_time_out.md)
@@ -24,4 +23,4 @@ title: FAQ 索引
 - [跳过结构迁移异常](solve_structure_migration_error.md)
 - [MySQL 源端 Schema 权限不足报错](solve_access_denied_schema.md)
 - [激活时出现 Data Truncation 异常](solve_activate_data_truncation.md)
-  
+- [Console 启动出现 Console cluster uid is null 异常](solve_upgrade_console_failed.md)
