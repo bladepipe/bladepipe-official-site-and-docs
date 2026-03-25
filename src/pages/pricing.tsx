@@ -16,6 +16,8 @@ import DownloadModal from '@site/src/components/DownloadModal';
 import CommunityInstallModal from '@site/src/components/CommunityInstallModal';
 import siteConfig from '@generated/docusaurus.config';
 import { getPageMeta } from '@site/src/utils/meta';
+import { normalizeLinkForSiteBrand } from '@site/src/utils/nav';
+import { trackCommunityEditionDownload } from '@site/src/utils/analytics';
 
 // 计算云服务价格
 const calculateCloudPrice = (priceMeta?: any, siteBrand?: string) => {
@@ -261,6 +263,7 @@ const PricingCard = ({ plan, onDownloadClick, onCommunityModalOpen, siteBrand })
           } else if (siteBrand === 'bladepipe') {
             if (plan.id === 1) {
               // BladePipe 社区版 - 显示社区版安装弹窗
+              trackCommunityEditionDownload();
               onCommunityModalOpen();
             } else if (plan.id === 2) {
               // BladePipe Cloud 版本 - 开始免费试用
@@ -333,7 +336,7 @@ const PricingCard = ({ plan, onDownloadClick, onCommunityModalOpen, siteBrand })
       
       {/* 链接 - 只有当 linkText 存在时才显示 */}
       {plan.linkText && (
-        <a href={plan.link} className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#0087c7] font-bold hover:underline cursor-pointer flex items-center gap-[6px] sm:gap-[8px]">
+        <a href={normalizeLinkForSiteBrand(plan.link, siteBrand)} className="text-[16px] sm:text-[17px] lg:text-[18px] text-[#0087c7] font-bold hover:underline cursor-pointer flex items-center gap-[6px] sm:gap-[8px]">
           <span>{plan.linkText.replace(/\s*→\s*$/, '').trim()}</span>
           <ArrowIcon className="w-[14px] h-[14px] sm:w-[15px] sm:h-[15px] lg:w-[16px] lg:h-[16px] flex-shrink-0 mt-[1px]" />
         </a>
@@ -580,4 +583,4 @@ export default function Pricing() {
       <Footer />
     </Layout>
   );
-} 
+}

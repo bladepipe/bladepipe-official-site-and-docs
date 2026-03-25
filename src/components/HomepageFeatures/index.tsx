@@ -25,7 +25,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        <Translate id="features.focus.desc">Docusaurus lets you focus on your docs, and we'll do the chores. Go ahead and move your docs into the <code>docs</code> directory.</Translate>
+        <Translate id="features.focus.desc">Docusaurus lets you focus on your docs, and we'll do the chores. Go ahead and move your docs into the docs directory.</Translate>
       </>
     ),
   },

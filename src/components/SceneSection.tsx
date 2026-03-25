@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Translate, {translate} from '@docusaurus/Translate';
 import siteConfig from '@generated/docusaurus.config';
+import { normalizeLinkForSiteBrand } from '@site/src/utils/nav';
 
 const SceneSection: React.FC = () => {
   const [activeIdx, setActiveIdx] = useState(0);
@@ -62,7 +63,7 @@ const SceneSection: React.FC = () => {
                 <div className="text-[14px] sm:text-[15px] lg:text-[16px] text-[#3f3f46] leading-[20px] sm:leading-[22px] lg:leading-[24px] font-medium mb-6 sm:mb-7 lg:mb-8">{card.desc}</div>
               </div>
               <a
-                href={card.btnHref}
+                href={normalizeLinkForSiteBrand(card.btnHref, siteBrand)}
                 className="inline-flex items-center gap-1 text-[14px] sm:text-[15px] lg:text-[16px] font-medium text-[#0087c7] hover:underline transition-all"
               >
                 {card.btn}

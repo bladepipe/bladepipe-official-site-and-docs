@@ -2,8 +2,22 @@ import React, { useState } from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Translate from '@docusaurus/Translate';
 
+type SearchButtonTranslations = {
+  buttonText?: string;
+};
+
+type SearchButtonProps = {
+  onClick: () => void;
+  translations?: SearchButtonTranslations;
+};
+
+type SearchModalProps = {
+  isOpen: boolean;
+  onClose: () => void;
+};
+
 // 搜索按钮组件，模拟 DocSearch 的样式
-function SearchButton({ onClick, translations }) {
+function SearchButton({ onClick, translations }: SearchButtonProps) {
   return (
     <button
       type="button"
@@ -78,7 +92,7 @@ function SearchButton({ onClick, translations }) {
 }
 
 // 提示模态框组件
-function SearchModal({ isOpen, onClose }) {
+function SearchModal({ isOpen, onClose }: SearchModalProps) {
   if (!isOpen) return null;
 
   return (
@@ -152,6 +166,15 @@ function SearchModal({ isOpen, onClose }) {
 function DocSearch({ className }: { className?: string }) {
   const { siteConfig } = useDocusaurusContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const searchButtonTranslations = (
+    siteConfig.themeConfig as {
+      algolia?: {
+        translations?: {
+          button?: SearchButtonTranslations;
+        };
+      };
+    }
+  ).algolia?.translations?.button;
 
   const handleSearchClick = () => {
     if (siteConfig.themeConfig.algolia) {
@@ -167,7 +190,7 @@ function DocSearch({ className }: { className?: string }) {
     <div className={className}>
       <SearchButton
         onClick={handleSearchClick}
-        translations={siteConfig.themeConfig.algolia?.translations?.button}
+        translations={searchButtonTranslations}
       />
       <SearchModal
         isOpen={isModalOpen}

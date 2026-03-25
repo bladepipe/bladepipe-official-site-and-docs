@@ -2225,6 +2225,9 @@
   "compare.millionRows": {
     "message": "百万行数据/月"
   },
+  "compare.cost.description": {
+    "message": "成本对比：CloudCanal vs. Airbyte vs. Fivetran"
+  },
   "compare.learnMore": {
     "message": "了解更多"
   },

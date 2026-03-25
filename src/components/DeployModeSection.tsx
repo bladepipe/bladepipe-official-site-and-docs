@@ -1,6 +1,7 @@
 import React from 'react';
 import Translate, {translate} from '@docusaurus/Translate';
 import siteConfig from '@generated/docusaurus.config';
+import { normalizeLinkForSiteBrand } from '@site/src/utils/nav';
 
 const DeployModeSection: React.FC = () => {
   const siteBrand = siteConfig.customFields?.siteBrand as string;
@@ -77,7 +78,7 @@ const DeployModeSection: React.FC = () => {
                   ))}
                 </ul>
                 <a
-                  href={mode.btnHref}
+                  href={normalizeLinkForSiteBrand(mode.btnHref, siteBrand)}
                   className={`inline-flex items-center gap-1 text-[14px] sm:text-[15px] lg:text-[16px] font-medium ${mode.text} hover:underline transition-all mt-auto`}
                 >
                   {mode.btn}

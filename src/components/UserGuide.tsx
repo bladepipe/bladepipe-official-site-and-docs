@@ -3,9 +3,14 @@ import Translate from '@docusaurus/Translate';
 import { getCloudUrl } from '@site/src/utils/api';
 import { isUserLogin } from '@site/src/store/user';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import CommunityInstallModal from './CommunityInstallModal';
+import { trackCommunityEditionDownload } from '@site/src/utils/analytics';
+
 export default function UserGuide() {
   const [offsetY, setOffsetY] = useState(0);
   const [section, setSection] = useState(false);
+  const [communityModalVisible, setCommunityModalVisible] = useState(false);
+  const [communityModalInitialTab, setCommunityModalInitialTab] = useState<string>('docker');
   const sectionRef = useRef(null);
   const startScrollY = useRef<number | null>(null);
   const startOffset = 500;
@@ -47,6 +52,24 @@ export default function UserGuide() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [section]);
+
+  const handleTryCommunityFree = () => {
+    if (siteBrand !== 'bladepipe' && siteBrand !== 'clougence') {
+      if (isUserLogin()) {
+        window.location.href = getCloudUrl();
+      } else {
+        localStorage.setItem('loginSource', 'try_cloud_free');
+        window.location.href = siteBrand === 'bladepipe' ? '/login/' : '/login';
+      }
+      return;
+    }
+
+    if (siteBrand === 'bladepipe') {
+      trackCommunityEditionDownload();
+    }
+    setCommunityModalInitialTab('docker');
+    setCommunityModalVisible(true);
+  };
 
   return (
     <section
@@ -114,19 +137,22 @@ export default function UserGuide() {
           <button
             className="cursor-pointer h-[54px] px-7 py-[15px] flex items-center gap-3 rounded-full border border-1 border-solid border-white/60 text-white text-[16px] font-bold font-['Plus Jakarta Sans'] bg-transparent shadow-none transition hover:bg-white/10 focus:outline-none min-w-fit w-auto"
             style={{ boxShadow: '0px 2px 8px 0px rgba(255,255,255,0.10)' }}
-            onClick={() => {
-              if (isUserLogin()) {
-                localStorage.setItem('openDownloadModal', 'true');
-                window.location.reload();
-              } else {
-                localStorage.setItem('loginSource', 'download');
-                window.location.href = siteBrand === 'bladepipe' ? '/login/' : '/login';
-              }
-            }}>
-            <Translate id='userguide.downloadBtn'>Download Enterprise</Translate>
+            onClick={handleTryCommunityFree}>
+            <Translate id='banner.tryCommunityFreeBtn'>Try Community Free</Translate>
           </button>
         </div>
       </div>
+
+      {(siteBrand === 'bladepipe' || siteBrand === 'clougence') && (
+        <CommunityInstallModal
+          visible={communityModalVisible}
+          onClose={() => {
+            setCommunityModalVisible(false);
+            setCommunityModalInitialTab('docker');
+          }}
+          initialTab={communityModalInitialTab}
+        />
+      )}
     </section>
   );
 }
