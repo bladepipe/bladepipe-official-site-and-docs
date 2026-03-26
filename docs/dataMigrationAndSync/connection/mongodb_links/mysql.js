@@ -18,7 +18,7 @@ const MySQL = {
         },
         {
             key: 'Position Resetting',
-            desc: 'Reset positions by timestamp to consume the oplog in a past period again.' 
+            desc: 'Reset positions by timestamp to consume the oplog in a past period again.'
         },
         {
             key: 'Supported Deployment',
@@ -33,9 +33,13 @@ const MySQL = {
 
 const MariaDB = MySQL;
 const AuroraForMySQL = MySQL;
+const PolarDbForMySQL = MySQL;
+const GaussDB = MySQL;
 
 export {
     MySQL,
     MariaDB,
-    AuroraForMySQL
+    AuroraForMySQL,
+    PolarDbForMySQL,
+    GaussDB
 }

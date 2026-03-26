@@ -1,4 +1,4 @@
-export const MongoDB = {
+const MongoDB = {
     main_function: [
         {
             key: '结构迁移',
@@ -161,3 +161,12 @@ export const MongoDB = {
         }
     ]
 }
+
+const DocumentDB = MongoDB;
+
+export {
+    MongoDB,
+    DocumentDB
+}
+
+

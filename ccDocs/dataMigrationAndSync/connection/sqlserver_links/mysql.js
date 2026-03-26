@@ -288,9 +288,13 @@ const MySQL = {
 
 const MariaDB = MySQL;
 const AuroraForMySQL = MySQL;
+const GaussDbForMySQL = MySQL;
+const GaussDB = MySQL;
 
 export {
     MySQL,
     MariaDB,
-    AuroraForMySQL
+    AuroraForMySQL,
+    GaussDbForMySQL,
+    GaussDB
 }

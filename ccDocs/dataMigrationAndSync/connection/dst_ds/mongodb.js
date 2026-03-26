@@ -6,7 +6,7 @@ export const MongoDB = {
         },
         {
             key: '网络准备',
-            desc: '迁移同步节点（sidecar）可连接 MongoDB 节点'
+            desc: '迁移同步节点（sidecar）可连接 MongoDB/DocumentDB 节点'
         }
     ],
     params: [

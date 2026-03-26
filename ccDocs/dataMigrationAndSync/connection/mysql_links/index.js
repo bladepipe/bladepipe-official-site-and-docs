@@ -1,30 +1,37 @@
-import {MySQL, MariaDB, AuroraForMySQL} from "./mysql";
-import {PolarDbForMySQL} from "./polardbmysql";
-import {AnalyticDbForPg, Greenplum, PostgreSQL, AuroraForPg, OpenGauss} from "./postgresql";
-import {StarRocks} from "./starrocks";
-import {Oracle} from "./oracle";
-import {Doris, SelectDB} from "./doris";
-import {AnalyticDbForMySQL} from "./adbmysql";
-import {ClickHouse} from "./clickhouse";
-import {Kafka, AutoMQ} from "./kafka";
-import {Elasticsearch} from "./elasticsearch";
-import {Redis} from "./redis";
-import {OceanBase} from "./oceanbase";
-import {MongoDB} from "./mongodb";
-import {PolarDbX} from "./polardbx";
-import {TiDB} from "./tidb";
-import {Hive} from "./hive";
-import {Hana} from "./Hana";
-import {Db2} from "./db2";
-import {Tunnel} from "./tunnul";
-import {SQLServer} from "./sqlserver";
-import {RocketMQ} from "./rocketmq";
-import {RabbitMQ} from "./rabbitmq";
-import {ObForOracle} from "./obfororacle";
-import {Iceberg} from "./iceberg";
-import {Pulsar} from "./pulsar";
-import {GreptimeDB} from "./greptimedb";
-import {Paimon} from "./paimon";
+import { MySQL, MariaDB, AuroraForMySQL, GaussDbForMySQL, GaussDB } from "./mysql";
+import { PolarDbForMySQL } from "./polardbmysql";
+import { AnalyticDbForPg, Greenplum, PostgreSQL, AuroraForPg, OpenGauss, PolarDbForPg } from "./postgresql";
+import { StarRocks } from "./starrocks";
+import { Oracle } from "./oracle";
+import { Doris, SelectDB } from "./doris";
+import { AnalyticDbForMySQL } from "./adbmysql";
+import { ClickHouse } from "./clickhouse";
+import { Kafka, AutoMQ } from "./kafka";
+import { Elasticsearch } from "./elasticsearch";
+import { Redis } from "./redis";
+import { OceanBase } from "./oceanbase";
+import { MongoDB, DocumentDB } from "./mongodb";
+import { PolarDbX } from "./polardbx";
+import { TiDB } from "./tidb";
+import { Hana } from "./Hana";
+import { Db2 } from "./db2";
+import { SQLServer } from "./sqlserver";
+import { RocketMQ } from "./rocketmq";
+import { RabbitMQ } from "./rabbitmq";
+import { ObForOracle } from "./obfororacle";
+import { Iceberg } from "./iceberg";
+import { Pulsar } from "./pulsar";
+import { GreptimeDB } from "./greptimedb";
+import { Paimon } from "./paimon";
+import { Dameng } from "./dameng";
+import { Kudu } from "./kudu.js";
+import { DataLakeFormation, DeltaLake, Hudi } from "./lake";
+import { Redshift } from "./redshift";
+import { Lindorm } from "./lindorm";
+import { AmazonMSK } from "./amazonmsk";
+import { DynamoDB } from "./dynamodb";
+import { Hive } from "./hive";
+import { Tunnel } from "./tunnul";
 
 export default {
     MySQL,
@@ -61,5 +68,18 @@ export default {
     Iceberg,
     Paimon,
     Pulsar,
-    GreptimeDB
+    GreptimeDB,
+    'GaussDB for MySQL': GaussDbForMySQL,
+    GaussDB,
+    'PolarDB for PostgreSQL': PolarDbForPg,
+    DocumentDB,
+    Dameng,
+    DynamoDB,
+    Kudu,
+    DataLakeFormation,
+    DeltaLake,
+    Hudi,
+    Redshift,
+    Lindorm,
+    'Amazon MSK': AmazonMSK
 }

@@ -6,7 +6,7 @@ const PostgreSQL = {
         },
         {
             key: 'Port Preparation',
-            desc: 'Allow the migration and sync node (Worker) to connect to the PostgreSQL / Greenplum / Aliyun AnalyticDB for PostgreSQL port (e.g., port 5432).'
+            desc: 'Allow the migration and sync node (sidecar) to connect to PostgreSQL / Greenplum / AnalyticDB for PostgreSQL / PolarDB for PostgreSQL standard interactive interface (e.g., 5432).'
         }
     ],
     params: [

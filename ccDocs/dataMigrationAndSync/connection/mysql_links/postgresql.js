@@ -259,11 +259,13 @@ const Greenplum = PostgreSQL;
 const AnalyticDbForPg = PostgreSQL;
 const AuroraForPg = PostgreSQL;
 const OpenGauss = PostgreSQL;
+const PolarDbForPg = PostgreSQL;
 
 export {
     PostgreSQL,
     AuroraForPg,
     Greenplum,
     AnalyticDbForPg,
-    OpenGauss
+    OpenGauss,
+    PolarDbForPg
 }

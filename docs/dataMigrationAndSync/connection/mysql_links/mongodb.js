@@ -22,7 +22,7 @@ export const MongoDB = {
         },
         {
             key: 'Position Resetting',
-            desc: 'Reset positions by file position or timestamp. Allow re-consumption of incremental data logs in a past period or since a specific Binlog file and position.' 
+            desc: 'Reset positions by file position or timestamp. Allow re-consumption of incremental data logs in a past period or since a specific Binlog file and position.'
         }
     ],
     master_function: [
@@ -43,3 +43,5 @@ export const MongoDB = {
     examples: [],
     faq: []
 }
+
+export const DocumentDB = { ...MongoDB };

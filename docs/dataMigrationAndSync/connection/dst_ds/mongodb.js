@@ -6,7 +6,7 @@ export const MongoDB = {
         },
         {
             key: 'Port Preparation',
-            desc: 'Allow the migration and sync node (Worker) to connect to the MongoDB ports.'
+            desc: 'Allow the migration and sync node (sidecar) to connect to MongoDB/DocumentDB nodes.'
         }
     ],
     params: [

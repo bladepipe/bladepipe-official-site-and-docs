@@ -85,3 +85,6 @@ export const MongoDB = {
         },
     ]
 }
+
+export const DocumentDB = MongoDB;
+export const MongoDBAtlas = MongoDB;

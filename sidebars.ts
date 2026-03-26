@@ -334,6 +334,21 @@ const sidebars: SidebarsConfig = {
             },
             {
               "type": "category",
+              "label": "DynamoDB",
+              "items": [
+                "dataMigrationAndSync/datasource_func/DynamoDB/privs_for_dynamodb"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Dameng",
+              "items": [
+                "dataMigrationAndSync/datasource_func/Dameng/privs_for_dameng",
+                "dataMigrationAndSync/datasource_func/Dameng/prepare_for_dameng_logminer"
+              ]
+            },
+            {
+              "type": "category",
               "label": "Spanner",
               "items": [
                 "dataMigrationAndSync/datasource_func/Spanner/privs_for_spanner"
@@ -355,23 +370,23 @@ const sidebars: SidebarsConfig = {
               "type": "category",
               "label": "Installation",
               "items": [
-                  "productOP/onPremise/installation/install_all_in_one_docker",
-                  "productOP/onPremise/installation/add_worker_docker",
-                  "productOP/onPremise/installation/upgrade_all_in_one_docker",
-                  "productOP/onPremise/installation/uninstall_all_in_one_docker",
-                  "productOP/onPremise/installation/install_all_in_one_k8s",
-                  "productOP/onPremise/installation/upgrade_all_in_one_k8s",
-                  "productOP/onPremise/installation/uninstall_all_in_one_k8s",
-                  "productOP/onPremise/installation/install_all_in_one_binary",
-                  "productOP/onPremise/installation/add_worker_binary",
-                  "productOP/onPremise/installation/upgrade_all_in_one_binary"
+                "productOP/onPremise/installation/install_all_in_one_docker",
+                "productOP/onPremise/installation/add_worker_docker",
+                "productOP/onPremise/installation/upgrade_all_in_one_docker",
+                "productOP/onPremise/installation/uninstall_all_in_one_docker",
+                "productOP/onPremise/installation/install_all_in_one_k8s",
+                "productOP/onPremise/installation/upgrade_all_in_one_k8s",
+                "productOP/onPremise/installation/uninstall_all_in_one_k8s",
+                "productOP/onPremise/installation/install_all_in_one_binary",
+                "productOP/onPremise/installation/add_worker_binary",
+                "productOP/onPremise/installation/upgrade_all_in_one_binary"
               ]
             },
             {
               "type": "category",
               "label": "Maintenance",
               "items": [
-                  "productOP/onPremise/maintenance/minimal_docker_for_centos",
+                "productOP/onPremise/maintenance/minimal_docker_for_centos",
                 "productOP/onPremise/maintenance/minimal_k8s_for_centos",
                 "productOP/onPremise/maintenance/change_verify_code_777777",
                 "productOP/onPremise/maintenance/change_on_premise_password",

@@ -48,3 +48,5 @@ export const Redis = {
     faq: [],
     mapping: []
 }
+
+export const ElastiCache = Redis;

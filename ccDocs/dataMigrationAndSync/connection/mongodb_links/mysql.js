@@ -83,9 +83,13 @@ const MySQL = {
 
 const MariaDB = MySQL;
 const AuroraForMySQL = MySQL;
+const PolarDbForMySQL = MySQL;
+const GaussDB = MySQL;
 
 export {
     MySQL,
     MariaDB,
-    AuroraForMySQL
+    AuroraForMySQL,
+    PolarDbForMySQL,
+    GaussDB
 }

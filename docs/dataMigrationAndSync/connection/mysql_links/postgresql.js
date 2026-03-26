@@ -22,7 +22,7 @@ const PostgreSQL = {
         },
         {
             key: 'Position Resetting',
-            desc: 'Reset positions by file position or timestamp. Allow re-consumption of incremental data logs in a past period or since a specific Binlog file and position.' 
+            desc: 'Reset positions by file position or timestamp. Allow re-consumption of incremental data logs in a past period or since a specific Binlog file and position.'
         },
         {
             key: 'Table Name Mapping',
@@ -65,11 +65,13 @@ const Greenplum = PostgreSQL;
 const AnalyticDbForPg = PostgreSQL;
 const AuroraForPg = PostgreSQL;
 const OpenGauss = PostgreSQL;
+const PolarDbForPg = PostgreSQL;
 
 export {
     PostgreSQL,
     AuroraForPg,
     Greenplum,
     AnalyticDbForPg,
-    OpenGauss
+    OpenGauss,
+    PolarDbForPg
 }
