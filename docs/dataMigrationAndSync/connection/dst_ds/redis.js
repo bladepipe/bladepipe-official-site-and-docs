@@ -2,7 +2,7 @@ export const Redis = {
     prepare: [
         {
             key: 'Port Preparation',
-            desc: 'Allow the migration and sync node (Worker) to connect to the Redis port and Sentinel port (if available).'
+            desc: 'Allow the migration and sync node (Worker) to connect to the Redis/AWS ElastiCache port and Sentinel port (if available).'
         }
     ],
     params: [

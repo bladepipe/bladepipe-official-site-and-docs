@@ -22,7 +22,7 @@ const MySQL = {
         },
         {
             key: 'Position Resetting',
-            desc: 'Reset positions by file position or timestamp. Allow re-consumption of incremental data logs in a past period or since a specific Binlog file and position.' 
+            desc: 'Reset positions by file position or timestamp. Allow re-consumption of incremental data logs in a past period or since a specific Binlog file and position.'
         },
         {
             key: 'Table Name Mapping',
@@ -94,8 +94,13 @@ MariaDB.examples = []
 const AuroraForMySQL = { ...MySQL }
 AuroraForMySQL.examples = []
 
+const GaussDbForMySQL = { ...MySQL }
+const GaussDB = { ...MySQL }
+
 export {
     MySQL,
     MariaDB,
-    AuroraForMySQL
+    AuroraForMySQL,
+    GaussDbForMySQL,
+    GaussDB
 }

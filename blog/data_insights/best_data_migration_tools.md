@@ -418,7 +418,7 @@ Below are some typical enterprise migration scenarios seen in real-world project
 
 - [**MySQL to ClickHouse migration**](https://www.bladepipe.com/blog/tech_share/mysql_clickhouse_sync/): Popular for transforming transactional data into high-performance analytical workloads.
 
-- **MySQL to PostgreSQL migration**: Frequently chosen for greater extensibility and advanced SQL capabilities.
+- [**MySQL to PostgreSQL migration**](https://www.bladepipe.com/blog/tech_share/migrate_mysql_to_postgresql/): Frequently chosen for greater extensibility and advanced SQL capabilities.
 
 - [**SAP HANA to PostgreSQL migration**](https://www.bladepipe.com/blog/tech_share/hana_pg_sync/): Often driven by cost optimization and open-source adoption strategies.
 
@@ -518,3 +518,4 @@ For complex or large-scale projects, combining tools with expert data migration 
 >  
 > - [10 Best Data Integration Tools](data_integration_tools.md)
 > - [7 Best CDC Tools](top_cdc_tool.md)
+> - [8 Best ETL Tools](best_etl_tool_for_small_business.md)

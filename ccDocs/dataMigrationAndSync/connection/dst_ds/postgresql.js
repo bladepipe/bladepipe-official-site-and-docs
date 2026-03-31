@@ -2,11 +2,11 @@ const PostgreSQL = {
     prepare: [
         {
             key: '账号权限',
-            desc: '具备 <b>SELECT</b>, <b>INSERT</b>, <b>DELETE</b>, <b>UPDATE</b>, 常见 <b>DDL</b> 权限 <br /> 阿里云 AnalyticDB for PostgreSQL <b>初始账号</b>，或有 <b>SELECT</b>, <b>INSERT</b>, <b>DELETE</b>, <b>UPDATE</b>, <b>常见 DDL 权限</b>'
+            desc: '具备 <b>SELECT</b>, <b>INSERT</b>, <b>DELETE</b>, <b>UPDATE</b> 常见 <b>DDL</b> 权限 <br /> 阿里云 AnalyticDB for PostgreSQL <b>初始账号</b>，或有 <b>SELECT</b>, <b>INSERT</b>, <b>DELETE</b>, <b>UPDATE</b>, <b>常见 DDL 权限</b>'
         },
         {
             key: '网络准备',
-            desc: '迁移同步节点（sidecar）可连接 PostgreSQL / Greenplum / AnalyticDB for Pg 标准交互接口（如 5432）'
+            desc: '迁移同步节点（sidecar）可连接 PostgreSQL / Greenplum / AnalyticDB for PostgreSQL / PolarDB for PostgreSQL 标准交互接口（如 5432）'
         }
     ],
     params: [

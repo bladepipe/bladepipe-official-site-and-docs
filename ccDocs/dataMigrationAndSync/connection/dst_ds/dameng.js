@@ -2,11 +2,11 @@ export const Dameng = {
     prepare: [
         {
             key: '账号权限',
-            desc: '文档：[ORACLE 需要的权限](../database/privs_for_dameng)'
+            desc: '文档：[达梦需要的权限](../datasource_func/Dameng/privs_for_dameng)'
         },
         {
             key: '网络准备',
-            desc: '迁移同步节点（sidecar）可连接 Dameng 标准交互接口（如 5432）'
+            desc: '迁移同步节点（sidecar）可连接达梦标准交互接口（如 5432）'
         }
     ],
     params: [

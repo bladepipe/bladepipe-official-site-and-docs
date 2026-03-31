@@ -114,7 +114,7 @@ At this stage, the core task is **"Extract & Load" (E&L).**
 **Goal:** To move data from all sources—business databases, SaaS applications, log files, IoT devices, etc.—into a central storage system (typically a cloud data lake like Amazon S3 or ADLS Gen2) as quickly and reliably as possible, keeping it largely in its original form.
 
 **Key Characteristics:**
-- **Automation & Scheduling:** Using tools (like **BladePipe**) or custom scripts to automate data extraction and synchronization in a low-code or no-code manner, significantly reducing operational overhead.
+- **Automation & Scheduling:** Using [data integration tools](data_integration_tools.md) (like **BladePipe**) or custom scripts to automate data extraction and synchronization in a low-code or no-code manner, significantly reducing operational overhead.
 - **Preservation of Raw State:** Data is stored in its original or lightly processed formats (JSON, Parquet, Avro), maintaining maximum flexibility and traceability.
 - **High Frequency & Real-time Capability:** Supports both batch and streaming ingestion to ensure the data lake consistently reflects the latest state of the source systems.
 

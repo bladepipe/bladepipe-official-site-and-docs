@@ -75,7 +75,8 @@ const sidebars: SidebarsConfig = {
                 "operation/job_manage/create_job/create_period_full_job",
                 "operation/job_manage/create_job/create_virtual_col_job",
                 "operation/job_manage/create_job/create_target_pk_job",
-                "operation/job_manage/create_job/create_verification_correction_job"
+                "operation/job_manage/create_job/create_verification_correction_job",
+                "operation/job_manage/create_job/create_retl_job"
               ]
             },
             {
@@ -682,6 +683,7 @@ const sidebars: SidebarsConfig = {
       "type": "category",
       "label": "版本说明",
       "items": [
+        "releaseNote/rn-cloudcanal-5-5-0-0",
         "releaseNote/rn-cloudcanal-5-4-1-0",
         "releaseNote/rn-cloudcanal-5-4-0-0",
         "releaseNote/rn-cloudcanal-5-3-1-0",

@@ -18,7 +18,7 @@ export const MongoDB = {
         },
         {
             key: 'Position Resetting',
-            desc: 'Reset positions by timestamp to consume the oplog in a past period again.' 
+            desc: 'Reset positions by timestamp to consume the oplog in a past period again.'
         },
         {
             key: 'Supported Deployment',
@@ -31,3 +31,6 @@ export const MongoDB = {
     ],
     faq: []
 }
+
+export const DocumentDB = MongoDB;
+export const MongoDBAtlas = MongoDB;

@@ -1,5 +1,6 @@
-import {Redis} from "./redis";
+import { Redis, ElastiCache } from "./redis";
 
 export default {
     Redis,
+    'AWS ElastiCache': ElastiCache,
 }

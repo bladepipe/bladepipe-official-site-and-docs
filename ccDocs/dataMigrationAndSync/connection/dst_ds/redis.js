@@ -2,7 +2,7 @@ export const Redis = {
     prepare: [
         {
             key: '网络准备',
-            desc: '迁移同步节点（sidecar）可连接 Redis 各节点和 Sentinel 节点（如果有）'
+            desc: '迁移同步节点（sidecar）可连接 Redis/AWS ElastiCache 各节点和 Sentinel 节点（如果有）'
         }
     ],
     params: [

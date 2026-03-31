@@ -253,8 +253,13 @@ MariaDB.examples = []
 const AuroraForMySQL = { ...MySQL }
 AuroraForMySQL.examples = []
 
+const GaussDbForMySQL = { ...MySQL }
+const GaussDB = { ...MySQL }
+
 export {
     MySQL,
     MariaDB,
-    AuroraForMySQL
+    AuroraForMySQL,
+    GaussDbForMySQL,
+    GaussDB
 }

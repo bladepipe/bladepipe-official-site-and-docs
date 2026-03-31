@@ -1,7 +1,7 @@
 const MySQL = {
     main_function: [
         {
-            ey: 'Schema Migration',
+            key: 'Schema Migration',
             desc: 'If the target schema does not exist, BladePipe will automatically generate and execute CREATE statements based on the source metadata and the mapping rule.'
         },
         {
@@ -54,9 +54,13 @@ const MySQL = {
 
 const MariaDB = MySQL;
 const AuroraForMySQL = MySQL;
+const GaussDbForMySQL = MySQL;
+const GaussDB = MySQL;
 
 export {
     MySQL,
     MariaDB,
-    AuroraForMySQL
+    AuroraForMySQL,
+    GaussDbForMySQL,
+    GaussDB
 };
