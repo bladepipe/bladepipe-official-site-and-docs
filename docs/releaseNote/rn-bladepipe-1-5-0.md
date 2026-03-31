@@ -22,8 +22,8 @@ Version: 1.5.0
 - Support INTERVAL YEAR TO MONTH and INTERVAL DAY TO SECOND types in **Oracle > Oracle** pipeline.
 - Support Oracle **BLOB** type CDC (parameter *useTypedField* and *oraLmLobEnable* set to be true).
 - Support strongly typed full load, CDC, verification and correction from **SQL Server to Oracle / MySQL / PostgreSQL / SQL Server**. This allows strong compatibility to complex types.
-- - Support printing raw data receiving logs for **TiDB / Oracle sources** (parameter: *enableReceiveLog*).
-- - Support Kafka multi-offset mode to reduce latency fluctuation caused by different consumption speed across partitions.
+- Support printing raw data receiving logs for **TiDB / Oracle sources** (parameter: *enableReceiveLog*).
+- Support Kafka multi-offset mode to reduce latency fluctuation caused by different consumption speed across partitions.
 - Support creating auto-increment sequence in a CDC table for Hana.
 - Support partition table migration and sync for KingbaseES.
 - Support for **ElasticSearch 9.x**.
