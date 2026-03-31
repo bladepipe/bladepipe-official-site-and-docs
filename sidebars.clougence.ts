@@ -683,6 +683,7 @@ const sidebars: SidebarsConfig = {
       "type": "category",
       "label": "版本说明",
       "items": [
+        "releaseNote/rn-cloudcanal-5-5-0-0",
         "releaseNote/rn-cloudcanal-5-4-1-0",
         "releaseNote/rn-cloudcanal-5-4-0-0",
         "releaseNote/rn-cloudcanal-5-3-1-0",
