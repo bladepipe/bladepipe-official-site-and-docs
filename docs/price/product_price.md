@@ -1,79 +1,80 @@
 ---
 id: product_price
 title: Pricing
-description: BladePipe has different pricing models for Cloud and Enterprise plans. Cloud is based on pay-as-you-go model, and Enterprise is license-based pricing model.
+description: BladePipe offers different pricing models for its Cloud and Enterprise plans. The Cloud plan uses a pay-as-you-go model, while the Enterprise plan uses a license-based pricing model.
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-BladePipe offers both **free** and **paid** plans with a transparent data pipeline pricing model, designed to clearly reflect actual data migration cost and data integration cost across different usage scenarios.
 
-This page describes the pricing details of the paid plans. For a detailed comparison between the free and paid plans, see [Plans Diff](plans_diff.md).
+This page details the pricing for the paid plans. For a comprehensive feature comparison across all editions, see [Plans Comparison](plans_diff.md).
 
-The paid plans include **Cloud** and **Enterprise** editions. Pricing is calculated based on enabled pipeline capabilities, including Full Data, Incremental, Verification, Correction, and Schema Migration. Unit pricing may vary by plan and feature, allowing costs to scale reasonably with pipeline complexity and workload increase.
+The paid plans include the **Cloud** and **Enterprise** editions. Pricing is calculated based on your enabled **data pipeline** capabilities, such as Full Data, Incremental, Verification, Correction, and Schema Migration. Costs scale reasonably alongside your workload volume and pipeline complexity.
 
 ## Plans
 
 ### Cloud (Managed & BYOC)
-BladePipe Cloud includes two modes: Managed and BYOC.
 
-In Managed mode, both the Console and the Worker are fully managed by BladePipe. No deployment or maintenance is required. 
+BladePipe Cloud offers two deployment modes: Managed and BYOC (Bring Your Own Cloud).
 
-In BYOC mode, BladePipe Worker is deployed in your local network, and the Worker is connected to the BladePipe Console on the cloud for management and control. Only necessary information is kept at BladePipe Console, such as database authentication information, schema information, and performance statistics. The specific business data is maintained in your own network.
+- **Managed**: BladePipe fully manages both the Console and the Worker. You do not need to deploy or maintain any infrastructure.
+- **BYOC**: You deploy the BladePipe Worker securely within your local network. The Worker connects to the Cloud Console for management. The Cloud Console only stores necessary metadata (such as schema structures and performance metrics). Your actual business data remains strictly within your private network.
 
-For now, the unit price for Managed and BYOC are the same as shown in the table below. You can also estimate the cost based on the [price calculator](https://www.bladepipe.com/pricing/).
+The unit pricing for Managed and BYOC modes is identical. You can also estimate your monthly costs using the [Price Calculator](https://www.bladepipe.com/pricing/).
 
-|      Function     | Pricing                       | 
-| ------------      | -------------------------------|
-| Full Data       | 0.01 USD for 1 million rows   | 
-| Incremental       | 10 USD for 1 million rows     |
-| Verification       | 0.01 USD for 1 million rows   | 
-| Correction       | 0.1 USD for 1 million rows    |
-| Schema Migration | 0.1 USD for 100 tables/schema |
+| Function | Pricing | 
+| --- | ---|
+| Full Data | 0.01 USD per million rows | 
+| Incremental | 10.00 USD per million rows |
+| Verification | 0.01 USD per million rows | 
+| Correction | 0.10 USD per million rows |
+| Schema Migration | 0.10 USD per 100 tables/schema |
 
-### Enterprise (On-premise)
+### Enterprise (On-Premise)
 
-In an on-premise deployment, BladePipe is completely deployed in your local network. Now we offer flexible deployment methods, namely Docker, K8s and binary.
+The Enterprise plan gives you complete control. You deploy BladePipe entirely within your local network using flexible methods like [Docker](../productOP/onPremise/installation/install_all_in_one_docker.mdx), [Kubernetes (K8s)](../productOP/onPremise/installation/install_all_in_one_k8s.mdx), or [Binary](../productOP/onPremise/installation/install_all_in_one_binary.md).
 
-BladePipe Enterprise uses a prepaid [license](../license/license_use.md) for authorized use. The license defines the number of links and duration. The price is shown in the following table:
+The Enterprise edition uses a prepaid [license](../license/license_use.md). Your license price depends on your authorized link count and duration.
 
-| [Links](../reference/service_difference.md)     |  Duration               | Price |
-------------|-----------------------------|----|
-| 1      |   1 Hour     | 0.2 USD |
+| [Links](../reference/service_difference.md) | Duration | Price |
+|---|---|---|
+| 1 | 1 Hour | 0.20 USD |
 
-More examples of Enterprise pricing:
+Here are some Enterprise pricing examples:
 
-| Links     |  Duration               | Price |
-------------|-----------------------------|----|
-| 1      |   1 month     |   144.0 USD|
-| 1      |   1 year      |  1752.0 USD|
-| 5      |   1 month     |   720.0 USD|
-| 5      |   1 year    |   8760.0 USD|
+| Links | Duration | Price |
+|---|---|---|
+| 1 | 1 Month | 144.00 USD |
+| 1 | 1 Year | 1752.00 USD |
+| 5 | 1 Month | 720.00 USD |
+| 5 | 1 Year | 8760.00 USD |
 
 ## How to Choose
 
-Cloud (Managed / BYOC) and Enterprise (On-premises) plans are suitable for a variety of business use cases. The main differences are as follows:
+The Cloud and Enterprise plans cover diverse business requirements. Review the primary differences below to select the best plan for your organization:
 
-|            | Cloud (Managed) | Cloud (BYOC)                    | Enterprise (On-Premise)                 |
-|------------|--------------|-----------------------|-----------------------------|
-| **Deployment**      | No deployment is required | Private Workers connected to a public Console  | Totally deployed in your own network      |
-| **Role-Based Access Control**| No | No | Yes |
-| **Resource** | No resource is required | Only 1 VM (virtual machine) for Worker | Console, Worker, Meta-db all in one (need a larger VM)|
-| **SSO support** | Google | Google | Username-password, LDAP and more |
-| **Customization** * | No | No| Yes |
+| | Cloud (Managed) | Cloud (BYOC) | Enterprise (On-Premise) |
+|---|---|---|---|
+| **Deployment** | Fully managed, zero maintenance | Private Worker, Public Console | Fully deployed in your network |
+| **RBAC** | No | No | Yes |
+| **Infrastructure** | No resources required | 1 Virtual Machine (for Worker) | 1 Large VM (Console, Worker, & Meta-DB) |
+| **SSO** | Google | Google | Username/Password, LDAP, etc. |
+| **Customization** * | No | No | Yes |
 
 :::info
-**Customization**: BladePipe provides paid support for common features that are not supported yet after evaluation, such as new DataSources, new functions, etc.
+\* **Customization**: BladePipe provides paid development support for specific Enterprise requirements, including new DataSources or functions.
 :::
 
-## How to Pay
-Based on different pricing models, the payment methods vary.
+## Billing & Payment
+
+Payment methods vary based on the pricing model you choose.
+
 <Tabs groupId="bppay">
   <TabItem value="cloud" label="Cloud (Managed & BYOC)" default>
 ### Payment
 1. Log in to [BladePipe](https://www.bladepipe.com/).
 2. [Install a Worker](../productOP/byoc/installation/install_worker_docker.md) (for BYOC mode). 
-3. Add a card.
+3. Add a payment card.
    1. Navigate to **Settings** > **Payment** page.
    2. Click **Add New Card**.
    3. Enter card info and save.
@@ -84,11 +85,11 @@ Based on different pricing models, the payment methods vary.
 5. Create a DataJob.
 ### Billing
 BladePipe bills based on the volume of data you used. You can check the volume you used on a daily basis.
-- Navigate to **Settings** > **Billing** page and check daily billing.
-- Navigate to **Settings** > **Billing** > **Details** for more details.
+- Go to **Settings** > **Billing** page and check daily billing.
+- Go to **Settings** > **Billing** > **Details** for more details.
 
 :::info
-BladePipe Cloud accepts payment through **Stripe** by using it's subscription.
+BladePipe Cloud processes subscription payments securely via **Stripe**.
 :::
  </TabItem>
  <TabItem value="enterprise" label="Enterprise">
@@ -98,7 +99,7 @@ BladePipe Cloud accepts payment through **Stripe** by using it's subscription.
 3. [Get License](../license/license_use.md) and activate BladePipe.
 
 :::info
-BladePipe Enterprise accepts payment through **Stripe**.
+BladePipe Enterprise securely accepts invoice and upfront payments through **Stripe**.
 :::
  </TabItem>
 </Tabs>

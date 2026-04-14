@@ -1,19 +1,19 @@
 ---
 id: plans_diff
 title: Plans
-description: BladePipe offers four plans - Community, Cloud, Enterprise Trial and Enterprise. They differ in features, use cases and prices.
+description: BladePipe offers four plans - Community, Cloud, Enterprise Trial, and Enterprise. They vary in features, use cases, and pricing.
 ---
 
-BladePipe offers both **free** and **paid** plan options. The paid plan is detailed in the [Pricing](product_price.md) document.
+BladePipe offers four plans: **Community**, **Cloud**, **Enterprise Trial**, and **Enterprise**. They vary in features, use cases, and [pricing](product_price.md).
 
-This page provides a concise comparison of the differences between these plan options to help users make an informed choice.
+This page compares the available plans to help you choose the best fit for your data integration needs.
 
 ## Overview
 
-- **Community**: On-premise deployment with limited functionality. **5-[links](../reference/service_difference.md)** license, **free for long-term use**, but requires [reactivation](../license/license_use.md) **every 3 months**. Suitable for initial trials of data migration and sync projects.
-- **Cloud**: Supports both Managed and BYOC deployment models, with functionality identical to the Enterprise edition. Significantly reduces operational and maintenance costs, ideal for individual projects and small to medium-sized teams. For costs, see [Pricing](product_price.md#cloud-managed--byoc).
-- **Enterprise Trial**: On-premise deployment with functionality identical to the **Enterprise** version, including a free **3-month** trial and **30-links** licenses, suitable for feasibility validation.
-- **Enterprise**: On-premise deployment with full functionality and technical support services, suitable for enterprise-grade data pipeline. For costs, see [Pricing](product_price.md#enterprise-on-premise).
+- **Community**: A free, on-premise deployment with limited features. It provides a **[5-link](../reference/service_difference.md)** license for long-term use. You must [reactivate](../license/license_use.md) the license **every 3 months**. It suits initial trials and small-scale data projects.
+- **Cloud**: Supports both Managed and BYOC deployment models. It offers identical features to the Enterprise edition while reducing maintenance overhead. It perfectly fits small to medium-sized teams. For detailed costs, see [Pricing](product_price.md#cloud-managed--byoc).
+- **Enterprise Trial**: A free, on-premise evaluation containing all **Enterprise** features. It includes a **30-link** license for **3 months**. It allows complete feasibility testing before purchase.
+- **Enterprise**: An on-premise deployment providing complete functionality and dedicated technical support. It handles large-scale, enterprise-grade data pipelines. For detailed costs, see [Pricing](product_price.md#enterprise-on-premise).
 
 ## Feature Comparison
 
@@ -38,7 +38,7 @@ This page provides a concise comparison of the differences between these plan op
     <td align="center">Paid</td>
   </tr>
   <tr>
-    <th rowspan="4">Resouces</th>
+    <th rowspan="4">Resources</th>
     <th>Links&nbsp;&nbsp;<sup>[2]</sup></th>
     <td align="center">5</td>
     <td align="center">30</td>
@@ -46,7 +46,7 @@ This page provides a concise comparison of the differences between these plan op
     <td align="center">By Contract</td>
   </tr>
   <tr>
-    <th>Tables of Link</th>
+    <th>Tables per Link</th>
     <td align="center">&le;500</td>
     <td align="center">No Limit</td>
     <td align="center">No Limit</td>
@@ -61,8 +61,7 @@ This page provides a concise comparison of the differences between these plan op
   </tr>
   <tr>
     <th rowspan="1">DataSources</th>
-    <th><a href="../../dataMigrationAndSync/datasource_version">60+</a></th>
-    <td align="center" colspan="3">60+ <b>plus Oracle、SAP HANA、OceanBase for Oracle、SQL Server</b></td>
+    <th align="center" colspan="4"><a href="../../dataMigrationAndSync/datasource_version">60+</a></th>
   </tr>
   <tr>
     <th rowspan="5">Basic Functions</th>
@@ -130,7 +129,7 @@ This page provides a concise comparison of the differences between these plan op
     <td align="center">✔️</td>
   </tr>
   <tr>
-    <th>Data lineage</th>
+    <th>Data Lineage</th>
     <td align="center">-</td>
     <td align="center">✔️</td>
     <td align="center">✔️</td>
@@ -197,12 +196,12 @@ This page provides a concise comparison of the differences between these plan op
 </table>
 
 :::info
-**1.** The Community is **authorized for a period of 3 months at a time**. Before the 3-month authorization expires, you can log in to BladePipe to reapply for the license and extend the validity period free of charge.
-
-**2.** For different DataSources, the granularity of a link varies. For details, please refer to [Granularity and Specifications](..//reference/service_difference.md).
+- **1.** The Community license remains **valid for 3 months per activation**. You can log into BladePipe before expiration to [reapply and extend your free access](../license/license_use.md).
+- **2.** The technical definition of a "link" varies across different data sources. See [Granularity and Specifications](../reference/service_difference.md) for details.
 :::
 
-## Note
-- Community edition can be upgraded to Enterprise Trial or Enterprise edition.
-- Enterprise Trial edition can be upgraded to Enterprise edition, but it **CANNOT** be downgraded to Community Edition.
-- Enterprise edition **CANNOT** be downgraded to either Enterprise Trial edition or Community Edition.
+## Notes
+
+- You can upgrade the **Community** plan to the **Enterprise Trial** or **Enterprise** plan.
+- You can upgrade the **Enterprise Trial** to the **Enterprise** plan. You **CANNOT** downgrade it to the **Community** plan.
+- The **Enterprise** plan **CANNOT** be downgraded to the **Enterprise Trial** or **Community** plan.

@@ -1,96 +1,101 @@
 ---
 id: create_full_incre_task
-title: Incremental 
-description: It tells how to set up a data pipeline that covers scheme evolution, data migration and synchronization in BladePipe. 
+title: Full Data & Incremental
+description: It describes how to set up a data pipeline covering schema evolution, full data migration, and incremental synchronization in BladePipe.
 ---
 
-With BladePipe, you can create a Full Data & Incremental DataJob in minutes. It includes schema migration, existing data migration, incremental data synchronization and other stages. Once the DataJob is started, BladePipe will automatically finish the multiple DataTasks in order.
+BladePipe allows you to create a **Full Data& Incremental DataJob** in just a few minutes. This pipeline handles schema migration, initial full data migration, and continuous incremental synchronization. Once you start the DataJob, BladePipe orchestrates these DataTasks sequentially and automatically.
 
-This page introduces how to create a Full Data & Incremental DataJob.
+## Step 1: Select DataSources
 
-## Select DataSource
-
-1. Log in to the [BladePipe Cloud](https://cloud.bladepipe.com).
+1. Log in to BladePipe.
 2. In the top navigation bar, click **DataJob**.
-3. On the top of the page, click **Create DataJob**.
-4. Select the **Cluster** for DataJob execution. 
+3. Click **Create DataJob**.
+4. Select a **Cluster** to execute the DataJob.
   :::info
-  If the cluster have multiple Workers, BladePipe will schedule the Workers for [DataJob Level 2 Disaster Recovery](../../../intro/product_arch.md#disaster-recovery). If it has only one Worker, BladePipe will adopt the plan for DataJob Level 2 Disaster Recovery.
+  If the cluster contains multiple Workers, BladePipe will automatically schedule tasks to ensure **[DataJob dual-level disaster recovery](../../../intro/product_arch.md#disaster-recovery)**. If it has only one Worker, BladePipe will maintain single-level disaster recovery.
   :::
-5.  Select the source and target datasource instances and finish the related settings. Click **Test Connection**.
-6. Select the source and target database or schema. BladePipe supports the migration and synchronization of multiple schemas. Then click **Next Step**.
+5. Select the source and target data sources, then click **Test Connection** to ensure connectivity.
+6. Select the specific databases or schemas for both the source and target. You can select multiple schemas simultaneously.
+7. Click **Next**.
 
-## Select DataJob Properties
+## Step 2: Configure DataJob
 
-1. Select **DataJob Type**. Here taking the creation of Full Data & Incremental DataJob as an example, click **Incremental** and select **Full Data** option.
-2. Select **Specification**.
+1. For the **DataJob Type**, select **Incremental**, and make sure that the **Initial Load** option is checked.
+2. Select the **Specification** size.
   :::info
-   When the memory of the worker is sufficient, you can choose a larger specification with better performance and higher stability. When there are many DataJobs, you can choose the specifications based on the reality, taking into account the worker utilization.
+  Larger specifications provide better performance and stability. Balance your specification sizes against your available Worker memory and the aggregate number of running DataJobs.
   :::
-3. Configure the following DataJob information.
+3. Configure the DataJob settings:
    
-| Item | Description |
+| Function | Description |
 | :--- | :--- |
-| **Synchronize DDL** | <ul><li> **Yes**: DDL is synchronized.</li>   <li> **No**: DDL is not synchronized.</li> </ul>|
-| **Verification** | <ul><li>**No**: BladePipe doesn't verify data. </li><li> **One-time**: BladePipe verifies data once.</li>   <li> **Periodic**: BladePipe verifies data regularly according to the set cycle.</li> </ul>|
-| **Correction Mode** | <ul><li> **Revise after Check**: The data will be automatically corrected after the verification is completed.</li>  <li> **NONE**: After the verification task is completed, the data will not be automatically corrected. If you need to correct the data, you can go to the DataJob Details page, and click **Functions** > **Create Correction DataJob**.</li></ul>|
-| **Clean Target Data Before Full Data** | If enabled, the target data will be cleared up before full data initialization.|
+| **Sync DDL** | <ul><li> **Yes**: Synchronize DDL.</li>   <li> **No**: Do not synchronize DDL.</li> </ul>|
+| **Verification** | <ul><li>**No**: BladePipe doesn't verify data. </li><li> **One-time**: BladePipe verifies data once.</li>   <li> **Scheduled**: BladePipe verifies data regularly according to the set cycle.</li> </ul>|
+
+In Advanced settings:
+| Function | Description |
+| :--- | :--- |
+| **Migrate partition** | If enabled, BladePipe will migrate the source partitions to the target. |
+| **Clear Target Data Before Full Data** | If enabled, the target data will be cleared up before full data initialization.|
 | **Rebuild Target Schema** | If enabled, BladePipe will automatically rebuild the target schema in the target database. |
-| **Start Automatically** | <ul><li>**Yes**: By default, the DataJob is automatically started upon it is created. </li>  <li>**No**: After creating a DataJob, you need to start it on the DataJob list page.</li></ul> |
+| **Start Automatically** | If enabled, the DataJob starts automatically upon creation. |
+| **Use param template** | If enabled, you can select a parameter template to use for this DataJob. |
 
-4. Click **Next Step**.
+4. Click **Next**.
 
-## Select Tables
+## Step 3: Select Tables
 
-1. (Optional) If the target mapping rules need to be modified, click **Mapping Rules** and make the changes accordingly.
-2. Select the tables to be synchronized.
-   - Exact match: Enter the table name plus a semicolon (half-width) in the input box to filter tables. You can enter multiple table names separated by semicolons without spaces in between.
-   - Fuzzy match: Enter characters in the input box to filter out tables with names containing these characters.
-   - Filtering by categories: You can filter tables by conditions in the search box.
+1. Select the tables you want to synchronize.
+   - **Exact match**: Enter exact table names separated by semicolons without spaces.
+   - **Fuzzy match**: Enter partial characters to instantly find matching table names.
    
   :::tip
-  Click the check box on the far left of the title row to select all tables on the current page. Click the Select All check box at the bottom left of the list to select all tables.    
-  To select all tables by default when creating a DataJob, click **Settings** > **Preference** > **BladePipe** tab and set the value of parameter *jobTableDefaultSelectAll* to true.
+  You can bulk-select all tables on the current page or across all pages using the master checkboxes.     
+  To intuitively auto-select all tables for future DataJobs, navigate to **Settings > Preference > BladePipe** and enable *jobTableDefaultSelectAll*.
   :::
-3. Set the target table name.
-    - Automatically generate table names based on mapping rules. If you modify the mapping rules, the table names will change accordingly.
-    - After selecting the table, you can set the existing table name as the target table name in the **Target Table** column.
-    - After selecting the table, you can enter a custom table name in the **Target Table** column and click the option with the Enter symbol, or press the Enter key to confirm.
-    - Click **Batch Modify Target Names** to add prefixes and suffixes to table names in batches.
-4. Filter actions.
-    - Setting individually: After selecting the table, you can set the action to be synchronized for each table separately.
-    - Setting in batches: You can select the action in batches above the list, or click **Action Filter** in the table list on the left to set it in batches.
-5. Click **Next Step**.
+2. Configure the target table names.
+    - By default, target names generate automatically. 
+    - You can manually type a custom name into the **Target Table** column and press **Enter**.
+    - You can click **Batch Operation** > **Modify Target Name** to broadly apply prefixes or suffixes.
+3. To filter actions, click **Open Action Blacklist**.     
+   You can set the actions not to be synchronized for each table separately or in batches (Click **Batch Operation** > **Action Blacklist**).
+4. Optional: Click **Mapping Rules** to adjust the automatic target-naming conventions.
+5. Optional: Click **Advanced** > **View Duplicate Subscriptions** to check whether the selected tablea are subscribed in other existing DataJobs.
+6. Click **Next**.
+
+## Step 4: Map and Process Columns
+
+1. Optional: If the target mapping rules need to be modified, click **Mapping Rules** and make the changes accordingly.
+2. View your selected tables on the left pane. Use the search bar to rapidly locate specific tables.
+3. Select the columns to be synchronized and apply transformations.
+   - **Configure Individually**: Click **Operation** to set explicit filter conditions, designate a custom primary key logic, etc.
+   - **Configure in Batches**: Click **Batch Operation** to apply update conditions, primary keys across multiple tables, etc.
    
-## Select Columns
-
-1. (Optional) If the target mapping rules need to be modified, click **Mapping Rules** and make the changes accordingly.
-2. You can view all selected tables on the left side of the page, and search for tables in the search box and input box above the list.
-3. Select and configure the columns to be synchronized.
-    - Setting individually: Select the columns to be synchronized for each table, or click **Operation** to set filter conditions, target database update conditions, primary key of the target database, etc.
-    - Setting in batches: Click **Batch Operation** in the upper-right corner to set target database update conditions, primary key of the target database, etc.   
-    The following table describes the configurable items:
-
-| Item | Description |
+| Feature | Description |
 | :--- | :--- |
-| **Set Virtual Column** | Add a virtual column to the target table and set the name, value, type, and length of the virtual column. |
-| **Set Data Filtering** | Set data filtering conditions. For more information, see [Data Filtering](./create_data_filter_job.md) |
-| **Add Update Condition** | Set the conditions to update the target tables. |
-| **Set Target Primary Key** | Set the primary key of the target table. If the source table has no primary key but has a unique key, the unique key will be automatically set as the target primary key. |
-| **Batch Filter Columns** | Filter columns in batches. |
+| **Set Virtual Column** | Define virtual columns (name, type, value) injected directly into the target table during synchronization. See [Add Virtual Columns](../create_job/create_virtual_col_job.md) |
+| **Data Transform** | Transform data based on built-in scripts. See [Data Transform](../job_op/data_transform.md).  |
+| **Target Primary Key** | Assign a primary key for the target. If the source lacks a primary key but holds a unique key, BladePipe assigns the unique key by default. See [Set Target Primary Key](../create_job/create_target_pk_job.md) |
+| **Data Filtering** | Use where-like queries to sync only specific rows. See [Data Filtering](./create_data_filter_job.md). |
+| **Set Update Condition** | Configure precise rules indicating when the target rows should be overwritten. |
+| **Wide Table** | Create a wide table in a UI-driven manner. See [Wide Table](../job_op/visual_widetable_create.md).  |
+| **Batch Filter Columns** | Exclude or include columns systematically across multiple tables. |
 
-4. (Optional) Upload custom code. For more information, see [Custom Code](./create_process_job.md).
-5. Click **Next Step**.
+4. Optional: To inject complex Java logic, click **Upload Custom Code**. See [Custom Code](./create_process_job.md).
+5. Click **Next**.
 
-## Confirm DataJob Creation
+## Step 5: Confirm Creation
 
-After confirming the DataJob configuration information, click **Create DataJob** at the bottom of the page.
+1. Verify the full configuration summary. 
+2. Click **Create DataJob** to deploy your pipeline.
+
 :::info
-If there are schemas, tables, or columns to be created in the Target instance during the DataJob creation process, BladePipe will automatically migrate the schemas. If not, there won't be schema migration.
+If you configured schema structures that do not exist in the target database, BladePipe automatically initiates the schema migration phase to build them before transferring data.
 :::
 
-## View DataJob
+## Step 6: Monitor DataJob
 
-1. On the DataJob list page, you can view the DataJob progress.
-2. Click **Details** in the Operation column on the right side of the list to enter the DataJob Details page and view specific DataJob running information.
+1. Navigate to the main DataJob list to track your pipeline's progress in real-time. 
+2. Click **Details** to dive deep into monitoring metrics, specific logs, and individual DataTask states.
 

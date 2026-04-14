@@ -1,68 +1,84 @@
 ---
 id: create_period_verification_correction_job
 title: Verification and Correction
-description: Through a Verification and Correction pipeline, users easily check the data consistency and integrity.
+description: Learn how to set up a data verification and correction pipeline to effortlessly ensure data consistency and data integrity.
 ---
-BladePipe supports data verification and correction. In this process, data differences between source and target databases are located, and inconsistent and missing data is revised. BladePipe verifies data differences for two times, greatly reducing verification errors caused by latency and ensuring data accuracy.
 
-This page describes how to create data verification and correction DataJobs, including creating a one-time DataJob, creating and managing a scheduled DataJob, creating a DataJob with custom code and creating a subtask.
+BladePipe provides a robust data verification and correction feature. It finds differences between your source and target databases. It can also fix missing or inconsistent data automatically.
 
-## Create One-time DataJob
-1. Log in to the [BladePipe Cloud](https://cloud.bladepipe.com).
-2. In the top navigation bar, click **DataJob**.
-3. Click **Create DataJob**.
-4. Select the source and target DataSource. Click **Next Step**.
-5. Configure the DataJob.
-   1. Select **Verification and Correction** for DataJob Type.
-   2. Select **One-time** for Verification.
-   3. Select **Correction Mode**.
-    - **Revise after Check**: The data will be automatically corrected after the verification is completed.
-    - **NONE**: The data will not be automatically corrected after the verification is completed. If you need to correct the data, you can go to the DataJob Details page, and click **Functions** > **Create Correction DataJob**.
-   4. Select whether to start the DataJob automatically. By default, the DataJob automatically starts upon the DataJob is created. You can choose not to start it for the time being.
-   5. After the configuration is complete, click **Next Step**.
-6. Select the tables to be verified. Only existing tables can be selected.
-7. Select the columns to be verified. 
-8. Click **Create DataJob** at the bottom of the page. 
-9. View the DataJob progress on the DataJob list page.
+BladePipe runs a second verification check. This helps reduce errors caused by latency, and ensures high data accuracy.
 
-## Create Scheduled DataJob
-1. Log in to the [BladePipe Cloud](https://cloud.bladepipe.com).
-2. In the top navigation bar, click **DataJob**.
-3. Click **Create DataJob**.
-4. Select the source and target DataSource. Click **Next Step**.
-5. Configure the DataJob.
-   1. Select **Verification and Correction** for DataJob Type.
-   2. Select **Periodic** for Verification, and schedule the DataJob execution.
-   3. Select **Correction Mode**.
-    - **Revise after Check**: The data will be automatically corrected after the verification is completed.
-    - **NONE**: The data will not be automatically corrected after the verification is completed. If you need to correct the data, you can go to the DataJob Details page, and click **Functions** > **Create Correction DataJob**.
-   4. Select whether to start the DataJob automatically. By default, the DataJob automatically starts upon the DataJob is created. You can choose not to start it for the time being.
-   5. After the configuration is complete, click **Next Step**.
-6. Select the tables to be verified. Only existing tables can be selected.
-7. Select the columns to be verified. 
-8. Click **Create DataJob** at the bottom of the page. 
-9. View the DataJob progress on the DataJob list page.
+This page describes how to create and manage data verification and correction DataJobs. You can configure one-time DataJobs, reliable periodic verification DataJobs, custom code evaluations, or verification subtasks.
 
-## Manage Scheduled DataJob
-1. Manage DataJob Execution Schedule   
-On the DataJob list page, you can view the DataJob progress and the next execution time. The DataJob is automatically run when the execution time arrives. To run the DataJob immediately, click **Execute Immediately** in the Operation column, and it will start in 2 minutes.
-2. View the Verification History and Correction History   
-After at least one Verification and Correction DataJob is run, the **Verification History** and **Correction History** buttons will appear in the Operation column on the DataJob list page. Click the buttons to view the details.
-3. Pause and Resume Scheduled DataJob   
-To pause the scheduled DataJob, click the **Stop Scheduling** in the Operation column on the DataJob list page, and the DataJob will not be executed as scheduled. To resume the scheduled DataJob, click **Resume Scheduling**, and it will be run as scheduled.
-1. Modify DataJob Execution Schedule
-  1. On the DataJob Details page, click **Functions** > **Modify DataJob Setting** in the upper-right corner.
-  2. In the pop-up dialog box, enter the cron string in the filed **Scheduled Check Crontab Expr** and click **Submit**.
-  3. BladePipe first runs the Verification DataJob once according to the original schedule. Then the new schedule setting takes effect. If you need it to take effect immediately, click **Execute Immediately** n the Operation column, and it will start in 2 minutes. After it is completed, the new schedule setting takes effect immediately.
+## Create a One-time DataJob
 
-## Create DataJob with Custom Code
-BladePipe allows you to use custom code in Verification and Correction DataJob to meet different business needs. For more information, see [Custom Code Processing](./create_process_job.md).
+To create a one-time data correction pipeline, follow these steps:
+
+1. Log in to BladePipe.
+2. In the navigation bar, click **DataJob** > **Create DataJob**.
+3. Select the source and target DataSource, and then click **Next**.
+4. Configure the DataJob:
+   1. For **DataJob Type**, select **Verification and Correction**.
+   2. For **Verification**, select **One-time**.
+   3. Choose your **Correction Mode**:
+      - **Revise after Check**: BladePipe automatically corrects the data after the verification task completes.
+      - **NONE**: BladePipe does not automatically correct the data. To manually trigger a correction, go to the DataJob Details page and click **Functions** > **Create Correction DataJob**.
+   4. Opt to start the DataJob automatically or save it for later. By default, the DataJob starts automatically upon creation.
+   5. After completing the configuration, click **Next**.
+5. Select the tables to be verified. You can only select existing tables.
+6. Select the columns to be verified. You can deselect the columns you do not want to check.
+7. Click **Create DataJob**.
+8. View the job progress in the DataJob list.
+
+## Create a Scheduled DataJob
+
+1. Log in to BladePipe.
+2. In the navigation bar, click **DataJob** > **Create DataJob**.
+3. Select the source and target DataSource, and then click **Next**.
+4. Configure the DataJob:
+   1. For **DataJob Type**, select **Verification and Correction**.
+   2. For **Verification**, select **Scheduled**, and configure the job execution cycle.
+   3. Choose your **Correction Mode**:
+      - **Revise after Check**: BladePipe automatically corrects the data after the verification task completes.
+      - **NONE**: BladePipe does not automatically correct the data. To manually trigger a correction, go to the DataJob Details page and click **Functions** > **Create Correction DataJob**.
+   4. Opt to start the DataJob automatically or save it for later. By default, the DataJob starts automatically upon creation.
+   5. After completing the configuration, click **Next**.
+5. Select the tables to be verified. You can only select existing tables.
+6. Select the columns to be verified. You can deselect any column you do not want to check for data accuracy.
+7. Click **Create DataJob**.
+8. View the job progress in the DataJob list.
+
+## Manage a Scheduled DataJob
+
+### Manage DataJob Execution Time
+In the DataJob list, you can view the job progress and its next execution time. BladePipe automatically starts the data sync error checking when the scheduled time arrives. 
+
+To run the verification process immediately, click **Execute Now** in the operation column. The DataJob will start within two minutes.
+
+### View Verification and Correction History
+After at least one periodic verification and correction DataJob completes, the **Verification History** and **Correction History** buttons appear in the operation column. Click these buttons to review the detailed execution records.
+
+### Pause and Resume Schedule DataJob
+To pause a scheduled DataJob, click **Stop Scheduling** in the operation column. BladePipe skips the next scheduled verification run. 
+
+To resume the scheduled DataJob, click **Schedule**, and the job will execute according to your configured timetable.
+
+### Modify the DataJob Execution Cycle
+To update the schedule for your data verification and correction DataJob:
+
+1. On the DataJob details page, click **Functions** > **Configure Functions**.
+2. Enter a new cron expression in the dialog box, and then click **Submit**.
+3. BladePipe runs a verification task based on the original next execution time. After the check completes, the new cycle takes effect.    
+   To apply the new schedule immediately, click **Execute Now** in the operation column. Once finished, the new cron expression is active.
+
+## Create a DataJob with Custom Code
+BladePipe allows you to utilize custom code in your data verification and correction pipelines to tackle specialized business requirements. For more information, see the [Custom Code Processing](./create_process_job.md) guide.
 
 ## Create a Subtask
-BladePipe supports adding data verification and correction subtasks to the created Full Data or Incremental DataJob. Follow the steps:
+BladePipe supports appending a verification subtask to an existing Full Data or Incremental DataJob. Follow these steps:
 
-1. On the DataJob Details page, click **Functions** > **Create Check DataJob**.
-2. Configure relevant information according to requirements and click **Submit**. The subtask start automatically after it is created.
+1. On the DataJob Details page, click **Functions** > **Create Verification DataJob**.
+2. Configure your requirements, and then click **Submit**. The subtask automatically starts after it is created.
 
 ## View Verification Results
-On the DataJob Details page, click **Log** under **Verification** tab. There are the diff_1st.log and the diff.log. The diff_1st.log records the data verification pre-check results. The diff.log file records the data verification final results.
+On the DataJob Details page, click **Log**. You can find the `diff_1st.log` and `diff.log` files here. The `diff_1st.log` captures the pre-check results for data sync discrepancies, while the `diff.log` records the final data verification results.

@@ -1,67 +1,63 @@
 ---
 id: product_nouns
-title: Glossary
-description: It introduces the terminologies in BladePipe.
+title: Concepts
+description: This topic explains the key terminologies and concepts used within BladePipe.
 ---
 
-This article introduces the terminologies in BladePipe.
-
+This topic introduces the core concepts used in BladePipe.
 ## DataSource
 
-It refers to relational databases (MySQL/PostgreSQL/Oracle, etc.), message-oriented middleware (Kafka/RocketMQ, etc.), caching (Redis, etc.), real-time data warehouses (Greenplum/Doris/StarRocks, etc.), big data products (Hive/Kudu, etc.) or their corresponding cloud products. It generally contains attributes such as **IP and port for connection**, **login authentication information**, etc.
+A DataSource represents a source or destination connector in your data pipeline. It can be a relational database (MySQL, PostgreSQL, Oracle), message queue (Kafka, RocketMQ), cache (Redis), real-time data warehouse (Greenplum, Doris, StarRocks), or big data product (Hive, Kudu). 
 
-A DataSource is typically represented by an ID in a format similar to my-59bi20aqxxxxx96.
+A DataSource holds connection attributes like the IP address, port, and authentication credentials. BladePipe assigns a unique ID to each DataSource, such as `my-59bi20aqxxxxx96`.
 
 ## DataJob
 
-It refers to the configuration for a data migration and synchronization process. It may include a set of Schema Migration, Full Data, Incremental, and Verification and Correction processes (DataTasks) that run successively or simultaneously.
+A DataJob defines the entire configuration for a data migration or synchronization process. It orchestrates a complete **ETL** workflow. A single DataJob can include multiple sequential or concurrent DataTasks. These tasks handle Schema Migration, Full Data migration, Incremental synchronization, and Verification and Correction.
 
-For relational databases, the maximum scope of table synchronization in a DataJob is single/multiple schemas, and for message-oriented middleware, it is multiple topics.
-
-A DataJob is typically represented by an instance ID in a format similar to canal7yr4y7xxxx3.
+For relational databases, a DataJob can synchronize one or more entire schemas. For message queues, it can synchronize multiple topics. BladePipe identifies each DataJob with a unique instance ID, such as `canal7yr4y7xxxx3`.
 
 ## DataTask
 
-A DataJob consists of multiple DataTasks, such as Schema Migration, Full Data, Incremental, Verification and Correction.
+A DataTask represents a specific execution phase within a DataJob. Common DataTasks include Schema Migration, Full Data, Incremental, and Verification and Correction.
 
 ## Schema Migration
 
-It refers to the migration of the schema from the source DataSource to the target DataSource. For heterogeneous data sources, there is usually type or specific dialect conversion.
+Schema Migration copies the table structures from the source DataSource to the target. BladePipe automatically converts data types and dialects for heterogeneous databases.
 
 ## Full Data
 
-It refers to single/scheduled data migration based on the DataJob configuration. BladePipe sequentially scans the data in the source DataSource, and concurrently write it to the target data sources in batches. It usually takes seconds to hours to complete such operations.
+A Full Data task performs a complete extraction and load of the existing data. BladePipe scans the source DataSource sequentially. It then writes the data to the target in concurrent batches. This operation may take seconds to hours depending on the data volume.
 
 ## Incremental
 
-It refers to the synchronization of incremental data based on the DataJob configuration. BladePipe uses the data change logs of the source database, trigger-type incremental data, messages, etc. to capture change data in near real time and write it to the target database. If the target database has real-time writing capabilities, the incremental data can be synchronized with sub-second latency.
+An Incremental task handles continuous real-time data synchronization. The **CDC** engine reads database change logs and messages to capture modifications. It applies these changes to the target database instantly. With compatible targets, this synchronization achieves sub-second latency.
 
 ## Verification and Correction
 
-It refers to single/scheduled data verification and correction.
+This process ensures data consistency between your source and target. 
 
-Data verification refers to batch scanning of data in the source and target databases, comparing data row by row and column by column in memory, reporting missing and inconsistent data, and recording them in diff.log and compare_rs.log files.
-
-Data correction refers to scanning of the latest data rows in the source data source one by one based on the compare_rs.log, and writing them to the target data source in an overwritten manner to correct the data.
+- **Data Verification**: BladePipe scans data in both databases in batches. It compares rows and columns in memory. It identifies inconsistencies and logs them into `diff.log` and `compare_rs.log` files.
+- **Data Correction**: BladePipe reads the `compare_rs.log` file. It fetches the latest values from the source and overwrites the incorrect rows in the target.
 
 ## Custom Code
 
-During Full Data, Incremental, and Verification and Correction DataTasks, BladePipe allows users to upload custom code (Java code, in the format of jar packages) to transform, filter, and supplement data.
+BladePipe allows you to execute custom transformation logic during any DataTask. You can upload custom Java code as a `.jar` package. This enables complex data filtering, masking, and enrichment within your pipeline.
 
 ## Cluster
 
-The basic unit of DataTask scheduling between Workers (DataTasks are only scheduled in a single cluster). A cluster can involve Workers at different rack servers, data centers, availability zones, and even regions.
+A Cluster is the basic boundary for scheduling DataTasks across Workers. BladePipe schedules tasks only within a single Cluster. A single Cluster can span across different servers, data centers, availability zones, or regions. 
 
-A cluster is generally represented by a cluster name in a format similar to clusterl79txxxxku.
+BladePipe assigns a unique name to each Cluster, such as `clusterl79txxxxku`.
 
 ## Worker
 
-A Worker is used to run DataTasks, which can be on-premises virtual machines (VMs), physical machines, cloud virtual machines (ECS, EC2, etc.), and development machines (Macs, etc.).
+A Worker provides the computing resource to run your DataTasks. You can deploy Workers on physical servers, virtual machines, cloud instances (like AWS EC2), or local development machines. 
 
-A Worker belongs to only one cluster.
+A single Worker belongs to exactly one Cluster.
 
 ## ConsoleJob
 
-ConsoleJob is the basic component for BladePipe governance, used for long processes, retries required, state waits and so on.
+A ConsoleJob serves as the foundational unit for internal BladePipe orchestration. It handles long-running background processes, required retries, and state delays.
 
-A ConsoleJob generally consists of 1~n steps, and a specific task is completed in each step. If a step fails, the ConsoleJob will not execute the next step until this step is retried after the problem is solved or this step is cancelled.
+A ConsoleJob consists of multiple sequential steps. If a specific step fails, the ConsoleJob halts. It resumes the next step only after you resolve the issue and retry, or cancel the operation.

@@ -67,6 +67,8 @@ const sidebars: SidebarsConfig = {
                 "operation/job_manage/create_job/create_process_job",
                 "operation/job_manage/create_job/create_data_filter_job",
                 "operation/job_manage/create_job/create_period_full_job",
+                "operation/job_manage/create_job/create_virtual_col_job",
+                "operation/job_manage/create_job/create_target_pk_job",
                 "operation/job_manage/create_job/create_regex_table_job",
                 "operation/job_manage/create_job/create_period_verification_correction_job",
                 "operation/job_manage/create_job/create_retl_job"

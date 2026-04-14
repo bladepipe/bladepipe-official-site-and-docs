@@ -53,7 +53,7 @@ To build a RAG API with BladePipe, two DataJobs needs to be created. This articl
    BladePipe automatically processes original documents and generates vectors, which are written into vector fields of PGVector (e.g., `__vector` columns).
 
 #### DataJob 2: RAG API Building (PGVector → RagApi) 
-For more details, please refer to [Create RAG API with PGVector](./pg_vector_to_rag_api).
+For more details, please refer to [Create RAG API with PGVector](https://www.bladepipe.com/docs/bestPractice/pg_vector_to_rag_api/).
 
 ## Supported LLMs
 

@@ -64,7 +64,7 @@ const MySQL = {
         },
         {
             key: 'Custom Code',
-            desc: 'For more information, see [Custom Code Processing](../../../../operation/job_manage/create_job/create_process_job), [Debug Custom Code](../../../operation/job_manage/job_op/debug_customer_code) and [Logging in Custom Code](../../../operation/job_manage/job_op/log_in_customer_code).'
+            desc: 'For more information, see [Custom Code Processing](../../../operation/job_manage/create_job/create_process_job), [Debug Custom Code](../../../operation/job_manage/job_op/debug_customer_code) and [Logging in Custom Code](../../../operation/job_manage/job_op/log_in_customer_code).'
         },
         {
             key: 'Adding Virtual Columns',

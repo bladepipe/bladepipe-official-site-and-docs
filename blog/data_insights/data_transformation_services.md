@@ -1,6 +1,6 @@
 ---
 id: data_transformation_services
-description: "Data transformation services for 2026:Move beyond batch ETL. Real-time CDC, AI-ready data pipelines, and sub-3-second latency for architects and developers. Try BladePipe free."
+description: Data transformation services for 2026:Move beyond batch ETL. Real-time CDC, AI-ready data pipelines, and sub-3-second latency for architects and developers. Try BladePipe free.
 title: Data Transformation Services for AI-Ready Data
 date: 2026-03-23
 authors: yuxia

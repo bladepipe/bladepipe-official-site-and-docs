@@ -201,10 +201,10 @@ const config: Config = {
     CLOUD_URL: CLOUD_URL[current_env],
     // 公告栏配置
     announcement: {
-      enabled: false, // 设置为 true 启用公告栏
-      text: 'New features available! Check out our latest updates.', // 公告文本（支持 i18n）
-      linkUrl: '/docs/intro', // 链接地址（整个区域可点击）
-      endDate: undefined // 可选：结束日期（ISO 格式），如 '2025-12-31T23:59:59'，超过此时间后不再显示。不设置则永久显示（当 enabled 为 true 时）
+      enabled: true, // 设置为 true 启用公告栏
+      text: 'BladePipe 1.5.0 brings Reverse ETL and powerful new features.', // 公告文本（支持 i18n）
+      linkUrl: '/docs/releaseNote/rn-bladepipe-1-5-0/', // 链接地址（整个区域可点击）
+      endDate: '2026-04-30T23:59:59' // 可选：结束日期（ISO 格式），如 '2025-12-31T23:59:59'，超过此时间后不再显示。不设置则永久显示（当 enabled 为 true 时）
     }
   },
 

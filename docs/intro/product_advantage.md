@@ -1,35 +1,36 @@
 ---
 id: product_advantage
 title: Advantages
-description: BladePipe features real-time efficiency, precise data mapping, stability and scalability, one-stop management, flexible deployment, etc.
+description: BladePipe features real-time synchronization, diverse database support, robust stability, one-stop management, flexible deployment, and complex data transformation capabilities.
 ---
 
-BladePipe features efficiency, stability and scalability, one-stop management, BYOC deployment, and complex data transformation, and it supports diverse database engines. It focuses on data migration and synchronization, providing more professional services compared with the other similar products.
+BladePipe provides a modern data integration platform designed for efficiency, stability, and scalability. It handles complex data transformations and supports diverse database engines, delivering a comprehensive solution for your integration needs.
 
-## Efficient Synchronization
+## Real-Time Synchronization
 
-Data synchronization in BladePipe **generally has a latency of less than 5 seconds**, which involves incremental data log parsing, batch collection, action filtering, data conversion, metadata mapping and data write.
+Data synchronization in BladePipe generally operates with **a latency of less than 3 seconds**. The precise **CDC (Change Data Capture)** engine continuously processes incremental data logs, handling batch collection, action filtering, data conversion, metadata mapping, and data writing in real time.
 
-## Support for Diverse Database Engines
+## Diverse Database Support
 
-BladePipe realizes the precise mapping and conversion of different data types, schemas and read/write characteristics between Source and Target datasources of diverse versions.
+BladePipe connects a wide range of databases across different versions. It manages the precise mapping and conversion of data types, schemas, and read/write characteristics between your source and target data sources. It also supports automatic **schema evolution** to align structures as your data changes.
 
-## Stablility and Scalability
+## Stability and Scalability
 
-BladePipe is streamlined and steady at its core, with a single-process architecture. Thousands of data operations (DataJobs) run on a distributed system featuring high-availability. 
+BladePipe builds and scales high-quality data pipelines with confidence. It uses a streamlined, steady single-process architecture at its core. Thousands of concurrent data operations can run reliably on a highly available distributed system.
 
-Large-scale, distributed, and high-quality data pipelines are created by combining different functional DataTasks.
+## One-Stop Management
 
-## One-stop Management
+BladePipe orchestrates your entire ETL workflow from a unified interface. It enables schema migration, initial full data migration, ongoing data synchronization, data verification, and subscription modifications. Operations transition automatically through a finite state machine, vastly simplifying data preparation and long-term synchronization.
 
-BladePipe enables schema migration, data migration, data synchronization, data verification and correction, subscription modification, etc. The DataTasks flow from one to another automatically under the control of a finite state machine. 
-
-BladePipe supports for user data preparation and long-term data synchronization through the one-stop management.
-
-## Flexible Deployment
-
-BladePipe supports self-hosted and cloud (fully-managed & BYOC) deployment options, and attaches great importance to user data security. Teams can make the choice based on the size, needs and budget.
 
 ## Complex Data Transformation
  
-BladePipe has standard capabilities such as metadata mapping, truncation, filtering, and so on. It also allows users to **upload codes (Java) for complex data processing**.
+BladePipe executes advanced data processing directly within your pipeline. It provides standard out-of-the-box capabilities such as metadata mapping, transformation, truncation, and filtering. 
+
+For highly tailored scenarios, you can also [upload custom Java code](../operation/job_manage/create_job/create_process_job.md) to resolve complex data transformation requirements.
+
+## Flexible Deployment
+
+BladePipe supports resilient self-hosted, fully-managed cloud, and Bring Your Own Cloud (BYOC) deployment options, attaching great importance to your data security. 
+
+Choose the [deployment model](../price/plans_diff.md) that fits your team's size, needs, and budget.
