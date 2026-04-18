@@ -17,7 +17,7 @@ interface CompareSectionProps {
 
 const CompareSection: React.FC<CompareSectionProps> = ({ showLearnMore = true }) => {
   const { siteConfig } = useDocusaurusContext();
-  const siteBrand = siteConfig.customFields?.siteBrand;
+  const siteBrand = siteConfig.customFields?.siteBrand as string | undefined;
   const [barAnimated, setBarAnimated] = useState(false);
 
   // 根据 siteBrand 动态设置品牌名称

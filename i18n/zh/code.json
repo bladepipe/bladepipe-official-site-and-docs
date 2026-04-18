@@ -116,6 +116,9 @@
   "datasource.subtitle": {
     "message": "更多的数据源正在被支持中"
   },
+  "datasource.request.entry": {
+    "message": "没找到你需要的数据源？提交需求"
+  },
   "datasource.cards.title": {
     "message": "数据源支持"
   },
@@ -2414,6 +2417,102 @@
   "navbar.signin": {
     "message": "登录"
   },
+  "navbar.aiAssistant.title": {
+    "message": "AI 助手"
+  },
+  "clougence.contact.fab.label": {
+    "message": "联系我们"
+  },
+  "clougence.contact.modal.title": {
+    "message": "联系我们"
+  },
+  "clougence.contact.close": {
+    "message": "关闭"
+  },
+  "clougence.contact.field.name": {
+    "message": "姓名"
+  },
+  "clougence.contact.field.name.placeholder": {
+    "message": "请输入姓名"
+  },
+  "clougence.contact.field.phone": {
+    "message": "手机号"
+  },
+  "clougence.contact.field.phone.placeholder": {
+    "message": "请输入手机号"
+  },
+  "clougence.contact.field.company": {
+    "message": "公司名称"
+  },
+  "clougence.contact.field.company.placeholder": {
+    "message": "请输入公司名称"
+  },
+  "clougence.contact.field.inquiry": {
+    "message": "想要了解什么"
+  },
+  "clougence.contact.field.inquiry.placeholder": {
+    "message": "请简要描述您的需求或问题"
+  },
+  "clougence.contact.directTitle": {
+    "message": "直接联系我们"
+  },
+  "clougence.contact.direct.phoneLabel": {
+    "message": "电话"
+  },
+  "clougence.contact.action.cancel": {
+    "message": "取消"
+  },
+  "clougence.contact.action.submit": {
+    "message": "提交"
+  },
+  "clougence.contact.error.name": {
+    "message": "请填写姓名"
+  },
+  "clougence.contact.error.nameLength": {
+    "message": "姓名长度不能超过 128 个字符"
+  },
+  "clougence.contact.error.company": {
+    "message": "请填写公司名称"
+  },
+  "clougence.contact.error.phone": {
+    "message": "请填写手机号"
+  },
+  "clougence.contact.error.phoneFormat": {
+    "message": "请输入 11 位手机号"
+  },
+  "clougence.contact.error.inquiry": {
+    "message": "请简要说明您想了解的内容"
+  },
+  "clougence.contact.error.inquiryLength": {
+    "message": "需求描述长度不能超过 2048 个字符"
+  },
+  "clougence.contact.mail.subject": {
+    "message": "[CloudCanal] 官网联系表单"
+  },
+  "clougence.contact.mail.name": {
+    "message": "姓名"
+  },
+  "clougence.contact.mail.phone": {
+    "message": "手机号"
+  },
+  "clougence.contact.mail.company": {
+    "message": "公司名称"
+  },
+  "clougence.contact.mail.inquiry": {
+    "message": "想要了解什么"
+  },
+  "clougence.contact.submit.success": {
+    "message": "提交成功，我们会尽快与您联系。"
+  },
+  "clougence.contact.submit.success.confirm": {
+    "message": "我知道了"
+  },
+  "clougence.contact.submit.error": {
+    "message": "提交失败，请稍后重试。"
+  },
+  "clougence.contact.followup.note": {
+    "message": "提交后可获取报价与专业咨询，CloudCanal 专业顾问将结合您的业务场景尽快与您联系，提供针对性方案建议与实施支持。"
+  },
   "navbar.tryCloud": {
     "message": "试用云服务"
   },
@@ -2489,8 +2588,206 @@
   "connector.contact.prefix": {
     "message": "没有找到所需的数据源？"
   },
+  "connector.contact.requestLink": {
+    "message": "提交数据源/链路需求。"
+  },
   "connector.contact.link": {
     "message": "联系我们。"
+  },
+  "connector.request.entry.button": {
+    "message": "申请新数据源/链路"
+  },
+  "connector.request.modal.title": {
+    "message": "申请新数据源/链路"
+  },
+  "connector.request.modal.subtitle": {
+    "message": "填写需求后将自动拉起邮件客户端，并生成预填内容。"
+  },
+  "connector.request.field.requestedLink": {
+    "message": "希望开放的数据源和链路"
+  },
+  "connector.request.field.requestedLink.placeholder": {
+    "message": "例如：Oracle(v12.x) -> StarRocks (v3.4.x) (全量+增量+校验+订正)"
+  },
+  "connector.request.field.reason": {
+    "message": "为什么需要这些链路？"
+  },
+  "connector.request.field.reason.placeholder": {
+    "message": "请描述业务场景、数据量和目标上线时间。"
+  },
+  "connector.request.field.urgency": {
+    "message": "是否紧急"
+  },
+  "connector.request.urgency.urgent": {
+    "message": "紧急"
+  },
+  "connector.request.urgency.normal": {
+    "message": "一般（1-2月）"
+  },
+  "connector.request.urgency.notUrgent": {
+    "message": "不紧急"
+  },
+  "connector.request.field.urgentTimeline": {
+    "message": "大概的时间"
+  },
+  "connector.request.field.urgentTimeline.placeholder": {
+    "message": "例如：2026-05-30 前"
+  },
+  "connector.request.field.needContact": {
+    "message": "联系我"
+  },
+  "connector.request.progress.tip.bladepipe": {
+    "message": "如想了解进度，建议加入discord交流群"
+  },
+  "connector.request.progress.tip.clougence": {
+    "message": "如想了解进度，建议扫描官网右侧二维码加入交流群"
+  },
+  "connector.request.field.emailOptional": {
+    "message": "邮箱（选填）"
+  },
+  "connector.request.field.email": {
+    "message": "邮箱"
+  },
+  "connector.request.field.email.placeholder": {
+    "message": "you@example.com"
+  },
+  "connector.request.field.phoneOptional": {
+    "message": "手机号（选填）"
+  },
+  "connector.request.field.phone": {
+    "message": "手机号"
+  },
+  "connector.request.field.name": {
+    "message": "姓名"
+  },
+  "connector.request.field.name.placeholder": {
+    "message": "请输入姓名"
+  },
+  "connector.request.field.company": {
+    "message": "公司名称"
+  },
+  "connector.request.field.company.placeholder": {
+    "message": "请输入公司名称"
+  },
+  "connector.request.field.phone.placeholder": {
+    "message": "请输入手机号"
+  },
+  "connector.request.action.cancel": {
+    "message": "取消"
+  },
+  "connector.request.action.submit": {
+    "message": "提交需求"
+  },
+  "connector.request.error.requestedLink": {
+    "message": "请填写希望开放的数据源和链路。"
+  },
+  "connector.request.error.requestedLinkTooLong": {
+    "message": "希望开放的数据源和链路请控制在 1024 个字符以内。"
+  },
+  "connector.request.error.reason": {
+    "message": "请填写需要这些链路的原因。"
+  },
+  "connector.request.error.reasonTooLong": {
+    "message": "需求原因请控制在 2048 个字符以内。"
+  },
+  "connector.request.error.urgency": {
+    "message": "请选择紧急程度。"
+  },
+  "connector.request.error.urgentTimeline": {
+    "message": "紧急需求请填写大概的时间。"
+  },
+  "connector.request.error.emailFormat": {
+    "message": "请输入正确的邮箱地址。"
+  },
+  "connector.request.error.emailTooLong": {
+    "message": "邮箱请控制在 256 个字符以内。"
+  },
+  "connector.request.error.emailRequired": {
+    "message": "勾选联系我时请填写邮箱。"
+  },
+  "connector.request.error.phoneFormat": {
+    "message": "请输入 11 位手机号。"
+  },
+  "connector.request.error.phoneTooLong": {
+    "message": "手机号请控制在 32 个字符以内。"
+  },
+  "connector.request.error.nameTooLong": {
+    "message": "姓名请控制在 128 个字符以内。"
+  },
+  "connector.request.error.companyTooLong": {
+    "message": "公司名称请控制在 256 个字符以内。"
+  },
+  "connector.request.error.phoneRequired": {
+    "message": "勾选联系我时请填写手机号。"
+  },
+  "connector.request.error.nameRequired": {
+    "message": "勾选联系我时请填写姓名。"
+  },
+  "connector.request.mail.brand": {
+    "message": "品牌"
+  },
+  "connector.request.mail.requestedLink": {
+    "message": "希望开放的数据源和链路"
+  },
+  "connector.request.mail.reason": {
+    "message": "为什么需要这些链路"
+  },
+  "connector.request.mail.urgency": {
+    "message": "紧急程度"
+  },
+  "connector.request.mail.urgentTimeline": {
+    "message": "大概的时间"
+  },
+  "connector.request.mail.needContact": {
+    "message": "联系我"
+  },
+  "connector.request.mail.email": {
+    "message": "邮箱"
+  },
+  "connector.request.mail.phone": {
+    "message": "手机号"
+  },
+  "connector.request.mail.name": {
+    "message": "姓名"
+  },
+  "connector.request.mail.company": {
+    "message": "公司名称"
+  },
+  "connector.request.mail.subject": {
+    "message": "新数据源/链路需求"
+  },
+  "connector.request.yes": {
+    "message": "是"
+  },
+  "connector.request.no": {
+    "message": "否"
+  },
+  "connector.request.submit.success": {
+    "message": "提交成功"
+  },
+  "connector.request.submit.success.title": {
+    "message": "提交成功"
+  },
+  "connector.request.submit.success.withContact": {
+    "message": "提交成功，我们会尽快与您联系。"
+  },
+  "connector.request.submit.success.withoutContact": {
+    "message": "提交成功，请关注 CloudCanal 后续的版本。"
+  },
+  "connector.request.submit.success.qrTip": {
+    "message": "如想了解进度，可扫描页面右侧二维码加入交流群。"
+  },
+  "connector.request.submit.success.discordTip": {
+    "message": "加入我们的 Discord 交流群，获取产品的最新消息。"
+  },
+  "connector.request.submit.success.discordCta": {
+    "message": "加入 Discord"
+  },
+  "connector.request.submit.success.confirm": {
+    "message": "我知道了"
+  },
+  "connector.request.submit.error": {
+    "message": "提交失败，请稍后重试。"
   },
   "connector.search.placeholder": {
     "message": "搜索"
@@ -2605,6 +2902,12 @@
   },
   "connector.datasource.redshift.description": {
     "message": "Amazon Redshift 是一个完全托管的 PB 级数据仓库服务，专为大规模数据分析而设计。"
+  },
+  "connector.datasource.lindorm.description": {
+    "message": "Lindorm 是阿里云推出的一体化多模数据库服务，融合宽表、时序、检索与文件能力，适用于海量数据场景。"
+  },
+  "connector.datasource.spanner.description": {
+    "message": "Apache Spanner 是一个全球分布式关系型数据库服务，具备强一致性、水平扩展能力和高可用性。"
   },
   "connector.datasource.db2.description": {
     "message": "IBM Db2 是一个企业级关系型数据库，提供 AI 增强的数据管理和高级分析功能。"

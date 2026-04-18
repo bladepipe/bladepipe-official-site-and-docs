@@ -583,4 +583,4 @@ export default function Pricing() {
       <Footer />
     </Layout>
   );
-}
+} 

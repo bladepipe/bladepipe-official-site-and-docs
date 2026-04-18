@@ -5,6 +5,7 @@ import { useLocation } from '@docusaurus/router';
 import { getAgentId } from '@site/src/utils';
 import { addViewLog } from '../../apis/weblog';
 import WechatFloat from '@site/src/components/WechatFloat';
+import ClougenceContactFab from '@site/src/components/ClougenceContactFab';
 import AnnouncementBar from '@site/src/components/AnnouncementBar';
 
 export default function Layout(props) {
@@ -57,6 +58,7 @@ export default function Layout(props) {
       <AnnouncementBar />
       <OriginalLayout {...props} wrapperClassName={(props.wrapperClassName ?? '') + (showAnim ? ' animate-fadeInUp' : '')} />
       <WechatFloat />
+      <ClougenceContactFab />
     </>
   );
 }

@@ -128,10 +128,10 @@ const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
     : 10;
 
   // 计算总价格
-  const calculatePrice = () => {
-    if (activeTab === 'enterprise') {
+  const calculatePrice = (targetTab = activeTab) => {
+    if (targetTab === 'enterprise') {
       return calculateEnterprisePrice();
-    } else if (activeTab === 'cloud-byoc') {
+    } else if (targetTab === 'cloud-byoc') {
       return calculateByocPrice();
     }
     // 默认为cloud-managed版本
@@ -155,12 +155,12 @@ const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
     
     if (syncLinks <= 5) {
       // 链路条数 <= 5 时，只显示 Worker，其他数量为 0
-      workCost = workNodes * workCost * hoursPerMonth;
+      workCost = workNodes * workerCost * hoursPerMonth;
     } else {
       // 链路条数 > 5 时，显示所有机器，使用用户输入的数量
       consoleCost = consoleNodes * consoleWorkerCost * hoursPerMonth;
       metabaseCost = metabaseNodes * metabaseWorkerCost * hoursPerMonth;
-      workCost = workNodes * workCost * hoursPerMonth;
+      workCost = workNodes * workerCost * hoursPerMonth;
     }
     
     const syncCost = syncLinks * unitPrice * hoursPerMonth; // 假设sync link的基础费用
@@ -359,7 +359,7 @@ const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
             {/* 右侧总价格部分 */}
             <div className="w-full lg:w-[300px] flex flex-col justify-center items-center lg:items-end">
               <div className="text-[36px] sm:text-[42px] lg:text-[48px] font-bold text-black mb-[6px] sm:mb-[8px]">
-                <span>{currencySymbol}{calculatePrice()}{currencyUnit}</span>
+                <span>{currencySymbol}{calculatePrice('cloud-byoc')}{currencyUnit}</span>
                 <span className="text-[14px] sm:text-[16px] lg:text-[18px] font-medium text-black leading-[20px] sm:leading-[24px] lg:leading-[28px]">
                   <Translate id="pricing.calculator.totalPrice">/month</Translate>
                 </span>
@@ -474,7 +474,7 @@ const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
           {/* 右侧价格部分 */}
           <div className="w-full lg:w-[300px] flex flex-col gap-[6px] sm:gap-[9px] justify-center items-center lg:items-start lg:pb-[20px]">
             <div className="w-full text-[32px] sm:text-[40px] lg:text-[48px] font-bold text-black leading-[40px] sm:leading-[50px] lg:leading-[60px] text-center lg:text-end">
-            <span>{currencySymbol}{calculatePrice()}{currencyUnit}</span>
+            <span>{currencySymbol}{calculatePrice('enterprise')}{currencyUnit}</span>
             <span className="text-[14px] sm:text-[16px] lg:text-[18px] font-medium text-black leading-[20px] sm:leading-[24px] lg:leading-[28px]">/{translate({ id: 'pricing.calculator.month', message: 'month' })}</span>
             </div>
           </div>

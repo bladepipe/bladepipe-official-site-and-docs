@@ -6,6 +6,7 @@ import { Input, Select, Checkbox, Tag } from 'antd';
 import { SearchOutlined, DownOutlined, CloseOutlined } from '@ant-design/icons';
 import CheckIcon from '@site/static/img/home/icon/check.svg';
 import DataSourceCards from '@site/src/components/DataSourceCards';
+import ConnectorRequestModal from '@site/src/components/ConnectorRequestModal';
 import Footer from '@site/src/components/Footer';
 import FadeInSection from '@site/src/components/FadeInSection';
 import siteConfig from '@generated/docusaurus.config';
@@ -22,6 +23,7 @@ export default function Connector() {
   const [targetValue, setTargetValue] = useState(false);
   const [businessOnly, setBusinessOnly] = useState(false);
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
+  const [requestModalVisible, setRequestModalVisible] = useState(false);
 
   // 使用统一的工具函数获取连接器页面 meta 信息
   const connectorMeta = getPageMeta('connector');
@@ -109,6 +111,19 @@ export default function Connector() {
                 <Translate id="connector.contact.prefix">
                   Didn't find the desired connectors?
                 </Translate>{' '}
+                <span className="!text-[#0087c7] mr-2">
+                  <button
+                    onClick={() => setRequestModalVisible(true)}
+                    className="font-medium hover:underline cursor-pointer bg-transparent border-none p-0 outline-none focus:outline-none focus:ring-0"
+                    style={{ border: 'none' }}
+                  >
+                    <Translate id="connector.contact.requestLink">
+                      Submit a connector request.
+                    </Translate>
+                  </button>
+                </span>
+                <span className="text-black/60">|</span>
+                {' '}
                   <span className="!text-[#0087c7]">
                       <a href="/about#contactUs" className="font-medium hover:underline cursor-pointer">
                   <Translate id="connector.contact.link">
@@ -227,6 +242,10 @@ export default function Connector() {
             businessOnlyFilter={businessOnly}
           />
         </FadeInSection>
+        <ConnectorRequestModal
+          visible={requestModalVisible}
+          onClose={() => setRequestModalVisible(false)}
+        />
       </div>
       <Footer />
     </Layout>

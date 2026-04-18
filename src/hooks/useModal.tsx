@@ -49,19 +49,25 @@ export const Modal: React.FC<ModalProps> = ({ visible, onClose, title, children,
 
   if (!show) return null;
 
+  const widthStyle =
+    typeof width === 'number'
+      ? { width: `min(100%, ${width}px)`, maxWidth: 'min(90vw, 100%)' as const }
+      : { width, maxWidth: 'min(90vw, 100%)' as const };
+
   const modalContent = (
     <div
-      className={`fixed inset-0 z-[9999] flex items-start pt-40 justify-center bg-black/20 transition-colors duration-200 ${active ? 'opacity-100' : 'opacity-0'}`}
-      onClick={onClose}>
+      className={`fixed inset-0 z-[9999] flex items-center justify-center px-3 py-4 sm:p-6 bg-black/20 overflow-y-auto overscroll-contain transition-colors duration-200 ${active ? 'opacity-100' : 'opacity-0'}`}
+      onClick={onClose}
+      role="presentation">
       <div
-        className={`bg-white rounded-xl shadow-xl flex flex-col p-0 max-w-[90vw] transform transition-all duration-250 ${active ? 'scale-100 opacity-100 animate-fadeIn' : 'scale-95 opacity-0'}`}
-        style={{ 
-          width: typeof width === 'number' ? `${width}px` : width,
-          transition: 'opacity 0.25s cubic-bezier(.4,0,.2,1), transform 0.25s cubic-bezier(.4,0,.2,1)' 
+        className={`bg-white rounded-xl shadow-xl flex flex-col p-0 max-w-[90vw] max-h-[min(92dvh,calc(100dvh-32px))] min-h-0 overflow-hidden transform transition-all duration-250 ${active ? 'scale-100 opacity-100 animate-fadeIn' : 'scale-95 opacity-0'}`}
+        style={{
+          ...widthStyle,
+          transition: 'opacity 0.25s cubic-bezier(.4,0,.2,1), transform 0.25s cubic-bezier(.4,0,.2,1)',
         }}
         onClick={(e) => e.stopPropagation()}>
         {title && (
-          <div className='flex items-center justify-between pt-5 px-6 pb-0'>
+          <div className='flex items-center justify-between pt-5 px-6 pb-0 flex-shrink-0'>
             <span className='text-lg font-semibold text-gray-900'>{title}</span>
             {!hideCloseButton && (
               <button
@@ -73,7 +79,9 @@ export const Modal: React.FC<ModalProps> = ({ visible, onClose, title, children,
             )}
           </div>
         )}
-        <div className='text-base text-gray-800'>{children}</div>
+        <div className="text-base text-gray-800 min-h-0 flex-1 overflow-y-auto overflow-x-hidden overscroll-contain">
+          {children}
+        </div>
       </div>
     </div>
   );
