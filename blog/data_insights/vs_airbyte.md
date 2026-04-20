@@ -122,7 +122,7 @@ Here's a quick comparison of costs between BladePipe Managed and Airbyte Standar
 ## Final Thoughts
 A right tool is critical for any business, and the choice should depend on your use case. This article lists a number of considerations and key differences. To summarize, Airbyte excels at extensive connectors and an open ecosystem, while BladePipe is designed for real-time end-to-end data use cases. 
 
-If your organization is building applications that rely on always-fresh, such as AI assistants, real-time search, or event streaming, BladePipe is likely a better fit. And in terms of costs, BladePipe is a cost-effective Airbyte alternative.
+If your organization is building applications that rely on always-fresh, such as AI assistants, real-time search, or event streaming, BladePipe is likely a better fit. And in terms of costs, BladePipe is a cost-effective [Airbyte alternative](best_airbyte_alternatives.md).
 
 If your organization needs to integrate data from various APIs or would like to maintain connectors by in-house staff, you may try Airbyte.
 

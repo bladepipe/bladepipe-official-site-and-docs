@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FadeInSection from './FadeInSection';
 import Translate from '@docusaurus/Translate';
+import ConnectorRequestModal from './ConnectorRequestModal';
 
 // 数据源列表，icon 字段与 name 完全一致
 const dataSources = [
@@ -32,7 +33,9 @@ const dataSources = [
   { name: 'SAP Hana', icon: 'Hana' },
   { name: 'MariaDB', icon: 'MariaDB' },
   { name: 'Aurora MySQL', icon: 'AuroraMySQL' },
-  { name: 'RedShift', icon: 'Redshift' },
+  { name: 'Redshift', icon: 'Redshift' },
+  { name: 'Lindorm', icon: 'Lindorm' },
+  { name: 'Apache Spanner', icon: 'GoogleDrive' },
   { name: 'IBM Db2', icon: 'Db2' },
   { name: 'GaussDB for OpenGauss', icon: 'GaussDBForOpenGauss' },
   { name: 'OceanBase for Oracle', icon: 'ObForOracle' },
@@ -87,6 +90,8 @@ const rows = splitIntoRows(dataSources, 3);
 const scrollDuration = 60; // 动画时长（秒），可根据实际调整
 
 const DataSourceList: React.FC = () => {
+  const [requestModalVisible, setRequestModalVisible] = useState(false);
+
   return (
     <FadeInSection>
       <section className="w-full max-w-[1728px] mx-auto py-12 sm:py-16 lg:py-24 flex flex-col items-center gap-8 sm:gap-10 lg:gap-12">
@@ -95,8 +100,19 @@ const DataSourceList: React.FC = () => {
           <h2 className="text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-black leading-[36px] sm:leading-[42px] lg:leading-[50px] text-center">
             <Translate id="datasource.title">Supported Connectors</Translate>
           </h2>
-          <div className="text-[14px] sm:text-[16px] lg:text-[18px] text-[#26272B] leading-[20px] sm:leading-[24px] lg:leading-[28px] font-medium text-center">
-            <Translate id="datasource.subtitle">More connectors are being updated.</Translate>
+          <div className="text-[14px] sm:text-[16px] lg:text-[18px] text-[#26272B] leading-[20px] sm:leading-[24px] lg:leading-[28px] font-medium text-center flex items-center justify-center gap-2 whitespace-nowrap">
+            <span>
+              <Translate id="datasource.subtitle">More connectors are being updated.</Translate>
+            </span>
+            <button
+              type="button"
+              onClick={() => setRequestModalVisible(true)}
+              className="text-[14px] sm:text-[15px] text-[#0087c7] font-bold hover:underline bg-transparent border-none cursor-pointer p-0"
+            >
+              <Translate id="datasource.request.entry">
+                Didn't find your connector? Submit your request.
+              </Translate>
+            </button>
           </div>
         </div>
         {/* 三行滚动区 */}
@@ -122,7 +138,7 @@ const DataSourceList: React.FC = () => {
                   >
                     <div className="w-12 h-12 sm:w-14 lg:w-[84px] sm:h-14 lg:h-[84px] rounded-full bg-white border border-solid border-gray-200 shadow-[0_5px_10px_0_rgba(0,0,0,0.07)] flex items-center justify-center">
                       <svg className="icon-v2 w-6 h-6 sm:w-8 lg:w-10 sm:h-8 lg:h-10" aria-hidden="true">
-                        <use xlinkHref={`#icon-v2-${item.icon}`} />
+                        <use href={`#icon-v2-${item.icon}`} xlinkHref={`#icon-v2-${item.icon}`} />
                       </svg>
                     </div>
                     <div translate="no" className="mt-2 text-[12px] sm:text-[13px] lg:text-[14px] font-medium text-[#26272B] text-center whitespace-nowrap">
@@ -135,6 +151,10 @@ const DataSourceList: React.FC = () => {
           ))}
         </div>
       </section>
+      <ConnectorRequestModal
+        visible={requestModalVisible}
+        onClose={() => setRequestModalVisible(false)}
+      />
       <style>{`
         /* 隐藏滚动条但保持可滚动 */
         .scrollbar-hide {

@@ -13,7 +13,7 @@ image: /img/blog/tutorials/kafka_kafka_sync.png
 
 ## Overview
 
-Apache Kafka is a stream-processing platform most known for its great performance, high throughput and low latency. Its persistence layer is essentially a "massive publish/subscribe message queue following a distributed transaction logging architecture," making it valuable as an enterprise-class infrastructure for processing streaming data. Therefore, the data transmission from Kafka to Kafka is of great importance for many enterprises.
+[Apache Kafka](../data_insights/do_you_really_need_kafka.md) is a stream-processing platform most known for its great performance, high throughput and low latency. Its persistence layer is essentially a "massive publish/subscribe message queue following a distributed transaction logging architecture," making it valuable as an enterprise-class infrastructure for processing streaming data. Therefore, the data transmission from Kafka to Kafka is of great importance for many enterprises.
 
 This tutorial introduces how to use [BladePipe](https://www.bladepipe.com) to create a Kafka-Kafka real-time data pipeline.
 

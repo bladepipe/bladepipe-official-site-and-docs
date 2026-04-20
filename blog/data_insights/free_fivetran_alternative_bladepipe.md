@@ -1,6 +1,6 @@
 ---
 id: free_fivetran_alternative_bladepipe
-description: Fivetran too expensive? Switch to BladePipe-a free, self-hosted alternative with transparent pricing and CDC. No hidden fees, no billing surprises. Deploy via Docker, K8s, or binary-no credit card required.
+description: Fivetran too expensive? Switch to BladePipe-a free, self-hosted Fivetran alternative with transparent pricing and CDC. No hidden fees, no billing surprises. Deploy via Docker, K8s, or binary-no credit card required.
 title: Free Self-Hosted Fivetran Alternative:BladePipe
 date: 2026-02-28
 authors: yuxia 
@@ -32,7 +32,7 @@ Even if the platform itself remains technically solid, **cost predictability bec
 
 If any of this sounds familiar, it might be time to hit pause and rethink the approach. The goal isn't to stick with a famous brand-it's to find a tool that respects both your architecture and your budget.
 
-That's exactly why we built **BladePipe**-a **practical Fivetran alternative**. There's a free, self-hosted community edition to get you started with no strings attached. And if your team needs more advanced features down the line, our [paid plans](https://www.bladepipe.com/pricing/) are priced transparently-and yes, they're significantly more affordable than what you might be used to with Fivetran. No hidden meters, no billing surprises.
+That's exactly why we built **BladePipe**-a **practical Fivetran alternative**. There's a [free, self-hosted community edition](https://www.bladepipe.com/pricing/) to get you started with no strings attached. And if your team needs more advanced features down the line, our [paid plans](https://www.bladepipe.com/docs/price/product_price/) are priced transparently-and yes, they're significantly more affordable than what you might be used to with Fivetran. No hidden meters, no billing surprises.
 
 ## What Is BladePipe?
 
@@ -63,7 +63,7 @@ To understand why teams are exploring a **Fivetran alternative**, it helps to co
 
 | Feature                       | BladePipe                      | Fivetran                        |
 | :---------------------------- | :----------------------------- | :------------------------------ |
-| **Sync Mode**                 | CDC-first, supports ETL        | Primarily ELT, supports ETL     |
+| **Sync Mode**                 | [CDC-first](change_data_capture_cdc.md), supports ETL        | Primarily ELT, supports ETL     |
 | **Data Fetch Model**          | Hybrid (Pull & Push)           | Pull-based                      |
 | **Data Connectors**           | 60+ fully maintained           | 700+ (450+ Lite/API connectors) |
 | **Extensibility**             | Custom transformation logic    | Limited - closed SaaS           |

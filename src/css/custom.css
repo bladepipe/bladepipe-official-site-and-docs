@@ -816,6 +816,28 @@ div[class*="codeBlock"],
   overflow: hidden !important;
 }
 
+/* Code block overflow guard for mobile/small screens */
+.markdown pre,
+.theme-doc-markdown pre,
+.theme-blog-markdown pre,
+ .theme-code-block,
+pre[class*="prism-code"],
+div[class*="codeBlockContainer"],
+div[class*="codeBlockContent"] {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
+
+.markdown pre code,
+.theme-doc-markdown pre code,
+.theme-blog-markdown pre code {
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 /* 代码块标题栏 */
 div[class*="codeBlockTitle"],
 .theme-code-block-title {

@@ -133,47 +133,35 @@ window.aiBotConfig = {
 // 为 AI Bot 按钮注入样式（Shadow DOM 内）
 (function injectAiBotStyle() {
   const styleContent = `
+    /* 入口移至导航栏：隐藏右下角悬浮按钮，仍可通过 window.openClougenceAiBot() 触发 */
     .ai-bot-widget-button {
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: fixed !important;
+      left: -9999px !important;
+      bottom: 20px !important;
+      right: auto !important;
+      opacity: 0 !important;
+      width: 48px !important;
+      height: 48px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      transition: none !important;
+      box-shadow: none !important;
+      pointer-events: auto !important;
     }
     .ai-bot-widget-button:hover,
     .ai-bot-widget-button:focus-visible {
-      transform: translateY(-1px) scale(1.02);
+      transform: none !important;
     }
     .ai-bot-widget-button::after {
-      content: '有问题？尽管问我吧！';
-      position: absolute;
-      right: 110%;
-      top: 50%;
-      transform: translate(0, -50%);
-      white-space: nowrap;
-      background: rgb(75,205,107);
-      color: #fff;
-      font-size: 16px;
-      font-weight: 700;
-      padding: 10px 14px;
-      border-radius: 999px;
-      box-shadow: 0 8px 20px rgba(10, 111, 183, 0.25);
-      opacity: 0;
-      animation: aiBotHint 10s ease-in-out infinite;
-      z-index: 2;
+      display: none !important;
+      animation: none !important;
+      content: none !important;
+      opacity: 0 !important;
     }
-    .ai-bot-widget-button:hover::after,
-    .ai-bot-widget-button:focus-visible::after {
-      animation: none;
-      opacity: 1;
-      transform: translate(-4px, -50%);
-    }
-    /* 当按钮有 hide-tips class 时，隐藏 tips */
     .ai-bot-widget-button.hide-tips::after {
       display: none !important;
       animation: none !important;
       opacity: 0 !important;
-    }
-    @keyframes aiBotHint {
-      0%, 5% { opacity: 0; transform: translate(10px, -50%); }
-      10%, 65% { opacity: 1; transform: translate(-4px, -50%); }
-      70%, 100% { opacity: 0; transform: translate(10px, -50%); }
     }
   `;
 
@@ -253,6 +241,33 @@ window.aiBotConfig = {
       }, 100);
     }
     if (injected || attempts > 40) {
+      clearInterval(timer);
+    }
+  }, 250);
+})();
+
+// 供导航栏调用：打开 AI 对话（点击 Shadow DOM 内原悬浮按钮）
+(function bindOpenClougenceAiBot() {
+  let attempts = 0;
+  const timer = setInterval(() => {
+    attempts += 1;
+    try {
+      const host = document.querySelector('#ai-bot-root');
+      if (!host || !host.shadowRoot) return;
+      const btn = host.shadowRoot.querySelector('.ai-bot-widget-button');
+      if (!btn) return;
+      window.openClougenceAiBot = function openClougenceAiBot() {
+        try {
+          btn.click();
+        } catch (e) {
+          console.warn('openClougenceAiBot failed', e);
+        }
+      };
+      clearInterval(timer);
+    } catch (e) {
+      /* ignore */
+    }
+    if (attempts > 80) {
       clearInterval(timer);
     }
   }, 250);

@@ -190,6 +190,27 @@
   text-align: left;
 }
 
+/* Keep long code lines inside viewport on blog pages */
+.blog-layout .markdown pre,
+.blog-layout .theme-blog-markdown pre,
+.blog-layout pre[class*="prism-code"],
+.blog-layout .theme-code-block,
+.blog-layout div[class*="codeBlockContainer"],
+.blog-layout div[class*="codeBlockContent"] {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
+
+.blog-layout .markdown pre code,
+.blog-layout .theme-blog-markdown pre code,
+.blog-layout pre[class*="prism-code"] code {
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 @media (min-width: 640px) {
   .markdown table {
     font-size: 15px;
@@ -207,5 +228,27 @@
 .alert {
   p:last-child {
     margin-bottom: 0!important;
+  }
+}
+
+/* Blog post mobile overrides: counter global !important rules in custom.css */
+@media (max-width: 1023px) {
+  .blog-layout .theme-blog-markdown h1,
+  .blog-layout .blog-post h1,
+  .blog-layout [class*="blogPost"] h1 {
+    font-size: 2rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .blog-layout .markdown table {
+    display: block !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .blog-layout .markdown pre {
+    max-width: 100% !important;
+    overflow-x: auto !important;
   }
 }

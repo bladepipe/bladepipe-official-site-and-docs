@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Translate from '@docusaurus/Translate';
 
@@ -6,9 +6,10 @@ export default function WechatFloat() {
   const { siteConfig } = useDocusaurusContext();
   const siteBrand = siteConfig.customFields?.siteBrand;
   const [isVisible, setIsVisible] = useState(true);
+  const isSupportedBrand = siteBrand === 'clouddm' || siteBrand === 'clougence';
+  const qrcodeSrc = siteBrand === 'clougence' ? '/img/contact/wechat.png' : '/img/contact/wechat-clouddm.png';
 
-  // 只在 clougence 和 clouddm 品牌时显示
-  if (siteBrand !== 'clougence' && siteBrand !== 'clouddm') {
+  if (!isSupportedBrand) {
     return null;
   }
 
@@ -37,7 +38,7 @@ export default function WechatFloat() {
         </div>
         <div className="wechat-float-body">
           <img 
-            src={siteBrand === 'clouddm' ? "/img/contact/wechat-clouddm.png" : "/img/contact/wechat.png"}
+            src={qrcodeSrc}
             alt="微信二维码"
             className="wechat-float-image"
           />

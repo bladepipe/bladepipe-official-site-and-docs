@@ -8,6 +8,7 @@ interface DataSourceCardProps {
   name: string;
   icon: string;
   description: string;
+  descriptionI18nKey?: string;
   isBusinessOnly?: boolean;
   supportsSource?: boolean;
   supportsTarget?: boolean;
@@ -17,6 +18,7 @@ const DataSourceCard: React.FC<DataSourceCardProps> = ({
   name, 
   icon, 
   description, 
+  descriptionI18nKey,
   isBusinessOnly = false,
   supportsSource = false,
   supportsTarget = false
@@ -28,7 +30,7 @@ const DataSourceCard: React.FC<DataSourceCardProps> = ({
         {/* 图标区域 - 白色背景，有阴影 */}
         <div className="w-18 h-18 bg-white rounded-full flex items-center justify-center box-border shadow-[0_5px_10px_0_rgba(0,0,0,0.07)] p-4" style={{ borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgba(0,0,0,0.08)' }}>
           <svg className="icon-v2 w-8 h-8" aria-hidden="true">
-            <use xlinkHref={`#icon-v2-${icon}`} />
+            <use href={`#icon-v2-${icon}`} xlinkHref={`#icon-v2-${icon}`} />
           </svg>
         </div>
         
@@ -45,7 +47,7 @@ const DataSourceCard: React.FC<DataSourceCardProps> = ({
       
       {/* 描述文本 - 16px 字体，80% 透明度，固定四行高度 */}
       <p className="text-base text-black opacity-80 leading-6 font-medium flex-1 m-0 min-h-[96px] flex items-start">
-        <Translate id={`connector.datasource.${icon.toLowerCase()}.description`}>
+        <Translate id={descriptionI18nKey ?? `connector.datasource.${icon.toLowerCase()}.description`}>
           {description}
         </Translate>
       </p>
@@ -314,11 +316,29 @@ const DataSourceCards: React.FC<DataSourceCardsProps> = ({
       supportsTarget: true
     },
     {
-      name: 'RedShift',
+      name: 'Redshift',
       icon: 'Redshift',
       description: 'Amazon Redshift is a fully managed petabyte-scale data warehouse service designed for large-scale data analytics.',
       isBusinessOnly: false,
       supportsSource: false,
+      supportsTarget: true
+    },
+    {
+      name: 'Lindorm',
+      icon: 'Lindorm',
+      description: 'Lindorm is Alibaba Cloud\'s multi-model database service that integrates wide-table, time-series, search, and file capabilities for massive-scale data scenarios.',
+      descriptionI18nKey: 'connector.datasource.lindorm.description',
+      isBusinessOnly: false,
+      supportsSource: true,
+      supportsTarget: true
+    },
+    {
+      name: 'Apache Spanner',
+      icon: 'Spanner',
+      description: 'Apache Spanner is a globally distributed relational database service with strong consistency, horizontal scalability, and high availability.',
+      descriptionI18nKey: 'connector.datasource.spanner.description',
+      isBusinessOnly: false,
+      supportsSource: true,
       supportsTarget: true
     },
     {
@@ -685,6 +705,7 @@ const DataSourceCards: React.FC<DataSourceCardsProps> = ({
             name={source.name}
             icon={source.icon}
             description={source.description}
+            descriptionI18nKey={source.descriptionI18nKey}
             isBusinessOnly={source.isBusinessOnly}
             supportsSource={source.supportsSource}
             supportsTarget={source.supportsTarget}

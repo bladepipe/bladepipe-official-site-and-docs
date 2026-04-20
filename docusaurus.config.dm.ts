@@ -81,10 +81,19 @@ const config: Config = {
         sitemap: {
           // 排除不需要出现在 sitemap 中的页面路径（支持 glob 模式）
           ignorePatterns: [
-            // '/blog/**',           // 示例：排除所有博客页面
-            // '/docs/private/**',   // 示例：排除 docs/private 目录下的所有页面
-            // '/404.html',          // 示例：排除 404 页面
-            // '/search',            // 示例：排除搜索页面
+            '/login/',
+            '/register/',
+            '/registerFromMarket/',
+            '/resetPwd/',
+            '/loading/',
+            '/404/',
+            '/blog/archive/',
+            '/blog/authors/',
+            '/blog/tags/',
+            '/blog/tags/*',
+            '/search/',
+            '/markdown-page/',
+            '/docs/',
           ],
           changefreq: 'weekly',
           filename: 'sitemap.xml',

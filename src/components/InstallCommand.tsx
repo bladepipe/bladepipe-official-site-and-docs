@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CodeBlock from '@theme/CodeBlock';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import apis from '@site/src/apis';
 
@@ -60,8 +61,6 @@ export default function InstallCommand({ command, projectHome }: InstallCommandP
   };
 
   return (
-    <pre className="language-bash">
-      <code>{getDisplayCommand()}</code>
-    </pre>
+    <CodeBlock language="bash">{getDisplayCommand()}</CodeBlock>
   );
 }

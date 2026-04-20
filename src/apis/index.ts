@@ -7,6 +7,7 @@ import * as weblogApi from './weblog';
 import * as invoiceApi from "./invoice";
 import * as paymentApi from './payment'
 import * as billingApi from "./billing";
+import * as feedbackApi from './feedback';
 
 export const BASE_URL_PREFIX: string = '/rdp/console/api/v1';
 export const BASE_CC_URL_PREFIX: string = '/cloudcanal/console/api/v1/inner';
@@ -20,5 +21,6 @@ export default {
   weblogApi,
   invoiceApi,
   paymentApi,
-  billingApi
+  billingApi,
+  feedbackApi
 }

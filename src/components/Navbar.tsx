@@ -850,6 +850,38 @@ export default function Navbar() {
         </div>
         {/* 右侧操作区（大屏显示） */}
         <div className='hidden xl:flex items-center gap-2 flex-shrink-0'>
+          {/* CloudCanal：AI 助手（原右下角机器人入口移至导航栏） */}
+          {/*{siteBrand === 'clougence' && (*/}
+          {/*  <span*/}
+          {/*    role="button"*/}
+          {/*    tabIndex={0}*/}
+          {/*    onClick={() => {*/}
+          {/*      if (typeof window !== 'undefined') {*/}
+          {/*        const w = window as Window & { openClougenceAiBot?: () => void };*/}
+          {/*        w.openClougenceAiBot?.();*/}
+          {/*      }*/}
+          {/*    }}*/}
+          {/*    onKeyDown={(e) => {*/}
+          {/*      if (e.key === 'Enter' || e.key === ' ') {*/}
+          {/*        e.preventDefault();*/}
+          {/*        const w = window as Window & { openClougenceAiBot?: () => void };*/}
+          {/*        w.openClougenceAiBot?.();*/}
+          {/*      }*/}
+          {/*    }}*/}
+          {/*    className="inline-flex items-center justify-center w-8 h-8 cursor-pointer shrink-0 hover:opacity-80 transition-opacity"*/}
+          {/*    title={translate({ id: 'navbar.aiAssistant.title', message: 'AI assistant' })}*/}
+          {/*    aria-label={translate({ id: 'navbar.aiAssistant.title', message: 'AI assistant' })}*/}
+          {/*  >*/}
+          {/*    <span*/}
+          {/*      aria-hidden="true"*/}
+          {/*      className="w-7 h-7 bg-[#0087c7]"*/}
+          {/*      style={{*/}
+          {/*        WebkitMask: "url('/img/home/icon/robot.svg') center / contain no-repeat",*/}
+          {/*        mask: "url('/img/home/icon/robot.svg') center / contain no-repeat",*/}
+          {/*      }}*/}
+          {/*    />*/}
+          {/*  </span>*/}
+          {/*)}*/}
           {/* Discord 图标链接 - 仅在 bladepipe 时显示 */}
           {siteBrand === 'bladepipe' && (
             <a

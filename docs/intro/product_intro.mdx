@@ -1,36 +1,55 @@
 ---
 id: product_intro
 title: Overview
-description: BladePipe is an end-to-end data integration platform that helps teams build reliable data pipelines.
+description: BladePipe is a real-time, end-to-end data integration platform designed to build reliable, high-performance data pipelines.
 ---
 import DataSourceLinkForEn from "@site/src/components/DataSourceLinkForEn";
 
-BladePipe is a real-time end-to-end data integration tool for building sub-second and stable data pipelines. It offers a one-stop data replication solution, ranging from schema evolution, data migration and data synchronization to monitoring and alerting. All is done in an automated and visualized way.  
+**BladePipe** is a real-time, end-to-end data integration platform that streamlines data flow across homogeneous and heterogeneous databases. 
 
-![cloudcanal core functions](../assets/product_intro/core_functions.png)
+Whether you need to build modern data pipelines, perform seamless data migrations, or implement CDC (Change Data Capture) for real-time synchronization, BladePipe provides a powerful, out-of-the-box solution. You can use its single, intuitive dashboard to manage your entire data replication lifecycle, from schema evolution to continuous monitoring.
 
-## Data Migration (ETL)
+![BladePipe Core Functions](../assets/product_intro/core_functions.png)
 
-BladePipe allows moving all the data of a specified DataSource to a target DataSource. It supports diverse DataSources, and enables resumable data migration, sequential paged data scanning, parallel scanning, metadata mapping and truncation, data processing with custom code, batch writing, parallel writing, and data filtering. It shows good performance and has little impact on the source DataSource. Besides, it meets certain needs of data processing.
+## Core Capabilities
 
-Optionally, combine data migration with schema migration, verification and correction to prepare schema or ensure data integrity and accuracy.
+### Data Migration (Batch ETL)
 
-## Data Sync (Change Data Capture)
+BladePipe migrates bulk data from your source to a target database. Built for high performance, it supports resumable transfers, parallel scanning, and batch writing to maximize throughput and minimize the impact on your operational systems. 
 
-By consuming incremental data logs of the source DataSource, BladePipe replays the operations in the target DataSource in near real time to synchronize the data. It allows resumable data migration, DDL synchronization, metadata mapping and truncation, data processing with custom code, action filtering, data filtering, and efficient data write.
+You can easily map metadata, apply custom data processing logic, and filter records on the fly. For complex architecture transitions, you can integrate Data Migration with **[Schema Evolution](#schema-evolution)** and **[Data Verification](#data-verification-and-correction)** to ensure strict data consistency.
 
-Optionally, combine data synchronization with schema migration, data migration, verification and correction to meet the data quality requirements of data preparation and long-term data synchronization.
+### Real-Time Data Sync (CDC)
 
-## Schema Evolution
+A robust CDC engine continuously consumes incremental logs from your source database and replicates operations to the target in near real-time. 
 
-BladePipe can quickly migrate the schemas of the source DataSource to the target DataSource. It enables data type conversion, database dialect conversion, and name mapping. This function can be used alone or as the preparation for data migration or synchronization.
+This continuous data pipeline supports dynamic DDL synchronization, event filtering, and custom code processing. It ensures highly efficient data writes, making it ideal for live analytics, caching, and real-time reporting.
 
-## Data Verification and Correction
+### Schema Evolution
 
-The source and target data are compared field by field, and the different data can be corrected. This function can be used alone or together with data migration or data synchronization to meet the needs of data quality verification and data revision.
+BladePipe intelligently migrates and synchronizes table schemas across different database dialects. 
+
+It handles complex data type conversions and naming mappings automatically. You can run this capability independently or use it as an automated preparation step for your migration and synchronization pipelines.
+
+### Data Verification and Correction
+
+BladePipe performs precise field-by-field comparisons between your source and target data to identify discrepancies, and corrects inconsistencies automatically. 
+
+You can run Data Verification as a standalone auditing tool or integrate it directly into your active data pipelines for continuous, automated quality assurance.
 
 ## Supported Pipelines
 
-The following table show the supported connections now. The vertical headings list the Source DataSources, and the horizontal headings show the Target DataSources. To learn more about the supported DataSource versions, see [Supported DataSources](../dataMigrationAndSync/datasource_version.md).
+The matrix below illustrates the supported data connectors. The vertical headings list the Source databases, and the horizontal headings display the Target databases. 
+
+For details on specific database engine versions and configurations, refer to **[Supported DataSources](../dataMigrationAndSync/datasource_version.md)**.
 
 <DataSourceLinkForEn />
+
+## Get Started with BladePipe
+
+Read the following pages to help you build your first pipeline:
+
+- [**Install BladePipe(Docker)**](../productOP/onPremise/installation/install_all_in_one_docker.mdx): Install BladePipe with one command using Docker.
+- [**Quick Start**](../quick/quick_start_mgr.md): Get started to build your first pipeline in minutes.
+- [**Create Incremental Data Sync Pipeline**](../operation/job_manage/create_job/create_full_incre_task.md): Create a pipeline that combines schema migration, full data load and incremental data sync automatically.
+

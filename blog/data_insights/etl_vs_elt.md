@@ -36,7 +36,7 @@ If you're wondering *"what does ETL mean in data?"* - it refers to a structured 
 
 The key idea: **data is shaped before it is stored in the warehouse.**
 
-### The ETL Process Step by Step
+### The [ETL Process](etl_steps_explained.md) Step by Step
 
 ![etl process](../assets/blog/data_insights/etl_vs_elt/etl_process.png)
 
