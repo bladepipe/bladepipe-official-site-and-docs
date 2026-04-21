@@ -15,7 +15,7 @@ In this blog, we will break down data transformation to help you better understa
 
 ## What is Data Transformation in ETL?
 
-In the ETL process, data transformation is the middle step that turns extracted data from various sources into a consistent, usable format for the target system (like a data warehouse or analytics tool). This step applies rules, logic, and algorithms to:
+In the [ETL process](etl_steps_explained.md), data transformation is the middle step that turns extracted data from various sources into a consistent, usable format for the target system (like a data warehouse or analytics tool). This step applies rules, logic, and algorithms to:
 
 - Clean up errors and inconsistencies
 - Standardize formats (like dates and currencies)

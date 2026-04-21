@@ -77,13 +77,21 @@ const config: Config = {
         sitemap: {
           // 排除不需要出现在 sitemap 中的页面路径（支持 glob 模式）
           ignorePatterns: [
-            '/404',
-            '/clouddm',
-            '/clouddm_solution',
-            '/loading',
-            '/markdown-page',
-            '/authors',
-            '/tags'
+            '/login/',
+            '/register/',
+            '/registerFromMarket/',
+            '/resetPwd/',
+            '/loading/',
+            '/404/',
+            '/blog/archive/',
+            '/blog/authors/',
+            '/blog/tags/',
+            '/blog/tags/*',
+            '/clouddm/',
+            '/clouddm_solution/',
+            '/search/',
+            '/markdown-page/',
+            '/docs/'
           ],
           changefreq: 'weekly',
           filename: 'sitemap.xml',

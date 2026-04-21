@@ -9,7 +9,7 @@ tags:
 image: /img/blog/tutorials/mysql_kafka_sync.png 
 ---
 ## Overview
-In the age of AI, Apache Kafka is becoming a pivotal force due to its high-performance in real-time data streaming and processing. Many organizations are seeking to integrate data to Kafka for an enhanced efficiency and business agility. In this case, a powerful tool for data movement is of great importance. BladePipe is one of the excellent choices.
+In the age of AI, [Apache Kafka](../data_insights/do_you_really_need_kafka.md) is becoming a pivotal force due to its high-performance in real-time data streaming and processing. Many organizations are seeking to integrate data to Kafka for an enhanced efficiency and business agility. In this case, a powerful tool for data movement is of great importance. BladePipe is one of the excellent choices.
 
 This tutorial describes how to move data from MySQL to Kafka with [BladePipe](https://www.bladepipe.com), using the CloudCanal Json Format by default. The key features of the pipeline include: 
 

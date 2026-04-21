@@ -22,7 +22,7 @@ In this guide, we will look at **2 practical methods** for streaming data from O
 
 ## Why Stream Oracle Data to Kafka?
 
-Oracle often stores critical business data, while Kafka acts as the event backbone for downstream systems.
+Oracle often stores critical business data, while [Kafka](../data_insights/do_you_really_need_kafka.md) acts as the event backbone for downstream systems.
 
 Streaming Oracle changes into Kafka helps teams:
 
