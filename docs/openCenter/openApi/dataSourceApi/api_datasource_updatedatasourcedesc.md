@@ -20,17 +20,17 @@ Modifying data source description
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ |-----------|-----------|--------|----|
-| dataSourceId | Target data source ID | Body | True | Long |
-| instanceDesc | Modified data source description | Body | True | Long | 
+| dataSourceId | Target data source ID | Body | True | long |
+| instanceDesc | Modified data source description | Body | True | string |
 
 ## Public response result
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code | 1: success, 0: failure | String | True |
+| code | 1: success, 0: failure | string | True |
 | data | | Object | False |
-| msg | | String | False |
-| requestId | | String | True |
+| msg | | string | False |
+| requestId | | string | True |
 
 ## Response Example
 

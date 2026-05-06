@@ -20,17 +20,17 @@ Example Change the public IP address of a data source
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ |----------|-----------|--------|----|
-| dataSourceId | Target data source ID | Body | True | Long |
-| publicHost | Modified public network address | Body | True | Long | 
+| dataSourceId | Target data source ID | Body | True | long |
+| publicHost | Modified public network address | Body | True | string |
 
 ## Public response result
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code | 1: success, 0: failure | String | True |
+| code | 1: success, 0: failure | string | True |
 | data | | Object | False |
-| msg | | String | False |
-| requestId | | String | True |
+| msg | | string | False |
+| requestId | | string | True |
 
 ## Response Example
 

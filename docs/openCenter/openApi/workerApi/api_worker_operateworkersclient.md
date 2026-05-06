@@ -1,5 +1,5 @@
 ---
-id: api_cluster_operateworkersclient
+id: api_worker_operateworkersclient
 title: Operate Worker
 sidebar_position: 1
 description: Manipulating machines includes installing, uninstalling, upgrading, and starting the client.
@@ -29,19 +29,19 @@ Manipulating machines includes installing, uninstalling, upgrading, and starting
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 |-----------|---------|-----------|------|------|
 | workerId        | Machine ID                             | Body     | True     | Long   |
-| cloudOrIdcName  | Cloud service provider or IDC name     | Body     | True     | String |
-| actionType      | Action type                            | Body     | True     | String |
-| remoteUser      | Remote user name                       | Body     | False    | String |
-| remotePassword  | Remote password                        | Body     | False    | String |  
+| cloudOrIdcName  | Cloud service provider or IDC name     | Body     | True     | string |
+| actionType      | Action type                            | Body     | True     | string |
+| remoteUser      | Remote user name                       | Body     | False    | string |
+| remotePassword  | Remote password                        | Body     | False    | string |  
 
 ## Public Response Results
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ---- | ------------------|-------|----------- |
-| code       | 1: Success<br/>0: Failure | String |True
+| code       | 1: Success<br/>0: Failure | string |True
 | data       |             | Object |False
-| msg        |             | String |False
-| requestId  |             | String |True
+| msg        |             | string |False
+| requestId  |             | string |True
 
 ## Response Example
 

@@ -12,11 +12,11 @@ On-prem deployment involves various components of BladePipe. It is recommended t
 
 - Resource List
 
-  | Resource            | System/Software                                      | Recommendation    | Number&nbsp;&nbsp;   | Description                              |
-  -----------------|--------------------------------------------|  ------ | ----------------------------------- |---------------------------------|
-  | Machine to deploy BladePipe | **Centos 8.5 / RHEL / Cloud Linux**        | 4 core, 16 GiB Mem, 100 GiB Disk | 1 | Run the Console, Workers, DataJobs and monitoring services  |
-  | Metadata database            | **MySQL 8**                                | 2 core, 4 GiB Mem, 100 GiB Disk        | 1 | Store metadata such as data sources, DataJobs, Workers, etc.                |
-  | [Alert Notification](../maintenance/alarm_conf.md)          |  Slack  / Discord  |   | 1 | Slack / Discord bot or Webhook          |
+  | Resource            | System/Software                                       | Recommendation    | Number&nbsp;&nbsp;   | Description                              |
+  -----------------|-------------------------------------------------------|  ------ | ----------------------------------- |---------------------------------|
+  | Machine to deploy BladePipe | **Centos 8.x / RHEL / Cloud Linux /Rockey Linux 8.x** | 4 core, 16 GiB Mem, 100 GiB Disk | 1 | Run the Console, Workers, DataJobs and monitoring services  |
+  | Metadata database            | **MySQL 8**                                           | 2 core, 4 GiB Mem, 100 GiB Disk        | 1 | Store metadata such as data sources, DataJobs, Workers, etc.                |
+  | [Alert Notification](../maintenance/alarm_conf.md)          | Slack  / Discord                                      |   | 1 | Slack / Discord bot or Webhook          |
 
 - Ports occupied: **8111**, **8084**, **8085**, **7007**, **8083**, **9090**
 

@@ -37,42 +37,41 @@ data 中包含整个异步任务概况信息，以及每一个步骤的情况
 
 | 参数名称         | 参数说明                             |    类型(java) |  不为空 |
 | ------------ | -------------------|-------|----------- |
-| id     |  主键    |    Long   |   是    |
-| gmtCreate    | 创建时间     |    String   |   是    |
-| gmtModified      |   修改时间   |    String   |    是   |
-| jobToken     |   异步任务识别号   |    String   |  是     |
-| label     |  异步任务类型  |    String   |   是    |
-| dataJobName     | 异步任务关联任务名称   |    String   |   否    |
-| dataJobDesc     | 异步任务描述  |    String   |   否    |
-| workerName     | 该集群正常运行的机器总数  |    int   |   否    |
-| workerDesc     | 该集群异常的机器总数  |    int   |   否    |
-| dsInstanceId     | 拥有人名称  |    String   |   否    |
-| datasourceDesc     | 拥有人名称  |    String   |   否    |
-| taskState     | 任务状态 <br/><br/>  WAIT_START(等待启动) <br/>EXECUTE(执行中) <br/>SUCCESS(成功) <br/>FAILED(失败) <br/>CANCELED(已取消) <br/>SKIP(忽略)  |    String   |   是    |
-| launcher     | 任务操作人  |    String   |   是    |
-| launchTime     | 任务启动时间  |    String   |   否    |
-| finishTime     | 任务结束时间  |    String   |   否    |
-| userRoleType     | 执行人角色 <br/><br/>SYSTEM <br/>ORG_ADMIN |    String   |   是    |
-| resourceType     | 关联的资源类型 <br/><br/>DATA_JOB <br/>CONSOLE_USER <br/>WORKER <br/>DATASOURCE  |    String   |   否    |
-| resourceId     | 关联的资源id  |    Long   |   否    |
+| id     |  主键    |    long   |   是    |
+| gmtCreate    | 创建时间     |    string   |   是    |
+| gmtModified      |   修改时间   |    string   |    是   |
+| jobToken     |   异步任务识别号   |    string   |  是     |
+| label     |  异步任务类型  |    string   |   是    |
+| dataJobName     | 异步任务关联任务名称   |    string   |   否    |
+| dataJobDesc     | 异步任务描述  |    string   |   否    |
+| workerName     | 该集群正常运行的机器总数  |    string   |   否    |
+| workerDesc     | 该集群异常的机器总数  |    string   |   否    |
+| dsInstanceId     | 拥有人名称  |    string   |   否    |
+| datasourceDesc     | 拥有人名称  |    string   |   否    |
+| taskState     | 任务状态 <br/><br/>  WAIT_START(等待启动) <br/>EXECUTE(执行中) <br/>SUCCESS(成功) <br/>FAILED(失败) <br/>CANCELED(已取消) <br/>SKIP(忽略)  |    string   |   是    |
+| launcher     | 任务操作人  |    string   |   是    |
+| launchTime     | 任务启动时间  |    string   |   否    |
+| finishTime     | 任务结束时间  |    string   |   否    |
+| resourceType     | 关联的资源类型 <br/><br/>DATA_JOB <br/>CONSOLE_USER <br/>WORKER <br/>DATASOURCE  |    string   |   否    |
+| resourceId     | 关联的资源id  |    long   |   否    |
 
 **taskVOList** 为步骤列表，如果失败，可重试或者忽略(如果可以忽略)
 
 | 参数名称         | 参数说明                             |    类型(java) |  不为空 |
 | ------------ | -------------------|-------|----------- |
-| id     |  主键    |    Long   |   是    |
-| gmtCreate    | 创建时间     |    String   |   是    |
-| gmtModified      |   修改时间   |    String   |    是   |
-| jobId     |  步骤关联的异步任务id   |    Long   |  是     |
-| taskState     |  当前步骤状态 <br/><br/>WAIT_START(等待启动) <br/>EXECUTE(执行中) <br/>SUCCESS(成功) <br/>FAILED(失败) <br/>CANCELED(已取消) <br/>SKIP(忽略) |    String   |   是    |
-| context     | 步骤关联的上下文信息   |    String   |   是    |
-| host     | 步骤执行的机器地址  |    String   |   是    |
+| id     |  主键    |    long   |   是    |
+| gmtCreate    | 创建时间     |    string   |   是    |
+| gmtModified      |   修改时间   |    string   |    是   |
+| jobId     |  步骤关联的异步任务id   |    long   |  是     |
+| taskState     |  当前步骤状态 <br/><br/>WAIT_START(等待启动) <br/>EXECUTE(执行中) <br/>SUCCESS(成功) <br/>FAILED(失败) <br/>CANCELED(已取消) <br/>SKIP(忽略) |    string   |   是    |
+| context     | 步骤关联的上下文信息   |    string   |   是    |
+| host     | 步骤执行的机器地址  |    string   |   是    |
 | executeOrder     | 执行顺序  |    int   |   是    |
-| executeTime     | 步骤执行时间  |    String   |   否    |
-| finishTime     | 步骤结束时间  |    String   |   否    |
-| message     | 步骤如果执行异常，此处会展现相关异常信息  |    String   |   否    |
-| cancelable     | 是否可忽略  |    Boolean   |   是    |
-| stepName     | 步骤名称，带国际化  |    String   |   是    |
+| executeTime     | 步骤执行时间  |    string   |   否    |
+| finishTime     | 步骤结束时间  |    string   |   否    |
+| message     | 步骤如果执行异常，此处会展现相关异常信息  |    string   |   否    |
+| cancelable     | 是否可忽略  |    boolean   |   是    |
+| stepName     | 步骤名称，带国际化  |    string   |   是    |
 
 ## 响应示例
 

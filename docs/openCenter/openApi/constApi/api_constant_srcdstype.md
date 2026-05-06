@@ -20,16 +20,16 @@ Retrieve the data source type of the source endpoint to enable task creation sel
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| deployType     | Data source deployment type<br/><br/>SELF_MAINTENANCE <br/>ALIBABA_CLOUD_HOSTED  | Body   | True    | String |   
+| deployType     | Data source deployment type<br/><br/>SELF_MAINTENANCE <br/>ALIBABA_CLOUD_HOSTED  | Body   | True    | string |   
 
 ## Public Response Results
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code       | 1: Success<br/>0: Failure | String | True     |
+| code       | 1: Success<br/>0: Failure | string | True     |
 | data       |             | Object | False    |
-| msg        |             | String | False    |
-| requestId  |             | String | True     |
+| msg        |             | string | False    |
+| requestId  |             | string | True     |
 
 ## Data Parameters
 

@@ -20,9 +20,9 @@ description: 接口描述：更新数据源阿里云 AK/SK
 
 | 参数名称         | 参数说明  |     请求类型 |  是否必须      | 数据类型   |
 | ------------ |-------|-----------|--------|--------|
-| dataSourceId  | 目标数据源id |   body    |   是   | Long   |    
-| accessKey  | 阿里云ak |   body    |   是   | String |    
-| secretKey  | 阿里云sk |   body    |   是   | String   |    
+| dataSourceId  | 目标数据源id |   body    |   是   | long   |    
+| accessKey  | 阿里云ak |   body    |   是   | string |    
+| secretKey  | 阿里云sk |   body    |   是   | string   |    
 
 ## 公共响应结果
 

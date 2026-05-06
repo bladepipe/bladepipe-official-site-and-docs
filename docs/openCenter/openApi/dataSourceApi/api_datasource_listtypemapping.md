@@ -20,17 +20,17 @@ Gets a data type map for presentation
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| dstDsId | ID of the source data source | Body | True | Long |
-| srcDsId | ID of the target data source | Body | True | Long |     
+| dstDsId | ID of the source data source | Body | True | long |
+| srcDsId | ID of the target data source | Body | True | long |     
 
 ## Public response result
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code | 1: success, 0: failure | String | True |
+| code | 1: success, 0: failure | string | True |
 | data | | Object | False |
-| msg | | String | False |
-| requestId | | String | True |
+| msg | | string | False |
+| requestId | | string | True |
 
 ## Data Parameter
 

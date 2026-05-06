@@ -24,10 +24,10 @@ None
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code       | 1: Success<br/>0: Failure | String | True     |
+| code       | 1: Success<br/>0: Failure | string | True     |
 | data       |             | Object | False    |
-| msg        |             | String | False    |
-| requestId  |             | String | True     |
+| msg        |             | string | False    |
+| requestId  |             | string | True     |
 
 ## Data Parameters
 
@@ -35,8 +35,8 @@ The data is an array. The parameters of the array elements are described as foll
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| i18nName   | Internationalized name | String | True     |
-| format     | Message value type | String | True     |
+| i18nName   | Internationalized name | string | True     |
+| format     | Message value type | string | True     |
 
 ## Response Example
 

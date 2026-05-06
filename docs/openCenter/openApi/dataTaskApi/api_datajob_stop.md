@@ -20,16 +20,16 @@ Suspend task
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| JobID | ID of the job | Body | True | Long |
+| JobID | ID of the job | Body | True | long |
 
 ## Public Response Results
 
 | ParameterName | Parameter Description  | Type(Java) |NotNull
 | ------------ | -------------------|-------|----------- |
-| Code | 1: Success 0: Failed | String | True |
+| Code | 1: Success 0: Failed | string | True |
 | Data | | Object | False |
-| Msg | | String | False |
-| RequestID | | String | True |
+| Msg | | string | False |
+| RequestID | | string | True |
 
 ## Response Example
 

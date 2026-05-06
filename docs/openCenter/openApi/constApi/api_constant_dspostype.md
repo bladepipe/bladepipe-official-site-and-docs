@@ -20,16 +20,16 @@ Gets the data source site type for presentation
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| dsType     | Data source type, obtained through [Get Source Data Source Type](api_constant_srcdstype.md) | Body | True | String |     
+| dsType     | Data source type, obtained through [Get Source Data Source Type](api_constant_srcdstype.md) | Body | True | string |     
 
 ## Public Response Results
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code       | 1: Success<br/>0: Failure  | String |True
+| code       | 1: Success<br/>0: Failure  | string |True
 | data       |             | Object |False
-| msg        |             | String |False
-| requestId  |             | String |True
+| msg        |             | string |False
+| requestId  |             | string |True
 
 ## Data Parameters
 

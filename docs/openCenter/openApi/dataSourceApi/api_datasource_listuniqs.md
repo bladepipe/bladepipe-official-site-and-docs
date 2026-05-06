@@ -20,20 +20,20 @@ Gets a list of unique keys for database tables so that the unique key is set as 
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| clusterId | Cluster ID of the machine set that attempts to connect to the data source | Body | True | Long |
-| dataSourceId | ID of the target data source | Body | True | Long |
-| hostType | Selected data source network type<br/><br/>PRIVATE (intranet)<br/>PUBLIC (internet) | Body | True | String |
-| dbName | Database name; for MySQL, please fill in the "schemas" parameter | Body | False | String |
+| clusterId | Cluster ID of the machine set that attempts to connect to the data source | Body | True | long |
+| dataSourceId | ID of the target data source | Body | True | long |
+| hostType | Selected data source network type<br/><br/>PRIVATE (intranet)<br/>PUBLIC (internet) | Body | True | string |
+| dbName | Database name; for MySQL, please fill in the "schemas" parameter | Body | False | string |
 | schemas | List of schema names, including MySQL dbname, PostgreSQL schema, and Oracle schema | Body | True | List | 
 
 ## Public response result
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code | 1: success, 0: failure | String | True |
+| code | 1: success, 0: failure | string | True |
 | data | | Object | False |
-| msg | | String | False |
-| requestId | | String | True |
+| msg | | string | False |
+| requestId | | string | True |
 
 ## Data Parameter
 
@@ -43,21 +43,21 @@ Key Parameter Description:
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| dbName | Database name, may be empty depending on the data source | String | False |
-| tableSchema | Schema, may be empty depending on the data source | String | False |
-| tableName | Table name | String | True |
+| dbName | Database name, may be empty depending on the data source | string | False |
+| tableSchema | Schema, may be empty depending on the data source | string | False |
+| tableName | Table name | string | True |
 
 Value array element
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| constraintCatalog | Name of the database to which the constraint belongs; default is empty for MySQL | String | False |
-| constraintSchema | Schema to which the constraint belongs | String | True |
-| constraintName | Name of the constraint | String | True |
-| tableSchema | Schema on which the constraint acts | String | True |
-| tableName | Table on which the constraint acts (not the table on which foreign key dependency exists) | String | True |
-| constraintType | Type of constraint<br/><br/>PrimaryKey<br/>Unique<br/>ForeignKey | String | True |
-| cols | Columns included in the constraint | String | True |
+| constraintCatalog | Name of the database to which the constraint belongs; default is empty for MySQL | string | False |
+| constraintSchema | Schema to which the constraint belongs | string | True |
+| constraintName | Name of the constraint | string | True |
+| tableSchema | Schema on which the constraint acts | string | True |
+| tableName | Table on which the constraint acts (not the table on which foreign key dependency exists) | string | True |
+| constraintType | Type of constraint<br/><br/>PrimaryKey<br/>Unique<br/>ForeignKey | string | True |
+| cols | Columns included in the constraint | string | True |
 
 ## Response Example
 

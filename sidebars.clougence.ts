@@ -590,17 +590,23 @@ const sidebars: SidebarsConfig = {
         },
         {
           "type": "category",
-          "label": "机器集群API",
+          "label": "集群API",
           "items": [
-            "openCenter/openApi/clusterApi/api_cluster_listclusters",
-            "openCenter/openApi/clusterApi/api_cluster_listworkers",
-            "openCenter/openApi/clusterApi/api_cluster_createandinstallworker",
-            "openCenter/openApi/clusterApi/api_cluster_operateworkersclient",
-            "openCenter/openApi/clusterApi/api_cluster_startworker",
-            "openCenter/openApi/clusterApi/api_cluster_stopworker",
-            "openCenter/openApi/clusterApi/api_cluster_deleteworker",
-            "openCenter/openApi/clusterApi/api_cluster_modifymemoversoldpercent",
-            "openCenter/openApi/clusterApi/api_cluster_updateworkeralertconfig"
+            "openCenter/openApi/clusterApi/api_cluster_listclusters"
+          ]
+        },
+        {
+          "type": "category",
+          "label": "机器节点API",
+          "items": [
+            "openCenter/openApi/workerApi/api_worker_listworkers",
+            "openCenter/openApi/workerApi/api_worker_createandinstall",
+            "openCenter/openApi/workerApi/api_worker_operateworkersclient",
+            "openCenter/openApi/workerApi/api_worker_startworker",
+            "openCenter/openApi/workerApi/api_worker_stopworker",
+            "openCenter/openApi/workerApi/api_worker_deleteworker",
+            "openCenter/openApi/workerApi/api_worker_modifymemoversoldpercent",
+            "openCenter/openApi/workerApi/api_worker_updateworkeralertconfig"
           ]
         },
         {
@@ -658,7 +664,8 @@ const sidebars: SidebarsConfig = {
             "openCenter/openApi/dataTaskApi/api_datajob_schema",
             "openCenter/openApi/dataTaskApi/api_datajob_mapping",
             "openCenter/openApi/dataTaskApi/api_datajob_listkvconfigsbyjobid",
-            "openCenter/openApi/dataTaskApi/api_datajob_upsertkvconfigs"
+            "openCenter/openApi/dataTaskApi/api_datajob_upsertkvconfigs",
+            "openCenter/openApi/dataTaskApi/api_datajob_upsertkvconfig_mcp"
           ]
         },
         {
@@ -667,6 +674,13 @@ const sidebars: SidebarsConfig = {
           "items": [
             "openCenter/openApi/schemaApi/api_schema_querybytransferobjname",
             "openCenter/openApi/schemaApi/api_schema_listtransobjsbymeta"
+          ]
+        },
+        {
+          "type": "category",
+          "label": "用户API",
+          "items": [
+            "openCenter/openApi/userApi/api_user_queryuserinfo"
           ]
         },
         {

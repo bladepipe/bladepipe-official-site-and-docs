@@ -44,10 +44,10 @@ Verify task information in detail, including **character sets**, **data permissi
 
 | ParameterName | Parameter Description  | NotNull | Type(Java)
 | ------------ | -------------------|-------|----------- |
-| code          | 1: Success, 0: Failure                        | True     | String |
+| code          | 1: Success, 0: Failure                        | True     | string |
 | data          | Data returned (if any)                        | False    | Object |
-| msg           | Error message (if any)                        | False    | String |
-| requestId     | Unique identifier for the request and response| True     | String |
+| msg           | Error message (if any)                        | False    | string |
+| requestId     | Unique identifier for the request and response| True     | string |
 
 ## Data Parameter Description
 
@@ -55,17 +55,18 @@ Data is an array. Each item in the array represents a check item. Check item par
 
 | ParameterName | Parameter Description | NotNull | Type(Java)
 | ------------ | -------------------|-------|----------- |
-| title             | Name of the test item                                                        | True     | Long   |
-| passRequirement   | Condition for passing the test item                                          | True     | String |
-| varName           | Name of the parameter (if any)                                                | False    | String |
-| varRequireValues  | Required value(s) for the parameter                                           | False    | String |
-| varActualValue    | Actual value of the parameter (if any)                                        | False    | String |
-| preCheckType      | Type of pre-check <br/><br/>CONNECTIVITY (Connectivity) <br/>VERSION (Version) <br/>BINLOG_EXISTENCE (Binlog Existence) <br/>PRIVILEGES (Privileges) <br/>STRUCT_TABLE_STORAGE (Table Storage) <br/>STRUCT_TABLE_PK (Primary Key) <br/>STRUCT_TABLE_CHARSET (Table Character Set) <br/>STRUCT_TABLE_COLLATION (Table Collation) <br/>STRUCT_TABLE_FK (Foreign Key) <br/>STRUCT_EXISTENCE (Existence of Database Table Columns) <br/>VARIABLES (Database Parameters) <br/>SPEC_SCHEDULE_SUPPORT (Capacity) <br/>INCREMENT_BALANCE (Incremental License) <br/>FULL_BALANCE (Full Migration Task License) <br/>CHECK_BALANCE (Verification Task License) <br/>STRUCT_BALANCE (Schema Migration License) <br/>NAME_LENGTH (Metadata Name Length) <br/>INDEX_COLUMN (Index Column) <br/>COLUMN_TYPE (Column Type) <br/>VERSION_COMPATIBILITY (Version Compatibility) | False    | String |
-| success           | Whether the test item has passed pre-check                                   | False    | String |
-| checked           | Whether the test item has been pre-checked                                   | False    | Integer|
-| contextDbName     | The database associated with the check (if applicable)                       | False    | Integer|
-| contextTableName  | The table associated with the check (if applicable)                          | False    | String |
-| contextColumnName | The column associated with the check (if applicable)                         | False    | String |
+| title             | Name of the test item                                                        | True     | string |
+| passRequirement   | Condition for passing the test item                                          | True     | string |
+| varName           | Name of the parameter (if any)                                                | False    | string |
+| varRequireValues  | Required value(s) for the parameter                                           | False    | string |
+| varActualValue    | Actual value of the parameter (if any)                                        | False    | string |
+| preCheckType      | Type of pre-check <br/><br/>CONNECTIVITY (Connectivity) <br/>VERSION (Version) <br/>BINLOG_EXISTENCE (Binlog Existence) <br/>PRIVILEGES (Privileges) <br/>STRUCT_TABLE_STORAGE (Table Storage) <br/>STRUCT_TABLE_PK (Primary Key) <br/>STRUCT_TABLE_CHARSET (Table Character Set) <br/>STRUCT_TABLE_COLLATION (Table Collation) <br/>STRUCT_TABLE_FK (Foreign Key) <br/>STRUCT_EXISTENCE (Existence of Database Table Columns) <br/>VARIABLES (Database Parameters) <br/>SPEC_SCHEDULE_SUPPORT (Capacity) <br/>INCREMENT_BALANCE (Incremental License) <br/>FULL_BALANCE (Full Migration Task License) <br/>CHECK_BALANCE (Verification Task License) <br/>STRUCT_BALANCE (Schema Migration License) <br/>NAME_LENGTH (Metadata Name Length) <br/>INDEX_COLUMN (Index Column) <br/>COLUMN_TYPE (Column Type) <br/>VERSION_COMPATIBILITY (Version Compatibility) | False    | string |
+| success           | Whether the test item has passed pre-check                                   | False    | boolean |
+| checked           | Whether the test item has been pre-checked                                   | False    | boolean |
+| contextDbName     | The database associated with the check (if applicable)                       | False    | string |
+| contextTableName  | The table associated with the check (if applicable)                          | False    | string |
+| contextColumnName | The column associated with the check (if applicable)                         | False    | string |
+| schemaName        | The schema associated with the check (if applicable)                         | False    | string |
 
 ## Response Example
 

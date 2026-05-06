@@ -35,14 +35,16 @@ description: 接口描述：查询已创建任务源端元数据,目标元数据
 
 | 参数名称         | 参数说明      |  不为空     |  数据类型   |
 | ------------ |-----------|--------|----|
-| sourceSchema  | 源端元数据, 参考 [库表列结构说明](api_datajob_schema.md) |   是   |  String |   
-| targetSchema  | 默认为空字符串|   是   | String |    
-| mappingConfig | 元数据映射, 参考 [元数据映射说明](api_datajob_mapping.md)   |   是   |  String |    
-| defaultTopic  | 如果是全库迁移，且对端为消息，则新增表数据默认投递的队列|   否   |  String | 
+| sourceSchema  | 源端元数据, 参考 [库表列结构说明](api_datajob_schema.md) |   是   |  string |   
+| targetSchema  | 默认为空字符串|   是   | string |    
+| mappingConfig | 元数据映射, 参考 [元数据映射说明](api_datajob_mapping.md)   |   是   |  string |    
+| defaultTopic  | 如果是全库迁移，且对端为消息，则新增表数据默认投递的队列|   否   |  string | 
 | defaultTopicPartition  | 默认队列分区数  |    是   |  int |      
-| schemaWhiteListLevel  | 白名单级别,如果为空，则默认完全白名单模式(列变更操作除外),目前支持 DB 级别和不设任何值 <br/>NONE <br/>DB <br/>SCHEMA <br/>TABLE |   否   |  String |     
-| srcSchemaLessFormat  |如果源为消息(Kafka/RocketMQ)或缓存(Redis), 指定数据的格式 <br/><br/>CLOUDCANAL_JSON_FOR_MQ <br/>CANAL_JSON_FOR_MQ <br/>VALUE_JSON_FOR_CACHE <br/>VALUE_COL_CAMEL_CASE_JSON_FOR_CACHE  |   是   |  String |     
-| dstSchemaLessFormat  |如果目标为消息(Kafka/RocketMQ)或缓存(Redis), 指定数据的格式 <br/><br/>CLOUDCANAL_JSON_FOR_MQ <br/>CANAL_JSON_FOR_MQ <br/>VALUE_JSON_FOR_CACHE <br/>VALUE_COL_CAMEL_CASE_JSON_FOR_CACHE|   是   |  String |       
+| schemaWhiteListLevel  | 白名单级别,如果为空，则默认完全白名单模式(列变更操作除外),目前支持 DB 级别和不设任何值 <br/>NONE <br/>DB <br/>SCHEMA <br/>TABLE |   否   |  string |     
+| srcSchemaLessFormat  |如果源为消息(Kafka/RocketMQ)或缓存(Redis), 指定数据的格式 <br/><br/>CLOUDCANAL_JSON_FOR_MQ <br/>CANAL_JSON_FOR_MQ <br/>VALUE_JSON_FOR_CACHE <br/>VALUE_COL_CAMEL_CASE_JSON_FOR_CACHE  |   是   |  string |
+| dstSchemaLessFormat  |如果目标为消息(Kafka/RocketMQ)或缓存(Redis), 指定数据的格式 <br/><br/>CLOUDCANAL_JSON_FOR_MQ <br/>CANAL_JSON_FOR_MQ <br/>VALUE_JSON_FOR_CACHE <br/>VALUE_COL_CAMEL_CASE_JSON_FOR_CACHE|   是   |  string |
+| dstDsCaseSensitive  | 目标数据源大小写敏感  |   否   |  boolean |
+| ccSubTables  | 子表列表  |   否   |  array |       
 
 
 ## 响应示例

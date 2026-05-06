@@ -20,18 +20,18 @@ Gets the columns of the table so that you can select the columns you want when c
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| clusterId | Cluster ID of the machine group attempting to connect to the data source | Body | True | Long |
-| dataSourceId | Target data source ID | Body | True | Long |
-| hostType | Selected network type of the data source <br/><br/> PRIVATE (for intranet) <br/> PUBLIC (for public internet) | Body | True | String |
-| schemas | An array that conforms to the structure, details are as follows | Body | True | String |  
+| clusterId | Cluster ID of the machine group attempting to connect to the data source | Body | True | long |
+| dataSourceId | Target data source ID | Body | True | long |
+| hostType | Selected network type of the data source <br/><br/> PRIVATE (for intranet) <br/> PUBLIC (for public internet) | Body | True | string |
+| schemas | An array that conforms to the structure, details are as follows | Body | True | string |  
 
 Schema composite structure specification
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| db | Name of the database. For relational databases, this field cannot be empty | Body | True | String |
-| schema | Name of the schema. For MySQL, this field can be empty | Body | False | String |
-| tables | List of table names | Body | True | String |    
+| db | Name of the database. For relational databases, this field cannot be empty | Body | True | string |
+| schema | Name of the schema. For MySQL, this field can be empty | Body | False | string |
+| tables | List of table names | Body | True | string |    
 
 Schema composite structure example
 
@@ -51,38 +51,38 @@ Schema composite structure example
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code | 1: success 0: failure | String | True |
+| code | 1: success 0: failure | string | True |
 | data | -| Object | False |
-| msg | | String | False |
-| requestId | | String | True |
+| msg | | string | False |
+| requestId | | string | True |
 
 ## Data Parameter
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| tableMetaDataMap | Column information for multiple databases and tables | String | False |
-| noPkTableNameList | List of tables without primary keys | String | True |
-| numberOfShards | Valid for Kudu data source | String | False |
-| numberOfReplicas | Valid for Kudu data source | String | False |
+| tableMetaDataMap | Column information for multiple databases and tables | string | False |
+| noPkTableNameList | List of tables without primary keys | string | True |
+| numberOfShards | Valid for Kudu data source | string | False |
+| numberOfReplicas | Valid for Kudu data source | string | False |
 
 Column information specification
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| columnName | Column name | String | True |
-| dataTypeWithLength | Data type with length description | String | False |
-| isNullable | Whether the column can be null | Boolean | True |
-| dataType | Data type | String | True |
+| columnName | Column name | string | True |
+| dataTypeWithLength | Data type with length description | string | False |
+| isNullable | Whether the column can be null | boolean | True |
+| dataType | Data type | string | True |
 | sqlTypeIntValue | Type length | int | False |
-| jdbcType | JDBC type | String | False |
+| jdbcType | JDBC type | string | False |
 | timePrecision | Time precision | int | False |
-| characterMaxLength | String length | String | False |
+| characterMaxLength | String length | string | False |
 | numberPrecision | Numeric precision | int | False |
 | numberScale | Numeric scale | int | False |
-| esAnalyzerType | ElasticSearch analyzer type | String | False |
-| needIndex | Whether the ElasticSearch field needs to be indexed | String | False |
-| timeFormat | Time format | String | False |
-| pk | Whether the column is a primary key | Boolean | True |
+| esAnalyzerType | ElasticSearch analyzer type | string | False |
+| needIndex | Whether the ElasticSearch field needs to be indexed | string | False |
+| timeFormat | Time format | string | False |
+| pk | Whether the column is a primary key | boolean | True |
 
 ##  Response Example
 

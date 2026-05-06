@@ -1,5 +1,5 @@
 ---
-id: api_cluster_operateworkersclient
+id: api_worker_operateworkersclient
 title: 操作机器
 sidebar_position: 1
 description: 接口描述：操作机器, 可以安装, 卸载, 升级, 启动客户端

@@ -27,10 +27,10 @@ description: 接口描述：修改数据源账号密码
 ### dataSourceAddData 参数说明
 | 参数名称         | 参数说明               |    类型(java) |  不为空 |
 | ------------ | -------------------|-------|----------- |
-| dataSourceId  | 目标数据源id  |   body    |   是   | Long |
-| securityType     | 数据源安全密钥类型  <br/><br/>KERBEROS <br/>USER_PASSWD_WITH_TLS <br/>USER_PASSWD <br/>ONLY_USER <br/>ONLY_PASSWD <br/>NONE  |    String   |   是    |
-| userName     | 账号  |    String   |   根据securityType选择    |
-| password     | 密码  |    String   |   根据securityType选择    |
+| dataSourceId  | 目标数据源id  |   body    |   是   | long |
+| securityType     | 数据源安全密钥类型  <br/><br/>KERBEROS <br/>USER_PASSWD_WITH_TLS <br/>USER_PASSWD <br/>ONLY_USER <br/>ONLY_PASSWD <br/>NONE  |    string   |   是    |
+| userName     | 账号  |    string   |   根据securityType选择    |
+| password     | 密码  |    string   |   根据securityType选择    |
 
 ## 公共响应结果
 

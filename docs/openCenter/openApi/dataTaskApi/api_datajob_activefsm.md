@@ -20,16 +20,16 @@ The state machine controls task flow. In some cases, the task does not want to b
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| jobId | Task ID | Body | True | Long |
+| jobId | Task ID | Body | True | long |
 
 ## Public Response Results
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code | 1:Success, 0:Failure | String | True |
+| code | 1:Success, 0:Failure | string | True |
 | data | | Object | False |
-| msg | | String | False |
-| requestId | | String | True |
+| msg | | string | False |
+| requestId | | string | True |
 
 ## Response Example
 

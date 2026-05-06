@@ -24,10 +24,10 @@ None
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code       | 1: Success<br/>0: Failure  | String |True
+| code       | 1: Success<br/>0: Failure  | string |True
 | data       |             | Object |False
-| msg        |             | String |False
-| requestId  |             | String |True
+| msg        |             | string |False
+| requestId  |             | string |True
 
 ## Data Parameters
 
@@ -36,7 +36,7 @@ The data is an array, and each set of data contains the following field descript
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
 | ckTableEngine | ClickHouse table engine       | String  |True 
-| defaultCheck  | Whether to select this option | Boolean |True
+| defaultCheck  | Whether to select this option | boolean |True
 
 ## Response Example
 

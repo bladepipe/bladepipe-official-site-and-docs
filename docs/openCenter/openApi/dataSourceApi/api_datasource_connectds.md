@@ -22,7 +22,7 @@ Link the data source to confirm the connectivity between the selected cluster ma
 | ------------ | -------------------------------- |-----------|--------|----|
 | clusterId    | Cluster ID for connecting to the data source  | Body   | True     | Long                                                                             |
 | dataSourceId | Target data source ID                         | Body   | True     | Long                                                                             |
-| hostType     | Selected network type for the data source<br/><br/>PRIVATE (intranet)<br/>PUBLIC (public network) | Body   | True     | String |       
+| hostType     | Selected network type for the data source<br/><br/>PRIVATE (intranet)<br/>PUBLIC (public network) | Body   | True     | string |       
 
 ## Public Response Results
 

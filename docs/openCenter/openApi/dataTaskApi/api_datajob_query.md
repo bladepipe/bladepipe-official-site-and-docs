@@ -20,16 +20,16 @@ Query task details based on the task id
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| jobId | ID of the task |Body| True | Long | 
+| jobId | ID of the task |Body| True | long | 
 
 ## Public Response Results
 
 | ParameterName | Parameter Description  | NotNull | Type(Java)
 | ------------ | -------------------|-------|----------- |
-| code          | 1: Success, 0: Failure | True     | String |
+| code          | 1: Success, 0: Failure | True     | string |
 | data          | Data returned (if any)                        | False    | Object |
-| msg           | Error message (if any)                        | False    | String |
-| requestId     | Unique identifier for the request and response| True     | String |
+| msg           | Error message (if any)                        | False    | string |
+| requestId     | Unique identifier for the request and response| True     | string |
 
 ## Data Parameter Description
 
@@ -38,65 +38,66 @@ The result data contains basic DataJob information, the corresponding Task list,
 | ParameterName | Parameter Description  | NotNull | Type(Java)
 | ------------ |-----------|--------|----|
 | dataJobId          | ID of the DataJob                                                              | True     | Long   |
-| dataJobName        | Name of the DataJob                                                            | True     | Long   |
-| dataJobDesc        | Description of the DataJob                                                     | True     | String |
-| gmtCreated         | Time of creation                                                               | True     | String |
-| userName           | Owner of the DataJob                                                           | True     | String |
-| dataJobType        | Type of the DataJob. See [Get Task Type List](../constApi/api_constant_listdatajobtype.md) for more information | True     | Long   |
-| dataTaskState      | Current phase of the DataJob. See [DataJob Phase List](../constApi/api_constant_listdatataskstates.md) for more information | True     | String |
+| dataJobName        | Name of the DataJob                                                            | True     | string |
+| dataJobDesc        | Description of the DataJob                                                     | True     | string |
+| gmtCreated         | Time of creation                                                               | True     | string |
+| userName           | Owner of the DataJob                                                           | True     | string |
+| dataJobType        | Type of the DataJob. See [Get Task Type List](../constApi/api_constant_listdatajobtype.md) for more information | True     | string |
+| dataTaskState      | Current phase of the DataJob. See [DataJob Phase List](../constApi/api_constant_listdatataskstates.md) for more information | True     | string |
 | currTaskStatus |The status of current phase of the DataJob. [DataTask Status List](../constApi/api_constant_listdatataskstatuses.md) for more information | True ｜ String |
-| sourceDsVO         | Information about the source data source. See [Data Source Information](../dataSourceApi/api_datasource_queryds.md) for more information | True     | String |
-| targetDsVO         | Information about the target data source. See [Data Source Information](../dataSourceApi/api_datasource_queryds.md) for more information | True     | String |
-| dataTasks          | List of tasks. See **dataTaskVO Parameter Description** for more information | True     | String |
-| sourceSchema       | Schema information obtained by [Querying Task Schema Information](api_datajob_queryjobschema.md)      | False    | String |
-| targetSchema       | Schema information obtained by [Querying Task Schema Information](api_datajob_queryjobschema.md)      | False    | String |
-| mappingConfig      | Schema information obtained by [Querying Task Schema Information](api_datajob_queryjobschema.md)      | False    | String |
-| filterDDL          | Whether to filter DDL synchronization. True indicates filtering, and false indicates not filtering | True     | Boolean|
-| structMigration    | Whether to perform structure migration.                                        | True     | Boolean|
-| initialSync        | Whether to initialize data (full migration) if it is a data synchronization task.| False    | Boolean|
-| shortTermNum       | Number of days for short-term synchronization, if any.                         | False    | Int    |
-| shortTermSync      | Whether to perform short-term synchronization if it is a data migration task.  | False    | Boolean|
-| fsmId              | ID of the state machine.                                                        | True     | Int    |
-| fsmActive          | Whether the state machine is active.                                            | False    | Boolean|
-| consoleJobId       | ID of the asynchronous task that has been run or is currently running, and is the closest to the current time. | False    | Boolean|
-| consoleTaskState   | State of the asynchronous task.                                                | False    | String |
-| childJobs          | List of child tasks.                                                            | False    | Boolean|
-| lifeCycleState     | Lifecycle <br/><br/>CREATING <br/>CREATED <br/>DELETING <br/>DELETED <br/>LOCKED | False    | Boolean|
-| srcSchemaLessFormat| Schema type defined if the source is a message or cache.                         | False    | Boolean|
-| dstSchemaLessFormat| Schema type defined if the target is a message or cache.                         | False    | String |
-| dstCaseSensitiveType| Case-sensitive type of the target data source <br/>UpperCase <br/>LowerCase <br/>Sensitive <br/>NoSpecified | False | Boolean|
-| haveException      | Whether an exception exists.                                                    | False    | Boolean|    
+| sourceDsVO         | Information about the source data source. See [Data Source Information](../dataSourceApi/api_datasource_queryds.md) for more information | True     | string |
+| targetDsVO         | Information about the target data source. See [Data Source Information](../dataSourceApi/api_datasource_queryds.md) for more information | True     | string |
+| dataTasks          | List of tasks. See **dataTaskVO Parameter Description** for more information | True     | string |
+| sourceSchema       | Schema information obtained by [Querying Task Schema Information](api_datajob_queryjobschema.md)      | False    | string |
+| targetSchema       | Schema information obtained by [Querying Task Schema Information](api_datajob_queryjobschema.md)      | False    | string |
+| mappingConfig      | Schema information obtained by [Querying Task Schema Information](api_datajob_queryjobschema.md)      | False    | string |
+| filterDdl          | Whether to filter DDL synchronization. True indicates filtering, and false indicates not filtering | True     | boolean|
+| structMigration    | Whether to perform structure migration.                                        | True     | boolean|
+| initialSync        | Whether to initialize data (full migration) if it is a data synchronization task.| False    | boolean|
+| shotTermNum        | Number of days for short-term synchronization, if any.                         | False    | int    |
+| shotTermSync       | Whether to perform short-term synchronization if it is a data migration task.  | False    | boolean|
+| fsmId              | ID of the state machine.                                                        | True     | long   |
+| fsmActive          | Whether the state machine is active.                                            | False    | boolean|
+| consoleJobId       | ID of the asynchronous task that has been run or is currently running, and is the closest to the current time. | False    | long|
+| consoleTaskState   | State of the asynchronous task.                                                | False    | string |
+| childJobs          | List of child tasks.                                                            | False    | string |
+| lifeCycleState     | Lifecycle <br/><br/>CREATING <br/>CREATED <br/>DELETING <br/>DELETED <br/>LOCKED | False    | string |
+| srcSchemaLessFormat| Schema type defined if the source is a message or cache.                         | False    | string |
+| dstSchemaLessFormat| Schema type defined if the target is a message or cache.                         | False    | string |
+| dstDsCaseSensitive | Whether the target data source is case-sensitive.                               | False    | boolean|
+| haveException      | Whether an exception exists.                                                    | False    | boolean|    
 
 ### DataTaskVO Parameter Description
 | ParameterName | Parameter Description                                                                                                                           | NotNull | Type(Java)
 | ------------ |-------------------------------------------------------------------------------------------------------------------------------------------------|--------|----|
 | dataTaskId           | ID of the data task.                                                                                                                            | True     | Long   |
-| gmtCreate            | Time of creation.                                                                                                                               | True     | String |
-| gmtModified          | Time of the last modification.                                                                                                                  | True     | String |
-| dataTaskType         | Type of the DataTask. <br/>BUILD_STRUCT<br/>FULL <br/>INCREMENT <br/>CHECK<br/>REVISE<br/>REVIEW | True     | String |
-| dataTaskName         | Name of the data task.                                                                                                                          | True     | String |
-| dataTaskStatus       | Current status of the task. See [Task Status List](../constApi/api_constant_listdatataskstatuses.md) for more information.                      | True     | String |
+| gmtCreate            | Time of creation.                                                                                                                               | True     | string |
+| gmtModified          | Time of the last modification.                                                                                                                  | True     | string |
+| dataTaskType         | Type of the DataTask. <br/>BUILD_STRUCT<br/>FULL <br/>INCREMENT <br/>CHECK<br/>REVISE<br/>REVIEW | True     | string |
+| dataTaskName         | Name of the data task.                                                                                                                          | True     | string |
+| dataTaskStatus       | Current status of the task. See [Task Status List](../constApi/api_constant_listdatataskstatuses.md) for more information.                      | True     | string |
 | dataJobId            | ID of the DataJob to which the task belongs.                                                                                                    | True     | Long   |
-| dataJobName          | Name of the DataJob to which the task belongs.                                                                                                  | False    | String |
+| dataJobName          | Name of the DataJob to which the task belongs.                                                                                                  | False    | string |
 | filterDdl            | Whether to filter DDL synchronization. True indicates filtering, and false indicates not filtering.                                             | True     | Boolean|
 | checkOnce            | Whether to perform one-time verification.                                                                                                       | True     | Boolean|
 | checkPeriod          | Whether to perform periodical verification.                                                                                                     | True     | Boolean|
 | fullPeriod           | Whether to perform periodic migration.                                                                                                          | True     | Boolean|
-| fullPeriodCronExpr   | CronTab expression for periodic migration.                                                                                                      | False    | String |
-| checkPeriodCronExpr  | CronTab expression for periodical verification.                                                                                                 | False    | String |
-| lastCheckTime        | Time of the last verification.                                                                                                                  | False    | String |
+| fullPeriodCronExpr   | CronTab expression for periodic migration.                                                                                                      | False    | string |
+| checkPeriodCronExpr  | CronTab expression for periodical verification.                                                                                                 | False    | string |
+| lastCheckTime        | Time of the last verification.                                                                                                                  | False    | string |
 | fullJvmHeapMb        | Heap memory (in MB) for the Java process launched during full migration.                                                                        | False    | Int    |
 | incrementJvmHeapMb   | Heap memory (in MB) for the Java process launched during incremental synchronization.                                                           | False    | Int    |
 | checkJvmHeapMb       | Heap memory (in MB) for the Java process launched during verification.                                                                          | False    | Int    |
-| taskPosition         | Position of the task.                                                                                                                           | False    | String |
-| healthLevel          | Health status of the task. Possible values are: Unhealthy, SubHealth, and Health.                                                               | False    | String |
-| workerId             | ID of the machine where the task is mounted.                                                                                                    | False    | String |
-| workerIp             | IP address of the machine where the task is mounted.                                                                                            | False    | String |
+| taskPosition         | Position of the task.                                                                                                                           | False    | string |
+| healthLevel          | Health status of the task. Possible values are: Unhealthy, SubHealth, and Health.                                                               | False    | string |
+| workerId             | ID of the machine where the task is mounted.                                                                                                    | False    | long   |
+| workerIp             | IP address of the machine where the task is mounted.                                                                                            | False    | string |
 | clusterId            | ID of the cluster where the task is mounted.                                                                                                    | False    | Long   |
 | dataDelayMs          | Delay (in milliseconds).                                                                                                                        | False    | Long   |
-| nextFireTime         | Time of the next trigger.                                                                                                                       | False    | String |
-| startTriggerTime     | Time of the first trigger after starting.                                                                                                       | False    | String |
-| firstHeartbeatSendTime| Time of the first heartbeat sent after starting.                                                                                                | False    | String |
+| nextFireTime         | Time of the next trigger.                                                                                                                       | False    | string |
+| startTriggerTime     | Time of the first trigger after starting.                                                                                                       | False    | string |
+| firstHeartbeatSendTime| Time of the first heartbeat sent after starting.                                                                                                | False    | string |
+| checkPeriodNum       | Periodical verification interval (in minutes).                                                                                                  | False    | int    |
 
 ## Response Example
 

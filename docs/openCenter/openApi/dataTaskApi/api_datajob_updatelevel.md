@@ -27,10 +27,10 @@ Update the level of the DataJob for risk management.
 
 | ParameterName | Parameter Description  | Type(Java) |NotNull
 | ------------ | -------------------|-------|----------- |
-| code | 1: Success 0: Failed | String | True |
+| code | 1: Success 0: Failed | string | True |
 | data | | Object | False |
-| msg | | String | False |
-| requestId | | String | True |
+| msg | | string | False |
+| requestId | | string | True |
 
 ## Response Example
 

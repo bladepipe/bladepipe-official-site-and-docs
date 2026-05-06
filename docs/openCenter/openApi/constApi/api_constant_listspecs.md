@@ -20,18 +20,18 @@ Gets a list of data task specifications to select when creating a task.
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| dataJobType    | Data job type<br/><br/>MIGRATION <br/>SYNC <br/>CHECK (Data verification)<br/>REVISE <br/>STRUCT_MIGRATION  | Body   | True     | String |
-| initialSync    | Whether to perform data initialization  when dataJobType is SYNC | Body   | False    | Boolean |
-| shortTermSync  | Whether to perform limited-time incremental data synchronization when dataJobType is MIGRATION | Body   | False    | Boolean |
+| dataJobType    | Data job type<br/><br/>MIGRATION <br/>SYNC <br/>CHECK (Data verification)<br/>REVISE <br/>STRUCT_MIGRATION  | Body   | True     | string |
+| initialSync    | Whether to perform data initialization  when dataJobType is SYNC | Body   | False    | boolean |
+| shortTermSync  | Whether to perform limited-time incremental data synchronization when dataJobType is MIGRATION | Body   | False    | boolean |
 
 ## Public Response Results
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code       | 1: Success<br/>0: Failure | String | True     |
+| code       | 1: Success<br/>0: Failure | string | True     |
 | data       |             | Object | True     |
-| msg        |             | String | True     |
-| requestId  |             | String | True     |
+| msg        |             | string | True     |
+| requestId  |             | string | True     |
 
 ## Data Parameters
 
@@ -39,14 +39,14 @@ The data is an array, and array elements are specification entities
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| id           | Specification ID | String | True     |
-| specKind     | Specification series | String | True     |
-| specKindCn   | Specification name in Chinese | String | True     |
-| spec         | Specification | String | True     |
-| description  | Specification description | String | True     |
-| fullMemoryMb | Full memory usage (MB) | Integer | True     |
-| increMemoryMb| Incremental memory usage (MB) | Integer | True     |
-| checkMemoryMb| Verification memory usage (MB) | Integer | True     |
+| id           | Specification ID | string | True     |
+| specKind     | Specification series | string | True     |
+| specKindCn   | Specification name in Chinese | string | True     |
+| spec         | Specification | string | True     |
+| description  | Specification description | string | True     |
+| fullMemoryMb | Full memory usage (MB) | int | True     |
+| increMemoryMb| Incremental memory usage (MB) | int | True     |
+| checkMemoryMb| Verification memory usage (MB) | int | True     |
 
 ## Response Example
 
