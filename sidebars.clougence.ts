@@ -251,6 +251,13 @@ const sidebars: SidebarsConfig = {
             },
             {
               "type": "category",
+              "label": "OceanBase for Oracle",
+              "items": [
+                "dataMigrationAndSync/datasource_func/ObForOracle/privs_for_obo"
+              ]
+            },
+            {
+              "type": "category",
               "label": "Dameng",
               "items": [
                 "dataMigrationAndSync/datasource_func/Dameng/prepare_for_dameng_logminer",
