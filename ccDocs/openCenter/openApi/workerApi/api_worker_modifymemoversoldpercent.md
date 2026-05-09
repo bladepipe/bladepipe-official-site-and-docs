@@ -1,5 +1,5 @@
 ---
-id: api_cluster_modifymemoversoldpercent
+id: api_worker_modifymemoversoldpercent
 title: 修改内存超卖比例
 description: 接口描述：修改指定机器节点的内存超卖比例
 ---

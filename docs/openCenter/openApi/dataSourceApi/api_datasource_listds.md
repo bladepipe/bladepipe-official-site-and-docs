@@ -20,20 +20,20 @@ Gets a list of data sources so that task creation selects the correct source and
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|------|--------|
-| dataSourceId | Data source ID | Body | False | Long |
-| deployType | Data source deployment type<br/><br/>SELF_MAINTENANCE (self-built)<br/>ALIBABA_CLOUD_HOSTED (Alibaba Cloud hosted) | Body | False | String |
-| hostType | Data source default network type<br/><br/>PRIVATE (intranet)<br/>PUBLIC (internet) | Body | False | String |
-| lifeCycleState | Data source status<br/><br/>CREATING (creating)<br/>CREATED (created)<br/>DELETING (deleting)<br/>DELETED (deleted)<br/>LOCKED (locked) | Body | False | String |
-| type | Data source type<br/><br/>MySQL<br/>PolarDbMySQL<br/>PolarDbX<br/>PostgreSQL<br/>Greenplum<br/>Oracle<br/>SQLServer<br/>Redis<br/>MongoDB<br/>Kafka<br/>RocketMQ<br/>RabbitMQ<br/>Hive<br/>ElasticSearch<br/>DRDS<br/>AdbForMySQL<br/>TiDB<br/>ClickHouse<br/>Kudu | Body | False | String | 
+| dataSourceId | Data source ID | Body | False | long |
+| deployType | Data source deployment type<br/><br/>SELF_MAINTENANCE (self-built)<br/>ALIBABA_CLOUD_HOSTED (Alibaba Cloud hosted) | Body | False | string |
+| hostType | Data source default network type<br/><br/>PRIVATE (intranet)<br/>PUBLIC (internet) | Body | False | string |
+| lifeCycleState | Data source status<br/><br/>CREATING (creating)<br/>CREATED (created)<br/>DELETING (deleting)<br/>DELETED (deleted)<br/>LOCKED (locked) | Body | False | string |
+| type | Data source type<br/><br/>MySQL<br/>PolarDbMySQL<br/>PolarDbX<br/>PostgreSQL<br/>Greenplum<br/>Oracle<br/>SQLServer<br/>Redis<br/>MongoDB<br/>Kafka<br/>RocketMQ<br/>RabbitMQ<br/>Hive<br/>ElasticSearch<br/>DRDS<br/>AdbForMySQL<br/>TiDB<br/>ClickHouse<br/>Kudu | Body | False | string | 
 
 ## Public response result
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code | 1: Success 0: Failure | String | True |
+| code | 1: Success 0: Failure | string | True |
 | data | - | Object | False |
-| msg | - | String | False |
-| requestId | - | String | True |
+| msg | - | string | False |
+| requestId | - | string | True |
 
 ## Data Parameter
 
@@ -41,26 +41,26 @@ Data is an array where the fields in each set of data are described as follows:
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| id | Primary key | Long | True |
-| gmtCreate | Creation time | String | True |
-| gmtModified | Modification time | String | True |
-| uid | Data source owner UID | String | True |
-| owner | Data source owner | String | True |
-| deployType | Data source deployment type<br/><br/>SELF_MAINTENANCE (self-built)<br/>ALIBABA_CLOUD_HOSTED (Alibaba Cloud hosted) | String | True |
-| region | Data source region<br/><br/>hangzhou<br/>shanghai<br/>beijing<br/>shenzhen<br/>qingdao<br/>zhangjiakou<br/>huhehaote<br/>hongkong<br/>singapore<br/>silicon_valley<br/>london<br/>mq_internet_access<br/>customer | String | True |
-| dataSourceType | Data source type<br/><br/>MySQL<br/>PolarDbMySQL<br/>PolarDbX<br/>PostgreSQL<br/>Greenplum<br/>Oracle<br/>SQLServer<br/>Redis<br/>MongoDB<br/>Kafka<br/>RocketMQ<br/>RabbitMQ<br/>Hive<br/>ElasticSearch<br/>DRDS<br/>AdbForMySQL<br/>TiDB<br/>ClickHouse<br/>Kudu | String | True |
-| privateHost | Intranet host | String | False |
-| publicHost | Internet host | String | False |
-| hostType | Data source default network type<br/><br/>PRIVATE (intranet)<br/>PUBLIC (internet) | String | True |
-| instanceDesc | Data source description | String | False |
-| version | Data source version | String | False |
-| instanceId | Instance ID | String | True |
-| schemaJson | Library table column structure (JSON), see DataJob related API description | String | False |
-| consoleJobId | Current asynchronous task ID | Long | False |
-| consoleTaskState | Current asynchronous task status<br/><br/>WAIT_START (waiting to start)<br/>EXECUTE (executing)<br/>SUCCESS (successful)<br/>FAILED (failed)<br/>CANCELED (canceled)<br/>SKIP (ignored) | String | False |
-| accountName | Account | String | False |
-| lifeCycleState | Data source status<br/><br/>CREATING (creating)<br/>CREATED (created)<br/>DELETING (deleting)<br/>DELETED (deleted)<br/>LOCKED (locked) | String | True |
-| securityType | Data source security key type<br/><br/>KERBEROS<br/>USER_PASSWD_WITH_TLS<br/>USER_PASSWD<br/>ONLY_USER<br/>ONLY_PASSWD<br/>NONE | String | True |
+| id | Primary key | long | True |
+| gmtCreate | Creation time | string | True |
+| gmtModified | Modification time | string | True |
+| uid | Data source owner UID | string | True |
+| owner | Data source owner | string | True |
+| deployType | Data source deployment type<br/><br/>SELF_MAINTENANCE (self-built)<br/>ALIBABA_CLOUD_HOSTED (Alibaba Cloud hosted) | string | True |
+| region | Data source region<br/><br/>hangzhou<br/>shanghai<br/>beijing<br/>shenzhen<br/>qingdao<br/>zhangjiakou<br/>huhehaote<br/>hongkong<br/>singapore<br/>silicon_valley<br/>london<br/>mq_internet_access<br/>customer | string | True |
+| dataSourceType | Data source type<br/><br/>MySQL<br/>PolarDbMySQL<br/>PolarDbX<br/>PostgreSQL<br/>Greenplum<br/>Oracle<br/>SQLServer<br/>Redis<br/>MongoDB<br/>Kafka<br/>RocketMQ<br/>RabbitMQ<br/>Hive<br/>ElasticSearch<br/>DRDS<br/>AdbForMySQL<br/>TiDB<br/>ClickHouse<br/>Kudu | string | True |
+| privateHost | Intranet host | string | False |
+| publicHost | Internet host | string | False |
+| hostType | Data source default network type<br/><br/>PRIVATE (intranet)<br/>PUBLIC (internet) | string | True |
+| instanceDesc | Data source description | string | False |
+| version | Data source version | string | False |
+| instanceId | Instance ID | string | True |
+| schemaJson | Library table column structure (JSON), see DataJob related API description | string | False |
+| consoleJobId | Current asynchronous task ID | long | False |
+| consoleTaskState | Current asynchronous task status<br/><br/>WAIT_START (waiting to start)<br/>EXECUTE (executing)<br/>SUCCESS (successful)<br/>FAILED (failed)<br/>CANCELED (canceled)<br/>SKIP (ignored) | string | False |
+| accountName | Account | string | False |
+| lifeCycleState | Data source status<br/><br/>CREATING (creating)<br/>CREATED (created)<br/>DELETING (deleting)<br/>DELETED (deleted)<br/>LOCKED (locked) | string | True |
+| securityType | Data source security key type<br/><br/>KERBEROS<br/>USER_PASSWD_WITH_TLS<br/>USER_PASSWD<br/>ONLY_USER<br/>ONLY_PASSWD<br/>NONE | string | True |
 
 ## Response Example
 

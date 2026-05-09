@@ -22,7 +22,7 @@ But once pipelines move closer to production, priorities change. Teams start ask
 
 That is the point where many teams begin evaluating alternatives.
 
-This guide compares the **10 best Airbyte alternatives in 2026**, with a special focus on **real-time CDC, operational simplicity, deployment flexibility, and total cost of ownership**.
+This guide compares the **10 best Airbyte alternatives in 2026**, with a special focus on **[real-time CDC](change_data_capture_cdc.md), operational simplicity, deployment flexibility, and total cost of ownership**.
 
 <!-- truncate -->
 
@@ -134,7 +134,7 @@ Ask not just "How many connectors exist?" but also:
 
 ### Transformation Model
 
-Some tools are ELT-first. Others support in-flight filtering, mapping, masking, or ETL. Match the model to your architecture.
+Some tools are ELT-first. Others support in-flight filtering, mapping, [masking](data_masking.md), or [ETL](etl_steps_explained.md). Match the model to your architecture.
 
 ### Deployment Options
 

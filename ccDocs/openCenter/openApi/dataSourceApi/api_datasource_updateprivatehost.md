@@ -20,8 +20,8 @@ description: 接口描述：修改数据源内网地址
 
 | 参数名称         | 参数说明     |     请求类型 |  是否必须      |  数据类型   |
 | ------------ |----------|-----------|--------|----|
-| dataSourceId  | 目标数据源id  |   body    |   是   | Long |    
-|privateHost| 修改后的内网地址 |   body    |   是   | Long |    
+| dataSourceId  | 目标数据源id  |   body    |   是   | long |    
+|privateHost| 修改后的内网地址 |   body    |   是   | string |    
 
 ## 公共响应结果
 

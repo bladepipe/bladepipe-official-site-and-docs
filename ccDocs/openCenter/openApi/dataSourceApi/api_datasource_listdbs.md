@@ -20,9 +20,9 @@ description: 接口描述：获取数据库实例的数据库列表信息
 
 | 参数名称         | 参数说明     |     请求类型 |  是否必须      |  数据类型   |
 | ------------ | -------------------------------- |-----------|--------|----|
-| clusterId  |尝试连接数据源的机器集群id|   body    |   是   | Long |  
-| dataSourceId  |目标数据源id|   body    |   是   | Long |    
-| hostType  |所选数据源网络类型 <br/><br/>PRIVATE(内网) <br/>PUBLIC(公网)|   body    |   是   | String |       
+| clusterId  |尝试连接数据源的机器集群id|   body    |   是   | long |  
+| dataSourceId  |目标数据源id|   body    |   是   | long |    
+| hostType  |所选数据源网络类型 <br/><br/>PRIVATE(内网) <br/>PUBLIC(公网)|   body    |   是   | string |       
 
 ## 公共响应结果
 
@@ -39,9 +39,9 @@ data是一个数组，数组中参数说明如下
 
 | 参数名称               | 参数说明                 | 类型(java)  |  不为空 |
 |--------------------|----------------------|-----------|----------- |
-| dbName             | 数据库名称,根据不同数据源决定是否为空  | String    |   否    |
+| dbName             | 数据库名称,根据不同数据源决定是否为空  | string    |   否    |
 | schemas            | schema,根据不同数据源决定是否为空 | ArrayList |    否   |
-| caseSensitiveType  | 大小写敏感类型，有LOWER和UPPER | String |    否   |
+| caseSensitiveType  | 大小写敏感类型，有LOWER和UPPER | string |    否   |
 
 ## 响应示例
 

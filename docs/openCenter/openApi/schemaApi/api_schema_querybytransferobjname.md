@@ -27,10 +27,10 @@ Synchronize elements on the source end, such as topiccollection, and query metad
 
 | ParameterName | Parameter Description  | Type(Java) |NotNull
 | ------------ | -------------------|-------|----------- |
-| code | 1: Success 0: Failed | String | True |
+| code | 1: Success 0: Failed | string | True |
 | data | | Object | False |
-| msg | | String | False |
-| requestID | | String | True |
+| msg | | string | False |
+| requestID | | string | True |
 
 ## Data Parameter Description
 
@@ -38,19 +38,21 @@ Data is an array where the fields in each set of data are described as follows:
 
 | ParameterName | Parameter Description  | Type(Java) |NotNull
 | ------------ | -------------------|-------|----------- |
-| srcTransferObjName | Synchronization Task Source Data Source Table/Topic/Collection Information | String | True |
+| srcTransferObjName | Synchronization Task Source Data Source Table/Topic/Collection Information | string | True |
 | targetSchemaObjs | Object Array, where each element represents a target destination | Array | True |
 
 ### TargetSchemaObjs Element field description
 
 | ParameterName | Parameter Description  | Type(Java) |NotNull
 | ------------ | -------------------|-------|----------- |
-| dataJobId | Data Job ID | Long | True |
-| dataJobName | Data Job Name | String | True |
-| dataJobDesc | Data Job Description | String | True |
-| db | Target database name, such as ORACLE/PostgreSQL/SQLServer, not empty. Empty for MySQL/Kafka/MongoDB/StarRocks/Doris/ClickHouse/Kafka/RocketMQ/RabbitMQ, etc. | String | False |
-| schema | Target schema name, not empty for ORACLE/PostgreSQL/SQLServer/MySQL/MongoDB/StarRocks/Doris/ClickHouse, etc. Empty for Kafka/RocketMQ/RabbitMQ | String | False |
-| transferObjName | Target table/index/topic/collection | String | False |
+| dataJobId | Data Job ID | long | True |
+| dataJobName | Data Job Name | string | True |
+| dataJobDesc | Data Job Description | string | True |
+| srcDsInstanceId | Source data source instance ID | long | False |
+| dstDsInstanceId | Target data source instance ID | long | False |
+| db | Target database name, such as ORACLE/PostgreSQL/SQLServer, not empty. Empty for MySQL/Kafka/MongoDB/StarRocks/Doris/ClickHouse/Kafka/RocketMQ/RabbitMQ, etc. | string | False |
+| schema | Target schema name, not empty for ORACLE/PostgreSQL/SQLServer/MySQL/MongoDB/StarRocks/Doris/ClickHouse, etc. Empty for Kafka/RocketMQ/RabbitMQ | string | False |
+| transferObjName | Target table/index/topic/collection | string | False |
 
 ## Response Example
 

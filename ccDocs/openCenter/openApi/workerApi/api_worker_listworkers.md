@@ -1,5 +1,5 @@
 ---
-id: api_cluster_listworkers
+id: api_worker_listworkers
 title: 查询集群机器列表
 sidebar_position: 2
 description: 接口描述：根据集群id查询机器列表。
@@ -47,7 +47,7 @@ data 为数组,其中每一组数据中的字段说明如下:
 | privateIp     |  私网ip    |    string   |   是    |
 | publicIp     |  公网ip(出口ip)   |    string   |   否    |
 | cloudOrIdcName     | ALIBABA_CLOUD(阿里云) <br/>SELF_MAINTENANCE(自建)   |    string   |  是   |
-| region     |  集群所在区域    |    String   |   是    |
+| region     |  集群所在区域    |    string   |   是    |
 | workerName     | 节点名称  |    string   |   是    |
 | workerSeqNumber     | 节点唯一标识  |    string   |   是    |
 | workerDesc     | 节点描述  |    string   |   是    |

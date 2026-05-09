@@ -18,6 +18,7 @@ description: This topic describes how to create a scheduled scan (rETL) sync Dat
 | Doris -> MySQL | Scheduled Scan | Truncate Target, Rename and Create | DateTime, High-Precision DateTime |
 | Redshift -> MySQL | Scheduled Scan | Truncate Target | Timestamp | 
 | Elasticsearch -> Elasticsearch | Scheduled Scan | Truncate Target | Date, Nanosecond Date, ES Timestamp |
+| VastBase -> Dameng  | Scheduled Scan  | Truncate Target  | Timestamp |
 | OssFile -> PostgreSQL | Scheduled Scan | Truncate Target<b><sup>4</sup></b> | / |
 | SshFile -> PostgreSQL | Scheduled Scan | Truncate Target | / |
 | S3File -> PostgreSQL | Scheduled Scan | Truncate Target | / |

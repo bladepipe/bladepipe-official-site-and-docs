@@ -20,18 +20,18 @@ Gets the database list information about the database instance
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| clusterId | Machine cluster ID attempting to connect to the data source | Body | True | Long |
-| dataSourceId | Target data source ID | Body | True | Long |
-| hostType | Selected data source network type<br/><br/>PRIVATE (intranet)<br/>PUBLIC (internet) | Body | True | String |  
+| clusterId | Machine cluster ID attempting to connect to the data source | Body | True | long |
+| dataSourceId | Target data source ID | Body | True | long |
+| hostType | Selected data source network type<br/><br/>PRIVATE (intranet)<br/>PUBLIC (internet) | Body | True | string |  
 
 ## Public response result
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code | 1: success 0: failure | String | True |
+| code | 1: success 0: failure | string | True |
 | data | - | Object | False |
-| msg | - | String | False |
-| requestId | - | String | True |
+| msg | - | string | False |
+| requestId | - | string | True |
 
 ## Data Parameter
 
@@ -39,8 +39,8 @@ Data is an array. The parameters in the array are described as follows
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| dbName | Database name, may be empty depending on the data source | String | False |
-| schemas | Schema, may be empty depending on the data source | String | False |
+| dbName | Database name, may be empty depending on the data source | string | False |
+| schemas | Schema, may be empty depending on the data source | string | False |
 
 ## Response Example
 

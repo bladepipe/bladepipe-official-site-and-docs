@@ -48,6 +48,8 @@ data 为数组,其中每一组数据中的字段说明如下:
 | dataJobId     |  Data Job id   |     long  |   是    |
 | dataJobName    | Data Job 名称|    string   |    是   |
 | dataJobDesc    | Data Job 描述|    string   |    否   |
+| srcDsInstanceId    | 源端数据源实例id|    long   |    否   |
+| dstDsInstanceId    | 目标端数据源实例id|    long   |    否   |
 | db    | 对端数据库名称，如ORACLE/PostgreSQL/SQLServer等不为空，MySQL/Kafka/MongoDB/StarRocks/Doris/ClickHouse/Kafka/RocketMQ/RabbitMq等为空|    string   |    否   |
 | schema  | 对端schema名称，ORACLE/PostgreSQL/SQLServer/MySQL/MongoDB/StarRocks/Doris/ClickHouse等不为空，Kafka/RocketMQ/RabbitMq为空|    string   |    否   |
 | transferObjName    | 对端 表/index/topic/collection|    string   |    否   |

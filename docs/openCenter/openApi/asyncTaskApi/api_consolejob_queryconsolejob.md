@@ -44,15 +44,14 @@ The **data** incorporates the entire overview of the asynchronous job in tandem 
 | label     |  Asynchronous task type  |    String   |   True    |
 | dataJobName     | Asynchronous task related task name   |    String   |   False    |
 | dataJobDesc     | Asynchronous task description  |    String   |   False    |
-| workerName     | The total number of machines operating normally within that cluster  |    int   |   False    |
-| workerDesc     | The aggregate number of anomalous/faulty machines within that cluster  |    int   |   False    |
+| workerName     | The total number of machines operating normally within that cluster  |    string   |   False    |
+| workerDesc     | The aggregate number of anomalous/faulty machines within that cluster  |    string   |   False    |
 | dsInstanceId     | Owner name  |    String   |   false    |
 | datasourceDesc   | Owner name  |    String   |   false    |
 | taskState     | Task state <br/><br/>  WAIT_START <br/>EXECUTE <br/>SUCCESS <br/>FAILED <br/>CANCELED <br/>SKIP  |    String   |   True    |
 | launcher     | Task operator  |    String   |   true    |
 | launchTime     | Task activation time  |    String   |   false    |
 | finishTime     | Task completion time  |    String   |   false    |
-| userRoleType     | Task performer role <br/><br/>SYSTEM <br/>ORG_ADMIN |    String   |   True    |
 | resourceType     | Related resource type <br/><br/>DATA_JOB <br/>CONSOLE_USER <br/>WORKER <br/>DATASOURCE  |    String   |   False    |
 | resourceId     | Related resource identifier  |    Long   |   False    |
 

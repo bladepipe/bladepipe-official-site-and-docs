@@ -1,5 +1,5 @@
 ---
-id: api_cluster_startworker
+id: api_worker_startworker
 title: 启动机器
 description: 接口描述：启动指定的机器节点
 ---

@@ -20,8 +20,8 @@ description: 接口描述：修改数据源描述
 
 | 参数名称         | 参数说明      |     请求类型 |  是否必须      |  数据类型   |
 | ------------ |-----------|-----------|--------|----|
-| dataSourceId  | 目标数据源id   |   body    |   是   | Long |    
-|instanceDesc| 修改后的数据源描述 |   body    |   是   | Long |    
+| dataSourceId  | 目标数据源id   |   body    |   是   | long |    
+|instanceDesc| 修改后的数据源描述 |   body    |   是   | string |    
 
 ## 公共响应结果
 

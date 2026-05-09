@@ -28,10 +28,10 @@ Replay the DataJob from beginning (except schema migration).
 
 | ParameterName | Parameter Description   |NotNull |Type(Java)
 | ------------ | -------------------|-------|----------- |
-| code          | 1: Success, 0: Failure | True              | String |
+| code          | 1: Success, 0: Failure | True              | string |
 | data          | Response data.                             | False    | Object |
-| msg           | Response message.                          | False    | String |
-| requestId     | ID of the request.                         | True     | String |
+| msg           | Response message.                          | False    | string |
+| requestId     | ID of the request.                         | True     | string |
 
 ## Response Example
 

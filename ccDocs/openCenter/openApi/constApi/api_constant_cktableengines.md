@@ -36,7 +36,7 @@ data 为数组，数组元素参数说明如下
 | 参数名称         | 参数说明                             |    类型(java) |  不为空 |
 | ------------ | -------------------|-------|----------- |
 | ckTableEngine     |    ClickHouse 表引擎  |    string   |   是    |
-| defaultCheck     |   是否默认选中此项   |    Boolean   |   是    |
+| defaultCheck     |   是否默认选中此项   |    boolean   |   是    |
 
 ## 响应示例
 

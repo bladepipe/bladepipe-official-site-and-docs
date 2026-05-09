@@ -29,8 +29,9 @@ Reset the incremental position when you need to re-consume earlier data or fast-
 | positionTimestamp | Timestamp-based position (ms)                         | body | no       | long   |
 | serverId          | MySQL server-id                                       | body | no       | long   |
 | lsn               | LSN for PG / SQL Server                               | body | no       | string |
-| scn               | Oracle SCN                                            | body | no       | string |
-| scnIndex          | Oracle SCN index                                      | body | no       | string |
+| scn               | Oracle SCN                                            | body | no       | long   |
+| scnIndex          | Oracle SCN index                                      | body | no       | long   |
+| transactionId     | Oracle transaction ID                                 | body | no       | long   |
 | commonPosStr      | Engine-specific JSON blob                             | body | no       | string |
 | dataId            | HANA CDC table dataId                                 | body | no       | long   |
 

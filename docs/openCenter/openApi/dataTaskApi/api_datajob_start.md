@@ -20,16 +20,16 @@ Start task
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| jobID | ID of the job | Body | True | Long |
+| jobID | ID of the job | Body | True | long |
 
 ## Public Response Results
 
 | ParameterName | Parameter Description  | Type(Java) |NotNull
 | ------------ | -------------------|-------|----------- |
-| code | 1: Success 0: Failed | String | True |
+| code | 1: Success 0: Failed | string | True |
 | data | | Object | False |
-| msg | | String | False |
-| requestId | | String | True |
+| msg | | string | False |
+| requestId | | string | True |
 
 ## Response Example
 

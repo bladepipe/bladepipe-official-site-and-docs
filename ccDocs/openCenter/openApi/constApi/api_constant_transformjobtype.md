@@ -36,17 +36,17 @@ description: 接口描述：获取各类型任务支持的能力,以便创建任
 
 | 参数名称         | 参数说明                             |    类型(java) |  不为空 |
 | ------------ | -------------------|-------|----------- |
-| source     |  源端数据源类型    |    String   |   是    |
-| target     |    目标端数据源类型    |   String  |   否    |
-| optionType      |    多组 DataJobType 构成的能力模型  |    String   |   否    |
+| source     |  源端数据源类型    |    string   |   是    |
+| target     |    目标端数据源类型    |   string  |   否    |
+| optionType      |    多组 DataJobType 构成的能力模型  |    string   |   否    |
 
 能力描述参数说明
 
 | 参数名称         | 参数说明                             |    类型(java) |  不为空 |
 | ------------ | -------------------|-------|----------- |
-| Incremental     |  增量同步   |    String   |   是    |
-| FullAmount     |     全量迁移   |   String  |   是    |
-| defaultCheck      |   该 DataJobType 选项是否默认选中  |    String   |   否    |
+| Incremental     |  增量同步   |    string   |   是    |
+| FullAmount     |     全量迁移   |   string  |   是    |
+| defaultCheck      |   该 DataJobType 选项是否默认选中  |    string   |   否    |
 
 ## 响应示例
 

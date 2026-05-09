@@ -20,17 +20,17 @@ Gets the number of database tables to quickly filter out empty libraries
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| clusterId | Cluster ID of the machine set attempting to connect to the data source | Body | True | Long |
-| dataSourceId | Target data source ID | Body | True | Long |
-| hostType | Selected network type of the data source<br/><br/>PRIVATE (intranet)<br/>PUBLIC (Internet) | Body | True | String |
-| schemas | An array of structures, as described below | Body | True | String |
+| clusterId | Cluster ID of the machine set attempting to connect to the data source | Body | True | long |
+| dataSourceId | Target data source ID | Body | True | long |
+| hostType | Selected network type of the data source<br/><br/>PRIVATE (intranet)<br/>PUBLIC (Internet) | Body | True | string |
+| schemas | An array of structures, as described below | Body | True | string |
 
 Schema Description of the composite structure
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| db | Name of the database, not empty for relational databases | Body | True | String |
-| schema | Name of the schema, empty for MySQL | Body | False | String | 
+| db | Name of the database, not empty for relational databases | Body | True | string |
+| schema | Name of the schema, empty for MySQL | Body | False | string | 
 
 Schema Composite structure example
 
@@ -49,10 +49,10 @@ Schema Composite structure example
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code | 1: success, 0: failure | String | True |
+| code | 1: success, 0: failure | string | True |
 | data | | Object | False |
-| msg | | String | False |
-| requestId | | String | True |
+| msg | | string | False |
+| requestId | | string | True |
 
 ## Data Parameter
 
@@ -62,8 +62,8 @@ Key Parameter Description
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| dbName | Name of the database, not empty for relational databases | String | False |
-| schema | Name of the schema, empty for MySQL | String | False |
+| dbName | Name of the database, not empty for relational databases | string | False |
+| schema | Name of the schema, empty for MySQL | string | False |
 
 ## Response Example
 

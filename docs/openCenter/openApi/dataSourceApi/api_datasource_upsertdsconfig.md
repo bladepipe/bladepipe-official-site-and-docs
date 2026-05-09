@@ -20,7 +20,7 @@ Batch update or insert task kv configuration based on data source id
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| dataSourceId | Data source ID | Body | True | Long |
+| dataSourceId | Data source ID | Body | True | long |
 | updateConfigs | Update configuration | Body | False | Map&lt;String, String&gt; |
 | needCreateConfigs | Insert configuration | Body | False | Map&lt;String, String&gt; |
 
@@ -42,10 +42,10 @@ Batch update or insert task kv configuration based on data source id
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code | 1: success, 0: failure | String | True |
+| code | 1: success, 0: failure | string | True |
 | data | | Object | False |
-| msg | | String | False |
-| requestId | | String | True |
+| msg | | string | False |
+| requestId | | string | True |
 
 ## Response Example
 

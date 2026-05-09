@@ -1,5 +1,5 @@
 ---
-id: api_cluster_listworkers
+id: api_worker_listworkers
 title: List Workers
 sidebar_position: 2
 description: To query a list of machines based on the cluster ID.
@@ -29,10 +29,10 @@ To query a list of machines based on the cluster ID.
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code | 1:Successful 0:Failed | String | True |
+| code | 1:Successful 0:Failed | string | True |
 | data |  | Object | False |
-| msg |  | String | False |
-| requestId |  | String | True |
+| msg |  | string | False |
+| requestId |  | string | True |
 
 ## Data Parameters
 
@@ -41,16 +41,16 @@ The data is an array, and each set of data contains the following field descript
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
 | id | Node ID | long | True |
-| gmtCreate | Creation time | String | True |
-| gmtModified | Modification time | String | True |
+| gmtCreate | Creation time | string | True |
+| gmtModified | Modification time | string | True |
 | clusterId | Cluster ID | long | True |
-| privateIp | Private IP | String | True |
-| publicIp | Public IP (Egress IP) | String | False |
-| cloudOrIdcName | Cloud provider or IDC type, <br/>ALIBABA_CLOUD <br/>SELF_MAINTENANCE | String | True |
-| region | Region where the cluster is located | String | True |
-| workerName | Node Name | String | True |
-| workerSeqNumber | Node unique identifier | String | True |
-| workerDesc | Node description | String | True |
+| privateIp | Private IP | string | True |
+| publicIp | Public IP (Egress IP) | string | False |
+| cloudOrIdcName | Cloud provider or IDC type, <br/>ALIBABA_CLOUD <br/>SELF_MAINTENANCE | string | True |
+| region | Region where the cluster is located | string | True |
+| workerName | Node Name | string | True |
+| workerSeqNumber | Node unique identifier | string | True |
+| workerDesc | Node description | string | True |
 | totalTaskMemMb | Logical memory used by tasks (MB) | long | True |
 | taskHeapSizeMb | Physical memory used by tasks (MB) | long | True |
 | memOverSoldPercent | Memory usage ratio, exceeding 100 indicates overselling | int | True |
@@ -58,23 +58,23 @@ The data is an array, and each set of data contains the following field descript
 | physicCoreNum | Number of physical cores | int | True |
 | logicalCoreNum | Number of logical cores | int | True |
 | physicDiskGb | Physical disk capacity (GB) | long | True |
-| workerType | Node type, <br/>BARE_METAL <br/>VM <br/>ECS | String | True |
-| workerState | Node status, <br/>WAIT_TO_ONLINE <br/>ONLINE <br/>WAIT_TO_OFFLINE <br/>OFFLINE <br/>ABNORMAL <br/>NOT_EXIST | String | True |
+| workerType | Node type, <br/>BARE_METAL <br/>VM <br/>ECS | string | True |
+| workerState | Node status, <br/>WAIT_TO_ONLINE <br/>ONLINE <br/>WAIT_TO_OFFLINE <br/>OFFLINE <br/>ABNORMAL <br/>NOT_EXIST | string | True |
 | cpuUseRatio | CPU utilization ratio | double | True |
 | memUseRatio | Memory utilization ratio | double | True |
-| healthLevel | Node health status, <br/>Unhealthy <br/>SubHealth <br/>Health | String | True |
+| healthLevel | Node health status, <br/>Unhealthy <br/>SubHealth <br/>Health | string | True |
 | freeMemMb | Free memory (MB) | long | True |
 | freeDiskGb | Free disk space (GB) | long | True |
 | workerLoad | Node load | double | True |
 | installConsoleJobId | Asynchronous task ID for node installation | long | True |
 | uninstallConsoleJobId | Asynchronous task ID for node uninstallation | long | True |
-| deployStatus | Node deployment status, <br/>INSTALLING <br/>INSTALLED <br/>UNINSTALLING <br/>UNINSTALLED | String | True |
+| deployStatus | Node deployment status, <br/>INSTALLING <br/>INSTALLED <br/>UNINSTALLING <br/>UNINSTALLED | string | True |
 | consoleJobId | Asynchronous task ID for adding nodes | long | True |
-| consoleTaskState | Asynchronous task state for adding nodes, <br/>WAIT_START <br/>EXECUTE <br/>SUCCESS <br/>FAILED <br/>CANCELED <br/>SKIP | String | True |
+| consoleTaskState | Asynchronous task state for adding nodes, <br/>WAIT_START <br/>EXECUTE <br/>SUCCESS <br/>FAILED <br/>CANCELED <br/>SKIP | string | True |
 | taskScheduleVOs | Task information mounted on the machine, structured as an array | List | True |
 | alertConfigVO | Alert configuration | Object | True |
-| installOrUpgradeDate | Installation or upgrade time | String | True |
-| installOrUpgradeVersion | Software version after installation or upgrade | String | True |
+| installOrUpgradeDate | Installation or upgrade time | string | True |
+| installOrUpgradeVersion | Software version after installation or upgrade | string | True |
 
 ### TaskScheduleVOs Illustrate
 The parameter is a list, and each element in the list is described by the following fields.
@@ -82,21 +82,21 @@ The parameter is a list, and each element in the list is described by the follow
 | ParameterName | Parameter Description     | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
 | Id | ID of scheduled data | long | True |
-| GmtCreate | Creation time | String | True |
+| GmtCreate | Creation time | string | True |
 | TaskId | Data Task ID | long | True |
 | JobId | Data Job ID | long | True |
-| TaskName | Data Task name | String | True |
-| JobName | Data Job name | String | True |
-| JobDesc | Data Job description | String | True |
-| WorkerIp | Mounted node IP | String | True |
-| WorkerId | Mounted node ID | String | True |
-| ClusterName | Name of the cluster to which the node belongs | String | True |
+| TaskName | Data Task name | string | True |
+| JobName | Data Job name | string | True |
+| JobDesc | Data Job description | string | True |
+| WorkerIp | Mounted node IP | string | True |
+| WorkerId | Mounted node ID | string | True |
+| ClusterName | Name of the cluster to which the node belongs | string | True |
 | ClusterId | ID of the cluster to which the node belongs | long | True |
-| JvmHeapMb | Memory (in MB) allocated to the Data Task | String | True |
+| JvmHeapMb | Memory (in MB) allocated to the Data Task | string | True |
 | SrcDsId | ID of the source data source | long | True |
-| SrcDsDesc | Description of the source data source | String | True |
+| SrcDsDesc | Description of the source data source | string | True |
 | DstDsId | ID of the target data source | long | True |
-| DstDsDesc | Description of the target data source | String | True |
+| DstDsDesc | Description of the target data source | string | True |
 
 
 ### AlertConfigVO Illustrate
@@ -105,19 +105,19 @@ The parameter is an object, and the field descriptions are as follows.
 | ParameterName | Parameter Description     | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
 | id | Alarm configuration ID | long | True |
-| uid | User ID of the owner | String | True |
+| uid | User ID of the owner | string | True |
 | phone | Whether or not to send phone alarms | boolean | True |
 | email | Whether or not to send email alarms | boolean | True |
 | dingding | Whether or not to send instant messaging alarms | boolean | True |
 | sms | Whether or not to send SMS alarms | boolean | True |
-| ruleName | Name of the alarm rule | String | True |
-| expression | Alarm expression | String | True |
+| ruleName | Name of the alarm rule | string | True |
+| expression | Alarm expression | string | True |
 | sendAdmin | Whether or not to send to business administrators | boolean | True |
 | sendSystem | Whether or not to send to system administrators | boolean | True |
 | dataJobId | Data Job ID | long | False |
 | workerId | Node ID | long | False |
-| alarmLevel | Alarm level, <br/> Major <br/> Critical <br/> Blocker | String | True |
-| eventType | Type of exception event, <br/> TASK_EXCEPTION_EVENT <br/> TASK_POSITION_DELAY_EVENT <br/> SIDECAR_EXCEPTION_EVENT <br/> CONSOLE_EXCEPTION_EVENT <br/> WORKER_ABNORMAL_EVENT <br/> TASK_NORMAL_EVENT | String | True |
+| alarmLevel | Alarm level, <br/> Major <br/> Critical <br/> Blocker | string | True |
+| eventType | Type of exception event, <br/> TASK_EXCEPTION_EVENT <br/> TASK_POSITION_DELAY_EVENT <br/> SIDECAR_EXCEPTION_EVENT <br/> CONSOLE_EXCEPTION_EVENT <br/> WORKER_ABNORMAL_EVENT <br/> TASK_NORMAL_EVENT | string | True |
 | alertReceivers | Alarm recipients, a mapping structure where the key is the UID and the value is the username | map | False |
 
 ## Response Example

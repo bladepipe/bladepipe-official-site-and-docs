@@ -21,17 +21,17 @@ Obtain the destination data source type for selection when creating a task.
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| sourceType  | Source data source type, obtained through [Get Source Data Source Type](api_constant_srcdstype.md) |Body| True | String |
-| deployType  | Data source deployment type<br/><br/>SELF_MAINTENANCE <br/>ALIBABA_CLOUD_HOSTED |Body| True | String |   
+| sourceType  | Source data source type, obtained through [Get Source Data Source Type](api_constant_srcdstype.md) |Body| True | string |
+| deployType  | Data source deployment type<br/><br/>SELF_MAINTENANCE <br/>ALIBABA_CLOUD_HOSTED |Body| True | string |   
 
 ## Public Response Results
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code       | 1: Success<br/>0: Failure | String | True |
+| code       | 1: Success<br/>0: Failure | string | True |
 | data       |             | Object | False |
-| msg        |             | String | False |
-| requestId  |             | String | True |
+| msg        |             | string | False |
+| requestId  |             | string | True |
 
 ## Data Parameters
 

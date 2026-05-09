@@ -506,12 +506,23 @@ const sidebars: SidebarsConfig = {
         },
         {
           "type": "category",
+          "label": "Cluster",
+          "items": [
+            "openCenter/openApi/clusterApi/api_cluster_listclusters"
+          ]
+        },
+        {
+          "type": "category",
           "label": "Worker",
           "items": [
-            "openCenter/openApi/clusterApi/api_cluster_listclusters",
-            "openCenter/openApi/clusterApi/api_cluster_listworkers",
-            "openCenter/openApi/clusterApi/api_cluster_createandinstallworker",
-            "openCenter/openApi/clusterApi/api_cluster_operateworkersclient"
+            "openCenter/openApi/workerApi/api_worker_listworkers",
+            "openCenter/openApi/workerApi/api_worker_createandinstall",
+            "openCenter/openApi/workerApi/api_worker_operateworkersclient",
+            "openCenter/openApi/workerApi/api_worker_startworker",
+            "openCenter/openApi/workerApi/api_worker_stopworker",
+            "openCenter/openApi/workerApi/api_worker_deleteworker",
+            "openCenter/openApi/workerApi/api_worker_modifymemoversoldpercent",
+            "openCenter/openApi/workerApi/api_worker_updateworkeralertconfig"
           ]
         },
         {
@@ -544,8 +555,12 @@ const sidebars: SidebarsConfig = {
           "label": "DataJob",
           "items": [
             "openCenter/openApi/dataTaskApi/api_datajob_list",
+            "openCenter/openApi/dataTaskApi/api_datajob_listbypage",
             "openCenter/openApi/dataTaskApi/api_datajob_query",
             "openCenter/openApi/dataTaskApi/api_datajob_queryjobschema",
+            "openCenter/openApi/dataTaskApi/api_datajob_queryjobcreatedetail",
+            "openCenter/openApi/dataTaskApi/api_datajob_queryjobmetric",
+            "openCenter/openApi/dataTaskApi/api_datajob_queryjobposition",
             "openCenter/openApi/dataTaskApi/api_datajob_start",
             "openCenter/openApi/dataTaskApi/api_datajob_stop",
             "openCenter/openApi/dataTaskApi/api_datajob_restart",
@@ -565,7 +580,8 @@ const sidebars: SidebarsConfig = {
             "openCenter/openApi/dataTaskApi/api_datajob_schema",
             "openCenter/openApi/dataTaskApi/api_datajob_mapping",
             "openCenter/openApi/dataTaskApi/api_datajob_listkvconfigsbyjobid",
-            "openCenter/openApi/dataTaskApi/api_datajob_upsertkvconfigs"
+            "openCenter/openApi/dataTaskApi/api_datajob_upsertkvconfigs",
+            "openCenter/openApi/dataTaskApi/api_datajob_upsertkvconfig_mcp"
           ]
         },
         {
@@ -582,6 +598,13 @@ const sidebars: SidebarsConfig = {
             "openCenter/openApi/asyncTaskApi/api_consolejob_queryconsolejob",
             "openCenter/openApi/asyncTaskApi/api_consolejob_retrytask"
           ]
+        },
+        {
+          "type": "category",
+          "label": "User",
+          "items": [
+            "openCenter/openApi/userApi/api_user_queryuserinfo"
+          ]
         }
       ]
     },
@@ -589,6 +612,7 @@ const sidebars: SidebarsConfig = {
       "type": "category",
       "label": "Release Note",
       "items": [
+        "releaseNote/rn-bladepipe-1-6-0",
         "releaseNote/rn-bladepipe-1-5-0",
         "releaseNote/rn-bladepipe-1-4-0",
         "releaseNote/rn-bladepipe-1-3-0",

@@ -11,7 +11,7 @@ date: 2025-06-06
 
 In [a previous article](https://www.bladepipe.com/blog/ai/rag_concept/), we explained key GenAI concepts like RAG, Function Calling, MCP, and AI Agents. Now the question is: how do we go from concepts to practice?  
 
-Currently, you can find plenty of RAG building tutorials online, but most of them are based on frameworks like LangChain, which still have a learning curve for beginners.
+Currently, you can find plenty of RAG building tutorials online, but most of them are based on frameworks like LangChain, which still have a learning curve for beginners. If you're comparing orchestration options for building LLM apps, you may find our [roundup of the best LangChain alternatives](https://www.bladepipe.com/blog/ai/langchain_alternative/) helpful.
 
 [BladePipe](https://www.bladepipe.com), as a data integration platform, already supports the access to and processing of multiple data sources. This gives it a natural edge in setting up the semantic search foundations for a RAG system. Recently, BladePipe launched **RagApi**, which wraps up **vector search** and **Q&A capabilities** into a **plug-and-play API service**. With just two DataJobs in BladePipe, you can have your own RAG service—no coding required.
 
@@ -38,6 +38,8 @@ Here’s what we’ll need:
 Here’s the overall workflow:
 
 ![](../assets/blog/ai/ragapi_cloud/ragapi_workflow.png)
+
+If you want a deeper explanation of why RAG is fundamentally a data pipeline (with embedding, vector search, and generation as stages), check out [RAG systems as production data pipelines](https://www.bladepipe.com/blog/data_insights/build_ai_data_pipeline_production/).
 
 ## Step-by-Step Setup
 ### Install BladePipe
@@ -205,3 +207,5 @@ You can test the RagApi with [CherryStudio](https://cherry-ai.com/), a visual to
 With just a few steps, we’ve built a fully functional RagApi service from scratch—vectorized the data, connected to a vector DB, configured LLMs, generated Prompt and deployed an OpenAI-compatible API.
 
 With [BladePipe](https://www.bladepipe.com), teams can quickly build Q&A services based on outside knowledge without writing any code. It's a powerful yet accessible way to tap into GenAI for your own data.
+
+If you need to run the same RAG service fully locally (including local models), follow [Build a Local RAG Using Ollama, PostgreSQL and BladePipe](https://www.bladepipe.com/blog/ai/ragapi_ollama/).

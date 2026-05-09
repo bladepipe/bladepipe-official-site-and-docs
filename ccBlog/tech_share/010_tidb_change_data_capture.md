@@ -2,7 +2,7 @@
 id: tidb_change_data_capture
 description: TiDB 为源端的数据迁移,数据同步(CDC,change data capture),结构迁移,数据校验和订正
 title: CloudCanal x TiDB 数据迁移同步
-date: 2012-08-27
+date: 2023-08-27
 authors: junyu
 tags:
   - tech_share

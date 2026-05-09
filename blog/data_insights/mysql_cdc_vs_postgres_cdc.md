@@ -28,7 +28,7 @@ In this article, we'll break down how MySQL CDC and PostgreSQL CDC work under th
 ## What is CDC in Practice
 At its core, **Change Data Capture (CDC)** is a software design pattern that identifies and tracks changes made to data in a database. Instead of "polling" a table every few minutes with a `SELECT * FROM table WHERE updated_at > ...` query, CDC taps into the database's internal transaction logs. 
 
-In modern pipelines, [CDC](https://www.bladepipe.com/blog/data_insights/top_cdc_tool/) is the default when you need:
+In modern pipelines, [CDC](change_data_capture_cdc.md) is the default when you need:
 
 + Latency in seconds (or sub-second for critical flows)
 + Lower source load than frequent full/incremental queries
@@ -53,7 +53,7 @@ For most effective CDC, MySQL should be configured to use **Row-Based Replicatio
 + `binlog_format = ROW`: Ensures row-level changes are captured.
 + `binlog_row_image = FULL`: Records both the "before" and "after" images of the row, which is vital for `UPDATE` events.
 
-To create a CDC pipeline, you usually need CDC tools to:
+To create a CDC pipeline, you usually need [CDC tools](top_cdc_tool.md) to:
 
 1. Connect to MySQL as a **replication client**
 2. Start reading binlog from a specific **offset**

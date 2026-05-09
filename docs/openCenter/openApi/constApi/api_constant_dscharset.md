@@ -20,16 +20,16 @@ Obtain the data source code for selecting when creating a task.
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| dataSourceType | Data source type<br/><br/>MySQL<br/>PolarDbMySQL<br/>PolarDbX<br/>PostgreSQL<br/>Greenplum<br/>Oracle<br/>SQLServer<br/>Redis<br/>MongoDB<br/>Kafka<br/>RocketMQ<br/>RabbitMQ<br/>Hive<br/>ElasticSearch<br/>DRDS<br/>AdbForMySQL<br/>TiDB<br/>ClickHouse<br/>Kudu | Body | True | String |    
+| dataSourceType | Data source type<br/><br/>MySQL<br/>PolarDbMySQL<br/>PolarDbX<br/>PostgreSQL<br/>Greenplum<br/>Oracle<br/>SQLServer<br/>Redis<br/>MongoDB<br/>Kafka<br/>RocketMQ<br/>RabbitMQ<br/>Hive<br/>ElasticSearch<br/>DRDS<br/>AdbForMySQL<br/>TiDB<br/>ClickHouse<br/>Kudu | Body | True | string |    
 
 ## Public Response Results
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code       | 1: Success<br/>0: Failure | String |True
+| code       | 1: Success<br/>0: Failure | string |True
 | data       |              | Object |False
-| msg        |              | String |False
-| requestId  |             | String |True
+| msg        |              | string |False
+| requestId  |             | string |True
 
 ## Data Parameters
 
@@ -38,7 +38,7 @@ The "data" has an array called "dsCharsetOptions" with the following item descri
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
 | dsCharset       | Character Encoding Name   | String  |True
-| defaultChecked  | Whether to Select by Default | Boolean |True
+| defaultChecked  | Whether to Select by Default | boolean |True
 
 ## Response Example
 

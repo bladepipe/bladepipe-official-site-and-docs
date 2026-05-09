@@ -9,7 +9,7 @@ tags:
 image: /img/blog/data_insights/kafka_vs_rabbitmq_rocketmq_pulsar.png
 ---
 
-Message brokers are foundational to modern distributed systems, but choosing the right one in 2026 is far from trivial. **Kafka**, **RabbitMQ**, **RocketMQ**, and **Pulsar** are all popular open-source options, yet they differ significantly in architecture, throughput performance, and operational trade-offs.
+Message brokers are foundational to modern distributed systems, but choosing the right one in 2026 is far from trivial. [**Kafka**](do_you_really_need_kafka.md), **RabbitMQ**, **RocketMQ**, and **Pulsar** are all popular open-source options, yet they differ significantly in architecture, throughput performance, and operational trade-offs.
 
 In this guide, we compare **Kafka, RabbitMQ, RocketMQ, and Pulsar** using real-world performance insights and benchmark data. You’ll see how they differ in throughput, latency, scalability, and real use cases—so you can confidently choose the right one for your architecture.
 
@@ -119,7 +119,7 @@ Choosing the right broker depends heavily on your use case and priorities:
 
 Picking a message broker is only half the battle. The next challenge is **moving data into it reliably and in real time**. 
 
-That’s where [**BladePipe**](https://www.bladepipe.com) comes in. BladePipe is a real-time end-to-end data integration platform built for developers and DBAs. Key benefits include:
+That’s where [**BladePipe**](https://www.bladepipe.com) comes in. BladePipe is a real-time end-to-end [data integration platform](data_integration_tools.md) built for developers and DBAs. Key benefits include:
 
 ![Move data to message brokers using BladePipe](../assets/blog/data_insights/kafka_vs_rabbitmq_rocketmq_pulsar/5.png)
 
@@ -128,7 +128,9 @@ That’s where [**BladePipe**](https://www.bladepipe.com) comes in. BladePipe is
 * **Automation & visibility**: A clean UI for configuration, monitoring, and operations, reducing maintenance overhead.
 * **Flexible deployment**: It is available in both [self-hosted and SaaS](https://www.bladepipe.com/pricing/) versions, fitting startups and enterprises alike.
 
-Read more: [Stream Data from MySQL to Kafka](https://www.bladepipe.com/blog/tech_share/mysql_kafka_sync/)
+Read more: 
+[Stream Data from MySQL to Kafka](https://www.bladepipe.com/blog/tech_share/mysql_kafka_sync/)
+[Stream Data from SQL Server to Kafka](../tech_share/sql_server_to_kafka_cdc_guide.md)
 
 With BladePipe, teams can focus less on building fragile data pipelines and more on building value on top of their data. Whether you’re powering a real-time data warehouse or supporting multi-cloud active-active systems, BladePipe ensures your data keeps flowing smoothly.
 

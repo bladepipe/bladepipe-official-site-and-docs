@@ -45,21 +45,21 @@ Each array element is a kv configuration object, the fields of which are describ
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| dataJobId | Task ID | Body | True | Long |
-| configName | Configuration Name | Body | True | String |
-| configValue | Configuration Value, please note that parameter items with default values cannot be empty | Body | False | String |
-| endPointType | Parameter Effect End: SOURCE (source end), TARGET (target end), INDEPENDENT (global) | Body | True | String |
-| configType | Configuration Belongs To Entity: SERVER_CORE (task), DATASOURCE (data source), MAPPING (metadata mapping) | Body | True | String |
-| needCreate | Whether the configuration has not appeared in this task (new version configuration) | Body | False | String |
+| dataJobId | Task ID | Body | True | long |
+| configName | Configuration Name | Body | True | string |
+| configValue | Configuration Value, please note that parameter items with default values cannot be empty | Body | False | string |
+| endPointType | Parameter Effect End: SOURCE (source end), TARGET (target end), INDEPENDENT (global) | Body | True | string |
+| configType | Configuration Belongs To Entity: SERVER_CORE (task), DATASOURCE (data source), MAPPING (metadata mapping) | Body | True | string |
+| needCreate | Whether the configuration has not appeared in this task (new version configuration) | Body | False | string |
 
 ## Public Response Results
 
 | ParameterName | Parameter Description  | Type(Java) |NotNull
 | ------------ | -------------------|-------|----------- |
-| code | 1: Success 0: Failed | String | True |
+| code | 1: Success 0: Failed | string | True |
 | data | | Object | False |
-| msg | | String | False |
-| requestID | | String | True |
+| msg | | string | False |
+| requestID | | string | True |
 
 ## Response Example
 

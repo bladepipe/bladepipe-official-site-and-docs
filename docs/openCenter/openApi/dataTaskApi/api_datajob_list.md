@@ -21,9 +21,9 @@ Query task list
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | ------------------------------- |-----------|--------|----|
 | dataJobId       | Task ID                             | Body     | False       | Long   |
-| dataJobName     | DataJob name (can be queried fuzzily) | Body     | False       | String |
-| dataJobType     | DataJob type, refer to [Get Task Type List](../constApi/api_constant_listdatajobtype.md) | Body | False | String |
-| desc            | Task description (can be queried fuzzily) | Body | False | String |
+| dataJobName     | DataJob name (can be queried fuzzily) | Body     | False       | string |
+| dataJobType     | DataJob type, refer to [Get Task Type List](../constApi/api_constant_listdatajobtype.md) | Body | False | string |
+| desc            | Task description (can be queried fuzzily) | Body | False | string |
 | sourceInstanceId | Source data source ID              | Body     | False       | Long   |
 | targetInstanceId | Target data source ID              | Body     | False       | Long   |
 
@@ -31,10 +31,10 @@ Query task list
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code          | 1: Success, 0: Failed | String | True     |
+| code          | 1: Success, 0: Failed | string | True     |
 | data          | Response data        | Object | False    |
-| msg           | Error message (if any) | String | False    |
-| requestId     | Request ID           | String | True     |
+| msg           | Error message (if any) | string | False    |
+| requestId     | Request ID           | string | True     |
 
 ## Data Parameter Description
 

@@ -20,33 +20,33 @@ Get the ability to support each type of task to create task selections.
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| sourceType     | Data source type of the source endpoint, obtained from [Retrieve the data source type of the source endpoint](api_constant_srcdstype.md) | Body   | True     | String |
-| targetType     | Data source type of the target endpoint, obtained from [Retrieve the data source type of the target endpoint](api_constant_dstdstype.md) | Body   | True     | String |   
+| sourceType     | Data source type of the source endpoint, obtained from [Retrieve the data source type of the source endpoint](api_constant_srcdstype.md) | Body   | True     | string |
+| targetType     | Data source type of the target endpoint, obtained from [Retrieve the data source type of the target endpoint](api_constant_dstdstype.md) | Body   | True     | string |   
 
 ## Public Response Results
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code       | 1: Success<br/>0: Failure | String | True     |
+| code       | 1: Success<br/>0: Failure | string | True     |
 | data       |                | Object | False    |
-| msg        |                | String | False    |
-| requestId  |                | String | True     |
+| msg        |                | string | False    |
+| requestId  |                | string | True     |
 
 ## Data Parameters
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| source     | Source data source type | String | True     |
-| target     | Target data source type | String | False    |
-| optionType | Capability model constructed from multiple DataJobTypes | String | False    |
+| source     | Source data source type | string | True     |
+| target     | Target data source type | string | False    |
+| optionType | Capability model constructed from multiple DataJobTypes | string | False    |
 
 Capability Description Parameter Description
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| Incremental   | Incremental synchronization        | String | True     |
-| FullAmount    | Full data migration                | String | True     |
-| defaultCheck  | Whether this DataJobType is selected by default | String | False    |
+| Incremental   | Incremental synchronization        | string | True     |
+| FullAmount    | Full data migration                | string | True     |
+| defaultCheck  | Whether this DataJobType is selected by default | string | False    |
 
 ## Response Example
 

@@ -20,16 +20,16 @@ Delete data task
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| jobId         | Task ID     | Body     | True     | Long |
+| jobId         | Task ID     | Body     | True     | long |
 
 ## Public Response Results
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code          | 1:Success, 0:Failure | String | True      |
+| code          | 1:Success, 0:Failure | string | True      |
 | data          | Response data        | Object | False       |
-| msg           | Error message (if any) | String | False       |
-| requestId     | Request ID           | String | True      |
+| msg           | Error message (if any) | string | False       |
+| requestId     | Request ID           | string | True      |
 
 ## Response Example
 

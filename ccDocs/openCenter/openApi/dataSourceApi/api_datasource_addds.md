@@ -27,23 +27,23 @@ description: 接口描述：添加数据源信息
 ### dataSourceAddData 参数说明
 | 参数名称         | 参数说明               |    类型(java) |  不为空 |
 | ------------ | -------------------|-------|----------- |
-| deployType     |  数据源部署类型 <br/><br/>SELF_MAINTENANCE(自建) <br/>ALIBABA_CLOUD_HOSTED(阿里云)    |   String   |   是    |
-| region     |  数据源所在区域 <br/><br/>hangzhou <br/>shanghai <br/>beijing <br/>shenzhen <br/>qingdao <br/>zhangjiakou <br/>huhehaote <br/>hongkong <br/>singapore <br/>silicon_valley <br/>london <br/>mq_internet_access <br/>customer   |    String   |  是   |
-| type     | 数据源类型 <br/><br/>MySQL <br/>PolarDbMySQL <br/>PolarDbX  <br/>PostgreSQL <br/>Greenplum <br/>Oracle <br/>SQLServer <br/>Redis <br/>MongoDB <br/>Kafka <br/>RocketMQ <br/>RabbitMQ <br/>Hive <br/>ElasticSearch <br/>DRDS <br/>AdbForMySQL <br/>TiDB <br/>ClickHouse <br/>Kudu    |    String   |    是   |
-| hostType     | 数据源默认网络类型 <br/><br/>PRIVATE(内网) <br/>PUBLIC(公网)  |    String   |   是    |
-| privateHost     | 内网host  |    String   |   根据hostType选择    |
-| publicHost     | 公网host  |    String   |   根据hostType选择    |
-| host     | 用于发起连接的host，可与privateHost或publicHost相同  |    String   |   是    |
-| securityType     | 数据源安全密钥类型  <br/><br/>KERBEROS <br/>USER_PASSWD_WITH_TLS <br/>USER_PASSWD <br/>ONLY_USER <br/>ONLY_PASSWD <br/>NONE  |    String   |   是    |
-| account     | 账号  |    String   |   根据securityType选择    |
-| password     | 密码  |    String   |   根据securityType选择    |
-| instanceDesc     | 数据源描述  |    String   |   否    |
-| instanceId     | 阿里云实例 id  |    String   |   否    |
-| accessKey     | 阿里云 access key  |    String   |   否    |
-| secretKey     | 阿里云 secret key |    String   |   否    |
-| clientTrustStorePassword    | 数据源安全密钥类型为 USER_PASSWD_WITH_TLS 时,truststore 文件密码 |    String   |   否    |
-| version     | 数据库版本 |    String   |   否    |
-| connectType     | 链接类型，目前只对oracle有效 <br/><br/>ORACLE_SID <br/>ORACLE_SERVICE <br/>ORACLE_TNS <br/>ORACLE_PDB |    String   |   否    |
+| deployType     |  数据源部署类型 <br/><br/>SELF_MAINTENANCE(自建) <br/>ALIBABA_CLOUD_HOSTED(阿里云)    |   string   |   是    |
+| region     |  数据源所在区域 <br/><br/>hangzhou <br/>shanghai <br/>beijing <br/>shenzhen <br/>qingdao <br/>zhangjiakou <br/>huhehaote <br/>hongkong <br/>singapore <br/>silicon_valley <br/>london <br/>mq_internet_access <br/>customer   |    string   |  是   |
+| type     | 数据源类型 <br/><br/>MySQL <br/>PolarDbMySQL <br/>PolarDbX  <br/>PostgreSQL <br/>Greenplum <br/>Oracle <br/>SQLServer <br/>Redis <br/>MongoDB <br/>Kafka <br/>RocketMQ <br/>RabbitMQ <br/>Hive <br/>ElasticSearch <br/>DRDS <br/>AdbForMySQL <br/>TiDB <br/>ClickHouse <br/>Kudu    |    string   |    是   |
+| hostType     | 数据源默认网络类型 <br/><br/>PRIVATE(内网) <br/>PUBLIC(公网)  |    string   |   是    |
+| privateHost     | 内网host  |    string   |   根据hostType选择    |
+| publicHost     | 公网host  |    string   |   根据hostType选择    |
+| host     | 用于发起连接的host，可与privateHost或publicHost相同  |    string   |   是    |
+| securityType     | 数据源安全密钥类型  <br/><br/>KERBEROS <br/>USER_PASSWD_WITH_TLS <br/>USER_PASSWD <br/>ONLY_USER <br/>ONLY_PASSWD <br/>NONE  |    string   |   是    |
+| account     | 账号  |    string   |   根据securityType选择    |
+| password     | 密码  |    string   |   根据securityType选择    |
+| instanceDesc     | 数据源描述  |    string   |   否    |
+| instanceId     | 阿里云实例 id  |    string   |   否    |
+| accessKey     | 阿里云 access key  |    string   |   否    |
+| secretKey     | 阿里云 secret key |    string   |   否    |
+| clientTrustStorePassword    | 数据源安全密钥类型为 USER_PASSWD_WITH_TLS 时,truststore 文件密码 |    string   |   否    |
+| version     | 数据库版本 |    string   |   否    |
+| connectType     | 链接类型，目前只对oracle有效 <br/><br/>ORACLE_SID <br/>ORACLE_SERVICE <br/>ORACLE_TNS <br/>ORACLE_PDB |    string   |   否    |
 
 ## 公共响应结果
 

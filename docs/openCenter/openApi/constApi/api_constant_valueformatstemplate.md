@@ -20,16 +20,16 @@ Gets a value format template to display when creating a task
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| schemaLessValueFormat | List of value formats, obtained and selected from [Cache data source value formats](api_constant_cachevalueformats.md) or [Message queue data source value formats](api_constant_mqvalueformats.md) | Body   | True     | String |  
+| schemaLessValueFormat | List of value formats, obtained and selected from [Cache data source value formats](api_constant_cachevalueformats.md) or [Message queue data source value formats](api_constant_mqvalueformats.md) | Body   | True     | string |  
 
 ## Public Response Results
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code       | 1: Success<br/>0: Failure | String | True     |
+| code       | 1: Success<br/>0: Failure | string | True     |
 | data       |             | Object | False    |
-| msg        |             | String | False    |
-| requestId  |             | String | True     |
+| msg        |             | string | False    |
+| requestId  |             | string | True     |
 
 ## Data Parameters
 

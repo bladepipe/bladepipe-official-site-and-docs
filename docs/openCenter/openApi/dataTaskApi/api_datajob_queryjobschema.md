@@ -26,23 +26,25 @@ Query the source metadata, **target metadata**, and **metadata mapping of a crea
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code          | 1: Success, 0: Failure                     | True     | String |
+| code          | 1: Success, 0: Failure                     | True     | string |
 | data          | Response data.                             | False    | Object |
-| msg           | Response message.                          | False    | String |
-| requestId     | ID of the request.                         | True     | String |
+| msg           | Response message.                          | False    | string |
+| requestId     | ID of the request.                         | True     | string |
 
 ## Data Parameter Description
 
 | ParameterName | Parameter Description  | NotNull | Type(Java)
 | ------------ |-----------|--------|----|
-| sourceSchema          | Source metadata. See [Database, Table and Column Structure Specification](api_datajob_schema.md) for reference. | True     | String |
-| targetSchema          | Default empty string.                                                                                            | True     | String |
-| mappingConfig         | Metadata mapping. See [Metadata Mapping Specification](api_datajob_mapping.md) for reference.                  | True     | String |
-| defaultTopic          | Default delivery queue for newly added table data during full database migration if the target is a message queue. | False    | String |
+| sourceSchema          | Source metadata. See [Database, Table and Column Structure Specification](api_datajob_schema.md) for reference. | True     | string |
+| targetSchema          | Default empty string.                                                                                            | True     | string |
+| mappingConfig         | Metadata mapping. See [Metadata Mapping Specification](api_datajob_mapping.md) for reference.                  | True     | string |
+| defaultTopic          | Default delivery queue for newly added table data during full database migration if the target is a message queue. | False    | string |
 | defaultTopicPartition | Default number of partitions for the queue.                                                                      | True     | Int    |
-| schemaWhiteListLevel  | Whitelist level. If empty, fully whitelist mode is used (except for column modification operations).           | False    | String |
-| srcSchemaLessFormat   | Data format for the source message (Kafka/RocketMQ) or cache (Redis).                                             | True     | String |
-| dstSchemaLessFormat   | Data format for the target message (Kafka/RocketMQ) or cache (Redis).                                             | True     | String |      
+| schemaWhiteListLevel  | Whitelist level. If empty, fully whitelist mode is used (except for column modification operations).           | False    | string |
+| srcSchemaLessFormat   | Data format for the source message (Kafka/RocketMQ) or cache (Redis).                                             | True     | string |
+| dstSchemaLessFormat   | Data format for the target message (Kafka/RocketMQ) or cache (Redis).                                             | True     | string |
+| dstDsCaseSensitive    | Whether the target data source is case-sensitive.                                                                  | False    | boolean |
+| ccSubTables           | List of sub-tables.                                                                                                | False    | array  |
 
 
 ## Response Example

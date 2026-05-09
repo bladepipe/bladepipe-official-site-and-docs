@@ -32,13 +32,13 @@ Create data migration, synchronization, verification, and correction tasks
 | initialSync        | Whether to initialize data (full migration) if it is a data synchronization task                                                    | Body               | False    | Boolean  |
 | shortTermNum       | If there is short-term synchronization, how many days it lasts                                                                     | Body               | False    | Int       |
 | shortTermSync      | Whether short-term synchronization is required if it is a data migration task                                                      | Body               | False    | Boolean  |
-| specId             | Specification ID                                                                                                                   | Body               | True     | Int       |
+| specId             | Specification ID                                                                                                                   | Body               | True     | long      |
 | dataJobDesc        | Task description                                                                                                                   | Body               | False    | String    |
 | fullPeriod         | Whether it is a periodic full migration                                                                                            | Body               | False    | Boolean  |
 | fullPeriodCronExpr | Periodic full migration CronTab expression                                                                                         | Body               | False    | String    |
 | autoStart          | Whether to start automatically                                                                                                     | Body               | False    | Boolean  |    
-| checkOnce            | Whether to perform a full data verification after catching up with incremental data | Body     | False       | Boolean |
-| checkPeriod          | Whether to perform periodic data verification | Body     | False       | Boolean |
+| checkOnce            | Whether to perform a full data verification after catching up with incremental data | Body     | False       | boolean |
+| checkPeriod          | Whether to perform periodic data verification | Body     | False       | boolean |
 | checkPeriodCronExpr  | CronTab expression for periodic data verification | Body     | False       | String  |
 | dstCaseSensitiveType      | Case-sensitive type of destination metadata <br/><br/> UpperCase <br/> LowerCase <br/> Sensitive <br/> NoSpecified | Body     | False       | String  |
 | srcCaseSensitiveType      | Case-sensitive type of source metadata <br/><br/> UpperCase <br/> LowerCase <br/> Sensitive <br/> NoSpecified | Body     | False       | String  |
@@ -46,27 +46,27 @@ Create data migration, synchronization, verification, and correction tasks
 | tarDsCharset              | Encoding of the target data source, obtained through the "Get Encoding List Based on Data Source Type" API | Body     | True       | String  |
 | dstCkTableEngine          | Table engine selection for ClickHouse if the target is ClickHouse <br/><br/> CollapsingMergeTree <br/> ReplacingMergeTree | Body     | False       | String  |
 | dstMqDefaultTopic         | Default topic for delivering newly added tables during full data migration if the target is a message queue (Kafka/RocketMQ) | Body | False       | String  |
-| dstMqDefaultTopicPartitions | Number of partitions for the default topic | Body | False | Integer |
-| dstSchemaLessFormat       | Data format for destination if it is a message (Kafka/RocketMQ) or cache (Redis) <br/><br/> CLOUDCANAL_JSON_FOR_MQ <br/> CANAL_JSON_FOR_MQ <br/> VALUE_JSON_FOR_CACHE <br/> VALUE_COL_CAMEL_CASE_JSON_FOR_CACHE | Body | False | String |
-| srcSchemaLessFormat       | Data format for source if it is a message (Kafka/RocketMQ) or cache (Redis) <br/><br/> CLOUDCANAL_JSON_FOR_MQ <br/> CANAL_JSON_FOR_MQ <br/> VALUE_JSON_FOR_CACHE <br/> VALUE_COL_CAMEL_CASE_JSON_FOR_CACHE | Body | False | String |
-| filterDDL                | Whether to filter DDL synchronization <br/><br/> True: filter, False: do not filter | body     | True      | Boolean |
+| dstMqDefaultTopicPartitions | Number of partitions for the default topic | Body | False | int |
+| dstSchemaLessFormat       | Data format for destination if it is a message (Kafka/RocketMQ) or cache (Redis) <br/><br/> CLOUDCANAL_JSON_FOR_MQ <br/> CANAL_JSON_FOR_MQ <br/> VALUE_JSON_FOR_CACHE <br/> VALUE_COL_CAMEL_CASE_JSON_FOR_CACHE | Body | False | string |
+| srcSchemaLessFormat       | Data format for source if it is a message (Kafka/RocketMQ) or cache (Redis) <br/><br/> CLOUDCANAL_JSON_FOR_MQ <br/> CANAL_JSON_FOR_MQ <br/> VALUE_JSON_FOR_CACHE <br/> VALUE_COL_CAMEL_CASE_JSON_FOR_CACHE | Body | False | string |
+| filterDDL                | Whether to filter DDL synchronization <br/><br/> True: filter, False: do not filter | body     | True      | boolean |
 | kafkaConsumerGroupId     | Consumer Group ID for the source if it is Kafka                             | Body     | False       | String  |
 | srcRabbitExchange        | Exchange for the source if it is RabbitMQ                                   | Body     | False       | String  |
 | srcRabbitMqVhost         | VHost for the source if it is RabbitMQ                                      | Body     | False       | String  |
 | srcRocketMqGroupId       | Group ID for the source if it is RocketMQ                                   | Body     | False       | String  |
-| keyConflictStrategy      | How to handle primary key or unique key conflicts if the target is a relational database <br/><br/> IGNORE <br/> REPLACE <br/> EXCEPTION (not supported yet) | body | False | String |
-| kuduNumReplicas          | Number of replicas for Kudu if the target is Kudu                            | Body     | False       | Integer |
-| schemaWhiteListLevel     | Whitelist level. If empty, defaults to full whitelist mode (except for column change operations). Currently supports DB level and no value set. <br/><br/> NONE <br/> DB <br/> SCHEMA <br/> TABLE | Body | False | String |
-| structMigration          | Whether to perform schema migration. If there is an item in srcSchema with targetAutoCreate set to true, this value is set to true | Body     | True      | Boolean | 
+| keyConflictStrategy      | How to handle primary key or unique key conflicts if the target is a relational database <br/><br/> IGNORE <br/> REPLACE <br/> EXCEPTION (not supported yet) | body | False | string |
+| kuduNumReplicas          | Number of replicas for Kudu if the target is Kudu                            | Body     | False       | int |
+| schemaWhiteListLevel     | Whitelist level. If empty, defaults to full whitelist mode (except for column change operations). Currently supports DB level and no value set. <br/><br/> NONE <br/> DB <br/> SCHEMA <br/> TABLE | Body | False | string |
+| structMigration          | Whether to perform schema migration. If there is an item in srcSchema with targetAutoCreate set to true, this value is set to true | Body     | True      | boolean | 
 
 ## Public Response Results
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code        | 1: Success， 0: Failure | String | True |
+| code        | 1: Success， 0: Failure | string | True |
 | data        |                      | Object | False |
-| msg         |                      | String | False |
-| requestId   |                      | String | True |
+| msg         |                      | string | False |
+| requestId   |                      | string | True |
 
 ## Data parameter description
 

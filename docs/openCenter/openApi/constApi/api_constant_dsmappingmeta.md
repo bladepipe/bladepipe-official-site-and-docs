@@ -20,17 +20,17 @@ Obtain the data source mapping information for selection when creating a task.
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| srcDsType  | Source Data Source Type<br/><br/>MySQL<br/>PolarDbMySQL<br/>PolarDbX<br/>PostgreSQL<br/>Greenplum<br/>Oracle<br/>SQLServer<br/>Redis<br/>MongoDB<br/>Kafka<br/>RocketMQ<br/>RabbitMQ<br/>Hive<br/>ElasticSearch<br/>DRDS<br/>AdbForMySQL<br/>TiDB<br/>ClickHouse<br/>Kudu |Body| True | String |
-| dstDsType  | Destination Data Source Type<br/><br/>MySQL<br/>PolarDbMySQL<br/>PolarDbX<br/>PostgreSQL<br/>Greenplum<br/>Oracle<br/>SQLServer<br/>Redis<br/>MongoDB<br/>Kafka<br/>RocketMQ<br/>RabbitMQ<br/>Hive<br/>ElasticSearch<br/>DRDS<br/>AdbForMySQL<br/>TiDB<br/>ClickHouse<br/>Kudu |Body| True | String |    
+| srcDsType  | Source Data Source Type<br/><br/>MySQL<br/>PolarDbMySQL<br/>PolarDbX<br/>PostgreSQL<br/>Greenplum<br/>Oracle<br/>SQLServer<br/>Redis<br/>MongoDB<br/>Kafka<br/>RocketMQ<br/>RabbitMQ<br/>Hive<br/>ElasticSearch<br/>DRDS<br/>AdbForMySQL<br/>TiDB<br/>ClickHouse<br/>Kudu |Body| True | string |
+| dstDsType  | Destination Data Source Type<br/><br/>MySQL<br/>PolarDbMySQL<br/>PolarDbX<br/>PostgreSQL<br/>Greenplum<br/>Oracle<br/>SQLServer<br/>Redis<br/>MongoDB<br/>Kafka<br/>RocketMQ<br/>RabbitMQ<br/>Hive<br/>ElasticSearch<br/>DRDS<br/>AdbForMySQL<br/>TiDB<br/>ClickHouse<br/>Kudu |Body| True | string |    
 
 ## Public Response Results
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code       | 1: Success<br/>0: Failure | String |True
+| code       | 1: Success<br/>0: Failure | string |True
 | data       |             | Object |False
-| msg        |             | String |False
-| requestId  |             | String |True
+| msg        |             | string |False
+| requestId  |             | string |True
 
 ## Data Parameters
 
@@ -38,7 +38,7 @@ The "data" has an array called "dsMappingInfo" with the following item descripti
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| method     | Mapping Rule Name | String |True
+| method     | Mapping Rule Name | string |True
 | srcParents | Source Metadata Parent Node Information<br/>Optional values include:<br/>DB<br/>SCHEMA<br/>TABLE<br/>COLUMN<br/>TOPIC<br/>INDEX | List | True |
 | dstParents | Destination Metadata Parent Node Information<br/>Optional values include:<br/>DB<br/>SCHEMA<br/>TABLE<br/>COLUMN<br/>TOPIC<br/>INDEX | List | True |
 

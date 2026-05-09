@@ -20,20 +20,20 @@ Gets a list of database tables so you can select the tables to be migrated and s
 
 | ParameterName | Parameter Description     |  RequestType |  Whether Required  |  DataType  |
 | ------------ | -------------------------------- |-----------|--------|----|
-| clusterId | Cluster ID of the machine set that attempts to connect to the data source | Body | True | Long |
-| dataSourceId | ID of the target data source | Body | True | Long |
-| hostType | Selected data source network type<br/><br/>PRIVATE (intranet)<br/>PUBLIC (internet) | Body | True | String |
-| dbName | Database name, required depending on the type of data source, required for relational databases | Body | False | String |
-| schema | Schema name, required depending on the type of data source | Body | False | String |  
+| clusterId | Cluster ID of the machine set that attempts to connect to the data source | Body | True | long |
+| dataSourceId | ID of the target data source | Body | True | long |
+| hostType | Selected data source network type<br/><br/>PRIVATE (intranet)<br/>PUBLIC (internet) | Body | True | string |
+| dbName | Database name, required depending on the type of data source, required for relational databases | Body | False | string |
+| schema | Schema name, required depending on the type of data source | Body | False | string |  
 
 ## Public response result
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| code | 1: success, 0: failure | String | True |
+| code | 1: success, 0: failure | string | True |
 | data | | Object | False |
-| msg | | String | False |
-| requestId | | String | True |
+| msg | | string | False |
+| requestId | | string | True |
 
 ## Data Parameter
 
@@ -41,11 +41,11 @@ Data is an array whose parameters are described as follows:
 
 | ParameterName | Parameter Description | Type(Java) | NotNull |
 | ------------ | -------------------|-------|----------- |
-| dbName | Name of the database to which the table belongs | String | False |
-| schemaName | Name of the schema to which the table belongs | String | False |
-| tableName | For relational databases, this is the table name; for messaging, it is the topic; for MongoDB, it is the collection; for caching, it is the namespace | String | True |
-| hasPk | Indicates whether the table has a primary key | Boolean | False |
-| indexMeta | If the data source is Elasticsearch, there may be non-null values | String | False |
+| dbName | Name of the database to which the table belongs | string | False |
+| schemaName | Name of the schema to which the table belongs | string | False |
+| tableName | For relational databases, this is the table name; for messaging, it is the topic; for MongoDB, it is the collection; for caching, it is the namespace | string | True |
+| hasPk | Indicates whether the table has a primary key | boolean | False |
+| indexMeta | If the data source is Elasticsearch, there may be non-null values | string | False |
 | mqTopicPartitions | If the data source is a message middleware that supports partitions (such as Kafka, RocketMQ, etc.), this indicates the topic partition value | int | False |
 
 ## Response Example

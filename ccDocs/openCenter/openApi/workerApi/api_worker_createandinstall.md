@@ -1,5 +1,5 @@
 ---
-id: api_cluster_createandinstallworker
+id: api_worker_createandinstall
 title: 添加机器(带自动部署)
 sidebar_position: 1
 description: 接口描述：添加机器, 以便选择正常的机器 进行任务调度 或 数据库信息获取。

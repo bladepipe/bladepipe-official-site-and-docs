@@ -1,5 +1,5 @@
 ---
-id: api_cluster_createandinstallworker
+id: api_worker_createandinstall
 title: Add Worker
 sidebar_position: 1
 description: Provisioning machines for task scheduling or database information retrieval purposes leveraging operational machines.

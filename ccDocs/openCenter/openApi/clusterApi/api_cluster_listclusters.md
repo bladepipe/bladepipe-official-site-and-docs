@@ -41,17 +41,17 @@ data 为数组,其中每一组数据中的字段说明如下:
 
 | 参数名称         | 参数说明                             |    类型(java) |  不为空 |
 | ------------ | -------------------|-------|----------- |
-| id     |  主键    |    Long   |   是    |
-| gmtCreate    | 创建时间     |    String   |    是   |
-| gmtModified      |   修改时间   |    String   |  是     |
-| clusterName     |  集群实例id    |    String   |   是    |
-| region     |  集群所在区域    |    String   |   是    |
-| cloudOrIdcName     | ALIBABA_CLOUD(阿里云) <br/>SELF_MAINTENANCE(自建)   |    String   |  是   |
-| clusterDesc     | 集群描述   |    String   |    否   |
+| id     |  主键    |    long   |   是    |
+| gmtCreate    | 创建时间     |    string   |    是   |
+| gmtModified      |   修改时间   |    string   |  是     |
+| clusterName     |  集群实例id    |    string   |   是    |
+| region     |  集群所在区域    |    string   |   是    |
+| cloudOrIdcName     | ALIBABA_CLOUD(阿里云) <br/>SELF_MAINTENANCE(自建)   |    string   |  是   |
+| clusterDesc     | 集群描述   |    string   |    否   |
 | workerCount     | 该集群机器总数  |    int   |   是    |
 | runningCount     | 该集群正常运行的机器总数  |    int   |   是    |
 | abnormalCount     | 该集群异常的机器总数  |    int   |   是    |
-| ownerName     | 拥有人名称  |    String   |   是    |
+| ownerName     | 拥有人名称  |    string   |   是    |
 
 ## 响应示例
 

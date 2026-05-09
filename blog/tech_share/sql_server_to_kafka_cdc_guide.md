@@ -16,7 +16,7 @@ You tried read replicas.
 You tried scheduled ETL jobs.  
 And none of them gave you real-time data without breaking production.
 
-You're searching for "SQL Server CDC to Kafka" because you need near real-time Change Data Capture (CDC) without breaking production. **Good news:** there *is* a simpler way to do this. This guide covers two practical methods to get the job done:
+You're searching for "SQL Server CDC to [Kafka](../data_insights/do_you_really_need_kafka.md)" because you need near real-time Change Data Capture (CDC) without breaking production. **Good news:** there *is* a simpler way to do this. This guide covers two practical methods to get the job done:
 
 - **Method 1 (Recommended for most teams):** BladePipe — a managed, no-code platform that handles full sync + incremental CDC in one pipeline
 - **Method 2 (DIY reference):** Debezium SQL Server Connector + Kafka Connect — full control, full operational ownership

@@ -1,5 +1,5 @@
 ---
-id: api_cluster_stopworker
+id: api_worker_stopworker
 title: 停止机器
 description: 接口描述：停止指定的机器节点
 ---
