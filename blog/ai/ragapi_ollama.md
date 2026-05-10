@@ -14,6 +14,8 @@ Many companies are cautious about sending internal data to public cloud-based mo
 
 To address these challenges, BladePipe now supports building local RAG services with Ollama, enabling enterprises to run intelligent RAG services entirely within their own infrastructure. This article walks you through **building a fully private, production-ready RAG application**—without writing any code.
 
+If you’re okay running your RAG stack on cloud LLMs (like OpenAI) and just want a quick, beginner-friendly setup, you can follow [Build A RAG Chatbot with OpenAI - A No-Code Beginner's Guide](https://www.bladepipe.com/blog/ai/ragapi_cloud/).
+
 ## What is an Enterprise-Grade RAG Service?
 Enterprise-grade RAG emphasizes end-to-end integration, data control, and tight alignment with business systems. The goal isn’t just smart Q&A. It brings automation and intelligence that genuinely boost business.
 
@@ -26,6 +28,8 @@ Compared to hobby or research-focused RAG setups, enterprise systems have four k
 
 ## Introducing BladePipe RagApi
 [BladePipe](https://www.bladepipe.com)’s **RagApi** encapsulates both vector search and LLM-based Q&A capabilities and supports the MCP protocol. It’s designed to help every one quickly launch their own RAG services.
+
+If you’re building RAG with code-first frameworks, our [roundup of the best LangChain alternatives](https://www.bladepipe.com/blog/ai/langchain_alternative/) can help you evaluate other orchestration stacks before you commit.
 
 Compared to the traditional way to build RAG services, RagApi's key advantages include:
 

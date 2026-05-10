@@ -10,7 +10,7 @@ image: /img/blog/data_insights/oracle_change_data_capture.png
 ---
 Your Oracle database knows everything that happened. The question is whether the rest of your systems do too. 
 
-Change Data Capture (CDC) is the technique that closes that gap. Instead of periodically asking "what does the table look like now?", CDC continuously asks "what just changed?" It reads directly from Oracle's redo log, captures every insert, update, and delete at the row level, and streams those changes to wherever they need to go.
+[Change Data Capture (CDC)](change_data_capture_cdc.md) is the technique that closes that gap. Instead of periodically asking "what does the table look like now?", CDC continuously asks "what just changed?" It reads directly from Oracle's redo log, captures every insert, update, and delete at the row level, and streams those changes to wherever they need to go.
 
 In this guide, we'll walk through how Oracle CDC works under the hood, compare the most common implementation approaches, and cover the production challenges you'll need to plan for before you go live.
 

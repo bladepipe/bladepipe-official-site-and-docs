@@ -25,7 +25,7 @@ title: 6.0.0.0
 
 ## 新特性
 
-- 支持 VastBase 源端视图同步
+- 支持 VastBase 源端视图全量迁移
 - 支持 [VastBase -> Dameng 的定时扫描增量同步](../operation/job_manage/create_job/create_retl_job.md#支持的链路)
 - 支持 KingbaseES 数据源设置默认数据库，方便用户授权
 - 支持 Dameng 对端强类型，具备更好的类型兼容性
