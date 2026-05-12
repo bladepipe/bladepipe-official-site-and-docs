@@ -373,16 +373,34 @@ const sidebars: SidebarsConfig = {
               "type": "category",
               "label": "Installation",
               "items": [
-                "productOP/onPremise/installation/install_all_in_one_docker",
-                "productOP/onPremise/installation/add_worker_docker",
-                "productOP/onPremise/installation/upgrade_all_in_one_docker",
-                "productOP/onPremise/installation/uninstall_all_in_one_docker",
-                "productOP/onPremise/installation/install_all_in_one_k8s",
-                "productOP/onPremise/installation/upgrade_all_in_one_k8s",
-                "productOP/onPremise/installation/uninstall_all_in_one_k8s",
-                "productOP/onPremise/installation/install_all_in_one_binary",
-                "productOP/onPremise/installation/add_worker_binary",
-                "productOP/onPremise/installation/upgrade_all_in_one_binary"
+                {
+                  "type": "category",
+                  "label": "Docker",
+                  "items": [
+                    "productOP/onPremise/installation/install_all_in_one_docker",
+                    "productOP/onPremise/installation/add_worker_docker",
+                    "productOP/onPremise/installation/upgrade_all_in_one_docker",
+                    "productOP/onPremise/installation/uninstall_all_in_one_docker"
+                  ]
+                },
+                {
+                  "type": "category",
+                  "label": "Kubernetes",
+                  "items": [
+                    "productOP/onPremise/installation/install_all_in_one_k8s",
+                    "productOP/onPremise/installation/upgrade_all_in_one_k8s",
+                    "productOP/onPremise/installation/uninstall_all_in_one_k8s"
+                  ]
+                },
+                {
+                  "type": "category",
+                  "label": "Binary",
+                  "items": [
+                    "productOP/onPremise/installation/install_all_in_one_binary",
+                    "productOP/onPremise/installation/add_worker_binary",
+                    "productOP/onPremise/installation/upgrade_all_in_one_binary"
+                  ]
+                }
               ]
             },
             {
