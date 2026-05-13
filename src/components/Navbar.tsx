@@ -12,6 +12,25 @@ import { useUserStore } from '@site/src/store/user';
 import { isUserLogin } from '@site/src/store/user';
 import GoogleTranslate from '@site/src/components/GoogleTranslate';
 
+const CLOUDDM_GITHUB_URL = 'https://github.com/ClouGence/open-cdm';
+const CLOUDDM_GITEE_URL = 'https://gitee.com/clougence/open-cdm';
+
+function GitHubIcon({ className = 'w-5 h-5' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
+      <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.59 2 12.253c0 4.529 2.865 8.371 6.839 9.728.5.095.683-.222.683-.494 0-.244-.009-.89-.014-1.747-2.782.62-3.369-1.375-3.369-1.375-.455-1.184-1.11-1.499-1.11-1.499-.908-.636.069-.623.069-.623 1.004.073 1.532 1.057 1.532 1.057.892 1.565 2.341 1.113 2.91.851.091-.662.349-1.113.635-1.369-2.221-.259-4.555-1.138-4.555-5.064 0-1.119.39-2.034 1.029-2.75-.103-.26-.446-1.302.098-2.713 0 0 .84-.276 2.75 1.05A9.388 9.388 0 0 1 12 6.966a9.37 9.37 0 0 1 2.504.345c1.909-1.326 2.747-1.05 2.747-1.05.546 1.411.203 2.453.1 2.713.64.716 1.028 1.631 1.028 2.75 0 3.936-2.337 4.802-4.566 5.056.359.318.679.944.679 1.902 0 1.372-.013 2.479-.013 2.815 0 .274.18.594.688.493C21.138 20.62 24 16.78 24 12.253 24 6.59 19.523 2 14 2h-2z" />
+    </svg>
+  );
+}
+
+function GiteeIcon({ className = 'w-5 h-5' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 1024 1024" aria-hidden="true" className={className} fill="currentColor">
+      <path d="M512 1024q-104 0-199-40-92-39-163-110T40 711Q0 616 0 512t40-199Q79 221 150 150T313 40q95-40 199-40t199 40q92 39 163 110t110 163q40 95 40 199t-40 199q-39 92-110 163T711 984q-95 40-199 40z m259-569H480q-10 0-17.5 7.5T455 480v64q0 10 7.5 17.5T480 569h177q11 0 18.5 7.5T683 594v13q0 31-22.5 53.5T607 683H367q-11 0-18.5-7.5T341 657V417q0-31 22.5-53.5T417 341h354q11 0 18-7t7-18v-63q0-11-7-18t-18-7H417q-38 0-72.5 14T283 283q-27 27-41 61.5T228 417v354q0 11 7 18t18 7h373q46 0 85.5-22.5t62-62Q796 672 796 626V480q0-10-7-17.5t-18-7.5z" />
+    </svg>
+  );
+}
+
 export default function Navbar() {
   const { siteConfig } = useDocusaurusContext();
   const siteBrand = siteConfig.customFields?.siteBrand;
@@ -247,34 +266,36 @@ export default function Navbar() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    if (mobileOpen) {
-      // 保存当前滚动位置
-      scrollYRef.current = window.scrollY;
-      // 禁用 body 滚动并保持滚动位置
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollYRef.current}px`;
-      document.body.style.width = '100%';
-    } else {
-      // 恢复滚动
-      const scrollY = scrollYRef.current;
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      
-      // 恢复滚动位置
-      if (scrollY > 0) {
-        window.scrollTo(0, scrollY);
-      }
-    }
+    if (!mobileOpen) return;
+
+    scrollYRef.current = window.scrollY;
+
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+    const originalBodyOverscroll = document.body.style.getPropertyValue('overscroll-behavior');
+    const originalHtmlOverscroll = document.documentElement.style.getPropertyValue('overscroll-behavior');
+
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.setProperty('overscroll-behavior', 'none');
+    document.documentElement.style.setProperty('overscroll-behavior', 'none');
 
     // 组件卸载时确保恢复滚动
     return () => {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
+      document.body.style.overflow = originalBodyOverflow;
+      document.documentElement.style.overflow = originalHtmlOverflow;
+
+      if (originalBodyOverscroll) {
+        document.body.style.setProperty('overscroll-behavior', originalBodyOverscroll);
+      } else {
+        document.body.style.removeProperty('overscroll-behavior');
+      }
+
+      if (originalHtmlOverscroll) {
+        document.documentElement.style.setProperty('overscroll-behavior', originalHtmlOverscroll);
+      } else {
+        document.documentElement.style.removeProperty('overscroll-behavior');
+      }
     };
   }, [mobileOpen]);
 
@@ -296,6 +317,31 @@ export default function Navbar() {
         </div>
         {/* 移动端右侧按钮区 */}
         <div className='xl:hidden flex items-center gap-2 ml-auto'>
+          {siteBrand === 'clouddm' && (
+            <>
+              <a
+                href={CLOUDDM_GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-[38px] h-[38px] rounded-lg text-[#131316] hover:bg-gray-100 hover:text-[#0087c7] transition-colors"
+                aria-label="GitHub"
+                title="GitHub"
+              >
+                <GitHubIcon className="w-[22px] h-[22px]" />
+              </a>
+              <a
+                href={CLOUDDM_GITEE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-[38px] h-[38px] rounded-lg text-[#c71d23] hover:bg-[#fff5f5] transition-colors"
+                aria-label="Gitee"
+                title="Gitee"
+              >
+                <GiteeIcon className="w-[19px] h-[19px]" />
+              </a>
+            </>
+          )}
+
           {/* 搜索图标（移动端）- 仅在文档页面显示 */}
           {isDocsPage && SearchBarComponent && (
             <div className="mr-2">
@@ -614,25 +660,27 @@ export default function Navbar() {
             </Dropdown>
           </div>
           {/* Pricing */}
-          <Link
-            to={siteBrand === 'bladepipe' ? "/pricing/" : "/pricing"}
-            className="no-underline flex-shrink-0"
-            data-desktop-nav-item
-            data-nav-key="pricing"
-          >
-            <div
-              data-menu-item
-              className={`flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full cursor-pointer transition-all duration-200 ${activeNav === 'pricing'
-                  ? 'bg-[#0087c7]/10 px-[20px]'
-                  : 'hover:bg-gray-100'
-                }`}
-              onClick={() => setActiveNav('pricing')}
+          {siteBrand !== 'clouddm' && (
+            <Link
+              to={siteBrand === 'bladepipe' ? "/pricing/" : "/pricing"}
+              className="no-underline flex-shrink-0"
+              data-desktop-nav-item
+              data-nav-key="pricing"
             >
-              <span className="text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#262728]">
-                <Translate id="navbar.pricing">Pricing</Translate>
-              </span>
-            </div>
-          </Link>
+              <div
+                data-menu-item
+                className={`flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full cursor-pointer transition-all duration-200 ${activeNav === 'pricing'
+                    ? 'bg-[#0087c7]/10 px-[20px]'
+                    : 'hover:bg-gray-100'
+                  }`}
+                onClick={() => setActiveNav('pricing')}
+              >
+                <span className="text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#262728]">
+                  <Translate id="navbar.pricing">Pricing</Translate>
+                </span>
+              </div>
+            </Link>
+          )}
           {/* About */}
           <Link
             to={siteBrand === 'bladepipe' ? "/about/" : "/about"}
@@ -783,7 +831,7 @@ export default function Navbar() {
                         ),
                       };
                     }
-                    if (key === 'pricing') {
+                    if (key === 'pricing' && siteBrand !== 'clouddm') {
                       return {
                         key: 'more-pricing',
                         label: (
@@ -796,6 +844,9 @@ export default function Navbar() {
                           </Link>
                         ),
                       };
+                    }
+                    if (key === 'pricing') {
+                      return null;
                     }
                     if (key === 'about') {
                       return {
@@ -850,6 +901,31 @@ export default function Navbar() {
         </div>
         {/* 右侧操作区（大屏显示） */}
         <div className='hidden xl:flex items-center gap-2 flex-shrink-0'>
+          {siteBrand === 'clouddm' && (
+            <>
+              <a
+                href={CLOUDDM_GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full border border-black/20 bg-white text-[#131316] flex items-center justify-center transition-all duration-200 hover:bg-gray-100 hover:border-[#0087c7]/40 hover:text-[#0087c7] hover:scale-105"
+                title="GitHub"
+                aria-label="GitHub"
+              >
+                <GitHubIcon className="w-6 h-6" />
+              </a>
+              <a
+                href={CLOUDDM_GITEE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 mr-2 rounded-full border border-black/20 bg-white text-[#c71d23] flex items-center justify-center transition-all duration-200 hover:bg-[#fff5f5] hover:border-[#c71d23]/40 hover:scale-105"
+                title="Gitee"
+                aria-label="Gitee"
+              >
+                <GiteeIcon className="w-[21px] h-[21px]" />
+              </a>
+            </>
+          )}
+
           {/* CloudCanal：AI 助手（原右下角机器人入口移至导航栏） */}
           {/*{siteBrand === 'clougence' && (*/}
           {/*  <span*/}
@@ -943,18 +1019,20 @@ export default function Navbar() {
                   </div>
                 </Link>
               )}
-              {/* Try Cloud Free - 在 docs 页面时不显示 */}
-              <div
-                className='flex items-center px-3 lg:px-4 2xl:px-5 h-10 rounded-full bg-[#0087c7] text-white cursor-pointer hover:bg-[#0070a6]'
-                onClick={() =>
-                  loginCheckAndRedirect(() => {
-                    window.location.href = getCloudUrl();
-                  }, 'try_cloud_free')
-                }>
-                <span className='text-sm lg:text-[15px] xl:text-[16px] font-bold'>
-                  <Translate id='navbar.tryCloud'>Try Cloud</Translate>
-                </span>
-              </div>
+              {/* Try Cloud Free - 在 docs 页面和 CloudDM 品牌下不显示 */}
+              {siteBrand !== 'clouddm' && (
+                <div
+                  className='flex items-center px-3 lg:px-4 2xl:px-5 h-10 rounded-full bg-[#0087c7] text-white cursor-pointer hover:bg-[#0070a6]'
+                  onClick={() =>
+                    loginCheckAndRedirect(() => {
+                      window.location.href = getCloudUrl();
+                    }, 'try_cloud_free')
+                  }>
+                  <span className='text-sm lg:text-[15px] xl:text-[16px] font-bold'>
+                    <Translate id='navbar.tryCloud'>Try Cloud</Translate>
+                  </span>
+                </div>
+              )}
             </>
           )}
           {/* 搜索图标 - 仅在文档页面显示，放在最右侧 */}
@@ -1152,14 +1230,18 @@ export default function Navbar() {
               <div className='h-px bg-black/[0.08] w-full' />
 
               {/* Pricing */}
-              <Link to={siteBrand === 'bladepipe' ? "/pricing/" : "/pricing"} onClick={() => setMobileOpen(false)} className="no-underline">
-                <div className="flex items-center justify-between px-5 h-[50px] cursor-pointer">
-                  <span className="text-[16px] font-bold text-[#262728]">
-                    <Translate id='navbar.pricing'>Pricing</Translate>
-                  </span>
-                </div>
-              </Link>
-              <div className='h-px bg-black/[0.08] w-full' />
+              {siteBrand !== 'clouddm' && (
+                <>
+                  <Link to={siteBrand === 'bladepipe' ? "/pricing/" : "/pricing"} onClick={() => setMobileOpen(false)} className="no-underline">
+                    <div className="flex items-center justify-between px-5 h-[50px] cursor-pointer">
+                      <span className="text-[16px] font-bold text-[#262728]">
+                        <Translate id='navbar.pricing'>Pricing</Translate>
+                      </span>
+                    </div>
+                  </Link>
+                  <div className='h-px bg-black/[0.08] w-full' />
+                </>
+              )}
 
               {/* About */}
               <Link to={siteBrand === 'bladepipe' ? "/about/" : "/about"} onClick={() => setMobileOpen(false)} className="no-underline">
@@ -1328,20 +1410,22 @@ export default function Navbar() {
                   </Link>
                 )}
 
-                {/* Try Cloud Free 按钮 */}
-                <div
-                  className='flex items-center justify-center px-5 h-[50px] w-full rounded-lg bg-[#0087c7] text-white cursor-pointer hover:bg-[#0070a6]'
-                  onClick={() => {
-                    setMobileOpen(false);
-                    loginCheckAndRedirect(() => {
-                      window.location.href = getCloudUrl();
-                    }, 'try_cloud_free');
-                  }}
-                >
-                  <span className='text-[16px] font-bold'>
-                    <Translate id='navbar.tryCloud'>Try Cloud Free</Translate>
-                  </span>
-                </div>
+                {/* Try Cloud Free 按钮 - CloudDM 品牌下不显示 */}
+                {siteBrand !== 'clouddm' && (
+                  <div
+                    className='flex items-center justify-center px-5 h-[50px] w-full rounded-lg bg-[#0087c7] text-white cursor-pointer hover:bg-[#0070a6]'
+                    onClick={() => {
+                      setMobileOpen(false);
+                      loginCheckAndRedirect(() => {
+                        window.location.href = getCloudUrl();
+                      }, 'try_cloud_free');
+                    }}
+                  >
+                    <span className='text-[16px] font-bold'>
+                      <Translate id='navbar.tryCloud'>Try Cloud Free</Translate>
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
           </div>

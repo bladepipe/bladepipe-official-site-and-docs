@@ -84,7 +84,6 @@ export default function ResetPwd() {
     try {
       // 先获取表单值，确保能正确获取
       const values = await form.validateFields();
-      console.log('Form values:', values); // 调试用
       
       // 检查密码字段
       if (!values.password || !values.password.trim()) {
@@ -136,7 +135,6 @@ export default function ResetPwd() {
     } catch (e: any) {
       setResetPwdLoading(false);
       if (e?.errorFields) {
-        console.log('Validation errors:', e.errorFields); // 调试用
         return;
       }
       setResetPwdError(translate({

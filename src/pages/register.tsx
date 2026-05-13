@@ -68,10 +68,8 @@ export default function Register() {
     // 密码加密
     const passwordEncrypt = (password: string) => {
         if (publicKey) {
-            console.log(1111, password, publicKey);
             return sm2.doEncrypt(password, publicKey, 1);
         }
-        console.log(2222);
         return password;
     };
 
@@ -108,7 +106,6 @@ export default function Register() {
                 ]);
             }
         } catch (e) {
-            console.log('error', e);
             setRegisterLoading(false);
             form.setFields([
                 {
@@ -553,7 +550,6 @@ export default function Register() {
                                             handleRegister(values);
                                         } catch (e) {
                                             // 表单验证失败
-                                            console.log('Form validation failed:', e);
                                         }
                                     }}
                                 >

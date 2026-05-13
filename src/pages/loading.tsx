@@ -101,7 +101,6 @@ export default function Loading() {
           // 对于其他品牌，根据 target 进行不同的跳转
           const stateData = decodeBase64(authParams.state);
           const target = stateData.target;
-          console.log('target', target);
           localStorage.removeItem('loginSource');
           if (target === 'try_cloud_free') {
             window.location.href = getCloudUrl();

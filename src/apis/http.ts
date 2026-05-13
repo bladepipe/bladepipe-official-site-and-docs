@@ -2,7 +2,6 @@ import axios from 'axios';
 import { getApiBaseUrl } from '@site/src/utils/api';
 
 const BASE_URL = getApiBaseUrl();
-console.log('BASE_URL', BASE_URL);
 
 // 获取当前 locale 的函数
 const getCurrentLocale = (): string => {

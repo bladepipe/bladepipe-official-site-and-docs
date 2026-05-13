@@ -3,20 +3,35 @@ import Layout from '@theme/Layout';
 import Navbar from '@site/src/components/Navbar';
 import Footer from '@site/src/components/Footer';
 import FadeInSection from '@site/src/components/FadeInSection';
-import { getApiBaseUrl } from '@site/src/utils/api';
-import { loginCheckAndRedirect } from '@site/src/utils';
 import { isUserLogin } from '@site/src/store/user';
 import { listDownloadProduct } from '@site/src/apis/constant';
 import DownloadModal from '@site/src/components/DownloadModal';
-import { Dropdown } from 'antd';
 import Translate from '@docusaurus/Translate';
-import { ChevronDownIcon } from '@heroicons/react/24/solid';
 import Link from '@docusaurus/Link';
 import { useState } from 'react';
 import BlogCardGrid from '@site/src/components/BlogCardGrid';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 // @ts-ignore
 import dmBlogListData from '../../.docusaurus/docusaurus-plugin-content-blog/default/blog-post-list-prop-default.json';
+
+const CLOUDDM_GITHUB_URL = 'https://github.com/ClouGence/open-cdm';
+const CLOUDDM_GITEE_URL = 'https://gitee.com/clougence/open-cdm';
+
+function GitHubIcon({ className = 'w-6 h-6' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
+      <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.59 2 12.253c0 4.529 2.865 8.371 6.839 9.728.5.095.683-.222.683-.494 0-.244-.009-.89-.014-1.747-2.782.62-3.369-1.375-3.369-1.375-.455-1.184-1.11-1.499-1.11-1.499-.908-.636.069-.623.069-.623 1.004.073 1.532 1.057 1.532 1.057.892 1.565 2.341 1.113 2.91.851.091-.662.349-1.113.635-1.369-2.221-.259-4.555-1.138-4.555-5.064 0-1.119.39-2.034 1.029-2.75-.103-.26-.446-1.302.098-2.713 0 0 .84-.276 2.75 1.05A9.388 9.388 0 0 1 12 6.966a9.37 9.37 0 0 1 2.504.345c1.909-1.326 2.747-1.05 2.747-1.05.546 1.411.203 2.453.1 2.713.64.716 1.028 1.631 1.028 2.75 0 3.936-2.337 4.802-4.566 5.056.359.318.679.944.679 1.902 0 1.372-.013 2.479-.013 2.815 0 .274.18.594.688.493C21.138 20.62 24 16.78 24 12.253 24 6.59 19.523 2 14 2h-2z" />
+    </svg>
+  );
+}
+
+function GiteeIcon({ className = 'w-6 h-6' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 1024 1024" aria-hidden="true" className={className} fill="currentColor">
+      <path d="M512 1024q-104 0-199-40-92-39-163-110T40 711Q0 616 0 512t40-199Q79 221 150 150T313 40q95-40 199-40t199 40q92 39 163 110t110 163q40 95 40 199t-40 199q-39 92-110 163T711 984q-95 40-199 40z m259-569H480q-10 0-17.5 7.5T455 480v64q0 10 7.5 17.5T480 569h177q11 0 18.5 7.5T683 594v13q0 31-22.5 53.5T607 683H367q-11 0-18.5-7.5T341 657V417q0-31 22.5-53.5T417 341h354q11 0 18-7t7-18v-63q0-11-7-18t-18-7H417q-38 0-72.5 14T283 283q-27 27-41 61.5T228 417v354q0 11 7 18t18 7h373q46 0 85.5-22.5t62-62Q796 672 796 626V480q0-10-7-17.5t-18-7.5z" />
+    </svg>
+  );
+}
 
 // 数据源配置
 const dataSources = [
@@ -203,42 +218,6 @@ export default function CloudDM() {
     }
   };
 
-  // 个人版下载处理函数
-  const handlePersonalDownload = async () => {
-    if (!isUserLogin()) {
-      // 设置来源标识，登录后返回首页并打开下载弹窗
-      localStorage.setItem('loginSource', 'download');
-      window.location.href = '/login';
-      return;
-    }
-
-    try {
-      setDownloadLoading(true);
-      setDownloadType('personal'); // 设置为个人版下载
-      // 调用 listDownloadProduct 接口
-      const response = await listDownloadProduct({
-        orderProductType: 'CloudDmDeskTop'
-      });
-      console.log('Download products:', response);
-      // 保存接口返回的产品数据
-      setDownloadProducts(response?.data || response || []);
-      // 接口调用成功后显示下载弹窗
-      setDownloadModalVisible(true);
-    } catch (error) {
-      console.error('获取下载产品列表失败:', error);
-      // 可以在这里添加错误提示，比如使用 message 或 notification
-      alert('Failed to get download information, please try again later');
-    } finally {
-      setDownloadLoading(false);
-    }
-  };
-
-  // 查看个人版版本信息
-  const handleViewPersonalVersion = () => {
-    // 跳转到个人版版本信息页面
-    window.location.href='/docs/releasenote_personal/desktop_latest';
-  };
-
   // 检查是否需要打开下载弹窗（登录后回跳的情况）
   React.useEffect(() => {
     const shouldOpenDownloadModal = localStorage.getItem('openDownloadModal');
@@ -294,103 +273,58 @@ export default function CloudDM() {
           <section className="w-full min-h-[560px] bg-gradient-to-b from-white to-[#eaf6ff] flex justify-center items-center py-[37px] px-4">
             <div className="w-full max-w-[1320px] flex flex-col lg:flex-row gap-[32px] lg:gap-[40px] justify-center items-center">
               {/* 左侧内容区域 */}
-              <div className="w-full lg:w-[560px] h-auto lg:h-[396px] flex flex-col gap-[32px] lg:gap-[50px] justify-start items-start">
+              <div className="w-full lg:w-[560px] h-auto flex flex-col gap-[24px] lg:gap-[30px] justify-start items-start">
                 {/* 标题区域 */}
-                <div className="w-full lg:w-[560px] h-auto lg:h-[218px] flex flex-col gap-[20px] lg:gap-[26px] justify-start items-start">
-                  <h1 className="w-full lg:w-[560px] h-auto lg:h-[136px] text-[32px] sm:text-[40px] lg:text-[60px] font-bold leading-[110%] lg:leading-[68px] text-black font-['PingFang SC'] m-0">
+                <div className="w-full lg:w-[560px] h-auto flex flex-col gap-[16px] lg:gap-[20px] justify-start items-start">
+                  <div className="inline-flex items-center gap-[8px] rounded-full border border-[#0087c7]/20 bg-white/80 px-[14px] py-[8px] text-[#0087c7] shadow-[0_8px_24px_rgba(0,135,199,0.08)]">
+                    <span className="w-[8px] h-[8px] rounded-full bg-[#00A86B]" />
+                    <span className="text-[14px] lg:text-[15px] font-bold leading-none">CloudDM 已全面开源</span>
+                  </div>
+                  <h1 className="w-full lg:w-[560px] h-auto text-[32px] sm:text-[40px] lg:text-[60px] font-bold leading-[110%] lg:leading-[68px] text-black font-['PingFang SC'] m-0">
                     一站式多数据源开发管理工具
                   </h1>
-                  <p className="w-full lg:w-[467px] h-auto lg:h-[56px] text-[16px] lg:text-[18px] font-medium leading-[24px] lg:leading-[28px] text-black opacity-80 font-['PingFang SC'] m-0">
-                    安全的数据访问，一键串联数据库变更与应用发布，简化流程，提升生产力
+                  <p className="w-full lg:w-[520px] h-auto text-[16px] lg:text-[18px] font-medium leading-[24px] lg:leading-[28px] text-black opacity-80 font-['PingFang SC'] m-0">
+                    代码开放、透明迭代，支持 MySQL、PostgreSQL、Oracle、SQL Server、Gitee、Jenkins 等多种数据源与开发工具，覆盖安全数据访问、数据库变更发布与团队协作流程。
                   </p>
                 </div>
 
-                {/* 按钮区域 */}
-                <div className="w-full lg:w-[397px] h-auto lg:h-[54px] flex flex-col sm:flex-row gap-[16px] justify-start items-start lg:items-center">
-                  {/* 下载安装按钮 - 与首页 Try Cloud Free 保持一致 */}
-                  <button 
-                    className={`cursor-pointer h-[48px] lg:h-[54px] flex items-center justify-center gap-[10px] rounded-full bg-[#0087c7] text-white text-[14px] lg:text-[16px] font-bold font-['Plus Jakarta Sans'] px-[20px] lg:px-[30px] py-[12px] lg:py-[15px] shadow-none border-none transition hover:bg-[#0070a6] focus:outline-none w-full sm:w-auto whitespace-nowrap ${
-                      downloadLoading ? 'opacity-50 pointer-events-none' : ''
-                    }`}
-                    style={{ boxShadow: '0px 2px 8px 0px rgba(0,135,199,0.10)' }}
-                    onClick={handleDownloadClick}
-                  >
-                    <span>{downloadLoading ? 'Loading...' : '下载安装'}</span>
-                    <img src="/img/clouddm/icon/download.svg" alt="Download" className="w-[20px] h-[20px] lg:w-[24px] lg:h-[24px]" />
-                  </button>
+                {/*<div className="grid grid-cols-1 sm:grid-cols-3 gap-[10px] w-full lg:w-[540px]">*/}
+                {/*  {[*/}
+                {/*    { title: '源码开放', desc: '核心能力公开可见' },*/}
+                {/*    { title: '自由部署', desc: '适配企业内网环境' },*/}
+                {/*    { title: '社区共建', desc: '欢迎 Issue 与贡献' }*/}
+                {/*  ].map((item) => (*/}
+                {/*    <div key={item.title} className="rounded-[10px] border border-[#afd1f2]/70 bg-white/70 px-[14px] py-[12px]">*/}
+                {/*      <div className="text-[15px] font-bold text-[#131314] leading-[22px]">{item.title}</div>*/}
+                {/*      <div className="text-[13px] font-medium text-black/60 leading-[20px]">{item.desc}</div>*/}
+                {/*    </div>*/}
+                {/*  ))}*/}
+                {/*</div>*/}
 
-                  {/* 免费获取许可证按钮 - 与下载安装按钮样式保持一致 */}
-                  <button 
-                    className="cursor-pointer h-[48px] lg:h-[54px] flex items-center justify-center gap-[10px] rounded-full bg-[#0087c7] text-white text-[14px] lg:text-[16px] font-bold font-['Plus Jakarta Sans'] px-[20px] lg:px-[30px] py-[12px] lg:py-[15px] shadow-none border-none transition hover:bg-[#0070a6] focus:outline-none w-full sm:w-auto whitespace-nowrap"
-                    style={{ boxShadow: '0px 2px 8px 0px rgba(0,135,199,0.10)' }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      loginCheckAndRedirect(() => {
-                        window.location.href = getApiBaseUrl() + '/#/system/license';
-                      }, 'get_free_license');
-                    }}
+                {/* 开源仓库入口 */}
+                <div className="w-full h-auto flex flex-col sm:flex-row justify-start items-stretch sm:items-center gap-[12px]">
+                  <a
+                    href={CLOUDDM_GITHUB_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="h-[48px] lg:h-[54px] rounded-full border border-black/15 bg-white text-[#131314] px-[18px] lg:px-[22px] flex items-center justify-center gap-[10px] transition-all duration-200 hover:bg-[#f0faff] hover:border-[#0087c7]/40 hover:text-[#0087c7] hover:scale-105 no-underline"
+                    aria-label="GitHub"
+                    title="GitHub"
                   >
-                    <span>免费获取许可证</span>
-                  </button>
-
-                  {/* 快速开始按钮 - 与首页 Quick Start 保持一致 */}
-                  <button 
-                    className="cursor-pointer h-[48px] lg:h-[54px] flex items-center justify-center gap-[10px] rounded-full border border-1 border-solid border-[#0087c7] text-[#0087c7] text-[14px] lg:text-[16px] font-bold font-['Plus Jakarta Sans'] bg-white px-[20px] lg:px-[36px] py-[12px] lg:py-[15px] shadow-none transition hover:bg-[#f0faff] focus:outline-none w-full sm:w-auto whitespace-nowrap"
-                    style={{ boxShadow: '0px 2px 8px 0px rgba(0,135,199,0.10)' }}
-                    onClick={() => window.location.href='/docs/quick/quick_start'}
+                    <GitHubIcon className="w-[22px] h-[22px] lg:w-[24px] lg:h-[24px]" />
+                    <span className="text-[15px] lg:text-[16px] font-bold">GitHub</span>
+                  </a>
+                  <a
+                    href={CLOUDDM_GITEE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="h-[48px] lg:h-[54px] rounded-full border border-black/15 bg-white text-[#c71d23] px-[18px] lg:px-[22px] flex items-center justify-center gap-[10px] transition-all duration-200 hover:bg-[#fff5f5] hover:border-[#c71d23]/40 hover:scale-105 no-underline"
+                    aria-label="Gitee"
+                    title="Gitee"
                   >
-                    <span>快速开始</span>
-                  </button>
-
-                  {/* 更多按钮 */}
-                  <Dropdown
-                    menu={{
-                      items: [
-                        {
-                          key: 'personal-download',
-                          label: (
-                            <Link 
-                              to="#" 
-                              className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                handlePersonalDownload();
-                              }}
-                            >
-                              <Translate id="clouddm.more.downloadPersonal">下载 CloudDM个人版</Translate>
-                            </Link>
-                          ),
-                        },
-                        {
-                          key: 'personal-version',
-                          label: (
-                            <Link 
-                              to="#" 
-                              className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                handleViewPersonalVersion();
-                              }}
-                            >
-                              <Translate id="clouddm.more.viewPersonalVersion">查看个人版版本信息</Translate>
-                            </Link>
-                          ),
-                        },
-                      ],
-                    }}
-                    placement="bottomLeft"
-                    trigger={['click']}
-                    overlayClassName="navbar-dropdown"
-                    destroyPopupOnHide={true}
-                    getPopupContainer={(trigger) => trigger.parentElement || document.body}
-                  >
-                    <div className="w-full sm:w-auto h-[48px] lg:h-[54px] flex justify-center lg:justify-start items-center px-[8px] cursor-pointer whitespace-nowrap hover:opacity-70 transition-opacity">
-                      <span className="text-black opacity-80 text-[14px] lg:text-[16px] font-bold leading-[24px] font-['Plus Jakarta Sans'] flex items-center">
-                        <Translate id="clouddm.more">更多</Translate>
-                      </span>
-                      <ChevronDownIcon className="w-4 h-4 ml-1 flex-shrink-0 text-black opacity-80" />
-                    </div>
-                  </Dropdown>
+                    <GiteeIcon className="w-[20px] h-[20px] lg:w-[22px] lg:h-[22px]" />
+                    <span className="text-[15px] lg:text-[16px] font-bold">Gitee</span>
+                  </a>
                 </div>
               </div>
 
@@ -654,32 +588,37 @@ export default function CloudDM() {
             <div className="w-[1320px] flex flex-col items-center justify-center gap-12 relative z-10">
               <div className="flex flex-col items-center gap-5">
                 <h2 className="text-[48px] font-bold leading-[60px] text-white text-center font-['Plus Jakarta Sans']">
-                  即刻感受团队化的数据库访问方式，<br />
-                  更安全，更自动化
+                  关注并使用开源 CloudDM，<br />
+                  一起构建更安全的数据协作方式
                 </h2>
+                <p className="max-w-[760px] text-[18px] leading-[30px] text-white/80 text-center font-medium m-0">
+                  欢迎在 GitHub / Gitee 查看源码、提交 Issue、参与贡献，或在自己的环境中快速体验 CloudDM。
+                </p>
               </div>
 
               {/* 按钮区 */}
-              <div className="flex flex-row gap-6 mt-8">
-                {/* 下载安装按钮 */}
-                <button 
-                  className={`cursor-pointer h-[54px] px-7 py-[15px] flex items-center gap-3 rounded-full bg-white text-[#0087c7] text-[16px] font-bold font-['Plus Jakarta Sans'] shadow-none border-none transition hover:bg-[f0faff] focus:outline-none min-w-fit w-auto ${
-                    downloadLoading ? 'opacity-50 pointer-events-none' : ''
-                  }`}
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-8">
+                <a
+                  href={CLOUDDM_GITHUB_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-[54px] px-7 py-[15px] flex items-center justify-center gap-3 rounded-full bg-white text-[#131314] text-[16px] font-bold font-['Plus Jakarta Sans'] shadow-none border-none transition hover:bg-[#f0faff] hover:text-[#0087c7] focus:outline-none min-w-fit w-auto no-underline"
                   style={{ boxShadow: '0px 2px 8px 0px rgba(0,135,199,0.10)' }}
-                  onClick={handleDownloadClick}
                 >
-                  <span>{downloadLoading ? 'Loading...' : <Translate id="clouddm.userGuide.downloadInstall">下载安装</Translate>}</span>
-                </button>
+                  <GitHubIcon className="w-[24px] h-[24px]" />
+                  <span>关注 GitHub</span>
+                </a>
 
-                {/* 快速开始按钮 */}
-                <button 
-                  className="cursor-pointer h-[54px] px-7 py-[15px] flex items-center gap-3 rounded-full border border-1 border-solid border-white/60 text-white text-[16px] font-bold font-['Plus Jakarta Sans'] bg-transparent shadow-none transition hover:bg-white/10 focus:outline-none min-w-fit w-auto"
-                  style={{ boxShadow: '0px 2px 8px 0px rgba(255,255,255,0.10)' }}
-                  onClick={() => window.open('/docs/quick/quick_start')}
+                <a
+                  href={CLOUDDM_GITEE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h-[54px] px-7 py-[15px] flex items-center justify-center gap-3 rounded-full bg-white text-[#c71d23] text-[16px] font-bold font-['Plus Jakarta Sans'] shadow-none border-none transition hover:bg-[#fff5f5] focus:outline-none min-w-fit w-auto no-underline"
+                  style={{ boxShadow: '0px 2px 8px 0px rgba(0,135,199,0.10)' }}
                 >
-                  <span><Translate id="clouddm.userGuide.quickStart">快速开始</Translate></span>
-                </button>
+                  <GiteeIcon className="w-[21px] h-[21px]" />
+                  <span>关注 Gitee</span>
+                </a>
               </div>
             </div>
           </section>
