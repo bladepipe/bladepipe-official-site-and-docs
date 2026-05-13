@@ -81,17 +81,28 @@ const config: Config = {
         sitemap: {
           // 排除不需要出现在 sitemap 中的页面路径（支持 glob 模式）
           ignorePatterns: [
+            '/login',
             '/login/',
+            '/register',
             '/register/',
+            '/registerFromMarket',
             '/registerFromMarket/',
+            '/resetPwd',
             '/resetPwd/',
+            '/loading',
             '/loading/',
+            '/404',
             '/404/',
+            '/blog/archive',
             '/blog/archive/',
+            '/blog/authors',
             '/blog/authors/',
+            '/blog/tags',
             '/blog/tags/',
             '/blog/tags/*',
+            '/search',
             '/search/',
+            '/markdown-page',
             '/markdown-page/',
             '/docs/',
           ],
@@ -141,7 +152,7 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
     // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/home/scene_cc1.png",
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
@@ -210,6 +221,7 @@ const config: Config = {
       };
     },
     require.resolve('./src/plugins/robots-txt-plugin'),
+    require.resolve('./src/plugins/llms-txt-plugin'),
   ],
 };
 

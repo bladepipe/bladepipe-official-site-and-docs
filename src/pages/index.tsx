@@ -23,6 +23,8 @@ import CustomBlog from '@site/src/components/custom-blog';
 import Translate from '@docusaurus/Translate';
 import CloudDM from './clouddm';
 import { getPageMeta } from '@site/src/utils/meta';
+import JsonLd from '@site/src/components/JsonLd';
+import { getHomeStructuredData } from '@site/src/utils/structuredData';
 
 import styles from './index.module.css';
 
@@ -67,6 +69,7 @@ export default function Home(): ReactNode {
       <Head>
         <title>{homeMeta.title}</title>
       </Head>
+      <JsonLd data={getHomeStructuredData(siteBrand as string, homeMeta)} />
       <FadeInSection><Banner /></FadeInSection>
       <FadeInSection><UserLogos /></FadeInSection>
       <FadeInSection><BusinessData /></FadeInSection>

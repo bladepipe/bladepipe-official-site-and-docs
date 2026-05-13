@@ -36,15 +36,12 @@ export default function BlogPostRecommendations() {
       } else {
         req = (require as any).context('../../.docusaurus/docusaurus-plugin-content-blog/default', false, /^\.\/site-.*\.json$/);
       }
-      console.log('req:', req);
-      
       // 构建permalink到详细json的映射
       const permalinkToDetail: Record<string, any> = {};
       if (req && req.keys) {
         req.keys().forEach((key: string) => {
           try {
             const detail = req(key);
-            console.log('detail:', detail);
             if (detail && detail.permalink) {
               permalinkToDetail[detail.permalink] = detail;
             }
@@ -54,16 +51,12 @@ export default function BlogPostRecommendations() {
         });
       }
 
-      console.log('permalinkToDetail:', permalinkToDetail);
-
       // 根据 sitebrand 过滤 blog 数据
       let filteredBlogItems = blogListData?.items || [];
       
       filteredBlogItems = filteredBlogItems.filter((item: any) => 
         item.permalink && item.permalink.startsWith('/blog/')
       );
-
-      console.log('BlogPostRecommendations - filteredBlogItems:', filteredBlogItems);
 
       // 获取除了当前博客外的最新3篇博客
       const latest = filteredBlogItems
@@ -96,7 +89,6 @@ export default function BlogPostRecommendations() {
         })
         .filter((blog: any) => blog.title && blog.permalink); // 过滤掉无效的博客
 
-      console.log('BlogPostRecommendations - latest blogs:', latest);
       setLatestBlogs(latest);
     } catch (error) {
       console.error('Failed to load recent blogs:', error);

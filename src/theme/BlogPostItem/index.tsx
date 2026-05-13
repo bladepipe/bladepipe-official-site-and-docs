@@ -10,18 +10,14 @@ type Props = BlogPostItemProps & {
 export default function BlogPostItemWrapper(props: Props): React.JSX.Element {
   const { children, ...blogPostItemProps } = props;
   const [blogImage, setBlogImage] = useState<string>('');
+  const [blogImageAlt, setBlogImageAlt] = useState<string>('Blog image');
   const { siteConfig } = useDocusaurusContext();
   const siteBrand = siteConfig.customFields?.siteBrand as string;
-
-  console.log('BlogPostItemWrapper 被调用了！');
-  console.log('BlogPostItemWrapper props:', props);
-  console.log('Site brand:', siteBrand);
 
   // 直接从 permalinkToDetail 中获取图片信息
   useEffect(() => {
     try {
       const currentPath = window.location.pathname;
-      console.log('当前路径:', currentPath);
       
       // 动态require详细数据 - 根据sitebrand选择不同的路径
       let req;
@@ -39,18 +35,21 @@ export default function BlogPostItemWrapper(props: Props): React.JSX.Element {
         }
       });
       
-      console.log('详细数据映射:', permalinkToDetail);
-      
       // 直接通过当前路径查找详细数据
       const detail = permalinkToDetail[currentPath];
-      console.log('当前博客详细数据:', detail);
       
       if (detail?.frontMatter?.image) {
         setBlogImage(detail.frontMatter.image);
-        console.log('设置博客图片:', detail.frontMatter.image);
+        setBlogImageAlt(
+          detail.frontMatter.image_alt ||
+          detail.frontMatter.imageAlt ||
+          detail.title ||
+          detail.frontMatter.title ||
+          'Blog image'
+        );
       }
     } catch (error) {
-      console.log('无法获取博客数据:', error);
+      // Blog images are optional; fall back to the original post rendering.
     }
   }, [siteBrand]);
 
@@ -73,7 +72,7 @@ export default function BlogPostItemWrapper(props: Props): React.JSX.Element {
             <div className="w-full h-[200px] sm:h-[300px] lg:h-[460px] overflow-hidden rounded-xl sm:rounded-2xl">
               <img 
                 src={blogImage} 
-                alt="Blog Image" 
+                alt={blogImageAlt} 
                 className="w-full h-full object-cover"
               />
             </div>

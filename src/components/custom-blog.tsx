@@ -54,8 +54,6 @@ export default function CustomBlog() {
     const authorName = detail?.frontMatter?.author || authorInfo?.name || (siteBrand === 'clougence' ? 'CloudCanal Team' : 'BladePipe Team');
     const authorImage = authorInfo?.imageURL || authorInfo?.image_url || '';
 
-    console.log('detail', detail);
-    
     return {
       title: item.title,
       permalink: item.permalink,

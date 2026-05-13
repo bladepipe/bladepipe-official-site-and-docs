@@ -45,8 +45,6 @@ export default function BlogListPage({ metadata, items, sidebar }: Props) {
     };
   });
 
-  console.log('blogs', blogs);
-
   // 分类列表
   const allTags = Array.from(new Set(blogs.flatMap(b => b.tags)));
   const categories = ['All', ...allTags];

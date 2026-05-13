@@ -91,8 +91,6 @@ const getLatestBlogs = (siteBrand: string) => {
     }
   });
 
-  console.log('permalinkToDetail', permalinkToDetail);
-  
   // 直接从 permalinkToDetail 中获取匹配的 blog
   const matchedBlogs = Object.values(permalinkToDetail)
     .filter((detail: any) => {

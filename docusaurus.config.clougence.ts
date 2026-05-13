@@ -78,19 +78,32 @@ const config: Config = {
         sitemap: {
           // 排除不需要出现在 sitemap 中的页面路径（支持 glob 模式）
           ignorePatterns: [
+            '/login',
             '/login/',
+            '/register',
             '/register/',
+            '/registerFromMarket',
             '/registerFromMarket/',
+            '/resetPwd',
             '/resetPwd/',
+            '/loading',
             '/loading/',
+            '/404',
             '/404/',
+            '/blog/archive',
             '/blog/archive/',
+            '/blog/authors',
             '/blog/authors/',
+            '/blog/tags',
             '/blog/tags/',
             '/blog/tags/*',
+            '/clouddm',
             '/clouddm/',
+            '/clouddm_solution',
             '/clouddm_solution/',
+            '/search',
             '/search/',
+            '/markdown-page',
             '/markdown-page/',
             '/docs/'
           ],
@@ -134,7 +147,7 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/home/scene_cc1.png',
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula
@@ -149,7 +162,7 @@ const config: Config = {
         name: 'keywords',
         content: 'data+movement,data+integration,cdc,etl,integration,real-time,replication,data+replication,data+pipeline,datapipeline,data+science'
       },
-      { property: 'og:image', content: 'https://www.bladepipe.com/banner_for_link.png' }
+      { property: 'og:image', content: 'https://www.clougence.com/img/home/scene_cc1.png' }
     ],
     navbar: {
       title: '',
@@ -203,6 +216,7 @@ const config: Config = {
       };
     },
     require.resolve('./src/plugins/robots-txt-plugin'),
+    require.resolve('./src/plugins/llms-txt-plugin'),
   ],
 };
 
