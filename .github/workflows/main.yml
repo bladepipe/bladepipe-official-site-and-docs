@@ -20,7 +20,7 @@ on:
       target_repo:
         description: "Target Repository (GitHub repo name)"
         required: true
-        default: "clougence-official-site-and-docs"
+        default: "bladepipe-official-site-and-docs"
 
 jobs:
   sync:
@@ -34,7 +34,7 @@ jobs:
         echo "ENVIRONMENT=production" >> $GITHUB_ENV
         # 定时任务也要给默认的源/目标仓库
         echo "SOURCE_REPO=clougence-official-site-and-docs" >> $GITHUB_ENV
-        echo "TARGET_REPO=clougence-official-site-and-docs" >> $GITHUB_ENV
+        echo "TARGET_REPO=bladepipe-official-site-and-docs" >> $GITHUB_ENV
     - name: Set inputs from workflow_dispatch
       if: github.event_name == 'workflow_dispatch'
       run: |
