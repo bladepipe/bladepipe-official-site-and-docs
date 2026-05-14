@@ -511,7 +511,6 @@ export default function RegisterFromMarket() {
                                           handleRegister(values);
                                         } catch (e) {
                                           // 表单验证失败
-                                          console.log('Form validation failed:', e);
                                         }
                                       }}
                                 >

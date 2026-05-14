@@ -1047,7 +1047,7 @@
     "message": "Copyright © 2025 杭州开云集致科技有限公司 备案号："
   },
   "footer.copyright.clouddm": {
-    "message": "Copyright © 2025 杭州开云集致科技有限公司 备案号："
+    "message": "Copyright © 2026 杭州开云集致科技有限公司 备案号："
   },
   "footer.wechat.scan": {
     "message": "扫码添加小助手微信"
@@ -1160,14 +1160,14 @@
   "about.timeline.clouddm.2024.description": {
     "message": "面向团队化提供更多的数据源更安全的数据库访问，深受企业用户喜爱。"
   },
-  "about.timeline.clouddm.2025.year": {
-    "message": "2025"
+  "about.timeline.clouddm.2026.year": {
+    "message": "2026"
   },
-  "about.timeline.clouddm.2025.title": {
-    "message": "未完待续（至今）"
+  "about.timeline.clouddm.2026.title": {
+    "message": "全面开源"
   },
-  "about.timeline.clouddm.2025.description": {
-    "message": "故事仍在继续。让我们一起期待下一个里程碑。"
+  "about.timeline.clouddm.2026.description": {
+    "message": "CloudDM 全面开源，邀请更多开发者和团队一起参与共建。"
   },
   
   "about.team.title": {

@@ -367,7 +367,7 @@ export default function Footer() {
           <div className="text-[12px] leading-[18px] text-[#262728] font-medium font-['Plus Jakarta Sans']">
             {siteBrand === 'clouddm' ? (
               <div className="opacity-70">
-                <Translate id="footer.copyright.clouddm">Copyright © 2025 杭州开云集致科技有限公司 备案号：</Translate>
+                <Translate id="footer.copyright.clouddm">Copyright © 2026 杭州开云集致科技有限公司 备案号：</Translate>
                 <a 
                   target="_blank" 
                   className="text-[#262728] hover:text-[#0087c7] transition-colors duration-200" 

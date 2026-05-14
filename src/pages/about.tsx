@@ -55,12 +55,12 @@ const getTimelineData = (siteBrand: string) => {
         descriptionText: '面向团队化提供更多的数据源更安全的数据库访问，深受企业用户喜爱。'
       },
       {
-        year: 'about.timeline.clouddm.2025.year',
+        year: 'about.timeline.clouddm.2026.year',
         yearText: '2026',
-        title: 'about.timeline.clouddm.2025.title',
-        titleText: '未完待续（至今）',
-        description: 'about.timeline.clouddm.2025.description',
-        descriptionText: '故事仍在继续。让我们一起期待下一个里程碑。'
+        title: 'about.timeline.clouddm.2026.title',
+        titleText: '全面开源',
+        description: 'about.timeline.clouddm.2026.description',
+        descriptionText: 'CloudDM 全面开源，邀请更多开发者和团队一起参与共建。'
       }
     ];
   } else if (siteBrand === 'clougence') {
@@ -107,12 +107,12 @@ const getTimelineData = (siteBrand: string) => {
         descriptionText: '推出 CloudCanal 云服务，朝着更便利的方向发展'
       },
       {
-        year: 'about.timeline.clouddm.2025.year',
+        year: 'about.timeline.clouddm.2026.year',
         yearText: '2026',
-        title: 'about.timeline.clouddm.2025.title',
-        titleText: '未完待续（至今）',
-        description: 'about.timeline.clouddm.2025.description',
-        descriptionText: '故事仍在继续。让我们一起期待下一个里程碑。'
+        title: 'about.timeline.clouddm.2026.title',
+        titleText: '全面开源',
+        description: 'about.timeline.clouddm.2026.description',
+        descriptionText: 'CloudDM 全面开源，邀请更多开发者和团队一起参与共建。'
       }
     ];
   } else {

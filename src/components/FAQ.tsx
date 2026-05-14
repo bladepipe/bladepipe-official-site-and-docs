@@ -4,6 +4,8 @@ import PlusIcon from '@site/static/img/home/icon/plus.svg';
 import MinusIcon from '@site/static/img/home/icon/minus.svg';
 import siteConfig from '@generated/docusaurus.config';
 import { normalizeLinkForSiteBrand } from '@site/src/utils/nav';
+import JsonLd from '@site/src/components/JsonLd';
+import { getFaqStructuredData } from '@site/src/utils/structuredData';
 
 interface FAQItem {
   id: number;
@@ -58,6 +60,10 @@ const FAQ: React.FC = () => {
   };
 
   const [faqItems, setFaqItems] = useState<FAQItem[]>(getFAQItems());
+  const faqJsonLdItems = faqItems.map((item) => ({
+    question: item.question,
+    answer: item.answer.replace(/\{\{link:([^:]+):([^}]+)\}\}/g, '$1'),
+  }));
 
   const toggleFAQ = (id: number) => {
     setFaqItems(prevItems =>
@@ -113,6 +119,7 @@ const FAQ: React.FC = () => {
 
   return (
     <div className="w-full bg-white py-[48px] sm:py-[72px] lg:py-[96px] px-4 sm:px-8 lg:px-[80px]">
+      <JsonLd data={getFaqStructuredData(faqJsonLdItems)} />
       <div className="w-full max-w-[1320px] mx-auto">
         {/* 标题部分 */}
         <div className="w-full max-w-[612px] mx-auto mb-[40px] sm:mb-[50px] lg:mb-[60px]">
