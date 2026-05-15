@@ -23,7 +23,7 @@ export function getPageMeta(
   const metaConfig: Record<string, Record<string, PageMeta>> = {
     clougence: {
       'home': {
-        title: 'CloudCanal - 让数据流动更简单、精确、稳定、实时',
+        title: 'CloudCanal-企业级数据同步',
         description: 'CloudCanal 提供数据同步、数据迁移、数据集成解决方案，支持60+数据源，实时增量同步，助力企业构建数据驱动的应用。'
       },
       'why': {
@@ -57,7 +57,7 @@ export function getPageMeta(
     },
     clouddm: {
       'home': {
-        title: 'CloudDM - 一站式多数据源开发管理工具',
+        title: 'CloudDM企业级数据管理工具',
         description: 'CloudDM 提供安全的数据访问、数据库CI/CD、变更管理等功能，简化数据库开发流程，提升生产力。'
       },
       'why': {
