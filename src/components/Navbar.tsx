@@ -430,9 +430,9 @@ export default function Navbar() {
                       ),
                     },
                   ] : [
-                    {
-                      key: 'bladepipe',
-                      label: (
+                  {
+                    key: 'bladepipe',
+                    label: (
                         <Link
                           to="/"
                           className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
@@ -724,19 +724,32 @@ export default function Navbar() {
                         </a>
                       ),
                     },
-                    // {
-                    //   key: 'clouddm',
-                    //   label: (
-                    //     <a
-                    //       href="https://www.cdmgr.com"
-                    //       target="_blank"
-                    //       rel="noopener noreferrer"
-                    //       className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                    //     >
-                    //       <Translate id="navbar.learnMore.clouddm">Database Collaboration Management Tool</Translate>
-                    //     </a>
-                    //   ),
-                    // },
+                    {
+                      key: 'clouddm',
+                      label: (
+                        <a
+                          href="https://www.cdmgr.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                        >
+                          <Translate id="navbar.learnMore.clouddm">CloudDM Enterprise Data Management Platform</Translate>
+                        </a>
+                      ),
+                    },
+                    {
+                      key: 're-akh',
+                      label: (
+                        <a
+                          href="https://www.reakh.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                        >
+                          <Translate id="navbar.learnMore.reakh">Reakh AI</Translate>
+                        </a>
+                      ),
+                    },
                   ]
                 }}
                 placement="bottomLeft"
@@ -1285,19 +1298,32 @@ export default function Navbar() {
                               </span>
                             </div>
                           </a>
-                          {/*<a*/}
-                          {/*  href="https://www.cdmgr.com"*/}
-                          {/*  target="_blank"*/}
-                          {/*  rel="noopener noreferrer"*/}
-                          {/*  onClick={() => setMobileOpen(false)}*/}
-                          {/*  className="no-underline"*/}
-                          {/*>*/}
-                          {/*  <div className='flex items-center px-5 py-[10px] h-[44px] cursor-pointer hover:bg-gray-100'>*/}
-                          {/*    <span className="text-[16px] font-medium text-black/80">*/}
-                          {/*      <Translate id="navbar.learnMore.clouddm">Database Collaboration Management Tool</Translate>*/}
-                          {/*    </span>*/}
-                          {/*  </div>*/}
-                          {/*</a>*/}
+                          <a
+                            href="https://www.cdmgr.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setMobileOpen(false)}
+                            className="no-underline"
+                          >
+                            <div className='flex items-center px-5 py-[10px] h-[44px] cursor-pointer hover:bg-gray-100'>
+                              <span className="text-[16px] font-medium text-black/80">
+                                <Translate id="navbar.learnMore.clouddm">CloudDM Enterprise Data Management Platform</Translate>
+                              </span>
+                            </div>
+                          </a>
+                          <a
+                            href="https://www.reakh.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setMobileOpen(false)}
+                            className="no-underline"
+                          >
+                            <div className='flex items-center px-5 py-[10px] h-[44px] cursor-pointer hover:bg-gray-100'>
+                              <span className="text-[16px] font-medium text-black/80">
+                                <Translate id="navbar.learnMore.reakh">Reakh AI</Translate>
+                              </span>
+                            </div>
+                          </a>
                         </div>
                       </div>
                     )}

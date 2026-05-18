@@ -2421,10 +2421,10 @@
     "message": "AI 助手"
   },
   "clougence.contact.fab.label": {
-    "message": "联系我们"
+    "message": "商业合作"
   },
   "clougence.contact.modal.title": {
-    "message": "联系我们"
+    "message": "商业合作"
   },
   "clougence.contact.close": {
     "message": "关闭"
@@ -2454,7 +2454,7 @@
     "message": "请简要描述您的需求或问题"
   },
   "clougence.contact.directTitle": {
-    "message": "直接联系我们"
+    "message": "商务合作联系方式"
   },
   "clougence.contact.direct.phoneLabel": {
     "message": "电话"
@@ -2511,7 +2511,7 @@
     "message": "提交失败，请稍后重试。"
   },
   "clougence.contact.followup.note": {
-    "message": "提交后可获取报价与专业咨询，CloudCanal 专业顾问将结合您的业务场景尽快与您联系，提供针对性方案建议与实施支持。"
+    "message": "提交后可获取商务合作方案与专业咨询，CloudCanal 专业顾问将结合您的业务场景尽快与您联系，提供针对性建议与实施支持。"
   },
   "navbar.tryCloud": {
     "message": "试用云服务"
@@ -2541,7 +2541,10 @@
     "message": "CloudCanal 海外版"
   },
   "navbar.learnMore.clouddm": {
-    "message": "数据库协同管理工具"
+    "message": "CloudDM 数据查询工具"
+  },
+  "navbar.learnMore.reakh": {
+    "message": "阿可 AI"
   },
   "navbar.bladepipe": {
     "message": "BladePipe"
