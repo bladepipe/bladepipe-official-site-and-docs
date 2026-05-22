@@ -34,3 +34,8 @@ For highly tailored scenarios, you can also [upload custom Java code](../operati
 BladePipe supports resilient self-hosted, fully-managed cloud, and Bring Your Own Cloud (BYOC) deployment options, attaching great importance to your data security. 
 
 Choose the [deployment model](../price/plans_diff.md) that fits your team's size, needs, and budget.
+
+## Get Started
+
+- Install BladePipe ([Docker](../productOP/onPremise/installation/install_all_in_one_docker.mdx), [K8s](../productOP/onPremise/installation/install_all_in_one_k8s.mdx) or [Binary](../productOP/onPremise/installation/upgrade_all_in_one_binary.md))
+- [Start your first pipeline](../quick/quick_start.md)

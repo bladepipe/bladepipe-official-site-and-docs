@@ -265,4 +265,4 @@ SQL Server is primarily an OLTP database, but it can also support analytical wor
 
 **Is Snowflake OLAP or OLTP?**
 
-Snowflake is an OLAP-oriented system, optimized for analytical queries on large datasets rather than high-frequency transactional updates.
+[Snowflake](/blog/tech_share/migrate_data_from_mysql_to_snowflake.md) is an OLAP-oriented system, optimized for analytical queries on large datasets rather than high-frequency transactional updates.

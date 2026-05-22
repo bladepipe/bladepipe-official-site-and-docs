@@ -13,7 +13,7 @@ If you've searched for terms like **"how to sync MySQL databases"**, **"MySQL-to
 
 - Keep a **read replica** or analytics database continuously updated
 - Migrate from an old MySQL cluster to a new one with minimal downtime
-- Build a cross-region disaster recovery environment
+- Build a cross-region disaster recovery environment (see [best practices for intercontinental data sync](/blog/data_insights/best_practice_in_intercontinental_data_sync.md))
 - Create an operational data store (ODS)
 - Synchronize multiple MySQL instances across teams or environments
 
@@ -39,7 +39,7 @@ There's no single best sync method—the right choice depends on factors like ho
 
 For most production systems today, especially where downtime and correctness matter, **CDC-based MySQL replication** is usually the safest long-term approach.
 
-If you're new to CDC, see: [What Is Change Data Capture (CDC)?](https://www.bladepipe.com/blog/data_insights/change_data_capture_cdc/)
+If you're new to CDC, see: [What Is Change Data Capture (CDC)?](/blog/data_insights/change_data_capture_cdc.md)
 
 ## What "MySQL Sync" Actually Means
 
@@ -134,7 +134,7 @@ You want at least two layers:
 - Row counts and checksums per table (fast sanity check)
 - Spot-checks for critical tables and edge cases (nulls, decimals, timezones)
 
-For a deeper checklist, see: *[Data Verification](https://www.bladepipe.com/blog/data_insights/data_verification/)*
+For a deeper checklist, see: *[Data Verification](/blog/data_insights/data_verification.md)*
 
 ### 5. Monitor lag, errors, and drift
 

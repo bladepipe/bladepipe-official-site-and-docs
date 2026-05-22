@@ -10,7 +10,7 @@ image: /img/blog/data_insights/data_transformation_service_for_ai.png
 ---
 In 2026, AI success is a data problem. This guide covers how modern **data transformation services** replace stale batch ETL with real-time CDC (< 3s latency)—building the semantic layer that LLMs and Agentic AI require to deliver accurate, trustworthy results.
 
-This is for technical decision-makers, architects, and developers who need to move beyond batch ETL into real-time, intelligent data pipelines.
+This is for technical decision-makers, architects, and developers who need to move beyond batch ETL into real-time, intelligent [data pipelines](best_data_pipeline_tools).
 
 ## Executive Summary
 

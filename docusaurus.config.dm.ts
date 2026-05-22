@@ -15,7 +15,7 @@ const CLOUD_URL = {
   production: "https://console.cdmgr.com",
 };
 const config: Config = {
-  title: "CloudDM - 一站式多数据源开发管理工具",
+  title: "CloudDM企业级数据管理工具",
   tagline: "安全的数据访问，一键串联数据库变更与应用发布，简化流程，提升生产力",
   favicon: "img/dm.ico",
 

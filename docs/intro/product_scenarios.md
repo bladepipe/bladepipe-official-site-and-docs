@@ -49,3 +49,8 @@ Example: [Sync Data from PostgreSQL to PostgreSQL](https://www.bladepipe.com/blo
 BladePipe empowers you to unlock the full potential of your data across endless use cases. You can combine automated schema evolution, data transformation, and continuous CDC to build a tailored data pipeline for your specific requirements. 
 
 Example: [Data Verification and Correction](../bestPractice/verification_and_correction.md)
+
+## Get Started
+
+- Install BladePipe ([Docker](../productOP/onPremise/installation/install_all_in_one_docker.mdx), [K8s](../productOP/onPremise/installation/install_all_in_one_k8s.mdx) or [Binary](../productOP/onPremise/installation/upgrade_all_in_one_binary.md))
+- [Start your first pipeline](../quick/quick_start.md)

@@ -141,7 +141,7 @@ export default function ClougenceContactFab() {
         className="fixed bottom-6 right-6 z-[1000] h-[52px] px-5 rounded-full bg-[#0087c7] text-white text-[16px] font-bold shadow-[0_8px_24px_rgba(0,135,199,0.35)] hover:bg-[#0070a6] transition-colors cursor-pointer border-none outline-none focus:outline-none"
         style={{ border: 'none' }}
       >
-        <Translate id="clougence.contact.fab.label">联系我们</Translate>
+        <Translate id="clougence.contact.fab.label">商业合作</Translate>
       </button>
 
       <Modal visible={visible} onClose={handleClose} width={790} hideCloseButton>
@@ -158,7 +158,7 @@ export default function ClougenceContactFab() {
           </button>
 
           <h2 className="text-[22px] font-bold text-black mb-6 pr-10">
-            <Translate id="clougence.contact.modal.title">联系我们</Translate>
+            <Translate id="clougence.contact.modal.title">商业合作</Translate>
           </h2>
 
           <div className="flex flex-col gap-4">
@@ -254,13 +254,13 @@ export default function ClougenceContactFab() {
 
             <p className="text-[13px] leading-[20px] text-black/65">
               <Translate id="clougence.contact.followup.note">
-                提交后可获取报价与专业咨询，CloudCanal 专业顾问将结合您的业务场景尽快与您联系，提供针对性方案建议与实施支持。
+                提交后可获取商务合作方案与专业咨询，CloudCanal 专业顾问将结合您的业务场景尽快与您联系，提供针对性建议与实施支持。
               </Translate>
             </p>
 
             <div className="rounded-[10px] border border-[rgba(0,0,0,0.08)] bg-[#f8fafc] p-4 flex flex-col gap-3">
               <p className="text-[13px] font-bold text-black m-0">
-                <Translate id="clougence.contact.directTitle">直接联系我们</Translate>
+                <Translate id="clougence.contact.directTitle">商务合作联系方式</Translate>
               </p>
               <div className="flex flex-row flex-wrap items-start gap-x-8 gap-y-2 text-[13px]">
                 <div className="flex gap-2 items-start min-w-0">

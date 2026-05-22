@@ -13,7 +13,7 @@ image: /img/blog/data_insights/etl_vs_elt.png
 
 That single decision shapes performance, cost, scalability, governance, and even how future-proof your architecture is.
 
-The difference between **ETL vs ELT** isn't just the order of letters. It's about **where control lives** in your data pipeline - and where compute power does the heavy lifting.
+The difference between **ETL vs ELT** isn't just the order of letters. It's about **where control lives** in your [data pipeline](best_data_pipeline_tools) - and where compute power does the heavy lifting.
 
 - **ETL** transforms data *before* it reaches the data warehouse.
 - **ELT** loads raw data first, then transforms it *inside* the warehouse.

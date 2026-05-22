@@ -123,7 +123,7 @@ That’s where [**BladePipe**](https://www.bladepipe.com) comes in. BladePipe is
 
 ![Move data to message brokers using BladePipe](../assets/blog/data_insights/kafka_vs_rabbitmq_rocketmq_pulsar/5.png)
 
-* **Real-time, low latency**: It captures database changes via CDC and syncs them into Kafka, RabbitMQ, RocketMQ, and Pulsar within seconds.
+* **Real-time, low latency**: It captures database changes via [CDC](change_data_capture_cdc.md) and syncs them into Kafka, RabbitMQ, RocketMQ, and Pulsar within seconds.
 * **One-stop support**: A single tool to feed [multiple brokers](https://www.bladepipe.com/connector/), no custom sync pipelines required.
 * **Automation & visibility**: A clean UI for configuration, monitoring, and operations, reducing maintenance overhead.
 * **Flexible deployment**: It is available in both [self-hosted and SaaS](https://www.bladepipe.com/pricing/) versions, fitting startups and enterprises alike.
