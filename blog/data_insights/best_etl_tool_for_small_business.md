@@ -79,7 +79,7 @@ Here’s a closer look at the 8 strong ETL tools that small businesses commonly 
 + **Real-Time Data:** It's built to replicate data with very low latency (under 3 seconds). 
 + **Automatic Schema Evolution**: Automatically detect DDL changes and adjust the downstream pipeline without manual intervention.
 + **Flexible Deployment**: Support self-hosting, BYOC and fully managed cloud deployments.
-+ **Automated Workflows:** Set up your data pipelines once and let them run automatically.
++ **Automated Workflows:** Set up your [data pipelines](best_data_pipeline_tools) once and let them run automatically.
 + **Smart Transformation**: It has multiple built-in data transformations, like data masking and data type conversion. Besides, you can write Java for custom transformation.
 + **Monitoring and Alert**: Continuous monitoring and exception alert notification reduce heavy engineering workloads.
 + **Cost-effective**: BladePipe offers competitive pricing compared to many alternatives while keeping production-ready services.

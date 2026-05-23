@@ -29,7 +29,7 @@ Customers expect instant confirmations. Fraud detection must happen within secon
 
 A nightly data job can't support that.
 
-This shift toward immediacy is one of the main drivers behind growing interest in change data capture use cases and real-time data pipelines.
+This shift toward immediacy is one of the main drivers behind growing interest in change data capture use cases and [real-time data pipelines](best_data_pipeline_tools).
 
 ### 2. Dual Writes Create Risk
 
@@ -124,7 +124,7 @@ CDC improves this by:
 - Minimizing warehouse load
 - Keeping analytics systems continuously updated
 
-Whether syncing from OLTP databases to Snowflake, BigQuery, ClickHouse, or data lakes, CDC ensures efficient incremental updates.
+Whether syncing from [OLTP databases to Snowflake](/blog/tech_share/migrate_data_from_mysql_to_snowflake.md), BigQuery, ClickHouse, or data lakes, CDC ensures efficient incremental updates.
 
 ### 3. How CDC Helps Eliminate Dual Writes in Microservices
 

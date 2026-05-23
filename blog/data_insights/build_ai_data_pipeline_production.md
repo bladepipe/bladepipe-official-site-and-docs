@@ -10,7 +10,7 @@ image: /img/blog/data_insights/build_ai_data_pipeline.png
 ---
 You trained a model. It scores 0.98 on your test set. You deploy it. Within a week, predictions drift, recall drops, and someone discovers the training data never included records from the Asia region.
 
-The model wasn't the problem. The **data pipeline** was.
+The model wasn't the problem. The [**data pipeline**](best_data_pipeline_tools) was.
 
 Most AI initiatives fail not because of weak models, but because data pipelines break in ways teams didn't anticipate. This guide cuts through the vendor talk and tells you what actually goes wrong and how to fix it.
 
@@ -79,7 +79,7 @@ This stage is where most engineering time disappears. You'll handle:
 
 Once processed, data lands somewhere:
 
-- **Warehouses** (Snowflake, BigQuery) for structured analytics
+- **Warehouses** ([Snowflake](/blog/tech_share/migrate_data_from_mysql_to_snowflake.md), BigQuery) for structured analytics
 - **Data lakes** (S3, ADLS) for raw storage
 - **Vector databases** (Pinecone, Milvus) for embeddings and similarity search
 

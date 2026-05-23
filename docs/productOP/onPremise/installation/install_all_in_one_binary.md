@@ -237,3 +237,7 @@ Please refer to [License](../../../license/license_use.md) to get the activation
 ## Install a Worker
 
 Please refer to [Install a Worker](add_worker_binary.md).
+
+## Get Started
+
+Please refer to [Quickstart](../../../quick/quick_start.md) to create your first pipeline.

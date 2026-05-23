@@ -105,7 +105,7 @@ They are commonly used for large-scale, mission-critical data migration projects
 
 Open-source migration tools provide greater flexibility and lower licensing costs, but they typically require stronger technical expertise for deployment, customization, and long-term maintenance.
 
-They are well suited for engineering-driven teams that prefer full control over data pipelines.
+They are well suited for engineering-driven teams that prefer full control over [data pipelines](best_data_pipeline_tools).
 
 **Self-Scripted/Custom Tools**
 

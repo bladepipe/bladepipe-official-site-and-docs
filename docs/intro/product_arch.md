@@ -82,3 +82,8 @@ BladePipe implements strict network security measures for multi-tenant and distr
 
 - **Operation Audit**   
   The system audits all Worker communications with the Console. Every action remains fully traceable.
+
+## Get Started
+
+- Install BladePipe ([Docker](../productOP/onPremise/installation/install_all_in_one_docker.mdx), [K8s](../productOP/onPremise/installation/install_all_in_one_k8s.mdx) or [Binary](../productOP/onPremise/installation/upgrade_all_in_one_binary.md))
+- [Start your first pipeline](../quick/quick_start.md)
