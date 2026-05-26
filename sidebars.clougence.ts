@@ -812,6 +812,7 @@ const sidebars: SidebarsConfig = {
         "reference/resource_download",
         "reference/service_difference",
         "reference/apply_code",
+        "reference/enterprise_email_rules",
         "reference/license_overdue",
         "reference/kafka_msg_format_type",
         "reference/debezium_json_notice",
