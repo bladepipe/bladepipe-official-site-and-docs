@@ -1,7 +1,7 @@
 ---
 id: redshift_to_mysql_reverse_etl
 description: A practical guide to Reverse ETL from Amazon Redshift to MySQL using BladePipe Scheduled Scan (Periodic Scan), with incremental sync settings, troubleshooting tips, and best practices.
-title: Reverse ETL:Sync Redshift to MySQL Incrementally with Scheduled Scans
+title: Reverse ETL Tool for Incremental Data Sync from Redshift to MySQL
 date: 2026-04-27
 authors: yuxia 
 tags:

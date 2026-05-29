@@ -9,7 +9,7 @@ tags:
 image:  /img/blog/data_insights/free_fivetran_alternative_bladepipe.png
 ---
 
-Most data engineers don't actively look for a **Fivetran alternative** - until pricing or architecture constraints make it necessary.
+Most data engineers don't actively look for a [**Fivetran alternative**](/blog/data_insights/best_fivetran_alternatives_for_startups.md) - until pricing or architecture constraints make it necessary.
 
 Over the past year, Fivetran has rolled out multiple pricing updates. In March 2025, tiered pricing shifted from the **account level to the connection level**. Then, starting January 1, 2026, another wave of changes introduced a $5 minimum charge per connection, started billing for deletions, and added costs for repeated updates in history mode.
 

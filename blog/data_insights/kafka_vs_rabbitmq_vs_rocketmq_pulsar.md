@@ -129,9 +129,10 @@ That’s where [**BladePipe**](https://www.bladepipe.com) comes in. BladePipe is
 * **Flexible deployment**: It is available in both [self-hosted and SaaS](https://www.bladepipe.com/pricing/) versions, fitting startups and enterprises alike.
 
 Read more: 
-[Stream Data from MySQL to Kafka](https://www.bladepipe.com/blog/tech_share/mysql_kafka_sync/)
-[Stream Data from SQL Server to Kafka](../tech_share/sql_server_to_kafka_cdc_guide.md)
+- [Stream Data from MySQL to Kafka](https://www.bladepipe.com/blog/tech_share/mysql_kafka_sync/)
+- [Stream Data from SQL Server to Kafka](../tech_share/sql_server_to_kafka_cdc_guide.md)
 
 With BladePipe, teams can focus less on building fragile data pipelines and more on building value on top of their data. Whether you’re powering a real-time data warehouse or supporting multi-cloud active-active systems, BladePipe ensures your data keeps flowing smoothly.
 
-[Start free trial](https://www.bladepipe.com/login/) or [book a demo](https://cal.com/bladepipe-xxypci/30min) to see it in action.
+
+Ready to test real-time streaming across Kafka, RabbitMQ, RocketMQ, or Pulsar? Download [free BladePipe Community Edition](https://www.bladepipe.com/) or schedule a [technical demo](https://cal.com/bladepipe-xxypci/30min).

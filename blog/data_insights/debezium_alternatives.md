@@ -61,7 +61,7 @@ To solve the setup and operational complexity issue of Debezium, many tools are 
 ### Open-Source / Freemium Engines
 1. **BladePipe**
 
-[BladePipe](https://www.bladepipe.com/) is a modern CDC pipeline tool that doesn't require Kafka to function. You get a clean web UI, end-to-end pipeline management, and solid observability, all without standing up a distributed messaging layer first. It also has [paid plans](https://www.bladepipe.com/pricing/) for enterprise-scale needs.
+[BladePipe](https://www.bladepipe.com/) is a modern CDC pipeline tool that doesn't require Kafka to function. You get a clean web UI, end-to-end pipeline management, and solid observability, all without standing up a distributed messaging layer first. It has [both free and paid plans](https://www.bladepipe.com/pricing/) for enterprise-scale needs.
 
 + End-to-End ETL/CDC pipelines with sub-second latency
 + Built-in schema migration and data transformation
