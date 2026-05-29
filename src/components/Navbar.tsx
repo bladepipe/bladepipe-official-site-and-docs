@@ -750,6 +750,19 @@ export default function Navbar() {
                         </a>
                       ),
                     },
+                    {
+                      key: 'icuecast',
+                      label: (
+                        <a
+                          href="https://www.icuecast.com"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                        >
+                          <Translate id="navbar.learnMore.icuecast">CueCast Automated Testing Tool</Translate>
+                        </a>
+                      ),
+                    },
                   ]
                 }}
                 placement="bottomLeft"
@@ -1321,6 +1334,19 @@ export default function Navbar() {
                             <div className='flex items-center px-5 py-[10px] h-[44px] cursor-pointer hover:bg-gray-100'>
                               <span className="text-[16px] font-medium text-black/80">
                                 <Translate id="navbar.learnMore.reakh">Reakh AI</Translate>
+                              </span>
+                            </div>
+                          </a>
+                          <a
+                            href="https://www.icuecast.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => setMobileOpen(false)}
+                            className="no-underline"
+                          >
+                            <div className='flex items-center px-5 py-[10px] h-[44px] cursor-pointer hover:bg-gray-100'>
+                              <span className="text-[16px] font-medium text-black/80">
+                                <Translate id="navbar.learnMore.icuecast">CueCast Automated Testing Tool</Translate>
                               </span>
                             </div>
                           </a>

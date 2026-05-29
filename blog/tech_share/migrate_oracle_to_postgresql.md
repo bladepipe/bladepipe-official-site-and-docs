@@ -115,7 +115,7 @@ Once that's all in order, let's get into the step-by-step guide for each method.
 
 ## Method 1: Migrating with BladePipe
 ### Prerequisites
-+ A [BladePipe account](https://www.bladepipe.com/login/)
++ Access to BladePipe — either by deploying the [free Community Edition](https://www.bladepipe.com/) locally or [signing up for a free BladePipe Cloud trial](https://www.bladepipe.com/register/).
 + Oracle Database 10g or above
 + A target PostgreSQL instance (self-hosted or managed cloud)
 

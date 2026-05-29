@@ -36,7 +36,6 @@ title: 6.1.0.0
 - 优化 新增 OceanBase 数据源时，默认参数 obIncreMode 的默认值从 LogProxy 修改为 Binlog
 - 优化 OceanBase 源端通过时间戳重置位点，文件位点信息没有清空
 - 优化 隔离 StarRocks 插件中的 Arrow/Netty 依赖，避免与上层工程的 Netty 类加载冲突
-- 优化 同一任务短时间（与 CloudCanal 系统参数 taskAlertInhibitMin 相关）内出现不同异常，后续异常告警没有正常发送的问题
 
 ## 问题修复
 - 修复 查看表结构历史页面分页问题
@@ -52,3 +51,4 @@ title: 6.1.0.0
 - 修复 容器部署模式下的任务日志时间以 UTC 展示而非宿主机时间的问题
 - 修复 OceanBase for Oracle 对端无主键表插入使用 MERGE 语法导致写入失败的问题
 - 修复 任务异常退出时告警上报被中断导致丢失异常告警的问题
+- 修复 同一任务短时间（与 CloudCanal 系统参数 taskAlertInhibitMin 相关）内出现不同异常，后续异常告警没有正常发送的问题

@@ -2546,6 +2546,9 @@
   "navbar.learnMore.reakh": {
     "message": "阿可 AI"
   },
+  "navbar.learnMore.icuecast": {
+    "message": "CueCast 自动化测试工具"
+  },
   "navbar.bladepipe": {
     "message": "BladePipe"
   },

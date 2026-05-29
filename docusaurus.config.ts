@@ -223,9 +223,9 @@ const config: Config = {
     // 公告栏配置
     announcement: {
       enabled: true, // 设置为 true 启用公告栏
-      text: 'BladePipe 1.6.0 supports Snowflake, Hologres and CloudBerry.', // 公告文本（支持 i18n）
-      linkUrl: '/docs/releaseNote/rn-bladepipe-1-6-0/', // 链接地址（整个区域可点击）
-      endDate: '2026-05-30T23:59:59' // 可选：结束日期（ISO 格式），如 '2025-12-31T23:59:59'，超过此时间后不再显示。不设置则永久显示（当 enabled 为 true 时）
+      text: 'BladePipe 1.7.0: Stronger alerts, Broader DB support, Faster KingbaseES scanning.', // 公告文本（支持 i18n）
+      linkUrl: '/docs/releaseNote/rn-bladepipe-1-7-0/', // 链接地址（整个区域可点击）
+      endDate: '2026-06-30T23:59:59' // 可选：结束日期（ISO 格式），如 '2025-12-31T23:59:59'，超过此时间后不再显示。不设置则永久显示（当 enabled 为 true 时）
     }
   },
 

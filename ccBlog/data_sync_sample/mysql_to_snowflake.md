@@ -6,7 +6,7 @@ date: 2026-05-15
 authors: yuxia 
 tags:
   - data_sync_sample
-image: /img/blog/tutorials/migrate_data_from_mysql_to_snowflake.png
+image: https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/blog/ccBlog/data_sync_sample/mysql_snowflake.png
 slug: /data_sync_sample/migrate_data_from_mysql_to_snowflake
 ---
 
