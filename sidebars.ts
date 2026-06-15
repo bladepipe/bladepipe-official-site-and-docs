@@ -578,6 +578,7 @@ const sidebars: SidebarsConfig = {
             "openCenter/openApi/dataTaskApi/api_datajob_queryjobschema",
             "openCenter/openApi/dataTaskApi/api_datajob_queryjobcreatedetail",
             "openCenter/openApi/dataTaskApi/api_datajob_queryjobmetric",
+            "openCenter/openApi/dataTaskApi/api_datajob_queryjobtuneinsight",
             "openCenter/openApi/dataTaskApi/api_datajob_queryjobposition",
             "openCenter/openApi/dataTaskApi/api_datajob_start",
             "openCenter/openApi/dataTaskApi/api_datajob_stop",

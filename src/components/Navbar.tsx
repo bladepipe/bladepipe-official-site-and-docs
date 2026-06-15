@@ -15,6 +15,52 @@ import GoogleTranslate from '@site/src/components/GoogleTranslate';
 const CLOUDDM_GITHUB_URL = 'https://github.com/ClouGence/open-cdm';
 const CLOUDDM_GITEE_URL = 'https://gitee.com/clougence/open-cdm';
 
+type LearnMoreLink = {
+  key: string;
+  href: string;
+  labelId: string;
+  defaultLabel: string;
+};
+
+const CLOUGENCE_LEARN_MORE_LINKS: LearnMoreLink[] = [
+  { key: 'bladepipe', href: 'https://www.bladepipe.com', labelId: 'navbar.learnMore.bladepipe', defaultLabel: 'CloudCanal Overseas Edition' },
+  { key: 'clouddm', href: 'https://www.cdmgr.com/', labelId: 'navbar.learnMore.clouddm', defaultLabel: 'CloudDM Enterprise Data Management Platform' },
+  { key: 're-akh', href: 'https://www.reakh.com/', labelId: 'navbar.learnMore.reakh', defaultLabel: 'Reakh AI' },
+  { key: 'icuecast', href: 'https://www.icuecast.com', labelId: 'navbar.learnMore.icuecast', defaultLabel: 'CueCast Automated Testing Tool' },
+];
+
+const CLOUDDM_LEARN_MORE_LINKS: LearnMoreLink[] = [
+  { key: 're-akh', href: 'https://www.reakh.com/', labelId: 'navbar.learnMore.reakh', defaultLabel: 'Reakh AI' },
+  { key: 'cloudcanal', href: 'https://www.clougence.com', labelId: 'navbar.learnMore.cloudcanal', defaultLabel: 'CloudCanal Data Sync Tool' },
+  { key: 'icuecast', href: 'https://www.icuecast.com', labelId: 'navbar.learnMore.icuecast', defaultLabel: 'CueCast Automated Testing Tool' },
+];
+
+function getLearnMoreLinks(siteBrand: string | undefined): LearnMoreLink[] {
+  if (siteBrand === 'clouddm') {
+    return CLOUDDM_LEARN_MORE_LINKS;
+  }
+  if (siteBrand === 'clougence') {
+    return CLOUGENCE_LEARN_MORE_LINKS;
+  }
+  return [];
+}
+
+function renderLearnMoreDropdownItems(links: LearnMoreLink[]): MenuProps['items'] {
+  return links.map(({ key, href, labelId, defaultLabel }) => ({
+    key,
+    label: (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+      >
+        <Translate id={labelId}>{defaultLabel}</Translate>
+      </a>
+    ),
+  }));
+}
+
 function GitHubIcon({ className = 'w-5 h-5' }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
@@ -34,6 +80,7 @@ function GiteeIcon({ className = 'w-5 h-5' }: { className?: string }) {
 export default function Navbar() {
   const { siteConfig } = useDocusaurusContext();
   const siteBrand = siteConfig.customFields?.siteBrand;
+  const learnMoreLinks = getLearnMoreLinks(siteBrand);
   const logoSrc = siteBrand === 'clougence' ? '/img/home/CloudCanal.svg' : siteBrand === 'clouddm' ? '/img/home/CloudDM.svg' : '/img/home/BladePipe.png';
   const location = useLocation();
 
@@ -701,8 +748,8 @@ export default function Navbar() {
               </span>
             </div>
           </Link>
-          {/* 了解更多 - 仅 clougence 显示 */}
-          {siteBrand === 'clougence' && (
+          {/* 了解更多 - clougence / clouddm 显示 */}
+          {learnMoreLinks.length > 0 && (
             <div
               className="flex-shrink-0"
               data-desktop-nav-item
@@ -710,60 +757,7 @@ export default function Navbar() {
             >
               <Dropdown
                 menu={{
-                  items: [
-                    {
-                      key: 'bladepipe',
-                      label: (
-                        <a
-                          href="https://www.bladepipe.com"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                        >
-                          <Translate id="navbar.learnMore.bladepipe">CloudCanal Overseas Edition</Translate>
-                        </a>
-                      ),
-                    },
-                    {
-                      key: 'clouddm',
-                      label: (
-                        <a
-                          href="https://www.cdmgr.com/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                        >
-                          <Translate id="navbar.learnMore.clouddm">CloudDM Enterprise Data Management Platform</Translate>
-                        </a>
-                      ),
-                    },
-                    {
-                      key: 're-akh',
-                      label: (
-                        <a
-                          href="https://www.reakh.com/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                        >
-                          <Translate id="navbar.learnMore.reakh">Reakh AI</Translate>
-                        </a>
-                      ),
-                    },
-                    {
-                      key: 'icuecast',
-                      label: (
-                        <a
-                          href="https://www.icuecast.com"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
-                        >
-                          <Translate id="navbar.learnMore.icuecast">CueCast Automated Testing Tool</Translate>
-                        </a>
-                      ),
-                    },
-                  ]
+                  items: renderLearnMoreDropdownItems(learnMoreLinks),
                 }}
                 placement="bottomLeft"
                 trigger={['hover']}
@@ -888,12 +882,12 @@ export default function Navbar() {
                         ),
                       };
                     }
-                    if (key === 'learnmore' && siteBrand === 'clougence') {
+                    if (key === 'learnmore' && learnMoreLinks.length > 0) {
                       return {
                         key: 'more-learnmore',
                         label: (
                           <a
-                            href="https://www.bladepipe.com"
+                            href={learnMoreLinks[0].href}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
@@ -1279,8 +1273,8 @@ export default function Navbar() {
               </Link>
               <div className='h-px bg-black/[0.08] w-full' />
 
-              {/* 了解更多 - 仅 clougence 显示 */}
-              {siteBrand === 'clougence' && (
+              {/* 了解更多 - clougence / clouddm 显示 */}
+              {learnMoreLinks.length > 0 && (
                 <>
                   <div
                     className={`flex flex-col ${mobileMenuExpanded === 'learnmore' ? 'bg-[#0087c7]/10' : ''}`}
@@ -1298,58 +1292,22 @@ export default function Navbar() {
                     {mobileMenuExpanded === 'learnmore' && (
                       <div className="bg-white px-[10px] py-[10px]">
                         <div className="flex flex-col gap-[3px]">
-                          <a
-                            href="https://www.bladepipe.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => setMobileOpen(false)}
-                            className="no-underline"
-                          >
-                            <div className='flex items-center px-5 py-[10px] h-[44px] cursor-pointer hover:bg-gray-100'>
-                              <span className="text-[16px] font-medium text-black/80">
-                                <Translate id="navbar.learnMore.bladepipe">CloudCanal Overseas Edition</Translate>
-                              </span>
-                            </div>
-                          </a>
-                          <a
-                            href="https://www.cdmgr.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => setMobileOpen(false)}
-                            className="no-underline"
-                          >
-                            <div className='flex items-center px-5 py-[10px] h-[44px] cursor-pointer hover:bg-gray-100'>
-                              <span className="text-[16px] font-medium text-black/80">
-                                <Translate id="navbar.learnMore.clouddm">CloudDM Enterprise Data Management Platform</Translate>
-                              </span>
-                            </div>
-                          </a>
-                          <a
-                            href="https://www.reakh.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => setMobileOpen(false)}
-                            className="no-underline"
-                          >
-                            <div className='flex items-center px-5 py-[10px] h-[44px] cursor-pointer hover:bg-gray-100'>
-                              <span className="text-[16px] font-medium text-black/80">
-                                <Translate id="navbar.learnMore.reakh">Reakh AI</Translate>
-                              </span>
-                            </div>
-                          </a>
-                          <a
-                            href="https://www.icuecast.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => setMobileOpen(false)}
-                            className="no-underline"
-                          >
-                            <div className='flex items-center px-5 py-[10px] h-[44px] cursor-pointer hover:bg-gray-100'>
-                              <span className="text-[16px] font-medium text-black/80">
-                                <Translate id="navbar.learnMore.icuecast">CueCast Automated Testing Tool</Translate>
-                              </span>
-                            </div>
-                          </a>
+                          {learnMoreLinks.map(({ key, href, labelId, defaultLabel }) => (
+                            <a
+                              key={key}
+                              href={href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => setMobileOpen(false)}
+                              className="no-underline"
+                            >
+                              <div className='flex items-center px-5 py-[10px] h-[44px] cursor-pointer hover:bg-gray-100'>
+                                <span className="text-[16px] font-medium text-black/80">
+                                  <Translate id={labelId}>{defaultLabel}</Translate>
+                                </span>
+                              </div>
+                            </a>
+                          ))}
                         </div>
                       </div>
                     )}

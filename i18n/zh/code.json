@@ -2540,6 +2540,9 @@
   "navbar.learnMore.bladepipe": {
     "message": "CloudCanal 海外版"
   },
+  "navbar.learnMore.cloudcanal": {
+    "message": "CloudCanal 数据同步工具"
+  },
   "navbar.learnMore.clouddm": {
     "message": "CloudDM 数据查询工具"
   },
