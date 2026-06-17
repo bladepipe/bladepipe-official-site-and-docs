@@ -17,6 +17,7 @@ type ConnectionRouteData = {
   target: string;
   targetSlug: string;
   linksPath: string;
+  routePath: string;
   sidebarItems: unknown[];
 };
 
@@ -81,7 +82,7 @@ export default function ConnectionRoutePage({ routeData }: Props) {
   const description = isChinese
     ? `${productName} 支持从 ${routeData.sourceTitle} 到 ${currentTarget} 的数据迁移、同步、校验和链路能力。`
     : `${productName} supports data replication from ${routeData.sourceTitle} to ${currentTarget}. View supported migration, sync, verification, and connector capabilities.`;
-  const canonicalPath = `/docs/dataMigrationAndSync/connection/${routeData.sourceDocId}/${routeData.targetSlug}/`;
+  const canonicalPath = routeData.routePath;
   const canonicalUrl = `${siteConfig.url.replace(/\/+$/, '')}${canonicalPath}`;
   const sidebarItems = withActiveSourceHref(routeData.sidebarItems, routeData.sourceDocId, canonicalPath);
 

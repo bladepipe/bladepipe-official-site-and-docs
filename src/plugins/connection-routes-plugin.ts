@@ -3,6 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 type ConnectionPage = {
+  routePath: string;
   docsDir: string;
   sourceType: string;
   sourceTitle: string;
@@ -34,6 +35,14 @@ type SidebarItem =
     };
 
 const CONNECTION_PATH = 'dataMigrationAndSync/connection';
+
+function withBaseUrl(baseUrl: string, pathname: string) {
+  const normalizedBaseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+  if (!normalizedBaseUrl) {
+    return pathname;
+  }
+  return `${normalizedBaseUrl}${pathname}`;
+}
 
 function getBrandDocsDir(siteBrand: unknown) {
   return siteBrand === 'clougence' ? 'ccDocs' : 'docs';
@@ -178,7 +187,7 @@ function getTargetNames(indexPath: string) {
     .filter(Boolean);
 }
 
-function buildSidebarItems(siteBrand: unknown, sourcePages: SourcePage[]): SidebarItem[] {
+function buildSidebarItems(siteBrand: unknown, sourcePages: SourcePage[], baseUrl: string): SidebarItem[] {
   const labels = getSidebarLabels(siteBrand);
   return [
     {
@@ -190,7 +199,7 @@ function buildSidebarItems(siteBrand: unknown, sourcePages: SourcePage[]): Sideb
         {
           type: 'link',
           label: labels.datasourceVersion,
-          href: '/docs/dataMigrationAndSync/datasource_version',
+          href: withBaseUrl(baseUrl, '/docs/dataMigrationAndSync/datasource_version'),
           docId: 'dataMigrationAndSync/datasource_version',
         },
         {
@@ -201,7 +210,7 @@ function buildSidebarItems(siteBrand: unknown, sourcePages: SourcePage[]): Sideb
           items: sourcePages.map((sourcePage) => ({
             type: 'link',
             label: sourcePage.sourceTitle,
-            href: `/docs/dataMigrationAndSync/connection/${sourcePage.sourceDocId}`,
+            href: withBaseUrl(baseUrl, `/docs/dataMigrationAndSync/connection/${sourcePage.sourceDocId}`),
             docId: `dataMigrationAndSync/connection/${sourcePage.sourceDocId}`,
           })),
         },
@@ -210,7 +219,7 @@ function buildSidebarItems(siteBrand: unknown, sourcePages: SourcePage[]): Sideb
   ];
 }
 
-function getConnectionPages(siteDir: string, siteBrand: unknown): ConnectionPage[] {
+function getConnectionPages(siteDir: string, siteBrand: unknown, baseUrl: string): ConnectionPage[] {
   const docsDir = getBrandDocsDir(siteBrand);
   const connectionDir = path.join(siteDir, docsDir, CONNECTION_PATH);
   const docFiles = fs.readdirSync(connectionDir).filter((file) => file.endsWith('.mdx'));
@@ -223,7 +232,7 @@ function getConnectionPages(siteDir: string, siteBrand: unknown): ConnectionPage
       };
     })
     .filter((sourcePage) => sourcePage.sourceDocId && sourcePage.sourceTitle);
-  const sidebarItems = buildSidebarItems(siteBrand, sourcePages);
+  const sidebarItems = buildSidebarItems(siteBrand, sourcePages, baseUrl);
 
   return docFiles.flatMap((file) => {
     const docPath = path.join(connectionDir, file);
@@ -243,16 +252,22 @@ function getConnectionPages(siteDir: string, siteBrand: unknown): ConnectionPage
       return [];
     }
 
-    return getTargetNames(indexPath).map((target) => ({
-      docsDir,
-      sourceType: sourceTypeMatch[1],
-      sourceTitle,
-      sourceDocId,
-      target,
-      targetSlug: slugifyConnectionTarget(target),
-      linksPath,
-      sidebarItems,
-    }));
+    return getTargetNames(indexPath).map((target) => {
+      const targetSlug = slugifyConnectionTarget(target);
+      const routePath = withBaseUrl(baseUrl, `/docs/dataMigrationAndSync/connection/${sourceDocId}/${targetSlug}/`);
+
+      return {
+        routePath,
+        docsDir,
+        sourceType: sourceTypeMatch[1],
+        sourceTitle,
+        sourceDocId,
+        target,
+        targetSlug,
+        linksPath,
+        sidebarItems,
+      };
+    });
   });
 }
 
@@ -260,7 +275,7 @@ export default function connectionRoutesPlugin(context: LoadContext): Plugin<Con
   return {
     name: 'connection-routes-plugin',
     async loadContent() {
-      return getConnectionPages(context.siteDir, context.siteConfig.customFields?.siteBrand);
+      return getConnectionPages(context.siteDir, context.siteConfig.customFields?.siteBrand, context.baseUrl);
     },
     async contentLoaded({ content, actions }) {
       const { addRoute, createData } = actions;
@@ -268,7 +283,7 @@ export default function connectionRoutesPlugin(context: LoadContext): Plugin<Con
       await Promise.all(
         content.map(async (routeData) => {
           addRoute({
-            path: `/docs/dataMigrationAndSync/connection/${routeData.sourceDocId}/${routeData.targetSlug}/`,
+            path: routeData.routePath,
             exact: true,
             component: '@site/src/components/ConnectionRoutePage',
             modules: {
