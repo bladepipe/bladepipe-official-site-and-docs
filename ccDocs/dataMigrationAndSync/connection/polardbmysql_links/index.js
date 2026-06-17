@@ -5,6 +5,7 @@ import {AnalyticDbForPg, Greenplum, PostgreSQL} from "./postgresql";
 import {StarRocks} from "./starrocks";
 import {Kafka} from "./kafka";
 import {TiDB} from "./tidb";
+import {OceanBase} from "./oceanbase";
 
 export default {
     'PolarDb for MySQL': PolarDbForMySQL,
@@ -14,6 +15,7 @@ export default {
     Greenplum,
     StarRocks,
     TiDB,
+    OceanBase,
     Kafka,
     'AnalyticDb for MySQL': AnalyticDbForMySQL,
     'AnalyticDb for Pg': AnalyticDbForPg,

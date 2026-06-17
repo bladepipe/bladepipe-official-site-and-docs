@@ -46,7 +46,7 @@ const DATA_SOURCE_LINK = {
   ],
   "PolarDB-MySQL": [
     "MySQL/MariaDB/AuroraMySQL", "PostgreSQL", "AuroraPostgreSQL", "Greenplum", "Kafka", "RocketMQ", "PolarDB-MySQL", "Tunnel",
-    "ClickHouse", "StarRocks", "Doris", "SelectDB", "TiDB", "ADB for MySQL", "ADB for PostgreSQL", "Elasticsearch"
+    "ClickHouse", "StarRocks", "Doris", "SelectDB", "TiDB", "OceanBase", "ADB for MySQL", "ADB for PostgreSQL", "Elasticsearch"
   ],
   "PolarDB PostgreSQL": [
     "MySQL/MariaDB/AuroraMySQL","StarRocks", "Doris", "SelectDB", "PolarDB PostgreSQL"

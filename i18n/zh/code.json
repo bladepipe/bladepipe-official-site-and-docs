@@ -3621,6 +3621,360 @@
   "pricing.calculator.description": {
     "message": "根据链路使用量和数据量估算每月成本，透明、基于使用的定价。"
   },
+  "connector.detail.notFound.title": {
+    "message": "连接器未找到"
+  },
+  "connector.detail.notFound.description": {
+    "message": "未找到请求的连接器。"
+  },
+  "connector.detail.pageTitle": {
+    "message": "{connectorName} | {productName}"
+  },
+  "connector.detail.pageDescription": {
+    "message": "{productName} 支持将 {connectorName} 作为{capability}连接器，用于实时数据集成、数据迁移、数据同步和分析链路。"
+  },
+  "connector.detail.capability.sourceAndTarget": {
+    "message": "源端和目标端"
+  },
+  "connector.detail.capability.source": {
+    "message": "源端"
+  },
+  "connector.detail.capability.target": {
+    "message": "目标端"
+  },
+  "connector.detail.capability.integration": {
+    "message": "集成"
+  },
+  "connector.detail.breadcrumb.connectors": {
+    "message": "连接器"
+  },
+  "connector.detail.allConnectors": {
+    "message": "所有连接器"
+  },
+  "connector.detail.viewAllConnectors": {
+    "message": "查看所有连接器"
+  },
+  "connector.detail.startWithDocs": {
+    "message": "查看文档"
+  },
+  "connector.detail.heroTitle": {
+    "message": "{connectorName} 连接器"
+  },
+  "connector.detail.source": {
+    "message": "源端"
+  },
+  "connector.detail.target": {
+    "message": "目标端"
+  },
+  "connector.detail.supported": {
+    "message": "支持"
+  },
+  "connector.detail.no": {
+    "message": "否"
+  },
+  "connector.detail.businessOnly": {
+    "message": "Business ONLY"
+  },
+  "connector.detail.category.database": {
+    "message": "数据库"
+  },
+  "connector.detail.category.analytics": {
+    "message": "分析"
+  },
+  "connector.detail.category.streaming": {
+    "message": "消息与流"
+  },
+  "connector.detail.category.fileAndLake": {
+    "message": "文件与湖仓"
+  },
+  "connector.detail.category.cache": {
+    "message": "缓存"
+  },
+  "connector.detail.category.ai": {
+    "message": "AI"
+  },
+  "connector.detail.categorySummary.streaming": {
+    "message": "{productName} 可以帮助团队将 {connectorName} 与数据库、数仓、湖仓表和下游服务连接起来，构建低延迟的事件流和 CDC 投递链路。"
+  },
+  "connector.detail.categorySummary.analytics": {
+    "message": "{productName} 可以将新鲜的业务数据实时写入 {connectorName}，用于实时分析、报表和数据仓库现代化。"
+  },
+  "connector.detail.categorySummary.fileAndLake": {
+    "message": "{productName} 支持在湖仓、文件采集和 AI 就绪数据准备流程中使用 {connectorName}。"
+  },
+  "connector.detail.categorySummary.cache": {
+    "message": "{productName} 支持围绕 {connectorName} 构建缓存同步、业务复制和低延迟服务链路。"
+  },
+  "connector.detail.categorySummary.ai": {
+    "message": "{productName} 可将 {connectorName} 接入 AI 数据工作流，用于 RAG、模型服务和企业知识链路。"
+  },
+  "connector.detail.categorySummary.database": {
+    "message": "{productName} 支持通过 {connectorName} 构建数据库迁移、实时同步、CDC 复制、数据校验和分析链路。"
+  },
+  "connector.detail.productionTitle": {
+    "message": "使用 {connectorName} 构建生产级数据链路"
+  },
+  "connector.detail.feature.realTime.title": {
+    "message": "实时流动"
+  },
+  "connector.detail.feature.realTime.description": {
+    "message": "构建低延迟的 {connectorName} 数据链路，让数据持续保持新鲜，而不是只依赖批处理。"
+  },
+  "connector.detail.feature.fullIncremental.title": {
+    "message": "全量与增量"
+  },
+  "connector.detail.feature.fullIncremental.sourceDescription": {
+    "message": "在连接器能力支持的前提下，可将 {connectorName} 作为源端执行初始加载和持续增量更新。"
+  },
+  "connector.detail.feature.fullIncremental.targetDescription": {
+    "message": "将处理后的数据写入 {connectorName}，纳入受治理的下游数据链路。"
+  },
+  "connector.detail.feature.operation.title": {
+    "message": "运维可控"
+  },
+  "connector.detail.feature.operation.description": {
+    "message": "{productName} 为生产数据团队提供可视化配置、监控、重试和运维流程。"
+  },
+  "connector.detail.feature.enterprise.title": {
+    "message": "企业可用"
+  },
+  "connector.detail.feature.enterprise.description": {
+    "message": "明确网络、权限和部署选项，让链路适配云端、BYOC 和本地部署环境。"
+  },
+  "connector.detail.pipelineTitle": {
+    "message": "常见的 {connectorName} 链路模式"
+  },
+  "connector.detail.pipelinePatternDescription": {
+    "message": "当你需要可重复的数据流动、运维可观测性，以及从配置到生产监控的完整路径时，可以采用这种模式。"
+  },
+  "connector.detail.pipeline.streaming.analytics": {
+    "message": "{connectorName} 到数据仓库，用于实时分析"
+  },
+  "connector.detail.pipeline.streaming.analytics.description": {
+    "message": "将事件流持续写入分析存储，让报表、监控和指标系统可以消费更新鲜的数据。"
+  },
+  "connector.detail.pipeline.streaming.cdc": {
+    "message": "数据库 CDC 到 {connectorName}，用于事件驱动应用"
+  },
+  "connector.detail.pipeline.streaming.cdc.description": {
+    "message": "把数据库变更发布到 {connectorName}，让下游服务能够响应新增、更新和删除事件。"
+  },
+  "connector.detail.pipeline.streaming.lakehouse": {
+    "message": "{connectorName} 到湖仓存储，用于可回放的数据链路"
+  },
+  "connector.detail.pipeline.streaming.lakehouse.description": {
+    "message": "将流式数据沉淀到湖仓表中，用于历史分析、数据回放以及批流统一处理。"
+  },
+  "connector.detail.pipeline.analytics.dashboard": {
+    "message": "MySQL 或 PostgreSQL 到 {connectorName}，用于实时看板"
+  },
+  "connector.detail.pipeline.analytics.dashboard.description": {
+    "message": "将业务库数据同步到分析引擎，让 BI 看板和核心指标更接近实时。"
+  },
+  "connector.detail.pipeline.analytics.migration": {
+    "message": "Oracle 或 SQL Server 到 {connectorName}，用于迁移和报表"
+  },
+  "connector.detail.pipeline.analytics.migration.description": {
+    "message": "通过全量和增量同步降低迁移停机时间，并在切换期间保持旧报表可用。"
+  },
+  "connector.detail.pipeline.analytics.unified": {
+    "message": "Kafka 或文件数据写入 {connectorName}，用于统一分析"
+  },
+  "connector.detail.pipeline.analytics.unified.description": {
+    "message": "汇聚流式数据和文件数据，用于统一查询、建模和下游分析。"
+  },
+  "connector.detail.pipeline.fileLake.operational": {
+    "message": "业务数据写入 {connectorName}，用于湖仓存储"
+  },
+  "connector.detail.pipeline.fileLake.operational.description": {
+    "message": "将数据库和应用数据落入持久化存储，用于湖仓表、审计和长期分析。"
+  },
+  "connector.detail.pipeline.fileLake.aiReady": {
+    "message": "{connectorName} 采集到 AI 就绪的知识链路"
+  },
+  "connector.detail.pipeline.fileLake.aiReady.description": {
+    "message": "把源端数据整理成文件或湖仓资产，供检索、向量化和模型工作流使用。"
+  },
+  "connector.detail.pipeline.fileLake.archive": {
+    "message": "基于文件的数据同步，用于归档和下游处理"
+  },
+  "connector.detail.pipeline.fileLake.archive.description": {
+    "message": "导出可重复的文件快照或增量数据集，用于长期留存、外部交换和离线处理。"
+  },
+  "connector.detail.pipeline.ai.rag": {
+    "message": "{connectorName} 集成到 RAG 数据准备流程"
+  },
+  "connector.detail.pipeline.ai.rag.description": {
+    "message": "将业务数据同步到 AI 就绪的存储中，让检索流程使用当前的企业上下文。"
+  },
+  "connector.detail.pipeline.ai.enrichment": {
+    "message": "使用 {connectorName} 做知识库数据增强"
+  },
+  "connector.detail.pipeline.ai.enrichment.description": {
+    "message": "在索引、向量化或模型消费前，持续更新结构化与非结构化知识。"
+  },
+  "connector.detail.pipeline.ai.enterprise": {
+    "message": "{connectorName} 接入企业 AI 工作流"
+  },
+  "connector.detail.pipeline.ai.enterprise.description": {
+    "message": "把受控数据链路连接到 AI 应用，同时保留权限、监控和运维可见性。"
+  },
+  "connector.detail.pipeline.database.analytics": {
+    "message": "{connectorName} 到 ClickHouse、StarRocks 或 Doris，用于实时分析"
+  },
+  "connector.detail.pipeline.database.analytics.description": {
+    "message": "将 {connectorName} 的变更同步到分析型数据库，让订单、用户和业务指标可以低延迟查询。"
+  },
+  "connector.detail.pipeline.database.kafka": {
+    "message": "{connectorName} 到 Kafka，用于 CDC 事件流"
+  },
+  "connector.detail.pipeline.database.kafka.description": {
+    "message": "把 {connectorName} 表变更转换为 CDC 事件，用于消息驱动服务、搜索索引和实时消费。"
+  },
+  "connector.detail.pipeline.database.migration": {
+    "message": "{connectorName} 到 PostgreSQL、MySQL 或 Oracle，用于数据库迁移"
+  },
+  "connector.detail.pipeline.database.migration.description": {
+    "message": "结合全量迁移和增量追平，减少停机时间，并保持源端与目标端数据一致。"
+  },
+  "connector.detail.beforeStart": {
+    "message": "开始前准备"
+  },
+  "connector.detail.checklist.source": {
+    "message": "确认 {connectorName} 源端连通性、账号权限和增量捕获要求。"
+  },
+  "connector.detail.checklist.upstream": {
+    "message": "确认上游系统能够提供 {connectorName} 目标端连接器可接受的数据格式。"
+  },
+  "connector.detail.checklist.target": {
+    "message": "准备 {connectorName} 目标端 Schema、写入权限、容量和网络访问。"
+  },
+  "connector.detail.checklist.downstream": {
+    "message": "准备接收 {connectorName} 抽取数据的下游目标端。"
+  },
+  "connector.detail.checklist.naming": {
+    "message": "在生产上线前，校验表、Topic、文件或对象命名规范。"
+  },
+  "connector.detail.checklist.smallTask": {
+    "message": "先运行小规模任务，再验证延迟、吞吐和数据一致性。"
+  },
+  "connector.detail.docsTitle": {
+    "message": "文档"
+  },
+  "connector.detail.docsDescription": {
+    "message": "建议先从产品概览开始，再创建一个小规模测试任务，确认后再将 {connectorName} 链路扩展到生产环境。"
+  },
+  "connector.detail.docs.productIntro": {
+    "message": "产品介绍"
+  },
+  "connector.detail.docs.quickStart": {
+    "message": "快速开始"
+  },
+  "connector.detail.docs.dataSourceManagement": {
+    "message": "数据源管理"
+  },
+  "connector.detail.docs.linkFeatures": {
+    "message": "链路特性"
+  },
+  "connector.detail.visualTitle": {
+    "message": "链路视图"
+  },
+  "connector.detail.visualCapability": {
+    "message": "CDC、同步、迁移、校验"
+  },
+  "connector.detail.categoryLabel": {
+    "message": "分类"
+  },
+  "connector.detail.modeLabel": {
+    "message": "模式"
+  },
+  "connector.detail.productIntroTitle": {
+    "message": "{productName} 产品能力"
+  },
+  "connector.detail.datasourceIntroTitle": {
+    "message": "{connectorName} 数据源介绍"
+  },
+  "connector.detail.relatedTitle": {
+    "message": "相关连接器"
+  },
+  "connector.detail.relatedBlogsTitle": {
+    "message": "相关文章"
+  },
+  "connector.detail.relatedBlogsDescription": {
+    "message": "阅读更多数据迁移、数据同步和实时数据集成实践。"
+  },
+  "connector.detail.viewAllBlogs": {
+    "message": "查看全部博客"
+  },
+  "connector.detail.ctaTitle": {
+    "message": "开始构建 {connectorName} 数据链路"
+  },
+  "connector.detail.ctaDescription": {
+    "message": "使用 {productName} 连接 {connectorName}，快速验证第一条链路，并在可观测、可运维的流程中推进到生产环境。"
+  },
+  "connector.detail.ctaCloud": {
+    "message": "试用云服务"
+  },
+  "connector.detail.ctaCommunity": {
+    "message": "免费社区版"
+  },
+  "connector.detail.ctaQuickStart": {
+    "message": "快速开始"
+  },
+  "connector.detail.ctaTrial": {
+    "message": "试用云服务"
+  },
+  "connector.detail.ctaStep.connect": {
+    "message": "连接"
+  },
+  "connector.detail.ctaStep.verify": {
+    "message": "校验"
+  },
+  "connector.detail.ctaStep.launch": {
+    "message": "上线"
+  },
+  "connector.detail.blogTag.ai": {
+    "message": "数据与 AI"
+  },
+  "connector.detail.blogTag.dataInsights": {
+    "message": "数据洞察"
+  },
+  "connector.detail.blogTag.userStories": {
+    "message": "客户案例"
+  },
+  "connector.detail.blogTag.announcement": {
+    "message": "产品动态"
+  },
+  "connector.detail.blogTag.tutorials": {
+    "message": "技术教程"
+  },
+  "connector.detail.blogTag.bestPractices": {
+    "message": "最佳实践"
+  },
+  "connector.detail.faqTitle": {
+    "message": "{connectorName} 连接器 FAQ"
+  },
+  "connector.detail.faq.source.question": {
+    "message": "{productName} 可以将 {connectorName} 作为源端吗？"
+  },
+  "connector.detail.faq.source.supported": {
+    "message": "可以。{productName} 将 {connectorName} 列为源端连接器。具体权限、网络设置和增量捕获要求，请以产品文档为准。"
+  },
+  "connector.detail.faq.source.unsupported": {
+    "message": "当前页面未将 {connectorName} 列为源端连接器，它更适合作为目标端或集成端点使用。"
+  },
+  "connector.detail.faq.target.question": {
+    "message": "{productName} 可以向 {connectorName} 写入数据吗？"
+  },
+  "connector.detail.faq.target.supported": {
+    "message": "可以。{productName} 将 {connectorName} 列为目标端连接器，可用于下游数据投递。生产使用前请准备写入权限和目标端容量。"
+  },
+  "connector.detail.faq.target.unsupported": {
+    "message": "当前页面未将 {connectorName} 列为目标端连接器，它主要用于源端或集成端点。"
+  },
+  "connector.detail.faq.pipeline.question": {
+    "message": "常见的 {connectorName} 数据链路是什么？"
+  },
   "banner.freeRenewLink": {
     "message": "免费续期"
   }

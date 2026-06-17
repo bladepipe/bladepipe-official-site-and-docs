@@ -8,6 +8,7 @@ export interface BlogCardProps {
   author: string;
   authorImage?: string;
   image: string;
+  imageFit?: 'cover' | 'contain';
   tags: Array<{
     key: string;
     label: string;
@@ -22,18 +23,24 @@ export default function BlogCard({
   author,
   authorImage,
   image,
+  imageFit = 'cover',
   tags,
   desc,
 }: BlogCardProps) {
+  const imageClassName =
+    imageFit === 'contain'
+      ? 'w-full h-full object-contain p-3 transition-transform duration-300 group-hover/image:scale-105'
+      : 'w-full h-full object-cover transition-transform duration-300 group-hover/image:scale-105';
+
   return (
     <div className="block bg-white rounded-xl flex flex-col overflow-hidden w-full max-w-[413px] mx-auto">
       {/* 图片区域 - 240px 高度 */}
       <Link to={permalink} className="block no-underline">
-        <div className="relative w-full h-[240px] overflow-hidden rounded-t-xl group/image">
+        <div className="relative w-full h-[240px] overflow-hidden rounded-t-xl bg-[#F8F9FB] group/image">
           <img 
             src={image} 
             alt={title} 
-            className="w-full h-full object-cover transition-transform duration-300 group-hover/image:scale-105" 
+            className={imageClassName}
           />
         </div>
       </Link>

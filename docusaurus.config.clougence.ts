@@ -217,6 +217,7 @@ const config: Config = {
     },
     require.resolve('./src/plugins/robots-txt-plugin'),
     require.resolve('./src/plugins/llms-txt-plugin'),
+    require.resolve('./src/plugins/connection-routes-plugin'),
   ],
 };
 
