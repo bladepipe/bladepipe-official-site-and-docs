@@ -6,12 +6,14 @@ import remarkGfm from 'remark-gfm'
 import './datasourceSelect.css'
 import {SourceInfo} from '../../ccDocs/dataMigrationAndSync/connection/src_ds/index'
 import {TargetInfo} from "../../ccDocs/dataMigrationAndSync/connection/dst_ds";
+import {getConnectionTargetPath, getTargetFromLocation} from '@site/src/utils/connectionSlug';
 
 const {Panel} = Collapse;
 
-const DataSourceSelect = ({data, sourceType, mapping}) => {
+const DataSourceSelect = ({data, sourceType, mapping, initialTarget, onTargetChange}) => {
     const targetList = stickySourceType(Object.keys(data), sourceType);
-    const [target, setTarget] = useState(targetList.length ? targetList[0] : "")
+    const initialSelectedTarget = initialTarget && targetList.includes(initialTarget) ? initialTarget : targetList.length ? targetList[0] : "";
+    const [target, setTarget] = useState(initialSelectedTarget)
 
     let commonFunction = unique((SourceInfo[sourceType]?.master_function || []) //
         .concat(TargetInfo[target]?.master_function || []) //
@@ -27,13 +29,23 @@ const DataSourceSelect = ({data, sourceType, mapping}) => {
         .concat((data[target]?.examples || [])))
 
     useEffect(() => {
-        let urlParams = {};
-        if (window) {
-            urlParams = new URLSearchParams(window.location.search)
-        }
-        const queryTarget = urlParams.get('target');
-        if (queryTarget) {
-            setTarget(queryTarget);
+        const syncTargetFromLocation = () => {
+            const locationTarget = getTargetFromLocation(targetList);
+            if (locationTarget) {
+                setTarget(locationTarget);
+                onTargetChange?.(locationTarget);
+            }
+        };
+
+        syncTargetFromLocation();
+
+        if (typeof window !== 'undefined') {
+            const queryTarget = new URLSearchParams(window.location.search).get('target');
+            if (queryTarget && targetList.includes(queryTarget)) {
+                window.history.replaceState({}, '', getConnectionTargetPath(queryTarget));
+            }
+
+            window.addEventListener('popstate', syncTargetFromLocation);
         }
 
         if (commonFunction.length <= 0) {
@@ -51,16 +63,18 @@ const DataSourceSelect = ({data, sourceType, mapping}) => {
         if (commonExamples.length <= 0) {
             commonExamples = data[target]?.examples || []
         }
-    })
+        return () => {
+            if (typeof window !== 'undefined') {
+                window.removeEventListener('popstate', syncTargetFromLocation);
+            }
+        };
+    }, [])
 
     const handleTargetChange = (value) => {
         setTarget(value)
-        if (window) {
-            const url = new URL(window.location);
-            const searchParams = new URLSearchParams(url.search);
-            searchParams.set('target', value);
-            url.search = searchParams.toString();
-            window.history.replaceState({}, '', url);
+        onTargetChange?.(value);
+        if (typeof window !== 'undefined') {
+            window.history.pushState({}, '', getConnectionTargetPath(value));
         }
     }
 

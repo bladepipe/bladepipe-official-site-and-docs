@@ -11,6 +11,9 @@ import Footer from '@site/src/components/Footer';
 import FadeInSection from '@site/src/components/FadeInSection';
 import siteConfig from '@generated/docusaurus.config';
 import { getPageMeta } from '@site/src/utils/meta';
+import JsonLd from '@site/src/components/JsonLd';
+import { getConnectors } from '@site/src/data/connectors';
+import { getBrandProfile } from '@site/src/utils/structuredData';
 import './connector.css';
 
 const { Option } = Select;
@@ -27,6 +30,55 @@ export default function Connector() {
 
   // 使用统一的工具函数获取连接器页面 meta 信息
   const connectorMeta = getPageMeta('connector');
+  const connectors = getConnectors(siteBrand);
+  const brand = getBrandProfile(siteBrand);
+  const connectorListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `${brand.productName} Connectors`,
+    description: connectorMeta.description,
+    url: new URL('/connector/', siteConfig.url).toString(),
+    numberOfItems: connectors.length,
+    itemListElement: connectors.map((connector, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'SoftwareApplication',
+        name: `${brand.productName} ${connector.name} Connector`,
+        url: new URL(`/connector/${connector.slug}/`, siteConfig.url).toString(),
+        description: translate({ id: connector.descriptionI18nKey, message: connector.description }),
+        applicationCategory: 'Data integration connector',
+        operatingSystem: 'Cloud, Linux, Kubernetes, Docker',
+        provider: {
+          '@type': 'Organization',
+          name: brand.name,
+          url: brand.url,
+        },
+        additionalProperty: [
+          {
+            '@type': 'PropertyValue',
+            name: 'Connector category',
+            value: connector.category,
+          },
+          {
+            '@type': 'PropertyValue',
+            name: 'Supports source',
+            value: connector.supportsSource ? 'true' : 'false',
+          },
+          {
+            '@type': 'PropertyValue',
+            name: 'Supports target',
+            value: connector.supportsTarget ? 'true' : 'false',
+          },
+          {
+            '@type': 'PropertyValue',
+            name: 'Business only',
+            value: connector.isBusinessOnly ? 'true' : 'false',
+          },
+        ],
+      },
+    })),
+  };
 
   const handleRemoveFilter = (filter: string) => {
     if (filter.startsWith(translate({id: 'connector.filter.searchPrefix', message: 'Search:'}))) {
@@ -84,6 +136,7 @@ export default function Connector() {
       <Head>
         <title>{connectorMeta.title}</title>
       </Head>
+      <JsonLd data={connectorListJsonLd} />
       <div className="w-full bg-white">
         {/* Banner部分 */}
         <FadeInSection>
