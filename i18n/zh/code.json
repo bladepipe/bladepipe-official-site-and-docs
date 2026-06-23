@@ -257,6 +257,9 @@
   "pricing.community.feature1": {
     "message": "50+ 数据源"
   },
+  "pricing.community.feature1.bladepipe": {
+    "message": "60+ 数据源"
+  },
   "pricing.community.feature2": {
     "message": "实时 CDC"
   },

@@ -21,21 +21,31 @@ export const getTargetFromLocation = (targetList) => {
   }
 
   const normalizedPath = window.location.pathname.replace(/\/+$/, '');
-  const match = normalizedPath.match(/\/docs\/dataMigrationAndSync\/connection\/[^/]+\/([^/]+)$/);
-  const targetSlug = match ? decodeURIComponent(match[1]) : '';
+  const pairMatch = normalizedPath.match(/\/docs\/dataMigrationAndSync\/connection\/([^/]+-to-[^/]+)$/);
+  const legacyMatch = normalizedPath.match(/\/docs\/dataMigrationAndSync\/connection\/[^/]+\/([^/]+)$/);
+  const targetSlug = pairMatch
+    ? decodeURIComponent(pairMatch[1]).replace(/^.+?-to-/, '')
+    : legacyMatch
+      ? decodeURIComponent(legacyMatch[1])
+      : '';
 
   return targetsBySlug.get(targetSlug) || '';
 };
 
-export const getConnectionTargetPath = (target) => {
+export const getConnectionTargetPathFromPath = (pathname, target, sourceType) => {
+  const slug = slugifyConnectionTarget(target);
+  const sourceSlug = slugifyConnectionTarget(sourceType);
+  const pathWithoutTrailingSlash = String(pathname || '').replace(/\/+$/, '');
+  const match = pathWithoutTrailingSlash.match(/^(.*\/docs\/dataMigrationAndSync\/connection)(?:\/[^/]+(?:\/[^/]+)?)?$/);
+  const connectionPath = match ? match[1] : pathWithoutTrailingSlash;
+
+  return `${connectionPath}/${sourceSlug}-to-${slug}/`;
+};
+
+export const getConnectionTargetPath = (target, sourceType) => {
   if (typeof window === 'undefined') {
     return '';
   }
 
-  const slug = slugifyConnectionTarget(target);
-  const pathWithoutTrailingSlash = window.location.pathname.replace(/\/+$/, '');
-  const match = pathWithoutTrailingSlash.match(/^(.*\/docs\/dataMigrationAndSync\/connection\/[^/]+)(?:\/[^/]+)?$/);
-  const sourcePath = match ? match[1] : pathWithoutTrailingSlash;
-
-  return `${sourcePath}/${slug}/`;
+  return getConnectionTargetPathFromPath(window.location.pathname, target, sourceType);
 };

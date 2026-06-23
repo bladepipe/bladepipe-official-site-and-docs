@@ -94,7 +94,9 @@ const getPricingPlans = (siteBrand: string, priceMeta?: any) => {
         buttonType: "outline",
         badge: null,
         features: [
-          translate({ id: 'pricing.community.feature1', message: '50+ DataSources' }),
+          siteBrand === 'bladepipe'
+            ? translate({ id: 'pricing.community.feature1.bladepipe', message: '60+ DataSources' })
+            : translate({ id: 'pricing.community.feature1', message: '50+ DataSources' }),
           translate({ id: 'pricing.community.feature2', message: 'Real-time CDC' }),
           translate({ id: 'pricing.community.feature3', message: 'Schema migration' }),
           translate({ id: 'pricing.features.ddlSync', message: 'DDL synchronization' }),

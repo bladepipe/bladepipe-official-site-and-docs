@@ -104,6 +104,8 @@ const config: Config = {
             '/search/',
             '/markdown-page',
             '/markdown-page/',
+            '/docs/dataMigrationAndSync/connection/*/*',
+            '/zh/docs/dataMigrationAndSync/connection/*/*',
             '/docs/',
           ],
           changefreq: 'weekly',
