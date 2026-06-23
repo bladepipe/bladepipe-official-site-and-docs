@@ -193,7 +193,7 @@ const getFeatureData = (siteBrand: string) => {
         features: [
           {
             name: translate({ id: 'pricing.featureComparison.dataSourceAvailability', message: 'DataSource Availability' }),
-            community: "50+",
+            community: siteBrand === 'bladepipe' ? "60+" : "50+",
             cloud: "60+",
             enterprise: "60+"
           },

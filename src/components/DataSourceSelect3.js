@@ -1,4 +1,7 @@
 import React, {useEffect, useState} from 'react';
+import Head from '@docusaurus/Head';
+import {useHistory, useLocation} from '@docusaurus/router';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {Collapse, Col, Select, Table} from "antd";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from 'rehype-raw'
@@ -6,14 +9,29 @@ import remarkGfm from 'remark-gfm'
 import './datasourceSelect.css'
 import {SourceInfo} from '../../ccDocs/dataMigrationAndSync/connection/src_ds/index'
 import {TargetInfo} from "../../ccDocs/dataMigrationAndSync/connection/dst_ds";
-import {getConnectionTargetPath, getTargetFromLocation} from '@site/src/utils/connectionSlug';
+import {getConnectionTargetPath, getConnectionTargetPathFromPath, getTargetFromLocation} from '@site/src/utils/connectionSlug';
 
 const {Panel} = Collapse;
 
-const DataSourceSelect = ({data, sourceType, mapping, initialTarget, onTargetChange}) => {
+const DataSourceSelect = ({data, sourceType, sourceSlug, mapping, initialTarget, onTargetChange, onTargetNavigate}) => {
+    const location = useLocation();
+    const history = useHistory();
+    const {siteConfig} = useDocusaurusContext();
     const targetList = stickySourceType(Object.keys(data), sourceType);
     const initialSelectedTarget = initialTarget && targetList.includes(initialTarget) ? initialTarget : targetList.length ? targetList[0] : "";
     const [target, setTarget] = useState(initialSelectedTarget)
+    const defaultTargetPath = initialSelectedTarget
+        ? getConnectionTargetPathFromPath(location.pathname, initialSelectedTarget, sourceSlug || sourceType)
+        : '';
+    const sourcePageCanonical = !initialTarget && defaultTargetPath
+        ? `${siteConfig.url.replace(/\/+$/, '')}${defaultTargetPath}`
+        : '';
+
+    useEffect(() => {
+        if (initialTarget && targetList.includes(initialTarget) && initialTarget !== target) {
+            setTarget(initialTarget);
+        }
+    }, [initialTarget])
 
     let commonFunction = unique((SourceInfo[sourceType]?.master_function || []) //
         .concat(TargetInfo[target]?.master_function || []) //
@@ -42,7 +60,9 @@ const DataSourceSelect = ({data, sourceType, mapping, initialTarget, onTargetCha
         if (typeof window !== 'undefined') {
             const queryTarget = new URLSearchParams(window.location.search).get('target');
             if (queryTarget && targetList.includes(queryTarget)) {
-                window.history.replaceState({}, '', getConnectionTargetPath(queryTarget));
+                history.replace(getConnectionTargetPath(queryTarget, sourceSlug || sourceType));
+            } else if (!getTargetFromLocation(targetList) && target) {
+                history.replace(getConnectionTargetPath(target, sourceSlug || sourceType));
             }
 
             window.addEventListener('popstate', syncTargetFromLocation);
@@ -73,13 +93,23 @@ const DataSourceSelect = ({data, sourceType, mapping, initialTarget, onTargetCha
     const handleTargetChange = (value) => {
         setTarget(value)
         onTargetChange?.(value);
+        if (onTargetNavigate) {
+            onTargetNavigate(value);
+            return;
+        }
         if (typeof window !== 'undefined') {
-            window.history.pushState({}, '', getConnectionTargetPath(value));
+            window.history.pushState({}, '', getConnectionTargetPath(value, sourceSlug || sourceType));
         }
     }
 
     return (
         <div className='datasource-select'>
+            {sourcePageCanonical ? (
+                <Head>
+                    <link rel="canonical" href={sourcePageCanonical}/>
+                    <meta property="og:url" content={sourcePageCanonical}/>
+                </Head>
+            ) : null}
             选择对端数据库： <Select style={{width: 200}} onChange={handleTargetChange} value={target}
                                     options={targetList.map(target => ({label: target, value: target}))} showSearch/>
             <div className='markdown'>

@@ -4,19 +4,27 @@ import * as path from 'path';
 
 type ConnectionPage = {
   routePath: string;
+  legacyRoutePath: string;
   docsDir: string;
   sourceType: string;
   sourceTitle: string;
+  sourceSlug: string;
   sourceDocId: string;
   target: string;
   targetSlug: string;
   linksPath: string;
   sidebarItems: SidebarItem[];
+  sourcePages: SourcePage[];
 };
 
 type SourcePage = {
   sourceDocId: string;
+  sourceType: string;
   sourceTitle: string;
+  sourceSlug: string;
+  linksPath: string;
+  targets: string[];
+  href: string;
 };
 
 type SidebarItem =
@@ -48,6 +56,10 @@ function getBrandDocsDir(siteBrand: unknown) {
   return siteBrand === 'clougence' ? 'ccDocs' : 'docs';
 }
 
+function getBrandSidebarPath(siteDir: string, siteBrand: unknown) {
+  return path.join(siteDir, siteBrand === 'clougence' ? 'sidebars.clougence.ts' : 'sidebars.ts');
+}
+
 function getSidebarLabels(siteBrand: unknown) {
   return siteBrand === 'clougence'
     ? {
@@ -75,6 +87,52 @@ function slugifyConnectionTarget(value: string) {
 function readFrontMatterValue(content: string, key: string) {
   const match = content.match(new RegExp(`^${key}:\\s*(.+)$`, 'm'));
   return match ? match[1].trim().replace(/^['"]|['"]$/g, '') : '';
+}
+
+function getSourceDisplayTitle(content: string) {
+  const sidebarLabel = readFrontMatterValue(content, 'sidebar_label');
+  const sourceTypeMatch = content.match(/sourceType=["']([^"']+)["']/);
+  const title = readFrontMatterValue(content, 'title');
+
+  return sidebarLabel || sourceTypeMatch?.[1] || title;
+}
+
+function getSidebarSourceOrder(siteDir: string, siteBrand: unknown) {
+  const sidebarPath = getBrandSidebarPath(siteDir, siteBrand);
+  if (!fs.existsSync(sidebarPath)) {
+    return new Map<string, number>();
+  }
+
+  const content = fs.readFileSync(sidebarPath, 'utf-8');
+  const docIds = [...content.matchAll(/["']dataMigrationAndSync\/connection\/([^"']+)["']/g)].map((match) => match[1]);
+
+  return new Map(docIds.map((docId, index) => [docId, index]));
+}
+
+function sortSourcePagesBySidebar(sourcePages: SourcePage[], sourceOrder: Map<string, number>) {
+  return [...sourcePages].sort((left, right) => {
+    const leftOrder = sourceOrder.get(left.sourceDocId) ?? Number.MAX_SAFE_INTEGER;
+    const rightOrder = sourceOrder.get(right.sourceDocId) ?? Number.MAX_SAFE_INTEGER;
+
+    if (leftOrder !== rightOrder) {
+      return leftOrder - rightOrder;
+    }
+
+    return left.sourceTitle.localeCompare(right.sourceTitle);
+  });
+}
+
+function getLinksIndexPath(content: string, connectionDir: string) {
+  const linksPathMatch = content.match(/import\s+\w+\s+from\s+['"]\.\/([^'"]+_links\/index)['"]/);
+  if (!linksPathMatch) {
+    return '';
+  }
+
+  return path.join(connectionDir, `${linksPathMatch[1]}.js`);
+}
+
+function getDefaultTarget(targets: string[], sourceType: string) {
+  return targets.includes(sourceType) ? sourceType : targets[0] || '';
 }
 
 function getTopLevelObjectBody(content: string) {
@@ -210,7 +268,7 @@ function buildSidebarItems(siteBrand: unknown, sourcePages: SourcePage[], baseUr
           items: sourcePages.map((sourcePage) => ({
             type: 'link',
             label: sourcePage.sourceTitle,
-            href: withBaseUrl(baseUrl, `/docs/dataMigrationAndSync/connection/${sourcePage.sourceDocId}`),
+            href: sourcePage.href,
             docId: `dataMigrationAndSync/connection/${sourcePage.sourceDocId}`,
           })),
         },
@@ -223,22 +281,38 @@ function getConnectionPages(siteDir: string, siteBrand: unknown, baseUrl: string
   const docsDir = getBrandDocsDir(siteBrand);
   const connectionDir = path.join(siteDir, docsDir, CONNECTION_PATH);
   const docFiles = fs.readdirSync(connectionDir).filter((file) => file.endsWith('.mdx'));
-  const sourcePages = docFiles
+  const sourceOrder = getSidebarSourceOrder(siteDir, siteBrand);
+  const sourcePages = sortSourcePagesBySidebar(docFiles
     .map((file) => {
       const content = fs.readFileSync(path.join(connectionDir, file), 'utf-8');
+      const sourceTitle = getSourceDisplayTitle(content);
+      const sourceType = content.match(/sourceType=["']([^"']+)["']/)?.[1] || '';
+      const indexPath = getLinksIndexPath(content, connectionDir);
+      const targets = indexPath && fs.existsSync(indexPath) ? getTargetNames(indexPath) : [];
+      const defaultTarget = getDefaultTarget(targets, sourceType);
+      const sourceSlug = slugifyConnectionTarget(sourceTitle);
+      const targetSlug = slugifyConnectionTarget(defaultTarget);
+      const linksPathMatch = content.match(/import\s+\w+\s+from\s+['"]\.\/([^'"]+_links\/index)['"]/);
       return {
         sourceDocId: readFrontMatterValue(content, 'id'),
-        sourceTitle: readFrontMatterValue(content, 'title'),
+        sourceType,
+        sourceTitle,
+        sourceSlug,
+        linksPath: linksPathMatch ? `${linksPathMatch[1]}.js` : '',
+        targets,
+        href: defaultTarget
+          ? withBaseUrl(baseUrl, `/docs/dataMigrationAndSync/connection/${sourceSlug}-to-${targetSlug}/`)
+          : withBaseUrl(baseUrl, `/docs/dataMigrationAndSync/connection/${readFrontMatterValue(content, 'id')}`),
       };
     })
-    .filter((sourcePage) => sourcePage.sourceDocId && sourcePage.sourceTitle);
+    .filter((sourcePage) => sourcePage.sourceDocId && sourcePage.sourceType && sourcePage.sourceTitle && sourcePage.href), sourceOrder);
   const sidebarItems = buildSidebarItems(siteBrand, sourcePages, baseUrl);
 
   return docFiles.flatMap((file) => {
     const docPath = path.join(connectionDir, file);
     const content = fs.readFileSync(docPath, 'utf-8');
     const sourceDocId = readFrontMatterValue(content, 'id');
-    const sourceTitle = readFrontMatterValue(content, 'title');
+    const sourceTitle = getSourceDisplayTitle(content);
     const sourceTypeMatch = content.match(/sourceType=["']([^"']+)["']/);
     const linksPathMatch = content.match(/import\s+\w+\s+from\s+['"]\.\/([^'"]+_links\/index)['"]/);
 
@@ -253,19 +327,24 @@ function getConnectionPages(siteDir: string, siteBrand: unknown, baseUrl: string
     }
 
     return getTargetNames(indexPath).map((target) => {
+      const sourceSlug = slugifyConnectionTarget(sourceTitle);
       const targetSlug = slugifyConnectionTarget(target);
-      const routePath = withBaseUrl(baseUrl, `/docs/dataMigrationAndSync/connection/${sourceDocId}/${targetSlug}/`);
+      const routePath = withBaseUrl(baseUrl, `/docs/dataMigrationAndSync/connection/${sourceSlug}-to-${targetSlug}/`);
+      const legacyRoutePath = withBaseUrl(baseUrl, `/docs/dataMigrationAndSync/connection/${sourceDocId}/${targetSlug}/`);
 
       return {
         routePath,
+        legacyRoutePath,
         docsDir,
         sourceType: sourceTypeMatch[1],
         sourceTitle,
+        sourceSlug,
         sourceDocId,
         target,
         targetSlug,
         linksPath,
         sidebarItems,
+        sourcePages,
       };
     });
   });
@@ -282,15 +361,26 @@ export default function connectionRoutesPlugin(context: LoadContext): Plugin<Con
 
       await Promise.all(
         content.map(async (routeData) => {
+          const data = await createData(
+            `connection-route-${routeData.sourceSlug}-to-${routeData.targetSlug}.json`,
+            JSON.stringify(routeData)
+          );
+
           addRoute({
             path: routeData.routePath,
             exact: true,
             component: '@site/src/components/ConnectionRoutePage',
             modules: {
-              routeData: await createData(
-                `connection-route-${routeData.sourceDocId}-${routeData.targetSlug}.json`,
-                JSON.stringify(routeData)
-              ),
+              routeData: data,
+            },
+          });
+
+          addRoute({
+            path: routeData.legacyRoutePath,
+            exact: true,
+            component: '@site/src/components/ConnectionRoutePage',
+            modules: {
+              routeData: data,
             },
           });
         })
