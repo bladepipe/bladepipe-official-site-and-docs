@@ -10,7 +10,7 @@ const Kafka = {
         },
         {
             key: '修改订阅',
-            desc: '新增、删除、修改订阅 Topic，文档：[修改订阅](../../operation/job_manage/job_op/edit_job)'
+            desc: '新增、删除、修改订阅 Topic，文档：[修改订阅](../../../operation/job_manage/job_op/edit_job)'
         },
         {
             key: '重置位点',

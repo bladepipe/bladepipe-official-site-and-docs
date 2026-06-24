@@ -10,11 +10,11 @@ export const StarRocks = {
         },
         {
             key: '数据校验和订正',
-            desc: '一次性扫描并对比源端与对端的现有数据，可选择根据校验结果自动将不一致的数据覆盖成源端的最新状态。支持周期性定时任务。具体详情见 [创建定时校验和订正任务](../../operation/job_manage/create_job/create_period_verification_correction_job)。'
+            desc: '一次性扫描并对比源端与对端的现有数据，可选择根据校验结果自动将不一致的数据覆盖成源端的最新状态。支持周期性定时任务。具体详情见 [创建定时校验和订正任务](../../../operation/job_manage/create_job/create_verification_correction_job)。'
         },
         {
             key: '修改订阅',
-            desc: '在链路正常运转期间支持新增、删除表，并自动触发新表的结构全量迁移，具体详情见 [修改订阅情况](../../operation/job_manage/job_op/edit_job)。'
+            desc: '在链路正常运转期间支持新增、删除表，并自动触发新表的结构全量迁移，具体详情见 [修改订阅情况](../../../operation/job_manage/job_op/edit_job)。'
         },
         {
             key: '映射和过滤',
@@ -40,11 +40,11 @@ export const StarRocks = {
         },
         {
             key: '定时全量迁移任务',
-            desc: '具体详情见 [创建定时全量迁移任务](../../operation/job_manage/create_job/create_period_full_job)。'
+            desc: '具体详情见 [创建定时全量迁移任务](../../../operation/job_manage/create_job/create_period_full_job)。'
         },
         {
             key: '自定义开发代码',
-            desc: '使用 Java 编写业务处理逻辑并在此应用，过滤特定数据或打宽表。具体详情见 [自定义代码处理](../../operation/job_manage/create_job/create_process_job)，[调试自定义代码](../../operation/job_manage/job_op/debug_customer_code) 以及 [在自定义代码增加日志](../../operation/job_manage/job_op/log_in_customer_code)。'
+            desc: '使用 Java 编写业务处理逻辑并在此应用，过滤特定数据或打宽表。具体详情见 [自定义代码处理](../../../operation/job_manage/create_job/create_process_job)，[调试自定义代码](../../../operation/job_manage/job_op/debug_customer_code) 以及 [在自定义代码增加日志](../../../operation/job_manage/job_op/log_in_customer_code)。'
         },
         {
             key: '增加虚拟列',
@@ -56,7 +56,7 @@ export const StarRocks = {
         },
         {
             key: '数据源端过滤条件',
-            desc: '支持使用原生的 SQL WHERE 条件过滤特定的不需要同步的数据。具体详情见 [数据过滤条件](../../operation/job_manage/create_job/create_data_filter_job)。'
+            desc: '支持使用原生的 SQL WHERE 条件过滤特定的不需要同步的数据。具体详情见 [数据过滤条件](../../../operation/job_manage/create_job/create_data_filter_job)。'
         }
     ],
     notice: [],

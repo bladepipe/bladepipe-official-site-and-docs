@@ -10,7 +10,7 @@ export const Oracle = {
         },
         {
             key: '修改订阅',
-            desc: '新增、删除、修改订阅表，支持历史数据迁移，文档：[修改订阅](../../operation/job_manage/job_op/edit_job)'
+            desc: '新增、删除、修改订阅表，支持历史数据迁移，文档：[修改订阅](../../../operation/job_manage/job_op/edit_job)'
         },
         {
             key: '增量位点回溯',

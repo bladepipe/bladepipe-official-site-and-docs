@@ -55,7 +55,7 @@ export const ClickHouse = {
     examples: [
         {
             key: 'Oracle to ClickHouse Data Migration and Synchronization',
-            desc: 'See [Synchronize Data from Oracle to ClickHouse](../../blog/tech_share/oracle_clickhouse_sync)'
+            desc: 'See [Synchronize Data from Oracle to ClickHouse](../../../blog/tech_share/oracle_clickhouse_sync)'
         }
     ],
     faq: []

@@ -2,7 +2,7 @@ export const Dameng = {
     prepare: [
         {
             key: '账号权限',
-            desc: '文档：[达梦需要的权限](../datasource_func/Dameng/privs_for_dameng)'
+            desc: '文档：[达梦需要的权限](../../datasource_func/Dameng/privs_for_dameng)'
         },
         {
             key: '网络准备',

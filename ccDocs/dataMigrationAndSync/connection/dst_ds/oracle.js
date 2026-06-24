@@ -2,7 +2,7 @@ export const Oracle = {
     prepare: [
         {
             key: '账号权限',
-            desc: '文档：[Oracle 需要的权限](../datasource_func/Oracle/privs_for_oracle)'
+            desc: '文档：[Oracle 需要的权限](../../datasource_func/Oracle/privs_for_oracle)'
         },
         {
             key: '网络准备',

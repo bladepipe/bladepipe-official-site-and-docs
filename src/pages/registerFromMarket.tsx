@@ -61,7 +61,7 @@ const PasswordTips = ({value}: { value: string }) => {
 };
 
 export default function RegisterFromMarket() {
-    const { siteConfig } = useDocusaurusContext();
+    const { siteConfig, i18n } = useDocusaurusContext();
     const siteBrand = siteConfig.customFields?.siteBrand as string;
     const [form] = Form.useForm();
     const [registerLoading, setRegisterLoading] = useState(false);
@@ -160,7 +160,7 @@ export default function RegisterFromMarket() {
         return Promise.resolve();
     };
 
-    const registerFromMarketMeta = getPageMeta('registerFromMarket');
+    const registerFromMarketMeta = getPageMeta('registerFromMarket', undefined, undefined, i18n.currentLocale);
 
     return (
         <>

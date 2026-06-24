@@ -205,16 +205,21 @@ export default function Navbar() {
     }
   }, [location.pathname]);
 
+  const [announcementInView, setAnnouncementInView] = useState(true);
+
   // 监听页面滚动，实现吸顶效果
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       setIsScrolled(scrollTop > 10); // 滚动超过10px时激活吸顶效果
+      setAnnouncementInView(isAnnouncementVisible && scrollTop < 40); // 公告栏滚出视野后取消 top 偏移
     };
+
+    handleScroll(); // 初始化时检查一次
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isAnnouncementVisible]);
 
   // 桌面端导航折叠：空间不足时，将右侧项目折叠到“更多”中
   useEffect(() => {
@@ -353,7 +358,9 @@ export default function Navbar() {
       {isScrolled && <div className="w-full h-[70px]" />}
 
       <nav className={`navbar w-full h-[70px] flex items-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-5 z-50 transition-all duration-300 ${isScrolled
-          ? 'fixed top-0 left-0 right-0 shadow-lg navbar-blur'
+          ? announcementInView
+            ? 'fixed top-10 left-0 right-0 shadow-lg navbar-blur'
+            : 'fixed top-0 left-0 right-0 shadow-lg navbar-blur'
           : 'relative bg-white'
         }`}>
         {/* 左侧 Logo 区域 */}

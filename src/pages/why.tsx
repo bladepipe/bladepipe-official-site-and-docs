@@ -10,11 +10,11 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import { getPageMeta } from '@site/src/utils/meta';
 
 export default function WhyPage() {
-    const { siteConfig } = useDocusaurusContext();
+    const { siteConfig, i18n } = useDocusaurusContext();
     const siteBrand = siteConfig.customFields?.siteBrand;
-    
+
     // 使用统一的工具函数获取 why 页面 meta 信息
-    const whyMeta = getPageMeta('why');
+    const whyMeta = getPageMeta('why', undefined, undefined, i18n.currentLocale);
     
   return (
     <Layout description={whyMeta.description}>

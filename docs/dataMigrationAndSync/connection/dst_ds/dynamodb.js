@@ -2,7 +2,7 @@ export const DynamoDB = {
     prepare: [
         {
             key: 'Accounts and Permissions',
-            desc: 'Documentation: [Permissions Required for DynamoDB](../datasource_func/DynamoDB/privs_for_dynamodb)'
+            desc: 'Documentation: [Permissions Required for DynamoDB](../../datasource_func/DynamoDB/privs_for_dynamodb)'
         },
         {
             key: 'Network Preparation',

@@ -35,7 +35,7 @@ export const Redis = {
     examples: [
         {
             key: 'Data Migration and Synchronization from MySQL to Redis',
-            desc: 'See [Data Migration and Synchronization from MySQL to Redis](../../blog/tech_share/mysql_redis_sync)'
+            desc: 'See [Data Migration and Synchronization from MySQL to Redis](../../../blog/tech_share/mysql_redis_sync)'
         }
     ],
     faq: [],

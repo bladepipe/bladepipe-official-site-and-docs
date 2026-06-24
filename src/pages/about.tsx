@@ -558,7 +558,7 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member }) => {
 
 export default function About(): React.JSX.Element {
   // 在组件内部调用 Hook
-  const {siteConfig} = useDocusaurusContext();
+  const {siteConfig, i18n} = useDocusaurusContext();
   const siteBrand = siteConfig.customFields?.siteBrand as string;
   
   // 时间轴配置数据
@@ -568,7 +568,7 @@ export default function About(): React.JSX.Element {
   const teamMembers = getTeamMembers(siteBrand || 'bladepipe');
   
   // 获取页面 meta 信息
-  const pageMeta = getPageMeta('about');
+  const pageMeta = getPageMeta('about', undefined, undefined, i18n.currentLocale);
   
 
   

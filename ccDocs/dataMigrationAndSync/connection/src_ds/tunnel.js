@@ -46,7 +46,7 @@ const Tunnel = {
     examples: [
         {
             key: '跨互联网数据同步进阶',
-            desc: '文档：[跨互联网数据同步进阶](../../bestPractice/http_internet_data_sync_2)'
+            desc: '文档：[跨互联网数据同步进阶](../../../bestPractice/http_internet_data_sync_2)'
         },
         {
             key: '跨互联网数据互通(HTTP)',

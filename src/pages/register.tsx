@@ -14,7 +14,7 @@ import LoginSidebar from '@site/src/components/LoginSidebar';
 import PasswordTooltip from '@site/src/components/PasswordTooltip';
 
 export default function Register() {
-    const { siteConfig } = useDocusaurusContext();
+    const { siteConfig, i18n } = useDocusaurusContext();
     const siteBrand = siteConfig.customFields?.siteBrand;
 
     const [form] = Form.useForm();
@@ -116,7 +116,7 @@ export default function Register() {
         }
     };
 
-    const registerMeta = getPageMeta('register');
+    const registerMeta = getPageMeta('register', undefined, undefined, i18n.currentLocale);
 
     return (
         <>

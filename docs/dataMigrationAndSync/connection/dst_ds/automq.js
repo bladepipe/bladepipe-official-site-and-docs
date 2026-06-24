@@ -50,7 +50,7 @@ export const AutoMQ = {
     examples: [
         {
             key: 'Migration and Sync from MySQL to AutoMQ',
-            desc: 'See [Migration and Sync from MySQL to AutoMQ](../../blog/tech_share/automq_sync)'
+            desc: 'See [Migration and Sync from MySQL to AutoMQ](../../../blog/tech_share/automq_sync)'
         },
     ],
     master_function: [

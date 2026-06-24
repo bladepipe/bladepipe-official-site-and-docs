@@ -8,7 +8,7 @@ export const Kafka = {
     params: [
         {
             key: 'schemaFormat',
-            desc: '消息格式，文档：[消息格式说明](../../reference/kafka_msg_format_type)'
+            desc: '消息格式，文档：[消息格式说明](../../../reference/kafka_msg_format_type)'
         },
         {
             key: 'batchWriteSize',
@@ -48,7 +48,7 @@ export const Kafka = {
         },
         {
             key:'customClientProps',
-            desc:'自定义传入到 Kafka Client 参数，JSON 格式，key为参数名，value为参数值。此配置项以最高优先级生效。例如：[AWS IAM 访问控制](../datasource_func/Kafka/kafka_iam_auth)'
+            desc:'自定义传入到 Kafka Client 参数，JSON 格式，key为参数名，value为参数值。此配置项以最高优先级生效。例如：[AWS IAM 访问控制](../../datasource_func/Kafka/kafka_iam_auth)'
         }
     ],
     examples: [
@@ -64,7 +64,7 @@ export const Kafka = {
     master_function: [
         {
             key: '消息格式',
-            desc: '支持以下消息格式，文档：[消息格式说明](../../reference/kafka_msg_format_type) \n- <b>CloudCanal内置格式</b> \n- <b>AlibabaCanal兼容格式</b>'
+            desc: '支持以下消息格式，文档：[消息格式说明](../../../reference/kafka_msg_format_type) \n- <b>CloudCanal内置格式</b> \n- <b>AlibabaCanal兼容格式</b>'
         },
     ]
 }

@@ -2,7 +2,7 @@ const SQLServer = {
     prepare: [
         {
             key: '账号权限',
-            desc: '文档：[SQL Server 需要的权限](../datasource_func/SqlServer/privs_for_sqlserver)'
+            desc: '文档：[SQL Server 需要的权限](../../datasource_func/SqlServer/privs_for_sqlserver)'
         },
         {
             key: '网络准备',

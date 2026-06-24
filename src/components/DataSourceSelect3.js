@@ -272,7 +272,7 @@ const DataSourceSelect = ({data, sourceType, sourceSlug, mapping, initialTarget,
                         />
                     </Table>
                     <ReactMarkdown
-                        children={'> Tips: 通用参数配置请参考 [通用参数及功能](../param_and_func/param_guide)'}
+                        children={'> Tips: 通用参数配置请参考 [通用参数及功能](../../param_and_func/param_guide)'}
                         rehypePlugins={[rehypeRaw]}
                         remarkPlugins={[remarkGfm]}/>
                 </div> : null
@@ -327,7 +327,7 @@ const DataSourceSelect = ({data, sourceType, sourceSlug, mapping, initialTarget,
                         />
                     </Table>
                     <ReactMarkdown
-                        children={'> Tips: 通用参数配置请参考 [通用参数及功能](../param_and_func/param_guide)'}
+                        children={'> Tips: 通用参数配置请参考 [通用参数及功能](../../param_and_func/param_guide)'}
                         rehypePlugins={[rehypeRaw]}
                         remarkPlugins={[remarkGfm]}/>
                 </div> : null

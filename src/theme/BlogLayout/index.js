@@ -6,11 +6,13 @@ import Footer from '@site/src/components/Footer';
 import RecentBlogs from '@site/src/components/RecentBlogs';
 import BlogPostRecommendations from '@site/src/components/BlogPostRecommendations';
 import { getPageMeta } from '@site/src/utils/meta';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
 
 export default function BlogLayout(props) {
   const {children, noFooter, wrapperClassName, title, ...layoutProps} = props;
   const location = useLocation();
+  const { i18n } = useDocusaurusContext();
   
   // 检查是否是 blog post 页面（不是 blog list 页面）
   // blog list 页面的路径通常是 /blog 或 /blog/，而 blog post 页面的路径是 /blog/xxx/
@@ -38,7 +40,7 @@ export default function BlogLayout(props) {
         title: blogPostMetadata.title,
         description: blogPostMetadata.description || ''
       }
-    : getPageMeta('blog-list');
+    : getPageMeta('blog-list', undefined, undefined, i18n.currentLocale);
 
   // 使用 useEffect 直接设置 document.title，确保覆盖其他设置
   // 但如果是 blog post 页面，让 BlogPostPage 来处理

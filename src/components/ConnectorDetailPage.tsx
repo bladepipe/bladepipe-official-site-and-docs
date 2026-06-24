@@ -12,8 +12,10 @@ import Footer from '@site/src/components/Footer';
 import JsonLd from '@site/src/components/JsonLd';
 import BlogCardGrid from '@site/src/components/BlogCardGrid';
 import CommunityInstallModal from '@site/src/components/CommunityInstallModal';
+import { getConnectionLinkData } from '@site/src/data/connectionLinkModules';
 import { getBrandProfile } from '@site/src/utils/structuredData';
 import { normalizeLinkForSiteBrand } from '@site/src/utils/nav';
+import { slugifyConnectionTarget } from '@site/src/utils/connectionSlug';
 import { getConnectorBySlug, getConnectors, type Connector } from '@site/src/data/connectors';
 
 interface ConnectorDetailPageProps {
@@ -56,52 +58,66 @@ const getCapabilityText = (connector: Connector) => {
   return translate({ id: 'connector.detail.capability.integration', message: 'integration' });
 };
 
-const CONNECTION_DOC_SLUGS: Record<string, string> = {
-  mysql: 'mysql',
-  oracle: 'oracle',
-  postgresql: 'postgresql',
-  'sql-server': 'sqlserver',
-  kafka: 'kafka',
-  rocketmq: 'rocketmq',
-  rabbitmq: 'rabbitmq',
-  automq: 'automq',
-  pulsar: 'pulsar',
-  clickhouse: 'clickhouse',
-  starrocks: 'starrocks',
-  mongodb: 'mongodb',
-  mariadb: 'mariadb',
-  tidb: 'tidb',
-  redis: 'redis',
-  oceanbase: 'oceanbase',
-  dameng: 'dameng',
-  'sap-hana': 'hana',
-  'ibm-db2': 'db2',
-  tdengine: 'tdengine',
-  tunnel: 'tunnel',
-  'aurora-mysql': 'auroraformysql',
-  'aurora-for-postgresql': 'auroraforpg',
-  'polardb-for-mysql': 'polardbmysql',
-  'polardb-x': 'polardbx',
-  'apache-spanner': 'spanner',
-  'oceanbase-for-oracle': 'obfororacle',
-  dynamodb: 'dynamodb',
-  'google-drive': 'googledrive',
-  'gaussdb-for-opengauss': 'gaussdb',
-  'tdsql-c': 'tdsqlcmysql',
-  tdsql: 'tdsqlmysql',
-  kingbase: 'kingbasees',
-  vastbase: 'vastbase',
-  opengauss: 'opengauss',
+const CONNECTION_DOC_SOURCES: Record<string, { sourceType: string; sourceSlug: string; linksPath: string }> = {
+  mysql: { sourceType: 'MySQL', sourceSlug: 'mysql', linksPath: 'mysql_links/index.js' },
+  oracle: { sourceType: 'Oracle', sourceSlug: 'oracle', linksPath: 'oracle_links/index.js' },
+  postgresql: { sourceType: 'PostgreSQL', sourceSlug: 'postgresql', linksPath: 'postgresql_links/index.js' },
+  'sql-server': { sourceType: 'SQLServer', sourceSlug: 'sql-server', linksPath: 'sqlserver_links/index.js' },
+  kafka: { sourceType: 'Kafka', sourceSlug: 'kafka', linksPath: 'kafka_links/index.js' },
+  rocketmq: { sourceType: 'RocketMQ', sourceSlug: 'rocketmq', linksPath: 'rocketmq_links/index.js' },
+  rabbitmq: { sourceType: 'RabbitMQ', sourceSlug: 'rabbitmq', linksPath: 'rabbitmq_links/index.js' },
+  automq: { sourceType: 'AutoMQ', sourceSlug: 'automq', linksPath: 'automq_links/index.js' },
+  pulsar: { sourceType: 'Pulsar', sourceSlug: 'pulsar', linksPath: 'pulsar_links/index.js' },
+  clickhouse: { sourceType: 'ClickHouse', sourceSlug: 'clickhouse', linksPath: 'clickhouse_links/index.js' },
+  starrocks: { sourceType: 'StarRocks', sourceSlug: 'starrocks', linksPath: 'starrocks_links/index.js' },
+  mongodb: { sourceType: 'MongoDB', sourceSlug: 'mongodb', linksPath: 'mongodb_links/index.js' },
+  mariadb: { sourceType: 'MariaDB', sourceSlug: 'mariadb', linksPath: 'mariadb_links/index.js' },
+  tidb: { sourceType: 'TiDB', sourceSlug: 'tidb', linksPath: 'tidb_links/index.js' },
+  redis: { sourceType: 'Redis', sourceSlug: 'redis', linksPath: 'redis_links/index.js' },
+  oceanbase: { sourceType: 'OceanBase', sourceSlug: 'oceanbase', linksPath: 'oceanbase_links/index.js' },
+  dameng: { sourceType: 'Dameng', sourceSlug: 'dameng', linksPath: 'dameng_links/index.js' },
+  'sap-hana': { sourceType: 'Hana', sourceSlug: 'sap-hana', linksPath: 'hana_links/index.js' },
+  'ibm-db2': { sourceType: 'Db2', sourceSlug: 'db2', linksPath: 'db2_links/index.js' },
+  tdengine: { sourceType: 'TDengine', sourceSlug: 'tdengine', linksPath: 'tdengine_links/index.js' },
+  tunnel: { sourceType: 'Tunnel', sourceSlug: 'tunnel', linksPath: 'tunnel_links/index.js' },
+  'aurora-mysql': { sourceType: 'AuroraForMySQL', sourceSlug: 'aurora-for-mysql', linksPath: 'auroraformysql_links/index.js' },
+  'aurora-for-postgresql': { sourceType: 'AuroraForPg', sourceSlug: 'aurora-for-postgresql', linksPath: 'auroraforpg_links/index.js' },
+  'polardb-for-mysql': { sourceType: 'PolarDbMySQL', sourceSlug: 'polardb-for-mysql', linksPath: 'polardbmysql_links/index.js' },
+  'polardb-x': { sourceType: 'PolarDbX', sourceSlug: 'polardb-x', linksPath: 'polardbx_links/index.js' },
+  'apache-spanner': { sourceType: 'Spanner', sourceSlug: 'google-cloud-spanner', linksPath: 'spanner_links/index.js' },
+  'oceanbase-for-oracle': { sourceType: 'ObForOracle', sourceSlug: 'oceanbase-for-oracle', linksPath: 'obfororacle_links/index.js' },
+  dynamodb: { sourceType: 'DynamoDB', sourceSlug: 'dynamodb', linksPath: 'dynamodb_links/index.js' },
+  'google-drive': { sourceType: 'GoogleDrive', sourceSlug: 'google-drive', linksPath: 'googledrive_links/index.js' },
+  'gaussdb-for-opengauss': { sourceType: 'GaussDB', sourceSlug: 'gaussdb', linksPath: 'gaussdb_links/index.js' },
+  'tdsql-c': { sourceType: 'TdsqlCMySQL', sourceSlug: 'tdsql-c-mysql', linksPath: 'tdsqlcmysql_links/index.js' },
+  tdsql: { sourceType: 'TdsqlMySQL', sourceSlug: 'tdsql-mysql', linksPath: 'tdsqlmysql_links/index.js' },
+  kingbase: { sourceType: 'KingbaseES', sourceSlug: 'kingbasees', linksPath: 'kingbasees_links/index.js' },
+  vastbase: { sourceType: 'Vastbase', sourceSlug: 'vastbase', linksPath: 'vastbase_links/index.js' },
+  opengauss: { sourceType: 'OpenGauss', sourceSlug: 'opengauss', linksPath: 'opengauss_links/index.js' },
 };
 
 const getConnectionDocHref = (connector: Connector, siteBrand: string) => {
-  const docSlug = CONNECTION_DOC_SLUGS[connector.slug];
-  const docPath = connector.slug === 'aurora-for-postgresql' ? docSlug : `${docSlug}2`;
-  const href = docSlug
-    ? `/docs/dataMigrationAndSync/connection/${docPath}/`
-    : '/docs/quick/quick_start_mgr/';
+  const source = CONNECTION_DOC_SOURCES[connector.slug];
 
-  return normalizeLinkForSiteBrand(href, siteBrand);
+  if (!source || !connector.supportsSource) {
+    return normalizeLinkForSiteBrand('/docs/quick/quick_start_mgr/', siteBrand);
+  }
+
+  try {
+    const docsDir = siteBrand === 'clougence' ? 'ccDocs' : 'docs';
+    const data = getConnectionLinkData(docsDir, source.linksPath);
+    const targets = Object.keys(data);
+    const target = targets.includes(source.sourceType) ? source.sourceType : targets[0];
+
+    if (!target) {
+      return normalizeLinkForSiteBrand('/docs/quick/quick_start_mgr/', siteBrand);
+    }
+
+    const href = `/docs/dataMigrationAndSync/connection/${source.sourceSlug}-to-${slugifyConnectionTarget(target)}/`;
+    return normalizeLinkForSiteBrand(href, siteBrand);
+  } catch {
+    return normalizeLinkForSiteBrand('/docs/quick/quick_start_mgr/', siteBrand);
+  }
 };
 
 const getCategorySummary = (connector: Connector, productName: string) => {
@@ -749,7 +765,7 @@ export default function ConnectorDetailPage({ slug }: ConnectorDetailPageProps):
                     onClick={goToStartDoc}
                     className="inline-flex h-[46px] cursor-pointer items-center justify-center rounded-full border-none bg-[#0087c7] px-6 text-[15px] font-bold text-white no-underline transition-colors hover:bg-[#0070a6] focus:outline-none"
                   >
-                    <Translate id="connector.detail.startWithDocs">View docs</Translate>
+                    <Translate id="connector.detail.startWithDocs">View Docs</Translate>
                   </button>
                 </div>
               </div>

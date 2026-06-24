@@ -8,7 +8,7 @@ const Spanner = {
     prepare: [
         {
             key: '账号权限要求',
-            desc: '请参考 [Spanner 权限要求](../datasource_func/Spanner/privs_for_spanner)。'
+            desc: '请参考 [Spanner 权限要求](../../datasource_func/Spanner/privs_for_spanner)。'
         },
         {
             key: '开启数据库变更流 (Change Streams)',

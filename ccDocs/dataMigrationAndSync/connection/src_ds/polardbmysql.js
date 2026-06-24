@@ -40,10 +40,10 @@ const PolarDbMySQL = {
         }
     ],
     faq: [
-        '[MySQL 任务延迟怎么办?](../../faq/solve_incre_task_delay)',
-        '[MySQL 源端找不到 binlog 文件](../../faq/solve_mysql_src_could_not_find_binlog)',
-        '[如何打开 MySQL 源端心跳?](../datasource_func/MySQL/open_mysql_heartbeat)',
-        '[MySQL 源端 Schema 权限报错怎么办?](../../faq/solve_access_denied_schema)',
+        '[MySQL 任务延迟怎么办?](../../../faq/solve_incre_task_delay)',
+        '[MySQL 源端找不到 binlog 文件](../../../faq/solve_mysql_src_could_not_find_binlog)',
+        '[如何打开 MySQL 源端心跳?](../../datasource_func/MySQL/open_mysql_heartbeat)',
+        '[MySQL 源端 Schema 权限报错怎么办?](../../../faq/solve_access_denied_schema)',
     ]
 }
 
