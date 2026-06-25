@@ -27,6 +27,11 @@ type SourcePage = {
   href: string;
 };
 
+type DocInfo = {
+  title: string;
+  href: string;
+};
+
 type SidebarItem =
   | {
       type: 'link';
@@ -43,6 +48,7 @@ type SidebarItem =
     };
 
 const CONNECTION_PATH = 'dataMigrationAndSync/connection';
+const DOC_EXTENSIONS = new Set(['.md', '.mdx']);
 
 function withBaseUrl(baseUrl: string, pathname: string) {
   const normalizedBaseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
@@ -133,6 +139,156 @@ function getLinksIndexPath(content: string, connectionDir: string) {
 
 function getDefaultTarget(targets: string[], sourceType: string) {
   return targets.includes(sourceType) ? sourceType : targets[0] || '';
+}
+
+function getDocFiles(dir: string): string[] {
+  if (!fs.existsSync(dir)) {
+    return [];
+  }
+
+  return fs.readdirSync(dir).flatMap((entry) => {
+    const entryPath = path.join(dir, entry);
+    const stat = fs.statSync(entryPath);
+
+    if (stat.isDirectory()) {
+      return getDocFiles(entryPath);
+    }
+
+    return DOC_EXTENSIONS.has(path.extname(entry)) ? [entryPath] : [];
+  });
+}
+
+function getDocId(filePath: string, docsDir: string, content: string) {
+  const relativePath = path.relative(docsDir, filePath);
+  const parsedPath = path.parse(relativePath);
+  const frontMatterId = readFrontMatterValue(content, 'id');
+
+  return path.join(parsedPath.dir, frontMatterId || parsedPath.name).replace(/\\/g, '/');
+}
+
+function getDocTitle(content: string, docId: string) {
+  return readFrontMatterValue(content, 'sidebar_label') || readFrontMatterValue(content, 'title') || docId.split('/').pop() || docId;
+}
+
+function getDocHref(filePath: string, docsDir: string, baseUrl: string, content: string) {
+  const relativePath = path.relative(docsDir, filePath);
+  const parsedPath = path.parse(relativePath);
+  const normalizedDir = parsedPath.dir.replace(/\\/g, '/');
+  const parentDirName = path.basename(parsedPath.dir);
+  const frontMatterId = readFrontMatterValue(content, 'id');
+  const routeName = frontMatterId || parsedPath.name;
+  const docPath = parsedPath.name === parentDirName
+    ? normalizedDir
+    : path.join(normalizedDir, routeName).replace(/\\/g, '/');
+
+  return withBaseUrl(baseUrl, `/docs/${docPath}`);
+}
+
+function getDocInfoMap(docsDir: string, baseUrl: string) {
+  return new Map(
+    getDocFiles(docsDir).map((filePath) => {
+      const content = fs.readFileSync(filePath, 'utf-8');
+      const docId = getDocId(filePath, docsDir, content);
+      return [docId, {
+        title: getDocTitle(content, docId),
+        href: getDocHref(filePath, docsDir, baseUrl, content),
+      }];
+    })
+  );
+}
+
+function readSidebarConfig(siteDir: string, siteBrand: unknown) {
+  const sidebarPath = getBrandSidebarPath(siteDir, siteBrand);
+  if (!fs.existsSync(sidebarPath)) {
+    return [];
+  }
+
+  const source = fs.readFileSync(sidebarPath, 'utf-8')
+    .replace(/^import[\s\S]*?;\n/gm, '')
+    .replace(/const\s+sidebars\s*:\s*SidebarsConfig\s*=/, 'const sidebars =')
+    .replace(/export\s+default\s+sidebars\s*;?/, '');
+
+  try {
+    const sidebars = new Function(`${source}; return sidebars;`)();
+    return Array.isArray(sidebars?.communitySidebar) ? sidebars.communitySidebar : [];
+  } catch {
+    return [];
+  }
+}
+
+function buildDocLink(docId: string, label: string, docInfoById: Map<string, DocInfo>, sourcePageByDocId: Map<string, SourcePage>, baseUrl: string): SidebarItem {
+  const sourcePage = sourcePageByDocId.get(docId);
+  const docInfo = docInfoById.get(docId);
+
+  return {
+    type: 'link',
+    label: sourcePage?.sourceTitle || docInfo?.title || label,
+    href: sourcePage?.href || docInfo?.href || withBaseUrl(baseUrl, `/docs/${docId}`),
+    docId,
+  };
+}
+
+function convertDocSidebarItem(
+  docId: string,
+  label: string,
+  docInfoById: Map<string, DocInfo>,
+  sourcePageByDocId: Map<string, SourcePage>,
+  baseUrl: string
+) {
+  if (!docInfoById.has(docId) && !sourcePageByDocId.has(docId)) {
+    return null;
+  }
+
+  return buildDocLink(docId, label, docInfoById, sourcePageByDocId, baseUrl);
+}
+
+function convertSidebarItem(
+  item: unknown,
+  docInfoById: Map<string, DocInfo>,
+  sourcePageByDocId: Map<string, SourcePage>,
+  baseUrl: string
+): SidebarItem | null {
+  if (typeof item === 'string') {
+    return convertDocSidebarItem(item, docInfoById.get(item)?.title || item.split('/').pop() || item, docInfoById, sourcePageByDocId, baseUrl);
+  }
+
+  if (!item || typeof item !== 'object') {
+    return null;
+  }
+
+  const sidebarItem = item as any;
+
+  if (sidebarItem.type === 'doc' && sidebarItem.id) {
+    return convertDocSidebarItem(
+      sidebarItem.id,
+      sidebarItem.label || docInfoById.get(sidebarItem.id)?.title || sidebarItem.id,
+      docInfoById,
+      sourcePageByDocId,
+      baseUrl
+    );
+  }
+
+  if (sidebarItem.type === 'link' && sidebarItem.href) {
+    return {
+      type: 'link',
+      label: sidebarItem.label || sidebarItem.href,
+      href: sidebarItem.href,
+    };
+  }
+
+  if (sidebarItem.type === 'category' && Array.isArray(sidebarItem.items)) {
+    return {
+      type: 'category',
+      label: sidebarItem.label,
+      collapsible: sidebarItem.collapsible ?? true,
+      collapsed: sidebarItem.collapsed ?? true,
+      items: sidebarItem.items
+        .map((child: unknown) => convertSidebarItem(child, docInfoById, sourcePageByDocId, baseUrl))
+        .filter(Boolean) as SidebarItem[],
+    };
+  }
+
+  return null;
 }
 
 function getTopLevelObjectBody(content: string) {
@@ -245,7 +401,7 @@ function getTargetNames(indexPath: string) {
     .filter(Boolean);
 }
 
-function buildSidebarItems(siteBrand: unknown, sourcePages: SourcePage[], baseUrl: string): SidebarItem[] {
+function buildConnectionSidebarItems(siteBrand: unknown, sourcePages: SourcePage[], baseUrl: string): SidebarItem[] {
   const labels = getSidebarLabels(siteBrand);
   return [
     {
@@ -277,6 +433,17 @@ function buildSidebarItems(siteBrand: unknown, sourcePages: SourcePage[], baseUr
   ];
 }
 
+function buildSidebarItems(siteDir: string, siteBrand: unknown, docsDir: string, sourcePages: SourcePage[], baseUrl: string): SidebarItem[] {
+  const sidebarConfig = readSidebarConfig(siteDir, siteBrand);
+  const sourcePageByDocId = new Map(sourcePages.map((sourcePage) => [`dataMigrationAndSync/connection/${sourcePage.sourceDocId}`, sourcePage]));
+  const docInfoById = getDocInfoMap(path.join(siteDir, docsDir), baseUrl);
+  const sidebarItems = sidebarConfig
+    .map((item: unknown) => convertSidebarItem(item, docInfoById, sourcePageByDocId, baseUrl))
+    .filter(Boolean) as SidebarItem[];
+
+  return sidebarItems.length ? sidebarItems : buildConnectionSidebarItems(siteBrand, sourcePages, baseUrl);
+}
+
 function getConnectionPages(siteDir: string, siteBrand: unknown, baseUrl: string): ConnectionPage[] {
   const docsDir = getBrandDocsDir(siteBrand);
   const connectionDir = path.join(siteDir, docsDir, CONNECTION_PATH);
@@ -306,7 +473,7 @@ function getConnectionPages(siteDir: string, siteBrand: unknown, baseUrl: string
       };
     })
     .filter((sourcePage) => sourcePage.sourceDocId && sourcePage.sourceType && sourcePage.sourceTitle && sourcePage.href), sourceOrder);
-  const sidebarItems = buildSidebarItems(siteBrand, sourcePages, baseUrl);
+  const sidebarItems = buildSidebarItems(siteDir, siteBrand, docsDir, sourcePages, baseUrl);
 
   return docFiles.flatMap((file) => {
     const docPath = path.join(connectionDir, file);

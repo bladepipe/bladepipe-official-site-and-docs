@@ -40,7 +40,7 @@ const Kafka = {
         },
         // {
         //     key: 'Whole Database Sync',
-        //     desc: 'Support sync of DDLs to create, delete, and modify tables as well as the data. For more information, see [Sync Whole Database](../../operation/job_manage/create_job/create_db_sync_job).'
+        //     desc: 'Support sync of DDLs to create, delete, and modify tables as well as the data. For more information, see [Sync Whole Database](../../../operation/job_manage/create_job/create_db_sync_job).'
         // },
         {
             key: 'Scheduled Full Data Migration',
@@ -63,7 +63,7 @@ const Kafka = {
     examples: [
         {
             key: 'MySQL to Kafka / AutoMQ Data Migration Sync',
-            desc: 'Documentation: [MySQL to Kafka / AutoMQ Data Migration Sync](../../blog/tech_share/mysql_kafka_sync)'
+            desc: 'Documentation: [MySQL to Kafka / AutoMQ Data Migration Sync](../../../blog/tech_share/mysql_kafka_sync)'
         }
     ],
     faq: [],

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Translate, { translate } from '@docusaurus/Translate';
 import { Input, Select, Checkbox, Tag } from 'antd';
 import { SearchOutlined, DownOutlined, CloseOutlined } from '@ant-design/icons';
@@ -20,6 +21,7 @@ const { Option } = Select;
 
 export default function Connector() {
   const siteBrand = siteConfig.customFields?.siteBrand as string;
+  const { i18n } = useDocusaurusContext();
   const [searchValue, setSearchValue] = useState('');
   const [searchFilter, setSearchFilter] = useState('');
   const [sourceValue, setSourceValue] = useState(false);
@@ -29,7 +31,7 @@ export default function Connector() {
   const [requestModalVisible, setRequestModalVisible] = useState(false);
 
   // 使用统一的工具函数获取连接器页面 meta 信息
-  const connectorMeta = getPageMeta('connector');
+  const connectorMeta = getPageMeta('connector', undefined, undefined, i18n.currentLocale);
   const connectors = getConnectors(siteBrand);
   const brand = getBrandProfile(siteBrand);
   const connectorListJsonLd = {

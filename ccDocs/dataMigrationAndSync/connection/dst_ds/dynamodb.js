@@ -2,7 +2,7 @@ export const DynamoDB = {
     prepare: [
         {
             key: '账号权限',
-            desc: '文档：[DynamoDB 需要的权限](../datasource_func/DynamoDB/privs_for_dynamodb)'
+            desc: '文档：[DynamoDB 需要的权限](../../datasource_func/DynamoDB/privs_for_dynamodb)'
         },
         {
             key: '网络准备',

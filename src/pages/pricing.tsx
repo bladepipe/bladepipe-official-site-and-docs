@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Translate, { translate } from '@docusaurus/Translate';
 import FeatureComparison_price from '@site/src/components/FeatureComparison_price';
 import ArrowIcon from '@site/static/img/home/icon/arrow.svg';
@@ -349,6 +350,7 @@ const PricingCard = ({ plan, onDownloadClick, onCommunityModalOpen, siteBrand })
 
 export default function Pricing() {
   const siteBrand = siteConfig.customFields?.siteBrand as string;
+  const { i18n } = useDocusaurusContext();
   
   // 下载相关状态
   const [downloadModalVisible, setDownloadModalVisible] = React.useState(false);
@@ -367,7 +369,7 @@ export default function Pricing() {
   const pricingPlans = getPricingPlans(siteBrand, priceMeta);
 
   // 使用统一的工具函数获取价格页面 meta 信息
-  const pricingMeta = getPageMeta('pricing');
+  const pricingMeta = getPageMeta('pricing', undefined, undefined, i18n.currentLocale);
   
   // 下载按钮点击逻辑
   const handleDownloadClick = async () => {

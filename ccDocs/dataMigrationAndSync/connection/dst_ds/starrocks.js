@@ -12,7 +12,7 @@ export const StarRocks = {
             key: 'DDL 同步报错',
             desc: '\n- 同一张表连续几个 DDL 将报错（因 StarRocks 对端是异步 DDL) ' +
                 '\n- 修改字段约束或者部分类型的 DDL 报错 ' +
-                '\n- 如遇到 DDL 报错，可在对端变更好表结构，然后通过设置任务参数跳过，文档：[跳过 DDL 异常](../param_and_func/skip_ddl_error)'
+                '\n- 如遇到 DDL 报错，可在对端变更好表结构，然后通过设置任务参数跳过，文档：[跳过 DDL 异常](../../param_and_func/skip_ddl_error)'
         },
         {
             key: '增量写入冲突策略',
@@ -76,8 +76,8 @@ export const StarRocks = {
         },
     ],
     faq: [
-        '[Doris / SelectDB 目标端写入报错](../../faq/solve_sr_dr_dst_writer_http_host)',
-        '[StarRocks 对端结构迁移如何设置分区?](../datasource_func/StarRocks/starrocks_partition)',
+        '[Doris / SelectDB 目标端写入报错](../../../faq/solve_sr_dr_dst_writer_http_host)',
+        '[StarRocks 对端结构迁移如何设置分区?](../../datasource_func/StarRocks/starrocks_partition)',
     ],
     master_function: [
         {

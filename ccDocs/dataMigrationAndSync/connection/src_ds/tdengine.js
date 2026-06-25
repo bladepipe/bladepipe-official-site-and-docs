@@ -3,7 +3,7 @@ export const TDengine = {
     prepare: [
         {
             key: '账号权限',
-            desc: '文档：[TDengine 需要的权限](../datasource_func/TDengine/privs_for_tdengine)'
+            desc: '文档：[TDengine 需要的权限](../../datasource_func/TDengine/privs_for_tdengine)'
         },
         {
             key: '网络准备',

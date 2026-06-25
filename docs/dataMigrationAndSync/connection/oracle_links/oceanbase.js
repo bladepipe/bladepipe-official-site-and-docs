@@ -14,7 +14,7 @@ export const OceanBase = {
         },
         {
             key: 'Data Verification and Correction',
-            desc: 'Performs full data verification and optionally corrects differential data based on verification results. Supports scheduled tasks. Documentation: [Create Scheduled Verification and Correction Job](../../operation/job_manage/create_job/create_verification_correction_job)'
+            desc: 'Performs full data verification and optionally corrects differential data based on verification results. Supports scheduled tasks. Documentation: [Create Scheduled Verification and Correction Job](../../../operation/job_manage/create_job/create_verification_correction_job)'
         },
         {
             key: 'Modify Subscription',
@@ -40,7 +40,7 @@ export const OceanBase = {
     master_function: [
         {
             key: 'Scheduled Full Data Migration',
-            desc: 'Documentation 1: [Create Scheduled Full Data Job](../../../operation/job_manage/create_job/create_period_full_job) <br /> Documentation 2: [Scheduled Full Data for Incremental Data Migration](../../bestPractice/time_schedule_full)'
+            desc: 'Documentation 1: [Create Scheduled Full Data Job](../../../operation/job_manage/create_job/create_period_full_job) <br /> Documentation 2: [Scheduled Full Data for Incremental Data Migration](../../../bestPractice/time_schedule_full)'
         },
         {
             key: 'Custom Code',

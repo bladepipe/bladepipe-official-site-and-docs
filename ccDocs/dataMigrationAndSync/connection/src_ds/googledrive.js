@@ -12,7 +12,7 @@ export const GoogleDrive = {
     prepare: [
         {
             key: '账号权限',
-            desc: '文档：[Google Drive 需要的权限](../datasource_func/GoogleDrive/privs_for_googledrive)'
+            desc: '文档：[Google Drive 需要的权限](../../datasource_func/GoogleDrive/privs_for_googledrive)'
         },
         {
             key: '网络准备',

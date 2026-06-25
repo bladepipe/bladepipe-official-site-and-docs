@@ -2,7 +2,7 @@ export const GaussDB = {
     prepare: [
         {
             key: '账号权限',
-            desc: '文档：[GaussDB 需要的权限](../datasource_func/GaussDB/privs_for_gaussdb)'
+            desc: '文档：[GaussDB 需要的权限](../../datasource_func/GaussDB/privs_for_gaussdb)'
         },
         {
             key: '增量同步准备',

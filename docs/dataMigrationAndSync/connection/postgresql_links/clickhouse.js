@@ -40,7 +40,7 @@ export const ClickHouse = {
     master_function: [
         {
             key: 'Scheduled Full Migration',
-            desc: 'Documentation 1: [Create Scheduled Full Task](../../../operation/job_manage/create_job/create_period_full_job) <br /> Documentation 2: [Use Scheduled Full Migration for Incremental Data](../../bestPractice/time_schedule_full).'
+            desc: 'Documentation 1: [Create Scheduled Full Task](../../../operation/job_manage/create_job/create_period_full_job) <br /> Documentation 2: [Use Scheduled Full Migration for Incremental Data](../../../bestPractice/time_schedule_full).'
         },
         {
             key: 'Custom Code',

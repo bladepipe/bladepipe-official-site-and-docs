@@ -6,8 +6,10 @@ import Navbar from '@site/src/theme/Navbar';
 import Footer from '@site/src/components/Footer';
 import Pagination from '@site/src/components/Pagination';
 import { getPageMeta } from '@site/src/utils/meta';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 export default function BlogListPage({ metadata, items, sidebar }: Props) {
+  const { i18n } = useDocusaurusContext();
   // 日期格式化函数
   const formatDate = (dateString: string | Date) => {
     if (!dateString) return '';
@@ -62,7 +64,7 @@ export default function BlogListPage({ metadata, items, sidebar }: Props) {
   const paged = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   // 获取博客列表页的 meta 信息
-  const blogMeta = getPageMeta('blog-list');
+  const blogMeta = getPageMeta('blog-list', undefined, undefined, i18n.currentLocale);
 
   // 使用 useEffect 直接设置 document.title，确保覆盖其他设置
   useEffect(() => {

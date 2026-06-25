@@ -2,7 +2,7 @@ const MySQL = {
     prepare: [
         {
             key: '账号权限',
-            desc: '文档：[MySQL / MariaDB 需要的权限](../datasource_func/MySQL/privs_for_mysql)'
+            desc: '文档：[MySQL / MariaDB 需要的权限](../../datasource_func/MySQL/privs_for_mysql)'
         },
         {
             key: '网络准备',

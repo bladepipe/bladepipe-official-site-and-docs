@@ -70,7 +70,7 @@ const Doris = {
         },
     ],
     faq: [
-        '[Doris / SelectDB 目标端写入报错](../../faq/solve_sr_dr_dst_writer_http_host)',
+        '[Doris / SelectDB 目标端写入报错](../../../faq/solve_sr_dr_dst_writer_http_host)',
     ],
     master_function: [
         {

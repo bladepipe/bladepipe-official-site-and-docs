@@ -8,7 +8,7 @@ export const Kafka = {
     params: [
         {
             key: 'schemaFormat',
-            desc: 'MQ 消息格式，文档：[消息格式说明](../../reference/kafka_msg_format_type)'
+            desc: 'MQ 消息格式，文档：[消息格式说明](../../../reference/kafka_msg_format_type)'
         },
         {
             key: 'consumerGroupId',
@@ -35,11 +35,11 @@ export const Kafka = {
             desc: '配置对源端数据库心跳操作可容忍的位点差值'
         },{
             key:'customClientProps',
-            desc:'自定义传入到 Kafka Client 参数，JSON 格式，key为参数名，value为参数值。此配置项以最高优先级生效。例如：[AWS IAM 访问控制](../datasource_func/Kafka/kafka_iam_auth)'
+            desc:'自定义传入到 Kafka Client 参数，JSON 格式，key为参数名，value为参数值。此配置项以最高优先级生效。例如：[AWS IAM 访问控制](../../datasource_func/Kafka/kafka_iam_auth)'
         }
     ],
     faq: [
-        '[如何打开 Kafka 源端心跳?](../datasource_func/Kafka/open_kafka_heartbeat)'
+        '[如何打开 Kafka 源端心跳?](../../datasource_func/Kafka/open_kafka_heartbeat)'
     ],
     notice: [
         {
@@ -54,17 +54,17 @@ export const Kafka = {
     examples: [
         {
             key: '跨互联网数据互通 (Kafka)',
-            desc: '文档：[跨互联网数据互通 (Kafka)](../../blog/kafka_base_internet_data_sync)'
+            desc: '文档：[跨互联网数据互通 (Kafka)](../../../blog/kafka_base_internet_data_sync)'
         },
         {
             key: 'Kafka 数据中转校验',
-            desc: '文档：[Kafka 数据中转校验](../../blog/kafka_data_check)'
+            desc: '文档：[Kafka 数据中转校验](../../../blog/kafka_data_check)'
         }
     ],
     master_function: [
         {
             key: '消息格式',
-            desc: '支持以下消息格式，文档：[消息格式说明](../../reference/kafka_msg_format_type) \n- <b>CloudCanal内置格式</b> \n- <b>AlibabaCanal兼容格式</b>'
+            desc: '支持以下消息格式，文档：[消息格式说明](../../../reference/kafka_msg_format_type) \n- <b>CloudCanal内置格式</b> \n- <b>AlibabaCanal兼容格式</b>'
         },
     ]
 }

@@ -2,7 +2,7 @@ const Db2 = {
     prepare: [
         {
             key: '源端 CDC 同步准备（增量）',
-            desc: '文档：[Db2 源端 CDC 同步准备](../datasource_func/Db2/prepare_for_db2)'
+            desc: '文档：[Db2 源端 CDC 同步准备](../../datasource_func/Db2/prepare_for_db2)'
         }
     ],
     params: [

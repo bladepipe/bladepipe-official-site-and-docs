@@ -2,7 +2,7 @@ export const MongoDB = {
     prepare: [
         {
             key: '账号权限',
-            desc: '文档：[MongoDB 需要的权限](../datasource_func/MongoDB/privs_for_mongo)'
+            desc: '文档：[MongoDB 需要的权限](../../datasource_func/MongoDB/privs_for_mongo)'
         },
         {
             key: '网络准备',

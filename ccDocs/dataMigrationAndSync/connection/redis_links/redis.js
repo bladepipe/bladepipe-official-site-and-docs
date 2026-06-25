@@ -26,7 +26,7 @@ export const Redis = {
     master_function: [
         {
             key: 'Redis 双向同步',
-            desc: '支持全量迁移、增量同步双向防循环，文档：[Redis 双向数据同步](../../bestPractice/redis_loop_data_sync)'
+            desc: '支持全量迁移、增量同步双向防循环，文档：[Redis 双向数据同步](../../../bestPractice/redis_loop_data_sync)'
         },
         {
             key: 'Redis 双向同步指令支持',
@@ -43,7 +43,7 @@ export const Redis = {
     examples: [
         {
             key: 'Redis 双向数据同步',
-            desc: '文档：[Redis 双向数据同步](../../bestPractice/redis_loop_data_sync)'
+            desc: '文档：[Redis 双向数据同步](../../../bestPractice/redis_loop_data_sync)'
         }
     ],
     faq: [],

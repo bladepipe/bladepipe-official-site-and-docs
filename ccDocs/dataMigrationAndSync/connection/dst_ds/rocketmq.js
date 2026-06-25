@@ -8,13 +8,13 @@ export const RocketMQ = {
     params: [
         {
             key: 'schemaFormat',
-            desc: '消息格式，文档：[消息格式说明](../../reference/kafka_msg_format_type)'
+            desc: '消息格式，文档：[消息格式说明](../../../reference/kafka_msg_format_type)'
         }
     ],
     master_function: [
         {
             key: '消息格式',
-            desc: '支持以下消息格式，文档：[消息格式说明](../../reference/kafka_msg_format_type) \n- <b>CloudCanal内置格式</b> \n- <b>AlibabaCanal兼容格式</b>'
+            desc: '支持以下消息格式，文档：[消息格式说明](../../../reference/kafka_msg_format_type) \n- <b>CloudCanal内置格式</b> \n- <b>AlibabaCanal兼容格式</b>'
         },
     ]
 }

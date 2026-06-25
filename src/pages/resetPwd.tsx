@@ -14,10 +14,10 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { getPageMeta } from '@site/src/utils/meta';
 
 export default function ResetPwd() {
-  const { siteConfig } = useDocusaurusContext();
+  const { siteConfig, i18n } = useDocusaurusContext();
   const siteBrand = siteConfig.customFields?.siteBrand;
 
-  const resetPwdMeta = getPageMeta('resetPwd');
+  const resetPwdMeta = getPageMeta('resetPwd', undefined, undefined, i18n.currentLocale);
 
   const [form] = Form.useForm();
   const [publicKey, setPublicKey] = useState('');

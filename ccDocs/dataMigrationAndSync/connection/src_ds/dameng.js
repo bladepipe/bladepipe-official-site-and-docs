@@ -2,11 +2,11 @@ export const Dameng = {
     prepare: [
         {
             key: '账号权限',
-            desc: '文档：[Dameng 需要的权限](../datasource_func/Dameng/privs_for_dameng)'
+            desc: '文档：[Dameng 需要的权限](../../datasource_func/Dameng/privs_for_dameng)'
         },
         {
             key: '增量同步准备',
-            desc: '文档：[Dameng LogMiner 准备](../datasource_func/Dameng/prepare_for_dameng_logminer)'
+            desc: '文档：[Dameng LogMiner 准备](../../datasource_func/Dameng/prepare_for_dameng_logminer)'
         },
         {
             key: '网络准备',

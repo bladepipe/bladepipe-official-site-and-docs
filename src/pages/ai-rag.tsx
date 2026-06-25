@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Translate from '@docusaurus/Translate';
 import FadeInSection from '@site/src/components/FadeInSection';
 import Footer from '@site/src/components/Footer';
@@ -188,8 +189,9 @@ const getLatestBlogs = (siteBrand: string) => {
 
 export default function Solution2(): React.JSX.Element {
   const siteBrand = siteConfig.customFields?.siteBrand as string;
+  const { i18n } = useDocusaurusContext();
   const stepCards = getStepCards(siteBrand);
-  const pageMeta = getPageMeta('ai-rag');
+  const pageMeta = getPageMeta('ai-rag', undefined, undefined, i18n.currentLocale);
   
   return (
     <Layout description={pageMeta.description}>

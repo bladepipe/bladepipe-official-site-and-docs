@@ -2,7 +2,7 @@ export const Hana = {
     notice: [
         {
             key: 'DDL 变化处理方案',
-            desc: 'SAP HANA 源端通过触发器捕获增量数据，不支持 DDL 同步。若发生 DDL 变更，可参考文档：[SAP HANA 源端表结构变更](../datasource_func/Hana/sap_hana_ddl)'
+            desc: 'SAP HANA 源端通过触发器捕获增量数据，不支持 DDL 同步。若发生 DDL 变更，可参考文档：[SAP HANA 源端表结构变更](../../datasource_func/Hana/sap_hana_ddl)'
         },
         {
             key: 'HANA 增量同步数据类型',
@@ -10,12 +10,12 @@ export const Hana = {
         },
     ],
     faq: [
-        '[SAP HANA 测试链接报错](../../faq/solve_hana_test_connection_fail)'
+        '[SAP HANA 测试链接报错](../../../faq/solve_hana_test_connection_fail)'
     ],
     prepare: [
         {
             key: '账号权限',
-            desc: '文档：[HANA 需要的权限](../datasource_func/Hana/privs_for_hana)'
+            desc: '文档：[HANA 需要的权限](../../datasource_func/Hana/privs_for_hana)'
         },
     ],
     params: [

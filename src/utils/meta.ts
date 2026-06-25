@@ -15,10 +15,12 @@ export interface PageMeta {
 export function getPageMeta(
   pageType: string,
   customTitle?: string,
-  customDescription?: string
+  customDescription?: string,
+  locale?: string
 ): PageMeta {
   const siteBrand = siteConfig.customFields?.siteBrand as string;
-  
+  const isZh = locale === 'zh';
+
   // 默认 meta 信息配置
   const metaConfig: Record<string, Record<string, PageMeta>> = {
     clougence: {
@@ -138,11 +140,64 @@ export function getPageMeta(
         title: 'Reset Your Password | BladePipe',
         description: 'Reset your password to access your BladePipe account.'
       }
+    },
+    // BladePipe Chinese (zh locale) meta
+    bladepipeZh: {
+      'home': {
+        title: 'BladePipe | 实时数据集成与 CDC 管道平台',
+        description: 'BladePipe 是实时数据集成平台，支持多种数据源。为企业数据同步、分析与 AI 构建低延迟、高可靠、可扩展的 CDC 和 ETL 管道。'
+      },
+      'why': {
+        title: '为什么选择 BladePipe | 低成本企业级数据集成',
+        description: 'BladePipe 以实时 CDC、超快同步、企业级连接器、更低成本和可靠的端到端管道，超越其他数据集成工具。'
+      },
+      'connector': {
+        title: '预构建数据集成连接器 | BladePipe',
+        description: 'BladePipe 提供丰富的数据库、消息队列、数据仓库和数据湖连接器，以超低延迟轻松连接数据源与目的地。'
+      },
+      'pricing': {
+        title: 'BladePipe 价格方案 | 免费开始使用',
+        description: '实时数据集成的透明、可预估定价。免费构建管道，估算成本，灵活扩展。'
+      },
+      'real-time-analytics': {
+        title: '大规模实时分析数据管道 | BladePipe',
+        description: '构建高性能、低成本的实时分析数据管道。BladePipe 支持大规模增量采集与统一集成到数据仓库。'
+      },
+      'ai-rag': {
+        title: 'AI 与 RAG 非结构化数据管道 | BladePipe',
+        description: '将非结构化数据实时转化为 AI 就绪的 RAG API。构建可扩展的 AI 数据管道，支持自动数据处理与向量数据库集成。'
+      },
+      'about': {
+        title: '关于 BladePipe | 数据集成与复制解决方案',
+        description: 'BladePipe 帮助团队跨多个数据源与目的地连接、复制和同步数据。让您专注于洞察与分析，由我们处理可靠、高性能的数据管道。'
+      },
+      'blog-list': {
+        title: 'BladePipe 博客 | 数据策略与工程洞察',
+        description: '阅读专家关于数据集成、实时同步、迁移、复制以及分析与 AI 数据管道的最佳实践与洞察。'
+      },
+      'login': {
+        title: 'BladePipe 登录 | 访问您的账户',
+        description: '登录您的 BladePipe 控制台，管理和监控数据集成工作流。'
+      },
+      'register': {
+        title: 'BladePipe 注册 | 创建您的账户',
+        description: '开始使用 BladePipe 构建数据管道。立即创建免费账户，无需信用卡。'
+      },
+      'registerFromMarket': {
+        title: 'BladePipe 注册 | AWS 云市场',
+        description: '通过 AWS 云市场订阅后，完成您的 BladePipe 注册。'
+      },
+      'resetPwd': {
+        title: '重置密码 | BladePipe',
+        description: '重置密码以访问您的 BladePipe 账户。'
+      }
     }
   };
 
   // 获取对应品牌的 meta 配置
-  const brandMeta = metaConfig[siteBrand] || metaConfig.bladepipe;
+  // For bladepipe with zh locale, use the Chinese meta; otherwise use brand default
+  const effectiveBrand = (isZh && siteBrand === 'bladepipe') ? 'bladepipeZh' : siteBrand;
+  const brandMeta = metaConfig[effectiveBrand] || metaConfig[siteBrand] || metaConfig.bladepipe;
   const pageMeta = brandMeta[pageType] || {
     title: customTitle || siteConfig.title,
     description: customDescription || siteConfig.tagline

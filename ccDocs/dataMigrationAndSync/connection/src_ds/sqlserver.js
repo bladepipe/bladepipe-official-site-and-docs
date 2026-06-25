@@ -2,7 +2,7 @@ const SQLServer = {
     prepare: [
         {
             key: '账号权限',
-            desc: '文档：[SQL Server 需要的权限](../datasource_func/SqlServer/privs_for_sqlserver)'
+            desc: '文档：[SQL Server 需要的权限](../../datasource_func/SqlServer/privs_for_sqlserver)'
         },
         {
             key: '开启 SQL Server CDC',
@@ -24,7 +24,7 @@ const SQLServer = {
         }
     ],
     faq: [
-        '[出现 TLS10 is not accepted 问题该怎么办?](../../faq/solve_sqlserver_tls)'
+        '[出现 TLS10 is not accepted 问题该怎么办?](../../../faq/solve_sqlserver_tls)'
     ]
 }
 

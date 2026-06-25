@@ -52,11 +52,11 @@ function HomepageHeader() {
 }
 
 export default function Home(): ReactNode {
-  const {siteConfig} = useDocusaurusContext();
+  const {siteConfig, i18n} = useDocusaurusContext();
   const siteBrand = siteConfig.customFields?.siteBrand;
   
   // 使用统一的工具函数获取首页 meta 信息
-  const homeMeta = getPageMeta('home');
+  const homeMeta = getPageMeta('home', undefined, undefined, i18n.currentLocale);
   
   // 当 siteBrand 为 clouddm 时，渲染 CloudDM 页面
   if (siteBrand === 'clouddm') {

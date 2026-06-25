@@ -2,7 +2,7 @@ export const Dameng = {
     prepare: [
         {
             key: 'Accounts and Permissions',
-            desc: 'Documentation: [Permissions Required for Dameng](../datasource_func/Dameng/privs_for_dameng)'
+            desc: 'Documentation: [Permissions Required for Dameng](../../datasource_func/Dameng/privs_for_dameng)'
         },
         {
             key: 'Network Preparation',

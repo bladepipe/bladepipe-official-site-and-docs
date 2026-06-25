@@ -47,7 +47,7 @@ const Kafka = {
     examples: [
         {
             key: 'MySQL to Kafka Data Migration and Synchronization',
-            desc: 'See [Synchronize Data from MySQL to Kafka](../../blog/tech_share/mysql_kafka_sync).'
+            desc: 'See [Synchronize Data from MySQL to Kafka](../../../blog/tech_share/mysql_kafka_sync).'
         }
     ],
     faq: [],

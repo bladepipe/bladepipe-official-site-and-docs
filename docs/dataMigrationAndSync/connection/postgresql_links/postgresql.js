@@ -26,7 +26,7 @@ const PostgreSQL = {
         },
         {
             key: 'DDL Sync',
-            desc: 'PostgreSQL DDL sync is realized by triggers. The user should have the permissions on triggers and tables. For more information, see [Permissions Required for PostgreSQL](../../datasource_func/PostgreSQL/privs_for_pg)'
+            desc: 'PostgreSQL DDL sync is realized by triggers. The user should have the permissions on triggers and tables. For more information, see [Permissions Required for PostgreSQL](../../../datasource_func/PostgreSQL/privs_for_pg)'
         },
         {
             key: 'Metadata Retrieval',

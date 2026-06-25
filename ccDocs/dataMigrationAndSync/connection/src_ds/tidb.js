@@ -2,7 +2,7 @@ const TiDB = {
     prepare: [
         {
             key: '账号权限',
-            desc: '文档：[TiDB 需要的权限](../datasource_func/TiDB/privs_for_tidb)'
+            desc: '文档：[TiDB 需要的权限](../../datasource_func/TiDB/privs_for_tidb)'
         },
         {
             key: 'PD节点网络连通',

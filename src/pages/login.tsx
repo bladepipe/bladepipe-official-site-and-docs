@@ -109,7 +109,7 @@ const SsoLoginButtons: React.FC<SsoLoginButtonsProps> = ({
 );
 
 export default function Login() {
-  const { siteConfig } = useDocusaurusContext();
+  const { siteConfig, i18n } = useDocusaurusContext();
   const siteBrand = siteConfig.customFields?.siteBrand;
 
   const [checkPolicy, setCheckPolicy] = useState(true);
@@ -159,7 +159,7 @@ export default function Login() {
     return CloudCanalLoginForm;
   }, [siteBrand]);
 
-  const loginMeta = getPageMeta('login');
+  const loginMeta = getPageMeta('login', undefined, undefined, i18n.currentLocale);
 
   return (
     <>

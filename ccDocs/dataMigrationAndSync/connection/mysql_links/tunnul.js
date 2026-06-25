@@ -32,11 +32,11 @@ const Tunnel = {
     master_function: [
         // {
         //     key: '全库同步',
-        //     desc: '支持源端新建、删除、修改表的 DDL 和数据同步，文档：[创建全库同步任务](../../operation/job_manage/create_job/create_db_sync_job)'
+        //     desc: '支持源端新建、删除、修改表的 DDL 和数据同步，文档：[创建全库同步任务](../../../operation/job_manage/create_job/create_db_sync_job)'
         // },
         {
             key: '自定义代码',
-            desc: '文档1：[创建自定义代码任务](../../operation/job_manage/create_job/create_process_job) <br />文档2：[自定义代码任务 debug](../../operation/job_manage/job_op/debug_customer_code) <br />文档3：[在自定义代码中打日志](../../operation/job_manage/job_op/log_in_customer_code)'
+            desc: '文档1：[创建自定义代码任务](../../../operation/job_manage/create_job/create_process_job) <br />文档2：[自定义代码任务 debug](../../../operation/job_manage/job_op/debug_customer_code) <br />文档3：[在自定义代码中打日志](../../../operation/job_manage/job_op/log_in_customer_code)'
         },
         {
             key: '设置目标主键',
@@ -44,7 +44,7 @@ const Tunnel = {
         },
         {
             key: '数据过滤条件',
-            desc: '支持 WHERE 条件进行数据过滤，内容为 SQL 92 子集，文档：[创建数据过滤任务](../../operation/job_manage/create_job/create_data_filter_job)'
+            desc: '支持 WHERE 条件进行数据过滤，内容为 SQL 92 子集，文档：[创建数据过滤任务](../../../operation/job_manage/create_job/create_data_filter_job)'
         },
     ],
     notice: [],

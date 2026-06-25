@@ -14,11 +14,11 @@ const Doris = {
         },
         {
             key: '数据校验和订正',
-            desc: '全量数据校验，并可选根据校验结果订正差异数据，支持定时，文档：[创建定时校验订正任务](../../operation/job_manage/create_job/create_verification_correction_job)'
+            desc: '全量数据校验，并可选根据校验结果订正差异数据，支持定时，文档：[创建定时校验订正任务](../../../operation/job_manage/create_job/create_verification_correction_job)'
         },
         {
             key: '修改订阅',
-            desc: '新增、删除、修改订阅表，支持历史数据迁移，文档：[修改订阅](../../operation/job_manage/job_op/edit_job)'
+            desc: '新增、删除、修改订阅表，支持历史数据迁移，文档：[修改订阅](../../../operation/job_manage/job_op/edit_job)'
         },
         {
             key: '重置位点',
@@ -48,15 +48,15 @@ const Doris = {
         },
         {
             key: '定时全量迁移',
-            desc: '文档1：[创建定时全量任务](../../operation/job_manage/create_job/create_period_full_job) <br /> 文档2：[定时全量实现增量数据迁移](../../bestPractice/time_schedule_full)'
+            desc: '文档1：[创建定时全量任务](../../../operation/job_manage/create_job/create_period_full_job) <br /> 文档2：[定时全量实现增量数据迁移](../../../bestPractice/time_schedule_full)'
         },
         {
             key: '表达式表名',
-            desc: '支持按正则表达式表名迁移同步数据，实现全库同步、分表汇聚等功能中自动增减表需求，文档：[表达式任务](../../operation/job_manage/create_job/create_regex_table_job)'
+            desc: '支持按正则表达式表名迁移同步数据，实现全库同步、分表汇聚等功能中自动增减表需求，文档：[表达式任务](../../../operation/job_manage/create_job/create_regex_table_job)'
         },
         {
             key: '自定义代码',
-            desc: '文档1：[创建自定义代码任务](../../operation/job_manage/create_job/create_process_job) <br />文档2：[自定义代码任务 debug](../../operation/job_manage/job_op/debug_customer_code) <br />文档3：[在自定义代码中打日志](../../operation/job_manage/job_op/log_in_customer_code)'
+            desc: '文档1：[创建自定义代码任务](../../../operation/job_manage/create_job/create_process_job) <br />文档2：[自定义代码任务 debug](../../../operation/job_manage/job_op/debug_customer_code) <br />文档3：[在自定义代码中打日志](../../../operation/job_manage/job_op/log_in_customer_code)'
         },
         {
             key: '添加虚拟列',
@@ -68,7 +68,7 @@ const Doris = {
         },
         {
             key: '数据过滤条件',
-            desc: '支持 WHERE 条件进行数据过滤，内容为 SQL 92 子集，文档：[创建数据过滤任务](../../operation/job_manage/create_job/create_data_filter_job)'
+            desc: '支持 WHERE 条件进行数据过滤，内容为 SQL 92 子集，文档：[创建数据过滤任务](../../../operation/job_manage/create_job/create_data_filter_job)'
         }
     ],
     notice: [],
