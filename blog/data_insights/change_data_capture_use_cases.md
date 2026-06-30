@@ -29,7 +29,7 @@ Customers expect instant confirmations. Fraud detection must happen within secon
 
 A nightly data job can't support that.
 
-This shift toward immediacy is one of the main drivers behind growing interest in change data capture use cases and [real-time data pipelines](best_data_pipeline_tools).
+This shift toward immediacy is one of the main drivers behind growing interest in change data capture use cases and [real-time data pipelines](/blog/data_insights/best_data_pipeline_tools.md).
 
 ### 2. Dual Writes Create Risk
 

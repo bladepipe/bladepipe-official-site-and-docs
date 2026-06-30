@@ -31,7 +31,7 @@ To build a RAG API with BladePipe, two DataJobs needs to be created. This articl
 ![pg_vector_to_rag_api_01.png](../assets/pg_vector_to_rag_api/ragapi_workflow.png)
 
 #### DataJob 1: File Embedding (File → PGVector) 
-For more details, please refer to [Create and Store Embeddings in PGVector](./file_to_aliyun_pg_vector).
+For more details, please refer to [Create and Store Embeddings in PGVector](https://www.bladepipe.com/docs/bestPractice/file_to_aliyun_pg_vector/).
 
 #### DataJob 2: RAG API Building (PGVector → RagApi) 
 1. **Query Embedding and Retrieval**

@@ -362,5 +362,5 @@ Default credentials:
 
 ### Next Steps
 After installing BladePipe Community, you may proceed with the following actions:
-1. **Activate Your Instance**: New installations include a free 15-day automatic activation. After that, renew your free license every 3 months. See the **[Activation Guide](https://www.bladepipe.com/docs/license/)**.
+1. **Activate Your Instance**: New installations include a free 15-day automatic activation. After that, renew your free license every 3 months. See the **[Activation Guide](https://www.bladepipe.com/docs/license/license_use/)**.
 2. **Install a Worker**: Scale your deployment by adding Workers. See **[Add Worker Guide](https://www.bladepipe.com/docs/productOP/onPremise/installation/add_worker_binary/)**.

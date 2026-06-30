@@ -26,8 +26,8 @@ Version: 0.4.0
 - Allow to clear up data in a target PostgreSQL instance before full data migration.
 - Support SASL / SCRAM authentication for Kafka.
 - Add the parameter clientCustomProps for Kafka to add or override the configuration of producers and consumers.
-- Support multi-DataJob distributed execution of data migration, sync, verification and correction ([parallel DataJob groups](../operation/job_manage/job_op/job_group#parallel-datajob-group)), significantly improving the data replication performance.
-- Support [DataJob groups](../operation/job_manage/job_op/job_group), including business groups (e.g., multiple kafka source DataJobs, data aggregation DataJobs, and DataJobs for the same business purpose) and parallel groups, facilitating DataJob management.
+- Support multi-DataJob distributed execution of data migration, sync, verification and correction ([parallel DataJob groups](https://www.bladepipe.com/docs/operation/job_manage/job_op/job_group/#parallel-datajob-group)), significantly improving the data replication performance.
+- Support [DataJob groups](https://www.bladepipe.com/docs/operation/job_manage/job_op/job_group/), including business groups (e.g., multiple kafka source DataJobs, data aggregation DataJobs, and DataJobs for the same business purpose) and parallel groups, facilitating DataJob management.
 - Support data filtering conditions for Date field (advanced mode, filtering in BladePipe).
 
 

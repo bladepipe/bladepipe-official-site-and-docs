@@ -1,7 +1,7 @@
 ---
 id: job_restart_record
 title: View Restart History
-description: BladePipe supports replaying DataJob. You can rerun a data pipeline in a click.
+description: View DataJob restart history in BladePipe, including worker binding time, runtime stability, and cumulative restart counts across hours, days, and weeks.
 ---
 BladePipe supports viewing DataJob restart history.
 
@@ -14,6 +14,5 @@ The restart history includes the following information:
   - **Time Elapsed Since First Binding**: The value of this field makes it easy for operators to understand how long the DataTask has been assigned to this Worker.
   - **Time Elapsed Since Last Start Time**: When a DataTask is abnormal, the process will restart automatically. This time is equivalent to the time the DataTask runs stably, and the longer the time, the more stable the DataTask runs.
   - **Cumulative Restart Times in Hours/Days/Weeks**: The number of restarts accumulated according to different time granularities. The fewer the number of times, the more stable the DataTask process runs.
-
 
 

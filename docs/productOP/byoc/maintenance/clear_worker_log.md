@@ -1,7 +1,7 @@
 ---
 id: clear_worker_log
-title: Clean Up Worker Logs
-description: BladePipe allows to clean up the Worker logs to free up the storage.
+title: Clean Up Worker Logs in BYOC
+description: Clean up Worker logs in BladePipe BYOC deployments to remove stale DataJob log files and reclaim host storage space safely.
 ---
 
 ## Overview

@@ -1,7 +1,7 @@
 ---
 id: job_replay
 title: Replay DataJobs
-description: BladePipe supports replaying DataJob. You can rerun a data pipeline in a click.
+description: Replay completed or stopped DataJobs in BladePipe to rerun full migration, verification, correction, or incremental tasks without recreating the pipeline.
 ---
 
 ## Overview
@@ -20,4 +20,3 @@ The condition of replay DataJob:
 
 ## Procedure
 Go to the DataJob List page. Click **Replay** in the Operation column.
-

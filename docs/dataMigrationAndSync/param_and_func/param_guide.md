@@ -1,6 +1,6 @@
 ---
 id: param_guide
-title: Overview
+title: BladePipe Parameter Guide
 description: Overview of common parameters and their use cases in BladePipe
 ---
 - [Replace Zero Time Values 0](zero.md)

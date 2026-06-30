@@ -230,9 +230,9 @@ See: [Required Privileges for MySQL](/docs/dataMigrationAndSync/datasource_func/
 
 You can get a **free BladePipe account** in three ways:
 
-- **SaaS (Fully Managed)** – 90-day free trial. Just [log in](https://www.bladepipe.com/register/) and start using it. See [Quick Start (SaaS)](/docs/quick/quick_start_mgr.md).
-- **BYOC (Bring Your Own Cloud)** – 90-day free trial. Follow the [instructions](/docs/quick/quick_start_byoc.md) in Install Worker (Docker) or Install Worker (Binary) to download and install a BladePipe Worker.
-- **On-premise (Local Deployment)** – Free Community edition. Click Try Community Free on the [homepage](https://www.bladepipe.com/) for one-click deployment. See [Quick Start (On-premise)](/docs/quick/quick_start.md).
+- **SaaS (Fully Managed)** – 90-day free trial. Just [log in](https://www.bladepipe.com/register/) and start using it. See [Quick Start (SaaS)](https://www.bladepipe.com/docs/quick/quick_start_mgr/).
+- **BYOC (Bring Your Own Cloud)** – 90-day free trial. Follow the [instructions](https://www.bladepipe.com/docs/quick/quick_start_byoc/) in Install Worker (Docker) or Install Worker (Binary) to download and install a BladePipe Worker.
+- **On-premise (Local Deployment)** – Free Community edition. Click Try Community Free on the [homepage](https://www.bladepipe.com/) for one-click deployment. See [Quick Start (On-premise)](https://www.bladepipe.com/docs/quick/quick_start/).
 
 #### Step-by-step setup (adapted for MySQL → Snowflake)
 

@@ -75,7 +75,7 @@ For most teams, the third option is the one that actually survives production.
 
 [BladePipe](https://www.bladepipe.com/) is designed for exactly the kind of workflow SQL Server to Iceberg needs: **full load plus incremental sync**, low operational overhead, and a visual setup flow that does not force your team to build and maintain an entire CDC stack.
 
-BladePipe supports SQL Server source pipelines and Iceberg targets through the web console. In Managed mode, the console and worker are fully managed, so you only operate through the browser. See the [Managed quickstart](https://www.bladepipe.com/docs/quick/quick_start_mgr/) if you want the no-deployment path.
+BladePipe supports [SQL Server](/blog/data_insights/sql_server_change_data_capture.md) source pipelines and Iceberg targets through the web console. In Managed mode, the console and worker are fully managed, so you only operate through the browser. See the [Managed quickstart](https://www.bladepipe.com/docs/quick/quick_start_mgr/) if you want the no-deployment path.
 
 For this migration pattern, the most useful capabilities are:
 

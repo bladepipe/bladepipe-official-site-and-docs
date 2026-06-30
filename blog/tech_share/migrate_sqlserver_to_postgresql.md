@@ -8,7 +8,7 @@ tags:
   - tutorials
 image: /img/blog/tutorials/migrate_sqlserver_to_postgresql.png 
 ---
-If you've been thinking about migrating from SQL Server to PostgreSQL, you're not alone. More and more teams are making the switch, whether it's to cut licensing costs, embrace open source, or get better flexibility in the cloud.
+If you've been thinking about migrating from [SQL Server](/blog/data_insights/sql_server_change_data_capture.md) to PostgreSQL, you're not alone. More and more teams are making the switch, whether it's to cut licensing costs, embrace open source, or get better flexibility in the cloud.
 
 The decision isn't that hard. What’s harder is the migration. Moving data is one thing, but dealing with schema differences, and keeping systems running during the transition is where things get complex. 
 
