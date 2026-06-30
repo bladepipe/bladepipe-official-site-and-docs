@@ -10,7 +10,7 @@ image: /img/blog/data_insights/build_ai_data_pipeline.png
 ---
 You trained a model. It scores 0.98 on your test set. You deploy it. Within a week, predictions drift, recall drops, and someone discovers the training data never included records from the Asia region.
 
-The model wasn't the problem. The [**data pipeline**](best_data_pipeline_tools) was.
+The model wasn't the problem. The [**data pipeline**](/blog/data_insights/best_data_pipeline_tools.md) was.
 
 Most AI initiatives fail not because of weak models, but because data pipelines break in ways teams didn't anticipate. This guide cuts through the vendor talk and tells you what actually goes wrong and how to fix it.
 

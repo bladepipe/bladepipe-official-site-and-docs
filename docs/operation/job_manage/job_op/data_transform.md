@@ -40,6 +40,7 @@ return @fun.str.maskAfter(@params['col'],'-')
 |return @fun.str.maskBefore(@params['col'],'@') | Mask the substring before the '@' character, defaulting to * |
 |return @fun.str.maskBetweenIdx(@params['col'],2,8) | Mask the substring between indices 2 and 8, inclusive of the start and exclusive of the end, with indices starting at 0|
 |return @fun.str.stringFormat(@params['col'],'prefix_%s_suffix') | Format the value with specified text expression|
+|return @fun.str.join([@params['col1'],@params['col2'],...]) | Concatenate the values of multiple fields|
 |return @fun.str.castToDateTimeWithFormat(@params['col'],'yyyy-MM-dd HH:mm:ss') | Convert strings to date and time in a specified format |
 |return @fun.str.castToDateWithFormat(@params['col'],'yyyy-MM-dd') | Convert strings to date in a specified format |
 |return @fun.str.castToTimeWithFormat(@params['col'],'HH:mm:ss') | Convert strings to time in a specified format |

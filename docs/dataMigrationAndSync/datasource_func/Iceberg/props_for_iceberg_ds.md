@@ -22,9 +22,9 @@ Click DataSource > Add DataSource. Select **Iceberg** under **Self Maintenance**
 
 - **Address**: Fill in the Catalog service endpoint. Example endpoints for the three supported Catalogs are as follows (replace the content within `<>` with actual values).
   
-  - AWS Glue: **glue.&lt;aws_glue_region_code&gt;.amazonaws.com**
-  - Nessie: **&lt;nessie_server_ip&gt;:19120/api/v1**
-  - Rest: **&lt;rest_server_ip&gt;:&lt;rest_server_port&gt;**
+  - AWS Glue: `glue.<aws_glue_region_code>.amazonaws.com`
+  - Nessie: `<nessie_server_ip>:19120/api/v1`
+  - Rest: `<rest_server_ip>:<rest_server_port>`
 
 - **Version**: Select the exact Iceberg version. 
 - **Description**: Add a description to easily identify the DataSource. 
@@ -43,13 +43,13 @@ Click DataSource > Add DataSource. Select **Iceberg** under **Self Maintenance**
   ```json
   {
     "io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
-    "s3.endpoint": "https://s3.&lt;aws_s3_region_code&gt;.amazonaws.com",
+    "s3.endpoint": "https://s3.<aws_s3_region_code>.amazonaws.com",
     "s3.access-key-id": "<aws_s3_iam_user_access_key>",
     "s3.secret-access-key": "<aws_s3_iam_user_secret_key>",
     "s3.path-style-access": "true",
-    "client.region": "&lt;aws_s3_region&gt;",
-    "client.credentials-provider.glue.access-key-id": "&lt;aws_glue_iam_user_access_key&gt;",
-    "client.credentials-provider.glue.secret-access-key": "&lt;aws_glue_iam_user_secret_key&gt;",
+    "client.region": "<aws_s3_region>",
+    "client.credentials-provider.glue.access-key-id": "<aws_glue_iam_user_access_key>",
+    "client.credentials-provider.glue.secret-access-key": "<aws_glue_iam_user_secret_key>",
     "client.credentials-provider": "com.amazonaws.glue.catalog.credentials.GlueAwsCredentialsProvider"
   }
   ```
@@ -59,11 +59,11 @@ Click DataSource > Add DataSource. Select **Iceberg** under **Self Maintenance**
   ```json
   {
     "io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
-    "s3.endpoint": "https://s3.&lt;aws_s3_region_code&gt;.amazonaws.com",
+    "s3.endpoint": "https://s3.<aws_s3_region_code>.amazonaws.com",
     "s3.access-key-id": "<aws_s3_iam_user_access_key>",
     "s3.secret-access-key": "<aws_s3_iam_user_secret_key>",
     "s3.path-style-access": "true",
-    "client.region": "&lt;aws_s3_region_code&gt;"
+    "client.region": "<aws_s3_region_code>"
   }
   ```
   
@@ -72,9 +72,9 @@ Click DataSource > Add DataSource. Select **Iceberg** under **Self Maintenance**
   ```json
   {
     "io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
-    "s3.endpoint": "http://&lt;minio_server&gt;:&lt;minio_port&gt;",
-    "s3.access-key-id": "&lt;minio_user&gt;",
-    "s3.secret-access-key": "&lt;minio_password&gt;",
+    "s3.endpoint": "http://<minio_server>:<minio_port>",
+    "s3.access-key-id": "<minio_user>",
+    "s3.secret-access-key": "<minio_password>",
     "s3.path-style-access": "true",
     "client.region": "us-east-1"
   }
@@ -85,11 +85,11 @@ Click DataSource > Add DataSource. Select **Iceberg** under **Self Maintenance**
   ```json
   {
     "io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
-    "s3.endpoint": "https://s3.&lt;aws_s3_region_code&gt;.amazonaws.com",
+    "s3.endpoint": "https://s3.<aws_s3_region_code>.amazonaws.com",
     "s3.access-key-id": "<aws_s3_iam_user_access_key>",
     "s3.secret-access-key": "<aws_s3_iam_user_secret_key>",
     "s3.path-style-access": "true",
-    "client.region": "&lt;aws_s3_region_code&gt;"
+    "client.region": "<aws_s3_region_code>"
   }
   ```
   
@@ -98,9 +98,9 @@ Click DataSource > Add DataSource. Select **Iceberg** under **Self Maintenance**
   ```json
   {
     "io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
-    "s3.endpoint": "http://&lt;minio_server&gt;:&lt;minio_port&gt;",
-    "s3.access-key-id": "&lt;minio_user&gt;",
-    "s3.secret-access-key": "&lt;minio_password&gt;",
+    "s3.endpoint": "http://<minio_server>:<minio_port>",
+    "s3.access-key-id": "<minio_user>",
+    "s3.secret-access-key": "<minio_password>",
     "s3.path-style-access": "true",
     "client.region": "us-east-1"
   }

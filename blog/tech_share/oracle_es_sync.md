@@ -1,21 +1,19 @@
 ---
 id: oracle_es_sync
-description: Sync data from Oracle to Elasticsearch with BladePipe. Utilize Oracle LogMiner for real-time change data capture and automatically create Elasticsearch indexes with mappings.
-title: Sync Data from Oracle to Elasticsearch
-date: 2025-03-05
+description: Learn how to sync Oracle to Elasticsearch with lower latency, compare key architecture considerations, and use LogMiner-based CDC for real-time search indexing.
+title: "Oracle to Elasticsearch: Real-Time CDC Sync Step by Step"
+date: 2025-11-05
 authors: junyu 
 tags:
   - tutorials
 image: /img/blog/tutorials/oracle_es_sync.png 
 ---
 
-## Overview
+**Oracle** is a widely used relational database for high-volume transactional workloads. **Elasticsearch** is a search and analytics engine built for fast retrieval, indexing, and near-real-time query workloads.
 
-**Oracle** is a widely-used relational database to handle large volumes of structured data, offering high performance and comprehensive support for complex transactions. With its rich ecosystem and compatibility with various applications, Oracle is often at the core of many organizations' data infrastructure.    
+The best Oracle to Elasticsearch sync pattern for most production teams is **initial load plus log-based CDC**, so historical rows are copied first and ongoing Oracle changes keep Elasticsearch fresh afterward.
 
-**Elasticsearch** is a highly scalable, open-source search and analytics engine designed to handle large volumes of data in real time. It is widely used for log analysis, real-time monitoring, and powering search functionalities in applications. 
-
-In this tutorial, we’ll explore how to efficiently move data from Oracle to Elasticsearch with [BladePipe](https://www.bladepipe.com), to unlock real-time search capabilities and enhance data-driven decision-making.
+In this tutorial, we’ll explore how to move data from Oracle to Elasticsearch with [BladePipe](https://www.bladepipe.com), so you can power search, monitoring, and downstream analytics with lower operational effort.
 
 ## Highlights
 
@@ -39,17 +37,26 @@ BladePipe supports automatical conversion of the source database table structure
 - Setting the tokenizer (e.g., standard tokenizer) in Elasticsearch mappings for **TEXT** type columns.
 - Setting the number of index shards and replicas.
 
+## When Oracle to Elasticsearch Sync Makes Sense
+
+This pattern is usually a strong fit when you need:
+
+- search indexes fed by transactional Oracle data
+- low-latency updates for application search
+- log or event analytics backed by Oracle source tables
+- Oracle data made queryable in Elasticsearch without repeated exports
+
 
 ## Procedure
 
-### Step 1: Install BladePipe
+### Step 1: Obtain a Free BladePipe Account 
 
-Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
+1. Log in to the [BladePipe Console](https://bladepipe.com/login/) to get a 90-day free SaaS account.
 
 ### Step 2: Add DataSources
-1. Log in to the [BladePipe Cloud](https://cloud.bladepipe.com).
-2. Click **DataSource** > **Add DataSource**.
-3. Select the source and target DataSource type, and fill out the setup form respectively.
+
+1. Click **DataSource** > **Add DataSource**.
+2. Select the source and target DataSource type, and fill out the setup form respectively.
    ![](../assets/blog/tech_share/oracle_es/oracle_es_1.png)
 
 ### Step 3: Create a DataJob
@@ -95,3 +102,16 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
   
    ![](../assets/blog/tech_share/oracle_es/oracle_es_7.png)
 
+## FAQ
+
+**What is the best way to sync Oracle to Elasticsearch?**
+
+For most production use cases, the best approach is a full initial load followed by log-based CDC. That gives you both historical completeness and low-latency updates.
+
+**Why use LogMiner for Oracle to Elasticsearch sync?**
+
+LogMiner lets the pipeline read Oracle redo logs so changes can be captured with lower source impact than repeated full queries or ad hoc exports.
+
+**What is Oracle to Elasticsearch sync used for?**
+
+It is commonly used for application search, operational dashboards, log-style analytics, and any use case where Oracle data needs to become searchable quickly in Elasticsearch.

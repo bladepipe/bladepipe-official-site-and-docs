@@ -317,7 +317,7 @@ Skipping Kafka is totally valid — but you still need to replace the *useful gu
 - **Schema changes break consumers** → choose a strategy (ignore/fail/propagate) and enforce compatibility rules.
 - **Backfill is impossible under pressure** → keep a tested backfill path (and a retention window if you need replay).
 
-If you skip Kafka, these guides may help you reduce effort and cost: [Data Movement Guides List](https://www.bladepipe.com/blog/tech_share/)
+If you skip Kafka, these guides may help you reduce effort and cost: [Data Movement Guides List](https://www.bladepipe.com/blog/tags/tech_share/)
 
 ## If You Choose Kafka: Minimum "Do It Right" Checklist
 

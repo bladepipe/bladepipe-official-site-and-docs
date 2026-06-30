@@ -14,7 +14,7 @@ By enabling MongoDB heartbeat, **new UPDATE events are generated regularly**, so
 
 ## Prerequisites
 - The user of MongoDB has **UPDATE** permission. The collection for heartbeats can be modified through the parameter **dbHeartbeatCollection**.
-- [Modify the DataJob Parameter](../../../operation/job_manage/job_op/job_params#Procedure) to make sure that the value of parameter **captureMode** is **CHANGE_STREAM**.
+- [Modify the DataJob Parameter](https://www.bladepipe.com/docs/operation/job_manage/job_op/job_params/#Procedure) to make sure that the value of parameter **captureMode** is **CHANGE_STREAM**.
   
 
 ## Procedure

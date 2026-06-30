@@ -13,7 +13,7 @@ To send DataJob alert notifications and Worker notifications in BladePipe, it is
 | Email | See [Config the e-mail](#e-mail) |
 | Slack | See [Create a Slack Bot](./create_slack_group.md)|
 | Slack | See [Create a Discord Bot](./create_discord_group)|
-| Webhook |See [Create a  Webhook](./create_custom_alarm) |
+| Webhook |See [Create a  Webhook](https://www.bladepipe.com/docs/productOP/byoc/maintenance/create_custom_alarm/) |
 
 ## Procedure
 

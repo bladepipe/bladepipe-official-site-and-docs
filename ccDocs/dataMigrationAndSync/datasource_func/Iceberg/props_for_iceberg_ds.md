@@ -22,9 +22,9 @@ CloudCanal 的 Iceberg 配置即由此支持关系展开。
 
 - **网络地址**：即 Catalog 服务地址，3 种方式对应的示例地址如下（`<>`内部分根据实际情况替换）。
 
-  - AWS Glue : **glue.&lt;aws_glue_region_code&gt;.amazonaws.com**
-  - Nessie : **&lt;nessie_server_ip&gt;:19120/api/v1**
-  - Rest : **&lt;rest_server_ip&gt;:&lt;rest_server_port&gt;**
+  - AWS Glue: `glue.<aws_glue_region_code>.amazonaws.com`
+  - Nessie: `<nessie_server_ip>:19120/api/v1`
+  - Rest: `<rest_server_ip>:<rest_server_port>`
 
 - **版本号**：根据 Iceberg 实际版本进行选择。
 
@@ -36,7 +36,7 @@ CloudCanal 的 Iceberg 配置即由此支持关系展开。
 
 - **httpsEnabled**：如果 Catalog 为 AWS Glue ，则需要为 true (即打开开关) ，其他 2 种，根据部署的 Catalog 服务 ssl 开闭状态进行选择。
 
-- **catalogName**：为 Catalog 取一个名称，无特殊规定。建议以 **&lt;Catalog类型&gt;_catalog** 进行命名，如 **glue_catalog**。
+- **catalogName**：为 Catalog 取一个名称，无特殊规定。建议以 **`<Catalog类型>_catalog`** 进行命名，如 **glue_catalog**。
 
 - **catalogType**：即 Catalog 类型，可选填充 **GLUE** / **NESSIE** / **REST** 之一。
 
@@ -49,13 +49,13 @@ CloudCanal 的 Iceberg 配置即由此支持关系展开。
   ```json
   {
     "io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
-    "s3.endpoint": "https://s3.&lt;aws_s3_region_code&gt;.amazonaws.com",
+    "s3.endpoint": "https://s3.<aws_s3_region_code>.amazonaws.com",
     "s3.access-key-id": "<aws_s3_iam_user_access_key>",
     "s3.secret-access-key": "<aws_s3_iam_user_secret_key>",
     "s3.path-style-access": "true",
-    "client.region": "&lt;aws_s3_region&gt;",
-    "client.credentials-provider.glue.access-key-id": "&lt;aws_glue_iam_user_access_key&gt;",
-    "client.credentials-provider.glue.secret-access-key": "&lt;aws_glue_iam_user_secret_key&gt;",
+    "client.region": "<aws_s3_region>",
+    "client.credentials-provider.glue.access-key-id": "<aws_glue_iam_user_access_key>",
+    "client.credentials-provider.glue.secret-access-key": "<aws_glue_iam_user_secret_key>",
     "client.credentials-provider": "com.amazonaws.glue.catalog.credentials.GlueAwsCredentialsProvider"
   }
   ```
@@ -65,11 +65,11 @@ CloudCanal 的 Iceberg 配置即由此支持关系展开。
   ```json
   {
     "io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
-    "s3.endpoint": "https://s3.&lt;aws_s3_region_code&gt;.amazonaws.com",
+    "s3.endpoint": "https://s3.<aws_s3_region_code>.amazonaws.com",
     "s3.access-key-id": "<aws_s3_iam_user_access_key>",
     "s3.secret-access-key": "<aws_s3_iam_user_secret_key>",
     "s3.path-style-access": "true",
-    "client.region": "&lt;aws_s3_region_code&gt;"
+    "client.region": "<aws_s3_region_code>"
   }
   ```
   
@@ -78,9 +78,9 @@ CloudCanal 的 Iceberg 配置即由此支持关系展开。
   ```json
   {
     "io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
-    "s3.endpoint": "http://&lt;minio_server&gt;:&lt;minio_port&gt;",
-    "s3.access-key-id": "&lt;minio_user&gt;",
-    "s3.secret-access-key": "&lt;minio_password&gt;",
+    "s3.endpoint": "http://<minio_server>:<minio_port>",
+    "s3.access-key-id": "<minio_user>",
+    "s3.secret-access-key": "<minio_password>",
     "s3.path-style-access": "true",
     "client.region": "us-east-1"
   }
@@ -91,11 +91,11 @@ CloudCanal 的 Iceberg 配置即由此支持关系展开。
   ```json
   {
     "io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
-    "s3.endpoint": "https://s3.&lt;aws_s3_region_code&gt;.amazonaws.com",
+    "s3.endpoint": "https://s3.<aws_s3_region_code>.amazonaws.com",
     "s3.access-key-id": "<aws_s3_iam_user_access_key>",
     "s3.secret-access-key": "<aws_s3_iam_user_secret_key>",
     "s3.path-style-access": "true",
-    "client.region": "&lt;aws_s3_region_code&gt;"
+    "client.region": "<aws_s3_region_code>"
   }
   ```
   
@@ -104,9 +104,9 @@ CloudCanal 的 Iceberg 配置即由此支持关系展开。
   ```json
   {
     "io-impl": "org.apache.iceberg.aws.s3.S3FileIO",
-    "s3.endpoint": "http://&lt;minio_server&gt;:&lt;minio_port&gt;",
-    "s3.access-key-id": "&lt;minio_user&gt;",
-    "s3.secret-access-key": "&lt;minio_password&gt;",
+    "s3.endpoint": "http://<minio_server>:<minio_port>",
+    "s3.access-key-id": "<minio_user>",
+    "s3.secret-access-key": "<minio_password>",
     "s3.path-style-access": "true",
     "client.region": "us-east-1"
   }

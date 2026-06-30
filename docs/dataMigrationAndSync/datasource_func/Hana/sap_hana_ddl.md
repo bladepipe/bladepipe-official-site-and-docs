@@ -8,7 +8,7 @@ description: To enable schema evolution during trigger-based CDC from SAP HANA i
 BladePipe captures data changes in a source SAP HANA instance through triggers. DDL synchronization is not supported. If there are DDL changes, please handle them as follows.
 
 ## Prerequisites
-Make sure that in the DataJob configuration, the **CDC table mode** is set to **table-level CDC table** (that is, make sure that the parameter value of **incrTableMode** is **TABLE_LEVEL_CDC_TABLE** on the source [DataSource Configuration](../../../operation/job_manage/job_op/job_params#Procedure)).
+Make sure that in the DataJob configuration, the **CDC table mode** is set to **table-level CDC table** (that is, make sure that the parameter value of **incrTableMode** is **TABLE_LEVEL_CDC_TABLE** on the source [DataSource Configuration](https://www.bladepipe.com/docs/operation/job_manage/job_op/job_params/#Procedure)).
 
 ## Procedure
 
@@ -28,8 +28,8 @@ ADD ("COL_4" INTEGER NOT NULL);
 ALTER TABLE `SYSTEMDB`.`TEST`
 ADD COLUMN `COL_5` INT NOT NULL;
 ```
-2. [Modify the subscription](../../../operation/job_manage/job_op/edit_job) to delete the source table with the added column.
-3. [Modify the subscription](../../../operation/job_manage/job_op/edit_job) again to add the source table with the added column, and select **Full Data**.
+2. [Modify the subscription](https://www.bladepipe.com/docs/operation/job_manage/job_op/edit_job/) to delete the source table with the added column.
+3. [Modify the subscription](https://www.bladepipe.com/docs/operation/job_manage/job_op/edit_job/) again to add the source table with the added column, and select **Full Data**.
 
 ### Delete a Column
 When **deleting a column** in a source SAP HANA instance, follow the steps below: 

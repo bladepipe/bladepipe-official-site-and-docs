@@ -38,6 +38,7 @@ return @fun.str.maskAfter(@params['col'],'-')
 | return @fun.str.maskBefore(@params['col'],'@')                             | 遮掩'@'字符之前的字符串，默认使用 *                       |
 | return @fun.str.maskBetweenIdx(@params['col'],2,8)                         | 遮掩 2 ~ 8 序号之间的字符串，序号从 0 开始, 开始位置包含, 结束位置排除 |
 | return @fun.str.stringFormat(@params['col'],'prefix_%s_suffix')            | 使用指定表达式格式化列的值                              |
+| return @fun.str.join([@params['col1'],@params['col2'],...])                | 拼接多个字段的值                                    |
 | return @fun.str.castToDateTimeWithFormat(@params['col'],'yyyy-MM-dd HH:mm:ss') | 将字符串转换为指定格式的日期时间数据                         |
 | return @fun.str.castToDateWithFormat(@params['col'],'yyyy-MM-dd')          | 将字符串转换为指定格式的日期数据                           |
 | return @fun.str.castToTimeWithFormat(@params['col'],'HH:mm:ss')            | 将字符串转换为指定格式的时间数据                           |
