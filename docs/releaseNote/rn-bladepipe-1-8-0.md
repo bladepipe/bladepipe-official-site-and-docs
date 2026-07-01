@@ -64,7 +64,7 @@ Version: 1.8.0
 - Fixed a null pointer exception when Oracle sources in strongly typed incremental synchronization mode encountered `null` values from the source.
 - Fixed an issue where data correction DataJobs corrected columns that were not subscribed. New parameter: `reviseAllSrcColumns`.
 - Fixed inconsistencies between the actual page size limit and error messages in some paginated APIs.
-- Fixed an issue where the MySQL Antlr parser could not parse statements using backticks in options, such as `row_format = `dynamic``.
+- Fixed an issue where the MySQL Antlr parser could not parse statements using backticks in options, such as "row_format = \`dynamic`".
 - Fixed an issue where the Oracle Antlr parser could not parse statements such as `alter table "DRAGONPASS"."TBLDRAGONDETAIL" shrink space CHECK;`.
 - Fixed potential data loss in full synchronization for relational database sources when the source table had a primary key but the primary key column was not selected in wide-table column pruning scenarios.
 - Fixed an issue where pressing Enter did not confirm table creation.
