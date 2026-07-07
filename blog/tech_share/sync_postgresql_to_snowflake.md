@@ -9,7 +9,7 @@ tags:
 image: /img/blog/tutorials/sync_postgresql_to_snowflake.png 
 ---
 
-Moving data from PostgreSQL to Snowflake is a common need for data teams.
+Moving data from [PostgreSQL](/connector/postgresql/) to Snowflake is a common need for data teams.
 
 PostgreSQL is great for running your app. It's not great for running analytics on millions of rows.
 

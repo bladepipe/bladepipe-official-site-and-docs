@@ -9,7 +9,7 @@ tags:
 image: /img/blog/tutorials/sql_server_to_iceberg.png
 ---
 
-SQL Server is built for transactions. Apache Iceberg is built for modern analytics.
+[SQL Server](/connector/sql-server/) is built for transactions. [Apache Iceberg](/connector/iceberg/) is built for modern analytics.
 
 That is exactly why **SQL Server to Apache Iceberg** has become such a valuable pattern for teams building lakehouses, BI platforms, and low-latency analytics pipelines. The hard part is not whether the destination is useful. The hard part is moving live data without breaking schemas, losing updates, or forcing long downtime windows.
 

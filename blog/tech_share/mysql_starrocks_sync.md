@@ -10,7 +10,7 @@ image: /img/blog/tutorials/mysql_starrocks_sync.png
 ---
 
 ## What is StarRocks?
-StarRocks is an open-source, blazing-fast Massively Parallel Processing (MPP) database. Thanks to its special yet simple design of architecture and outstanding performance in data queries, real-time data analysis becomes easier than ever before for enterprises. 
+[StarRocks](/connector/starrocks/) is an open-source, blazing-fast Massively Parallel Processing (MPP) database. Thanks to its special yet simple design of architecture and outstanding performance in data queries, real-time data analysis becomes easier than ever before for enterprises. 
 
 Known for its scalability, speed and high performance, StarRocks is a brilliant and cost-effective choice for many data-driven organizations. It is widely used for OLAP multi-dimensional analytics, real-time analytics, high-concurrency analytics, customized reporting, ad-hoc queries, and unified analytics in finance, e-commerce and many other industries.
 
@@ -23,7 +23,7 @@ Some of the fantastic features of StarRocks include:
 
 
 ## Data Integration to StarRocks
-Before enjoying the unparalleled data analysis offered by StarRocks, an important step is to integrate data from the other data sources to it. How to move massive data to StarRocks as easy as possible? BladePipe provides a sound solution.
+Before enjoying the unparalleled data analysis offered by StarRocks, an important step is to integrate data from [MySQL](/connector/mysql/) and other data sources to it. How to move massive data to StarRocks as easy as possible? BladePipe provides a sound solution.
 
 BladePipe loads data via StarRocks Stream Load. The existing data and data changes in the Source instance are converted into byte streams and transferred via HTTP for bulk write to StarRocks.
 

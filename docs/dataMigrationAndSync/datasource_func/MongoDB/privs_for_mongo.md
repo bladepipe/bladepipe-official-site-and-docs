@@ -33,11 +33,25 @@ The permission requirements are also applicable to Aliyun MongoDB and AWS Docume
         privileges: [
             {
                 resource: { db: "", collection: "" },
+                actions: ["find", "changeStream"]
+            }],
+        roles: []
+    });
+  ```
+  :::info
+  If the data source is **AWS DocumentDB**, you should also add `modifyChangeStreams` and `listChangeStreams` to the action, as shown below:
+  ```javascript
+    db.createRole({
+        role: "sync",
+        privileges: [
+            {
+                resource: { db: "", collection: "" },
                 actions: ["find", "changeStream", "modifyChangeStreams", "listChangeStreams"]
             }],
         roles: []
     });
   ```
+  :::
 - **Heartbeat** (optional): **SELECT**, **INSERT** and **UPDATE** permissions for the heartbeat database.    
   e.g.:
   ```javascript

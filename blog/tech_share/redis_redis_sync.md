@@ -11,7 +11,7 @@ image: /img/blog/tutorials/redis_redis_sync.png
 
 ## Overview
 
-Redis is an open-source, in-memory database for key-value pairs and data structure store. It is commonly used for caching, real-time data processing, and distributed locking. It supports persistence, master-slave replication, and high-availability, suitable for use cases requiring high-concurrency and low-latency.
+[Redis](/connector/redis/) is an open-source, in-memory database for key-value pairs and data structure store. It is commonly used for caching, real-time data processing, and distributed locking. It supports persistence, master-slave replication, and high-availability, suitable for use cases requiring high-concurrency and low-latency.
 
 In this tutorial, we depicts a no-code intuitive way to sync data from Redis to Redis using [BladePipe](https://www.bladepipe.com). With BladePipe, even a non-developer can finish Redis data replication in a few clicks.
 
@@ -77,4 +77,3 @@ Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/d
    - **Incremental Synchronization**: Ongoing data changes will be continuously synchronized to the target database with ultra-low latency.
   
    ![](../assets/blog/tech_share/redis_redis_sync/redis_redis_5.png)
-

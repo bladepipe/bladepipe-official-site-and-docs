@@ -9,7 +9,7 @@ tags:
 image: /img/blog/tutorials/oracle_sqlserver_sync.png 
 ---
 
-Oracle to [SQL Server](/blog/data_insights/sql_server_change_data_capture.md) replication can be challenging because the two database platforms differ in architecture, data types, transaction handling, and change tracking mechanisms. Whether you're setting up continuous replication, performing an Oracle to SQL Server migration, or planning to migrate Oracle to SQL Server with minimal downtime, choosing the right approach is critical.
+[Oracle](/connector/oracle/) to [SQL Server](/connector/sql-server/) replication can be tricky. The two databases work differently, and moving large amounts of data without causing issues is not easy. On top of that, it's a challenge to make sure everything is accurate and downtime is minimal. 
 
 For most production environments, the preferred solution is a [CDC](/blog/data_insights/change_data_capture_cdc.md)-based replication pipeline that combines initial load, ongoing change capture, and validation into a single workflow. Manual export/import scripts can still work for small one-time transfers, but they are typically less reliable for large-scale migrations, continuous synchronization, or low-downtime cutovers.
 

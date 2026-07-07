@@ -9,9 +9,9 @@ tags:
 image: /img/blog/tutorials/sync_postgresql_to_starrocks.png 
 ---
 
-PostgreSQL is a great transactional database. It handles writes well, enforces data integrity, and has been a reliable workhorse for applications for decades. But when your analytics queries start slowing down, you know it's time to offload that work somewhere else.
+[PostgreSQL](/connector/postgresql/) is a great transactional database. It handles writes well, enforces data integrity, and has been a reliable workhorse for applications for decades. But when your analytics queries start slowing down, you know it's time to offload that work somewhere else.
 
-That's where StarRocks comes in. It's a high-performance OLAP delivering sub-second analytic queries.
+That's where [StarRocks](/connector/starrocks/) comes in. It's a high-performance OLAP delivering sub-second analytic queries.
 
 And getting your PostgreSQL data into StarRocks doesn't have to be a complex, multi-week engineering project.
 

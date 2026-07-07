@@ -8,9 +8,9 @@ tags:
   - tutorials
 image: /img/blog/tutorials/migrate_oracle_to_postgresql.png 
 ---
-If you're running Oracle in production, you've probably felt the pain. The licensing bills keep climbing. Your infrastructure is tied to one vendor. And every time you want to try something new, there's another Oracle-specific constraint standing in your way.
+If you're running [Oracle](/connector/oracle/) in production, you've probably felt the pain. The licensing bills keep climbing. Your infrastructure is tied to one vendor. And every time you want to try something new, there's another Oracle-specific constraint standing in your way.
 
-PostgreSQL offers a way out. It's open-source, and runs beautifully on every major cloud platform. More and more engineering teams are making the switch.
+[PostgreSQL](/connector/postgresql/) offers a way out. It's open-source, and runs beautifully on every major cloud platform. More and more engineering teams are making the switch.
 
 This guide walks you through everything you need to know to migrate from Oracle to PostgreSQL confidently. We'll cover the key differences between the two databases, the two main migration approaches, and a step-by-step guide for each.
 
@@ -234,4 +234,3 @@ Large objects can slow down migration significantly. It is often best to move th
 **Q: Can I run both databases at the same time?**
 
 Yes, and it's actually recommended for production migrations. Running Oracle and PostgreSQL in parallel gives you time to validate data, test your application, and catch issues before fully cutting over. With BladePipe's CDC feature, both databases stay in sync in real time during this window. With ora2pg, you'd need to re-export and reload any tables that changed during migration, so the parallel window is shorter and requires more careful coordination.
-

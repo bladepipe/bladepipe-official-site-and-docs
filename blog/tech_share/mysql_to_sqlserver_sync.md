@@ -11,7 +11,7 @@ image: /img/blog/tutorials/sync_MySQL_to_SQL_Server.png
 
 ## Overview
 
-Syncing **MySQL to SQL Server** does not have to be painful. If you are looking for the **easiest** way to move data without long downtime, brittle scripts, or the risk of missing changes, a **no-code CDC approach** is usually the simplest answer. In this guide, you will learn how to sync MySQL to SQL Server in real time, reduce operational complexity, and avoid data loss during both the initial migration and ongoing replication.
+Syncing **[MySQL](/connector/mysql/) to [SQL Server](/connector/sql-server/)** does not have to be painful. If you are looking for the **easiest** way to move data without long downtime, brittle scripts, or the risk of missing changes, a **no-code CDC approach** is usually the simplest answer. In this guide, you will learn how to sync MySQL to SQL Server in real time, reduce operational complexity, and avoid data loss during both the initial migration and ongoing replication.
 
 Many teams start with exports, batch jobs, or custom code, only to discover that live MySQL to SQL Server replication is much harder than a one-time data transfer. The challenge is not only moving historical rows. It is also keeping SQL Server continuously updated as new inserts, updates, and deletes happen in MySQL.
 

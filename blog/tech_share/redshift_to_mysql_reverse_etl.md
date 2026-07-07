@@ -11,7 +11,7 @@ image: /img/blog/tutorials/sync_redshift_to_mysql.png
 
 [**Reverse ETL**](../data_insights/reverse_etl.md) pushes curated data **from a data warehouse to an operational database** so downstream teams can actually use it—think CRMs, internal tools, feature stores, and MySQL-backed services.
 
-This guide focuses on one of the most common Reverse ETL use cases: **syncing Amazon Redshift to MySQL incrementally**. With **BladePipe Scheduled Scan**, you can run a reliable **Redshift → MySQL data pipeline** on a fixed interval and keep MySQL refreshed without running a CDC stack.
+This guide focuses on one of the most common Reverse ETL use cases: **syncing [Amazon Redshift](/connector/redshift/) to [MySQL](/connector/mysql/) incrementally**. With **BladePipe Scheduled Scan**, you can run a reliable **Redshift → MySQL data pipeline** on a fixed interval and keep MySQL refreshed without running a CDC stack.
 
 In this tutorial, you'll set up a **Redshift to MySQL Reverse ETL** job end-to-end:
 

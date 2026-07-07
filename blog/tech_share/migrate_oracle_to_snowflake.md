@@ -9,7 +9,7 @@ tags:
 image: /img/blog/tutorials/oracle_to_snowflake.png
 ---
 
-When migrating analytical reports and BI workloads **from Oracle to Snowflake**, most people fear three things: (1) a full migration takes too long, and any interruption forces a full restart; (2) incremental sync easily misses data, causing mismatches in reconciliation; (3) you don’t dare to take the system offline, and the cutover window never feels long enough.
+When migrating analytical reports and BI workloads **from [Oracle](/connector/oracle/) to Snowflake**, most people fear three things: (1) a full migration takes too long, and any interruption forces a full restart; (2) incremental sync easily misses data, causing mismatches in reconciliation; (3) you don’t dare to take the system offline, and the cutover window never feels long enough.
 
 At its core, these three fears boil down to one thing: **choosing the wrong migration strategy**. If you are experiencing (or worry about) these issues, this article is worth 10 minutes of your time. We compare **4 common Oracle → Snowflake migration approaches** and lay out a practical path that minimizes downtime, enables data validation, and allows rollback.
 

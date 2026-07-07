@@ -9,7 +9,7 @@ tags:
 image: /img/blog/tutorials/mysql_iceberg_sync.png 
 ---
 
-As companies deal with more data than ever before, the need for real-time, scalable, and low-cost storage becomes critical. That's where Apache Iceberg shines. In this post, I’ll walk you through how to build a real-time data sync pipeline from MySQL to Iceberg using [BladePipe](https://www.bladepipe.com)—a tool that makes data migration ridiculously simple.
+As companies deal with more data than ever before, the need for real-time, scalable, and low-cost storage becomes critical. That's where [Apache Iceberg](/connector/iceberg/) shines. In this post, I’ll walk you through how to build a real-time data sync pipeline from [MySQL](/connector/mysql/) to Iceberg using [BladePipe](https://www.bladepipe.com)—a tool that makes data migration ridiculously simple.
 
 Let’s dive in.
 
