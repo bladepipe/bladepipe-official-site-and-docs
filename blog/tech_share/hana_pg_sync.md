@@ -10,9 +10,9 @@ image: /img/blog/tutorials/hana_pg_sync.png
 ---
 
 ## Overview
-SAP Hana is a column-oriented in-memory database. It stores and retrieves large volume of data and handles complex query processing. Besides, it performs advanced analytics, providing business insights via real-time data analysis.
+[SAP Hana](/connector/sap-hana/) is a column-oriented in-memory database. It stores and retrieves large volume of data and handles complex query processing. Besides, it performs advanced analytics, providing business insights via real-time data analysis.
 
-PostgreSQL is a popular open-source relational database. It is known for its reliability, scalability and flexibility. Many organizations use it as a backend database for applications.
+[PostgreSQL](/connector/postgresql/) is a popular open-source relational database. It is known for its reliability, scalability and flexibility. Many organizations use it as a backend database for applications.
 
 To move data from Hana to PostgreSQL, speed is the issue that many users care about. [BladePipe](https://www.bladepipe.com) lets you build a data pipeline from Hana to PostgreSQL in just minutes.
 

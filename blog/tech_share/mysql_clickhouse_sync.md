@@ -11,7 +11,7 @@ image: /img/blog/tutorials/mysql_clickhouse_sync.png
 
 ## Overview
 
-This article explains how to move data from relational databases to ClickHouse with [BladePipe](https://www.bladepipe.com). By default, it uses ReplacingMergeTree as the ClickHouse table engine. The key features of the connection include:
+This article explains how to move data from [MySQL](/connector/mysql/) and other relational databases to [ClickHouse](/connector/clickhouse/) with [BladePipe](https://www.bladepipe.com). By default, it uses ReplacingMergeTree as the ClickHouse table engine. The key features of the connection include:
 
 - Add `_version` and `_sign` fields to ensure accurate merging in ClickHouse.
 - All DML statements are written as INSERT statements, ensuring good synchronization performance.

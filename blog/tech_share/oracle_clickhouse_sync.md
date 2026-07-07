@@ -10,7 +10,7 @@ image: /img/blog/tutorials/oracle_clickhouse_sync.png
 ---
 
 ## Overview
-ClickHouse is an open-source column-oriented database management system. Its performance in real-time data processing can significantly enhance analytics and business insights. Moving data from Oracle to ClickHouse can unlock fast OLAP queries without changing your existing OLTP system.
+[ClickHouse](/connector/clickhouse/) is an open-source column-oriented database management system. Its performance in real-time data processing can significantly enhance analytics and business insights. Moving data from [Oracle](/connector/oracle/) to ClickHouse can unlock fast OLAP queries without changing your existing OLTP system.
 
 If you're searching for **the best data integration tool to move data from Oracle DB to ClickHouse**, the right answer depends on whether you need a one-time migration, continuous sync (CDC), schema change handling, and how much operational burden you're willing to take on.
 

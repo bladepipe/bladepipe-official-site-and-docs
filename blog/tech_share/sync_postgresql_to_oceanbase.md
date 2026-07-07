@@ -9,7 +9,7 @@ tags:
 image: /img/blog/tutorials/sync_postgresql_to_oceanbase.png 
 ---
 
-PostgreSQL is solid. But at some point, teams decide to migrate PostgreSQL to OceanBase because they need something it can't easily give: horizontal scale, built-in HA, or multi-region support.
+[PostgreSQL](/connector/postgresql/) is solid. But at some point, teams decide to migrate PostgreSQL to [OceanBase](/connector/oceanbase/) because they need something it can't easily give: horizontal scale, built-in HA, or multi-region support.
 
 This guide shows you how to do it with BladePipe. No Kafka, no custom scripts. Just a working pipeline.
 

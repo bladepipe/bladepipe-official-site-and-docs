@@ -11,7 +11,7 @@ image: /img/blog/tutorials/es_es_sync.png
 
 ## Overview
 
-Elasticsearch is a popular search engine that forms part of the modern data stack alongside relational databases, caching, real-time data warehouses, and message-oriented middleware.
+[Elasticsearch](/connector/elasticsearch/) is a popular search engine that forms part of the modern data stack alongside relational databases, caching, real-time data warehouses, and message-oriented middleware.
 
 While writing data to Elasticsearch is relatively straightforward, real-time data synchronization can be more challenging.
 

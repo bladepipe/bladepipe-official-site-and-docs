@@ -11,7 +11,7 @@ image: /img/blog/tutorials/sync_spanner_to_starrocks.png
 
 Teams cut the analytics cloud bill by 80% without changing a single line of application code. The same data, moved to the right system, can cost a fraction of what you're paying today. 
 
-Here's how teams are using real-time data replication to slash analytics costs without sacrificing performance.
+Here's how teams are using real-time data replication from [Google Spanner](/connector/apache-spanner/) to [StarRocks](/connector/starrocks/) to slash analytics costs without sacrificing performance.
 
 ## Key Takeaways
 

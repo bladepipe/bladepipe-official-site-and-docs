@@ -8,7 +8,7 @@ tags:
   - tutorials
 image: /img/blog/tutorials/migrate_mysql_to_postgresql.png 
 ---
-MySQL and PostgreSQL are two of the most widely used open-source databases. Many teams start with MySQL because it’s simple and familiar. As applications grow, however, developers often migrate to PostgreSQL for its advanced SQL capabilities, extensibility, and stronger support for complex workloads.
+[MySQL](/connector/mysql/) and [PostgreSQL](/connector/postgresql/) are two of the most widely used open-source databases. Many teams start with MySQL because it’s simple and familiar. As applications grow, however, developers often migrate to PostgreSQL for its advanced SQL capabilities, extensibility, and stronger support for complex workloads.
 
 The challenge is that database migrations are rarely trivial. Schema differences, data consistency, and minimizing downtime all need careful planning. This guide walks through how to migrate from MySQL to PostgreSQL safely, including tools, migration steps, and common pitfalls to avoid.
 
@@ -219,4 +219,3 @@ For simple one‑time migrations, pgloader works well. If you need low downtime 
 
 > **Suggested Reading:**
 > - [MySQL CDC vs PostgreSQL CDC](../data_insights/mysql_cdc_vs_postgres_cdc.md)
-

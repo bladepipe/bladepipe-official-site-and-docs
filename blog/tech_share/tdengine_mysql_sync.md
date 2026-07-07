@@ -11,9 +11,9 @@ image: /img/blog/tutorials/tdengine_mysql_sync.png
 
 ## Overview
 
-**TDengine** is an open-source, high-performance, cloud-native time series database designed for IoT, IoV, IIoT, finance, IT operations and other scenarios. In the era of industry 4.0, time series databases are widely used in power, rail, smart manufacturing and other fields.
+**[TDengine](/connector/tdengine/)** is an open-source, high-performance, cloud-native time series database designed for IoT, IoV, IIoT, finance, IT operations and other scenarios. In the era of industry 4.0, time series databases are widely used in power, rail, smart manufacturing and other fields.
 
-**MySQL** is an open-source relational database widely used around the world. It can efficiently handle large amounts of data and complex queries, and has strong stability and reliability.
+**[MySQL](/connector/mysql/)** is an open-source relational database widely used around the world. It can efficiently handle large amounts of data and complex queries, and has strong stability and reliability.
 
 This tutorial introduces how to sync data from TDengine to MySQL using [BladePipe](https://www.bladepipe.com) in minutes.
 

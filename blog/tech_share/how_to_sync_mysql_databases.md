@@ -93,7 +93,7 @@ This approach often breaks down when updates are not strictly monotonic, when de
 
 ## Option 3: CDC Pipelines (Recommended for Real-Time Sync and Migrations)
 
-CDC captures MySQL changes from the binary log and applies them downstream as inserts, updates, or deletes, often with ordering guarantees per primary key or per table partition. Compared with batch sync, CDC is designed for lower latency, lower source load (no full table scans on every sync cycle), and better correctness for updates and deletes. These characteristics make CDC a strong fit for real‑time sync (where low latency matters) and for migrations (where data consistency and minimal drift are critical).
+CDC captures [MySQL](https://www.bladepipe.com/connector/mysql/) changes from the binary log and applies them downstream as inserts, updates, or deletes, often with ordering guarantees per primary key or per table partition. Compared with batch sync, CDC is designed for lower latency, lower source load (no full table scans on every sync cycle), and better correctness for updates and deletes. These characteristics make CDC a strong fit for real‑time sync (where low latency matters) and for migrations (where data consistency and minimal drift are critical).
 
 Tools and platforms differ in how they handle schema changes, retries, observability, and advanced patterns like multi‑hop sync or bidirectional sync.
 

@@ -10,9 +10,9 @@ image: /img/blog/tutorials/mysql_redis_sync.png
 ---
 
 ## Overview
-Redis is an open-source, in-memory, non-relational data store known for its high performance and flexibility. It is widely used in a range of cases, such as real-time analysis, application cache, and session management. This makes it important to integrate data to Redis.
+[Redis](/connector/redis/) is an open-source, in-memory, non-relational data store known for its high performance and flexibility. It is widely used in a range of cases, such as real-time analysis, application cache, and session management. This makes it important to integrate data to Redis.
 
-This tutorial delves into how to use [BladePipe](https://www.bladepipe.com) to move data from MySQL to Redis, including the following features:
+This tutorial delves into how to use [BladePipe](https://www.bladepipe.com) to move data from [MySQL](/connector/mysql/) to Redis, including the following features:
 
 - Support a single-node Redis instance, master/standby Redis instances, and a sharded cluster instance.
 - Allow setting a cache expiration time when writing data to a Redis instance.
@@ -98,4 +98,3 @@ BladePipe writes data with JedisCluster, which automatically senses a master/sta
 ### What should I do if the nodes in Redis are changed？
 
 You can manually modify the node information of the DataJob configuration and restart the DataJob.
-

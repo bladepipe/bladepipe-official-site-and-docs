@@ -167,7 +167,7 @@ For Iceberg, you need typically configure:
 - **catalogName**: Specify the name of the Catalog.
 - **catalogType**: Define the Catalog type (GLUE/NESSIE/REST).
 - **catalogWarehouse**: Fill in the root path of the Iceberg file storage.
-- **catalogProps**: The configuration varies depending on the combination of Catalog and storage type. See [Add an Iceberg DataSource](../../docs/dataMigrationAndSync/datasource_func/Iceberg/props_for_iceberg_ds.md#parameter-configuration)
+- **catalogProps**: The configuration varies depending on the combination of Catalog and storage type. See [Add an Iceberg DataSource](https://www.bladepipe.com/docs/dataMigrationAndSync/datasource_func/Iceberg/props_for_iceberg_ds/#parameter-configuration)
 
 
 ![add Iceberg as data target](../assets/blog/data_insights/etl_pipeline_explained/2.png)

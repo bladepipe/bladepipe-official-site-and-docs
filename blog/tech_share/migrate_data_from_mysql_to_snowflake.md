@@ -9,7 +9,7 @@ tags:
 image: /img/blog/tutorials/migrate_data_from_mysql_to_snowflake.png
 ---
 
-You've outgrown MySQL's analytical limits.
+You've outgrown [MySQL](/connector/mysql/)'s analytical limits.
 
 Maybe your BI dashboards are timing out. Maybe ad-hoc queries are fighting your OLTP workload. Maybe the business wants “near real-time analytics” without giving analysts direct access to production.
 

@@ -11,7 +11,7 @@ image: /img/blog/tutorials/oracle_to_kafka.png
 
 ## Overview
 
-If you need to move transactional data from Oracle into Kafka in real time, there are usually two questions behind the technical implementation:
+If you need to move transactional data from [Oracle](/connector/oracle/) into [Kafka](/connector/kafka/) in real time, there are usually two questions behind the technical implementation:
 
 - How do you [capture changes](../data_insights/change_data_capture_cdc.md) from Oracle reliably?
 - How do you publish those changes to Kafka in a format downstream systems can actually use?

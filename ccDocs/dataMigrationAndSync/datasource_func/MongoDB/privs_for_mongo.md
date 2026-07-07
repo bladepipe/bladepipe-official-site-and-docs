@@ -31,11 +31,26 @@ description: CloudCanal 在做 MongoDB 源端或对端的数据迁移同步时�
         privileges: [
             {
                 resource: { db: "", collection: "" },
+                actions: ["find", "changeStream"]
+            }],
+        roles: []
+    });
+  ```
+  :::info
+  如果数据源为 **AWS DocumentDB**，则 action 中还应添加 `modifyChangeStreams` 和 `listChangeStreams`，示例如下：
+  ```javascript
+    db.createRole({
+        role: "sync",
+        privileges: [
+            {
+                resource: { db: "", collection: "" },
                 actions: ["find", "changeStream", "modifyChangeStreams", "listChangeStreams"]
             }],
         roles: []
     });
   ```
+  :::
+
 - **源端心跳**（可选）：心跳库的 **SELECT**、**INSERT**、**UPDATE** 权限。   
   示例:
   ```javascript

@@ -40,7 +40,7 @@ MySQL  ->  BladePipe (schema + full + CDC)  ->  Elasticsearch
 
 ## Why Companies Sync MySQL to Elasticsearch
 
-Elasticsearch is excellent at search and relevance, while MySQL is excellent at transactional writes. Syncing data from MySQL into Elasticsearch is common when you need:
+[Elasticsearch](/connector/elasticsearch/) is excellent at search and relevance, while MySQL is excellent at transactional writes. Syncing data from MySQL into Elasticsearch is common when you need:
 
 - **Fast search** over product catalogs, knowledge bases, and user-generated content
 - **Flexible querying** (text search + filters + aggregations) without adding pressure to MySQL

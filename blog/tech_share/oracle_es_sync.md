@@ -11,7 +11,7 @@ image: /img/blog/tutorials/oracle_es_sync.png
 
 **Oracle** is a widely used relational database for high-volume transactional workloads. **Elasticsearch** is a search and analytics engine built for fast retrieval, indexing, and near-real-time query workloads.
 
-The best Oracle to Elasticsearch sync pattern for most production teams is **initial load plus log-based CDC**, so historical rows are copied first and ongoing Oracle changes keep Elasticsearch fresh afterward.
+The best [Oracle](/connector/oracle/) to Elasticsearch sync pattern for most production teams is **initial load plus log-based CDC**, so historical rows are copied first and ongoing Oracle changes keep Elasticsearch fresh afterward.
 
 In this tutorial, we’ll explore how to move data from Oracle to Elasticsearch with [BladePipe](https://www.bladepipe.com), so you can power search, monitoring, and downstream analytics with lower operational effort.
 

@@ -11,7 +11,7 @@ image: /img/blog/tutorials/pg_pg_sync.png
 
 ## Overview
 
-PostgreSQL is a widely-used database system with over 35 years of development. It not only has the capabilities of a standard relational database, but also excels in executing complex SQL queries.
+[PostgreSQL](/connector/postgresql/) is a widely-used database system with over 35 years of development. It not only has the capabilities of a standard relational database, but also excels in executing complex SQL queries.
 
 Users often utilize PostgreSQL for both online transaction processing (OLTP) and some data analysis tasks. This makes it important to move data from PostgreSQL to PostgreSQL.
 

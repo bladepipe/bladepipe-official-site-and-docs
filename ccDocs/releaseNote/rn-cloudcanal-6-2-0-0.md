@@ -64,7 +64,7 @@ title: 6.2.0.0
 - 修复 Oracle 源端增量同步强类型模式下遇到源端 null 值数据时出现空指针异常的问题
 - 修复 数据订正任务会订正未被订阅的列的问题（参数：`reviseAllSrcColumns`）
 - 修复 数据清洗在强类型迁移同步数据时，ifNullReplace 脚本执行报错的问题
-- 修复 MySQL ANTLR 解析器对于选项中使用反引号形式的语句无法解析的问题，例如 "row_format =`dynamic`"
+- 修复 MySQL ANTLR 解析器对于选项中使用反引号形式的语句无法解析的问题，例如 "row_format =\`dynamic`"
 - 修复 Oracle ANTLR 解析器对于 "alter table "ABC" shrink space CHECK;" 无法解析的问题
 - 修复 创建任务及修改订阅新增表时，修改目标名称后页面状态未及时更新为"待创建"，需手动刷新的问题
 - 修复 关系型数据库源端全量同步时，源表存在主键但未勾选主键列，宽表列裁剪场景下可能导致数据遗漏的问题
