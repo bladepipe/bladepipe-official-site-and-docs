@@ -30,7 +30,7 @@ export const ClickHouse = {
         },
         {
             key: 'DDL Sync',
-            desc: 'PostgreSQL DDL sync is realized by triggers. The user should have the permissions on triggers and tables. For more information, see [Permissions Required for PostgreSQL](../datasource_func/PostgreSQL/privs_for_pg) \n- ALTER TABLE ADD COLUMN, DROP COLUMN, MODIFY COLUMN, CHANGE COLUMN \n- CREATE TABLE (full database sync)'
+            desc: 'PostgreSQL DDL sync is realized by triggers. The user should have the permissions on triggers and tables. For more information, see [Permissions Required for PostgreSQL](/docs/dataMigrationAndSync/datasource_func/PostgreSQL/privs_for_pg/) \n- ALTER TABLE ADD COLUMN, DROP COLUMN, MODIFY COLUMN, CHANGE COLUMN \n- CREATE TABLE (full database sync)'
         },
         {
             key: 'Metadata Retrieval',

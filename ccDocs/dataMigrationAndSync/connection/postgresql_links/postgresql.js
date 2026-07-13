@@ -26,7 +26,7 @@ const PostgreSQL = {
         },
         {
             key: 'DDL 同步',
-            desc: 'PostgreSQL DDL 同步基于 <b>触发器</b> 实现，需具备相应的 <b>触发器</b> 和 <b>表</b> 权限。文档：[PostgreSQL 需要的权限](../datasource_func/PostgreSQL/privs_for_pg)'
+            desc: 'PostgreSQL DDL 同步基于 <b>触发器</b> 实现，需具备相应的 <b>触发器</b> 和 <b>表</b> 权限。文档：[PostgreSQL 需要的权限](/docs/dataMigrationAndSync/datasource_func/PostgreSQL/privs_for_pg/)'
         },
         {
             key: '元数据检索',

@@ -14,6 +14,49 @@ const CLOUD_URL = {
   staging: 'https://cloudcanal.clougence.com',
   production: 'https://cloudcanal.clougence.com'
 };
+const LEGACY_CONNECTION_DOC_IDS = [
+  'mysql2',
+  'mariadb2',
+  'auroraformysql2',
+  'polardbmysql2',
+  'oracle2',
+  'hana2',
+  'redis2',
+  'postgresql2',
+  'auroraforpg',
+  'opengauss2',
+  'sqlserver2',
+  'oceanbase2',
+  'tidb2',
+  'polardbx2',
+  'db22',
+  'starrocks2',
+  'mongodb2',
+  'kafka2',
+  'automq2',
+  'rocketmq2',
+  'rabbitmq2',
+  'tunnel2',
+  'obfororacle2',
+  'pulsar2',
+  'tdengine2',
+  'googledrive2',
+  'dameng2',
+  'gaussdb2',
+  'dynamodb2',
+  'kingbasees2',
+  'vastbase2',
+  'clickhouse2',
+  'tdsqlcmysql2',
+  'tdsqlmysql2',
+  'spanner2',
+];
+const LEGACY_CONNECTION_SITEMAP_IGNORE_PATTERNS = LEGACY_CONNECTION_DOC_IDS.flatMap((docId) => [
+  `/docs/dataMigrationAndSync/connection/${docId}`,
+  `/docs/dataMigrationAndSync/connection/${docId}/`,
+  `/zh/docs/dataMigrationAndSync/connection/${docId}`,
+  `/zh/docs/dataMigrationAndSync/connection/${docId}/`,
+]);
 
 const config: Config = {
   title: 'CloudCanal-企业级数据同步',
@@ -105,6 +148,7 @@ const config: Config = {
             '/search/',
             '/markdown-page',
             '/markdown-page/',
+            ...LEGACY_CONNECTION_SITEMAP_IGNORE_PATTERNS,
             '/docs/dataMigrationAndSync/connection/*/*',
             '/zh/docs/dataMigrationAndSync/connection/*/*',
             '/docs/'

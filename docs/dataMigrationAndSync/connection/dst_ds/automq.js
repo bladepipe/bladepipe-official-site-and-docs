@@ -47,12 +47,6 @@ export const AutoMQ = {
             desc: 'When schemaFormat is set to <b>DEBEZIUM_ENVELOP_JSON_FOR_MQ</b>, it means whether the message body contains schema information.'
         }
     ],
-    examples: [
-        {
-            key: 'Migration and Sync from MySQL to AutoMQ',
-            desc: 'See [Migration and Sync from MySQL to AutoMQ](../../../blog/tech_share/automq_sync)'
-        },
-    ],
     master_function: [
         {
             key: 'Message Format',
