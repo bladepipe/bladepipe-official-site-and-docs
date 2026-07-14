@@ -35,6 +35,18 @@ const logoUrlTable: Record<string, string> = {
   '/img/home/logo/logo23.png': 'https://www.flashexpress.com/',
   '/img/home/logo/logo33.png': 'https://www.liauto.com/',
   '/img/home/logo/logo36.svg': 'https://www.dragonpass.com/',
+  '/img/home/logo/clougence-users/bluemoon-white.png': 'https://www.bluemoon.com.cn/',
+  '/img/home/logo/clougence-users/lingrui.png': 'http://www.lingrui.com/',
+  '/img/home/logo/clougence-users/microtech.svg': 'https://www.microtechmd.com/',
+  '/img/home/logo/clougence-users/zhenhua.png': 'https://www.zh-echem.com/',
+  '/img/home/logo/clougence-users/evoc.png': 'https://www.evoc.cn/',
+  '/img/home/logo/clougence-users/hsuanzhang.png': 'https://www.hsuanzhang.com/',
+  '/img/home/logo/clougence-users/befriends.svg': 'https://www.makefriends.com/',
+  '/img/home/logo/clougence-users/beibang.webp': 'https://www.bbnchina.com',
+  '/img/home/logo/clougence-users/donson.svg': 'https://www.donson.com.cn/',
+  '/img/home/logo/clougence-users/yilihui.jpg': 'https://www.eliza.com.cn/',
+  '/img/home/logo/clougence-users/redteamobile.png': 'https://www.redteamobile.com/',
+  '/img/home/logo/clougence-users/sea.webp': 'https://www.sea.com/',
 };
 
 const logoSizeTable: Record<string, Partial<Pick<LogoItem, 'width' | 'height'>>> = {
@@ -61,7 +73,31 @@ const logoSizeTable: Record<string, Partial<Pick<LogoItem, 'width' | 'height'>>>
   '/img/home/logo/logo34.png': { width: 94, height: 28 },
   '/img/home/logo/logo35.png': { width: 96 },
   '/img/home/logo/logo36.svg': { width: 110, height: 52 },
+  '/img/home/logo/clougence-users/bluemoon-white.png': { width: 96, height: 28 },
+  '/img/home/logo/clougence-users/lingrui.png': { width: 116, height: 32 },
+  '/img/home/logo/clougence-users/microtech.svg': { width: 100, height: 28 },
+  '/img/home/logo/clougence-users/zhenhua.png': { width: 80, height: 24 },
+  '/img/home/logo/clougence-users/evoc.png': { width: 160, height: 48 },
+  '/img/home/logo/clougence-users/hsuanzhang.png': { width: 86, height: 24 },
+  '/img/home/logo/clougence-users/befriends.svg': { width: 36, height: 36 },
+  '/img/home/logo/clougence-users/beibang.webp': { width: 54, height: 32 },
+  '/img/home/logo/clougence-users/donson.svg': { width: 120, height: 24 },
+  '/img/home/logo/clougence-users/yilihui.jpg': { width: 90, height: 40 },
+  '/img/home/logo/clougence-users/redteamobile.png': { width: 148, height: 24 },
+  '/img/home/logo/clougence-users/sea.webp': { width: 82, height: 32 },
 };
+
+const toLogoItem = (src: string): LogoItem => ({
+  src,
+  width: (logoSizeTable[src]?.width ?? DEFAULT_LOGO_WIDTH) * LOGO_SCALE,
+  height: (logoSizeTable[src]?.height ?? DEFAULT_LOGO_HEIGHT) * LOGO_SCALE,
+  url: logoUrlTable[src] ?? DEFAULT_LOGO_URL,
+});
+
+const sharedBrandLogos = [
+  '/img/home/logo/clougence-users/redteamobile.png',
+  '/img/home/logo/clougence-users/sea.webp',
+];
 
 // 所有 logo（logo1 到 logo35）
 const logos: LogoItem[] = [
@@ -77,13 +113,19 @@ const logos: LogoItem[] = [
   '/img/home/logo/logo35.png',
   '/img/home/logo/logo11.svg',
   '/img/home/logo/logo13.jpg',
-  '/img/home/logo/logo17.webp'
-].map((src) => ({
-  src,
-  width: (logoSizeTable[src]?.width ?? DEFAULT_LOGO_WIDTH) * LOGO_SCALE,
-  height: (logoSizeTable[src]?.height ?? DEFAULT_LOGO_HEIGHT) * LOGO_SCALE,
-  url: logoUrlTable[src] ?? DEFAULT_LOGO_URL,
-}));
+  '/img/home/logo/logo17.webp',
+  '/img/home/logo/clougence-users/bluemoon-white.png',
+  '/img/home/logo/clougence-users/lingrui.png',
+  '/img/home/logo/clougence-users/microtech.svg',
+  '/img/home/logo/clougence-users/zhenhua.png',
+  '/img/home/logo/clougence-users/evoc.png',
+  '/img/home/logo/clougence-users/hsuanzhang.png',
+  '/img/home/logo/clougence-users/befriends.svg',
+  '/img/home/logo/clougence-users/beibang.webp',
+  '/img/home/logo/clougence-users/donson.svg',
+  '/img/home/logo/clougence-users/yilihui.jpg',
+  ...sharedBrandLogos,
+].map(toLogoItem);
 
 // BladePipe 使用的 logo 子集
 const bpLogos: LogoItem[] = [
@@ -95,13 +137,9 @@ const bpLogos: LogoItem[] = [
   '/img/home/logo/logo27.svg',
   '/img/home/logo/logo33.png',
   '/img/home/logo/logo22.png',
-  '/img/home/logo/logo36.svg'
-].map((src) => ({
-  src,
-  width: (logoSizeTable[src]?.width ?? DEFAULT_LOGO_WIDTH) * LOGO_SCALE,
-  height: (logoSizeTable[src]?.height ?? DEFAULT_LOGO_HEIGHT) * LOGO_SCALE,
-  url: logoUrlTable[src] ?? DEFAULT_LOGO_URL,
-}));
+  '/img/home/logo/logo36.svg',
+  ...sharedBrandLogos,
+].map(toLogoItem);
 
 export default function UserLogos() {
   const { siteConfig } = useDocusaurusContext();
@@ -132,7 +170,10 @@ export default function UserLogos() {
                   src={logo.src}
                   alt={`User Logo ${(idx % currentLogos.length) + 1}`}
                   className="object-contain select-none grayscale"
-                  style={{ width: logo.width, height: logo.height }}
+                  style={{
+                    width: logo.width,
+                    height: logo.height
+                  }}
                   draggable={false}
                   loading="lazy"
                 />

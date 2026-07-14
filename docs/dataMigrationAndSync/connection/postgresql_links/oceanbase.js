@@ -30,7 +30,7 @@ export const OceanBase = {
         },
         {
             key: 'DDL Sync',
-            desc: 'PostgreSQL DDL sync is realized by triggers. The user should have the permissions on triggers and tables. For more information, see [Permissions Required for PostgreSQL](../datasource_func/PostgreSQL/privs_for_pg) \n- ALTER TABLE ADD COLUMN, DROP COLUMN, MODIFY COLUMN \n- ADD INDEX \n- RENAME TABLE \n- CREATE TABLE (whole database sync)'
+            desc: 'PostgreSQL DDL sync is realized by triggers. The user should have the permissions on triggers and tables. For more information, see [Permissions Required for PostgreSQL](/docs/dataMigrationAndSync/datasource_func/PostgreSQL/privs_for_pg/) \n- ALTER TABLE ADD COLUMN, DROP COLUMN, MODIFY COLUMN \n- ADD INDEX \n- RENAME TABLE \n- CREATE TABLE (whole database sync)'
         },
         {
             key: 'Metadata Retrieval',

@@ -141,7 +141,7 @@ export default function ClougenceContactFab() {
         className="fixed bottom-6 right-6 z-[1000] h-[52px] px-5 rounded-full bg-[#0087c7] text-white text-[16px] font-bold shadow-[0_8px_24px_rgba(0,135,199,0.35)] hover:bg-[#0070a6] transition-colors cursor-pointer border-none outline-none focus:outline-none"
         style={{ border: 'none' }}
       >
-        <Translate id="clougence.contact.fab.label">商业合作</Translate>
+        <Translate id="clougence.contact.fab.label">咨询购买</Translate>
       </button>
 
       <Modal visible={visible} onClose={handleClose} width={790} hideCloseButton>
@@ -158,7 +158,7 @@ export default function ClougenceContactFab() {
           </button>
 
           <h2 className="text-[22px] font-bold text-black mb-6 pr-10">
-            <Translate id="clougence.contact.modal.title">商业合作</Translate>
+            <Translate id="clougence.contact.modal.title">咨询购买</Translate>
           </h2>
 
           <div className="flex flex-col gap-4">

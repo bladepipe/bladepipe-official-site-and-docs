@@ -60,11 +60,11 @@ const BRAND_CONTENT: Record<BrandKey, {
       { group: 'AI and model services', items: ['OpenAI', 'Anthropic', 'Bedrock', 'Cohere', 'DeepSeek', 'Ollama', 'Hugging Face', 'RagApi'] },
     ],
     pipelineExamples: [
-      { label: 'MySQL to StarRocks', url: 'https://www.bladepipe.com/docs/dataMigrationAndSync/connection/mysql2/starrocks/', note: 'Real-time analytics and warehouse synchronization.' },
-      { label: 'Oracle to MySQL', url: 'https://www.bladepipe.com/docs/dataMigrationAndSync/connection/oracle2/mysql/', note: 'Heterogeneous database migration and replication.' },
-      { label: 'Kafka to Kafka', url: 'https://www.bladepipe.com/docs/dataMigrationAndSync/connection/kafka2/kafka/', note: 'Streaming data synchronization.' },
-      { label: 'MySQL to Elasticsearch', url: 'https://www.bladepipe.com/docs/dataMigrationAndSync/connection/mysql2/elasticsearch/', note: 'Search index and operational analytics synchronization.' },
-      { label: 'PostgreSQL to Doris', url: 'https://www.bladepipe.com/docs/dataMigrationAndSync/connection/postgresql2/doris/', note: 'Real-time warehouse ingestion.' },
+      { label: 'MySQL to StarRocks', url: 'https://www.bladepipe.com/docs/dataMigrationAndSync/connection/mysql-to-starrocks/', note: 'Real-time analytics and warehouse synchronization.' },
+      { label: 'Oracle to MySQL', url: 'https://www.bladepipe.com/docs/dataMigrationAndSync/connection/oracle-to-mysql/', note: 'Heterogeneous database migration and replication.' },
+      { label: 'Kafka to Kafka', url: 'https://www.bladepipe.com/docs/dataMigrationAndSync/connection/kafka-to-kafka/', note: 'Streaming data synchronization.' },
+      { label: 'MySQL to Elasticsearch', url: 'https://www.bladepipe.com/docs/dataMigrationAndSync/connection/mysql-to-elasticsearch/', note: 'Search index and operational analytics synchronization.' },
+      { label: 'PostgreSQL to Doris', url: 'https://www.bladepipe.com/docs/dataMigrationAndSync/connection/postgresql-to-doris/', note: 'Real-time warehouse ingestion.' },
     ],
     faqs: [
       { question: 'What is BladePipe?', answer: 'BladePipe is a real-time data integration and CDC platform for migration, synchronization, replication, analytics, and AI data pipelines.' },
@@ -126,11 +126,11 @@ const BRAND_CONTENT: Record<BrandKey, {
       { group: 'AI 和模型服务', items: ['OpenAI', 'Anthropic', 'Bedrock', 'Cohere', 'DeepSeek', 'Ollama', 'Hugging Face', 'RagApi'] },
     ],
     pipelineExamples: [
-      { label: 'MySQL 到 StarRocks', url: 'https://www.clougence.com/docs/dataMigrationAndSync/connection/mysql2/starrocks/', note: '实时数仓和实时分析链路。' },
-      { label: 'Oracle 到 MySQL', url: 'https://www.clougence.com/docs/dataMigrationAndSync/connection/oracle2/mysql/', note: '异构数据库迁移和复制。' },
-      { label: 'Kafka 到 Kafka', url: 'https://www.clougence.com/docs/dataMigrationAndSync/connection/kafka2/kafka/', note: '消息流数据同步。' },
-      { label: 'MySQL 到 Elasticsearch', url: 'https://www.clougence.com/docs/dataMigrationAndSync/connection/mysql2/elasticsearch/', note: '搜索索引和业务查询场景。' },
-      { label: 'PostgreSQL 到 Doris', url: 'https://www.clougence.com/docs/dataMigrationAndSync/connection/postgresql2/doris/', note: '实时分析型数据库写入。' },
+      { label: 'MySQL 到 StarRocks', url: 'https://www.clougence.com/docs/dataMigrationAndSync/connection/mysql-to-starrocks/', note: '实时数仓和实时分析链路。' },
+      { label: 'Oracle 到 MySQL', url: 'https://www.clougence.com/docs/dataMigrationAndSync/connection/oracle-to-mysql/', note: '异构数据库迁移和复制。' },
+      { label: 'Kafka 到 Kafka', url: 'https://www.clougence.com/docs/dataMigrationAndSync/connection/kafka-to-kafka/', note: '消息流数据同步。' },
+      { label: 'MySQL 到 Elasticsearch', url: 'https://www.clougence.com/docs/dataMigrationAndSync/connection/mysql-to-elasticsearch/', note: '搜索索引和业务查询场景。' },
+      { label: 'PostgreSQL 到 Doris', url: 'https://www.clougence.com/docs/dataMigrationAndSync/connection/postgresql-to-doris/', note: '实时分析型数据库写入。' },
     ],
     faqs: [
       { question: 'CloudCanal 是什么？', answer: 'CloudCanal 是 ClouGence 提供的数据迁移、数据同步、数据集成、数据校验与订正、实时复制平台。' },
