@@ -3,6 +3,10 @@ id: privs_for_pg
 title: PostgreSQL 需要的权限
 description: CloudCanal 在做 PostgreSQL 源端或对端的数据迁移同步时，需要提供的账号有一些赋权。
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 本文介绍 PostgreSQL 作为源端或对端数据源迁移或同步数据时，CloudCanal 所需的账号权限。
 
 ## 作为源端
@@ -125,7 +129,32 @@ description: CloudCanal 在做 PostgreSQL 源端或对端的数据迁移同步�
 
 #### 同步 TRUNCATE
 
-- 除了 **基本的触发器和表** ，额外需要创建以下函数和触发器。
+<Tabs groupId="truncate_sync">
+<TabItem value="native" label="原生同步方式" default>
+
+PostgreSQL 11 及以上版本的增量同步任务支持通过逻辑复制原生捕获 `TRUNCATE` 操作。使用支持该能力的 CloudCanal 版本时，无需额外创建 `log_truncate` 函数或表级 `AFTER TRUNCATE` 触发器。
+
+:::info
+PostgreSQL 10 及以下版本不会通过逻辑复制发送 `TRUNCATE` 消息，因此不支持原生同步方式。无法升级源端 PostgreSQL，或者已有任务尚未使用原生同步能力时，可以使用下文的触发器兼容方式。
+:::
+
+同步 `TRUNCATE` 需要满足以下条件：
+
+- 源端数据库版本为 PostgreSQL 11 或更高版本。
+- 创建任务时开启 **同步 DDL**。
+- 被截断的表在任务订阅范围内。
+- 任务使用的 Publication 发布操作包含 `truncate`。CloudCanal 自动创建的 Publication 默认包含该操作；如果使用自行维护的 Publication，请检查其 `publish` 配置。
+
+:::warning
+同一个任务中的同一张表不能同时使用原生同步方式和触发器兼容方式，否则一条 `TRUNCATE` 可能被重复捕获。已有 `cc_trunc_*` 触发器的任务升级后，请先确认任务已经使用原生同步能力，再决定是否移除触发器。
+:::
+
+</TabItem>
+<TabItem value="trigger" label="触发器兼容方式">
+
+- PostgreSQL 10 及以下版本，或者尚未使用原生 `TRUNCATE` 同步能力的旧任务，可以通过以下函数和表级触发器捕获 `TRUNCATE`。
+- 使用此方式前，需要先创建本节前文所述的 **基本触发器和表**。
+- 每张需要同步 `TRUNCATE` 的表都需要单独创建一个 `AFTER TRUNCATE` 触发器。
 - 此操作当前只能提前手动建立。
 
   ```sql
@@ -158,3 +187,5 @@ description: CloudCanal 在做 PostgreSQL 源端或对端的数据迁移同步�
     FOR EACH STATEMENT
     EXECUTE FUNCTION public.log_truncate();
   ```
+</TabItem>
+</Tabs>
