@@ -300,6 +300,13 @@ const sidebars: SidebarsConfig = {
             },
             {
               "type": "category",
+              "label": "Redshift",
+              "items": [
+                "dataMigrationAndSync/datasource_func/Redshift/privs_for_redshift"
+              ]
+            },
+            {
+              "type": "category",
               "label": "Kafka",
               "items": [
                 "dataMigrationAndSync/datasource_func/Kafka/privs_for_kafka",
@@ -333,7 +340,8 @@ const sidebars: SidebarsConfig = {
               "type": "category",
               "label": "Iceberg",
               "items": [
-                "dataMigrationAndSync/datasource_func/Iceberg/props_for_iceberg_ds"
+                "dataMigrationAndSync/datasource_func/Iceberg/props_for_iceberg_ds",
+                "dataMigrationAndSync/datasource_func/Iceberg/aws_glue_s3_iam_policy"
               ]
             },
             {

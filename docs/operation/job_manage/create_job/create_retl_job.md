@@ -13,12 +13,17 @@ description: This topic describes how to create a scheduled scan (rETL) sync Dat
 ## Supported Pipelines
 
 | Source -> Target | Sync Mode | Pre-execution Action (Optional) | Incremental Field<b><sup>1</sup></b> Type |
-|---:|---:|---:|---:|
-| StarRocks -> MySQL | Scheduled Scan | Truncate Target<b><sup>2</sup></b>, Rename and Create<b><sup>3</sup></b> | DateTime |
-| Doris -> MySQL | Scheduled Scan | Truncate Target, Rename and Create | DateTime, High-Precision DateTime |
-| Redshift -> MySQL | Scheduled Scan | Truncate Target | Timestamp | 
-| Elasticsearch -> Elasticsearch | Scheduled Scan | Truncate Target | Date, Nanosecond Date, ES Timestamp |
-| VastBase -> Dameng  | Scheduled Scan  | Truncate Target  | Timestamp |
+| --- | --- | --- | --- |
+| StarRocks -> MySQL | Scheduled Scan | Truncate Target<b><sup>2</sup></b>, Rename and Create<b><sup>3</sup></b> | `DATETIME` |
+| Doris -> MySQL | Scheduled Scan | Truncate Target, Rename and Create | `DATETIME`, `DATETIMEV2` |
+| Redshift -> MySQL | Scheduled Scan | Truncate Target | `TIMESTAMP` |
+| PostgreSQL -> Redshift | Scheduled Scan | / | `DATE`, `TIMESTAMP WITHOUT TIME ZONE`, `TIMESTAMP WITH TIME ZONE` |
+| Aurora PostgreSQL -> Redshift | Scheduled Scan | / | `DATE`, `TIMESTAMP WITHOUT TIME ZONE`, `TIMESTAMP WITH TIME ZONE` |
+| SQL Server -> Redshift | Scheduled Scan | / | `DATE`, `DATETIME`, `DATETIME2`, `SMALLDATETIME` |
+| Iceberg -> MySQL | Scheduled Scan | / | `TIMESTAMP` |
+| Iceberg -> Redshift | Scheduled Scan | / | `TIMESTAMP` |
+| Elasticsearch -> Elasticsearch | Scheduled Scan | Truncate Target | `date` (including timestamp formats), `date_nanos` |
+| VastBase -> Dameng | Scheduled Scan | Truncate Target | `TIMESTAMP WITH TIME ZONE`, `TIMESTAMP WITHOUT TIME ZONE` |
 | OssFile -> PostgreSQL | Scheduled Scan | Truncate Target<b><sup>4</sup></b> | / |
 | SshFile -> PostgreSQL | Scheduled Scan | Truncate Target | / |
 | S3File -> PostgreSQL | Scheduled Scan | Truncate Target | / |
