@@ -3,7 +3,6 @@ import * as constantApi from './constant'
 import * as verifyApi from './verify'
 import * as downloadApi from './download'
 import * as licenseApi from "./license";
-import * as weblogApi from './weblog';
 import * as invoiceApi from "./invoice";
 import * as paymentApi from './payment'
 import * as billingApi from "./billing";
@@ -18,7 +17,6 @@ export default {
   verifyApi,
   downloadApi,
   licenseApi,
-  weblogApi,
   invoiceApi,
   paymentApi,
   billingApi,

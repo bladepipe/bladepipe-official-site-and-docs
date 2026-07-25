@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Translate, { translate } from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { Modal } from '@site/src/hooks/useModal';
@@ -6,21 +6,56 @@ import { getDownloadUrl } from '@site/src/apis/download';
 import apis from '@site/src/apis';
 import { isUserLogin } from '../store/user';
 
+type InstallTab = 'docker' | 'k8s' | 'binary';
+type DockerInstallMethod = 'command' | 'binary';
+export type CommunityInstallInitialTab = InstallTab | 'dockerPackage';
+
+export const normalizeCommunityInstallInitialTab = (
+  initialTab: string | null | undefined,
+  fallback: CommunityInstallInitialTab = 'docker'
+): CommunityInstallInitialTab => {
+  if (initialTab === 'docker' || initialTab === 'k8s' || initialTab === 'binary' || initialTab === 'dockerPackage') {
+    return initialTab;
+  }
+
+  return fallback;
+};
+
+const resolveInitialInstallView = (initialTab: CommunityInstallInitialTab): {
+  activeTab: InstallTab;
+  dockerInstallMethod: DockerInstallMethod;
+} => {
+  if (initialTab === 'dockerPackage') {
+    return {
+      activeTab: 'docker',
+      dockerInstallMethod: 'binary'
+    };
+  }
+
+  return {
+    activeTab: initialTab === 'k8s' || initialTab === 'binary' ? initialTab : 'docker',
+    dockerInstallMethod: 'command'
+  };
+};
+
 export interface CommunityInstallModalProps {
   visible: boolean;
   onClose: () => void;
-  initialTab?: string; // 初始 tab，默认为 'docker'
+  initialTab?: CommunityInstallInitialTab; // 初始 tab，默认为 'docker'
 }
 
 export default function CommunityInstallModal({ visible, onClose, initialTab = 'docker' }: CommunityInstallModalProps) {
   const { siteConfig } = useDocusaurusContext();
   const siteBrand = siteConfig.customFields?.siteBrand as string;
-  const [activeTab, setActiveTab] = useState<string>(initialTab);
+  const initialInstallView = resolveInitialInstallView(initialTab);
+  const [activeTab, setActiveTab] = useState<InstallTab>(initialInstallView.activeTab);
+  const [dockerInstallMethod, setDockerInstallMethod] = useState<DockerInstallMethod>(initialInstallView.dockerInstallMethod);
   const [copiedTab, setCopiedTab] = useState<string | null>(null);
   const [downloadInfo, setDownloadInfo] = useState<any>(null);
   const [downloadLoading, setDownloadLoading] = useState(false);
   const [showDownloadInfo, setShowDownloadInfo] = useState(false);
   const [latestProductVer, setLatestProductVer] = useState<string | null>(null);
+  const downloadLoadingRef = useRef(false);
   
   // 根据 siteBrand 获取产品名称
   const productName = siteBrand === 'clougence' ? 'CloudCanal' : 'BladePipe';
@@ -28,7 +63,9 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
   // 当弹窗打开且 initialTab 变化时，切换到指定的 tab
   useEffect(() => {
     if (visible) {
-      setActiveTab(initialTab);
+      const nextInstallView = resolveInitialInstallView(initialTab);
+      setActiveTab(nextInstallView.activeTab);
+      setDockerInstallMethod(nextInstallView.dockerInstallMethod);
     }
   }, [visible, initialTab]);
 
@@ -66,17 +103,18 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
   // 处理关闭
   const handleClose = () => {
     setActiveTab('docker');
+    setDockerInstallMethod('command');
     setCopiedTab(null);
     setDownloadInfo(null);
     setShowDownloadInfo(false);
     onClose();
   };
 
-  // 处理 Binary Package 下载
-  const handleBinaryDownload = async () => {
+  const handlePackageDownload = async (productType: string, loginReturnTab: string) => {
     if (!isUserLogin()) {
       // 设置来源标识，登录后返回首页并打开下载弹窗
       localStorage.setItem('loginSource', 'download');
+      localStorage.setItem('communityDownloadInitialTab', loginReturnTab);
       // 如果sitebrand为bladepipe，则路由末尾加/
       if (siteBrand === 'bladepipe') {
         window.location.href = '/login/';
@@ -85,11 +123,15 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
       }
       return;
     }
+    if (downloadLoadingRef.current) {
+      return;
+    }
     try {
+      downloadLoadingRef.current = true;
       setDownloadLoading(true);
       const params = {
         productVersionType: 'COMMUNITY_VERSION',
-        productType: siteBrand === 'clougence' ? 'CloudCanal_Tgz' : 'BladePipe_Tgz'
+        productType
       };
       const res = await getDownloadUrl(params);
       setDownloadInfo(res);
@@ -98,8 +140,20 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
       console.error('Failed to get download information:', error);
       alert(translate({ id: 'downloadModal.downloadInfoError', message: 'Failed to get download information' }));
     } finally {
+      downloadLoadingRef.current = false;
       setDownloadLoading(false);
     }
+  };
+
+  // 处理 TGZ 下载
+  const handleBinaryDownload = async () => {
+    const productType = siteBrand === 'clougence' ? 'CloudCanal_Tgz' : 'BladePipe_Tgz';
+    await handlePackageDownload(productType, 'binary');
+  };
+
+  // 处理 Docker 安装包下载
+  const handleDockerPackageDownload = async (productType: string) => {
+    await handlePackageDownload(productType, 'dockerPackage');
   };
 
   // 返回产品列表视图
@@ -117,11 +171,27 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
       ? `curl -fsSL https://tgzdownload.clougence.com/support/install_on_docker.sh | bash -s -- ${dockerVersionPlaceholder} ./cc_home`
       : `curl -fsSL https://bladepipe-docker.s3.ap-southeast-1.amazonaws.com/install_on_docker.sh | bash -s -- ${dockerVersionPlaceholder} ./bp_home`;
 
+  // 根据 siteBrand 生成 Docker 环境安装命令
+  const dockerPrerequisiteCommand =
+    siteBrand === 'clougence'
+      ? '/bin/bash -c "$(curl -fsSL https://tgzdownload.clougence.com/support/install_centos_docker.sh)"'
+      : '/bin/bash -c "$(curl -fsSL https://bladepipe-docker.s3.ap-southeast-1.amazonaws.com/install_centos_docker.sh)"';
+
   // 根据 siteBrand 生成 K8S 一键安装命令
   const k8sInstallCommand =
     siteBrand === 'clougence'
       ? `curl -fsSL https://tgzdownload.clougence.com/support/install_on_k8s.sh | bash -s -- ${dockerVersionPlaceholder}`
       : `curl -fsSL https://bladepipe-docker.s3.ap-southeast-1.amazonaws.com/install_on_k8s.sh | bash -s -- ${dockerVersionPlaceholder}`;
+
+  const dockerPackageProducts = siteBrand === 'clougence'
+    ? [
+        { label: 'ARM', productType: 'CloudCanal_ARM', icon: '/img/home/icon/download_arm.svg' },
+        { label: 'X86', productType: 'CloudCanal', icon: '/img/home/icon/download_x86.svg' }
+      ]
+    : [
+        { label: 'ARM', productType: 'BladePipe_ARM', icon: '/img/home/icon/download_arm.svg' },
+        { label: 'X86', productType: 'BladePipe', icon: '/img/home/icon/download_x86.svg' }
+      ];
 
   return (
     <Modal
@@ -185,7 +255,7 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
         {/*  </div>*/}
         {/*)}*/}
         
-        {/* Tab栏 - 撑满整个弹窗宽度 */}
+        {/* 环境选择 */}
         {!showDownloadInfo && (
           <div className='flex mb-[30px]' style={{ marginLeft: '-50px', marginRight: '-50px' }}>
             <button
@@ -219,9 +289,9 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
                 activeTab === 'binary' ? 'text-black' : 'text-black/70'
               }`}
               onClick={() => setActiveTab('binary')}
-              style={{ 
-                background: 'none', 
-                border: 'none', 
+              style={{
+                background: 'none',
+                border: 'none',
                 outline: 'none',
                 borderBottom: activeTab === 'binary' ? '2px solid #0087c7' : '1px solid rgba(0,0,0,0.1)'
               }}>
@@ -242,45 +312,107 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
             />
           ) : (
             <>
-              {/* Docker Tab 内容 */}
               {activeTab === 'docker' && (
-            <>
-              <div className="text-left text-[14px] text-black mb-[10px]">
-                {siteBrand === 'clougence' ? (
-                  <Translate id='banner.communityModalDescription.clougence'>One-click quick install of CloudCanal free community edition:</Translate>
-                ) : (
-                  <Translate id='banner.communityModalDescription'>One-click quick install of BladePipe free community edition:</Translate>
-                )}
-              </div>
-              <div className="relative border border-black/20 rounded-[6px] bg-white px-[10px] py-[10px] pr-[36px]" style={{ borderStyle: 'solid', borderWidth: '1px' }}>
-              {/* 一键安装地址 */}
-                <div className="text-[14px] font-mono text-black overflow-x-auto break-all">
-                  {dockerInstallCommand}
+                <div className='flex justify-center mb-[18px]'>
+                  <div className='inline-flex rounded-[8px] border border-black/10 overflow-hidden' style={{ borderStyle: 'solid', borderWidth: '1px' }}>
+                    <button
+                      className={`h-[36px] px-[28px] text-[14px] font-bold transition-colors ${
+                        dockerInstallMethod === 'command' ? 'bg-[#0087c7] text-white' : 'bg-white text-black/70 hover:bg-[#f0faff]'
+                      }`}
+                      style={{ border: 'none', outline: 'none' }}
+                      onClick={() => setDockerInstallMethod('command')}>
+                      <Translate id='banner.communityModal.tab.command'>Command Install</Translate>
+                    </button>
+                    <button
+                      className={`h-[36px] px-[28px] text-[14px] font-bold transition-colors ${
+                        dockerInstallMethod === 'binary' ? 'bg-[#0087c7] text-white' : 'bg-white text-black/70 hover:bg-[#f0faff]'
+                      }`}
+                      style={{ border: 'none', outline: 'none' }}
+                      onClick={() => setDockerInstallMethod('binary')}>
+                      <Translate id='banner.communityModal.tab.downloadPackage'>Download Package</Translate>
+                    </button>
+                  </div>
                 </div>
-                <div
-                  className='absolute top-[10px] right-[10px] w-[16px] h-[16px] flex items-center justify-center cursor-pointer'
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleCopyCode(dockerInstallCommand, 'docker');
-                  }}
-                  title={translate({ id: 'banner.copy', message: 'Copy' })}>
-                  {copiedTab === 'docker' ? (
-                    <img 
-                      src="/img/home/icon/check.svg" 
-                      alt={translate({ id: 'banner.communityModal.copied', message: 'Copied' })} 
-                      className="w-4 h-4" 
-                      style={{ width: '16px', height: '16px' }}
-                    />
-                  ) : (
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M11.0002 6.46647C11.0002 6.0821 10.9993 5.83375 10.9839 5.64486C10.9691 5.4638 10.944 5.39657 10.9272 5.36361C10.8634 5.23829 10.7615 5.13648 10.6362 5.07259C10.6033 5.0558 10.536 5.03075 10.355 5.01595C10.1661 5.00052 9.91774 4.99967 9.53337 4.99967H4.13363C3.74926 4.99967 3.50091 5.00052 3.31201 5.01595C3.13096 5.03075 3.06372 5.0558 3.03076 5.07259C2.90545 5.13648 2.80364 5.23829 2.73975 5.36361C2.72296 5.39657 2.69791 5.4638 2.68311 5.64486C2.66768 5.83375 2.66683 6.0821 2.66683 6.46647V11.8662C2.66683 12.2506 2.66768 12.4989 2.68311 12.6878C2.69791 12.8689 2.72296 12.9361 2.73975 12.9691C2.80364 13.0944 2.90545 13.1962 3.03076 13.2601C3.06372 13.2769 3.13096 13.3019 3.31201 13.3167C3.50091 13.3322 3.74926 13.333 4.13363 13.333H9.53337C9.91774 13.333 10.1661 13.3322 10.355 13.3167C10.536 13.3019 10.6033 13.2769 10.6362 13.2601C10.7615 13.1962 10.8634 13.0944 10.9272 12.9691C10.944 12.9361 10.9691 12.8689 10.9839 12.6878C10.9993 12.4989 11.0002 12.2506 11.0002 11.8662V6.46647ZM13.3335 10.9997V6.2666C13.3335 5.50898 13.3332 4.98054 13.2996 4.56934C13.2667 4.16589 13.2049 3.93371 13.1154 3.75814C12.9237 3.38199 12.6179 3.07616 12.2417 2.88444C12.0661 2.79498 11.8339 2.73316 11.4305 2.7002C11.0193 2.66661 10.4909 2.66634 9.73324 2.66634H5.00017C4.63198 2.66634 4.3335 2.36786 4.3335 1.99968C4.3335 1.63149 4.63198 1.33301 5.00017 1.33301H9.73324C10.469 1.33301 11.0611 1.33236 11.5392 1.37142C12.025 1.41111 12.4517 1.49518 12.8465 1.69629C13.4737 2.01587 13.984 2.52611 14.3036 3.15332C14.5047 3.54812 14.5887 3.97481 14.6284 4.46061C14.6675 4.93872 14.6668 5.53088 14.6668 6.2666V10.9997C14.6668 11.3679 14.3684 11.6663 14.0002 11.6663C13.632 11.6663 13.3335 11.3679 13.3335 10.9997ZM12.3335 11.8662C12.3335 12.2286 12.3342 12.5408 12.3133 12.7965C12.2918 13.0601 12.2439 13.3223 12.1154 13.5745C11.9237 13.9507 11.6179 14.2565 11.2417 14.4482C10.9895 14.5767 10.7272 14.6246 10.4637 14.6462C10.2079 14.6671 9.89574 14.6663 9.53337 14.6663H4.13363C3.77126 14.6663 3.45907 14.6671 3.20329 14.6462C2.93979 14.6246 2.67749 14.5767 2.4253 14.4482C2.04915 14.2565 1.74331 13.9507 1.5516 13.5745C1.4231 13.3223 1.37522 13.0601 1.35368 12.7965C1.33278 12.5408 1.3335 12.2286 1.3335 11.8662V6.46647C1.3335 6.1041 1.33278 5.79191 1.35368 5.53613C1.37522 5.27263 1.4231 5.01034 1.5516 4.75814C1.74331 4.38199 2.04915 4.07616 2.4253 3.88444C2.67749 3.75594 2.93979 3.70806 3.20329 3.68652C3.45907 3.66563 3.77126 3.66634 4.13363 3.66634H9.53337C9.89574 3.66634 10.2079 3.66563 10.4637 3.68652C10.7272 3.70806 10.9895 3.75594 11.2417 3.88444C11.6179 4.07616 11.9237 4.38199 12.1154 4.75814C12.2439 5.01034 12.2918 5.27263 12.3133 5.53613C12.3342 5.79191 12.3335 6.1041 12.3335 6.46647V11.8662Z" fill="#0087C7"/>
-                    </svg>
-                  )}
+              )}
+
+              {/* Docker Tab 内容 */}
+              {activeTab === 'docker' && dockerInstallMethod === 'command' && (
+            <>
+              <div className='space-y-[16px]'>
+                <div>
+                  <div className='flex items-center gap-[10px] mb-[8px] flex-wrap'>
+                    <span className='text-[15px] font-bold text-black flex-shrink-0'>1.</span>
+                    <span className='text-[15px] font-bold text-black'>
+                      <Translate id='banner.communityModal.dockerStep.installDocker'>Install Docker</Translate>
+                    </span>
+                    <span className='text-[13px] text-black/50'>
+                      <Translate id='banner.communityModal.dockerStep.installDockerTip'>Skip if installed; use another Docker command if needed.</Translate>
+                    </span>
+                  </div>
+                  <div className="relative border border-black/20 rounded-[6px] bg-white px-[10px] py-[10px] pr-[36px]" style={{ borderStyle: 'solid', borderWidth: '1px' }}>
+                    <div className="text-[14px] font-mono text-black overflow-x-auto break-all">
+                      {dockerPrerequisiteCommand}
+                    </div>
+                    <div
+                      className='absolute top-[10px] right-[10px] w-[16px] h-[16px] flex items-center justify-center cursor-pointer'
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleCopyCode(dockerPrerequisiteCommand, 'dockerPrerequisite');
+                      }}
+                      title={translate({ id: 'banner.copy', message: 'Copy' })}>
+                      {copiedTab === 'dockerPrerequisite' ? (
+                        <img
+                          src="/img/home/icon/check.svg"
+                          alt={translate({ id: 'banner.communityModal.copied', message: 'Copied' })}
+                          className="w-4 h-4"
+                          style={{ width: '16px', height: '16px' }}
+                        />
+                      ) : (
+                        <img src="/img/home/icon/copy.svg" alt={translate({ id: "banner.copy", message: "Copy" })} className="w-4 h-4" style={{ width: "16px", height: "16px" }} />
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className='flex items-center gap-[10px] mb-[8px]'>
+                    <span className='text-[15px] font-bold text-black flex-shrink-0'>2.</span>
+                    <span className='text-[15px] font-bold text-black'>
+                      {siteBrand === 'clougence' ? (
+                        <Translate id='banner.communityModal.dockerStep.installProduct.clougence'>Install CloudCanal Community Edition</Translate>
+                      ) : (
+                        <Translate id='banner.communityModal.dockerStep.installProduct'>Install BladePipe Community Edition</Translate>
+                      )}
+                    </span>
+                  </div>
+                  <div className="relative border border-black/20 rounded-[6px] bg-white px-[10px] py-[10px] pr-[36px]" style={{ borderStyle: 'solid', borderWidth: '1px' }}>
+                    <div className="text-[14px] font-mono text-black overflow-x-auto break-all">
+                      {dockerInstallCommand}
+                    </div>
+                    <div
+                      className='absolute top-[10px] right-[10px] w-[16px] h-[16px] flex items-center justify-center cursor-pointer'
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleCopyCode(dockerInstallCommand, 'docker');
+                      }}
+                      title={translate({ id: 'banner.copy', message: 'Copy' })}>
+                      {copiedTab === 'docker' ? (
+                        <img
+                          src="/img/home/icon/check.svg"
+                          alt={translate({ id: 'banner.communityModal.copied', message: 'Copied' })}
+                          className="w-4 h-4"
+                          style={{ width: '16px', height: '16px' }}
+                        />
+                      ) : (
+                        <img src="/img/home/icon/copy.svg" alt={translate({ id: "banner.copy", message: "Copy" })} className="w-4 h-4" style={{ width: "16px", height: "16px" }} />
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="mt-[16px] text-left text-[14px] text-black">
                 <Translate id='banner.moreInfoPrefix'>Get more information: </Translate>
-                <span 
+                <span
                   className="text-[#0087c7] hover:text-[#0070a6] underline cursor-pointer"
                   onClick={() => {
                     const dockerQuickStartUrl = siteBrand === 'clougence' 
@@ -336,15 +468,13 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
                       style={{ width: '16px', height: '16px' }}
                     />
                   ) : (
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M11.0002 6.46647C11.0002 6.0821 10.9993 5.83375 10.9839 5.64486C10.9691 5.4638 10.944 5.39657 10.9272 5.36361C10.8634 5.23829 10.7615 5.13648 10.6362 5.07259C10.6033 5.0558 10.536 5.03075 10.355 5.01595C10.1661 5.00052 9.91774 4.99967 9.53337 4.99967H4.13363C3.74926 4.99967 3.50091 5.00052 3.31201 5.01595C3.13096 5.03075 3.06372 5.0558 3.03076 5.07259C2.90545 5.13648 2.80364 5.23829 2.73975 5.36361C2.72296 5.39657 2.69791 5.4638 2.68311 5.64486C2.66768 5.83375 2.66683 6.0821 2.66683 6.46647V11.8662C2.66683 12.2506 2.66768 12.4989 2.68311 12.6878C2.69791 12.8689 2.72296 12.9361 2.73975 12.9691C2.80364 13.0944 2.90545 13.1962 3.03076 13.2601C3.06372 13.2769 3.13096 13.3019 3.31201 13.3167C3.50091 13.3322 3.74926 13.333 4.13363 13.333H9.53337C9.91774 13.333 10.1661 13.3322 10.355 13.3167C10.536 13.3019 10.6033 13.2769 10.6362 13.2601C10.7615 13.1962 10.8634 13.0944 10.9272 12.9691C10.944 12.9361 10.9691 12.8689 10.9839 12.6878C10.9993 12.4989 11.0002 12.2506 11.0002 11.8662V6.46647ZM13.3335 10.9997V6.2666C13.3335 5.50898 13.3332 4.98054 13.2996 4.56934C13.2667 4.16589 13.2049 3.93371 13.1154 3.75814C12.9237 3.38199 12.6179 3.07616 12.2417 2.88444C12.0661 2.79498 11.8339 2.73316 11.4305 2.7002C11.0193 2.66661 10.4909 2.66634 9.73324 2.66634H5.00017C4.63198 2.66634 4.3335 2.36786 4.3335 1.99968C4.3335 1.63149 4.63198 1.33301 5.00017 1.33301H9.73324C10.469 1.33301 11.0611 1.33236 11.5392 1.37142C12.025 1.41111 12.4517 1.49518 12.8465 1.69629C13.4737 2.01587 13.984 2.52611 14.3036 3.15332C14.5047 3.54812 14.5887 3.97481 14.6284 4.46061C14.6675 4.93872 14.6668 5.53088 14.6668 6.2666V10.9997C14.6668 11.3679 14.3684 11.6663 14.0002 11.6663C13.632 11.6663 13.3335 11.3679 13.3335 10.9997ZM12.3335 11.8662C12.3335 12.2286 12.3342 12.5408 12.3133 12.7965C12.2918 13.0601 12.2439 13.3223 12.1154 13.5745C11.9237 13.9507 11.6179 14.2565 11.2417 14.4482C10.9895 14.5767 10.7272 14.6246 10.4637 14.6462C10.2079 14.6671 9.89574 14.6663 9.53337 14.6663H4.13363C3.77126 14.6663 3.45907 14.6671 3.20329 14.6462C2.93979 14.6246 2.67749 14.5767 2.4253 14.4482C2.04915 14.2565 1.74331 13.9507 1.5516 13.5745C1.4231 13.3223 1.37522 13.0601 1.35368 12.7965C1.33278 12.5408 1.3335 12.2286 1.3335 11.8662V6.46647C1.3335 6.1041 1.33278 5.79191 1.35368 5.53613C1.37522 5.27263 1.4231 5.01034 1.5516 4.75814C1.74331 4.38199 2.04915 4.07616 2.4253 3.88444C2.67749 3.75594 2.93979 3.70806 3.20329 3.68652C3.45907 3.66563 3.77126 3.66634 4.13363 3.66634H9.53337C9.89574 3.66634 10.2079 3.66563 10.4637 3.68652C10.7272 3.70806 10.9895 3.75594 11.2417 3.88444C11.6179 4.07616 11.9237 4.38199 12.1154 4.75814C12.2439 5.01034 12.2918 5.27263 12.3133 5.53613C12.3342 5.79191 12.3335 6.1041 12.3335 6.46647V11.8662Z" fill="#0087C7"/>
-                    </svg>
+                    <img src="/img/home/icon/copy.svg" alt={translate({ id: "banner.copy", message: "Copy" })} className="w-4 h-4" style={{ width: "16px", height: "16px" }} />
                   )}
                 </div>
               </div>
               <div className="mt-[16px] text-left text-[14px] text-black">
                 <Translate id='banner.moreInfoPrefix'>Get more information: </Translate>
-                <span 
+                <span
                   className="text-[#0087c7] hover:text-[#0070a6] underline cursor-pointer"
                   onClick={() => {
                     const k8sQuickStartUrl = siteBrand === 'clougence' 
@@ -372,28 +502,101 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
           )}
           
           {/* Binary Package Tab 内容 */}
-          {activeTab === 'binary' && (
-            <>
-              <div className='flex gap-[24px] justify-center mb-[30px] flex-wrap min-h-[224px]'>
-                <div
-                  className='w-[231px] h-[224px] border border-black/10 rounded-[12px] p-[40px] flex flex-col items-center justify-center cursor-pointer transition-shadow hover:shadow-md'
-                  style={{ borderStyle: 'solid', borderWidth: '1px' }}
-                  onClick={handleBinaryDownload}>
-                  <img 
-                    src="/img/home/icon/download_x86.svg" 
-                    alt={translate({ id: 'banner.communityModal.crossPlatform', message: 'Cross-platform' })} 
-                    className='w-[88px] h-[88px] mb-[16px]' 
-                  />
-                  <button 
-                    className='w-[151px] h-[40px] bg-white border border-[#0087c7] text-[#0087c7] rounded-[8px] text-[16px] font-bold transition hover:bg-[#0087c7] hover:text-white cursor-pointer' 
-                    style={{ borderStyle: 'solid', borderWidth: '1px', borderColor: '#0087c7' }}
-                    disabled={downloadLoading}>
+            {activeTab === 'docker' && dockerInstallMethod === 'binary' && (
+              <>
+                <div className='flex gap-[24px] justify-center mb-[30px] flex-wrap min-h-[224px]'>
+                  {dockerPackageProducts.map((item) => (
+                    <div
+                      key={item.productType}
+                      className={`w-[231px] h-[224px] border border-black/10 rounded-[12px] p-[40px] flex flex-col items-center justify-center transition-shadow ${
+                        downloadLoading ? 'cursor-not-allowed opacity-60' : 'cursor-pointer hover:shadow-md'
+                      }`}
+                      style={{ borderStyle: 'solid', borderWidth: '1px' }}
+                      onClick={() => {
+                        if (!downloadLoading) {
+                          handleDockerPackageDownload(item.productType);
+                        }
+                      }}>
+                      <img
+                        src={item.icon}
+                        alt={item.label}
+                        className='w-[88px] h-[88px] mb-[16px]'
+                      />
+                      <button
+                        className={`w-[151px] h-[40px] bg-white border border-[#0087c7] text-[#0087c7] rounded-[8px] text-[16px] font-bold transition ${
+                          downloadLoading ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-[#0087c7] hover:text-white'
+                        }`}
+                        style={{ borderStyle: 'solid', borderWidth: '1px', borderColor: '#0087c7' }}
+                        disabled={downloadLoading}>
+                        {downloadLoading ? (
+                          <Translate id='downloadModal.loadingInfo'>Loading...</Translate>
+                        ) : (
+                        translate({
+                          id: 'downloadModal.downloadVersionBtn',
+                          message: '{version}'
+                        }, { version: item.label })
+                      )}
+                    </button>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-[16px] text-left text-[14px] text-black">
+                <Translate id='banner.moreInfoPrefix'>Get more information: </Translate>
+                <span
+                  className="text-[#0087c7] hover:text-[#0070a6] underline cursor-pointer"
+                  onClick={() => {
+                    window.open('/docs/quick/quick_start', '_blank');
+                  }}
+                >
+                  <Translate id='banner.quickStartLink'>Quick Start</Translate>
+                </span>
+                <span className="mx-[6px] text-black/40 select-none">|</span>
+                <span
+                  className="text-[#0087c7] hover:text-[#0070a6] underline cursor-pointer"
+                  onClick={() => {
+                    const licenseUrl = siteBrand === 'clougence'
+                      ? 'https://www.clougence.com/docs/license/license_use'
+                      : '/docs/license/license_use/#get-apply-code';
+                    window.open(licenseUrl, '_blank');
+                  }}
+                >
+                  <Translate id='banner.freeRenewLink'>Free Renewal</Translate>
+                </span>
+              </div>
+            </>
+          )}
+
+          {/* TGZ Binary Package Tab 内容 */}
+            {activeTab === 'binary' && (
+              <>
+                <div className='flex gap-[24px] justify-center mb-[30px] flex-wrap min-h-[224px]'>
+                  <div
+                    className={`w-[231px] h-[224px] border border-black/10 rounded-[12px] p-[40px] flex flex-col items-center justify-center transition-shadow ${
+                      downloadLoading ? 'cursor-not-allowed opacity-60' : 'cursor-pointer hover:shadow-md'
+                    }`}
+                    style={{ borderStyle: 'solid', borderWidth: '1px' }}
+                    onClick={() => {
+                      if (!downloadLoading) {
+                        handleBinaryDownload();
+                      }
+                    }}>
+                    <img
+                      src="/img/home/icon/download_x86.svg"
+                      alt={translate({ id: 'banner.communityModal.crossPlatform', message: 'Cross-platform' })}
+                      className='w-[88px] h-[88px] mb-[16px]'
+                    />
+                    <button
+                      className={`w-[151px] h-[40px] bg-white border border-[#0087c7] text-[#0087c7] rounded-[8px] text-[16px] font-bold transition ${
+                        downloadLoading ? 'cursor-not-allowed' : 'cursor-pointer hover:bg-[#0087c7] hover:text-white'
+                      }`}
+                      style={{ borderStyle: 'solid', borderWidth: '1px', borderColor: '#0087c7' }}
+                      disabled={downloadLoading}>
                     {downloadLoading ? (
                       <Translate id='downloadModal.loadingInfo'>Loading...</Translate>
                     ) : (
-                      translate({ 
-                        id: 'downloadModal.downloadVersionBtn', 
-                        message: '{version}' 
+                      translate({
+                        id: 'downloadModal.downloadVersionBtn',
+                        message: '{version}'
                       }, { version: translate({ id: 'banner.communityModal.crossPlatform', message: 'Cross-platform' }) })
                     )}
                   </button>
@@ -401,7 +604,7 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
               </div>
               <div className="mt-[16px] text-left text-[14px] text-black">
                 <Translate id='banner.moreInfoPrefix'>Get more information: </Translate>
-                <span 
+                <span
                   className="text-[#0087c7] hover:text-[#0070a6] underline cursor-pointer"
                   onClick={() => {
                     window.open('/docs/quick/quick_start', '_blank');
@@ -490,9 +693,7 @@ function DownloadInfoView({
 
   // 复制图标
   const CopyIcon = () => (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M11.0002 6.46647C11.0002 6.0821 10.9993 5.83375 10.9839 5.64486C10.9691 5.4638 10.944 5.39657 10.9272 5.36361C10.8634 5.23829 10.7615 5.13648 10.6362 5.07259C10.6033 5.0558 10.536 5.03075 10.355 5.01595C10.1661 5.00052 9.91774 4.99967 9.53337 4.99967H4.13363C3.74926 4.99967 3.50091 5.00052 3.31201 5.01595C3.13096 5.03075 3.06372 5.0558 3.03076 5.07259C2.90545 5.13648 2.80364 5.23829 2.73975 5.36361C2.72296 5.39657 2.69791 5.4638 2.68311 5.64486C2.66768 5.83375 2.66683 6.0821 2.66683 6.46647V11.8662C2.66683 12.2506 2.66768 12.4989 2.68311 12.6878C2.69791 12.8689 2.72296 12.9361 2.73975 12.9691C2.80364 13.0944 2.90545 13.1962 3.03076 13.2601C3.06372 13.2769 3.13096 13.3019 3.31201 13.3167C3.50091 13.3322 3.74926 13.333 4.13363 13.333H9.53337C9.91774 13.333 10.1661 13.3322 10.355 13.3167C10.536 13.3019 10.6033 13.2769 10.6362 13.2601C10.7615 13.1962 10.8634 13.0944 10.9272 12.9691C10.944 12.9361 10.9691 12.8689 10.9839 12.6878C10.9993 12.4989 11.0002 12.2506 11.0002 11.8662V6.46647ZM13.3335 10.9997V6.2666C13.3335 5.50898 13.3332 4.98054 13.2996 4.56934C13.2667 4.16589 13.2049 3.93371 13.1154 3.75814C12.9237 3.38199 12.6179 3.07616 12.2417 2.88444C12.0661 2.79498 11.8339 2.73316 11.4305 2.7002C11.0193 2.66661 10.4909 2.66634 9.73324 2.66634H5.00017C4.63198 2.66634 4.3335 2.36786 4.3335 1.99968C4.3335 1.63149 4.63198 1.33301 5.00017 1.33301H9.73324C10.469 1.33301 11.0611 1.33236 11.5392 1.37142C12.025 1.41111 12.4517 1.49518 12.8465 1.69629C13.4737 2.01587 13.984 2.52611 14.3036 3.15332C14.5047 3.54812 14.5887 3.97481 14.6284 4.46061C14.6675 4.93872 14.6668 5.53088 14.6668 6.2666V10.9997C14.6668 11.3679 14.3684 11.6663 14.0002 11.6663C13.632 11.6663 13.3335 11.3679 13.3335 10.9997ZM12.3335 11.8662C12.3335 12.2286 12.3342 12.5408 12.3133 12.7965C12.2918 13.0601 12.2439 13.3223 12.1154 13.5745C11.9237 13.9507 11.6179 14.2565 11.2417 14.4482C10.9895 14.5767 10.7272 14.6246 10.4637 14.6462C10.2079 14.6671 9.89574 14.6663 9.53337 14.6663H4.13363C3.77126 14.6663 3.45907 14.6671 3.20329 14.6462C2.93979 14.6246 2.67749 14.5767 2.4253 14.4482C2.04915 14.2565 1.74331 13.9507 1.5516 13.5745C1.4231 13.3223 1.37522 13.0601 1.35368 12.7965C1.33278 12.5408 1.3335 12.2286 1.3335 11.8662V6.46647C1.3335 6.1041 1.33278 5.79191 1.35368 5.53613C1.37522 5.27263 1.4231 5.01034 1.5516 4.75814C1.74331 4.38199 2.04915 4.07616 2.4253 3.88444C2.67749 3.75594 2.93979 3.70806 3.20329 3.68652C3.45907 3.66563 3.77126 3.66634 4.13363 3.66634H9.53337C9.89574 3.66634 10.2079 3.66563 10.4637 3.68652C10.7272 3.70806 10.9895 3.75594 11.2417 3.88444C11.6179 4.07616 11.9237 4.38199 12.1154 4.75814C12.2439 5.01034 12.2918 5.27263 12.3133 5.53613C12.3342 5.79191 12.3335 6.1041 12.3335 6.46647V11.8662Z" fill="#0087C7"/>
-    </svg>
+    <img src="/img/home/icon/copy.svg" alt={translate({ id: "banner.copy", message: "Copy" })} className="w-4 h-4" style={{ width: "16px", height: "16px" }} />
   );
 
   // 提示图标

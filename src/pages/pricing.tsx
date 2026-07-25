@@ -14,7 +14,10 @@ import { loginCheckAndRedirect } from '@site/src/utils';
 import { isUserLogin } from '@site/src/store/user';
 import { listDownloadProduct, queryPriceMeta } from '@site/src/apis/constant';
 import DownloadModal from '@site/src/components/DownloadModal';
-import CommunityInstallModal from '@site/src/components/CommunityInstallModal';
+import CommunityInstallModal, {
+  normalizeCommunityInstallInitialTab,
+  type CommunityInstallInitialTab
+} from '@site/src/components/CommunityInstallModal';
 import siteConfig from '@generated/docusaurus.config';
 import { getPageMeta } from '@site/src/utils/meta';
 import { normalizeLinkForSiteBrand } from '@site/src/utils/nav';
@@ -360,7 +363,7 @@ export default function Pricing() {
   
   // 社区版弹窗相关状态（仅用于 bladepipe）
   const [communityModalVisible, setCommunityModalVisible] = React.useState(false);
-  const [communityModalInitialTab, setCommunityModalInitialTab] = React.useState<string>('docker');
+  const [communityModalInitialTab, setCommunityModalInitialTab] = React.useState<CommunityInstallInitialTab>('docker');
   
   // 价格元数据相关状态
   const [priceMeta, setPriceMeta] = React.useState(null);
@@ -464,8 +467,13 @@ export default function Pricing() {
     const shouldOpenCommunityDownloadModal = localStorage.getItem('openCommunityDownloadModal');
     if (shouldOpenCommunityDownloadModal === 'true' && isUserLogin()) {
       localStorage.removeItem('openCommunityDownloadModal');
-      // 自动触发下载社区版的逻辑，切换到 binary tab
-      setCommunityModalInitialTab('binary');
+      const communityDownloadInitialTab = normalizeCommunityInstallInitialTab(
+        localStorage.getItem('communityDownloadInitialTab'),
+        'binary'
+      );
+      localStorage.removeItem('communityDownloadInitialTab');
+      // 自动触发下载社区版的逻辑，切换到上次选择的下载方式
+      setCommunityModalInitialTab(communityDownloadInitialTab);
       setCommunityModalVisible(true);
     }
   }, []);
