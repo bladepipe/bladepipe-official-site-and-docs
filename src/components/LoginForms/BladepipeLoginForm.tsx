@@ -8,6 +8,7 @@ interface BladepipeLoginFormProps {
   onPolicyWarning: () => void;
   encryptPassword: (password: string) => string;
   externalLoading?: boolean;
+  onNeedMfa?: (mfaPreActionToken: string) => void;
 }
 
 const LOGIN_TYPE_PASSWORD = 'PASSWORD';
@@ -17,9 +18,11 @@ const BladepipeLoginForm: React.FC<BladepipeLoginFormProps> = ({
   onPolicyWarning,
   encryptPassword,
   externalLoading = false,
+  onNeedMfa,
 }) => {
   const [form] = Form.useForm();
   const userLogin = useUserStore((state) => state.login);
+  const finishLoginRedirect = useUserStore((state) => state.finishLoginRedirect);
   const [loginLoading, setLoginLoading] = useState(false);
 
   const handleSubmit = async (values: { account: string; password: string }) => {
@@ -41,6 +44,15 @@ const BladepipeLoginForm: React.FC<BladepipeLoginFormProps> = ({
       });
 
       setLoginLoading(false);
+
+      if (res?.success) {
+        if (res.data?.needMfa) {
+          onNeedMfa?.(res.data.mfaPreActionToken);
+          return;
+        }
+        finishLoginRedirect();
+        return;
+      }
 
       if (res && !res.success) {
         form.setFields([

@@ -1,19 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import Link from '@docusaurus/Link';
 import { Spin, message, Form, Input, Button } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
-import { ssoAuth } from '@site/src/apis/user';
-import { useCookies } from 'react-cookie';
+import { loginMfaValid, ssoAuth } from '@site/src/apis/user';
 import { useLocation, useHistory } from '@docusaurus/router';
 import { getCloudUrl } from '@site/src/utils/api';
 import { useUserStore } from '@site/src/store/user';
 import CountDownButton from '@site/src/components/CountDownButton';
+import MfaLoginStep from '@site/src/components/LoginForms/MfaLoginStep';
 import Translate, { translate } from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-
-// 从环境变量或配置中获取
-const DOMAIN = {
-  COOKIE_DOMAIN: process.env.NODE_ENV === 'development' ? 'localhost' : '.bladepipe.com'
-};
 
 // 验证码类型常量
 const VERIFY_CODE_TYPE = {
@@ -33,21 +29,107 @@ const decodeBase64 = (str: string) => {
 export default function Loading() {
   const { siteConfig } = useDocusaurusContext();
   const siteBrand = siteConfig.customFields?.siteBrand;
-  const [, setCookie] = useCookies(['jwt_token']);
   const location = useLocation();
   const history = useHistory();
   const queryLoginUser = useUserStore((state) => state.queryLoginUser);
 
   // 注册信息补充相关状态
   const [showAddPhone, setShowAddPhone] = useState(false);
-  const [isReady, setIsReady] = useState(false);
   const [requestId, setRequestId] = useState('');
   const [stateForCC, setStateForCC] = useState<string | null>(null);
   const [registerForm] = Form.useForm();
   const [verifyCodeError, setVerifyCodeError] = useState('');
+  const [showMfa, setShowMfa] = useState(false);
+  const [mfaPreActionToken, setMfaPreActionToken] = useState('');
+  const [mfaLoading, setMfaLoading] = useState(false);
+  const [mfaError, setMfaError] = useState('');
+  const [checkPolicy, setCheckPolicy] = useState(false);
+  const [warnCheckPolicy, setWarnCheckPolicy] = useState(false);
 
   // 自定义 loading 图标，使用主题色 #0087c7
   const antIcon = <LoadingOutlined style={{ fontSize: 40, color: '#0087c7' }} spin />;
+
+  const redirectToLogin = useCallback(() => {
+    if (siteBrand === 'bladepipe') {
+      history.push('/login/');
+    } else {
+      history.push('/login');
+    }
+  }, [history, siteBrand]);
+
+  const finishLogin = useCallback(
+    async (state: string | null | undefined) => {
+      await queryLoginUser();
+
+      const stateData = state ? decodeBase64(state) : null;
+      const target = stateData?.target;
+      localStorage.removeItem('loginSource');
+
+      if (target === 'try_cloud_free') {
+        window.location.href = getCloudUrl();
+      } else if (target === 'download' || target === 'download_community') {
+        localStorage.setItem('openCommunityDownloadModal', 'true');
+        history.push('/');
+      } else if (target === 'buy_a_license') {
+        window.location.href = getCloudUrl() + '/#/system/license';
+      } else {
+        history.push('/');
+      }
+    },
+    [history, queryLoginUser]
+  );
+
+  const enterMfaStep = useCallback(
+    (challengeToken: string | null | undefined) => {
+      if (!challengeToken) {
+        message.error(translate({ id: 'login.error.failed', message: 'Login failed' }));
+        redirectToLogin();
+        return false;
+      }
+
+      setShowAddPhone(false);
+      setMfaPreActionToken(challengeToken);
+      setMfaError('');
+      setShowMfa(true);
+      return true;
+    },
+    [redirectToLogin]
+  );
+
+  const handleMfaBack = useCallback(() => {
+    setShowMfa(false);
+    setMfaPreActionToken('');
+    setMfaError('');
+    redirectToLogin();
+  }, [redirectToLogin]);
+
+  const handleMfaSubmit = useCallback(
+    async (mfaCode: string) => {
+      if (!mfaPreActionToken) {
+        setMfaError(translate({ id: 'login.error.failed', message: 'Login failed' }));
+        return;
+      }
+
+      setMfaLoading(true);
+      setMfaError('');
+      try {
+        const res: any = await loginMfaValid({
+          mfaCode: Number(mfaCode),
+          mfaPreActionToken
+        });
+        if (res?.success && res.data?.token) {
+          await finishLogin(stateForCC);
+          return;
+        }
+        setMfaError(res?.msg || translate({ id: 'login.error.failed', message: 'Login failed' }));
+      } catch (error: any) {
+        setMfaError(error?.response?.data?.msg || translate({ id: 'login.error.failed', message: 'Login failed' }));
+      } finally {
+        setMfaLoading(false);
+      }
+    },
+    [finishLogin, mfaPreActionToken, stateForCC]
+  );
 
   useEffect(() => {
     const handleAuth = async () => {
@@ -68,12 +150,7 @@ export default function Loading() {
 
           if (!stateBase64 || !accessToken) {
             message.error('Invalid authentication parameters');
-            // 如果sitebrand为bladepipe，则路由末尾加/
-            if (siteBrand === 'bladepipe') {
-              history.push('/login/');
-            } else {
-              history.push('/login');
-            }
+            redirectToLogin();
             return;
           }
 
@@ -88,65 +165,43 @@ export default function Loading() {
         const res: any = await ssoAuth(authParams);
 
         if (res && res.success) {
-          // 设置 cookie
-          setCookie('jwt_token', res.data.token, {
-            maxAge: 60 * 60 * 24,
-            path: '/',
-            domain: DOMAIN.COOKIE_DOMAIN
-          });
-
-          // 更新用户信息
-          await queryLoginUser();
-
-          // 对于其他品牌，根据 target 进行不同的跳转
-          const stateData = decodeBase64(authParams.state);
-          const target = stateData.target;
-          localStorage.removeItem('loginSource');
-          if (target === 'try_cloud_free') {
-            window.location.href = getCloudUrl();
-          } else if (target === 'download') {
-            localStorage.setItem('openCommunityDownloadModal', 'true');
-            history.push('/');
-          } else if (target === 'download_community') {
-            localStorage.setItem('openCommunityDownloadModal', 'true');
-            history.push('/');
-          } else if (target === 'buy_a_license') {
-            window.location.href = getCloudUrl() + '/#/system/license';
-          } else {
-            // 默认跳转到首页
-            history.push('/');
+          if (res.data?.needMfa) {
+            enterMfaStep(res.data?.mfaPreActionToken);
+            return;
           }
+          if (!res.data?.token) {
+            message.error(translate({ id: 'login.error.failed', message: 'Login failed' }));
+            redirectToLogin();
+            return;
+          }
+          await finishLogin(authParams.state);
         } else {
           // 检查是否有 requestId，如果有则需要补充注册信息
           if (res?.requestId) {
             setRequestId(res.requestId);
-            setIsReady(true);
             setShowAddPhone(true);
           } else {
             message.error(res?.msg || 'Authentication failed');
-            if (siteBrand === 'bladepipe') {
-              history.push('/login/');
-            } else {
-              history.push('/login');
-            }
+            redirectToLogin();
           }
         }
       } catch (error) {
         console.error('Auth error:', error);
         message.error('Authentication failed');
-        if (siteBrand === 'bladepipe') {
-          history.push('/login/');
-        } else {
-          history.push('/login');
-        }
+        redirectToLogin();
       }
     };
 
     handleAuth();
-  }, [location, history, setCookie, queryLoginUser]);
+  }, [enterMfaStep, finishLogin, location.hash, location.search, redirectToLogin, siteBrand]);
 
   // 处理注册信息补充
   const handleSignin = async () => {
+    if (!checkPolicy) {
+      setWarnCheckPolicy(true);
+      return;
+    }
+
     try {
       const values = await registerForm.validateFields();
 
@@ -164,20 +219,16 @@ export default function Loading() {
       });
 
       if (res && res.success) {
-        // 设置 cookie
-        setCookie('jwt_token', res.data.token, {
-          maxAge: 60 * 60 * 24,
-          path: '/',
-          domain: DOMAIN.COOKIE_DOMAIN
-        });
-
-        // 关闭弹窗
+        if (res.data?.needMfa) {
+          enterMfaStep(res.data?.mfaPreActionToken);
+          return;
+        }
+        if (!res.data?.token) {
+          message.error(translate({ id: 'login.error.failed', message: 'Login failed' }));
+          return;
+        }
         setShowAddPhone(false);
-
-        // 延迟跳转
-        setTimeout(() => {
-          window.location.href = window.location.origin + '/';
-        }, 500);
+        await finishLogin(stateForCC);
       } else {
         message.error(res?.msg || 'Registration failed');
       }
@@ -208,7 +259,16 @@ export default function Loading() {
 
   return (
     <div className='w-full min-h-screen flex justify-center items-center bg-white'>
-        {!showAddPhone ? (
+        {showMfa ? (
+          <div className='w-[416px] flex flex-col justify-center items-center px-4 sm:px-0 py-8 sm:py-0'>
+            <MfaLoginStep
+              loading={mfaLoading}
+              errorMessage={mfaError}
+              onSubmit={handleMfaSubmit}
+              onBack={handleMfaBack}
+            />
+          </div>
+        ) : !showAddPhone ? (
           /* Loading 效果 */
           <div className='flex flex-col items-center gap-6'>
             <Spin indicator={antIcon} />
@@ -313,12 +373,48 @@ export default function Loading() {
                   </div>
                 </div>
 
+                {/* 服务与隐私条款 */}
+                <div className='w-full h-auto flex gap-[16px] justify-start items-start'>
+                  <div className='w-[16px] h-[20px] flex justify-start items-center py-[2px] flex-shrink-0'>
+                    <input
+                      type='checkbox'
+                      checked={checkPolicy}
+                      onChange={(e) => {
+                        setCheckPolicy(e.target.checked);
+                        if (e.target.checked) {
+                          setWarnCheckPolicy(false);
+                        }
+                      }}
+                      className='w-[16px] h-[16px] border-2 border-solid border-[#0087c7] border-opacity-20 rounded-[2px] accent-[#0087c7]'
+                    />
+                  </div>
+                  <div className='flex-1'>
+                    <p className='text-[14px] font-medium leading-[20px] text-black'>
+                      <Translate id='login.policy.agreement'>By signing up and continuing, you agree to our</Translate>{' '}
+                      <Link to='/docs/protocol/terms_of_use' className='text-[#0087c7] hover:underline'>
+                        <Translate id='login.policy.termsOfService'>Terms of Service</Translate>
+                      </Link>{' '}
+                      <Translate id='login.policy.and'>and</Translate>{' '}
+                      <Link to='/docs/protocol/privacy_policy' className='text-[#0087c7] hover:underline'>
+                        <Translate id='login.policy.privacyPolicy'>Privacy Policy</Translate>
+                      </Link>
+                      <Translate id='login.policy.period'>.</Translate>
+                    </p>
+                    {warnCheckPolicy && (
+                      <p className='text-[12px] text-[#FF6E0D] mt-2'>
+                        <Translate id='login.policy.warning'>Please agree to the Terms of Service and Privacy Policy before continuing.</Translate>
+                      </p>
+                    )}
+                  </div>
+                </div>
+
                 {/* 提交按钮 */}
                 <Form.Item className='mb-0 w-full'>
                   <Button
                     type='primary'
                     htmlType='submit'
-                    className='w-full h-[52px] bg-[#0087c7] border-none rounded-[8px] text-[16px] font-medium leading-[24px] text-white hover:bg-[#0070a6] transition-colors'>
+                    disabled={!checkPolicy}
+                    className='w-full h-[52px] bg-[#0087c7] border-none rounded-[8px] text-[16px] font-medium leading-[24px] text-white hover:bg-[#0070a6] transition-colors disabled:opacity-60'>
                     <Translate id='loading.form.submit'>继续注册</Translate>
                   </Button>
                 </Form.Item>

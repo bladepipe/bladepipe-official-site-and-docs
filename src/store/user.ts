@@ -1,20 +1,35 @@
 // src/store/user.ts
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { getApiBaseUrl } from '@site/src/utils/api';
-import { login, queryLoginUser, logout as apiLogout } from '@site/src/apis/user';
+import { getApiBaseUrl, getCloudUrl } from '@site/src/utils/api';
+import { login, loginMfaValid, queryLoginUser, logout as apiLogout } from '@site/src/apis/user';
 import { useConstantStore } from './constant';
-// import Cookies from 'js-cookie'; // 推荐用 js-cookie 管理 cookie
-// import { DOMAIN } from '@site/src/domain'; // 如有
 
 type UserState = {
   loginInfo: any;
   userInfo: any;
   login: (params: any) => Promise<any>;
+  loginMfaValid: (params: { mfaCode: string; mfaPreActionToken: string }) => Promise<any>;
+  finishLoginRedirect: () => void;
   queryLoginUser: () => Promise<void>;
   logout: () => Promise<void>;
   isLogin: () => boolean;
 };
+
+function redirectAfterLogin() {
+  const loginSource = localStorage.getItem('loginSource');
+  localStorage.removeItem('loginSource');
+  if (loginSource === 'try_cloud_free') {
+    window.location.href = getCloudUrl();
+  } else if (loginSource === 'download') {
+    localStorage.setItem('openCommunityDownloadModal', 'true');
+    window.location.href = '/';
+  } else if (loginSource === 'buy_a_license') {
+    window.location.href = `${getCloudUrl()}/#/system/license`;
+  } else {
+    window.location.href = '/';
+  }
+}
 
 export const useUserStore = create<UserState>()(
   persist(
@@ -25,34 +40,35 @@ export const useUserStore = create<UserState>()(
         try {
           const loginRes: any = await login(params);
           if (loginRes && loginRes.success) {
+            if (loginRes.data?.needMfa) {
+              return loginRes;
+            }
             set({ loginInfo: loginRes.data });
-            // Cookies.set('jwt_token', loginRes.data.token, { expires: 1, path: '/', domain: DOMAIN.COOKIE_DOMAIN });
             localStorage.setItem('jwt_token', loginRes.data.token);
             await get().queryLoginUser();
-            
-            // 根据登录来源进行不同的跳转
-            const loginSource = localStorage.getItem('loginSource');
-            localStorage.removeItem('loginSource');
-            if (loginSource === 'try_cloud_free') {
-              window.location.href = getApiBaseUrl();
-            } else if (loginSource === 'download') {
-              // 跳转回首页并设置标识以打开下载弹窗
-              localStorage.setItem('openCommunityDownloadModal', 'true');
-              window.location.href = '/';
-            } else if (loginSource === 'buy_a_license') {
-              window.location.href = getApiBaseUrl() + '/#/system/license';
-            } else {
-              // 默认跳转到首页（sign in 或其他情况）
-              window.location.href = '/';
-            }
-            
-            return loginRes;
-          } else {
             return loginRes;
           }
+          return loginRes;
         } catch (e) {
           console.error(e);
         }
+      },
+      async loginMfaValid(params) {
+        try {
+          const res: any = await loginMfaValid(params);
+          if (res?.success) {
+            set({ loginInfo: res.data });
+            localStorage.setItem('jwt_token', res.data.token);
+            await get().queryLoginUser();
+          }
+          return res;
+        } catch (e) {
+          console.error(e);
+          return { success: false };
+        }
+      },
+      finishLoginRedirect() {
+        redirectAfterLogin();
       },
       async queryLoginUser() {
         try {
@@ -75,8 +91,8 @@ export const useUserStore = create<UserState>()(
           const logoutRes: any = await apiLogout();
           if (logoutRes && logoutRes.success) {
             set({ loginInfo: {}, userInfo: {} });
-            // Cookies.remove('jwt_token', { path: '/', domain: DOMAIN.COOKIE_DOMAIN });
             localStorage.removeItem('jwt_token');
+            sessionStorage.clear();
             window.location.href = '/';
           }
         } catch (e) {
@@ -91,7 +107,7 @@ export const useUserStore = create<UserState>()(
       }
     }),
     {
-      name: 'user-store', // 本地持久化key
+      name: 'user-store',
       partialize: (state) => ({ loginInfo: state.loginInfo, userInfo: state.userInfo })
     }
   )

@@ -854,6 +854,18 @@
   "login.error.failed": {
     "message": "登录失败"
   },
+  "login.mfa.title": {
+    "message": "MFA 认证"
+  },
+  "login.mfa.description": {
+    "message": "请输入六位数的 MFA 验证码"
+  },
+  "login.mfa.back": {
+    "message": "返回"
+  },
+  "login.mfa.confirm": {
+    "message": "继续"
+  },
   "login.button.login": {
     "message": "登录"
   },
@@ -867,7 +879,7 @@
     "message": "忘记密码？"
   },
   "login.policy.agreement": {
-    "message": "注册并继续即表示您同意我们的"
+    "message": "注册或登录即代表您同意"
   },
   "login.policy.termsOfService": {
     "message": "服务条款"
@@ -3366,7 +3378,7 @@
     "message": "注册"
   },
   "register.policy.agreement": {
-    "message": "注册并继续即表示您同意我们的"
+    "message": "注册或登录即代表您同意"
   },
   "register.policy.termsOfService": {
     "message": "服务条款"

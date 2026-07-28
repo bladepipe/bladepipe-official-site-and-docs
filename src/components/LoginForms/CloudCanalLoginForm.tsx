@@ -23,6 +23,7 @@ interface CloudCanalLoginFormProps {
   onPolicyWarning: () => void;
   encryptPassword: (password: string) => string;
   externalLoading?: boolean;
+  onNeedMfa?: (mfaPreActionToken: string) => void;
 }
 
 const CloudCanalLoginForm: React.FC<CloudCanalLoginFormProps> = ({
@@ -30,9 +31,11 @@ const CloudCanalLoginForm: React.FC<CloudCanalLoginFormProps> = ({
   onPolicyWarning,
   encryptPassword,
   externalLoading = false,
+  onNeedMfa,
 }) => {
   const [form] = Form.useForm();
   const userLogin = useUserStore((state) => state.login);
+  const finishLoginRedirect = useUserStore((state) => state.finishLoginRedirect);
   const [activeLoginType, setActiveLoginType] = useState<string>(LOGIN_TYPES.ACCOUNT);
   const [loginLoading, setLoginLoading] = useState(false);
 
@@ -63,6 +66,15 @@ const CloudCanalLoginForm: React.FC<CloudCanalLoginFormProps> = ({
 
       const res: any = await userLogin(params);
       setLoginLoading(false);
+
+      if (res?.success) {
+        if (res.data?.needMfa) {
+          onNeedMfa?.(res.data.mfaPreActionToken);
+          return;
+        }
+        finishLoginRedirect();
+        return;
+      }
 
       if (res && !res.success) {
         const errorField = activeLoginType === LOGIN_TYPES.ACCOUNT ? 'password' : 'verifyCode';

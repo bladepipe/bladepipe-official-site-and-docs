@@ -13,6 +13,10 @@ export function login(params: any) {
   return http.post('/login', params);
 }
 
+export function loginMfaValid(params: any) {
+  return http.post('/loginMfaValid', params);
+}
+
 export function signIn(params: any) {
   return http.post('/register', params);
 }
