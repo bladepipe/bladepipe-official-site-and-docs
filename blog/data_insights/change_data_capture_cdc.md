@@ -1,566 +1,300 @@
 ---
 id: change_data_capture_cdc
-description: What is Change Data Capture (CDC) in databases? Learn how CDC works, compare log-based vs trigger vs query methods, and see common CDC use cases in real-time data pipelines.
-title: What Is Change Data Capture (CDC) in Databases? How It Works?
-date: 2026-04-16
+description: "Change Data Capture (CDC) explained for databases: how CDC works, log-based vs trigger vs query methods, delivery guarantees, use cases, and tool selection."
+title: "What Is Change Data Capture (CDC)? Methods, Examples, and Use Cases"
+date: 2026-05-23
 authors: yuxia
 tags:
   - data_insights
-image: /img/blog/data_insights/change_data_capture_cdc.png 
+image: /img/blog/data_insights/change_data_capture_cdc.png
 ---
-What is CDC in a database?
 
-**CDC stands for Change Data Capture**, a technique used to identify, capture, and deliver database changes such as inserts, updates, and deletes as they occur.
+**Change Data Capture (CDC)** is a database technique for capturing row-level changes such as inserts, updates, and deletes, then delivering those changes to downstream systems.
 
-Instead of repeatedly copying full tables, Change Data Capture (CDC) allows databases, data warehouses, search indexes, caches, and downstream applications to stay continuously synchronized using incremental changes.
+Instead of copying full tables on a schedule, CDC moves only what changed. That makes it useful for real-time analytics, database replication, search indexing, cache synchronization, event-driven applications, and low-downtime migrations.
 
-In this guide, you'll learn what CDC is, how Change Data Capture works, the different CDC methods, common use cases, and how to choose the right [CDC tool](/blog/data_insights/top_cdc_tool.md).
+This article explains how CDC works, compares the main CDC methods, covers delivery guarantees, and links to deeper database-specific CDC guides.
 
-## How Does Change Data Capture Work?
+<!-- truncate -->
 
-If you're searching **"how change data capture works"**, here's a practical, architecture-level breakdown of the typical CDC workflow.
+## Change Data Capture in One Minute
+
+A CDC pipeline usually has five stages:
+
+1. A row changes in the source database.
+2. The change is captured from a transaction log, trigger table, timestamp column, or polling process.
+3. The raw change is converted into a structured event.
+4. The event is delivered to a target system or message stream.
+5. Downstream systems apply the insert, update, or delete.
 
 ![Change Data Capture workflow](../assets/blog/data_insights/change_data_capture_cdc/Change_Data_Capture_workflow.png)
 
-Although different **change data capture techniques** exist, most implementations follow the same five high-level stages.
-
-### **Step 1: A Data Change Occurs**
-
-An application executes a SQL statement such as: `INSERT/UPDATE/DELETE`
-
-For example:
-
-```sql
-UPDATE orders SET status='cancelled' WHERE id=123;
-```
-
-At this moment, different CDC implementations begin to capture the change in different ways:
-
-- **Log-Based CDC:** Before a transaction is finalized, the database writes the change into its **transaction log** (WAL, binlog, redo log, etc.). This log exists to guarantee durability and crash recovery. A CDC tool later reads from this log.
-
-- **Query-Based CDC:** The business table must maintain a timestamp column such as last_updated. Changes are detected later by querying:
-
-  ```sql
-  SELECT * FROM orders WHERE last_updated > last_checkpoint;
-  ```
-
-- **Trigger-Based CDC:** A database trigger is activated during the modification and writes the change into a dedicated change log table.
-
-### **Step 2: The CDC Connector Captures the Change**
-
-Once changes exist in the database, a CDC connector retrieves them. Again, the capture mechanism depends on the approach.
-
-- **Log-Based CDC:** The connector works by acting as replication clients to read transaction logs - such as MySQL's binlog, PostgreSQL's WAL via logical replication slots, or SQL Server's transaction log.
-
-- **Query-Based CDC:** The connector periodically executes queries such as:
-
-  ```sql
-  SELECT * FROM table WHERE last_updated > last_run;
-  ```
-
-- **Trigger-Based CDC:** The connector reads from a shadow change table populated by database triggers.
-
-### **Step 3: Parsing and Event Transformation**
-
-Raw changes - especially from binary logs - are not yet usable. They must be parsed and transformed into structured events. Taking the log-based CDC as an example, the binary logs are parsed like this:
+Example CDC event:
 
 ```json
 {
-  "op": "u",              
-  "ts_ms": 1643728900123, 
+  "op": "u",
   "source": {
     "db": "shop",
     "table": "orders"
   },
   "before": {
     "id": 1001,
-    "status": "pending",
-    "amount": 299.99
+    "status": "pending"
   },
   "after": {
     "id": 1001,
-    "status": "paid",
-    "amount": 299.99
+    "status": "paid"
   }
 }
 ```
 
-Where:
+The event tells consumers what changed, where it changed, and the row state before and after the update.
 
-- `op` indicates operation type (c=insert, u=update, d=delete, r=snapshot read)
-- `before` represents previous state
-- `after` represents new state
-- Metadata preserves ordering and source information
+## How Change Data Capture Works
 
-This transformation step converts low-level database logs into standardized change events - the foundation of a modern **CDC data pipeline**.
+### Step 1: A Database Change Happens
 
-### **Step 4: Events Are Published to a Message Queue**
-
-Once structured, events are typically sent to a messaging or streaming system such as Apache Kafka.
-
-Common characteristics:
-
-- Each table maps to a topic
-- Events maintain ordering guarantees
-- Offsets track delivery progress
-- Consumers can replay events if needed
-
-### **Step 5: Downstream Systems Consume the Events**
-
-Various systems subscribe to the relevant topics and react independently:
-
-- **Data warehouses** update analytical tables in near real time
-- **Caches (e.g., Redis)** refresh or invalidate keys
-- **Search engines (e.g., Elasticsearch)** update indexes
-- **Microservices** trigger business workflows
-
-This is where CDC becomes more than replication - it becomes infrastructure for distributed systems.
-
-### **An Example**
-
-![Change Data Capture workflow](../assets/blog/data_insights/change_data_capture_cdc/Change_Data_Capture_workflow_example.png)
-
-Let's walk through a scenario. A user cancels an order in an e-commerce platform. The application executes:
+An application writes to the database:
 
 ```sql
-UPDATE orders SET status='cancelled' WHERE id=123;
+UPDATE orders SET status = 'cancelled' WHERE id = 123;
 ```
 
-Here's the CDC workflow behind the scenes:
+The database records that change somewhere. In log-based CDC, it records the operation in a transaction log such as MySQL binlog, PostgreSQL WAL, SQL Server transaction log, or Oracle redo logs.
 
-1. **Database**: Writes the UPDATE into the transaction log.
-2. **CDC Connector**: Reads the log entry. Extracts:
-   
-   before: `{id: 123, status: 'paid'}`
-   
-   after: `{id: 123, status: 'cancelled'}`
-3. **Message Queue**: Publishes the update event to the `orders` topic.
-4. **Downstream Systems React:**
-   
-   Data warehouse updates reporting tables.
-   
-   Cache invalidates or refreshes order 123.
-   
-   Search index updates order status.
-   
-   Inventory service restores stock.
-   
-   Notification service may send confirmation.
+### Step 2: A CDC Connector Reads the Change
 
-The business application does nothing special. It simply executes the UPDATE statement. CDC ensures the entire data ecosystem becomes aware of that change.
+A CDC connector reads the change source:
 
-**Summary:** 
+- Log-based CDC reads database transaction logs.
+- Trigger-based CDC reads change tables populated by triggers.
+- Query-based CDC scans timestamp or version columns.
+- Polling-based CDC compares table state on a schedule.
 
-The working principle of **Change Data Capture (CDC)** can be summarized as: A CDC system reads database transaction logs (or alternative change sources), converts each data change into structured events, and reliably distributes those events to downstream systems through message queues.
+Log-based CDC is the most common production approach because it avoids adding triggers or repeatedly scanning large source tables.
 
-The core advantage is that business systems only need to focus on their own database operations, while CDC makes the entire technical ecosystem "aware" of these changes.
+### Step 3: The Change Becomes an Event
 
-## Why Change Data Capture Matters in Modern Architectures
+The CDC connector parses raw changes and emits events with operation type, table name, key fields, before/after values, source offset, and timestamp metadata.
 
-Modern systems demand **real-time data movement**, not overnight batch syncs.
+These events can go directly to a target database or data warehouse, or they can flow through a message system such as Kafka.
 
-Here's why **change data capture solutions** have become essential.
+### Step 4: Downstream Systems Apply the Change
 
-### [Real-Time Analytics](https://www.bladepipe.com/real-time-analytics/)
+Consumers use CDC events to update their own state:
 
-Traditional ETL runs hourly or daily.
+- Data warehouses update analytical tables.
+- Search engines update indexes.
+- Caches refresh or invalidate keys.
+- Data lakes ingest changed rows.
+- Microservices react to domain events.
 
-CDC enables:
+CDC is useful because the source application does not need to call every downstream system. It only writes to its database; the CDC pipeline distributes the change.
 
-- Near real-time dashboard updates
-- Streaming metrics
-- Operational analytics
+## Change Data Capture Methods Compared
 
-This is especially critical for SaaS platforms, fintech, e-commerce, and logistics systems.
+### Log-Based CDC
 
-### Data Warehouse Synchronization
+Log-based CDC reads the database transaction log. It is the default choice for most production systems.
 
-**The most mature use case for CDC? Keeping data warehouses continuously updated.**
+**Strengths**
 
-Instead of: Full table copy every night
+- Low source impact because logs are already written for durability
+- Captures inserts, updates, and deletes
+- Preserves stronger ordering information than polling
+- Supports low-latency replication
+- Works well for full load plus incremental sync
 
-You get: Continuous incremental sync
+**Watch outs**
 
-This reduces cost, latency, and compute load.
+- Requires access to database logs or replication features
+- Needs offset management and failure recovery
+- Database-specific setup varies by source
 
-### Reduced System Load vs Full Loads
+Database-specific guides:
 
-Full reloads:
+- [MySQL CDC](./mysql_cdc.md)
+- [PostgreSQL CDC](./postgresql_change_data_capture.md)
+- [SQL Server CDC](./sql_server_change_data_capture.md)
+- [Oracle CDC](./oracle_change_data_capture.md)
 
-- Lock tables
-- Increase IO pressure
-- Cause replication lag
-- Waste compute resources
+### Trigger-Based CDC
 
-CDC captures only what changed, dramatically reducing overhead.
+Trigger-based CDC uses database triggers to write changes into a separate table.
 
-### Microservices & Event-Driven Systems
-
-In distributed architectures:
-
-- Services need real-time state propagation.
-- Caches must stay synchronized.
-- Event streams need reliable change events.
-
-CDC is often used to publish database changes into streaming platforms like Kafka.
-
-## When CDC Is Better Than Batch ETL
-
-CDC is not a replacement for every batch pipeline, but it is usually the better fit when:
-
-- freshness matters more than once-a-day reporting
-- source systems are too large for repeated full-table scans
-- downstream systems need deletes and updates, not just appended rows
-- you want migration cutovers with lower downtime
-- multiple consumers need the same stream of changes
-
-If your workload is mostly scheduled transformation inside a warehouse, compare [ETL vs ELT](etl_vs_elt.md). If your main challenge is simply getting raw data into storage, start with [data ingestion vs data integration](data_ingestion_vs_data_integration.md).
-
-## 4 Methods of Change Data Capture
-
-There are multiple **change data capture techniques**, but not all of them provide the same reliability, scalability, or performance characteristics. Below are the four primary methods used in real-world systems.
-
-### 1. Log-Based CDC (Recommended)
-
-This is the most robust and scalable form of **change data capture**
-
-**How it works:** All database modifications are recorded in transaction logs (such as MySQL's binlog, PostgreSQL's WAL, SQL Server's transaction log). The log- based CDC tools act as "log readers," parsing these logs in real time.
-
-**Characteristics:**
-
-- **Non-intrusive**: No schema changes, no triggers, no modifications to business tables
-- **Low latency**: Changes are captured in near real time (often milliseconds)
-- **Complete information**: Access to before/after values and transaction metadata
-- **Minimal performance impact**: Logs are already written by the database for durability
-
-This approach underpins modern CDC platforms such as [BladePipe](https://www.bladepipe.com/) and Debezium and represents the current industry standard for scalable **CDC in database systems**.
-
-### 2. Trigger-Based CDC
-
-This method relies on database triggers to intercept changes.
-
-**How it works:** Create triggers on tables. When INSERT/UPDATE/DELETE operations occur, the trigger writes the changes to a separate change table.
-
-**Characteristics:**
+**Strengths**
 
 - Works when transaction log access is unavailable
+- Can capture inserts, updates, and deletes
+- Easy to inspect because changes land in ordinary tables
 
-- **Performance overhead**: Triggers execute within the transaction path
-- **Operational complexity**: Each table requires trigger maintenance
-- **Business risk**: Trigger failures can affect primary transactions
-- Hard to scale across many tables
+**Watch outs**
 
-While functional, this method is rarely recommended for modern high-throughput systems.
+- Adds work to the write transaction path
+- Requires trigger maintenance on each tracked table
+- Can affect business transactions if triggers fail
+- Becomes harder to manage at high table counts
 
-### 3. Query-Based CDC
+### Query-Based CDC
 
-This method was common in early [ETL tools](https://www.bladepipe.com/blog/data_insights/best_etl_tool_for_small_business/) and is sometimes mistaken for true CDC.
+Query-based CDC uses timestamp or version columns such as `updated_at`:
 
-**How it works:** Add a timestamp column or version number column to tables, and periodically execute `SELECT * FROM table WHERE last_updated > last_run` to query changed data.
+```sql
+SELECT * FROM orders WHERE updated_at > last_checkpoint;
+```
 
-**Characteristics**:
+**Strengths**
 
-- **Easy to implement**
-- **Intrusive**: Requires adding columns to business tables
-- **Higher latency**: Depends on polling frequency (often minutes)
-- **Performance impact**: Repeated queries increase database load
-- **Cannot reliably capture deletes** (unless soft-delete patterns are used)
-- **No strict ordering guarantees**
+- Simple to implement
+- Useful for low-volume tables
+- Does not require log access
 
-Although sometimes labeled as "CDC", this method is more accurately described as incremental polling.
+**Watch outs**
 
-It does not capture low-level transactional changes and lacks the guarantees of log-based systems.
+- Usually misses hard deletes unless the application uses soft deletes
+- Depends on polling frequency
+- Adds recurring query load to the source database
+- Provides weak ordering guarantees
+- Requires application tables to include reliable tracking columns
 
-### 4. Polling-Based CDC
+### Polling-Based CDC
 
-Polling-based approaches generalize query-based detection but may use more complex comparison logic.
+Polling-based CDC periodically scans or compares tables to detect changes. It is best treated as a fallback when logs and triggers are unavailable.
 
-**How it works:** A system periodically polls database tables and detects changes based on: timestamps, version fields, conditional queries, and comparison logic.
+**Strengths**
 
-**Characteristics**:
+- Can work with limited database privileges
+- Easy to prototype
+
+**Watch outs**
 
 - Not truly event-driven
-- Introduces artificial latency
-- Scales poorly for large datasets
-- Typically cannot guarantee ordering
-- Often misses edge cases such as rapid updates or deletes
+- Scales poorly for large tables
+- Can miss rapid updates or deletes
+- Creates artificial latency
 
-Polling-based CDC may be acceptable when log access is impossible, but it should be considered a fallback rather than a primary architecture.
+### CDC Method Comparison
 
-### Method Comparison
+| Method | Captures Deletes | Latency | Source Impact | Best Fit |
+| :--- | :--- | :--- | :--- | :--- |
+| Log-based CDC | Yes | Low | Low | Production replication and migration |
+| Trigger-based CDC | Yes | Low to medium | Medium | Systems without log access |
+| Query-based CDC | Usually no | Medium | Medium | Small tables with timestamp columns |
+| Polling-based CDC | Partial | Medium to high | Medium to high | Fallback or prototype workloads |
 
-| Method        | Real-Time | Captures Deletes | Performance Impact | Recommended |
-| ------------- | --------- | ---------------- | ------------------ | ----------- |
-| Log-Based     | Yes       | Yes              | Low                | Yes         |
-| Trigger-Based | Near      | Yes              | Medium             | Limited     |
-| Query-Based   | No        | No               | Medium             | ×           |
-| Polling-Based | No        | Partial          | Medium             | ×           |
+## CDC vs Batch ETL
 
-Capturing changes is only half of the story. Once captured, those changes must be delivered reliably across distributed systems. This is where delivery semantics and consistency guarantees become critical.
+CDC and batch ETL solve different problems.
 
-## CDC Delivery Semantics and Data Consistency
+| Area | CDC | Batch ETL |
+| :--- | :--- | :--- |
+| Data freshness | Near real time | Scheduled |
+| Extraction pattern | Changed rows only | Full or partitioned extracts |
+| Delete handling | Supported by CDC events | Often requires extra logic |
+| Source impact | Lower with log-based CDC | Can be high for full scans |
+| Best for | Replication, migration, operational analytics | Periodic transformations and reporting |
 
-Once you deploy CDC and see data flowing, it's tempting to think the job is done. But production-grade CDC must answer a deeper question: **How are changes delivered - and how reliable are they?** This is the dimension that separates "toy pipelines" from real distributed data systems.
+CDC is usually better when freshness, deletes, updates, or low-downtime migration matter. Batch ETL can still be better for scheduled transformations inside a warehouse. For more context, see [ETL vs ELT](./etl_vs_elt.md) and [Data Ingestion vs Data Integration](./data_ingestion_vs_data_integration.md).
 
-A CDC pipeline is not just a replication mechanism. It is a **distributed event delivery system**, and every distributed system must address three core concerns:
+## Delivery Guarantees and Consistency
 
-### 1. Will Data Be Lost? (Delivery Guarantees)
+Capturing changes is only half of CDC. Production pipelines also need reliable delivery.
 
-**At-Most-Once:** Messages may be lost, but never duplicated. Rarely acceptable for serious data systems.
+### At-Least-Once Delivery
 
-**At-Least-Once:** Messages are never lost, but may be delivered more than once. This is the default behavior of most CDC systems.
+Most CDC systems favor at-least-once delivery: events are not lost, but a downstream consumer may see the same event more than once after retries or restarts.
 
-**Exactly-Once:** No duplicates, no loss. The most difficult to achieve - typically requires coordination with downstream systems and idempotent writes.
+The usual fix is idempotent consumption:
 
-Most production CDC architectures operate at **At-Least-Once delivery + idempotent consumption**.
+- Use upserts by primary key.
+- Store processed event IDs.
+- Commit offsets only after writes succeed.
+- Make cache operations deterministic.
 
-### 2. Will Events Arrive Out of Order? (Ordering Guarantees)
+### Ordering
 
-Database transaction logs are strictly ordered. But once events pass through a distributed queue like Apache Kafka, ordering semantics change.
+Transaction logs preserve source order, but message queues and parallel consumers can change ordering behavior.
 
-**Single-Partition Ordering:** If all events for the same primary key are routed to the same partition, the order is preserved for that row.
+Common design rules:
 
-**Cross-Partition Disorder:** When multiple tables are involved, a transaction updates multiple rows, or events land in different partitions, global ordering is no longer guaranteed.
+- Route events for the same primary key to the same partition.
+- Avoid cross-partition assumptions when transactions touch multiple tables.
+- Use transaction metadata when downstream systems need atomic visibility.
 
-This is where architectural design decisions matter.
+### Snapshot and Streaming Handoff
 
-### 3. Is the Data Consistent? (Consistency Guarantees)
+Most real CDC pipelines need both:
 
-Different systems require different levels of consistency:
+- An initial snapshot to copy existing data
+- Incremental CDC to capture new changes
 
-**Eventual Consistency:** Downstream systems will eventually reflect the source of truth. Often acceptable for analytics and dashboards.
+The handoff matters. If the pipeline starts CDC from the wrong log position, the target can miss or duplicate changes.
 
-**Read-Your-Writes:** After a user updates data, refreshing the page should reflect the new state.
+### Schema Changes
 
-**Transactional Consistency:** When a transaction spans multiple tables, downstream systems should not observe partial updates. 
-
-This is where CDC semantics directly impact business correctness.
-
-### An Example: Orders and Inventory
-
-Consider a typical e-commerce transaction:
-
-```
-Database transaction begins
-1. INSERT INTO orders (id=1001, status='paid')    -- Order created
-2. UPDATE inventory SET stock=stock-1 WHERE sku='P001'  -- Inventory deducted
-Database transaction commits
-```
-
-This transaction involves two tables: `orders` and `inventory`.
-
-#### When CDC Doesn't Consider Delivery Semantics
-
-The change events from both tables enter different Kafka topics (or different partitions):
-
-- **Scenario A**: The inventory deduction event is **consumed first**, while the order creation event is **consumed later**
-- **Downstream data warehouse**: First sees "SKU P001 stock reduced by 1," then later sees "Order 1001 created"
-- **The problem**: If someone queries at the intermediate moment, they would see an inventory deduction with **"no corresponding order"** - **data inconsistency**
-
-#### When CDC Doesn't Consider Duplicate Delivery
-
-- A consumer process restarts, Kafka Rebalance occurs, and a batch of messages is **consumed twice**
-- **Downstream cache**: Receives two "order 1001 status=paid" updates - not a problem (idempotent)
-- **Downstream analytics system**: If it performs a `COUNT(*)`, the same order might be **counted twice** - **data duplication**
-
-### How CDC Systems Address These Problems
-
-#### **1. Checkpointing and Offset Management**
-
-CDC connectors record the log position they've read (Offset/Binlog Position). Whether a process restarts or a network crash occurs, they can resume reading from the **exact position** after restarting.
-
-- What it guarantees: Foundation for At-Least-Once delivery, no data loss
-- What it doesn't guarantee: If downstream systems commit repeatedly, idempotency still needs to be handled
-
-#### **2. Partition Keys and Ordering Guarantees**
-
-In message queues like Kafka, CDC connectors typically use primary keys or business keys as partition keys:
-
-`Partition Key = Primary Key (id=1001) → All events for the same row → Same partition`
-
-- What it guarantees: Strict ordering of modifications for the same row
-- What it doesn't guarantee: Transaction order across different rows or tables
-
-#### **3. Transaction Boundary Markers**
-
-Modern CDC tools (such as Debezium) can inject **transaction metadata** into the event stream:
-
-```
-Event 1: {"op": "c", "table": "orders", "id": 1001, "txId": 12345}
-Event 2: {"op": "u", "table": "inventory", "sku": "P001", "txId": 12345}
-Event 3: {"op": "tx", "txId": 12345, "status": "END"}  // Transaction end marker
-```
-
-Downstream consumers can buffer events belonging to the same transaction until they see the "END" marker, then process them all at once.
-
-- What it guarantees: Transaction-level atomic visibility
-- Trade-off: Increases downstream complexity and latency
-
-#### **4. Idempotent Consumption**
-
-This is the **final line of defense** against duplication caused by "at-least-once" delivery:
-
-- Database UPSERT: Use primary keys with INSERT ON CONFLICT UPDATE
-- Cache atomic operations: Redis SET operations are naturally idempotent
-- Deduplication tables: Record already-processed event IDs
-
-#### **Consistency Requirements by Scenario**
-
-| Scenario                      | Acceptable Consistency           | Notes                               |
-| ----------------------------- | -------------------------------- | ----------------------------------- |
-| Real-Time Dashboards          | Eventual Consistency             | Short delay acceptable              |
-| Cache Invalidation            | Read-Your-Writes                 | User must see updated state         |
-| Cross-Microservice State Sync | Transaction Boundary Consistency | No partial state exposure           |
-| Audit Logging                 | Exactly-Once                     | No duplicates or omissions allowed  |
-| Data Lake Ingestion           | At-Least-Once + Idempotency      | Deduplication can happen downstream |
-
-**Summary:**
-
-CDC is not just about replication - it is a distributed change propagation protocol.
-
-- **If you only care about trends:** At-Least-Once + Eventual Consistency is sufficient
-- **If you're building core transaction systems:** You need Exactly-Once + Transaction Boundary Consistency
-- **If you're synchronizing caches:** You need low latency + ordering guarantees
-
-Many CDC introductions stop at "how changes are captured." Production-grade architectures must also answer: **How are changes delivered - and with what guarantees?**
+CDC pipelines must handle DDL changes such as added columns, dropped columns, type changes, and renamed fields. Some systems propagate schema changes automatically; others require manual coordination with downstream consumers.
 
 ## Common Change Data Capture Use Cases
 
-With a clear understanding of how CDC delivers changes reliably, let's explore what you can build with it. Here are practical **change data capture use cases**:
+CDC is most useful when downstream systems need fresh data without repeatedly scanning the source database.
 
-### Real-Time Data Warehousing
+| Use Case | Why CDC Helps |
+| :--- | :--- |
+| Real-time analytics | Dashboards and metrics update without waiting for nightly jobs. |
+| Data warehouse sync | Warehouses receive inserts, updates, and deletes continuously. |
+| Low-downtime migration | The target stays current while applications still write to the source. |
+| Search index sync | Elasticsearch or OpenSearch indexes stay aligned with database changes. |
+| Cache sync | Redis or application caches can refresh changed keys. |
+| Event-driven systems | Services can react to committed database changes. |
+| Audit trails | Before/after values help track sensitive data changes. |
 
-Keep Snowflake, BigQuery, and ClickHouse continuously synced - eliminating costly full refreshes and reducing time-to-insight from hours to seconds.
+For a fuller list, see [Change Data Capture Use Cases](./change_data_capture_use_cases.md).
 
-### Zero-Downtime Migration
+## How to Choose a CDC Tool
 
-Migrate between databases or clouds without application downtime by continuously replicating changes during transition.
+Start with the guarantees you need, not the vendor checklist.
 
-### Cache and Search Index Synchronization
+A production-ready CDC tool should handle:
 
-Automatically refresh Redis, Elasticsearch, or OpenSearch whenever source data changes - eliminating stale data and manual invalidation.
+- Log-based capture for your source databases
+- Initial snapshot plus incremental CDC in one workflow
+- Offset management and recovery after failure
+- Inserts, updates, deletes, and schema changes
+- Monitoring for lag, throughput, and errors
+- Validation between source and target
+- Target-specific writes such as upserts, deletes, or append-only events
 
-### Audit and Compliance
+If you are comparing vendors and open-source options, see [Best CDC Tools](./top_cdc_tool.md) and [Debezium Alternatives](./debezium_alternatives.md).
 
-Capture every data change with before/after values, creating an immutable audit trail essential for regulated industries.
+## Where BladePipe Fits
 
-### Event-Driven Microservices
+[BladePipe](https://www.bladepipe.com/) is a CDC-first data integration platform for database migration, real-time synchronization, replication, analytics, and AI data pipelines.
 
-Use database changes as the source of truth for propagating state across distributed services.
+It is useful when teams want full load, incremental CDC, schema migration, monitoring, verification, and recovery in one workflow instead of building separate snapshot scripts, CDC readers, target writers, and operational dashboards.
 
-**Looking for more?** We've written a comprehensive guide on [CDC use cases](./change_data_capture_use_cases.md).
+## FAQ
 
-## CDC in ETL and ELT Pipelines
+### What is Change Data Capture?
 
-If you work with data, you've likely heard of ETL and ELT. **ETL** (Extract, Transform, Load) transforms data before loading it to the target, while **ELT** (Extract, Load, Transform) loads raw data first and transforms later. CDC fits differently into these architectures.
+Change Data Capture is a method for identifying database inserts, updates, and deletes and delivering those changes to downstream systems.
 
-### CDC in Traditional ETL
+### What is the best CDC method?
 
-In ETL, data is transformed before loading. CDC reduces the extraction burden - instead of periodic full table scans, pipelines can pull only changed rows. This enables more frequent runs with less impact on source systems.
+Log-based CDC is the best default for production because it reads transaction logs, captures deletes, preserves better ordering information, and avoids repeatedly scanning source tables.
 
-### CDC in ELT
+### Is CDC real time?
 
-With ELT, raw data lands in the warehouse first, transformations happen later. CDC provides a continuous stream of fresh data directly into the warehouse, replacing traditional batch windows with near-real-time ingestion.
+CDC is usually near real time. Latency can be milliseconds or seconds for log-based systems, but actual latency depends on source load, network, queueing, target writes, and checkpointing.
 
-### CDC in Real-Time Pipelines
+### Is CDC better than ETL?
 
-Beyond batch windows, CDC powers streaming pipelines. Changes become events that flow through streaming platforms like Kafka, enabling sub-second latency for use cases like fraud detection or personalization.
+CDC is better for continuous incremental movement, low-downtime migration, and targets that need updates and deletes. ETL is better for scheduled transformations and periodic batch processing.
 
-### CDC vs Full Load
+### Does CDC affect database performance?
 
-Full loads are simple but expensive - they lock tables, consume resources, and scale poorly. CDC offers a lightweight alternative: only changes are moved. For initial syncs, many pipelines combine a full snapshot followed by continuous CDC.
+Log-based CDC usually has low source impact because it reads transaction logs. Trigger-based and query-based CDC can add more load because they run extra writes or recurring queries on the source database.
 
-Want to know the difference between ETL and ELT? Check out our guide on [**ETL vs ELT**](https://www.bladepipe.com/blog/data_insights/etl_vs_elt/).
+### What is the difference between CDC and database replication?
 
-## How to Choose a Production-Grade Change Data Capture Tool
-
-Choosing a CDC tool should start with the hard problems - not the feature list.
-
-Ask first:
-- Can it handle schema evolution safely?
-- Does it coordinate snapshot and streaming without duplication?
-- What delivery guarantees does it provide?
-- How does it manage offsets and recovery after failure?
-- What level of observability does it expose?
-
-These questions determine whether the system will survive real production conditions.
-
-### **Log-Based CDC Support**
-
-Log-based capture minimizes database impact while providing low-latency, complete change visibility. It has become the foundation of modern CDC architectures.
-
-### **Schema Evolution Handling**
-
-A robust tool must detect column changes, propagate metadata updates, and prevent pipeline breakage when tables evolve.
-
-### **Snapshot + Streaming Coordination**
-
-Initial backfills should transition seamlessly into continuous streaming without data gaps or duplication - a common failure point in weaker implementations.
-
-### **Delivery Semantics**
-
-Understand whether the system operates with at-least-once or exactly-once guarantees, and whether it preserves transaction boundaries across tables.
-
-### **Observability and Scalability**
-
- Production CDC requires visibility into replication lag, throughput, error rates, and offset checkpoints. It should also scale horizontally and integrate cleanly with cloud-native environments.
-
-Choosing a CDC tool is not just about database support - it's about guarantees, scalability, and operational safety. For a deeper comparison of leading CDC solutions, see our breakdown of the **[7 best CDC tools](https://www.bladepipe.com/blog/data_insights/top_cdc_tool/)**.
-
-## Why Use BladePipe for Change Data Capture?
-
-**[BladePipe](https://www.bladepipe.com/)** is built for modern real-time data infrastructure.
-
-It provides:
-
-- Log-based real-time CDC
-- Distributed, fault-tolerant architecture
-- Snapshot + streaming unification
-- Schema evolution handling
-- Enterprise-grade delivery guarantees
-- Both [Cloud and On-premise deployment](https://www.bladepipe.com/pricing/)
-- [Security & compliance](https://trust.bladepipe.com/) (SOC 2, ISO 27001, GDPR readiness)
-
-Whether you're building a **CDC data pipeline**, syncing to a warehouse, or migrating systems, BladePipe delivers reliability without operational complexity. Start a [90-day free trial of the Cloud version](https://www.bladepipe.com/register/) (no credit card required) or [download the free Community Edition](https://www.bladepipe.com/docs/productOP/onPremise/installation/install_all_in_one_docker/) with one click.
-
-## FAQs
-
-**What is the best CDC method?**
-
-For most production systems, **log-based CDC** is the best default because it reads transaction logs directly, preserves ordering better, and usually creates less source impact than trigger-based or query-based approaches.
-
-**Is CDC real-time?**
-
-Most CDC systems operate in near real time, typically with latency measured in milliseconds or seconds, depending on infrastructure and load.
-
-**Is CDC better than ETL?**
-
-CDC is better for continuous, low-latency data movement. ETL is better for batch transformations and large periodic data processing. They serve different purposes.
-
-**Does CDC affect database performance?**
-
-Log-based CDC has minimal impact because it reads from transaction logs. Query-based or trigger-based approaches can increase database load.
-
-**CDC vs Change Tracking?**
-
-CDC captures detailed row-level changes (including before/after values). Change Tracking only records that a row changed, without full change data.
-
-**Can CDC handle schema changes?**
-
-Modern CDC tools can detect and propagate schema changes, but proper configuration and downstream compatibility are required.
-
-**What is log-based CDC?**
-
-Log-based CDC reads directly from a database's transaction log to capture inserts, updates, and deletes without modifying application tables.
-
-**What is the difference between CDC and ETL?**
-
-CDC focuses on capturing and streaming incremental changes in real time. ETL extracts and transforms larger data sets in scheduled batches.
-
-**What is the difference between CDC and database replication?**
-
-CDC is a change-capture mechanism, while replication is the broader outcome or system design. Many modern replication platforms use CDC under the hood to keep targets synchronized continuously.
-
-**What Is SQL Server CDC?**
-
-SQL Server CDC is a built-in feature of Microsoft SQL Server that captures insert, update, and delete activity from transaction logs. For a detailed explanation, see our [guide on SQL Server CDC](https://www.bladepipe.com/blog/data_insights/sql_server_change_data_capture/).
+CDC is the change-capture mechanism. Replication is the broader system that uses captured changes to keep another database, warehouse, cache, search index, or application synchronized.
