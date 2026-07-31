@@ -1,8 +1,8 @@
 ---
 id: top_cdc_tool
 description: Looking for the best CDC tools in 2026? We compare popular change data capture platforms, including BladePipe, Debezium, and Fivetran, by use cases, pros, and pricing.
-title: 7 Best Change Data Capture (CDC) Tools in 2026
-date: 2026-01-14
+title: 8 Best Change Data Capture (CDC) Tools in 2026
+date: 2026-04-14
 authors: junyu 
 tags:
   - data_insights
@@ -19,7 +19,7 @@ image: /img/blog/data_insights/top_cdc_tool.png
 - **Best for enterprise heterogeneous replication:** Qlik Replicate
 - **Best for real-time enterprise streaming:** Striim
 - **Best for Oracle-centric mission-critical environments:** Oracle GoldenGate
-
+- **Best for managed CDC with streaming transformations and multi-destination delivery:** Estuary
 
 ## Why do You Need CDC?
 - **Real-time Data Flow**: As the name implies, data changes are captured as they happen in near real-time. So, when something updates in the source database, it's reflected almost immediately elsewhere. This feature perfectly suits the use cases requiring real-time change sync across [different databases](database_types_selection_guide.md) or systems.
@@ -28,9 +28,9 @@ image: /img/blog/data_insights/top_cdc_tool.png
 - **Agile Business Insights**: CDC enables data collection in real-time, allowing teams across organizations to access recent data for making data-driven decisions quickly and improving accuracy of decision-making.
 
 
-## 7 Best CDC Tools in 2026
+## 8 Best CDC Tools in 2026
 
-Below, we list the 7 best change data capture (CDC) tools for 2026.
+Below, we list the 8 best change data capture (CDC) tools for 2026.
 
 ### Debezium
 [Debezium](https://debezium.io/) is an open-source distributed platform for change data capture. Built on top of Apache Kafka, Debezium captures row-level changes from various databases, like MySQL, PostgreSQL, MongoDB, and others, and streams these changes to Kafka for downstream processing.
@@ -113,6 +113,18 @@ It is the ideal "set-and-forget" alternative for engineering teams who find Debe
 - **Cloud Integration**: It can seamlessly integrates with Oracle Cloud Infrastructure (OCI) and other cloud platforms for hybrid and multi-cloud deployments.
 - **Data Transformation**: It allows filtering, mapping, and transformation of data during replication.
 
+### Estuary
+
+[Estuary](https://estuary.dev/) is the Right-Time Data Platform for change data capture, streaming, batch ingestion, and data transformation. It can backfill existing records, continuously capture inserts, updates, and deletes, and deliver captured data to multiple downstream systems.
+
+![](../assets/blog/data_insights/top_cdc_tool/estuary.png)
+
+**Key Features:**
+
+- **Source-specific CDC**: Supports continuous CDC from PostgreSQL, MySQL, Microsoft SQL Server, MongoDB, and other databases using source-native mechanisms such as transaction logs, binary logs, SQL Server CDC, and change streams.
+- **Real-time and configurable delivery**: Supports sub-100ms delivery for compatible pipelines, while allowing teams to configure delivery schedules based on latency and cost requirements.
+- **Multi-destination delivery**: A captured dataset can feed multiple warehouses, databases, lakes, search platforms, and AI systems without separately extracting the source for each destination.
+
 ## How to Choose the CDC Tool that Works for You?
 Choosing the right CDC tool depends on the specific needs and requirements of your organization. Here are some factors to consider:
 
@@ -130,7 +142,7 @@ Choosing the right CDC tool depends on the specific needs and requirements of yo
 
 ### Best CDC Tool for Real-Time Replication
 
-If your top priority is low-latency replication into analytics systems, caches, search engines, or downstream applications, favor tools with strong log-based CDC and lower operational overhead. BladePipe, Striim, and Qlik Replicate are often the first shortlist here.
+If your top priority is low-latency replication into analytics systems, caches, search engines, or downstream applications, favor tools with strong log-based CDC and lower operational overhead. BladePipe, Striim, and Qlik Replicate are often the first shortlist here. Estuary is a strong option for teams that need managed, low-latency CDC and want to deliver one captured dataset to multiple analytics, operational, and AI systems.
 
 ### Best CDC Tool for Small Teams
 

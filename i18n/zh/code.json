@@ -77,8 +77,26 @@
   "banner.communityModal.tab.binaryPackage": {
     "message": "二进制包"
   },
+  "banner.communityModal.tab.downloadPackage": {
+    "message": "下载安装包"
+  },
+  "banner.communityModal.tab.command": {
+    "message": "命令安装"
+  },
   "banner.communityModal.copied": {
     "message": "已复制"
+  },
+  "banner.communityModal.dockerStep.installDocker": {
+    "message": "安装 Docker"
+  },
+  "banner.communityModal.dockerStep.installDockerTip": {
+    "message": "已安装可跳过；不适用时请换用其他 Docker 安装命令。"
+  },
+  "banner.communityModal.dockerStep.installProduct": {
+    "message": "安装 BladePipe 社区版"
+  },
+  "banner.communityModal.dockerStep.installProduct.clougence": {
+    "message": "安装 CloudCanal 社区版"
   },
   "banner.communityModal.crossPlatform": {
     "message": "跨平台"
@@ -836,6 +854,18 @@
   "login.error.failed": {
     "message": "登录失败"
   },
+  "login.mfa.title": {
+    "message": "MFA 认证"
+  },
+  "login.mfa.description": {
+    "message": "请输入六位数的 MFA 验证码"
+  },
+  "login.mfa.back": {
+    "message": "返回"
+  },
+  "login.mfa.confirm": {
+    "message": "继续"
+  },
   "login.button.login": {
     "message": "登录"
   },
@@ -849,7 +879,7 @@
     "message": "忘记密码？"
   },
   "login.policy.agreement": {
-    "message": "注册并继续即表示您同意我们的"
+    "message": "注册或登录即代表您同意"
   },
   "login.policy.termsOfService": {
     "message": "服务条款"
@@ -3348,7 +3378,7 @@
     "message": "注册"
   },
   "register.policy.agreement": {
-    "message": "注册并继续即表示您同意我们的"
+    "message": "注册或登录即代表您同意"
   },
   "register.policy.termsOfService": {
     "message": "服务条款"

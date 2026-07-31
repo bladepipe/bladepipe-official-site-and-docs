@@ -1,187 +1,285 @@
 ---
 id: oracle_sqlserver_sync
-description: Offer two ways to migrate data from Oracle to SQL Server. One is automated CDC-based pipeline, and another is manual using scripts.
-title: "Oracle to SQL Server Replication: CDC vs Manual Step-by-Step"
-date: 2026-02-15
+description: "Oracle to SQL Server migration guide covering schema conversion, data type mapping, full data load, CDC sync, validation, SSMA, scripts, and BladePipe."
+title: "Oracle to SQL Server Migration: Schema, Data, and CDC Sync"
+date: 2026-03-12
 authors: mumu
 tags:
   - tutorials
-image: /img/blog/tutorials/oracle_sqlserver_sync.png 
+image: /img/blog/tutorials/oracle_sqlserver_sync.png
 ---
 
-[Oracle](/connector/oracle/) to [SQL Server](/connector/sql-server/) replication can be tricky. The two databases work differently, and moving large amounts of data without causing issues is not easy. On top of that, it's a challenge to make sure everything is accurate and downtime is minimal. 
+Migrating [Oracle](/connector/oracle/) to [SQL Server](/connector/sql-server/) requires schema conversion, data type mapping, full data load, change capture during the migration window, validation, and cutover planning.
 
-For most production environments, the preferred solution is a [CDC](/blog/data_insights/change_data_capture_cdc.md)-based replication pipeline that combines initial load, ongoing change capture, and validation into a single workflow. Manual export/import scripts can still work for small one-time transfers, but they are typically less reliable for large-scale migrations, continuous synchronization, or low-downtime cutovers.
+For small static datasets, a one-time export and import may be enough. For production databases, the safer pattern is **full data load plus incremental CDC sync**: migrate historical data first, keep Oracle changes flowing into SQL Server, validate the target, then cut over with less downtime.
 
-In this guide, you'll learn the main challenges of Oracle to SQL Server replication, compare CDC and manual migration approaches, and see how to move data from Oracle to SQL Server with higher reliability and lower operational risk.
+Below are three practical Oracle-to-SQL Server migration paths: Microsoft SSMA, manual scripts, and CDC-based migration with BladePipe.
 
-## Why Move Data from Oracle to SQL Server?
-Oracle and SQL Server are two of the most widely used enterprise databases, but they are usually used for very different things. Oracle often runs **core transactional systems** while SQL Server is commonly used for **reporting, analytics, and downstream applications**.
+<!-- truncate -->
 
-The decision to replicate data from Oracle to SQL Server is usually driven by the following factors:
+## Quick Recommendation
 
-+ **System decoupling:** Running large reports or Power BI dashboards directly on Oracle can slow down the business. Replicating data to SQL Server gives analysts and business users their own environment without putting pressure on transactional systems.
-+ **Lower cost**: Oracle licensing and support are expensive. SQL Server is often more cost-effective for large volumes of queries, especially for BI and data warehousing use cases.
-+ **Better integration with Microsoft**: Tools like Power BI, SSRS, and Azure-based analytics platforms work best when the data lives in SQL Server.
+| Scenario | Best Fit | Why |
+| :--- | :--- | :--- |
+| Schema assessment and conversion | Microsoft SSMA for Oracle | It is Microsoft's official Oracle-to-SQL Server migration assistant. |
+| Small one-time table export | Manual CSV or flat-file scripts | Simple enough when data is small, stable, and downtime is acceptable. |
+| Low-downtime production migration | CDC-based pipeline | Full load plus incremental sync keeps SQL Server current before cutover. |
+| Ongoing Oracle-to-SQL Server replication | CDC-based pipeline | The target stays synchronized after the first migration finishes. |
 
-## Key Challenges 
-Moving data between Oracle and SQL Server is tricky due to several hurdles:
+## Why Migrate Oracle to SQL Server?
 
-+ **Data Type mismatches:** For example, Oracle’s `NUMBER` type is a catch-all that can be an integer or a floating-point, whereas SQL Server is much stricter (e.g., `INT`, `BIGINT`, `DECIMAL`). 
-+ **Reliability issue**: A replication pipeline must handle network failures, database restarts, and schema changes without losing or duplicating data.
-+ **Performance impact**: Heavy queries, exports, or triggers can affect production systems, which is usually unacceptable.
-+ **Data consistency**: [Verifying row counts and data correctness](https://www.bladepipe.com/blog/data_insights/data_verification/) after migration is often manual and time-consuming.
+Oracle and SQL Server are both enterprise relational databases, but teams often move or replicate Oracle data into SQL Server for:
 
-## How to replicate Oracle to SQL Server
-Here are two common ways to replicate Oracle to SQL Server.
+- **Reporting isolation**: Run Power BI, SSRS, or analytical queries without putting load on Oracle OLTP systems.
+- **Cost control**: Reduce dependency on expensive Oracle workloads when SQL Server fits the downstream use case.
+- **Microsoft ecosystem integration**: Serve SQL Server-based applications, BI tools, and Azure analytics services.
+- **Modernization**: Move selected Oracle workloads into a SQL Server environment during an application or platform migration.
+- **Low-downtime cutover**: Keep SQL Server synchronized while applications still write to Oracle.
 
-+ [Automated way using BladePipe](#method-1-automated-way-using-bladepipe)
-+ [Manual way using scripts](#method-2-manual-way-using-scripts)
+If your goal is broader Oracle modernization, see [Oracle Database Alternatives](../data_insights/oracle_database_alternatives.md).
 
-## When Automated Replication Is Usually the Better Choice
+## Key Challenges in Oracle-to-SQL Server Migration
 
-Automated replication is usually the better option when you need:
+### Schema and SQL Conversion
 
-- a consistent initial load plus ongoing change sync
-- lower cutover downtime
-- schema evolution handling
-- checkpoint-based recovery after failure
-- monitoring, lag visibility, and validation
+Oracle and SQL Server differ in schemas, stored procedures, packages, triggers, sequences, indexes, constraints, and SQL dialects. Automated tools can convert many objects, but complex PL/SQL needs review.
 
-Manual scripts can still make sense for development environments, small static datasets, or one-off migrations with generous downtime windows.
+### Data Type Mapping
 
-### Method 1: Automated way using BladePipe
-To migrate data from Oracle to SQL Server quickly and reliably, an automated approach is usually the safest place to start. This is where BladePipe fits in.   
+Common mapping decisions include:
 
-[**BladePipe**](https://www.bladepipe.com/) is a [real-time,](https://www.bladepipe.com/real-time-analytics/) end-to-end data replication tool. It supports automated replication from [Oracle](https://www.bladepipe.com/docs/dataMigrationAndSync/connection/oracle2/) to SQL Server in just a few clicks. 
+| Oracle Type | SQL Server Target | Notes |
+| :--- | :--- | :--- |
+| `NUMBER` | `DECIMAL`, `INT`, `BIGINT`, or `FLOAT` | Choose based on precision, scale, and business meaning. |
+| `VARCHAR2` | `VARCHAR` or `NVARCHAR` | Use `NVARCHAR` when Unicode support is required. |
+| `DATE` | `DATETIME2` | Oracle `DATE` includes time; avoid losing time components. |
+| `TIMESTAMP` | `DATETIME2` | Check fractional-second precision. |
+| `CLOB` | `VARCHAR(MAX)` or `NVARCHAR(MAX)` | Depends on encoding and consumer expectations. |
+| `BLOB` | `VARBINARY(MAX)` | Test large object performance separately. |
 
-With BladePipe, you can:
+### Initial Load and CDC Handoff
 
-+ **Extract and load data automatically**: BladePipe supports [60+ out-of-the-box connectors](https://www.bladepipe.com/connector/), including Oracle and SQL Server. All connectors are ready for production environments.
-+ **Transform data without effort**: Common data type conversions are handled automatically, reducing manual work. It also allows complex transformations using [custom code](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_process_job/).
-+ **Enhance data consistency**: [Built-in data verification and correction](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_period_verification_correction_job/) function helps check data integrity and accuracy.
-+ **Get always fresh data**: Seamlessly switch to incremental sync. Keep second-level latency to replicate data continuously.
+A low-downtime migration needs a clean handoff from full load to incremental sync. If the pipeline misses Oracle changes during the handoff, SQL Server may never match the source.
 
-[![](../assets/blog/tech_share/oracle_sqlserver_sync/banner.png)](https://www.bladepipe.com/login/)
+### Data Consistency
 
+Row counts are not enough. Production validation should compare row counts, checksums, key ranges, sampled records, and business-critical tables. For ongoing sync, validation should run after the first load and during incremental replication. See [Data Verification](../data_insights/data_verification.md) for a deeper checklist.
 
-**Step 1: Add DataSources**
+### Performance Impact
 
-Log in to [BladePipe Cloud](https://www.bladepipe.com/login/), and connect to both Oracle and SQL Server.
+Large exports, full-table scans, or trigger-based capture can slow production Oracle systems. Log-based [Oracle CDC](../data_insights/oracle_change_data_capture.md) has lower source impact than repeated queries or manual exports.
 
-1. Go to **DataSource** > [**Add DataSource**](https://www.bladepipe.com/docs/operation/datasource_manage/add_self_maintain_ds/).
-2. Configure:  
-    - **Deployment:** Self-managed  
-    - **Type:** Oracle / SQL Server
-    - **Host:** Database IP and host  
-    - **Authentication:** Choose the method and fill in the info. 
-3. Click **Add DataSource**.
-![](../assets/blog/tech_share/oracle_sqlserver_sync/1.png)
+## Method 1: Use Microsoft SSMA for Oracle
 
-**Step 2: Create a Pipeline**
-1. Go to **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
-2. Select the source and target DataSources, and click **Test Connection** for both. 
-![](../assets/blog/tech_share/oracle_sqlserver_sync/3.png)
-3. For one-time migration, select **Full Data** for DataJob Type. For continuous replication, select **Incremental**, together with the **Full Data** option.
-![](../assets/blog/tech_share/oracle_sqlserver_sync/4.png)
-4. Select the tables to be replicated.
-![](../assets/blog/tech_share/oracle_sqlserver_sync/5.png)
-5. Select the columns to be replicated.
-![](../assets/blog/tech_share/oracle_sqlserver_sync/6.png)
-6. Confirm the DataJob creation, and start to run the DataJob.
-![](../assets/blog/tech_share/oracle_sqlserver_sync/7.png)
+[SQL Server Migration Assistant for Oracle](https://learn.microsoft.com/en-us/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql?view=sql-server-ver17) is Microsoft's migration tool for moving Oracle databases to SQL Server and Azure SQL.
 
-**Learn more about:**
-+ [Oracle to ClickHouse](https://www.bladepipe.com/blog/tech_share/oracle_clickhouse_sync/)
-+ [Oracle to ElasticSearch](https://www.bladepipe.com/blog/tech_share/oracle_es_sync/)
+SSMA is a strong first step when you need to assess and convert Oracle schemas before migration.
 
-### Method 2: Manual way using scripts
-A common manual approach to replicate data from Oracle to SQL Server is based on Oracle Data Pump, combined with file-based data transfer and batch loading on the SQL Server side.
+### Typical SSMA Workflow
 
-**Step 1: Export data from Oracle**
+1. Install SSMA for Oracle and the required Oracle provider.
+2. Connect SSMA to the Oracle source.
+3. Select the schemas and objects to migrate.
+4. Generate an assessment report for conversion issues.
+5. Review and adjust data type mappings.
+6. Convert Oracle schema objects to SQL Server objects.
+7. Synchronize the converted schema with SQL Server.
+8. Migrate data and validate the result.
 
-Use [Oracle Data Pump](https://docs.oracle.com/en/database/oracle/oracle-database/19/sutil/oracle-data-pump-export-utility.html) (`expdp`) to export tables or schemas into binary dump (`.dmp`) files.
+Microsoft's [Oracle to SQL Server migration guide](https://learn.microsoft.com/en-us/sql/sql-server/migrate/guides/oracle-to-sql-server?view=sql-server-ver17) also recommends pre-migration assessment, schema conversion, data migration, validation, and post-migration optimization.
 
-```bash
-expdp username/password@dbname
-  schemas=schema_name
-  directory=dpump_dir 
-  dumpfile=oracle_export.dmp 
-  logfile=export.log 
-```
+### Where SSMA Works Well
 
-The exported data is in an Oracle-specific binary format, not directly consumable by SQL Server.
+- Schema discovery and assessment
+- Data type mapping review
+- Converting many Oracle objects to SQL Server
+- One-time migration projects where downtime is acceptable
+- Teams that want a Microsoft-supported starting point
 
-**Step 2: Convert data format**
+### SSMA Limitations to Plan For
 
-Transform the exported data into an intermediate format, typically CSV or flat files.   
-Convert Oracle-specific data types to SQL Server-compatible types. For example:
+SSMA is not a continuous CDC replication platform. If applications keep writing to Oracle during a long migration, you still need a way to capture new changes, replay them into SQL Server, validate the target, and cut over safely.
 
-+ `NUMBER` > `DECIMAL`
-+ `DATE` > `DATETIME`
-+ `CLOB` > `NVARCHAR`
-+ `VARCHAR2` > `VARCHAR`
+## Method 2: Manual Export and Import
 
-**Step 3: Transfer files to SQL Server**
+Manual migration can work for small, stable datasets. Instead of using Oracle Data Pump `.dmp` files as the main path, export query results into CSV or flat files that SQL Server can load.
 
-Transfer the generated CSV or text files to an environment accessible to SQL Server.
+Oracle Data Pump is useful inside the Oracle ecosystem, but its dump files are Oracle-specific. For Oracle-to-SQL Server migration, CSV, SQL scripts, SSIS, or custom ETL scripts are easier to load into SQL Server.
 
-**Step 4: Load data into SQL Server**
+### Step 1: Export Oracle Data
 
-On the SQL Server side, load data using batch tools such as `BULK INSERT` or SSIS.
+Use SQL Developer, SQLcl, SQL*Plus, or custom scripts to export selected tables into CSV files.
 
 ```sql
-BULK INSERT schema_name.table_name
-FROM 'C:\data\oracle.csv'
+SELECT *
+FROM schema_name.orders
+ORDER BY id;
+```
+
+For large tables, export in key ranges or time ranges so failed batches can resume without repeating the entire table.
+
+### Step 2: Convert Data Types and Formats
+
+Normalize values before loading:
+
+- Convert dates and timestamps to a SQL Server-compatible format.
+- Escape delimiters and quotes in text columns.
+- Decide how to represent `NULL`.
+- Convert `CLOB` and `BLOB` data carefully.
+- Preserve numeric precision for `NUMBER` columns.
+
+### Step 3: Create Target Tables in SQL Server
+
+Create SQL Server tables with the chosen data type mappings, indexes, constraints, and identity or sequence strategy.
+
+### Step 4: Load Data into SQL Server
+
+Use `BULK INSERT`, `bcp`, or SSIS to load the exported files.
+
+```sql
+BULK INSERT dbo.orders
+FROM 'C:\data\orders.csv'
 WITH (
+  FORMAT = 'CSV',
+  FIRSTROW = 2,
   FIELDTERMINATOR = ',',
-  ROWTERMINATOR = '\n'
+  ROWTERMINATOR = '0x0a'
 );
 ```
 
-**Step 5: Check results**
+### Step 5: Validate the Result
 
-Verify the data integrity and accuracy manually.
+Compare Oracle and SQL Server by table counts, key ranges, checksums, and sampled records. Manual validation becomes harder as table count and data volume grow.
 
-**Limitations:**
+### Manual Method Limitations
 
-+ **Manual handling**: Oracle and SQL Server data types differ, and mappings must be handled and maintained by hand, which is error-prone.
-+ **Limited monitoring and visibility**: There is no built-in way to track replication latency, data freshness, or data drift.
-+ **Weak failure recovery**: Partial failures usually require restarting jobs or reprocessing entire datasets.
-+ **Growing maintanence complexity**: Operational complexity increases rapidly as data volume grows.
+- No built-in CDC for changes during migration
+- Higher downtime for large databases
+- Manual schema and data type handling
+- Weak failure recovery
+- Limited monitoring and drift detection
+- More scripts to maintain as scope grows
 
-### Comparison: Which way works for you?
-|  | **Automated way using BladePipe** | **Manual way using scripts** |
-| --- | --- | --- |
-| **Initial Setup Effort** | **Low** | **Low to moderate** |
-| **Operational complexity** | **Low** (just clicks) | **High** (many manual steps) |
-| **Impact on Oracle** |  **Low** (optimized snapshot reading) | **Medium to high**(full scans and exports)  |
-| **Data type handling** | **Automatic** Oracle → SQL Server mappings | **Manual** mapping and transformation |
-| **Failure recovery** | **Resume** from last checkpoint | **Restart** from scratch |
-| **Data consistency** | **Enhanced** with built-in validation function | **Hard** to ensure consistency across multiple related tables |
-| **Observability** | **High** (Built-in monitoring and progress tracking) | **Low** (Logs and scripts) |
-| **Ongoing maintenance** | **Easy** (GUI-based management) | **Hard** (coding/debugging) |
-| **Post-migration capability** | Can seamlessly switch to continuous replication | Migration ends when import finishes |
-| **Best for** | Mission-critical replication in production environment, zero-downtime migration | One-time replication/small, non-critical dev/test data |
+## Method 3: CDC-Based Migration and Sync with BladePipe
 
+For production migration, use a CDC pipeline when SQL Server must stay close to Oracle while the source remains online.
 
-## Conclusion
-Migrating data from Oracle to SQL Server doesn’t have to be a painful, script-heavy project. Whether you’re planning a one-time migration or want the option to keep data in sync after cutover, choosing the right approach early can save a lot of time and headaches. Automated tools like BladePipe help reduce complexity, protect production systems, and let teams focus less on plumbing and more on building what matters.
+[BladePipe](https://www.bladepipe.com/) is a real-time data integration platform that supports Oracle-to-SQL Server migration and replication with full load, incremental sync, schema migration, data validation, monitoring, and recovery.
+
+A CDC-based workflow can:
+
+- Load historical Oracle data into SQL Server
+- Capture Oracle changes after the full load starts
+- Apply inserts, updates, and deletes to SQL Server
+- Validate data before cutover
+- Resume from checkpoints after interruption
+- Continue replication if SQL Server remains a downstream system
+
+[![Oracle to SQL Server migration with BladePipe](../assets/blog/tech_share/oracle_sqlserver_sync/banner.png)](https://www.bladepipe.com/login/)
+
+### Step 1: Prepare Oracle and SQL Server
+
+Before creating the pipeline, confirm network access, credentials, and source prerequisites.
+
+- [Required privileges for Oracle](/docs/dataMigrationAndSync/datasource_func/Oracle/privs_for_oracle/)
+- [Required privileges for SQL Server](/docs/dataMigrationAndSync/datasource_func/SqlServer/privs_for_sqlserver/)
+
+### Step 2: Add Oracle and SQL Server DataSources
+
+Log in to [BladePipe Cloud](https://www.bladepipe.com/login/) and connect both databases.
+
+1. Go to **DataSource** > [**Add DataSource**](https://www.bladepipe.com/docs/operation/datasource_manage/add_self_maintain_ds/).
+2. Configure the source and target:
+   - **Deployment:** Self-managed
+   - **Type:** Oracle / SQL Server
+   - **Host:** Database host or IP
+   - **Authentication:** Database user and password
+3. Click **Add DataSource**.
+
+![Add Oracle and SQL Server DataSources in BladePipe](../assets/blog/tech_share/oracle_sqlserver_sync/1.png)
+
+### Step 3: Create the Oracle-to-SQL Server DataJob
+
+1. Go to **DataJob** > [**Create DataJob**](https://www.bladepipe.com/docs/operation/job_manage/create_job/create_full_incre_task/).
+2. Select Oracle as the source and SQL Server as the target.
+3. Click **Test Connection** for both sides.
+
+![Create an Oracle to SQL Server DataJob in BladePipe](../assets/blog/tech_share/oracle_sqlserver_sync/3.png)
+
+### Step 4: Choose Full Load Plus Incremental Sync
+
+For one-time migration, select **Full Data**. For low-downtime migration or continuous replication, select **Incremental** together with **Full Data**.
+
+![Select full load and incremental sync for Oracle to SQL Server](../assets/blog/tech_share/oracle_sqlserver_sync/4.png)
+
+This setup lets BladePipe load existing Oracle data first, then keep applying new Oracle changes to SQL Server.
+
+### Step 5: Select Tables and Columns
+
+Select the Oracle tables and columns to migrate.
+
+![Select Oracle tables for SQL Server migration](../assets/blog/tech_share/oracle_sqlserver_sync/5.png)
+
+Review the target column mappings and exclude columns that should not move.
+
+![Select Oracle columns for SQL Server migration](../assets/blog/tech_share/oracle_sqlserver_sync/6.png)
+
+### Step 6: Start and Monitor the DataJob
+
+Confirm the DataJob and start the migration.
+
+![Start Oracle to SQL Server migration DataJob](../assets/blog/tech_share/oracle_sqlserver_sync/7.png)
+
+Monitor full load progress, incremental latency, errors, and validation results. If the job is interrupted, checkpoint-based recovery helps continue without restarting the whole migration.
+
+## Oracle to SQL Server Migration Comparison
+
+| Area | Microsoft SSMA | Manual Scripts | BladePipe CDC Pipeline |
+| :--- | :--- | :--- | :--- |
+| Best for | Schema assessment and one-time migration | Small static datasets | Low-downtime migration and ongoing replication |
+| Schema conversion | Strong | Manual | Automated schema migration with mapping review |
+| Full data load | Supported | Supported | Supported |
+| Incremental CDC sync | Not the main focus | Not built in | Built in |
+| Source impact | Depends on migration workload | Can be high for exports | Lower with log-based CDC |
+| Failure recovery | Project and task dependent | Manual restart or rerun | Checkpoint-based resume |
+| Validation | Reports and manual checks | Manual checks | Built-in verification and correction workflows |
+| Operational effort | Medium | Medium to high | Lower after setup |
+
+## Cutover Checklist
+
+Before switching applications or reports to SQL Server, confirm:
+
+- Target schemas, indexes, and constraints are ready.
+- Full load is complete and incremental replication lag is close to zero.
+- Inserts, updates, deletes, row counts, and checksums have been validated.
+- Application SQL differences have been remediated.
+- A rollback plan exists if cutover fails.
 
 ## FAQ
 
-**Q1: Can I replicate from Oracle to SQL Server in the cloud (AWS RDS or Azure)?** 
+### What is the best way to migrate Oracle to SQL Server?
 
-Yes. Most automated tools (including BladePipe) can connect to cloud-hosted instances as long as the proper network ports are open and log access is enabled.
+Use SSMA when schema conversion is the main task and downtime is acceptable. Use a CDC-based pipeline like BladePipe when you need low downtime, ongoing sync, recovery, and validation during migration.
 
-**Q2: How do I handle schema changes (DDL) like adding a column?** 
+### Can I migrate Oracle to SQL Server with low downtime?
 
-Manual scripts require you to stop everything and update both sides. Advanced automated replication tools like BladePipe can automatically deliver the changes to the SQL Server target.
+Yes. The common pattern is full load plus incremental CDC. Historical rows are loaded first, new Oracle changes continue flowing into SQL Server, and cutover happens after validation and low replication lag.
 
-**Q3: What is the best way to migrate Oracle to SQL Server with low downtime?**
+### How do Oracle data types map to SQL Server?
 
-The safest pattern is usually full load plus incremental CDC. You bulk-load historical data first, keep new Oracle changes flowing continuously, validate the target, and then cut over once the lag is close to zero.
+Common mappings include `NUMBER` to `DECIMAL` or integer types, `VARCHAR2` to `VARCHAR` or `NVARCHAR`, `DATE` to `DATETIME2`, `CLOB` to `VARCHAR(MAX)` or `NVARCHAR(MAX)`, and `BLOB` to `VARBINARY(MAX)`. Review precision, encoding, and application behavior before migration.
 
-**Q4: Is Oracle to SQL Server replication the same as SQL Server CDC?**
+### Can Oracle schema changes be synced to SQL Server?
 
-Not exactly. Oracle to SQL Server replication is the end-to-end migration or sync scenario. SQL Server CDC is a change-capture feature inside SQL Server itself. In heterogeneous replication, teams often use CDC concepts on the source side to keep the target synchronized.
+Yes, but it depends on the tool and the DDL type. Manual scripts require manual changes on both sides. CDC-based tools can automate many schema changes, but production teams should still define which DDL operations are allowed during migration.
+
+### Is Oracle to SQL Server replication the same as SQL Server CDC?
+
+No. Oracle-to-SQL Server replication is the end-to-end movement of data from Oracle into SQL Server. SQL Server CDC is a SQL Server feature for capturing changes inside SQL Server itself.
+
+**Related Oracle Migration Guides**
+
+- [Oracle to ClickHouse](./oracle_clickhouse_sync.md)
+- [Oracle to Elasticsearch](./oracle_es_sync.md)
+- [Oracle to PostgreSQL](./migrate_oracle_to_postgresql.md)
+- [Oracle to Kafka](./stream_data_from_oracle_to_kafka.md)

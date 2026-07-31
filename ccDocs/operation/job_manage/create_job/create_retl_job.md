@@ -14,17 +14,22 @@ RETL（定时扫描同步）是一种 **按固定周期拉取数据** 并写入�
 
 ## 支持的链路
 
-|                      源端 -> 目标端 |  同步模式 |  执行前动作（可选） |       增量字段<b><sup>1</sup></b>类型 |
--------------------------------:|------------:|------------:|-------------:|
-|             StarRocks -> MySQL | 定时扫描      | 清空对端<b><sup>2</sup></b>、历史表归档<b><sup>3</sup></b> |   日期时间 |
-|                 Doris -> MySQL | 定时扫描	  |  清空对端、历史表归档 | 日期时间、高精度日期时间 |
-|              Redshift -> MySQL | 定时扫描	  |  清空对端    |	时间戳| 
-| Elastisearch -> Elasticsearch | 定时扫描     |  清空对端	    |日期、纳秒日期、ES 时间戳|
-|           VastBase -> Dameng	| 定时扫描	  | 清空对端	    |时间戳|
-|          OssFile -> PostgreSQL | 定时扫描	  |  清空对端<b><sup>4</sup></b>     | /|
-|          SshFile -> PostgreSQL | 定时扫描      | 清空对端	    | / |
-|           S3File -> PostgreSQL | 定时扫描	  | 清空对端	    |/|
-|           Yuque -> PostgreSQL	| 定时扫描	  | 清空对端	    |/|
+| 源端 -> 目标端 | 同步模式 | 执行前动作（可选） | 增量字段<b><sup>1</sup></b>类型 |
+| --- | --- | --- | --- |
+| StarRocks -> MySQL | 定时扫描 | 清空对端<b><sup>2</sup></b>、历史表归档<b><sup>3</sup></b> | `DATETIME` |
+| Doris -> MySQL | 定时扫描 | 清空对端、历史表归档 | `DATETIME`、`DATETIMEV2` |
+| Redshift -> MySQL | 定时扫描 | 清空对端 | `TIMESTAMP` |
+| PostgreSQL -> Redshift | 定时扫描 | / | `DATE`、`TIMESTAMP WITHOUT TIME ZONE`、`TIMESTAMP WITH TIME ZONE` |
+| Aurora PostgreSQL -> Redshift | 定时扫描 | / | `DATE`、`TIMESTAMP WITHOUT TIME ZONE`、`TIMESTAMP WITH TIME ZONE` |
+| SQL Server -> Redshift | 定时扫描 | / | `DATE`、`DATETIME`、`DATETIME2`、`SMALLDATETIME` |
+| Iceberg -> MySQL | 定时扫描 | / | `TIMESTAMP` |
+| Iceberg -> Redshift | 定时扫描 | / | `TIMESTAMP` |
+| Elasticsearch -> Elasticsearch | 定时扫描 | 清空对端 | `date`（含时间戳格式）、`date_nanos` |
+| VastBase -> Dameng | 定时扫描 | 清空对端 | `TIMESTAMP WITH TIME ZONE`、`TIMESTAMP WITHOUT TIME ZONE` |
+| OssFile -> PostgreSQL | 定时扫描 | 清空对端<b><sup>4</sup></b> | / |
+| SshFile -> PostgreSQL | 定时扫描 | 清空对端 | / |
+| S3File -> PostgreSQL | 定时扫描 | 清空对端 | / |
+| Yuque -> PostgreSQL | 定时扫描 | 清空对端 | / |
 
 :::info
 1. 增量字段必须为时间类型。配置该字段后，系统每次扫描只会拉取时间在“上次扫描之后”的新增或更新数据，实现增量同步效果（**注意：暂不支持同步源端的删除操作**）。

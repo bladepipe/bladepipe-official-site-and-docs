@@ -1,176 +1,315 @@
 ---
 id: iceberg_cdc_pipeline
-description: Most Iceberg pipelines use Kafka, Flink, and Debezium, but do you really need them? Learn the hidden costs and a simpler approach to CDC.
-title: Why Most Iceberg Pipelines Don’t Need Kafka + Flink + Debezium?
-date: 2026-03-19
-authors: mumu 
+description: "Learn how to build an Apache Iceberg CDC pipeline. Compare Debezium, Kafka, Flink CDC, and direct CDC tools for upserts, deletes, schema evolution, and small-file control."
+title: "Iceberg CDC Pipeline: Do You Need Kafka, Flink, and Debezium?"
+date: 2026-04-19
+authors: mumu
 tags:
   - data_insights
-image:  /img/blog/data_insights/iceberg_cdc_pipeline.png
+image: /img/blog/data_insights/iceberg_cdc_pipeline.png
 ---
 
-Most Iceberg pipelines today are overengineered.
+An **Iceberg CDC pipeline** captures changes from operational databases such as MySQL, PostgreSQL, Oracle, or SQL Server and applies those inserts, updates, and deletes to [Apache Iceberg](https://www.bladepipe.com/connector/iceberg/) tables.
 
-To move data from a transactional database into [Iceberg](https://www.bladepipe.com/blog/tech_share/mysql_iceberg_sync/), many teams default to a stack built on Debezium, Kafka, and Flink, the so-called “holy trinity” of real-time data infrastructure. It’s a powerful architecture, but one designed for companies operating at massive scale.
+The hard part is preserving change semantics, handling schema evolution, avoiding small-file buildup, and keeping the table queryable by engines such as Spark, Flink, Trino, Athena, or Snowflake.
 
-The problem is, most teams don’t operate at that scale. They don’t need multi-stage streaming pipelines, distributed message queues, and stateful processing engines just to keep their data fresh.
+Many teams start with Debezium, Kafka, and Flink. That stack is powerful, but it is not the only way to build CDC into Iceberg. This guide explains how Iceberg CDC works, where it gets tricky, when Kafka and Flink are worth the complexity, and when direct CDC is enough.
 
-Yet they still end up paying the operational and cognitive cost of running them.
-
-In this post, we are going to break down why this stack became the default, the hidden costs of running it, and why a simpler pipeline architecture might be exactly what your team actually needs.
+<!-- truncate -->
 
 ## Key Takeaways
-+ The Debezium + Kafka + Flink stack is powerful, but designed for extreme scale.
-+ Most teams only need simple CDC replication, not full stream processing.
-+ This stack introduces hidden costs: operational overhead, small file issues, latency and over-engineering issue.
-+ Flink CDC simplifies architecture but still inherits Flink’s operational burden.
-+ Integrated CDC tools offer a simpler, more efficient alternative for most use cases.
 
-## Why is This Stack the Industry Standard? 
-Before we tear it down, we need to understand why the Debezium-Kafka-Flink stack is so popular. It didn't become the standard by accident.
+- Iceberg CDC usually combines an **initial snapshot** with **incremental change capture** from database logs.
+- The main challenge is mapping database `INSERT`, `UPDATE`, and `DELETE` operations into Iceberg tables correctly.
+- Kafka and Flink are useful when you need fan-out, replay, stateful stream processing, or complex transformations.
+- For straightforward database-to-Iceberg replication, Kafka + Flink + Debezium can be heavier than necessary.
+- Small files, compaction, schema evolution, and recovery matter as much as raw ingestion latency.
+- Direct CDC platforms can simplify Iceberg ingestion when the goal is reliable replication, not custom stream processing.
 
-When companies realized that nightly batch jobs were no longer fast enough, they looked for ways to stream database changes in real-time. This is where this architecture shines. Let's look at the components:
+## What Is an Iceberg CDC Pipeline?
 
-+ **Debezium:** This is the reader. It connects to your database (like PostgreSQL or MySQL), pretends to be a replica, and reads the transaction logs (WAL or binlog). It turns raw database events into a neat stream of inserts, updates, and deletes.
-+ **Apache Kafka:** Kafka acts as a durable buffer between producers and consumers. Debezium writes its events into Kafka topics. If your downstream systems go offline, Kafka holds onto the data.
-+ **Apache Flink:** This is the processor. Flink reads from Kafka, applies transformations, handles stateful aggregations, and writes the final data to your target destination, like Snowflake, BigQuery, or Apache Iceberg.
+A [CDC pipeline](./change_data_capture_cdc.md) into Iceberg replicates row-level changes from a source database into an Iceberg lakehouse table.
 
-![](../assets/blog/data_insights/iceberg_cdc_pipeline/1.png)
+The pipeline has two phases:
 
-The benefits of this architecture are very real for enterprise-scale deployments:
+| Phase | What Happens | Why It Matters |
+| :--- | :--- | :--- |
+| Initial snapshot | Existing rows are read from the source database and written to Iceberg files. | The target starts with a complete baseline. |
+| Incremental CDC | New inserts, updates, deletes, and sometimes DDL changes are captured from transaction logs. | Iceberg stays fresh without repeatedly reloading full tables. |
 
-+ **Decoupling:** Your source database never talks to your data warehouse. Kafka sits in the middle. You can add five different consumers to the same Kafka topic without adding any extra load to your primary database.
-+ **Fault Tolerance:** If Flink crashes, Kafka still has the data. When Flink restarts, it picks up exactly where it left off.
-+ **Massive Scalability:** You can scale Debezium, Kafka, and Flink independently. If you have millions of events per second, this stack can handle it.
+For example, a [MySQL-to-Iceberg pipeline](../tech_share/mysql_iceberg_sync.md) may read existing MySQL rows first, then continue from the MySQL binlog. A PostgreSQL-to-Iceberg pipeline may start with a snapshot, then continue from WAL through logical replication. SQL Server and Oracle use their own transaction log mechanisms.
 
-If you are Uber, Netflix, or LinkedIn, you need this stack. But what if you just want to replicate 50 tables from MySQL to Iceberg with a five-minute latency?
+## How CDC Events Map to Iceberg Tables
 
-## The Hidden Costs
-The problem with adopting this enterprise-scale architecture is that you also adopt enterprise-scale operational burdens. The hidden costs of this stack rarely show up in the "Getting Started" tutorials.
+CDC events look like row-level changes:
+
+```json
+{
+  "op": "UPDATE",
+  "table": "orders",
+  "before": {
+    "id": 1001,
+    "status": "pending"
+  },
+  "after": {
+    "id": 1001,
+    "status": "paid"
+  },
+  "source_position": "mysql-bin.000123:456789"
+}
+```
+
+An Iceberg sink must turn those events into table changes:
+
+- `INSERT` events become new rows.
+- `UPDATE` events become upserts, so the latest row for a primary key is visible.
+- `DELETE` events must remove or mask the matching row.
+- DDL events may need to add, drop, rename, or alter columns in the Iceberg schema.
+
+This is where Iceberg differs from simply appending Parquet files. Append-only writes are easy; CDC requires correct update and delete behavior.
+
+Apache Iceberg supports row-level operations such as `MERGE INTO`, `UPDATE`, and `DELETE` in engines that implement them. Iceberg v2 also supports row-level deletes, including equality deletes and position deletes. The exact behavior depends on the engine and sink.
+
+## Why Iceberg CDC Is Hard
+
+### Upserts Need Stable Keys
+
+CDC pipelines need stable row identifiers, usually primary keys. Without a key, updates and deletes are hard to apply correctly because the sink cannot reliably find the previous row.
+
+For Iceberg, make sure the pipeline and query engines agree on the table's identifier fields or merge keys. This is especially important for CDC formats emitted by Debezium, Canal, or custom log readers.
+
+### Deletes Are Not Just Missing Rows
+
+Deletes must be represented explicitly. A CDC stream may carry a delete operation, a tombstone record, or a before image. The Iceberg writer then needs to translate that into a row-level delete or a rewrite of affected data files.
+
+If delete handling is incomplete, downstream queries may keep seeing rows that were already deleted from the source database.
+
+### Small Files Can Destroy Query Performance
+
+Iceberg works best with reasonably sized data files and maintained metadata. Low-latency CDC can commit many small changes.
+
+This can create:
+
+- Too many small Parquet files
+- Too many delete files
+- Frequent metadata snapshots
+- Slower planning and query execution in engines such as Trino, Athena, or Spark
+
+Iceberg CDC pipelines need batching, commit control, file compaction, snapshot expiration, and orphan file cleanup. Read the [Apache Iceberg maintenance docs](https://iceberg.apache.org/docs/latest/maintenance/) before putting CDC workloads into production.
+
+### Schema Evolution Must Be Coordinated
+
+Iceberg supports schema evolution, but a CDC pipeline still has to decide what to do when the source table changes.
+
+Common cases include:
+
+- Add a nullable column
+- Drop a column
+- Rename a column
+- Change a column type
+- Change primary keys or unique constraints
+
+Some changes can be propagated automatically. Others need review because they may break consumers or require a backfill.
+
+### Exactly-Once Is a System Property
+
+Many engines and sinks discuss exactly-once writes, but end-to-end correctness depends on the whole pipeline: source offsets, checkpoints, retries, object storage commits, Iceberg snapshot commits, and downstream reads.
+
+For most analytics pipelines, practical correctness usually means:
+
+- No gaps in source log consumption
+- Retry-safe writes
+- Idempotent upserts or deterministic merge behavior
+- Observable checkpoints
+- Clear recovery behavior after failures
+
+## Common Architecture: Debezium + Kafka + Flink + Iceberg
+
+The classic CDC architecture looks like this:
+
+![Debezium Kafka Flink CDC pipeline writing to Apache Iceberg](../assets/blog/data_insights/iceberg_cdc_pipeline/1.png)
+
+The stack is popular because:
+
+- **Debezium** captures changes from databases such as MySQL and PostgreSQL and emits CDC events.
+- **Kafka** provides buffering, replay, retention, and fan-out for multiple consumers.
+- **Flink** reads CDC events, performs transformations, manages state, and writes to Iceberg.
+
+This architecture fits larger streaming platforms. If multiple teams consume the same changes, or if the pipeline performs joins, enrichment, windowed aggregation, or complex routing before writing Iceberg, Kafka and Flink can be the right tools.
+
+## Hidden Costs of the Classic Stack
 
 ### Operational Overhead
-Running this stack means you are maintaining at least three complex distributed systems：
 
-+ **Debezium:** Kafka Connect
-+ **Kafka:** Brokers, ZooKeeper (or Kraft), and Schema Registry.
-+ **Flink:** JobManagers, TaskManagers, and Checkpointing state.
+Running this stack means operating several distributed systems:
 
-This requires a massive amount of infrastructure code. You need Terraform scripts, Helm charts, and custom CI/CD pipelines just to deploy the infrastructure. Once it is running, you have to monitor it.
+- Debezium and Kafka Connect
+- Kafka brokers and topic management
+- Schema Registry or equivalent schema handling
+- Flink JobManagers, TaskManagers, checkpoints, and savepoints
+- Iceberg catalog and storage maintenance
 
-You need alerts for Kafka consumer lag. You need dashboards for Flink memory usage. You have to handle Debezium snapshotting failures. Keeping this stack running smoothly requires deep expertise in Java, networking, and distributed consensus. For a small or medium-sized data team, this is practically a full-time job.
+Monitor connector health, Kafka consumer lag, Flink checkpoint duration, failed Iceberg commits, object storage errors, and compaction backlog.
 
-### The "Small File" Problem
-Iceberg loves big files. Flink, by its nature as a streamer, loves small commits. That creates a problem. 
+### More Places for Latency to Hide
 
-If you have a slow trickle of updates happening 24/7, Flink will continuously write these changes to your object storage (like Amazon S3). S3 is not designed for tiny files.
+A multi-hop pipeline gives you flexibility, but it also makes troubleshooting harder.
 
-If Flink writes thousands of tiny parquet files every hour, your query engine (like Trino or Athena) will crawl to a halt. It has to open and close thousands of files just to run a simple `SELECT` query. The metadata overhead becomes crushing.
+Latency can come from:
 
-To fix this, you have to build _another_ service just to compact those files. This adds even more operational complexity to your pipeline.
+- Source connector snapshot or log-reading lag
+- Kafka partition skew
+- Consumer lag
+- Flink checkpoint delays
+- Iceberg commit contention
+- Small-file compaction pressure
 
-### Unpredictable Latency
-We build streaming pipelines for low latency. But ironically, this complex stack can often introduce unpredictable delays.
+When the SLA is "Iceberg should be queryable within a few minutes", debugging across multiple systems can become the expensive part of the pipeline.
 
-In this three-hop system, debugging lag becomes a guessing game. Every hop is a chance for latency to spike.
+### More Tuning for Small Files
 
-+ If a Kafka partition becomes skewed, latency spikes.
-+ If a Flink TaskManager runs out of memory and has to restart from a savepoint, latency spikes.
-+ If Debezium loses its connection and has to re-snapshot a table, latency spikes.
+Flink streaming jobs can write frequently to maintain low latency. Iceberg still needs healthy file sizes and metadata. Without tuning, the pipeline may write fast but query poorly.
 
-You wanted a five-minute SLA on your lakehouse. Now you are spending three hours trying to figure out if the bottleneck is Debezium, Kafka, or Flink.
+Many Iceberg CDC projects add maintenance jobs for compaction, snapshot expiration, metadata cleanup, and delete-file rewriting.
 
-### Over-Engineering For Most Teams
-This stack assumes you need a fully-fledged streaming platform. It assumes your use case requires complex event processing, stateful computations, and fine-grained control over streaming semantics.
+## Alternative 1: Flink CDC Direct to Iceberg
 
-But many teams don’t.
+[Flink CDC](https://nightlies.apache.org/flink/flink-cdc-docs-release-3.5/docs/connectors/pipeline-connectors/iceberg/) removes Kafka from the diagram:
 
-They’re not building fraud detection systems or real-time recommendation engines. They’re syncing operational data into analytics systems. They’re feeding dashboards, BI tools, and increasingly, AI applications.
+```text
+Source database
+  -> Flink CDC
+  -> Iceberg catalog + object storage
+```
 
-For those use cases, the full Debezium + Kafka + Flink stack often feels like overkill.
+This can be simpler than Debezium plus Kafka plus Flink. Use it when:
 
-## Is Flink CDC Actually Simpler?
-To address the complexity of this architecture, the community introduced "**Flink CDC**".
+- You already operate Flink
+- You want CDC capture and Iceberg writes in one Flink pipeline
+- Your team is comfortable with Flink SQL, checkpoints, savepoints, and state backends
+- You need transformations that fit naturally in Flink
 
-The promise of Flink CDC is tempting. Instead of running Debezium and Kafka and Flink, what if you just run Flink?
+Flink CDC still means operating Flink. Large snapshots, checkpoint tuning, savepoints, RocksDB state, schema changes, and Iceberg sink behavior need engineering attention.
 
-Flink CDC bypasses Kafka entirely. It embeds Debezium directly inside the Flink job as a source connector. Flink connects directly to the database binlogs, reads the data, and writes it directly to the target.
+The real question is not "Can Flink CDC write to Iceberg?" It can. The better question is: "Should Flink be the operational center of this replication pipeline?"
 
-On the surface, this sounds like a perfect solution. You only have one system to manage: Flink.
+## Alternative 2: Direct CDC to Iceberg with BladePipe
 
-But is it actually simpler? Not necessarily.
+For straightforward database-to-Iceberg replication, direct CDC can remove unnecessary infrastructure.
 
-+ **JVM Tuning Still Exists:** You are still running Apache Flink. You still need to tune task managers, job managers, and memory pools.
-+ **State Backend Management:** Flink CDC uses RocksDB to store its state (like the database snapshot progress). If you have large tables, your RocksDB state can grow to hundreds of gigabytes. Managing RocksDB on Kubernetes is notoriously difficult.
-+ **Checkpointing Nightmares:** If Flink CDC tries to run an initial snapshot on a 500GB table, it has to store that progress in a checkpoint. If the checkpoint times out, the entire job restarts from the beginning.
-+ **Schema Evolution Handling:** If someone adds a column to your PostgreSQL table, Flink CDC can struggle. Often, the job fails, and you have to manually restart it from a savepoint with an updated schema.
+In this model:
 
-Flink CDC removed Kafka from the architecture diagram, but it did not remove the operational complexity of distributed stream processing. You just moved the complexity entirely into Flink.
+```text
+Source database
+  -> CDC engine
+  -> Iceberg catalog + object storage
+```
 
-## A Simpler Path: The Integrated Pipeline
-So, if the Holy Trinity is too complex, and Flink CDC is still too operationally heavy, what is the alternative?
+![Direct CDC pipeline from operational databases to Apache Iceberg](../assets/blog/data_insights/iceberg_cdc_pipeline/2.png)
 
-What if we stopped trying to use generic streaming engines for data replication? This is where the industry is heading: **Integrated [CDC](https://www.bladepipe.com/blog/data_insights/change_data_capture_cdc/)**. Tools in this category, like **[BladePipe](https://www.bladepipe.com/)**, collapse the entire CDC, buffering, and loading process into a single, specialized engine. 
+[BladePipe](https://www.bladepipe.com/) follows this integrated approach. It handles CDC reading, initial full load, incremental sync, schema migration, DDL synchronization, buffering, writing, monitoring, and recovery in one platform.
 
-![](../assets/blog/data_insights/iceberg_cdc_pipeline/2.png)
-
-Let's look at how a unified architecture like BladePipe replaces the heavy stack component by component.
-
-### Instead of Debezium
-Debezium is a powerful tool, but it requires a lot of hand-holding. It runs on Java, and it requires Kafka Connect.
-
-A unified platform like BladePipe uses an integrated, high-performance CDC reader that handles initial snapshots and incremental sync in one go. It doesn't require complex connector configurations or massive memory footprints. It just reads the changes efficiently and passes them along.
-
-
-### Instead of Kafka
-Kafka is incredible for decoupling microservices. But for CDC pipelines, it is often just an incredibly expensive, over-engineered buffer.
-
-Instead of running a dedicated Kafka cluster just to hold your CDC data for five minutes, BladePipe  handles the buffering internally. It manages the queue between the reader and the writer without requiring a separate distributed broker.
-
-### Instead of Flink
-Flink is built for complex stateful logic: joining streams, computing five-minute sliding windows, and handling late-arriving data.
-
-If your goal is just to replicate raw tables to Iceberg, you do not need Flink, which brings RocksDB state backends and complex checkpointing configurations.
-
-A unified tool like BladePipe replaces Flink with a streamlined writer. It takes the changes from the source and applies them to the target. For data lakes like Iceberg, it natively handles batching and compaction to prevent the "small file problem" without requiring you to write custom Flink SQL jobs. It manages schema evolution out-of-the-box. If a column is added to the source, the target table is updated automatically.
-
-Furthermore, BladePipe gives you full flexibility by seamlessly supporting various catalogs and storage backends for Iceberg:
+For Iceberg targets, BladePipe supports common catalog and storage combinations, including:
 
 - AWS Glue + AWS S3
 - Nessie + MinIO / AWS S3
 - REST Catalog + MinIO / AWS S3
 
-## Quick Comparison
-Let's look at what your life looks like before and after switching from the Debezium-Kafka-Flink stack to a unified architecture like BladePipe.
+See [Add an Iceberg DataSource](/docs/dataMigrationAndSync/datasource_func/Iceberg/props_for_iceberg_ds/) for the target configuration details.
 
-| **Feature** | **Kafka + Flink + Debezium** | **Flink CDC** | **BladePipe** |
-| --- | --- | --- | --- |
-| **Infra Components** | 4-5 Clusters (Kafka, ZK, Connect, Flink, Registry) | 1 Cluster (Flink) | 1 Worker Process (Single-engine) |
-| **Setup Time** | **Weeks.** Requires deep YAML/SQL config & infra provisioning. | **Days.** Requires writing Flink SQL or Java/Scala jobs. | **5 Minutes** via UI |
-| **Small File Problem** | **High Risk.** Requires manual tuning of Flink checkpoints & compaction. | **Moderate.** Requires careful sink tuning to avoid metadata bloat. | **Low.** Automatically batches writes/commits for Iceberg efficiency. |
-| **Schema Evolution** | **Brittle.** Requires manual intervention | **Manual/Restart.** Most DDL changes require job restarts or manual DDL. | **Automated.** Propagates DDL (Add/Drop/Modify) without downtime. |
-| **End-to-End Latency** | **Seconds to Minutes** (multiple hops & buffers) | **Sub-second** (single hop) | **Sub-second.** Direct source-to-target path. |
-| **Debugging** | **Difficult.** Must check logs across 3+ different systems to find lag. | **Complex.** Requires deep knowledge of Flink UI and state backends. | **One-Stop.** End-to-end observability in a single dashboard. |
+This model fits when:
 
+- You mainly need to replicate database tables into Iceberg
+- You do not need Kafka fan-out for many independent consumers
+- You do not need complex stateful stream processing
+- You want fewer moving parts to monitor and upgrade
+- You need schema handling, retry, and recovery without building custom orchestration
 
-## Trade-offs: When to use which stack?
-I am not saying that you should never use Kafka, Debezium or Flink. They are incredibly powerful tools. But like all tools in engineering, it is about trade-offs.
+For concrete examples, see [MySQL to Apache Iceberg Sync](../tech_share/mysql_iceberg_sync.md) and [SQL Server to Apache Iceberg](../tech_share/sql_server_to_apache_iceberg.md).
 
-**When should you use the Debezium + Kafka + Flink stack?**
+## Architecture Comparison
 
-+ **Complex Stream Processing:** If you need to join a MySQL stream with a Postgres stream in-flight before the data reaches Iceberg, you need Flink.
-+ **Extreme Scale**: If you are processing tens of millions of events per second, the decoupling of Kafka provides necessary isolation.
-+ **Massive Fan-out:** If fifty different teams need to read the exact same database changes simultaneously, a Kafka topic is the best way to distribute that data without killing your source database.
+| Architecture | Best For | Strengths | Watch Outs |
+| :--- | :--- | :--- | :--- |
+| Debezium + Kafka + Flink + Iceberg | Large streaming platforms with multiple consumers and complex processing | Durable replay, fan-out, flexible stream processing | Highest operational complexity; multiple systems to tune |
+| Flink CDC direct to Iceberg | Teams already comfortable with Flink | Fewer components than Kafka-based architecture; strong transformation layer | Still requires Flink operations, checkpoint tuning, and state management |
+| Direct CDC tool to Iceberg | Database-to-lakehouse replication and analytics ingestion | Simpler operations, faster setup, integrated monitoring and recovery | Less suitable if Kafka topics are the product or many teams need independent replay |
+| Batch ETL + periodic MERGE | Low-freshness analytics workloads | Simple when hourly or daily freshness is enough | Higher latency; repeated scans; delete handling can be incomplete |
 
-**When should you use a Unified Platform (like BladePipe)?**
+## When Kafka and Flink Are Worth It
 
-+ **Data Warehouse / Data Lake Replication:** If your primary goal is simply to land raw data into Iceberg, Snowflake or Hudi for analytics.
-+ **Database Migration:** If you are migrating from on-premise PostgreSQL to Iceberg in Databricks and need zero-downtime replication.
-+ **Small/Medium Data Teams:** If you do not have the engineering bandwidth to dedicate two full-time engineers to maintaining Kafka and Flink clusters.
-+ **Simplicity and Speed:** If you value getting pipelines to production in minutes rather than weeks.
+Kafka and Flink make sense when your requirements justify them.
 
-## Final Thoughts
-We engineers love building complex systems. There is a certain satisfaction in connecting Debezium to Kafka, writing a clever Flink job, and watching the data flow.
+Use the classic stack when:
 
-But our goal isn't to build complex systems. Our goal is to deliver data, fast and cheaply.
+- Many downstream teams need to consume the same CDC stream independently
+- You need replay and long retention as a core product capability
+- The pipeline performs joins, enrichment, aggregations, or routing before Iceberg
+- You already have mature Kafka and Flink operations
+- Your event volume is high enough to benefit from independent scaling across components
 
-If you’re tired of managing Kafka clusters just to move some rows, it’s time to look at integrated tools. **BladePipe** offers [a free community version](https://www.bladepipe.com/pricing/) that you can spin up in a Docker container to see just how simple a sub-second Iceberg pipeline can actually be.
+For a broader decision framework, see [Do You Really Need Kafka?](./do_you_really_need_kafka.md).
+
+## When a Simpler Iceberg CDC Pipeline Is Enough
+
+Direct CDC often fits analytics lakehouses.
+
+Choose a simpler architecture when:
+
+- The main goal is to keep Iceberg tables fresh
+- Source tables map mostly one-to-one to Iceberg tables
+- Transformations are light or can happen after ingestion
+- You want initial load plus incremental CDC in one workflow
+- Your team wants lower operational overhead than Kafka + Flink + Debezium
+
+Kafka and Flink are not bad choices. Choose them for their strengths, not because every CDC architecture has to look like a streaming platform.
+
+## Iceberg CDC Best Practices
+
+### Start with Tables That Have Primary Keys
+
+CDC works best when each source table has a stable primary key. This makes upserts and deletes much safer.
+
+### Separate Raw Landing from Curated Tables
+
+For complex analytics, consider landing CDC changes into raw Iceberg tables first, then creating curated tables with Spark, Flink, Trino, or another transformation layer.
+
+### Control Commit Frequency
+
+Lower latency is useful, but extremely frequent commits can create too many small files and snapshots. Tune batch size and commit frequency based on query needs, not only ingestion speed.
+
+### Schedule Iceberg Maintenance
+
+Plan compaction, snapshot expiration, and orphan file removal as part of the pipeline design.
+
+### Test Deletes and Schema Changes
+
+Before production, test inserts, updates, deletes, column additions, type changes, restarts, and checkpoint replay. CDC bugs often show up in edge cases, not in the first load.
+
+### Keep Query Engines in Mind
+
+Iceberg is an open table format, but feature support varies by engine and version. Verify how your chosen query engine handles row-level deletes, MERGE, schema evolution, and metadata planning.
+
+For table-format trade-offs, see [Iceberg vs Delta Lake vs Paimon](./iceberg_vs_deltalake_vs_paimon.md).
+
+## FAQ
+
+### What is an Iceberg CDC pipeline?
+
+An Iceberg CDC pipeline captures row-level changes from a source database and applies them to Apache Iceberg tables. It includes an initial snapshot followed by incremental CDC from database logs.
+
+### Does Apache Iceberg support CDC?
+
+Iceberg can store the results of CDC pipelines through row-level inserts, updates, deletes, and merge operations when supported by the writing engine. The CDC capture and delivery logic still comes from tools such as Debezium, Flink CDC, Spark jobs, or a dedicated CDC platform.
+
+### How are updates and deletes written to Iceberg?
+
+Updates are commonly applied as upserts or `MERGE INTO` operations based on a primary key or identifier fields. Deletes may be written as row-level delete files or handled through file rewrites, depending on the engine, table format version, and sink behavior.
+
+### Do I need Kafka for Iceberg CDC?
+
+Not always. Kafka is useful when you need replay, fan-out, retention, and independent consumers. If your main goal is database-to-Iceberg replication, a direct CDC pipeline can be simpler. Flink is also optional unless you need streaming transformations, stateful processing, or a Flink-native CDC pipeline.
+
+### What causes small files in Iceberg CDC pipelines?
+
+Small files usually come from frequent low-latency commits, many small update/delete events, high partition cardinality, or poorly tuned streaming sinks. Compaction and commit tuning are important for keeping Iceberg query performance healthy.

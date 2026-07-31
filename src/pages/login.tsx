@@ -12,6 +12,8 @@ import { useConstantStore } from '@site/src/store/constant';
 import CloudCanalLoginForm from '@site/src/components/LoginForms/CloudCanalLoginForm';
 import BladepipeLoginForm from '@site/src/components/LoginForms/BladepipeLoginForm';
 import CloudDmLoginForm from '@site/src/components/LoginForms/CloudDmLoginForm';
+import MfaLoginStep from '@site/src/components/LoginForms/MfaLoginStep';
+import { useUserStore } from '@site/src/store/user';
 
 interface SsoLoginButtonsProps {
   ssoTypes: Record<string, string>;
@@ -112,13 +114,20 @@ export default function Login() {
   const { siteConfig, i18n } = useDocusaurusContext();
   const siteBrand = siteConfig.customFields?.siteBrand;
 
-  const [checkPolicy, setCheckPolicy] = useState(true);
+  const [checkPolicy, setCheckPolicy] = useState(false);
   const [warnCheckPolicy, setWarnCheckPolicy] = useState(false);
 
   const [publicKey, setPublicKey] = useState<string>('');
   const [googleLoading, setGoogleLoading] = useState(false);
   const [wechatLoading, setWechatLoading] = useState(false);
   const [dingtalkLoading, setDingtalkLoading] = useState(false);
+  const [showMfa, setShowMfa] = useState(false);
+  const [mfaPreActionToken, setMfaPreActionToken] = useState('');
+  const [mfaLoading, setMfaLoading] = useState(false);
+  const [mfaError, setMfaError] = useState('');
+
+  const loginMfaValid = useUserStore((state) => state.loginMfaValid);
+  const finishLoginRedirect = useUserStore((state) => state.finishLoginRedirect);
 
   const ssoTypesObj = useConstantStore((state) => state.ssoTypes);
   const fetchSsoType = useConstantStore((state) => state.ssoType);
@@ -152,6 +161,42 @@ export default function Login() {
   );
 
   const externalLoading = googleLoading || wechatLoading || dingtalkLoading;
+
+  const handleNeedMfa = useCallback((token: string) => {
+    setMfaPreActionToken(token);
+    setMfaError('');
+    setShowMfa(true);
+  }, []);
+
+  const handleMfaBack = useCallback(() => {
+    setShowMfa(false);
+    setMfaPreActionToken('');
+    setMfaError('');
+  }, []);
+
+  const handleMfaSubmit = useCallback(
+    async (mfaCode: string) => {
+      if (!mfaPreActionToken) return;
+      setMfaLoading(true);
+      setMfaError('');
+      try {
+        const res: any = await loginMfaValid({
+          mfaCode,
+          mfaPreActionToken,
+        });
+        if (res?.success) {
+          finishLoginRedirect();
+          return;
+        }
+        setMfaError(res?.msg || translate({ id: 'login.error.failed', message: 'Login failed' }));
+      } catch (error) {
+        setMfaError(translate({ id: 'login.error.failed', message: 'Login failed' }));
+      } finally {
+        setMfaLoading(false);
+      }
+    },
+    [finishLoginRedirect, loginMfaValid, mfaPreActionToken]
+  );
 
   const SelectedLoginForm = useMemo(() => {
     if (siteBrand === 'bladepipe') return BladepipeLoginForm;
@@ -221,24 +266,37 @@ export default function Login() {
           </div>
 
           <div className="w-full h-auto flex flex-col gap-[28px] justify-start items-start">
-            <SsoLoginButtons
-              ssoTypes={ssoTypesObj || {}}
-              googleLoading={googleLoading}
-              wechatLoading={wechatLoading}
-              dingtalkLoading={dingtalkLoading}
-              setGoogleLoading={setGoogleLoading}
-              setWechatLoading={setWechatLoading}
-              setDingtalkLoading={setDingtalkLoading}
-            />
+            {!showMfa && siteBrand !== 'clouddm' && (
+              <SsoLoginButtons
+                ssoTypes={ssoTypesObj || {}}
+                googleLoading={googleLoading}
+                wechatLoading={wechatLoading}
+                dingtalkLoading={dingtalkLoading}
+                setGoogleLoading={setGoogleLoading}
+                setWechatLoading={setWechatLoading}
+                setDingtalkLoading={setDingtalkLoading}
+              />
+            )}
 
             <div className="w-full h-auto flex flex-col gap-[32px] justify-start items-center">
-              <SelectedLoginForm
-                checkPolicy={checkPolicy}
-                onPolicyWarning={() => setWarnCheckPolicy(true)}
-                encryptPassword={encryptPassword}
-                externalLoading={externalLoading}
-              />
+              {showMfa ? (
+                <MfaLoginStep
+                  loading={mfaLoading}
+                  errorMessage={mfaError}
+                  onSubmit={handleMfaSubmit}
+                  onBack={handleMfaBack}
+                />
+              ) : (
+                <SelectedLoginForm
+                  checkPolicy={checkPolicy}
+                  onPolicyWarning={() => setWarnCheckPolicy(true)}
+                  encryptPassword={encryptPassword}
+                  externalLoading={externalLoading}
+                  onNeedMfa={handleNeedMfa}
+                />
+              )}
 
+              {!showMfa && (
               <div className="w-full h-auto flex flex-col gap-[16px] justify-start items-start">
                 <div className="w-full h-auto flex flex-col sm:flex-row sm:justify-between items-start gap-2 sm:gap-0">
                   <p className="text-[14px] leading-[20px] text-black">
@@ -286,6 +344,7 @@ export default function Login() {
                   </div>
                 </div>
               </div>
+              )}
             </div>
           </div>
         </div>

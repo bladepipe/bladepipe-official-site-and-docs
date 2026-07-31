@@ -6,7 +6,10 @@ import { loginCheckAndRedirect } from '@site/src/utils';
 import { isUserLogin } from '@site/src/store/user';
 import { listDownloadProduct } from '@site/src/apis/constant';
 import DownloadModal from './DownloadModal';
-import CommunityInstallModal from './CommunityInstallModal';
+import CommunityInstallModal, {
+  normalizeCommunityInstallInitialTab,
+  type CommunityInstallInitialTab
+} from './CommunityInstallModal';
 import { trackCommunityEditionDownload } from '@site/src/utils/analytics';
 import { Tabs } from 'antd';
 
@@ -42,7 +45,7 @@ export default function Banner() {
     return () => clearInterval(timer);
   }, []);
 
-  const [communityModalInitialTab, setCommunityModalInitialTab] = useState<string>('docker');
+  const [communityModalInitialTab, setCommunityModalInitialTab] = useState<CommunityInstallInitialTab>('docker');
 
   // 检查是否需要打开下载弹窗（登录后回跳的情况）
   useEffect(() => {
@@ -55,8 +58,13 @@ export default function Banner() {
     const communityModalVisible = localStorage.getItem('openCommunityDownloadModal');
     if (communityModalVisible === 'true' && isUserLogin()) {
       localStorage.removeItem('openCommunityDownloadModal');
-      // 自动触发下载社区版的逻辑，切换到 binary tab
-      setCommunityModalInitialTab('binary');
+      const communityDownloadInitialTab = normalizeCommunityInstallInitialTab(
+        localStorage.getItem('communityDownloadInitialTab'),
+        'binary'
+      );
+      localStorage.removeItem('communityDownloadInitialTab');
+      // 自动触发下载社区版的逻辑，切换到上次选择的下载方式
+      setCommunityModalInitialTab(communityDownloadInitialTab);
       setCommunityModalVisible(true);
     }
   }, []);
@@ -200,4 +208,3 @@ export default function Banner() {
     </section>
   );
 }
-
