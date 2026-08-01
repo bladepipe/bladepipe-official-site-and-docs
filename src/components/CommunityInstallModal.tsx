@@ -21,11 +21,14 @@ export const normalizeCommunityInstallInitialTab = (
   return fallback;
 };
 
-const resolveInitialInstallView = (initialTab: CommunityInstallInitialTab): {
+const resolveInitialInstallView = (
+  initialTab: CommunityInstallInitialTab,
+  supportsDockerPackage = true
+): {
   activeTab: InstallTab;
   dockerInstallMethod: DockerInstallMethod;
 } => {
-  if (initialTab === 'dockerPackage') {
+  if (initialTab === 'dockerPackage' && supportsDockerPackage) {
     return {
       activeTab: 'docker',
       dockerInstallMethod: 'binary'
@@ -47,7 +50,8 @@ export interface CommunityInstallModalProps {
 export default function CommunityInstallModal({ visible, onClose, initialTab = 'docker' }: CommunityInstallModalProps) {
   const { siteConfig } = useDocusaurusContext();
   const siteBrand = siteConfig.customFields?.siteBrand as string;
-  const initialInstallView = resolveInitialInstallView(initialTab);
+  const supportsDockerPackage = siteBrand === 'clougence';
+  const initialInstallView = resolveInitialInstallView(initialTab, supportsDockerPackage);
   const [activeTab, setActiveTab] = useState<InstallTab>(initialInstallView.activeTab);
   const [dockerInstallMethod, setDockerInstallMethod] = useState<DockerInstallMethod>(initialInstallView.dockerInstallMethod);
   const [copiedTab, setCopiedTab] = useState<string | null>(null);
@@ -63,11 +67,11 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
   // 当弹窗打开且 initialTab 变化时，切换到指定的 tab
   useEffect(() => {
     if (visible) {
-      const nextInstallView = resolveInitialInstallView(initialTab);
+      const nextInstallView = resolveInitialInstallView(initialTab, supportsDockerPackage);
       setActiveTab(nextInstallView.activeTab);
       setDockerInstallMethod(nextInstallView.dockerInstallMethod);
     }
-  }, [visible, initialTab]);
+  }, [visible, initialTab, supportsDockerPackage]);
 
   // 弹窗打开时获取最新版本：clougence => CloudCanal；BladePipe => BladePipe
   useEffect(() => {
@@ -312,7 +316,7 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
             />
           ) : (
             <>
-              {activeTab === 'docker' && (
+              {activeTab === 'docker' && supportsDockerPackage && (
                 <div className='flex justify-center mb-[18px]'>
                   <div className='inline-flex rounded-[8px] border border-black/10 overflow-hidden' style={{ borderStyle: 'solid', borderWidth: '1px' }}>
                     <button
@@ -502,7 +506,7 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
           )}
           
           {/* Binary Package Tab 内容 */}
-            {activeTab === 'docker' && dockerInstallMethod === 'binary' && (
+            {activeTab === 'docker' && dockerInstallMethod === 'binary' && supportsDockerPackage && (
               <>
                 <div className='flex gap-[24px] justify-center mb-[30px] flex-wrap min-h-[224px]'>
                   {dockerPackageProducts.map((item) => (
@@ -543,11 +547,14 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
               <div className="mt-[16px] text-left text-[14px] text-black">
                 <Translate id='banner.moreInfoPrefix'>Get more information: </Translate>
                 <span
-                  className="text-[#0087c7] hover:text-[#0070a6] underline cursor-pointer"
-                  onClick={() => {
-                    window.open('/docs/quick/quick_start', '_blank');
-                  }}
-                >
+                    className="text-[#0087c7] hover:text-[#0070a6] underline cursor-pointer"
+                    onClick={() => {
+                      const dockerPackageQuickStartUrl = siteBrand === 'clougence'
+                        ? 'https://www.clougence.com/docs/productOP/docker/install_linux_macos'
+                        : '/docs/quick/quick_start';
+                      window.open(dockerPackageQuickStartUrl, '_blank');
+                    }}
+                  >
                   <Translate id='banner.quickStartLink'>Quick Start</Translate>
                 </span>
                 <span className="mx-[6px] text-black/40 select-none">|</span>
