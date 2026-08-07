@@ -45,7 +45,11 @@ For On-Premise deployments, BladePipe provides [Community, Enterprise Trial, and
 3. Click **Proceed to Payment**.
 4. In the License list, click **View** to check the license.
 5. In the **View the License** dialog, click **Get Email Code** and enter the verification code.
-6. Click **Copy** to copy your license.
+6. Once verified, the license is sent to your account email. Check your inbox to get it.
+
+   :::info
+   If the email does not arrive, check your spam folder first. If your account email is wrong, click **Update email** in the dialog, verify the new mailbox, and request the license again.
+   :::
 
 </TabItem>
 <TabItem value="enterprise" label="Enterprise License">
@@ -59,14 +63,18 @@ For On-Premise deployments, BladePipe provides [Community, Enterprise Trial, and
 3. Click **Proceed to Payment**.
 4. In the License list, click **View** to check the license. 
 5. In the **View the License** dialog, click **Get Email Code** and enter the verification code.
-6. Click **Copy** to copy your license.
+6. Once verified, the license is sent to your account email. Check your inbox to get it.
+
+   :::info
+   If the email does not arrive, check your spam folder first. If your account email is wrong, click **Update email** in the dialog, verify the new mailbox, and request the license again.
+   :::
 
 </TabItem>
 </Tabs>
 
 ## Activate BladePipe
 
-1. Return to your BladePipe Console.
+1. Copy the license from the email and return to your BladePipe Console.
 2. In the **Deployment Details** dialog, paste your copied license into the **Enter License** box, and click **Activate Now**.    
 If your BladePipe deployment is already activated, click **Reactivate** to open the **Enter License** dialog.
    

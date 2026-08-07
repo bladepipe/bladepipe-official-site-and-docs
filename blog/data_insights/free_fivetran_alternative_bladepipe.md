@@ -1,7 +1,7 @@
 ---
 id: free_fivetran_alternative_bladepipe
-description: Fivetran too expensive? Switch to BladePipe-a free, self-hosted Fivetran alternative with transparent pricing and CDC. No hidden fees, no billing surprises. Deploy via Docker, K8s, or binary-no credit card required.
-title: Free Self-Hosted Fivetran Alternative:BladePipe
+description: BladePipe is a free self-hosted Fivetran alternative for CDC and database replication, with transparent pricing, Docker, Kubernetes, and binary deployment options.
+title: "Free Self-Hosted Fivetran Alternative: BladePipe"
 date: 2026-02-28
 authors: yuxia 
 tags:
@@ -16,6 +16,8 @@ Over the past year, Fivetran has rolled out multiple pricing updates. In March 2
 Individually, each update is explained as a necessary adjustment to align pricing with infrastructure costs. From a vendor's perspective, that logic holds up.
 
 But for the customers footing the bill, the experience feels very different.
+
+<!-- truncate -->
 
 ## Why Teams Look for a Fivetran Alternative?
 
