@@ -22,7 +22,7 @@ This article keeps it practical: a BladePipe and Airbyte overview (architecture,
 ### What is BladePipe?
 [BladePipe](https://www.bladepipe.com) is a real-time end-to-end data replication tool. Founded in 2019, it’s built for high-throughput, low-latency environments, powering [real-time analytics](https://www.bladepipe.com/real-time-analytics/), [AI applications](https://www.bladepipe.com/ai-rag/), or microservices that require always-fresh data.
 
-The key features include：   
+The key features include:
 - **Real-time replication**, with a latency less than 10 seconds.
 - **End-to-end pipeline** for great reliability and easy maintenance.
 - **One-stop management** of the whole lifecycle from schema evolution to monitoring and alerting.
