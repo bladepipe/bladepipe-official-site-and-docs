@@ -13,6 +13,7 @@ description: BladePipe supports 60+ connectors, like MySQL, PostgreSQL, SQL Serv
 | TiDB                  | 4.x, 5.x, 6.x, 7.x, 8.x                                                                            |
 | PostgreSQL            | 9.0 ~ 9.6, 10, 11, 12, 13, 14, 15, 16, 17                                                          |
 | Greenplum             | 6.x                                                                                                |
+| Cloudberry            | 2.0.0, 2.1.0                                                                                       |
 | Elasticsearch         | 6.8, 6.9, 6.10, 7.x, 8.0 ~ 8.15                                                                    |
 | ClickHouse            | 20.x, 21.x, 22.x, 23.x, 24.0 ~ 24.3                                                                |
 | Kafka                 | 0.7, 0.8, 0.9, 0.10, 0.11, 1.0, 1.1, 2.x, 3.0 ~ 3.8                                                |

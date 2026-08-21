@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FadeInSection from './FadeInSection';
 import Translate from '@docusaurus/Translate';
 import ConnectorRequestModal from './ConnectorRequestModal';
+import ConnectorIcon from './ConnectorIcon';
 
 // 数据源列表，icon 字段与 name 完全一致
 const dataSources = [
@@ -17,6 +18,7 @@ const dataSources = [
   { name: 'RDS for PG', icon: 'RDSforPostgreSQL' },
   { name: 'ADB for PostgreSQL', icon: 'ADBforPG' },
   { name: 'Greenplum', icon: 'Greenplum' },
+  { name: 'Apache Cloudberry', icon: 'Cloudberry', iconImage: '/img/home/logo/cloudberry.svg' },
   { name: 'RabbitMQ', icon: 'RabbitMQ' },
   { name: 'TiDB', icon: 'TiDB' },
   { name: 'PolarDb for MySQL', icon: 'PolarDbMySQL' },
@@ -137,9 +139,12 @@ const DataSourceList: React.FC = () => {
                     className="flex flex-col items-center justify-center mx-3 sm:mx-4 lg:mx-6 first:ml-0 last:mr-0"
                   >
                     <div className="w-12 h-12 sm:w-14 lg:w-[84px] sm:h-14 lg:h-[84px] rounded-full bg-white border border-solid border-gray-200 shadow-[0_5px_10px_0_rgba(0,0,0,0.07)] flex items-center justify-center">
-                      <svg className="icon-v2 w-6 h-6 sm:w-8 lg:w-10 sm:h-8 lg:h-10" aria-hidden="true">
-                        <use href={`#icon-v2-${item.icon}`} xlinkHref={`#icon-v2-${item.icon}`} />
-                      </svg>
+                      <ConnectorIcon
+                        icon={item.icon}
+                        iconImage={item.iconImage}
+                        name={item.name}
+                        className="w-6 h-6 sm:w-8 lg:w-10 sm:h-8 lg:h-10"
+                      />
                     </div>
                     <div translate="no" className="mt-2 text-[12px] sm:text-[13px] lg:text-[14px] font-medium text-[#26272B] text-center whitespace-nowrap">
                       {item.name}

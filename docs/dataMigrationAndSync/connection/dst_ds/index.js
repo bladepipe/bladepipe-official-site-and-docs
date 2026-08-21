@@ -1,6 +1,6 @@
 import { AuroraForMySQL, MariaDB, MySQL } from "./mysql";
 import { PolarDbForMySQL } from "./polardbmysql";
-import { AnalyticDbForPg, AuroraForPg, Greenplum, PostgreSQL } from "./postgresql";
+import { AnalyticDbForPg, AuroraForPg, Greenplum, PostgreSQL, Cloudberry } from "./postgresql";
 import { OpenGauss } from "./opengauss";
 import { Oracle } from "./oracle";
 import { StarRocks } from "./starrocks";
@@ -43,6 +43,7 @@ export const TargetInfo = {
     'PolarDB-X': PolarDbX,
     PostgreSQL,
     Greenplum,
+    Cloudberry,
     'AnalyticDb for Pg': AnalyticDbForPg,
     'Aurora for Pg': AuroraForPg,
     OpenGauss,

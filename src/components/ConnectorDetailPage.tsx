@@ -12,6 +12,7 @@ import Footer from '@site/src/components/Footer';
 import JsonLd from '@site/src/components/JsonLd';
 import BlogCardGrid from '@site/src/components/BlogCardGrid';
 import CommunityInstallModal from '@site/src/components/CommunityInstallModal';
+import ConnectorIcon from '@site/src/components/ConnectorIcon';
 import { getConnectionLinkData } from '@site/src/data/connectionLinkModules';
 import { getBrandProfile } from '@site/src/utils/structuredData';
 import { normalizeLinkForSiteBrand } from '@site/src/utils/nav';
@@ -780,9 +781,12 @@ export default function ConnectorDetailPage({ slug }: ConnectorDetailPageProps):
                 )}
                 <div className="flex flex-col items-center text-center">
                   <div className="flex h-[88px] w-[88px] items-center justify-center rounded-[22px] border border-solid border-[#dbe7ef] bg-white">
-                    <svg className="icon-v2 h-14 w-14" aria-hidden="true">
-                      <use href={`#icon-v2-${connector.icon}`} xlinkHref={`#icon-v2-${connector.icon}`} />
-                    </svg>
+                    <ConnectorIcon
+                      icon={connector.icon}
+                      iconImage={connector.iconImage}
+                      name={connector.name}
+                      className="h-14 w-14"
+                    />
                   </div>
                   <h2 className="m-0 mt-5 text-[24px] font-bold leading-8 text-black">{connector.name}</h2>
                   <div className="mt-6 grid w-full grid-cols-2 gap-4">
@@ -834,9 +838,12 @@ export default function ConnectorDetailPage({ slug }: ConnectorDetailPageProps):
               <div className="mb-10 rounded-[18px] border border-solid border-[#dbe7ef] bg-white p-7">
                 <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
                   <div className="flex h-[54px] w-[54px] shrink-0 items-center justify-center rounded-[14px] border border-solid border-[#dbe7ef] bg-white">
-                    <svg className="icon-v2 h-8 w-8" aria-hidden="true">
-                      <use href={`#icon-v2-${connector.icon}`} xlinkHref={`#icon-v2-${connector.icon}`} />
-                    </svg>
+                    <ConnectorIcon
+                      icon={connector.icon}
+                      iconImage={connector.iconImage}
+                      name={connector.name}
+                      className="h-8 w-8"
+                    />
                   </div>
                   <div>
                     <h3 className="m-0 text-[24px] font-bold leading-8 text-black">

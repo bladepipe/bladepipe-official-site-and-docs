@@ -358,6 +358,13 @@ const sidebars: SidebarsConfig = {
                 "dataMigrationAndSync/datasource_func/Spanner/privs_for_spanner"
               ]
             },
+            {
+              "type": "category",
+              "label": "Google Ads",
+              "items": [
+                "dataMigrationAndSync/datasource_func/GoogleAds/configure_and_authorize_google_ads"
+              ]
+            },
           ]
         }
       ]

@@ -392,6 +392,13 @@ const sidebars: SidebarsConfig = {
             },
             {
               "type": "category",
+              "label": "Google Ads",
+              "items": [
+                "dataMigrationAndSync/datasource_func/GoogleAds/configure_and_authorize_google_ads"
+              ]
+            },
+            {
+              "type": "category",
               "label": "DynamoDB",
               "items": [
                   "dataMigrationAndSync/datasource_func/DynamoDB/privs_for_dynamodb"

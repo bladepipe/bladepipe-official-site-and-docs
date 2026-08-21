@@ -1,4 +1,4 @@
-import { AnalyticDbForPg, AuroraForPg, Greenplum, PostgreSQL, OpenGauss, PolarDbForPg } from "./postgresql";
+import { AnalyticDbForPg, AuroraForPg, Greenplum, PostgreSQL, OpenGauss, PolarDbForPg, Cloudberry } from "./postgresql";
 import { MySQL, MariaDB, AuroraForMySQL } from "./mysql";
 import { StarRocks } from "./starrocks";
 import { Kafka } from "./kafka";
@@ -20,6 +20,7 @@ export default {
     'AnalyticDb for Pg': AnalyticDbForPg,
     'Aurora for Pg': AuroraForPg,
     Greenplum,
+    Cloudberry,
     OpenGauss,
     'PolarDB for PostgreSQL': PolarDbForPg,
     OceanBase,
