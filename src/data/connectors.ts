@@ -4,6 +4,7 @@ export interface ConnectorDefinition {
   slug: string;
   name: string;
   icon: string;
+  iconImage?: string;
   description: string;
   descriptionI18nKey: string;
   category: string;
@@ -195,6 +196,22 @@ export const CONNECTORS: ConnectorDefinition[] = [
       "Greenplum real-time data synchronization",
       "Greenplum migration with full and incremental data",
       "Greenplum real-time analytics pipelines"
+    ]
+  },
+  {
+    "slug": "apache-cloudberry",
+    "name": "Apache Cloudberry",
+    "icon": "Cloudberry",
+    "iconImage": "/img/home/logo/cloudberry.svg",
+    "description": "Apache Cloudberry is an open-source MPP database designed for large-scale analytics and data warehouse workloads.",
+    "descriptionI18nKey": "connector.datasource.apachecloudberry.description",
+    "category": "Analytics",
+    "supportsSource": false,
+    "supportsTarget": true,
+    "useCases": [
+      "Load data into Apache Cloudberry",
+      "Apache Cloudberry as an analytics or serving destination",
+      "Apache Cloudberry real-time analytics pipelines"
     ]
   },
   {

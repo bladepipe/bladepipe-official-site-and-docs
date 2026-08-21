@@ -1,6 +1,6 @@
 ---
 id: install_on_k8s
-title: 全新安装(K8s Legacy)
+title: 全新安装(K8s 离线安装包)
 description: 本文档主要介绍在 Linux/MacOS 操作系统下，全新安装 CloudCanal Kubernetes 版。
 ---
 import Tabs from '@theme/Tabs';

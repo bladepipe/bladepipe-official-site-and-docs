@@ -4,11 +4,13 @@ import Link from '@docusaurus/Link';
 import siteConfig from '@generated/docusaurus.config';
 import Pagination from './Pagination';
 import { getConnectors } from '@site/src/data/connectors';
+import ConnectorIcon from './ConnectorIcon';
 
 interface DataSourceCardProps {
   slug: string;
   name: string;
   icon: string;
+  iconImage?: string;
   description: string;
   descriptionI18nKey?: string;
   isBusinessOnly?: boolean;
@@ -20,6 +22,7 @@ const DataSourceCard: React.FC<DataSourceCardProps> = ({
   slug,
   name, 
   icon, 
+  iconImage,
   description, 
   descriptionI18nKey,
   isBusinessOnly = false,
@@ -36,9 +39,7 @@ const DataSourceCard: React.FC<DataSourceCardProps> = ({
       <div className="w-full flex justify-between items-start">
         {/* 图标区域 - 白色背景，有阴影 */}
         <div className="w-18 h-18 bg-white rounded-full flex items-center justify-center box-border shadow-[0_5px_10px_0_rgba(0,0,0,0.07)] p-4" style={{ borderStyle: 'solid', borderWidth: '1px', borderColor: 'rgba(0,0,0,0.08)' }}>
-          <svg className="icon-v2 w-8 h-8" aria-hidden="true">
-            <use href={`#icon-v2-${icon}`} xlinkHref={`#icon-v2-${icon}`} />
-          </svg>
+          <ConnectorIcon icon={icon} iconImage={iconImage} name={name} className="w-8 h-8" />
         </div>
         
         {/* Business ONLY 标签 - 包含在卡片内 */}
@@ -150,6 +151,7 @@ const DataSourceCards: React.FC<DataSourceCardsProps> = ({
             slug={source.slug}
             name={source.name}
             icon={source.icon}
+            iconImage={source.iconImage}
             description={source.description}
             descriptionI18nKey={source.descriptionI18nKey}
             isBusinessOnly={source.isBusinessOnly}

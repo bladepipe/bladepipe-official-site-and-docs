@@ -1,6 +1,6 @@
 ---
 id: ha_install_on_k8s
-title: 添加机器(K8s Legacy)
+title: 添加机器(K8s 离线安装包)
 ---
 
 本文档主要介绍如何在 K8s 环境中添加 CloudCanal 节点，达到同步任务高可用目的。

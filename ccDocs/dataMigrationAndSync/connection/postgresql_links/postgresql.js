@@ -280,6 +280,7 @@ const AnalyticDbForPg = PostgreSQL;
 const AuroraForPg = PostgreSQL;
 const OpenGauss = PostgreSQL;
 const PolarDbForPg = PostgreSQL;
+const Cloudberry = PostgreSQL;
 
 export {
     PostgreSQL,
@@ -287,5 +288,6 @@ export {
     Greenplum,
     AnalyticDbForPg,
     OpenGauss,
-    PolarDbForPg
+    PolarDbForPg,
+    Cloudberry
 }

@@ -6,7 +6,7 @@ const PostgreSQL = {
         },
         {
             key: '网络准备',
-            desc: '迁移同步节点（sidecar）可连接 PostgreSQL / Greenplum / AnalyticDB for PostgreSQL / PolarDB for PostgreSQL 标准交互接口（如 5432）'
+            desc: '迁移同步节点（sidecar）可连接 PostgreSQL / Greenplum / Cloudberry / AnalyticDB for PostgreSQL / PolarDB for PostgreSQL 标准交互接口（如 5432）'
         }
     ],
     params: [
@@ -77,10 +77,12 @@ const PostgreSQL = {
 const Greenplum = PostgreSQL;
 const AnalyticDbForPg = PostgreSQL;
 const AuroraForPg = PostgreSQL;
+const Cloudberry = PostgreSQL;
 
 export {
     PostgreSQL,
     Greenplum,
     AnalyticDbForPg,
-    AuroraForPg
+    AuroraForPg,
+    Cloudberry
 }

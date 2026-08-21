@@ -2894,6 +2894,9 @@
   "connector.datasource.greenplum.description": {
     "message": "Greenplum 是一个专为大数据分析和数据仓库应用而设计的大规模并行处理数据库。"
   },
+  "connector.datasource.apachecloudberry.description": {
+    "message": "Apache Cloudberry 是一个开源 MPP 数据库，面向大规模分析和数据仓库负载而设计。"
+  },
   "connector.datasource.rabbitmq.description": {
     "message": "RabbitMQ 是一个功能丰富的消息代理，支持多种消息协议，广泛用于微服务架构。"
   },

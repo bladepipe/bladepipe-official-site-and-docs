@@ -6,7 +6,7 @@ const PostgreSQL = {
         },
         {
             key: 'Port Preparation',
-            desc: 'Allow the migration and sync node (sidecar) to connect to PostgreSQL / Greenplum / AnalyticDB for PostgreSQL / PolarDB for PostgreSQL standard interactive interface (e.g., 5432).'
+            desc: 'Allow the migration and sync node (sidecar) to connect to PostgreSQL / Greenplum / Cloudberry / AnalyticDB for PostgreSQL / PolarDB for PostgreSQL standard interactive interface (e.g., 5432).'
         }
     ],
     params: [
@@ -79,10 +79,12 @@ const PostgreSQL = {
 const Greenplum = PostgreSQL;
 const AnalyticDbForPg = PostgreSQL;
 const AuroraForPg = PostgreSQL;
+const Cloudberry = PostgreSQL;
 
 export {
     PostgreSQL,
     Greenplum,
     AnalyticDbForPg,
-    AuroraForPg
+    AuroraForPg,
+    Cloudberry
 }
