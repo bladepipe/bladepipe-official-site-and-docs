@@ -1,12 +1,12 @@
 ---
-id: rn-bladepipe-2-0-0
-title: BladePipe 2.0.0
-description: BladePipe 2.0.0 adds new pipelines for Google Ads and more, with major improvements to SAP HANA, Oracle and PostgreSQL source CDC performance.
+id: rn-bladepipe-1-10-0
+title: BladePipe 1.10.0
+description: BladePipe 1.10.0 adds new pipelines for Google Ads and more, with major improvements to SAP HANA, Oracle and PostgreSQL source CDC performance.
 
 ---
 Release Date: August 31, 2026
 
-Version: 2.0.0
+Version: 1.10.0
 
 ## Highlights
 
