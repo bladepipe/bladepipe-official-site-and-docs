@@ -13,6 +13,8 @@ image: /img/blog/data_insights/vs_fivetran.png
 
 Fivetran is strongest for managed SaaS-to-warehouse ELT with broad connector coverage. BladePipe is strongest for low-latency CDC, database replication, flexible deployment, and built-in verification.
 
+If you are also evaluating Airbyte, compare the broader [Fivetran vs Airbyte](debezium_vs_airbyte_vs_fivetran_vs_stitch_vs_bladepipe.md) trade-offs across pricing, CDC depth, and operations.
+
 This comparison covers features, pricing models, deployment options, and the use cases where each platform fits best.
 
 <!-- truncate -->

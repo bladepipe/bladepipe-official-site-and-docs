@@ -12,6 +12,8 @@ Choosing between Airbyte and BladePipe usually comes down to one question: are y
 
 Airbyte is a popular choice when you want a broad connector ecosystem and an ELT-first workflow (extract + load first, transform later with SQL/dbt). BladePipe is built for low-latency, end-to-end replication across databases and infrastructure systems—useful when freshness, ordering, and verification matter.
 
+If your shortlist also includes Fivetran, see the broader [Airbyte vs Fivetran comparison](debezium_vs_airbyte_vs_fivetran_vs_stitch_vs_bladepipe.md) in our Debezium, Airbyte, Fivetran, Stitch, and BladePipe guide.
+
 **Quick take:**
 - Choose **Airbyte** if your default is batch ELT, you value connector breadth, and “minutes” latency is fine.
 - Choose **BladePipe** if you need near real-time CDC, stronger schema/ops handling, and built-in verification for correctness.

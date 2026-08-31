@@ -12,6 +12,8 @@ If you're running [Oracle](/connector/oracle/) in production, you've probably fe
 
 [PostgreSQL](/connector/postgresql/) offers a way out. It's open-source, and runs beautifully on every major cloud platform. More and more engineering teams are making the switch.
 
+If you are still comparing target platforms, see this overview of [Oracle database alternatives](../data_insights/oracle_database_alternatives.md) before committing to PostgreSQL.
+
 This guide walks you through everything you need to know to migrate from Oracle to PostgreSQL confidently. We'll cover the key differences between the two databases, the two main migration approaches, and a step-by-step guide for each.
 
 ## Oracle vs. PostgreSQL: Key Differences to Know First
@@ -54,7 +56,7 @@ Now that you know what you're dealing with, the next question is how to actually
 There are two main paths for migrating from Oracle to PostgreSQL, and they serve very different needs.
 
 ### CDC with BladePipe  
-[**BladePipe**](https://www.bladepipe.com/) is an automated migration platform. It connects to your Oracle database, converts the schema to PostgreSQL-compatible DDL, moves your data, and can keep both databases in sync via [Change Data Capture (CDC)](https://www.bladepipe.com/blog/data_insights/change_data_capture_cdc/) while you validate and prepare to cut over. In a UI-driven surface, you can build a robust pipeline in minutes. 
+[**BladePipe**](https://www.bladepipe.com/) is an automated [migration platform](/blog/data_insights/best_data_migration_tools.md). It connects to your Oracle database, converts the schema to PostgreSQL-compatible DDL, moves your data, and can keep both databases in sync via [Change Data Capture (CDC)](https://www.bladepipe.com/blog/data_insights/change_data_capture_cdc/) while you validate and prepare to cut over. In a UI-driven surface, you can build a robust pipeline in minutes.
 
 ### ora2pg-based migration 
 **ora2pg** is a free, open-source migration tool specifically built for Oracle-to-PostgreSQL migrations. 

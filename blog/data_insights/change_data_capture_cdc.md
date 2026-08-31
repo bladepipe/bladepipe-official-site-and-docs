@@ -11,7 +11,7 @@ image: /img/blog/data_insights/change_data_capture_cdc.png
 
 **Change Data Capture (CDC)** is a database technique for capturing row-level changes such as inserts, updates, and deletes, then delivering those changes to downstream systems.
 
-Instead of copying full tables on a schedule, CDC moves only what changed. That makes it useful for real-time analytics, database replication, search indexing, cache synchronization, event-driven applications, and low-downtime migrations.
+Instead of copying full tables on a schedule, CDC moves only what changed. That makes it useful for real-time analytics, database replication, search indexing, cache synchronization, event-driven applications, and [low-downtime migrations](best_data_migration_tools.md).
 
 This article explains how CDC works, compares the main CDC methods, covers delivery guarantees, and links to deeper database-specific CDC guides.
 

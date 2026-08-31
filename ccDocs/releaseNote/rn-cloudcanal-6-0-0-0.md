@@ -8,8 +8,8 @@ title: 6.0.0.0
 
 ## 亮点
 - 开放 **MySQL -> Hologres** 结构迁移/全量迁移/增量同步/数据校验/数据订正/DDL（加列/truncate）
-- 开放 **PostgreSQL -> CloudBerry** 结构迁移/全量迁移/数据同步/数据校验/数据订正/DDL（加列/减列/modify/rename/truncate）
-- 开放 **GreenPlum -> CloudBerry** 结构迁移/全量迁移/数据校验/数据订正
+- 开放 **PostgreSQL -> Apache Cloudberry** 结构迁移/全量迁移/数据同步/数据校验/数据订正/DDL（加列/减列/modify/rename/truncate）
+- 开放 **GreenPlum -> Apache Cloudberry** 结构迁移/全量迁移/数据校验/数据订正
 - 开放 **MySQL / PostgreSQL / Oracle -> Snowflake** 结构迁移/全量迁移/数据同步/数据校验/DDL（加列/减列/modify）
 
 ## 兼容性

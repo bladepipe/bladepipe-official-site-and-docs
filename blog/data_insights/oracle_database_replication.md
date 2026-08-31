@@ -13,6 +13,8 @@ If your core business data still lives in Oracle, you are not alone.
 
 Many teams still rely on Oracle for ERP, CRM, finance, and other critical systems. But the data often needs to go somewhere else too. Maybe your analytics team wants it in Snowflake. Maybe your data team wants it in Kafka. Maybe you need a standby Oracle database for disaster recovery.
 
+If the replication project is part of an Oracle replacement plan, first review the main [Oracle database alternatives](oracle_database_alternatives.md) and how they fit different workloads.
+
 That is where **Oracle database replication** comes in.
 
 In simple terms, Oracle replication keeps Oracle data synchronized with another system, such as another Oracle database, a cloud data warehouse, or a real-time analytics database.

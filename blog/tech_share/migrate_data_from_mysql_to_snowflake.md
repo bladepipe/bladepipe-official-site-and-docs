@@ -15,7 +15,7 @@ Maybe your BI dashboards are timing out. Maybe ad-hoc queries are fighting your 
 
 Snowflake is a natural destination—but **mysql to snowflake migration** is rarely “just move the data”. The hard part is migrating without breaking production, losing changes, or taking a risky downtime window you can’t afford.
 
-This guide compares **4 practical ways to move data from MySQL to Snowflake**, from the simplest one-time approach to **zero-downtime database migration** with continuous replication:
+This guide compares **4 practical ways to move data from MySQL to Snowflake**, from the simplest one-time approach to [**zero-downtime database migration**](/blog/data_insights/best_data_migration_tools.md) with continuous replication:
 
 1. [**Manual export and import** (CSV / SQL dump)](#method-1-manual-export-and-import)
 2. [**Batch ETL pipelines** (scheduled incremental loads)](#method-2-batch-etl-pipelines)

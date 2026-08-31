@@ -20,6 +20,8 @@ If you need to move transactional data from [Oracle](/connector/oracle/) into [K
 
 In this guide, we will look at **2 practical methods** for streaming data from Oracle to Kafka, compare their trade-offs, and walk through a simpler implementation path for production environments.
 
+If Kafka is only one option in a broader Oracle modernization plan, review the main [Oracle database alternatives](../data_insights/oracle_database_alternatives.md) before choosing your target architecture.
+
 ## Why Stream Oracle Data to Kafka?
 
 Oracle often stores critical business data, while [Kafka](../data_insights/do_you_really_need_kafka.md) acts as the event backbone for downstream systems.

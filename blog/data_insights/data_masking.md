@@ -39,7 +39,7 @@ For ETL use cases—migration, replication, testing data preparation—static da
 Data masking becomes essential any time sensitive data needs to cross a trust boundary, which means moving from a secure production system into a less controlled environment, or into the hands of people who shouldn't see the raw values. Here are the most common situations:
 
 ### Regulatory compliance
-Privacy laws like GDPR, HIPAA, CCPA, and PCI-DSS place strict limits on who can access certain categories of data. Sharing unmasked PII or health records with developers, analysts, or third parties can constitute a violation, even when it's accidental. Masking data before it leaves the production environment helps you stay compliant without restricting access to the data entirely.
+Privacy laws like GDPR, HIPAA, CCPA, and PCI-DSS place strict limits on who can access certain categories of data. Sharing unmasked PII or [health records](healthcare_data_integration.md) with developers, analysts, or third parties can constitute a violation, even when it's accidental. Masking data before it leaves the production environment helps you stay compliant without restricting access to the data entirely.
 
 ### Software development and testing
 Developers often need real data to test new features or troubleshoot bugs. But dev environments usually aren’t as secure as production environments. Static masking hides the sensitive parts of the data, so developers can work safely without seeing private info.

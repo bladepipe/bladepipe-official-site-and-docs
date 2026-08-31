@@ -20,12 +20,11 @@ CloudCanal 通过 **Google Ads API** 读取广告报表数据。
 | Customer IDs                     | Google Ads 经理账号（MCC）| 需要同步报表数据的 Google Ads 客户账号 ID 列表。                 |
 | 授权 Google 账号                     | Google OAuth 授权页面 | 必须有权访问 Login Customer ID 对应的经理账号及其管理的 Google 账号。 |
 
-## 步骤 1 - 准备 Google Ads 账号
+## 步骤 1：准备 Google Ads 账号
 
 1. 准备一个 [Google Ads 经理账号](https://developers.google.com/google-ads/api/docs/concepts/account-types)，并将需要同步数据的客户账号关联到该经理账号。
 2. 确认执行 OAuth 授权的 Google 账号有权访问该经理账号及目标客户账号。
-3. 记录 **经理账号客户 ID** 和 **目标客户账号 ID**, 后者可多个。
-   - e.g.,`123-456-7890` 
+3. 记录 **经理账号客户 ID** 和 **目标客户账号 ID**，后者可多个。e.g.,`123-456-7890` 
 
 ### 获取 Ads Developer Token
 
@@ -35,7 +34,7 @@ CloudCanal 通过 **Google Ads API** 读取广告报表数据。
    - Developer Token 的访问级别请参考文档 [Google Ads API Developer Token](https://developers.google.com/google-ads/api/docs/api-policy/developer-token)。
    - 一个 Google Cloud 项目只能与一个 Google Ads Developer Token 关联。
 
-## 步骤 2 - 配置 Google Cloud OAuth 应用
+## 步骤 2：配置 Google Cloud OAuth 应用
 
 ### 创建项目并启用 Google Ads API
 
@@ -64,7 +63,7 @@ CloudCanal 通过 **Google Ads API** 读取广告报表数据。
    ```
 4. 创建完成后，记录 **Client ID** 和 **Client Secret**。
 
-## 步骤 3 - 新增 Google Ads 数据源
+## 步骤 3：新增 Google Ads 数据源
 
 1. 登录 CloudCanal 控制台，点击 **数据源管理** > **新增数据源**。
 2. 数据库类型选择 **GoogleAds**。网络地址默认使用 `googleads.googleapis.com`，无需修改。
@@ -88,14 +87,14 @@ CloudCanal 通过 **Google Ads API** 读取广告报表数据。
    - **OAuth Callback Site**：CloudCanal Console 的站点地址，例如 `https://console.example.com`。
 5. 确认窗口中显示的完整 Authorized redirect URI 与 Google Cloud Clients 页面中的配置完全一致，然后保存并继续新增数据源。
 
-## 步骤 4 - 完成 API 授权
+## 步骤 4：完成 API 授权
 
 1. 返回 **数据源管理** 列表，找到刚创建的 GoogleAds 数据源。
 2. 点击操作列中的 **API 授权**，在弹窗中再次点击 **API 授权**。
 3. 页面跳转到 Google 后，选择有权访问经理账号和目标客户账号的 Google 账号。
 4. 查看授权范围并允许访问。授权完成后，页面会自动返回 CloudCanal 数据源列表，并显示授权成功。
 
-## 步骤 5 - 验证授权
+## 步骤 5：验证授权
 
-1. 创建同步任务并选择该 GoogleAds 数据源后，点击 **测试连接**。测试成功表示数据源已保存有效的 OAuth 授权信息，可以继续选择同步对象。
-   - 如果提示数据源尚未完成授权，请返回 **数据源管理** 列表，点击该数据源的 **API 授权**。
+1. 创建同步任务并选择该 GoogleAds 数据源后，点击 **测试连接**。测试成功表示数据源已保存有效的 OAuth 授权信息，可以继续选择同步对象。      
+  如果提示数据源尚未完成授权，请返回 **数据源管理** 列表，点击该数据源的 **API 授权**。
