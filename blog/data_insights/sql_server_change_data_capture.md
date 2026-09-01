@@ -13,6 +13,8 @@ SQL Server CDC is one of those features many teams know exists, but fewer really
 
 In this guide, we’ll walk through how Change Data Capture (CDC) works in SQL Server, where it shines, and where it starts to hurt.
 
+If your goal is a one-time move or production cutover rather than an ongoing CDC pipeline, start with the broader [SQL Server database migration guide](sql_server_database_migration.md) to compare backup and restore, Azure migration options, ETL, and full-load-plus-CDC methods.
+
 ## What Is CDC and How It Works
 Before diving into SQL Server CDC, we need to understand what is CDC first. 
 
@@ -216,4 +218,3 @@ At scale, teams usually need more than native CDC enablement. They need a reliab
 **Q: What are the limits of native SQL Server CDC?**
 
 The biggest limits are schema evolution, initial load orchestration, monitoring complexity, and the lack of built-in transformation or end-to-end pipeline management. Native CDC is strong for capturing changes, but weaker as a full production data movement solution.
-

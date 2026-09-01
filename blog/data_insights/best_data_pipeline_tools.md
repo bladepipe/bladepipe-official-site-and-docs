@@ -392,7 +392,7 @@ Talend is less trendy than some modern SaaS tools, but large regulated organizat
 - hybrid deployment
 - enterprise integration breadth
 
-The platform is **powerful**, though often heavier operationally than modern cloud-native alternatives.
+The platform is **powerful**, though often heavier operationally than modern [Talend alternatives](top_7_talend_alternatives.md).
 
 This is a recurring pattern in enterprise tooling: flexibility and compatibility often increase alongside complexity.
 

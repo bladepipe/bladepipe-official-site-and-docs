@@ -9,8 +9,8 @@ Version: 1.6.0
 
 ## Highlights
 - **MySQL / PostgreSQL / Oracle > Snowflake**: schema migration, full migration, incremental sync, data verification, and DDL sync (add column / drop column / modify).
-- **PostgreSQL > CloudBerry**: schema migration, full migration, incremental sync, data verification, data correction, and DDL sync (add column / drop column / modify / rename / truncate).
-- **GreenPlum > CloudBerry**: schema migration, full migration, data verification, and data correction.
+- **PostgreSQL > Apache Cloudberry**: schema migration, full migration, incremental sync, data verification, data correction, and DDL sync (add column / drop column / modify / rename / truncate).
+- **GreenPlum > Apache Cloudberry**: schema migration, full migration, data verification, and data correction.
 - **MySQL > Hologres**: schema migration, full migration, incremental sync, data verification, data correction, and DDL sync (add column/truncate).
 
 ## Compatibility

@@ -173,7 +173,7 @@ That makes it compelling for some Informatica replacement projects, but also mea
 
 ## Why We Did Not Recommend Some Popular Informatica Alternatives
 
-We excluded Fivetran, Talend Data Fabric, Qlik Replicate, IBM DataStage, and Oracle Data Integrator because they bring the same enterprise cost and complexity that most teams looking for alternatives want to leave behind. If you want another enterprise platform, evaluate them. If you want lower TCO, start here.
+We excluded Fivetran, [Talend Data Fabric](top_7_talend_alternatives.md), Qlik Replicate, IBM DataStage, and Oracle Data Integrator because they bring the same enterprise cost and complexity that most teams looking for alternatives want to leave behind. If you want another enterprise platform, evaluate them. If you want lower TCO, start here.
 
 ## Open Source vs Managed: Which Path Lowers TCO?
 

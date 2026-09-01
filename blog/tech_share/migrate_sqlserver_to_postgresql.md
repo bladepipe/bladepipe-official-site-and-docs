@@ -14,6 +14,8 @@ The decision isn't that hard. What’s harder is the migration. Moving data is o
 
 This guide walks you through the real differences, common challenges, how to prepare before migration, and how to migrate step by step with confidence.
 
+For homogeneous moves, Azure targets, and a broader comparison of migration methods, see the [SQL Server database migration guide](../data_insights/sql_server_database_migration.md).
+
 ## Key Takeaways
 + SQL Server and PostgreSQL handle data types, syntax, and stored procedures differently, and these gaps are the main source of migration headaches.
 + You need a solid pre-migration assessment before touching any data.

@@ -13,6 +13,8 @@ When migrating analytical reports and BI workloads **from [Oracle](/connector/or
 
 At its core, these three fears boil down to one thing: **choosing the wrong migration strategy**. If you are experiencing (or worry about) these issues, this article is worth 10 minutes of your time. We compare **4 common Oracle → Snowflake migration approaches** and lay out a practical path that minimizes downtime, enables data validation, and allows rollback.
 
+If you are still deciding whether Snowflake is the right target, compare it with other [Oracle database alternatives](../data_insights/oracle_database_alternatives.md) first.
+
 ## Why Move Analytical Workloads from Oracle to Snowflake?
 
 Why do most teams want to move data from Oracle to Snowflake? Because running analytics and reports on Oracle for a long time leads to **three increasingly painful problems**:

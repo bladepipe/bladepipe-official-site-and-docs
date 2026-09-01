@@ -1,7 +1,7 @@
 ---
 id: oracle_cdc_from_dataguard_standby_database
 description: Learn why teams use Oracle DataGuard standby databases for real-time data replication, and how BladePipe handles archive logs, LogMiner dictionaries, DDL changes, and recovery.
-title: Why More Teams Are Reading Oracle CDC from DataGuard Standby Databases
+title: 'Oracle CDC from a Data Guard Standby: LogMiner, RAC, and Archive Logs'
 date: 2026-06-29
 authors: mumu 
 tags:

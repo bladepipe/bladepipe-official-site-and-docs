@@ -14,6 +14,8 @@ Your Oracle database knows everything that happened. The question is whether the
 
 In this guide, we'll walk through how Oracle CDC works under the hood, compare the most common implementation approaches, and cover the production challenges you'll need to plan for before you go live.
 
+If your CDC project is part of a broader modernization effort, compare the main [Oracle database alternatives](oracle_database_alternatives.md) before choosing a target system.
+
 ## TL;DR
 + Oracle CDC reads from the **redo log**, making it far more efficient and complete than traditional batch ETL, which may miss deletes and introduces data lag.
 + **Supplemental logging must be configured correctly** before you start. It's the most common setup mistake, and getting it wrong silently breaks UPDATE and DELETE tracking.

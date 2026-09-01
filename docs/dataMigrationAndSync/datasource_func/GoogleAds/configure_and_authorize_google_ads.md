@@ -1,6 +1,6 @@
 ---
 id: configure_and_authorize_google_ads
-title: Configure and Authorize a Google Ads DataSource
+title: Preparation for Adding a Google Ads DataSource
 description: This document describes how to configure Google Cloud and Google Ads account information, and authorize a Google Ads source DataSource in BladePipe.
 ---
 
@@ -20,12 +20,11 @@ After creating the DataSource, a Google user with access to the advertising acco
 | Customer IDs | Google Ads manager account (MCC) | The list of Google Ads client account IDs whose report data will be synchronized. |
 | Authorizing Google account | Google OAuth authorization page | Must have access to the manager account specified by the Login Customer ID and its managed client accounts. |
 
-## Step 1 - Prepare Google Ads Accounts
+## Step 1: Prepare Google Ads Accounts
 
 1. Prepare a [Google Ads manager account](https://developers.google.com/google-ads/api/docs/concepts/account-types), and link the client accounts whose data you want to synchronize to the manager account.
 2. Ensure that the Google account used for OAuth authorization can access both the manager account and the target client accounts.
-3. Record the **manager account customer ID** and one or more **target client account IDs**.
-   - Example: `123-456-7890`
+3. Record the **manager account customer ID** and one or more **target client account IDs**. Example: `123-456-7890`
 
 ### Obtain an Ads Developer Token
 
@@ -35,7 +34,7 @@ After creating the DataSource, a Google user with access to the advertising acco
    - For details about Developer Token access levels, see [Google Ads API Developer Token](https://developers.google.com/google-ads/api/docs/api-policy/developer-token).
    - A Google Cloud project can be associated with only one Google Ads Developer Token.
 
-## Step 2 - Configure a Google Cloud OAuth Application
+## Step 2: Configure a Google Cloud OAuth Application
 
 ### Create a Project and Enable the Google Ads API
 
@@ -64,7 +63,7 @@ After creating the DataSource, a Google user with access to the advertising acco
    ```
 4. After creating the client, record its **Client ID** and **Client Secret**.
 
-## Step 3 - Add a Google Ads DataSource
+## Step 3: Add a Google Ads DataSource
 
 1. Sign in to BladePipe Console, and click **DataSource** > **Add DataSource**.
 2. Select **GoogleAds** as the database type. The network address defaults to `googleads.googleapis.com` and does not need to be changed.
@@ -88,14 +87,14 @@ After creating the DataSource, a Google user with access to the advertising acco
    - **OAuth Callback Site**: The BladePipe Console site URL, for example, `https://console.example.com`.
 5. Confirm that the complete Authorized redirect URI displayed in the dialog box exactly matches the value configured on the Google Cloud Clients page. Save the configuration and continue adding the DataSource.
 
-## Step 4 - Complete API Authorization
+## Step 4: Complete API Authorization
 
 1. Return to the **DataSource** list, and locate the newly created GoogleAds DataSource.
 2. Click **API Authorization** in the Operation column, and then click **API Authorization** again in the dialog box.
 3. After the page redirects to Google, select a Google account that can access the manager account and target client accounts.
 4. Review the requested scopes and grant access. After authorization is complete, the page automatically returns to the BladePipe DataSource list and displays a success message.
 
-## Step 5 - Verify Authorization
+## Step 5: Verify Authorization
 
-1. Create a synchronization DataJob, select the GoogleAds DataSource, and click **Test Connection**. If the test succeeds, the DataSource contains valid OAuth authorization information and you can continue selecting objects to synchronize.
-   - If BladePipe reports that the DataSource has not been authorized, return to the **DataSource** list and click **API Authorization** for the DataSource.
+1. Create a synchronization DataJob, select the GoogleAds DataSource, and click **Test Connection**. If the test succeeds, the DataSource contains valid OAuth authorization information and you can continue selecting objects to synchronize.     
+If BladePipe reports that the DataSource has not been authorized, return to the **DataSource** list and click **API Authorization** for the DataSource.

@@ -110,6 +110,7 @@ This enables:
 - Live inventory tracking
 - Immediate operational metrics
 - Streaming KPI updates
+- Fresh operational views for regulated workflows such as [healthcare data integration](healthcare_data_integration.md)
 
 For fast-moving businesses, even a one-hour delay can reduce decision quality. CDC removes that delay and [**keeps data always ready for analytics**](https://www.bladepipe.com/real-time-analytics/).
 

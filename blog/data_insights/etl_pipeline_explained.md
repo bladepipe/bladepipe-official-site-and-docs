@@ -72,7 +72,7 @@ The challenge here is latency. A delay of even a few seconds can cause real prob
 
 ### Legacy Database Migration
 
-This is moving from an older on-premises database (like [Oracle](https://www.bladepipe.com/connector/oracle/) or [SQL Server](https://www.bladepipe.com/connector/sql-server/)) to a modern cloud platform. It usually happens as part of a larger infrastructure modernization.
+This is moving from an older on-premises database (like [Oracle](https://www.bladepipe.com/connector/oracle/) or [SQL Server](https://www.bladepipe.com/connector/sql-server/)) to a modern cloud platform. It usually happens as part of a larger infrastructure modernization, and teams often compare [data migration tools](best_data_migration_tools.md) before choosing a cutover pattern.
 
 The hard part is downtime. You can't take the source system offline for hours while data copies over. The migration has to happen while the system is live, which means continuous replication with a very short final cutover window. Validating that the target data matches the source adds another layer of complexity.
 
