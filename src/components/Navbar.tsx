@@ -192,6 +192,8 @@ export default function Navbar() {
 
     if (pathname === '/' || pathname.startsWith('/product') || pathname.startsWith('/why') || pathname.startsWith('/connector')) {
       setActiveNav('product');
+    } else if (pathname.startsWith('/customer-case')) {
+      setActiveNav('customer-case');
     } else if (pathname.startsWith('/solution')) {
       setActiveNav('solutions');
     } else if (pathname.startsWith('/blog') || pathname.startsWith('/docs')) {
@@ -636,6 +638,20 @@ export default function Navbar() {
               </div>
             </Dropdown>
           </div>
+          {siteBrand === 'clougence' && (
+            <Link
+              to="/customer-case"
+              data-desktop-nav-item
+              data-nav-key="customer-case"
+              className={`no-underline flex-shrink-0 flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full transition-all duration-200 ${activeNav === 'customer-case'
+                  ? 'bg-[#0087c7]/10 px-[20px]'
+                  : 'hover:bg-gray-100'
+                }`}
+              onClick={() => setActiveNav('customer-case')}
+            >
+              <span className="text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#262728]">用户案例</span>
+            </Link>
+          )}
           {/* Resources 下拉 */}
           <div className="flex-shrink-0" data-desktop-nav-item data-nav-key="resources">
             <Dropdown
@@ -1218,6 +1234,17 @@ export default function Navbar() {
                 )}
               </div>
               <div className='h-px bg-black/[0.08] w-full' />
+
+              {siteBrand === 'clougence' && (
+                <>
+                  <Link to="/customer-case" onClick={() => setMobileOpen(false)} className="no-underline">
+                    <div className="flex items-center justify-between px-5 h-[50px] cursor-pointer hover:bg-gray-100">
+                      <span className="text-[16px] font-bold text-[#262728]">用户案例</span>
+                    </div>
+                  </Link>
+                  <div className='h-px bg-black/[0.08] w-full' />
+                </>
+              )}
 
               {/* Resources */}
               <div

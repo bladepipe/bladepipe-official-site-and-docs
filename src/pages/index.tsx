@@ -9,6 +9,7 @@ import Heading from '@theme/Heading';
 import Banner from '@site/src/components/Banner';
 import Navbar from '@site/src/components/Navbar';
 import UserLogos from '@site/src/components/UserLogos';
+import EcosystemPartners from '@site/src/components/EcosystemPartners';
 import BusinessData from '@site/src/components/BusinessData';
 import CompareSection from '../components/CompareSection';
 import ProductFeatures from '@site/src/components/ProductFeatures';
@@ -80,6 +81,7 @@ export default function Home(): ReactNode {
       <FadeInSection><SceneSection /></FadeInSection>
       <FadeInSection><DeployModeSection /></FadeInSection>
       <FadeInSection><UserGuide /></FadeInSection>
+      <FadeInSection><EcosystemPartners /></FadeInSection>
       <FadeInSection><CustomBlog /></FadeInSection>
       <Footer />
     </Layout>

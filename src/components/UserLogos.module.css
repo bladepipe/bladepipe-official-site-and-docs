@@ -1,0 +1,126 @@
+.customerShowcase {
+  padding: 5.5rem 1.5rem;
+  background: #f5f9fc;
+  border-top: 1px solid #e2edf5;
+  border-bottom: 1px solid #e2edf5;
+}
+
+.customerShowcaseInner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.customerShowcaseHeading {
+  max-width: 640px;
+  margin: 0 auto 2.75rem;
+  text-align: center;
+  color: #162b3d;
+}
+
+.customerShowcaseHeading h2 {
+  margin: 0;
+  color: #000;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.customerShowcaseHeading > p:last-child {
+  margin: 1rem 0 0;
+  color: #26272b;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.logoGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.logoCard {
+  display: flex;
+  min-height: 108px;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow: hidden;
+  border: 1px solid #e0eaf1;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: none;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.logoCard:hover {
+  transform: translateY(-4px);
+  border-color: #9ed7f4;
+  box-shadow: 0 10px 20px rgba(18, 83, 124, .08);
+}
+
+.logoCard img {
+  display: block;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.customerShowcaseBladepipe .logoCard:hover {
+  border-color: #b7c9ff;
+}
+
+@media screen and (max-width: 996px) {
+  .customerShowcase {
+    padding: 4.25rem 1.25rem;
+  }
+
+  .logoGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 577px) {
+  .customerShowcaseHeading h2 {
+    font-size: 34px;
+    line-height: 42px;
+  }
+
+  .customerShowcaseHeading > p:last-child {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@media screen and (min-width: 997px) {
+  .customerShowcaseHeading h2 {
+    font-size: 40px;
+    line-height: 50px;
+  }
+
+  .customerShowcaseHeading > p:last-child {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .customerShowcase {
+    padding: 3.5rem 1rem;
+  }
+
+  .customerShowcaseHeading {
+    margin-bottom: 2rem;
+  }
+
+  .logoGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .7rem;
+  }
+
+  .logoCard {
+    min-height: 88px;
+    padding: 1rem;
+  }
+}
