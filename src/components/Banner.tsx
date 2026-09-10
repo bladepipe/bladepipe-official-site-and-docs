@@ -185,17 +185,26 @@ export default function Banner() {
         </div>
         {/* 右侧插画/图片 */}
         <div className='w-full md:w-[714px] h-[200px] md:h-[376px] flex items-center justify-center mt-8 md:mt-0'>
-          <img src={bannerImageSrc} alt={translate({ id: 'banner.image.alt', message: 'Banner Illustration' })} className='w-full h-full object-contain rounded-xl' />
+          <img
+            src={bannerImageSrc}
+            alt={translate({ id: 'banner.image.alt', message: 'Banner Illustration' })}
+            className='w-full h-full object-contain rounded-xl'
+            width={1428}
+            height={754}
+            fetchPriority="high"
+          />
         </div>
       </div>
-      <DownloadModal 
-        visible={downloadModalVisible}
-        onClose={() => setDownloadModalVisible(false)}
-        downloadProducts={downloadProducts}
-      />
+      {downloadModalVisible && (
+        <DownloadModal
+          visible={downloadModalVisible}
+          onClose={() => setDownloadModalVisible(false)}
+          downloadProducts={downloadProducts}
+        />
+      )}
       
       {/* 社区版安装弹窗 - BladePipe 和 CloudCanal */}
-      {(siteBrand === 'bladepipe' || siteBrand === 'clougence') && (
+      {communityModalVisible && (siteBrand === 'bladepipe' || siteBrand === 'clougence') && (
         <CommunityInstallModal
           visible={communityModalVisible}
           onClose={() => {

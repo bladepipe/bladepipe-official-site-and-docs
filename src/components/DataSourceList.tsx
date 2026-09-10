@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import FadeInSection from './FadeInSection';
 import Translate from '@docusaurus/Translate';
 import ConnectorRequestModal from './ConnectorRequestModal';
@@ -93,10 +93,38 @@ const scrollDuration = 60; // 动画时长（秒），可根据实际调整
 
 const DataSourceList: React.FC = () => {
   const [requestModalVisible, setRequestModalVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // The sprite contains every connector icon and is not needed until this
+  // section approaches the viewport. Keeping it out of Docusaurus' global
+  // scripts removes it from the critical request queue on the home page.
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || document.getElementById('datasource-icon-sprite')) return;
+
+    const loadSprite = () => {
+      if (document.getElementById('datasource-icon-sprite')) return;
+      const script = document.createElement('script');
+      script.id = 'datasource-icon-sprite';
+      script.src = '/iconfont/datasource.js';
+      script.async = true;
+      document.body.appendChild(script);
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        loadSprite();
+        observer.disconnect();
+      }
+    }, { rootMargin: '800px 0px' });
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <FadeInSection>
-      <section className="w-full max-w-[1728px] mx-auto py-12 sm:py-16 lg:py-24 flex flex-col items-center gap-8 sm:gap-10 lg:gap-12">
+      <section ref={sectionRef} className="w-full max-w-[1728px] mx-auto py-12 sm:py-16 lg:py-24 flex flex-col items-center gap-8 sm:gap-10 lg:gap-12">
         {/* 标题区 */}
         <div className="flex flex-col items-center gap-2 sm:gap-2.5 lg:gap-3">
           <h2 className="text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-black leading-[36px] sm:leading-[42px] lg:leading-[50px] text-center">

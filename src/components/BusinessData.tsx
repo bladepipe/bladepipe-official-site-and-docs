@@ -64,6 +64,8 @@ export default function BusinessData() {
               alt="business1"
               className="w-full h-full object-contain min-w-[56px] min-h-[56px] md:min-w-[64px] md:min-h-[64px]"
               style={{ display: 'block' }}
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="flex flex-col justify-start items-start ml-2 md:ml-4">
@@ -84,6 +86,8 @@ export default function BusinessData() {
               alt="business2"
               className="w-full h-full object-contain min-w-[48px] min-h-[48px] md:min-w-[60px] md:min-h-[60px]"
               style={{ display: 'block' }}
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="flex flex-col justify-start items-start ml-2 md:ml-4">
@@ -104,6 +108,8 @@ export default function BusinessData() {
               alt="business3"
               className="w-full h-full object-contain min-w-[44px] min-h-[48px] md:min-w-[52px] md:min-h-[58px]"
               style={{ display: 'block' }}
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="flex flex-col justify-start items-start ml-2 md:ml-4">
@@ -116,4 +122,4 @@ export default function BusinessData() {
       </div>
     </section>
   );
-} 
+}

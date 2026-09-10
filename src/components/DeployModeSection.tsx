@@ -64,7 +64,7 @@ const DeployModeSection: React.FC = () => {
             >
               {/* 配图 */}
               <div className="w-full h-[280px] sm:h-[320px] lg:h-[370px] flex items-center justify-center bg-white rounded-t-2xl overflow-hidden">
-                <img src={mode.img} alt={mode.title} className="w-full h-full object-contain" />
+                <img src={mode.img} alt={mode.title} className="w-full h-full object-contain" loading="lazy" decoding="async" />
               </div>
               {/* 内容区 */}
               <div className="flex flex-col gap-4 px-6 sm:px-8 lg:px-10 pt-6 sm:pt-7 lg:pt-8 pb-8 sm:pb-9 lg:pb-10 flex-1">
@@ -72,7 +72,7 @@ const DeployModeSection: React.FC = () => {
                 <ul className="flex flex-col gap-2 mb-6 sm:mb-7 lg:mb-8 list-none p-0 m-0">
                   {mode.highlights.map((h, i) => (
                     <li key={i} className="flex flex-row items-start gap-2 sm:gap-2.5 lg:gap-3 text-[14px] sm:text-[15px] lg:text-[16px] text-[#26272B] font-medium list-none p-0 m-0">
-                      <img src="/img/home/icon/check.svg" alt="check" className="w-[16px] h-[16px] sm:w-[17px] sm:h-[17px] lg:w-[18px] lg:h-[18px] mt-[4px] sm:mt-[4.5px] lg:mt-[5px]" style={{minWidth: '1em'}} />
+                      <img src="/img/home/icon/check.svg" alt="check" className="w-[16px] h-[16px] sm:w-[17px] sm:h-[17px] lg:w-[18px] lg:h-[18px] mt-[4px] sm:mt-[4.5px] lg:mt-[5px]" style={{minWidth: '1em'}} loading="lazy" decoding="async" />
                       {h}
                     </li>
                   ))}

@@ -82,6 +82,8 @@ const SceneSection: React.FC = () => {
             alt="场景示意"
             className="max-w-full h-auto rounded-2xl sm:rounded-2xl lg:rounded-3xl"
             style={{ width: '1084px', maxWidth: '100%' }}
+            loading="lazy"
+            decoding="async"
           />
         </div>
       </div>

@@ -6,6 +6,7 @@
     "docusaurus": "docusaurus",
     "start": "SITE_BRAND=bladepipe docusaurus start",
     "start:clougence": "SITE_BRAND=clougence docusaurus start --config docusaurus.config.clougence.ts --locale zh",
+    "dev:clougence": "SITE_BRAND=clougence docusaurus start --config docusaurus.config.clougence.ts --locale zh",
     "start:dm": "SITE_BRAND=clouddm docusaurus start --config docusaurus.config.dm.ts --locale zh",
     "build": "DEPLOYMENT_ENV=production SITE_BRAND=bladepipe docusaurus build",
     "build:staging": "DEPLOYMENT_ENV=staging SITE_BRAND=bladepipe docusaurus build",

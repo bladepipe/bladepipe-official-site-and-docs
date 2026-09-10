@@ -56,7 +56,7 @@ Now that you know what you're dealing with, the next question is how to actually
 There are two main paths for migrating from Oracle to PostgreSQL, and they serve very different needs.
 
 ### CDC with BladePipe  
-[**BladePipe**](https://www.bladepipe.com/) is an automated [migration platform](/blog/data_insights/best_data_migration_tools.md). It connects to your Oracle database, converts the schema to PostgreSQL-compatible DDL, moves your data, and can keep both databases in sync via [Change Data Capture (CDC)](https://www.bladepipe.com/blog/data_insights/change_data_capture_cdc/) while you validate and prepare to cut over. In a UI-driven surface, you can build a robust pipeline in minutes.
+[**BladePipe**](https://www.bladepipe.com/) is an automated [Oracle to PostgreSQL migration tool](/blog/data_insights/best_oracle_to_postgresql_migration_tools.md). It connects to your Oracle database, converts the schema to PostgreSQL-compatible DDL, moves your data, and can keep both databases in sync via [Change Data Capture (CDC)](https://www.bladepipe.com/blog/data_insights/change_data_capture_cdc/) while you validate and prepare to cut over. In a UI-driven surface, you can build a robust pipeline in minutes.
 
 ### ora2pg-based migration 
 **ora2pg** is a free, open-source migration tool specifically built for Oracle-to-PostgreSQL migrations. 

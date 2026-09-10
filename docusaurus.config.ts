@@ -249,7 +249,6 @@ const config: Config = {
           { src: '/analytics.js' },
         ]
       : []),
-    '/iconfont/datasource.js',
     // 本地预加载 Google Translate 脚本（需将 element.js 放入 static/translate/）
     { src: '/translate/element.js', async: true }
   ],

@@ -487,14 +487,14 @@ const getBlogContext = (siteBrand: string) => {
 
 const getRelatedBlogIds = (connector: Connector) => {
   const slugBlogIds: Record<string, string[]> = {
-    mysql: ['mysql_clickhouse_widetable_sync', 'mysql_starrocks_sync', 'mysql_mysql_sync'],
-    oracle: ['oracle_mysql_sync', 'oracle_starrocks_sync', 'oracle_change_data_capture_optimize'],
-    postgresql: ['postgresql_doris_sync', 'mysql_pg_gp', 'pg_pg_sync'],
-    kafka: ['kafka_base_internet_data_sync', 'kafka_kafka_sync', 'kafka_src_debezium_json_sync'],
-    redis: ['redis_redis_sync', 'redis_big_key_opt', 'redis_two_way_sync_antiloop'],
-    elasticsearch: ['mysql_elasticsearch_sync', 'mysql_elasticsearch_widetable_sync', 'es_sync_detail'],
-    mongodb: ['mongodb_mongodb_sync', 'mongo_atlas_to_documentdb_sync', 'history_data_change_sync'],
-    starrocks: ['mysql_starrocks_sync', 'oracle_starrocks_sync', 'starrocks_dynamic_scan_mode'],
+    mysql: ['mysql_clickhouse_widetable_sync', 'mysql_starrocks_sync', 'mysql_mysql_sync', 'google_ads_to_mysql', 'migrate_data_from_mysql_to_snowflake'],
+    oracle: ['oracle_mysql_sync', 'oracle_starrocks_sync', 'oracle_change_data_capture_optimize', 'oracle_database_replication', 'oracle_change_data_capture', 'oracle_database_alternatives'],
+    postgresql: ['postgresql_doris_sync', 'mysql_pg_gp', 'pg_pg_sync', 'best_oracle_to_postgresql_migration_tools', 'migrate_oracle_to_postgresql'],
+    kafka: ['kafka_base_internet_data_sync', 'kafka_kafka_sync', 'kafka_src_debezium_json_sync', 'kafka_vs_rabbitmq_rocketmq_pulsar', 'stream_data_from_oracle_to_kafka'],
+    redis: ['redis_redis_sync', 'redis_big_key_opt', 'redis_two_way_sync_antiloop', 'mysql_redis_sync'],
+    elasticsearch: ['mysql_elasticsearch_sync', 'mysql_elasticsearch_widetable_sync', 'es_sync_detail', 'sync_mysql_to_elasticsearch'],
+    mongodb: ['mongodb_mongodb_sync', 'mongo_atlas_to_documentdb_sync', 'history_data_change_sync','dynamodb_vs_mongodb', 'kafka_to_mongodb_connector'],
+    starrocks: ['mysql_starrocks_sync', 'oracle_starrocks_sync', 'starrocks_dynamic_scan_mode', 'sync_postgresql_to_starrocks', 'paimon_starrocks_lakehouse'],
     doris: ['postgresql_doris_sync', 'gaussdb_doris_sync', 'dameng_starrocks_sync'],
   };
 
