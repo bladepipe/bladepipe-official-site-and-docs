@@ -66,6 +66,8 @@ export default function ProductFeatures() {
                     src={f.icon} 
                     alt={f.title} 
                     className="w-[40px] h-[40px] sm:w-[48px] sm:h-[48px] md:w-[56px] md:h-[56px] lg:w-[64px] lg:h-[64px] object-contain" 
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-bold leading-[1.27] text-[#131316] font-['Plus Jakarta Sans'] mb-2 sm:mb-2.5 md:mb-3">
@@ -81,4 +83,4 @@ export default function ProductFeatures() {
       </div>
     </section>
   );
-} 
+}

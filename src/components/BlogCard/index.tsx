@@ -41,6 +41,8 @@ export default function BlogCard({
             src={image} 
             alt={title} 
             className={imageClassName}
+            loading="lazy"
+            decoding="async"
           />
         </div>
       </Link>
@@ -93,6 +95,8 @@ export default function BlogCard({
                 src={authorImage} 
                 alt={author}
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
                 onError={(e) => {
                   // 如果图片加载失败，显示首字母
                   e.currentTarget.style.display = 'none';

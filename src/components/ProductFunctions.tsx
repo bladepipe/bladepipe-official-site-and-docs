@@ -188,6 +188,8 @@ export default function ProductFunctions() {
               src={`/img/home/function/${imageMapping[selectedIdx]}.svg`} 
               alt="Product Function Illustration" 
               className="w-full lg:w-auto h-auto lg:h-[201px] object-contain"
+              loading="lazy"
+              decoding="async"
             />
             <div className="flex flex-col justify-center w-full lg:min-w-[320px] items-start">
               <div className="text-[20px] sm:text-[24px] lg:text-[28px] font-bold leading-[28px] sm:leading-[32px] lg:leading-[36px] text-black font-['Plus Jakarta Sans'] mb-4 sm:mb-5 lg:mb-6 text-left w-full">
@@ -197,7 +199,7 @@ export default function ProductFunctions() {
                 {detailDesc[selectedIdx].map((desc, i) => (
                   <React.Fragment key={i}>
                     <li className="text-[13px] sm:text-[14px] lg:text-[15px] font-normal leading-[20px] sm:leading-[22px] lg:leading-[24px] text-[#262728] font-['Plus Jakarta Sans'] flex items-start text-left">
-                      <img src="/img/home/icon/check.svg" alt="check" className="w-[1em] h-[1em] sm:w-[1.1em] sm:h-[1.1em] lg:w-[1.2em] lg:h-[1.2em] mr-2 mt-[4px] sm:mt-[5px] lg:mt-[6px] flex-shrink-0" style={{minWidth: '1em'}} />
+                      <img src="/img/home/icon/check.svg" alt="check" className="w-[1em] h-[1em] sm:w-[1.1em] sm:h-[1.1em] lg:w-[1.2em] lg:h-[1.2em] mr-2 mt-[4px] sm:mt-[5px] lg:mt-[6px] flex-shrink-0" style={{minWidth: '1em'}} loading="lazy" decoding="async" />
                       <span className="text-left">{desc}</span>
                     </li>
                     <div className="w-full h-px bg-[rgba(0,0,0,0.1)]" />
@@ -210,4 +212,4 @@ export default function ProductFunctions() {
       </div>
     </section>
   );
-} 
+}

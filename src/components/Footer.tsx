@@ -138,9 +138,9 @@ export default function Footer() {
             {/* logo 占位，可替换为实际 logo */}
             {siteBrand === 'bladepipe' && (
               <div className="flex flex-row items-center gap-3 md:gap-5 mt-2">
-                <a href="https://trust.bladepipe.com/" target="_blank"><img src="/img/home/certifications/gdpr.svg" alt="GDPR" className="h-[36px] md:h-[50px] w-auto" /></a>
-                <a href="https://trust.bladepipe.com/" target="_blank"><img src="/img/home/certifications/iso27001 1.svg" alt="ISO27001" className="h-[36px] md:h-[50px] w-auto" /></a>
-                <a href="https://trust.bladepipe.com/" target="_blank"><img src="/img/home/certifications/soc2 2 1.svg" alt="SOC2" className="h-[36px] md:h-[50px] w-auto" /></a>
+                <a href="https://trust.bladepipe.com/" target="_blank"><img src="/img/home/certifications/gdpr.svg" alt="GDPR" className="h-[36px] md:h-[50px] w-auto" loading="lazy" decoding="async" /></a>
+                <a href="https://trust.bladepipe.com/" target="_blank"><img src="/img/home/certifications/iso27001 1.svg" alt="ISO27001" className="h-[36px] md:h-[50px] w-auto" loading="lazy" decoding="async" /></a>
+                <a href="https://trust.bladepipe.com/" target="_blank"><img src="/img/home/certifications/soc2 2 1.svg" alt="SOC2" className="h-[36px] md:h-[50px] w-auto" loading="lazy" decoding="async" /></a>
               </div>
             )}
             {/* 社交图标 */}

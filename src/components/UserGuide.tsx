@@ -3,14 +3,14 @@ import Translate from '@docusaurus/Translate';
 import { getCloudUrl } from '@site/src/utils/api';
 import { isUserLogin } from '@site/src/store/user';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import CommunityInstallModal from './CommunityInstallModal';
+import CommunityInstallModal, { type CommunityInstallInitialTab } from './CommunityInstallModal';
 import { trackCommunityEditionDownload } from '@site/src/utils/analytics';
 
 export default function UserGuide() {
   const [offsetY, setOffsetY] = useState(0);
   const [section, setSection] = useState(false);
   const [communityModalVisible, setCommunityModalVisible] = useState(false);
-  const [communityModalInitialTab, setCommunityModalInitialTab] = useState<string>('docker');
+  const [communityModalInitialTab, setCommunityModalInitialTab] = useState<CommunityInstallInitialTab>('docker');
   const sectionRef = useRef(null);
   const startScrollY = useRef<number | null>(null);
   const startOffset = 500;
@@ -79,7 +79,7 @@ export default function UserGuide() {
       <div
         className='absolute inset-0 w-full h-full z-0 pointer-events-none'
         style={{
-          backgroundImage: 'url(/img/home/guideBack.svg)',
+          backgroundImage: section ? 'url(/img/home/guideBack.svg)' : 'none',
           backgroundRepeat: 'repeat',
           backgroundSize: 'cover',
           backgroundPosition: 'bottom',
@@ -93,7 +93,7 @@ export default function UserGuide() {
       <div
         className='absolute inset-0 w-full h-full z-0 pointer-events-none'
         style={{
-          backgroundImage: 'url(/img/home/guideBack.svg)',
+          backgroundImage: section ? 'url(/img/home/guideBack.svg)' : 'none',
           backgroundRepeat: 'repeat',
           backgroundSize: 'cover',
           backgroundPosition: 'bottom',
@@ -143,7 +143,7 @@ export default function UserGuide() {
         </div>
       </div>
 
-      {(siteBrand === 'bladepipe' || siteBrand === 'clougence') && (
+      {communityModalVisible && (siteBrand === 'bladepipe' || siteBrand === 'clougence') && (
         <CommunityInstallModal
           visible={communityModalVisible}
           onClose={() => {

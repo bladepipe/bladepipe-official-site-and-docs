@@ -9,7 +9,7 @@ interface ConnectorIconProps {
 
 const ConnectorIcon: React.FC<ConnectorIconProps> = ({ icon, iconImage, className, name }) => {
   if (iconImage) {
-    return <img src={iconImage} alt={name ? `${name} logo` : ''} className={`${className} object-contain`} />;
+    return <img src={iconImage} alt={name ? `${name} logo` : ''} className={`${className} object-contain`} loading="lazy" decoding="async" />;
   }
 
   return (
