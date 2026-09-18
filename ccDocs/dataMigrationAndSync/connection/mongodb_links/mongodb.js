@@ -9,6 +9,10 @@ export const MongoDB = {
             desc: '支持 <b>INSERT</b>、<b>UPDATE</b>、<b>DELETE</b> 同步 <br />'
         },
         {
+            key: '双向同步',
+            desc: '支持 MongoDB 到 MongoDB 双向同步防循环，文档：[MongoDB 双向数据同步](../../../bestPractice/mongodb_loop_data_sync)'
+        },
+        {
             key: '数据校验和订正',
             desc: '全量数据校验，并可选根据校验结果订正差异数据，支持定时，文档：[创建定时校验订正任务](../../../operation/job_manage/create_job/create_verification_correction_job)'
         },
