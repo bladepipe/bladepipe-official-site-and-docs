@@ -22,6 +22,10 @@ export const MongoDB = {
             key: '账号权限',
             desc: '文档：[MongoDB 需要的权限](../../datasource_func/MongoDB/privs_for_mongo)'
         },
+        {
+            key: '双向同步准备',
+            desc: '文档：[MongoDB 双向同步准备](../../datasource_func/MongoDB/prepare_for_mongodb_bidirectional_sync)'
+        },
     ],
     params: [
         {
@@ -31,6 +35,18 @@ export const MongoDB = {
         {
             key: 'changeStreamBatchSize',
             desc: '配置 MongoDB Change Stream 每一批拉取变更事件的最大条数'
+        },
+        {
+            key: 'deCycle',
+            desc: '是否开启双向同步防循环，默认关闭'
+        },
+        {
+            key: 'deCycleCollection',
+            desc: '存储防循环事务 marker 的 collection，默认 cloudcanal.__cc_tx_de_cycle'
+        },
+        {
+            key: 'deCycleTransactionCacheSize',
+            desc: '双向同步事务判断的本地 LRU 缓存数量，默认 10000；缓存淘汰后会回查持久化 marker'
         },
         {
             key: 'oplogCollection',

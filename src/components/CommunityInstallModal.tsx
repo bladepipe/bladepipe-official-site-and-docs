@@ -5,6 +5,12 @@ import { Modal } from '@site/src/hooks/useModal';
 import { getDownloadUrl } from '@site/src/apis/download';
 import apis from '@site/src/apis';
 import { isUserLogin } from '../store/user';
+import {
+  trackCommunityEditionInstallCommandCopy,
+  trackCommunityEditionDownload,
+  type CommunityEditionInstallMethod,
+  type CommunityEditionDownloadMethod,
+} from '@site/src/utils/analytics';
 
 type InstallTab = 'docker' | 'k8s' | 'binary';
 type DockerInstallMethod = 'command' | 'binary';
@@ -58,6 +64,8 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
   const [downloadInfo, setDownloadInfo] = useState<any>(null);
   const [downloadLoading, setDownloadLoading] = useState(false);
   const [showDownloadInfo, setShowDownloadInfo] = useState(false);
+  const [downloadProductType, setDownloadProductType] = useState<string | null>(null);
+  const [downloadMethod, setDownloadMethod] = useState<CommunityEditionDownloadMethod | null>(null);
   const [latestProductVer, setLatestProductVer] = useState<string | null>(null);
   const downloadLoadingRef = useRef(false);
   
@@ -93,10 +101,13 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
   }, [visible, productName]);
 
   // 复制代码功能
-  const handleCopyCode = async (code: string, tabKey: string) => {
+  const handleCopyCode = async (code: string, tabKey: string, method?: CommunityEditionInstallMethod) => {
     try {
       await navigator.clipboard.writeText(code);
       setCopiedTab(tabKey);
+      if (siteBrand === 'bladepipe' && method) {
+        trackCommunityEditionInstallCommandCopy(method);
+      }
       setTimeout(() => setCopiedTab(null), 2000);
     } catch (error) {
       console.error('复制失败', error);
@@ -111,10 +122,16 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
     setCopiedTab(null);
     setDownloadInfo(null);
     setShowDownloadInfo(false);
+    setDownloadProductType(null);
+    setDownloadMethod(null);
     onClose();
   };
 
-  const handlePackageDownload = async (productType: string, loginReturnTab: string) => {
+  const handlePackageDownload = async (
+    productType: string,
+    loginReturnTab: string,
+    method: CommunityEditionDownloadMethod,
+  ) => {
     if (!isUserLogin()) {
       // 设置来源标识，登录后返回首页并打开下载弹窗
       localStorage.setItem('loginSource', 'download');
@@ -133,6 +150,8 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
     try {
       downloadLoadingRef.current = true;
       setDownloadLoading(true);
+      setDownloadProductType(productType);
+      setDownloadMethod(method);
       const params = {
         productVersionType: 'COMMUNITY_VERSION',
         productType
@@ -152,12 +171,12 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
   // 处理 TGZ 下载
   const handleBinaryDownload = async () => {
     const productType = siteBrand === 'clougence' ? 'CloudCanal_Tgz' : 'BladePipe_Tgz';
-    await handlePackageDownload(productType, 'binary');
+    await handlePackageDownload(productType, 'binary', 'BinaryPackage');
   };
 
   // 处理 Docker 安装包下载
   const handleDockerPackageDownload = async (productType: string) => {
-    await handlePackageDownload(productType, 'dockerPackage');
+    await handlePackageDownload(productType, 'dockerPackage', 'docker');
   };
 
   // 返回产品列表视图
@@ -310,6 +329,9 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
           {showDownloadInfo ? (
             <DownloadInfoView 
               info={downloadInfo} 
+              siteBrand={siteBrand}
+              productType={downloadProductType ?? undefined}
+              downloadMethod={downloadMethod ?? undefined}
               loading={downloadLoading} 
               onBack={handleBackToProducts}
               onClose={handleClose}
@@ -397,7 +419,7 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
                       className='absolute top-[10px] right-[10px] w-[16px] h-[16px] flex items-center justify-center cursor-pointer'
                       onClick={(e) => {
                         e.stopPropagation();
-                        handleCopyCode(dockerInstallCommand, 'docker');
+                        handleCopyCode(dockerInstallCommand, 'docker', 'docker');
                       }}
                       title={translate({ id: 'banner.copy', message: 'Copy' })}>
                       {copiedTab === 'docker' ? (
@@ -461,7 +483,7 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
                   className='absolute top-[10px] right-[10px] w-[16px] h-[16px] flex items-center justify-center cursor-pointer'
                   onClick={(e) => {
                     e.stopPropagation();
-                    handleCopyCode(k8sInstallCommand, 'k8s');
+                    handleCopyCode(k8sInstallCommand, 'k8s', 'k8s');
                   }}
                   title={translate({ id: 'banner.copy', message: 'Copy' })}>
                   {copiedTab === 'k8s' ? (
@@ -657,11 +679,17 @@ export default function CommunityInstallModal({ visible, onClose, initialTab = '
 // 下载信息视图组件
 function DownloadInfoView({ 
   info, 
+  siteBrand,
+  productType,
+  downloadMethod,
   loading, 
   onBack, 
   onClose,
 }: { 
   info: any; 
+  siteBrand?: string;
+  productType?: string;
+  downloadMethod?: CommunityEditionDownloadMethod;
   loading?: boolean; 
   onBack: () => void;
   onClose: () => void;
@@ -824,15 +852,23 @@ function DownloadInfoView({
           className='flex-1 h-[40px] bg-[#0087c7] rounded-[8px] flex items-center justify-center text-white text-[16px] font-bold hover:bg-[#0070a6] transition-colors'
           style={{ border: 'none', outline: 'none' }}
           onClick={() => {
-            if (url) {
-              const link = document.createElement('a');
-              link.href = url;
-              const linkArr = url.split('/');
-              link.setAttribute('download', linkArr[linkArr.length - 1]);
-              document.body.appendChild(link);
-              link.click();
-              document.body.removeChild(link);
+            if (!url) return;
+
+            if (siteBrand === 'bladepipe') {
+              trackCommunityEditionDownload({
+                version,
+                productType,
+                downloadMethod: downloadMethod ?? 'BinaryPackage',
+              });
             }
+
+            const link = document.createElement('a');
+            link.href = url;
+            const linkArr = url.split('/');
+            link.setAttribute('download', linkArr[linkArr.length - 1]);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
           }}>
           <span className='mr-[10px]'>
             <Translate id='downloadModal.directDownload'>Download</Translate>

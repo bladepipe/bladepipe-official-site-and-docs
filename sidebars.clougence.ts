@@ -326,6 +326,7 @@ const sidebars: SidebarsConfig = {
               "label": "MongoDB",
               "items": [
                 "dataMigrationAndSync/datasource_func/MongoDB/privs_for_mongo",
+                "dataMigrationAndSync/datasource_func/MongoDB/prepare_for_mongodb_bidirectional_sync",
                 "dataMigrationAndSync/datasource_func/MongoDB/open_mongodb_heartbeat"
               ]
             },
@@ -561,6 +562,7 @@ const sidebars: SidebarsConfig = {
         "bestPractice/pg_vector_to_rag_api",
         "bestPractice/mysql_loop_data_sync",
         "bestPractice/redis_loop_data_sync",
+        "bestPractice/mongodb_loop_data_sync",
         "bestPractice/opengauss_pg_loop_data_sync",
         "bestPractice/data_gather_use_virtual_cols",
         //"bestPractice/http_internet_data_sync",

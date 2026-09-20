@@ -4,7 +4,7 @@ import { getCloudUrl } from '@site/src/utils/api';
 import { isUserLogin } from '@site/src/store/user';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import CommunityInstallModal, { type CommunityInstallInitialTab } from './CommunityInstallModal';
-import { trackCommunityEditionDownload } from '@site/src/utils/analytics';
+import { trackCommunityEditionDownloadClick } from '@site/src/utils/analytics';
 
 export default function UserGuide() {
   const [offsetY, setOffsetY] = useState(0);
@@ -65,7 +65,7 @@ export default function UserGuide() {
     }
 
     if (siteBrand === 'bladepipe') {
-      trackCommunityEditionDownload();
+      trackCommunityEditionDownloadClick({ entryPoint: 'homepage_user_guide' });
     }
     setCommunityModalInitialTab('docker');
     setCommunityModalVisible(true);

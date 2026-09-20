@@ -12,6 +12,7 @@ import { useConstantStore } from '@site/src/store/constant';
 import CountDownButton from '@site/src/components/CountDownButton';
 import LoginSidebar from '@site/src/components/LoginSidebar';
 import PasswordTooltip from '@site/src/components/PasswordTooltip';
+import { trackBladePipeRegistrationSuccess } from '@site/src/utils/analytics';
 
 export default function Register() {
     const { siteConfig, i18n } = useDocusaurusContext();
@@ -95,6 +96,9 @@ export default function Register() {
             const res: any = await signIn(params);
             setRegisterLoading(false);
             if (res && res.success) {
+                if (siteBrand === 'bladepipe') {
+                    trackBladePipeRegistrationSuccess('password');
+                }
                 message.success(translate({ id: 'register.message.success', message: 'Registration successful' }));
                 window.location.href = siteBrand === 'bladepipe' ? '/login/' : '/login';
             } else {

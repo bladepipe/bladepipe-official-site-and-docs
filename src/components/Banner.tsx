@@ -10,8 +10,8 @@ import CommunityInstallModal, {
   normalizeCommunityInstallInitialTab,
   type CommunityInstallInitialTab
 } from './CommunityInstallModal';
-import { trackCommunityEditionDownload } from '@site/src/utils/analytics';
 import { Tabs } from 'antd';
+import { trackCommunityEditionDownloadClick } from '@site/src/utils/analytics';
 
 export default function Banner() {
   const { siteConfig } = useDocusaurusContext();
@@ -72,9 +72,8 @@ export default function Banner() {
   // Try Cloud Free / Try Community Free 按钮点击逻辑
   const handleTryCloudFree = () => {
     if (siteBrand === 'bladepipe' || siteBrand === 'clougence') {
-      // BladePipe：记录「点击免费社区版」用于谷歌分析
       if (siteBrand === 'bladepipe') {
-        trackCommunityEditionDownload();
+        trackCommunityEditionDownloadClick({ entryPoint: 'homepage_banner' });
       }
       setCommunityModalVisible(true);
     } else {

@@ -7,6 +7,10 @@ export const MongoDB = {
         {
             key: '网络准备',
             desc: '迁移同步节点（sidecar）可连接 MongoDB/DocumentDB 节点'
+        },
+        {
+            key: '双向同步准备',
+            desc: '文档：[MongoDB 双向同步准备](../../datasource_func/MongoDB/prepare_for_mongodb_bidirectional_sync)'
         }
     ],
     params: [
@@ -37,6 +41,18 @@ export const MongoDB = {
         {
             key: 'enableBatchApply',
             desc: '启用批量写入模式 （默认关闭）'
+        },
+        {
+            key: 'deCycle',
+            desc: '是否开启双向同步防循环，默认关闭'
+        },
+        {
+            key: 'deCycleCollection',
+            desc: '存储防循环事务 marker 的 collection，默认 cloudcanal.__cc_tx_de_cycle'
+        },
+        {
+            key: 'deCycleMarkerTtlDays',
+            desc: '双向同步 marker 的保留天数，默认 7 天。应大于任务允许的最大停机、积压和位点回溯时间'
         },
     ]
 }
