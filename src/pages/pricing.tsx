@@ -21,7 +21,7 @@ import CommunityInstallModal, {
 import siteConfig from '@generated/docusaurus.config';
 import { getPageMeta } from '@site/src/utils/meta';
 import { normalizeLinkForSiteBrand } from '@site/src/utils/nav';
-import { trackCommunityEditionDownload } from '@site/src/utils/analytics';
+import { trackCommunityEditionDownloadClick } from '@site/src/utils/analytics';
 
 // 计算云服务价格
 const calculateCloudPrice = (priceMeta?: any, siteBrand?: string) => {
@@ -269,7 +269,7 @@ const PricingCard = ({ plan, onDownloadClick, onCommunityModalOpen, siteBrand })
           } else if (siteBrand === 'bladepipe') {
             if (plan.id === 1) {
               // BladePipe 社区版 - 显示社区版安装弹窗
-              trackCommunityEditionDownload();
+              trackCommunityEditionDownloadClick({ entryPoint: 'pricing' });
               onCommunityModalOpen();
             } else if (plan.id === 2) {
               // BladePipe Cloud 版本 - 开始免费试用

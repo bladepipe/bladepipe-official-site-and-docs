@@ -18,6 +18,7 @@ import { getBrandProfile } from '@site/src/utils/structuredData';
 import { normalizeLinkForSiteBrand } from '@site/src/utils/nav';
 import { slugifyConnectionTarget } from '@site/src/utils/connectionSlug';
 import { getConnectorBySlug, getConnectors, type Connector } from '@site/src/data/connectors';
+import { trackCommunityEditionDownloadClick } from '@site/src/utils/analytics';
 
 interface ConnectorDetailPageProps {
   slug: string;
@@ -614,6 +615,9 @@ export default function ConnectorDetailPage({ slug }: ConnectorDetailPageProps):
     window.location.href = trialHref;
   };
   const handleCommunityClick = () => {
+    if (siteBrand === 'bladepipe') {
+      trackCommunityEditionDownloadClick({ entryPoint: 'connector_detail' });
+    }
     setCommunityModalVisible(true);
   };
   const goToQuickStart = () => {

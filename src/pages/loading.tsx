@@ -10,6 +10,7 @@ import CountDownButton from '@site/src/components/CountDownButton';
 import MfaLoginStep from '@site/src/components/LoginForms/MfaLoginStep';
 import Translate, { translate } from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { trackBladePipeRegistrationSuccess } from '@site/src/utils/analytics';
 
 // 验证码类型常量
 const VERIFY_CODE_TYPE = {
@@ -228,6 +229,9 @@ export default function Loading() {
           return;
         }
         setShowAddPhone(false);
+        if (siteBrand === 'bladepipe') {
+          trackBladePipeRegistrationSuccess('sso');
+        }
         await finishLogin(stateForCC);
       } else {
         message.error(res?.msg || 'Registration failed');

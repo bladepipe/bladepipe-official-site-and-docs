@@ -12,6 +12,7 @@ import LoginSidebar from '@site/src/components/LoginSidebar';
 import Translate, { translate } from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { getPageMeta } from '@site/src/utils/meta';
+import { trackBladePipeRegistrationSuccess } from '@site/src/utils/analytics';
 
 function getAgentId(callback: (hash: string) => void) {
     try {
@@ -126,6 +127,9 @@ export default function RegisterFromMarket() {
                 }
             }
             if (success) {
+                if (siteBrand === 'bladepipe') {
+                    trackBladePipeRegistrationSuccess('marketplace');
+                }
                 message.success('注册成功');
                 history.push(siteBrand === 'bladepipe' ? '/login/' : '/login');
             } else {
