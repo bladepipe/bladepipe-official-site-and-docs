@@ -802,6 +802,7 @@ const sidebars: SidebarsConfig = {
         "faq/solve_db_connect_fail",
         "faq/solve_schedule_task_fail",
         "faq/solve_incre_task_delay",
+        "faq/solve_oracle_long_transaction_position_delay",
         "faq/solve_data_inconsistent",
         "faq/solve_task_communicate_timeout",
         "faq/solve_task_can_not_delete",
