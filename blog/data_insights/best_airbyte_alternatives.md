@@ -216,7 +216,7 @@ Choose Fivetran if you want less hands-on management than Airbyte and can accept
 
 ### 3. Skyvia
 
-[Skyvia](https://skyvia.com/) is a managed no-code data integration platform for ETL, ELT, Reverse ETL, synchronization, migration, and orchestration across 200+ connectors.
+[Skyvia](https://skyvia.com/blog/best-airbyte-alternatives/) is a managed no-code data integration platform for ETL, ELT, Reverse ETL, synchronization, migration, and orchestration across 200+ connectors.
 
 **Best for:**
 
