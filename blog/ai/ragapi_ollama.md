@@ -272,7 +272,7 @@ You can test the RagApi with [CherryStudio](https://cherry-ai.com/), a visual to
 1. Open CherryStudio, click the Settings icon in the bottom left corner.
 2. Under **Model Provider**, search for **OpenAI** and configure:
    - **API Key**: your RagApi key configured in BladePipe
-   - **API Host**: http://localhost:18089
+   - **API Host**: `http://localhost:18089`
    - **Model ID**: BP_RAG
 
 ![](../assets/blog/ai/ragapi_ollama/local_16.png)

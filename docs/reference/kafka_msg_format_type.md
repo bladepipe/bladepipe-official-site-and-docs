@@ -272,7 +272,7 @@ This message type requires data parsing according to the SCHEMA definition of DT
 
 ### Debezium Envelope
 This message type mainly consists of SCHEMA and PAYLOAD, the SCHEMA is the metadata of the data, and the PAYLOAD contains the content that changes the records.  
-Refer to the [Official Debezium documentation]( https://debezium.io/documentation/reference/2.0/connectors/index.html) for details on the SCHEMA definition.
+Refer to the [official Debezium tutorial](https://debezium.io/documentation/reference/stable/tutorial.html) for details on the SCHEMA definition.
 
 Parameter description:
 

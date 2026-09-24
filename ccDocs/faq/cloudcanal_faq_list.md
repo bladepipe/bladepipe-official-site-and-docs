@@ -9,6 +9,7 @@ title: FAQ 索引
 - [数据源测试连接失败](solve_db_connect_fail.md)
 - [对任务分配执行机器失败](solve_schedule_task_fail.md)
 - [增量同步延迟高](solve_incre_task_delay.md)
+- [Oracle 源端长事务导致位点延迟持续增大](solve_oracle_long_transaction_position_delay.md)
 - [源端与目标端数据不一致](solve_data_inconsistent.md)
 - [任务日志显示通信超时](solve_task_communicate_timeout.md)
 - [任务无法删除](solve_task_can_not_delete.md)

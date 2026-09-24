@@ -308,9 +308,9 @@ There are two practical ways to build this pipeline:
 For production use, the real challenge is not only moving data from Kafka to Iceberg. It is keeping the pipeline reliable, observable, and easy to maintain as data volume and schemas change.
 
 Read more:
-- [MySQL to Iceberg](http://localhost:3000/blog/tech_share/mysql_iceberg_sync)
-- [SQL Server to Iceberg](http://localhost:3000/blog/tech_share/sql_server_to_apache_iceberg)
-- [Kafka to Kafka](http://localhost:3000/blog/tech_share/kafka_kafka_sync)
+- [MySQL to Iceberg](./mysql_iceberg_sync.md)
+- [SQL Server to Iceberg](./sql_server_to_apache_iceberg.md)
+- [Kafka to Kafka](./kafka_kafka_sync.md)
 
 ## FAQs
 
@@ -330,4 +330,3 @@ You need to make sure upstream Kafka message changes can be mapped safely to the
 **Q: How do I avoid small files when writing Kafka streams to Iceberg?**
 
 Streaming writes can create many small files if records are committed too frequently. To reduce this problem, tune batch size and commit interval, design partitions carefully, and run regular Iceberg maintenance tasks such as compaction and manifest rewriting.
-

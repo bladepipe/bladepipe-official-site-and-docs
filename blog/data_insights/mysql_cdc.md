@@ -142,7 +142,7 @@ Cons:
 
 - adds write-path overhead
 - increases operational complexity
-- becomes painful across many tables
+- becomes painful across [many tables](regex_sync_tables.md)
 - still requires downstream transport logic
 
 The Estuary reference article highlights the same drawback: triggers can have a noticeable performance impact and still leave you with the job of building the delivery pipeline.
@@ -225,7 +225,7 @@ You can backfill a target system, keep it synchronized with CDC, validate the da
 
 ### Search Index Synchronization
 
-Applications often need product, customer, or catalog data reflected quickly in Elasticsearch or OpenSearch. CDC makes that sync automatic.
+Applications often need product, customer, or catalog data [reflected quickly in Elasticsearch or OpenSearch](../tech_share/sync_mysql_to_elasticsearch.md). CDC makes that sync automatic.
 
 ### Cache Invalidation and Read Models
 

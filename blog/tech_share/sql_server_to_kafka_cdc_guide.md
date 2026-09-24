@@ -186,7 +186,7 @@ EXEC sys.sp_cdc_enable_table
 
 If you encounter any problems that you can't solve, feel free to **get help**:
 
-- [BladePipe documentation](https://bladepipe.com/docs/)
+- [BladePipe documentation](https://www.bladepipe.com/docs/)
 - [Discord chat support](https://discord.com/invite/HMnThuQMup) (response within 10 minutes)
 
 
@@ -194,7 +194,7 @@ If you encounter any problems that you can't solve, feel free to **get help**:
 
 Ready to stream SQL Server data to Kafka without the operational headache?
 
-- [**→ Start your free trial**](https://bladepipe.com/register/)
+- [**→ Start your free trial**](https://www.bladepipe.com/register/)
 - [**→ Request a demo**](https://cal.com/bladepipe-xxypci/30min) — you'll be paired with an experienced data engineer (20+ years in the field) for personalized setup support.
 
 ## FAQs

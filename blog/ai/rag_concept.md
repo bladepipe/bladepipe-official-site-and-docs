@@ -33,7 +33,7 @@ So, it’s like giving your AI access to a private library every time you ask it
 3. **Do a similarity search**: The system finds the most relevant text chunks from the database.
 4. **Feed results to the model**: These chunks are added to the model prompt to help it generate a better answer.
 
-![](../assets/blog/ai/rag_concept/1.png)
+![RAG workflow: retrieve relevant document chunks and send them to an LLM](../assets/blog/ai/rag_concept/1.png)
 
 ### What is a Vector?
 
@@ -56,7 +56,7 @@ Each dimension stands for a feature, and the number at each dimension is like th
 
 Based on the scores for all dimensions, every word or sentence gets a position in a semantic space, like a pin on a multi-dimensional map.
 
-![](../assets/blog/ai/rag_concept/2.png)
+![Semantic vector space illustration for related words](../assets/blog/ai/rag_concept/2.png)
 
 ### How do We Measure Similarity?
 
@@ -102,7 +102,7 @@ The model does this behind the scenes:
 ### Prompt for Weather Query
 To help you understand the principle and process of Function Calling more intuitively, here we have a Prompt template for demonstration. You just need to copy it to [Cherry Studio](https://github.com/CherryHQ/cherry-studio), then you can see how the model analyzes user requests, extracts parameters, and generates tool calling instructions.
 
-![](../assets/blog/ai/rag_concept/3.png)
+![Function-calling prompt template in Cherry Studio](../assets/blog/ai/rag_concept/3.png)
 
 ```json
 {
@@ -271,19 +271,19 @@ To help you understand the principle and process of Function Calling more intuit
 ```
 
 ### Multi-turn Conversation
-![](../assets/blog/ai/rag_concept/4.png)
+![Model asks for the city before calling a weather tool](../assets/blog/ai/rag_concept/4.png)
 
 - The user asks:“What’s the weather like?” Since the user doesn't specify the city, the model cannot call the tool directly. The model should ask the user about the city. 
 
-![](../assets/blog/ai/rag_concept/5.png)
+![User supplies Chicago as the missing weather-query parameter](../assets/blog/ai/rag_concept/5.png)
 
 - The user replies:"Chicago". The model obtains the key information, extracts the parameters and generates tool_calls. The application recognizes requires_tools: true and calls the corresponding tool function according to tool_calls. 
 
-![](../assets/blog/ai/rag_concept/6.png)
+![Model generates a weather-tool call using the supplied city](../assets/blog/ai/rag_concept/6.png)
 
 - After the tool is executed, the results are returned to the model, which then summarizes and responds to the user based on the results. 
 
-![](../assets/blog/ai/rag_concept/7.png)
+![Model returns a natural-language answer after the weather tool responds](../assets/blog/ai/rag_concept/7.png)
 
 
 In this process, the LLM understands the user's intention through natural language: what task to complete and what information is needed. It extracts key parameters from the conversation. The application can then call the function based on these parameters to complete the task and return the execution result to the model, which generates the final response.
@@ -298,7 +298,7 @@ That’s where MCP comes in.
 ### What is MCP?
 **MCP (Model Context Protocol)** is an open standard introduced by Anthropic. It’s designed to help models and tools talk to each other in a more unified, flexible, and scalable way.
 
-![](../assets/blog/ai/rag_concept/8.png)
+![Model Context Protocol architecture connecting an AI model to external tools](../assets/blog/ai/rag_concept/8.png)
 
 MCP allows a model to:
 - Run multi-step tool chains (like: check weather → send email)
@@ -553,11 +553,11 @@ printf '{"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"get_weat
 {"result":{"content":[{"type":"text","text":"Tool weather for California: Tomorrow will be sunny, with a maximum of 59°F and a breeze of 2 mile/h"}]},"jsonrpc":"2.0","id":4}
 ```
 ### Multi-turn Interaction with MCP
-![](../assets/blog/ai/rag_concept/9.png)
+![User asks the MCP-enabled assistant for the weather in California](../assets/blog/ai/rag_concept/9.png)
 
 - A user asks: "What’s the weather in California?"
 
-![](../assets/blog/ai/rag_concept/10.png)
+![Model generates an MCP get_weather tool instruction](../assets/blog/ai/rag_concept/10.png)
 
 - The model knows it should use `get_weather`, and it generates the following instruction:
 ```json
@@ -570,12 +570,12 @@ printf '{"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"get_weat
 ```
 - The user's program passes the instruction to MCP Server. MCP Server runs the tool and sends back the result:
 
-![](../assets/blog/ai/rag_concept/11.png)
+![MCP server returns the weather-tool response to the application](../assets/blog/ai/rag_concept/11.png)
 
 - The user's program extracts the text field, content.text, from result.content, and turns it into a friendly answer: 
 > Tomorrow California will be sunny, with a highest temperature of 59°F and a breeze of 2 mile/h. If you want to know more, just ask.
 
-![](../assets/blog/ai/rag_concept/12.png)
+![Application presents the MCP weather result as a user-friendly answer](../assets/blog/ai/rag_concept/12.png)
 
 
   
@@ -626,7 +626,7 @@ What’s great? It’s designed to be simple, powerful, and non-developer-friend
 ### Workflow
 The API of BladePipe RagApi service exposed to the outside world is in OpenAI API format. RagApi turns your enterprise data into a smart assistant in two main steps:
 
-![](../assets/blog/ai/rag_concept/13.png)
+![BladePipe RagApi workflow from source data to an AI assistant](../assets/blog/ai/rag_concept/13.png)
 
 
 #### DataJob 1: Chunking and Embedding (File → PGVector)
@@ -635,7 +635,7 @@ Enterprise knowledge base includes markdown, txt, databases, internal documents,
 1. **Data Chunking and Embedding**   
 BladePipe automatically processes original documents and generates vectors, which are saved in PostgreSQL using the pgvector extension (e.g. in a column like `__vector`).
 
-![](../assets/blog/ai/rag_concept/14.png)
+![BladePipe DataJob chunks documents and stores embeddings in PGVector](../assets/blog/ai/rag_concept/14.png)
 
 #### DataJob 2: RAG API Building (PGVector → RagApi)
 1. **Query Embedding and Smart Query Tweaks**   
@@ -651,7 +651,7 @@ The created Prompt is fed into the configured Chat model (such as qwq-plus, gpt-
 5. **Call Tools with MCP (Optional)**   
 To do more beyond getting info, we need MCP. With MCP integration, RagApi can use tools to finish tasks(e.g. query GitHub PR status, call the company's API). It supports standardized MCP tools (HTTP or local via stdio). External tools are called via Function Calling, and the model replies with the final output.
 
-![](../assets/blog/ai/rag_concept/15.png)
+![RagApi retrieves vector-search results and can call MCP tools](../assets/blog/ai/rag_concept/15.png)
 
 The specific procedures are shown in the following blogs:
 
@@ -660,7 +660,7 @@ The specific procedures are shown in the following blogs:
 
 After the two DataJobs are running, the RAG service that can **answer industry-specific questions** and **automate tasks based on MCP** is available. The **OpenAI-compatible** RAG API is an enhanced version of the existing LLM APIs, with no need of client code change. 
 
-![](../assets/blog/ai/rag_concept/16.png)
+![RagApi response displayed in Cherry Studio](../assets/blog/ai/rag_concept/16.png)
 
 We can check the performance using [Cherry Studio](https://www.cherry-ai.com/). CherryStudio is compatible with the OpenAI interface, suitable for interface joint debugging, context debugging, and model performance verification.
 
@@ -669,22 +669,22 @@ We can check the performance using [Cherry Studio](https://www.cherry-ai.com/). 
 2. In **Model Provider**, search **Open AI** and configure as follows:
 
 - API Key: Enter the RagApi API Key configured in BladePipe.
-- API Host: http://localhost:18089  
+- API Host: `http://localhost:18089`
 
-![](../assets/blog/ai/rag_concept/17.png)
+![Cherry Studio configuration for the BladePipe RagApi API key and host](../assets/blog/ai/rag_concept/17.png)
 
 - Model Name: BP_RAG
 
-![](../assets/blog/ai/rag_concept/18.png)
+![Cherry Studio model configuration with the BP_RAG model name](../assets/blog/ai/rag_concept/18.png)
 
 3. Go back to the chat page. Click Add assistant > Default Assistant.
 4. Right click Default Assistant > Edit assistant > Model Settings, and select the model added in Step 2.
 
-![](../assets/blog/ai/rag_concept/19.png)
+![Cherry Studio assistant settings with the RagApi model selected](../assets/blog/ai/rag_concept/19.png)
 
 5. Go back to the chat page. Enter `How to create an Incremental DataJob in BladePipe?` RagApi will generate the answer based on the vector search and the LLM.
 
-![](../assets/blog/ai/rag_concept/20.png)
+![RagApi answers a BladePipe DataJob question in Cherry Studio](../assets/blog/ai/rag_concept/20.png)
 
 ### Tool Call (MCP Example)
 If you configure the function of MCP (e.g. web crawling, GitHub query), the model can automate tool calls.
@@ -724,7 +724,7 @@ Follow the steps:
 
 BladePipe **automates multi-turn tool calls through MCP** and **makes a summary**, then returns the final response.
 
-![](../assets/blog/ai/rag_concept/21.png)
+![MCP multi-turn tool-call workflow and final AI response](../assets/blog/ai/rag_concept/21.png)
 
 
 ## Wrapping Up

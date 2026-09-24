@@ -190,7 +190,7 @@ If you want to skip the manual heavy lifting and reduce migration risk, BladePip
 
 It depends heavily on your database size and complexity. A small database with simple schemas can be migrated in a day. A large, complex production database with many stored procedures and heavy data volumes can take several weeks, including testing time.
 
-You can try BladePipe, which can help you [start quickly](http://localhost:3000/docs/quick/quick_start/), usually in minutes.
+You can try BladePipe, which can help you [start quickly](/docs/quick/quick_start/), usually in minutes.
 
 **Q: How do I handle large databases (TB-level)?**
 
