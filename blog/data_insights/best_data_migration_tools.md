@@ -209,7 +209,7 @@ Informatica operates on a consumption-based credit model for its IDMC platform. 
 
 **Overview**
 
-[Skyvia](https://skyvia.com/) is a no-code cloud data integration platform for migrating and integrating data across SaaS applications, databases, files, and cloud data warehouses. It supports 200+ connectors and covers both one-time migration projects and ongoing data workflows, including ETL/ELT, Reverse ETL, replication, synchronization, and advanced data pipelines.
+[Skyvia](https://skyvia.com/blog/data-integration-tools/) is a no-code cloud data integration platform for migrating and integrating data across SaaS applications, databases, files, and cloud data warehouses. It supports 200+ connectors and covers both one-time migration projects and ongoing data workflows, including ETL/ELT, Reverse ETL, replication, synchronization, and advanced data pipelines.
 
 Teams can configure migrations visually, map and transform fields, connect systems with different structures, and schedule recurring loads without maintaining custom migration scripts.
 

@@ -15,7 +15,7 @@ description: CloudCanal 支持的数据源版本支持
 | Greenplum             | 6.x          |
 | Cloudberry             | 2.0.0, 2.1.0            |
 | Elasticsearch         | 6.8, 6.9, 6.10, 7.x, 8.0 ~ 8.15            |
-| ClickHouse            | 20.x, 21.x, 22.x, 23.x, 24.0 ~ 24.3            |
+| ClickHouse            | 23.3 及以上            |
 | Kafka                 | 0.7, 0.8, 0.9, 0.10, 0.11, 1.0, 1.1, 2.x, 3.0 ~ 3.8  |
 | RocketMQ              | 4.x, 5.0 ~ 5.3    |
 | RabbitMQ              | 3.9.x, 3.10.x, 3.11.x, 3.12.x                     |
@@ -62,6 +62,7 @@ description: CloudCanal 支持的数据源版本支持
 
 ## 内容说明
 
+- ClickHouse 目标端建表依赖 `ReplacingMergeTree(_version, _sign)` 语法。该语法自 23.2 引入，CloudCanal 最低支持版本设为 23.3。
 - 支持的版本仅代表 CloudCanal 团队或用户测试、使用过，但并不一定涵盖所有功能或者特性。
 - 支持的版本可用于 CloudCanal 任务源端或者对端，无特定区分。
 - 支持的版本更新有一定的滞后性，如遇到本表格未提及的版本，可做一定的尝试，并欢迎反馈。

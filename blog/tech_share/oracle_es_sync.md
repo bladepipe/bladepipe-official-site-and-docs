@@ -51,7 +51,7 @@ This pattern is usually a strong fit when you need:
 
 ### Step 1: Obtain a Free BladePipe Account 
 
-1. Log in to the [BladePipe Console](https://bladepipe.com/login/) to get a 90-day free SaaS account.
+1. Log in to the [BladePipe Console](https://www.bladepipe.com/login/) to get a 90-day free SaaS account.
 
 ### Step 2: Add DataSources
 

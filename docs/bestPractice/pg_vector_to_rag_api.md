@@ -157,7 +157,7 @@ Besides the command line, RagApi also supports interactive testing through a des
 2. Open Cherry Studio, and click the setting icon in the bottom left corner. 
 3. In **Model Provider**, search `openai` and configure as follows:
     - **API Key**: Enter the RagApi API Key configured in BladePipe. 
-    - **API Host**：http://localhost:18089
+    - **API Host**: `http://localhost:18089`
       
      
     - **Models**: BP_RAG (or any name as you like).

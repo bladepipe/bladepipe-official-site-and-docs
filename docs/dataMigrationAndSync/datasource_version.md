@@ -15,7 +15,7 @@ description: BladePipe supports 60+ connectors, like MySQL, PostgreSQL, SQL Serv
 | Greenplum             | 6.x                                                                                                |
 | Cloudberry            | 2.0.0, 2.1.0                                                                                       |
 | Elasticsearch         | 6.8, 6.9, 6.10, 7.x, 8.0 ~ 8.15                                                                    |
-| ClickHouse            | 20.x, 21.x, 22.x, 23.x, 24.0 ~ 24.3                                                                |
+| ClickHouse            | 23.3 and later                                                                                     |
 | Kafka                 | 0.7, 0.8, 0.9, 0.10, 0.11, 1.0, 1.1, 2.x, 3.0 ~ 3.8                                                |
 | RocketMQ              | 4.x, 5.0 ~ 5.3                                                                                     |
 | RabbitMQ              | 3.9.x, 3.10.x, 3.11.x, 3.12.x                                                                      |
@@ -57,6 +57,7 @@ description: BladePipe supports 60+ connectors, like MySQL, PostgreSQL, SQL Serv
 
 ## Note
 
+- ClickHouse target table creation relies on the `ReplacingMergeTree(_version, _sign)` syntax, which was introduced in 23.2. The minimum version supported by BladePipe is 23.3.
 - Supported versions represent only those tested or used by BladePipe team or users. They may not cover all functions or features.
 - The supported versions are applicable to both Source and Target.
 - There is a certain lag in the supported version updates. If you encounter a version not mentioned in this table, you can try it and welcome feedback.

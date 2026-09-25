@@ -141,7 +141,7 @@ Stop guessing your error messages and fighting schema DDLs. Start building resil
 
 Ready to stop debugging generic errors at 2 AM?
 
-[Start your free trial →](https://bladepipe.com/register/) Replicate your first pipeline in under 5 minutes. No credit card required.
+[Start your free trial →](https://www.bladepipe.com/register/) Replicate your first pipeline in under 5 minutes. No credit card required.
 
 ## FAQs
 

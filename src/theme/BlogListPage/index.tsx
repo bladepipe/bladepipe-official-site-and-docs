@@ -7,9 +7,11 @@ import Footer from '@site/src/components/Footer';
 import Pagination from '@site/src/components/Pagination';
 import { getPageMeta } from '@site/src/utils/meta';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { normalizeLinkForSiteBrand } from '@site/src/utils/nav';
 
 export default function BlogListPage({ metadata, items, sidebar }: Props) {
-  const { i18n } = useDocusaurusContext();
+  const { i18n, siteConfig } = useDocusaurusContext();
+  const siteBrand = siteConfig.customFields?.siteBrand as string | undefined;
   // 日期格式化函数
   const formatDate = (dateString: string | Date) => {
     if (!dateString) return '';
@@ -42,7 +44,7 @@ export default function BlogListPage({ metadata, items, sidebar }: Props) {
       date: formatDate(metadata.date),
       author: firstAuthor ? firstAuthor.name : '',
       authorImage: firstAuthor ? firstAuthor.imageURL : '',
-      permalink: metadata.permalink,
+      permalink: normalizeLinkForSiteBrand(metadata.permalink, siteBrand),
       summary: metadata.description || '',
     };
   });

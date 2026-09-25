@@ -27,6 +27,7 @@ export default function BlogCard({
   tags,
   desc,
 }: BlogCardProps) {
+  const normalizedPermalink = permalink.endsWith('/') ? permalink : `${permalink}/`;
   const imageClassName =
     imageFit === 'contain'
       ? 'w-full h-full object-contain p-3 transition-transform duration-300 group-hover/image:scale-105'
@@ -35,7 +36,7 @@ export default function BlogCard({
   return (
     <div className="block bg-white rounded-xl flex flex-col overflow-hidden w-full max-w-[413px] mx-auto">
       {/* 图片区域 - 240px 高度 */}
-      <Link to={permalink} className="block no-underline">
+      <Link to={normalizedPermalink} className="block no-underline">
         <div className="relative w-full h-[240px] overflow-hidden rounded-t-xl bg-[#F8F9FB] group/image">
           <img 
             src={image} 
@@ -67,7 +68,7 @@ export default function BlogCard({
           {/* 标题和描述区域 */}
           <div className="flex flex-col gap-3">
             {/* 标题区域 */}
-            <Link to={permalink} className="flex items-start justify-between gap-4 group/title no-underline">
+            <Link to={normalizedPermalink} className="flex items-start justify-between gap-4 group/title no-underline">
               <h3 className="text-xl font-bold text-black leading-[30px] flex-1 group-hover/title:text-[#0087C7] group-hover/title:underline transition-colors cursor-pointer h-[60px] line-clamp-2 overflow-hidden">
                 {title}
               </h3>

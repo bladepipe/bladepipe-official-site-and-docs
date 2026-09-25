@@ -1,6 +1,6 @@
 ---
 id: create_period_full_job
-title: Scheduled Full Data Migration
+title: Create a Scheduled Full Data Migration DataJob
 description: Learn how to configure a scheduled full data migration with BladePipe. Build robust ETL pipelines and automate your periodic data synchronization.
 ---
 

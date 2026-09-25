@@ -1,7 +1,7 @@
 ---
 id: alarm_conf
-title: Configure Alert Methods
-description: This page guides you to configure alert notification via Email and IM, so that users can be notified instantly.
+title: Configure On-Premises Alert Methods
+description: Configure Email and IM alert notifications for BladePipe on-premises deployments, including the settings required for DataJob and Worker events.
 ---
 This page describes how to configure different tools to send alert notifications.
 

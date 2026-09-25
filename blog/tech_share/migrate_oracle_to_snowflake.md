@@ -150,4 +150,4 @@ A: Yes, keep it for a few weeks as a safety net. Even after switching reports to
 
 Based on your requirements, use the comparison above to choose a suitable solution. Regardless of which migration path you pick, **start with a single core report as a pilot**: run full load, catch up incremental changes, validate results, then expand.
 
-You can [try BladePipe for free](https://bladepipe.com/register/) – it’s easy to set up. 
+You can [try BladePipe for free](https://www.bladepipe.com/register/) – it’s easy to set up.
