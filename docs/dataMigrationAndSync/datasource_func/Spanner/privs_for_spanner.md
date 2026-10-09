@@ -1,6 +1,6 @@
 ---
 id: privs_for_spanner
-title: Privileges Required for Spanner
+title: Privileges for Spanner Sync
 description: This document describes the account privileges required by BladePipe when Spanner is used as a source or target data source.
 ---
 

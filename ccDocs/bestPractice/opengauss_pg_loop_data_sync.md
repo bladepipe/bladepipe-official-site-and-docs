@@ -47,6 +47,8 @@ create table "your_schema"."__cc_tx_de_cycle" (
 
   ![pg_loop_data_sync_2](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_2.png)
 
+  标记表仅用于识别循环事务，不需要在创建任务时加入业务选表。配置 `deCycleTable` 时，建议填写带 schema 的完整表名，如 `your_schema.__cc_tx_de_cycle`，避免不同 schema 下存在同名表时产生歧义。
+
 ### 创建正向同步任务
 - **任务管理**->**新建任务**
 - 双向同步中，正向任务一般指源端有数据，目标端无数据的链路，涉及对端数据初始化
@@ -60,16 +62,36 @@ create table "your_schema"."__cc_tx_de_cycle" (
 - 点击下一步
 
   ![pg_loop_data_sync_4](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_4.png)
- 
+
 - 选表、列映射裁剪...省略，点击下一步
 - **确认创建**
 - **任务详情** -> **参数设置**
+  
   - 设置源和目标数据源配置 **deCycle** 参数为 true
-  - 设置源和目标数据源配置 **deCycleTable** 参数为标记表，如 `__cc_tx_de_cycle`
+  - 设置源和目标数据源配置 **deCycleTable** 参数为标记表，如 `your_schema.__cc_tx_de_cycle`
   - 生效配置
-  - 启动任务
+  
+- 将源端标记表加入正向任务的 Publication。Publication 名称默认为 `{任务 ID}_increment`，可先执行以下语句确认：
 
-  ![pg_loop_data_sync_5](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_5.png)
+  ```sql
+  SELECT schemaname, tablename
+  FROM pg_publication_tables
+  WHERE pubname = '<正向任务 ID>_increment';
+  ```
+
+  如果查询结果中不包含标记表，执行：
+
+  ```sql
+  ALTER PUBLICATION <正向任务 ID>_increment
+  ADD TABLE "your_schema"."__cc_tx_de_cycle";
+  ```
+
+  :::warning
+  标记表必须加入 Publication，否则 PostgreSQL 不会把标记表的变更发送给 CloudCanal，任务将无法识别并过滤循环事务。
+  :::
+
+- 完成以上配置后启动任务
+
 
 ### 创建反向同步任务
 - **任务管理**->**新建任务**
@@ -88,11 +110,19 @@ create table "your_schema"."__cc_tx_de_cycle" (
 - **确认创建**
 - **任务详情** -> **参数设置**
   - 设置源和目标数据源配置 **deCycle** 参数为 true
-  - 设置源和目标数据源配置 **deCycleTable** 参数为标记表，如 `__cc_tx_de_cycle`
+  - 设置源和目标数据源配置 **deCycleTable** 参数为标记表，如 `your_schema.__cc_tx_de_cycle`
   - 生效配置
-  - 启动任务
 
-  ![pg_loop_data_sync_8](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_8.png)
+- 将源端标记表加入反向任务的 Publication。与正向任务相同，先查询 `<反向任务 ID>_increment`，仅在查询结果不包含标记表时执行：
+
+  ```sql
+  ALTER PUBLICATION <反向任务 ID>_increment
+  ADD TABLE "your_schema"."__cc_tx_de_cycle";
+  ```
+
+  正向、反向任务使用不同的任务 ID，并分别从两端数据库读取增量日志，因此需要在两端数据库中将标记表加入对应任务的 Publication。
+
+- 完成以上配置后启动任务
 
 - 任务正常运行
   ![pg_loop_data_sync_9](https://cloudcanal-blog-img.oss-cn-hangzhou.aliyuncs.com/docs/pg_loop_data_sync/pg_loop_data_sync_9.png)

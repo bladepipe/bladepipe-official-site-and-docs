@@ -1,6 +1,6 @@
 ---
 id: prepare_for_oracle_blob_sync
-title: Oracle BLOB Synchronization
+title: Oracle BLOB Sync
 description: This page describes the required BladePipe task parameters for Oracle BLOB synchronization and the performance impact after BLOB synchronization is enabled.
 ---
 

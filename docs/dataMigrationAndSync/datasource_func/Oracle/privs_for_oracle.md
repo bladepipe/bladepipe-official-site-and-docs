@@ -1,6 +1,6 @@
 ---
 id: privs_for_oracle
-title:  Required Privileges for Oracle
+title: Privileges for Oracle Sync
 description: To replicate data from or to Oracle using BladePipe, an Oracle user needs certain privileges. 
 ---
 

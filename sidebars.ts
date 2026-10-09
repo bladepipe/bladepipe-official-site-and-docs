@@ -247,6 +247,7 @@ const sidebars: SidebarsConfig = {
               "label": "Oracle",
               "items": [
                 "dataMigrationAndSync/datasource_func/Oracle/privs_for_oracle",
+                "dataMigrationAndSync/datasource_func/Oracle/oracle_dg_mode",
                 "dataMigrationAndSync/datasource_func/Oracle/prepare_for_oracle_logminer",
                 "dataMigrationAndSync/datasource_func/Oracle/prepare_for_oracle_blob_sync",
                 "dataMigrationAndSync/datasource_func/Oracle/prepare_for_oracle_olr"

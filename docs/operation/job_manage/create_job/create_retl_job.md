@@ -15,15 +15,23 @@ description: This topic describes how to create a scheduled scan (rETL) sync Dat
 | Source -> Target | Sync Mode | Pre-execution Action (Optional) | Incremental Field<b><sup>1</sup></b> Type |
 | --- | --- | --- | --- |
 | StarRocks -> MySQL | Scheduled Scan | Truncate Target<b><sup>2</sup></b>, Rename and Create<b><sup>3</sup></b> | `DATETIME` |
+| StarRocks -> Kafka | Scheduled Scan | / | `DATETIME` |
 | Doris -> MySQL | Scheduled Scan | Truncate Target, Rename and Create | `DATETIME`, `DATETIMEV2` |
+| Doris -> Oracle | Scheduled Scan | Truncate Target | `DATETIME`, `DATETIMEV2` |
 | Redshift -> MySQL | Scheduled Scan | Truncate Target | `TIMESTAMP` |
+| Hana -> PostgreSQL | Scheduled Scan | Truncate Target | `TIMESTAMP`, `SECONDDATE` |
+| Hana -> MySQL | Scheduled Scan | Truncate Target | `TIMESTAMP`, `SECONDDATE` |
 | PostgreSQL -> Redshift | Scheduled Scan | / | `DATE`, `TIMESTAMP WITHOUT TIME ZONE`, `TIMESTAMP WITH TIME ZONE` |
 | Aurora PostgreSQL -> Redshift | Scheduled Scan | / | `DATE`, `TIMESTAMP WITHOUT TIME ZONE`, `TIMESTAMP WITH TIME ZONE` |
 | SQL Server -> Redshift | Scheduled Scan | / | `DATE`, `DATETIME`, `DATETIME2`, `SMALLDATETIME` |
+| SQL Server -> MySQL | Scheduled Scan | / | `DATE`, `DATETIME`, `DATETIME2`, `SMALLDATETIME` |
+| SQL Server -> Oracle | Scheduled Scan | Truncate Target | `DATE`, `DATETIME`, `DATETIME2`, `SMALLDATETIME` |
 | Iceberg -> MySQL | Scheduled Scan | / | `TIMESTAMP` |
 | Iceberg -> Redshift | Scheduled Scan | / | `TIMESTAMP` |
-| Elasticsearch -> Elasticsearch | Scheduled Scan | Truncate Target | `date` (including timestamp formats), `date_nanos` |
+| Elasticsearch -> Elasticsearch | Scheduled Scan | Truncate Target | `date` (including timestamp formats), `date_nanos`, `CC_TYPE_ES_TIMESTAMP` |
+| Google Ads -> MySQL | Scheduled Scan | Truncate Target | `DATE` |
 | VastBase -> Dameng | Scheduled Scan | Truncate Target | `TIMESTAMP WITH TIME ZONE`, `TIMESTAMP WITHOUT TIME ZONE` |
+| Dameng -> StarRocks | Scheduled Scan | / | `TIMESTAMP` |
 | OssFile -> PostgreSQL | Scheduled Scan | Truncate Target<b><sup>4</sup></b> | / |
 | SshFile -> PostgreSQL | Scheduled Scan | Truncate Target | / |
 | S3File -> PostgreSQL | Scheduled Scan | Truncate Target | / |

@@ -1,6 +1,6 @@
 ---
 id: privs_for_dynamodb
-title: Required Privileges for DynamoDB
+title: Privileges for DynamoDB Sync
 description: IAM permission configurations required by BladePipe when performing data migration or synchronization as a DynamoDB source or target.
 ---
 

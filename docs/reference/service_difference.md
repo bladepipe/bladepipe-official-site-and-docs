@@ -17,7 +17,7 @@ Individual DataJob migrate or synchronize maximum and minimum database scopes (g
 | Oracle | Single Schema | Single Table | Unlimited |
 | SQLServer | Single Schema | Single Table | Unlimited |
 | Db2 | Single Schema | Single Table | Unlimited |
-| PostgreSQL | Multiple Schemas | Single Table | Unlimited |
+| PostgreSQL | Full Data: Single Instance, Incremental: Single Database | Single Table | Unlimited |
 | MongoDB | Multiple Schemas | Single Collection | Unlimited |
 | OceanBase | Multiple Schemas | Single Table | Unlimited |
 | PolarDbX | Multiple Schemas | Single Table | Unlimited |

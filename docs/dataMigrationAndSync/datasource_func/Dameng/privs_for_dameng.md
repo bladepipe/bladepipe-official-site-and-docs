@@ -1,6 +1,6 @@
 ---
 id: privs_for_dameng
-title: Required Privileges for Dameng
+title: Privileges for Dameng Sync
 description: Account permissions required by BladePipe when Dameng is used as a source or target data source for data migration or synchronization.
 ---
 

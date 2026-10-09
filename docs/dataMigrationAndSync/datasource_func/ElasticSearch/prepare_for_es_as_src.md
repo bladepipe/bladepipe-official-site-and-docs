@@ -1,6 +1,6 @@
 ---
 id: prepare_for_es_as_src
-title:  Required Privileges for ElasticSearch CDC
+title: Privileges for ElasticSearch Sync
 description: To replicate data from ElasticSearch via Change Data Capture(CDC) using BladePipe, a ElasticSearch user needs to have certain privileges.
 ---
 

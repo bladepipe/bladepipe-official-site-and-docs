@@ -1,6 +1,6 @@
 ---
 id: privs_for_pg
-title:  Required Privileges for PostgreSQL
+title: Privileges for PostgreSQL Sync
 description: It describes how to enable PostgreSQL heartbeat in Incremental stage when there is no data written to PostgreSQL, so that the latency can be displayed correctly.
 ---
 This article describes the permissions required by BladePipe for database accounts when PostgreSQL is used as the Source or Target DataSource for migrating or synchronizing data.
@@ -73,5 +73,4 @@ This article describes the permissions required by BladePipe for database accoun
 
 ## As the Target
 **Full Data Migration/Incremental Data Synchronization**: The **INSERT**, **UPDATE**, **DELETE**, **DDL** permissions.
-
 
