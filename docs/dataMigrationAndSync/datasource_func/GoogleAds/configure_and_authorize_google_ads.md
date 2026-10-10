@@ -1,6 +1,6 @@
 ---
 id: configure_and_authorize_google_ads
-title: Preparation for Adding a Google Ads DataSource
+title: Add a Google Ads DataSource
 description: This document describes how to configure Google Cloud and Google Ads account information, and authorize a Google Ads source DataSource in BladePipe.
 ---
 

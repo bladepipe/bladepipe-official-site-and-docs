@@ -16,7 +16,7 @@ CloudCanal 任务有时候也叫做链路。
 | Oracle | 单个 Schema | 单个表 |
 | SQL Server | 单个 Schema | 单个表 |
 | Db2 | 单个 Schema | 单个表 |
-| PostgreSQL | 单个实例 | 单个表 |
+| PostgreSQL | 全量单个实例，增量单个 DB | 单个表 |
 | MongoDB | 单个实例 | 单个 Collection |
 | OceanBase | 单个实例 | 单个表 |
 | PolarDB-X | 单个实例 | 单个表 |

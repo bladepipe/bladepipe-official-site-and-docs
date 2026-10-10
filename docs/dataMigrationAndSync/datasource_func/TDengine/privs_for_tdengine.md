@@ -1,6 +1,6 @@
 ---
 id: privs_for_tdengine
-title:  Required Privileges for TDengine
+title: Privileges for TDengine Sync
 description: To migrate or sync data from or to TDengine instances, BladePipe requires certain user privileges to be granted.
 ---
 

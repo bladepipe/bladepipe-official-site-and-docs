@@ -17,15 +17,23 @@ RETL（定时扫描同步）是一种 **按固定周期拉取数据** 并写入�
 | 源端 -> 目标端 | 同步模式 | 执行前动作（可选） | 增量字段<b><sup>1</sup></b>类型 |
 | --- | --- | --- | --- |
 | StarRocks -> MySQL | 定时扫描 | 清空对端<b><sup>2</sup></b>、历史表归档<b><sup>3</sup></b> | `DATETIME` |
+| StarRocks -> Kafka | 定时扫描 | / | `DATETIME` |
 | Doris -> MySQL | 定时扫描 | 清空对端、历史表归档 | `DATETIME`、`DATETIMEV2` |
+| Doris -> Oracle | 定时扫描 | 清空对端 | `DATETIME`、`DATETIMEV2` |
 | Redshift -> MySQL | 定时扫描 | 清空对端 | `TIMESTAMP` |
+| Hana -> PostgreSQL | 定时扫描 | 清空对端 | `TIMESTAMP`、`SECONDDATE` |
+| Hana -> MySQL | 定时扫描 | 清空对端 | `TIMESTAMP`、`SECONDDATE` |
 | PostgreSQL -> Redshift | 定时扫描 | / | `DATE`、`TIMESTAMP WITHOUT TIME ZONE`、`TIMESTAMP WITH TIME ZONE` |
 | Aurora PostgreSQL -> Redshift | 定时扫描 | / | `DATE`、`TIMESTAMP WITHOUT TIME ZONE`、`TIMESTAMP WITH TIME ZONE` |
 | SQL Server -> Redshift | 定时扫描 | / | `DATE`、`DATETIME`、`DATETIME2`、`SMALLDATETIME` |
+| SQL Server -> MySQL | 定时扫描 | / | `DATE`、`DATETIME`、`DATETIME2`、`SMALLDATETIME` |
+| SQL Server -> Oracle | 定时扫描 | 清空对端 | `DATE`、`DATETIME`、`DATETIME2`、`SMALLDATETIME` |
 | Iceberg -> MySQL | 定时扫描 | / | `TIMESTAMP` |
 | Iceberg -> Redshift | 定时扫描 | / | `TIMESTAMP` |
-| Elasticsearch -> Elasticsearch | 定时扫描 | 清空对端 | `date`（含时间戳格式）、`date_nanos` |
+| Elasticsearch -> Elasticsearch | 定时扫描 | 清空对端 | `date`（含时间戳格式）、`date_nanos`、`CC_TYPE_ES_TIMESTAMP` |
+| Google Ads -> MySQL | 定时扫描 | 清空对端 | `DATE` |
 | VastBase -> Dameng | 定时扫描 | 清空对端 | `TIMESTAMP WITH TIME ZONE`、`TIMESTAMP WITHOUT TIME ZONE` |
+| Dameng -> StarRocks | 定时扫描 | / | `TIMESTAMP` |
 | OssFile -> PostgreSQL | 定时扫描 | 清空对端<b><sup>4</sup></b> | / |
 | SshFile -> PostgreSQL | 定时扫描 | 清空对端 | / |
 | S3File -> PostgreSQL | 定时扫描 | 清空对端 | / |

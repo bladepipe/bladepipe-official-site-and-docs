@@ -1,6 +1,6 @@
 ---
 id: privs_for_sqlserver
-title: Required Privileges for SQL Server
+title: Privileges for SQL Server Sync
 description: To migrate and sync data from or to SQL Server in BladePipe, users need to have certain privileges.
 ---
 
@@ -107,4 +107,3 @@ If you already have the db_owner identity for the xxx database, you do not need 
     GRANT UPDATE ON SCHEMA::* TO [bladepipe]
     GRANT DELETE ON SCHEMA::* TO [bladepipe]
     ```
-

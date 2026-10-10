@@ -1,6 +1,6 @@
 ---
 id: sap_hana_ddl
-title: Change Schema in a Source SAP HANA Instance
+title: Change Schema in SAP HANA
 description: To enable schema evolution during trigger-based CDC from SAP HANA in BladePipe, users have to finish the procedures described in the article. 
 ---
 

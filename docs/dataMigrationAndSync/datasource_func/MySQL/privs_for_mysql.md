@@ -1,6 +1,6 @@
 ---
 id: privs_for_mysql
-title:  Required Privileges for MySQL
+title: Privileges for MySQL Sync
 description: To replicate data from or to MySQL using BladePipe, users need certain privileges. 
 ---
 

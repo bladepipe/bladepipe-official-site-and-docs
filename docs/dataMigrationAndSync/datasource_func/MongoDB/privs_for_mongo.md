@@ -1,6 +1,6 @@
 ---
 id: privs_for_mongo
-title:  Required Privileges for MongoDB
+title: Privileges for MongoDB Sync
 description: To migrate or sync data from or to MongoDB instances, BladePipe requires certain user permissions to be granted.
 ---
 

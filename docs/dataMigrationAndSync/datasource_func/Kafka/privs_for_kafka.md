@@ -1,6 +1,6 @@
 ---
 id: privs_for_kafka
-title:  Required Privileges for Kafka
+title: Privileges for Kafka Sync
 description: To integrate data from or to Kafka in BladePipe, users need certain privileges.
 ---
 ### Overview
