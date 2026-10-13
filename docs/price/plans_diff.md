@@ -10,7 +10,7 @@ This page compares the available plans to help you choose the best fit for your 
 
 ## Overview
 
-- **Community**: A free, on-premise deployment with limited features. It provides a **[5-link](../reference/service_difference.md)** license for long-term use. You must [reactivate](../license/license_use.md) the license **every 3 months**. It suits initial trials and small-scale data projects.
+- **Community**: A free, on-premise deployment with limited features. It provides a **[5-DataJob](../reference/service_difference.md)** license for long-term use. You must [reactivate](../license/license_use.md) the license **every 3 months**. It suits initial trials and small-scale data projects.
 - **Cloud**: Supports both Managed and BYOC deployment models. It offers identical features to the Enterprise edition while reducing maintenance overhead. It perfectly fits small to medium-sized teams. For detailed costs, see [Pricing](product_price.md#cloud-managed--byoc).
 - **Enterprise**: An on-premise deployment providing complete functionality and dedicated technical support. It handles large-scale, enterprise-grade data pipelines. For detailed costs, see [Pricing](product_price.md#enterprise-on-premise).
 
@@ -36,13 +36,13 @@ This page compares the available plans to help you choose the best fit for your 
   </tr>
   <tr>
     <th rowspan="4">Resources</th>
-    <th>Links&nbsp;&nbsp;<sup>[2]</sup></th>
+    <th>DataJobs&nbsp;&nbsp;<sup>[2]</sup></th>
     <td align="center">5</td>
     <td align="center">30</td>
     <td align="center">By Contract</td>
   </tr>
   <tr>
-    <th>Tables per Link</th>
+    <th>Tables per DataJob</th>
     <td align="center">&le;500</td>
     <td align="center">No Limit</td>
     <td align="center">No Limit</td>
@@ -173,7 +173,7 @@ This page compares the available plans to help you choose the best fit for your 
 
 :::info
 - **1.** The Community license remains **valid for 3 months per activation**. You can log into BladePipe before expiration to [reapply and extend your free access](../license/license_use.md).
-- **2.** The technical definition of a "link" varies across different data sources. See [Granularity and Specifications](../reference/service_difference.md) for details.
+- **2.** The granularity of a "DataJob" varies across different data sources. See [Granularity and Specifications](../reference/service_difference.md) for details.
 :::
 
 ## Notes

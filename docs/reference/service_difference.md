@@ -1,84 +1,87 @@
 ---
 id: service_difference
-title: Granularity and Specifications
-description: This page describes how BladePipe define a link for different connectors.
+title: DataJob Granularity Explained
+description: Learn the supported scope and memory specifications of a BladePipe DataJob.
 ---
 ## DataJob Granularity
 
-BladePipe DataJob refer to configuration groups that complete a data migration, synchronization, verification, correction, and other goals for a specific database, and perform actual actions successively through a set of specific processes.
+A BladePipe DataJob defines the configuration for data migration, synchronization, verification, or correction. It uses a set of processes to perform these operations.
 
-BladePipe DataJob is also called **Link**.
+The scope (granularity) of data that a single DataJob can migrate or synchronize depends on the source DataSource type.
 
-Individual DataJob migrate or synchronize maximum and minimum database scopes (granularity) depending on the database type. This is shown in the following table.
+| Source DataSource | Maximum scope per DataJob | Minimum scope per DataJob |
+| --- | --- | --- |
+| MySQL | Single instance<sup>[1]</sup> | Single table |
+| Oracle | Single schema | Single table |
+| SQL Server | Single schema | Single table |
+| Db2 | Single schema | Single table |
+| PostgreSQL | Full Data: single instance; Incremental: single database | Single table |
+| MongoDB | Single instance | Single collection |
+| OceanBase | Single instance | Single table |
+| PolarDB-X | Single instance | Single table |
+| StarRocks | Single instance | Single table |
+| Tunnel | Single instance | Single table |
+| TiDB | Single instance | Single table |
+| Kafka | Multiple topics | Single topic |
+| RocketMQ | Multiple topics | Single topic |
+| RabbitMQ | Multiple queues | Single queue |
+| AutoMQ | Multiple topics | Single topic |
+| Hana | Single schema | Single table |
+| OpenGauss | Single instance | Single table |
+| Greenplum | Single instance | Single table |
+| Elasticsearch | Multiple indexes | Single index |
+| Pulsar | Multiple topics | Single topic |
+| TDengine | Single instance | Single table |
+| Dameng | Single instance | Single table |
+| SshFile | Single directory | Single file |
+| S3File | Single bucket | Single file |
+| OssFile | Single bucket | Single file |
 
-|Source DataSource | The Maximum Granularity of a Link | The Minimum Granularity of a Link | Active Rows Limited |
-| --- | --- | --- | --- |
-| MySQL | Multiple Schemas | Single Table |  Unlimited |
-| Oracle | Single Schema | Single Table | Unlimited |
-| SQLServer | Single Schema | Single Table | Unlimited |
-| Db2 | Single Schema | Single Table | Unlimited |
-| PostgreSQL | Full Data: Single Instance, Incremental: Single Database | Single Table | Unlimited |
-| MongoDB | Multiple Schemas | Single Collection | Unlimited |
-| OceanBase | Multiple Schemas | Single Table | Unlimited |
-| PolarDbX | Multiple Schemas | Single Table | Unlimited |
-| StarRocks | Multiple Schemas |Single Table | Unlimited |
-| Tunnel | Multiple Schemas | Single Table | Unlimited |
-| TiDB | Multiple Schemas | Single Table | Unlimited |
-| Kafka | Multiple Topics | Single Topic | Unlimited |
-| RocketMQ | Multiple Topics | Single Topic | Unlimited |
-| RabbitMQ |  Multiple Queues | Single Queue |Unlimited | 
-| AutoMQ | Multiple Topics | Single Topic | Unlimited |
-| Hana | Single Schema | Single Table | Unlimited |
-| OpenGauss | Multiple Schemas | Single Table | Unlimited |
-| Greenplum | Multiple Schemas | Single Table | Unlimited |
-| Elasticsearch | Multiple Indexes | Single Index | Unlimited |
-| Pulsar | Multiple Topics | Single Topic | Unlimited |
-| TDengine | Multiple Schemas | Single Table  | Unlimited |
-| Dameng | Multiple Schemas  | Single Table | Unlimited |
-| SshFile | Single Catalog  | Single File | Unlimited |
-| S3File | Single Bucket  | Single File | Unlimited |
-| OssFile | Single Bucket | Single File | Unlimited |
+:::info
+1. A single instance contains multiple schemas, and each schema contains multiple tables.
+:::
 
 ## DataJob Specifications
 
-When a BladePipe DataJob uses a specific set of processes to sequentially complete a data migration / synchronization work, the combination of memory footprint when these processes run is called a specification.
+A DataJob specification defines the memory allocated to each of its four process types: **Full Data**, **Incremental**, **Verification**, and **Correction**.
 
-There are four types of processes: **Full Data**, **Incremental**, **Verification**, and **Correction**. The following table briefly describes the specifications that comprise these process memory configurations.
+The table below lists the available specifications. All memory values are in GB.
 
-| Specification Number | Series | Process Memory Size |
-| --- | --- | --- |
-| 1 | Incremental Enhanced | Full Data 1GB，Incremental 2GB，Verification 1GB，Correction 1GB |
-| 2 | Incremental Enhanced | Full Data 1GB，Incremental 3GB，Verification 1GB，Correction 1GB |
-| 3 | Incremental Enhanced | Full Data 1GB，Incremental 4GB，Verification 1GB，Correction 1GB |
-| 4 | Incremental Enhanced | Full Data 2GB，Incremental 3GB，Verification 2GB，Correction 2GB |
-| 5 | Incremental Enhanced | Full Data 2GB，Incremental 4GB，Verification 2GB，Correction 2GB |
-| 6 | Full Data Enhanced | Full Data 1GB，Incremental 0.5GB，Verification 1GB，Correction 1GB |
-| 7 |  Full Data Enhanced | Full Data 2GB，Incremental 0.5GB，Verification 2GB，Correction 2GB |
-| 8 |  Full Data Enhanced | Full Data 3GB，Incremental 0.5GB，Verification 3GB，Correction 3GB |
-| 9 |  Full Data Enhanced | Full Data 4GB，Incremental 0.5GB，Verification 4GB，Correction 4GB |
-| 10 |  Full Data Enhanced | Full Data 2GB，Incremental 1GB，Verification 2GB，Correction 2GB |
-| 11 |  Full Data Enhanced | Full Data 3GB，Incremental 1GB，Verification 3GB，Correction 3GB |
-| 12 |  Full Data Enhanced | Full Data 4GB，Incremental 1GB，Verification 4GB，Correction 4GB |
-| 13 |  Full Data Enhanced | Full Data 3GB，Incremental 2GB，Verification 3GB，Correction 3GB |
-| 14 |  Full Data Enhanced | Full Data 4GB，Incremental 2GB，Verification 4GB，Correction 4GB |
-| 15 | Balanced | Full Data 1GB，Incremental 1GB，Verification 1GB，Correction 1GB |
-| 16 | Balanced | Full Data 2GB，Incremental 2GB，Verification 2GB，Correction 2GB |
-| 17 | Balanced | Full Data 3GB，Incremental 3GB，Verification 3GB，Correction 3GB |
-| 18 | Balanced | Full Data 4GB，Incremental 4GB，Verification 4GB，Correction 4GB |
-| 19 | Balanced | Full Data 0.5GB，Incremental 0.5GB，Verification 0.5GB，Correction 0.5GB |
-| 20 | Incremental Enhanced | Full Data 2GB，Incremental 5GB，Verification 2GB，Correction 2GB |
-| 21 | Incremental Enhanced | Full Data 2GB，Incremental 6GB，Verification 2GB，Correction 2GB |
-| 22 | Incremental Enhanced | Full Data 2GB，Incremental 7GB，Verification 2GB，Correction 2GB |
-| 23 | Incremental Enhanced | Full Data 2GB，Incremental 8GB，Verification 2GB，Correction 2GB |
-| 24 | Incremental Enhanced | Full Data 2GB，Incremental 12GB，Verification 2GB，Correction 2GB |
-| 25 | Incremental Enhanced | Full Data 2GB，Incremental 16GB，Verification 2GB，Correction 2GB |
-| 26 | Incremental Enhanced | Full Data 2GB，Incremental 20GB，Verification 2GB，Correction 2GB |
-| 27 | Full Data Enhanced | Full Data 8GB，Incremental 2GB，Verification 2GB，Correction 2GB |
-| 28 | Full Data Enhanced | Full Data 16GB，Incremental 2GB，Verification 2GB，Correction 2GB |
+| Specification ID | Series | Full Data | Incremental | Verification | Correction |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Incremental Enhanced | 1 | 2 | 1 | 1 |
+| 2 | Incremental Enhanced | 1 | 3 | 1 | 1 |
+| 3 | Incremental Enhanced | 1 | 4 | 1 | 1 |
+| 4 | Incremental Enhanced | 2 | 3 | 2 | 2 |
+| 5 | Incremental Enhanced | 2 | 4 | 2 | 2 |
+| 6 | Full Data Enhanced | 1 | 0.5 | 1 | 1 |
+| 7 | Full Data Enhanced | 2 | 0.5 | 2 | 2 |
+| 8 | Full Data Enhanced | 3 | 0.5 | 3 | 3 |
+| 9 | Full Data Enhanced | 4 | 0.5 | 4 | 4 |
+| 10 | Full Data Enhanced | 2 | 1 | 2 | 2 |
+| 11 | Full Data Enhanced | 3 | 1 | 3 | 3 |
+| 12 | Full Data Enhanced | 4 | 1 | 4 | 4 |
+| 13 | Full Data Enhanced | 3 | 2 | 3 | 3 |
+| 14 | Full Data Enhanced | 4 | 2 | 4 | 4 |
+| 15 | Balanced | 1 | 1 | 1 | 1 |
+| 16 | Balanced | 2 | 2 | 2 | 2 |
+| 17 | Balanced | 3 | 3 | 3 | 3 |
+| 18 | Balanced | 4 | 4 | 4 | 4 |
+| 19 | Balanced | 0.5 | 0.5 | 0.5 | 0.5 |
+| 20 | Incremental Enhanced | 2 | 5 | 2 | 2 |
+| 21 | Incremental Enhanced | 2 | 6 | 2 | 2 |
+| 22 | Incremental Enhanced | 2 | 7 | 2 | 2 |
+| 23 | Incremental Enhanced | 2 | 8 | 2 | 2 |
+| 24 | Incremental Enhanced | 2 | 12 | 2 | 2 |
+| 25 | Incremental Enhanced | 2 | 16 | 2 | 2 |
+| 26 | Incremental Enhanced | 2 | 20 | 2 | 2 |
+| 27 | Full Data Enhanced | 8 | 2 | 2 | 2 |
+| 28 | Full Data Enhanced | 16 | 2 | 2 | 2 |
 
-Note:
-- A balanced version of specification number 16 is recommended and will meet most requirements.
-- The 0.5GB memory associated specification is not recommended for production use.
-- Sub-DataJob generated by editing subscriptions automatically inherits the specifications of the parent DataJob.
-- Only specification numbers 15/16/17/18/19/20/21/22/23/24/25/26 can be used by Modify Parameters.
-- Incremental DataTask pre-occupy machine memory (logical), and the occupied memory (logical) is released after a single Full Data/Verification DataTask is completed.
+:::info
+- Specification **16** (Balanced) is recommended for most use cases.
+- Specifications with any process allocated **0.5 GB** are not recommended for production.
+- Child DataJobs created by editing subscriptions automatically inherit the parent DataJob's specification.
+- When changing specifications through **Modify Parameters**, only IDs **15–26** are supported.
+- Incremental DataJobs reserve logical memory on the host. Full Data and Verification DataJobs release their reserved logical memory when each run completes.
+:::
