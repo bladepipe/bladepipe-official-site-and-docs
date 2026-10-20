@@ -85,18 +85,18 @@ export default function ConnectorRequestModal({ visible, onClose }: ConnectorReq
     if (!requestedLink) {
       nextErrors.requestedLink = translate({
         id: 'connector.request.error.requestedLink',
-        message: 'Please describe the requested data sources and links.',
+        message: 'Please describe the requested data sources and DataJobs.',
       });
     } else if (requestedLink.length > MAX_LINK_REQUEST_LENGTH) {
       nextErrors.requestedLink = translate({
         id: 'connector.request.error.requestedLinkTooLong',
-        message: 'Requested data sources and links should be within 1024 characters.',
+        message: 'Requested data sources and DataJobs should be within 1024 characters.',
       });
     }
     if (!reason) {
       nextErrors.reason = translate({
         id: 'connector.request.error.reason',
-        message: 'Please explain why this link is needed.',
+        message: 'Please explain why this DataJob is needed.',
       });
     } else if (reason.length > MAX_REASON_LENGTH) {
       nextErrors.reason = translate({
@@ -246,14 +246,14 @@ export default function ConnectorRequestModal({ visible, onClose }: ConnectorReq
         </button>
 
         <div className="text-[26px] font-bold text-black mb-7 pr-10">
-          <Translate id="connector.request.modal.title">Request New Data Source / Link</Translate>
+          <Translate id="connector.request.modal.title">Request New Data Source / DataJob</Translate>
         </div>
 
         <div className="flex flex-col gap-4">
           <div>
             <label className="text-[15px] font-bold text-black">
               <span className="text-[#e34032] mr-1">*</span>
-              <Translate id="connector.request.field.requestedLink">Requested data sources and links</Translate>
+              <Translate id="connector.request.field.requestedLink">Requested data sources and DataJobs</Translate>
             </label>
             <textarea
               value={form.requestedLink}
@@ -276,7 +276,7 @@ export default function ConnectorRequestModal({ visible, onClose }: ConnectorReq
           <div>
             <label className="text-[15px] font-bold text-black">
               <span className="text-[#e34032] mr-1">*</span>
-              <Translate id="connector.request.field.reason">Why do you need these links?</Translate>
+              <Translate id="connector.request.field.reason">Why do you need these DataJobs?</Translate>
             </label>
             <textarea
               value={form.reason}

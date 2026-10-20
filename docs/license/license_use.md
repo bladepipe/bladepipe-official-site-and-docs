@@ -11,7 +11,7 @@ This topic describes how to activate your BladePipe On-Premise deployment using 
 ## Terminology
 
 - **Apply Code**: A unique code required to generate and retrieve your BladePipe On-Premise license.
-- **License**: The authorization credential used to activate your BladePipe On-Premise deployment. It specifies the validity period and the number of authorized [links](../reference/service_difference.md) for your data integration tasks.
+- **License**: The authorization credential used to activate your BladePipe On-Premise deployment. It specifies the validity period and the number of authorized [DataJobs](../reference/service_difference.md) for your data integration tasks.
 
 ## Install BladePipe On-Premise
 
@@ -57,9 +57,9 @@ For On-Premise deployments, BladePipe provides [Community, Enterprise Trial, and
 1. In **Step 2**, paste your Apply Code into the box.
    
    ![Enter BladePipe Apply Code](../assets/license/3.png)
-2. In Step 3, select **Enterprise** Edition. Configure the desired number of links and the validity period. For details, see [Pricing](../price/product_price.md). 
+2. In Step 3, select **Enterprise** Edition. Configure the desired number of DataJobs and the validity period. For details, see [Pricing](../price/product_price.md).
    
-   ![Select BladePipe Enterprise Edition and links](../assets/license/8.png)
+   ![Select BladePipe Enterprise Edition and DataJobs](../assets/license/8.png)
 3. Click **Proceed to Payment**.
 4. In the License list, click **View** to check the license. 
 5. In the **View the License** dialog, click **Get Email Code** and enter the verification code.
@@ -85,4 +85,3 @@ If your BladePipe deployment is already activated, click **Reactivate** to open 
    - Renew your **BladePipe Community Edition** license before it expires to prevent interruptions to your active DataJobs.    
    - For a **BladePipe Enterprise Edition** license, [contact support](https://www.bladepipe.com/about/) for renewal assistance or renew it directly through the BladePipe Console before the expiration date.
    :::
-

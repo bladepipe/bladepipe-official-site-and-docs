@@ -39,8 +39,8 @@ const FAQ: React.FC = () => {
         },
         {
           id: 2,
-          question: translate({ id: 'faq.link', message: 'What is a link?' }),
-          answer: translate({ id: 'faq.linkAnswer', message: 'A link is a connection between two data sources that allows data to flow from one to the other. It represents a data pipeline that can be configured to transform and transfer data according to your specific requirements.' }),
+          question: translate({ id: 'faq.link', message: 'What is a DataJob?' }),
+          answer: translate({ id: 'faq.linkAnswer', message: 'A DataJob is a connection between two data sources that allows data to flow from one to the other. It represents a data pipeline that can be configured to transform and transfer data according to your specific requirements.' }),
           isOpen: false
         },
         {

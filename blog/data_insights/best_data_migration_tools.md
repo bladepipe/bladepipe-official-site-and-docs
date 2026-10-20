@@ -174,9 +174,9 @@ Below is a closer look at each tool, including its main features, pricing style,
 | :--- | :--- |
 | Community (On-premise) | FREE |
 | Cloud (SaaS / BYOC) | 0.01 USD for 1 million rows (ETL)<br />10 USD for 1 million rows (CDC) |
-| Enterprise (On-premise) | 0.2 USD for 1 link* for 1 hour<br />144 USD for 1 link for 1 month<br />720 USD for 5 links for 1 month |
+| Enterprise (On-premise) | 0.2 USD for 1 DataJob* for 1 hour<br />144 USD for 1 DataJob for 1 month<br />720 USD for 5 DataJobs for 1 month |
 
-**A link is a configurable data pipeline that connects data source and data destination.*
+**A DataJob is a configurable data pipeline that connects data source and data destination.*
 
 BladePipe offers transparent, usage-based pricing for cloud deployments and flexible subscription options for on-premises environments, allowing teams to scale migration workloads without long-term lock-in.
 

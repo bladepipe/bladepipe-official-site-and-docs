@@ -34,20 +34,20 @@ The unit pricing for Managed and BYOC modes is identical. You can also estimate 
 
 The Enterprise plan gives you complete control. You deploy BladePipe entirely within your local network using flexible methods like [Docker](../productOP/onPremise/installation/install_all_in_one_docker.mdx), [Kubernetes (K8s)](../productOP/onPremise/installation/install_all_in_one_k8s.mdx), or [Binary](../productOP/onPremise/installation/install_all_in_one_binary.md).
 
-The Enterprise edition uses a prepaid [license](../license/license_use.md). Your license price depends on your authorized link count and duration.
+The Enterprise edition uses a prepaid [license](../license/license_use.md). Your license price depends on your authorized DataJob count and duration.
 
-| [Links](../reference/service_difference.md) | Duration | Price |
+| [DataJobs](../reference/service_difference.md) | Duration | Price |
 |---|---|---|
 | 1 | 1 Hour | 0.20 USD |
 
 Here are some Enterprise pricing examples:
 
-| Links | Duration | Price |
+| DataJobs | Duration | Price |
 |---|---|---|
 | 1 | 1 Month | 144.00 USD |
-| 1 | 1 Year | 1752.00 USD |
+| 1 | 1 Year | 1728.00 USD |
 | 5 | 1 Month | 720.00 USD |
-| 5 | 1 Year | 8760.00 USD |
+| 5 | 1 Year | 8640.00 USD |
 
 ## How to Choose
 

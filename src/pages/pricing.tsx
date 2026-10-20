@@ -128,7 +128,7 @@ const getPricingPlans = (siteBrand: string, priceMeta?: any) => {
           translate({ id: 'pricing.features.advance', message: 'More advanced features' }),
           translate({ id: 'pricing.features.noActive', message: 'No need for regular activation' }),
           translate({ id: 'pricing.features.deployment', message: 'Lightweight deployment and O&M' }),
-          translate({ id: 'pricing.features.availability', message: 'High Availability for Links' }),
+          translate({ id: 'pricing.features.availability', message: 'High Availability for DataJobs' }),
           translate({ id: 'pricing.features.cloudSupport', message: 'Cloud support with SLA' })
         ],
         linkText: translate({ id: 'pricing.cloud.linkText', message: 'Evaluate Your Costs' }) + '  →',

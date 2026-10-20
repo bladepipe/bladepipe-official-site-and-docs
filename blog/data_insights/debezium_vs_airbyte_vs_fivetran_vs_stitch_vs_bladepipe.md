@@ -326,7 +326,7 @@ Not sure which data integration/CDC tool fits your situation? Here’s a decisio
 - **On-prem deployment** — data sovereignty, regulatory compliance, full control
 - **Built-in data verification and correction** — unique compliance feature 
 - **Schema migration + DDL conversion** — handles heterogeneous database migrations 
-- **Predictable pricing** — $144/link/month for on-prem enterprise 
+- **Predictable pricing** — $144/DataJob/month for on-prem enterprise
 - Trade-off: fewer connectors (60+) than Fivetran's 600+ 
 
 **Why Debezium**:
