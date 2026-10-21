@@ -378,10 +378,10 @@ const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
           <div className="w-full lg:w-[856px] flex flex-col gap-[24px] sm:gap-[30px] lg:gap-[36px]">
             {/* 顶部配置行 */}
             <div className="w-full flex flex-col gap-[12px] sm:gap-[14px] lg:gap-[16px]">
-              {/* Number of sync links */}
+              {/* Number of DataJobs */}
               <div className="w-full flex flex-col lg:flex-row gap-[12px] lg:gap-[24px] xl:gap-[36px] items-start lg:items-center">
                 <span className="w-full lg:w-[120px] xl:w-[160px] text-[18px] sm:text-[19px] lg:text-[20px] font-bold text-black leading-[26px] sm:leading-[28px] lg:leading-[30px] lg:flex-shrink-0">
-                  <Translate id="pricing.calculator.numberOfLinks">Number of Links</Translate>
+                  <Translate id="pricing.calculator.numberOfLinks">Number of DataJobs</Translate>
                 </span>
                 <div className="w-full flex flex-col sm:flex-row gap-[12px] sm:gap-[16px] lg:gap-[24px] xl:gap-[36px] items-start sm:items-center">
                   <div className="flex gap-[12px] sm:gap-[16px] items-center flex-shrink-0">
@@ -391,7 +391,7 @@ const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
                 </div>
               </div>
               <div className="w-full text-[13px] text-[#888] mt-8">
-                  <Translate id="pricing.calculator.linksDiscount">*We will offer additional discounts on top of this. The more links, the bigger the discount.</Translate>
+                  <Translate id="pricing.calculator.linksDiscount">*We will offer additional discounts on top of this. The more DataJobs, the bigger the discount.</Translate>
                 </div>
               <div className="border-t border-black/10 border-solid border-0 border-l-0 border-r-0 border-b-0 mt-2"></div>
             </div>
@@ -608,7 +608,7 @@ const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
             <Translate id="pricing.calculator.title">BladePipe Pricing Calculator</Translate>
           </h2>
           <p className="text-[16px] sm:text-[18px] text-[#666] text-center max-w-[800px]">
-            <Translate id="pricing.calculator.description">Estimate your monthly cost based on pipeline usage, links, and data volume — with transparent, usage-based pricing.</Translate>
+            <Translate id="pricing.calculator.description">Estimate your monthly cost based on pipeline usage, DataJobs, and data volume — with transparent, usage-based pricing.</Translate>
           </p>
         </div>
 
@@ -642,4 +642,4 @@ const PriceCalculator: React.FC<PriceCalculatorProps> = ({ priceMeta }) => {
   );
 };
 
-export default PriceCalculator; 
+export default PriceCalculator;

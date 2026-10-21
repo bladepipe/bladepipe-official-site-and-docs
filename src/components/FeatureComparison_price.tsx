@@ -175,13 +175,13 @@ const getFeatureData = (siteBrand: string) => {
         category: translate({ id: 'pricing.featureComparison.resources', message: 'Resources' }),
         features: [
           {
-            name: translate({ id: 'pricing.featureComparison.syncTaskCount', message: 'Sync Task Count' }),
+            name: translate({ id: 'pricing.featureComparison.syncTaskCount', message: 'DataJob Limit' }),
             community: "5",
             cloud: "30",
             enterprise: translate({ id: 'pricing.featureComparison.contractOrderAgreement', message: 'Contract/Order Agreement' })
           },
           {
-            name: translate({ id: 'pricing.featureComparison.singleTaskTableLimit', message: 'Single Task Table Limit' }),
+            name: translate({ id: 'pricing.featureComparison.singleTaskTableLimit', message: 'Single DataJob Table Limit' }),
             community: "500",
             cloud: translate({ id: 'pricing.featureComparison.unlimited', message: 'Unlimited' }),
             enterprise: translate({ id: 'pricing.featureComparison.unlimited', message: 'Unlimited' })
@@ -334,7 +334,7 @@ const getFeatureData = (siteBrand: string) => {
             enterprise: "✓"
           },
           {
-            name: translate({ id: 'pricing.featureComparison.taskHighAvailability', message: 'Task High Availability' }),
+            name: translate({ id: 'pricing.featureComparison.taskHighAvailability', message: 'High Availability' }),
             community: "✗",
             cloud: "✓",
             enterprise: "✓"

@@ -392,7 +392,7 @@ Here is the practical pricing picture:
 | Tool | Pricing Snapshot | What Buyers Usually Care About |
 | -- | -- | -- |
 | **Airbyte Pricing** | Standard starts at **$10/month**, plus usage-based credits; <br />higher tiers are custom-priced | Easier to start than some enterprise tools, but total cost depends on sync volume and ops effort |
-| **BladePipe Pricing** | Community: **Free**; <br />Cloud: **$0.01 / 1M rows (ETL)** and **$10 / 1M rows (CDC)**; <br />Enterprise on-prem starts at **$144/link/month** | Clearer to model if you want self-hosting, BYOC, or predictable CDC pricing |
+| **BladePipe Pricing** | Community: **Free**; <br />Cloud: **$0.01 / 1M rows (ETL)** and **$10 / 1M rows (CDC)**; <br />Enterprise on-prem starts at **$144/DataJob/month** | Clearer to model if you want self-hosting, BYOC, or predictable CDC pricing |
 | **Fivetran Pricing** | MAR-based pricing with **connection-level tiering**; <br />since Jan 1, 2026, includes a **$5 minimum per connection**, bills **deletes**, and charges repeated updates in history mode | Convenient to start, but pricing has become harder to forecast across many connectors |
 | **Debezium Pricing** | Open source | No license fee, but you still pay for Kafka infrastructure and engineering time |
 | **Hevo Data Pricing** | Starts around **$239/month** for paid plans | Simpler managed pricing, but still tied to usage tiers |
