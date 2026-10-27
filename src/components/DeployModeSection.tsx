@@ -50,8 +50,8 @@ const DeployModeSection: React.FC = () => {
           </h2>
           <div className="text-[14px] sm:text-[16px] lg:text-[18px] text-[#26272B] leading-[20px] sm:leading-[24px] lg:leading-[28px] font-medium text-center max-w-[608px]">
             {siteBrand === 'clougence' ? 'CloudCanal': 'BladePipe'}
-            <Translate id="deploy.subtitle.line1">offers Cloud (SaaS Managed & BYOC) and Enterprise (On-Premise) models to</Translate><br />
-            <Translate id="deploy.subtitle.line2">meet different scenarios and requirements.</Translate>
+            <Translate id="deploy.subtitle.line1"> is a hybrid-deployment data pipeline platform, offering Cloud (SaaS & BYOC) and On-Premise options to </Translate><br />
+            <Translate id="deploy.subtitle.line2">meet diverse infrastructure, security, and operational needs.</Translate>
           </div>
         </div>
         {/* 两大卡片 */}

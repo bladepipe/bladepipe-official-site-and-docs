@@ -100,7 +100,7 @@ Tools such as BladePipe, AWS DMS, Fivetran HVR, and Qlik Replicate support this 
 
 **Best for: Low-downtime SQL Server to Redshift migration with automated CDC replication**
 
-[BladePipe](https://www.bladepipe.com/) is a real-time data replication platform that helps teams migrate and synchronize data between SQL Server and Amazon Redshift. 
+[BladePipe](https://www.bladepipe.com/) is a real-time database migration platform for SQL Server to Amazon Redshift, with flexible deployment and transparent usage-based pricing that can deliver strong operational value for low-downtime projects.
 
 Instead of building separate workflows for initial migration and ongoing synchronization, BladePipe provides an automated pipeline that covers the entire migration journey. 
 

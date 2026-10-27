@@ -6,7 +6,7 @@ const features = [
   {
     icon: '/img/home/icon/feature1.svg',
     title: translate({id: 'product.feature1.title', message: 'Always Real-time'}),
-    desc: translate({id: 'product.feature1.desc', message: 'Sync and update with <3s latency, unlocking more value from your data and more possibilities for your business.'}),
+    desc: translate({id: 'product.feature1.desc', message: 'A reliable CDC tool for real-time database sync, delivering updates with less than 3 seconds of latency.'}),
     iconClass: 'w-[58px] h-[52px] ml-[12px]'
   },
   {
@@ -36,7 +36,7 @@ const features = [
   {
     icon: '/img/home/icon/feature6.svg',
     title: translate({id: 'product.feature6.title', message: '60+ Connectors'}),
-    desc: translate({id: 'product.feature6.desc', message: 'Support major databases, real-time warehouses, queues, search engines, and caches — with more on the way.'}),
+    desc: translate({id: 'product.feature6.desc', message: 'Connect 60+ sources for cross-platform database replication and data warehouse sync—databases, queues, search engines, caches, and more on the way.'}),
     iconClass: 'w-[56px] h-[52px] ml-[8px]'
   },
 ];

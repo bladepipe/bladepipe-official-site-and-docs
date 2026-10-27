@@ -56,11 +56,13 @@ When selecting a suitable alternative, it is important to focus on the factors t
 
 ## 1. BladePipe
 
-[BladePipe](https://www.bladepipe.com/) is a real-time data integration platform designed for [CDC](https://www.bladepipe.com/blog/data_insights/change_data_capture_cdc/) and [ETL](https://www.bladepipe.com/blog/data_insights/etl_steps_explained/). It provides a no-code interface that allows teams to configure and manage data pipelines without writing complex scripts. Users can define replication logic, mappings, and transformations through a visual workflow.
+[BladePipe](https://www.bladepipe.com/) is a real-time data integration platform designed for [CDC](https://www.bladepipe.com/blog/data_insights/change_data_capture_cdc/) and [ETL](https://www.bladepipe.com/blog/data_insights/etl_steps_explained/). Its intuitive no-code interface lets teams configure replication logic, mappings, and transformations through a visual workflow without writing complex scripts.
 
 Besides, BladePipe offers flexible deployment options, including SaaS, BYOC, and on-prem deployments, allowing organizations to choose the model that best fits their security, compliance, and infrastructure requirements.
 
-Now a [free Community](https://www.bladepipe.com/pricing/) edition is available. Users can start production-ready pipelines with no cost.
+BladePipe has a strong, long-term customer track record: [Be & Cheery](../user_stories/becheery_data_integration.md) ran nearly 100 pipelines in production for three years without major interruptions.
+
+The [free Community](https://www.bladepipe.com/pricing/) edition gives teams a way to evaluate value for money and usability before choosing a paid deployment.
 
 ### Key strengths
 

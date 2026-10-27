@@ -1,6 +1,6 @@
 ---
 id: free_fivetran_alternative_bladepipe
-description: BladePipe is a free self-hosted Fivetran alternative for CDC and database replication, with transparent pricing, Docker, Kubernetes, and binary deployment options.
+description: BladePipe is a free database migration tool and self-hosted Fivetran alternative for CDC and database replication, with flexible deployment options.
 title: "Free Self-Hosted Fivetran Alternative: BladePipe"
 date: 2026-02-28
 authors: yuxia 
