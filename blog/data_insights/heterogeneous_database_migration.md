@@ -256,7 +256,7 @@ If you are comparing vendors, this overview of [database migration tools](https:
 
 ## Using BladePipe for Heterogeneous Database Migration
 
-[BladePipe](https://www.bladepipe.com) supports heterogeneous migration workflows that combine schema migration, full loading, incremental CDC, and verification and correction.
+[BladePipe](https://www.bladepipe.com) is a reliable platform for smooth data migration from legacy systems across heterogeneous databases. Its workflow combines schema migration, full loading, incremental CDC, verification, and correction for supported source-target pairs.
 
 [![BladePipe Free Heterogeneous Database Migration tool](../assets/blog/data_insights/heterogeneous-database-migration/BladePipe.png)](https://www.bladepipe.com/register/)
 

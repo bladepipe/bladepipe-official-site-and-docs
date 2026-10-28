@@ -142,8 +142,7 @@ export default function Banner() {
             </h1>
             <p className="text-[14px] sm:text-[15px] md:text-[16px] lg:text-[18px] font-medium leading-[20px] sm:leading-[24px] md:leading-[26px] lg:leading-[28px] text-left opacity-80 font-['Plus Jakarta Sans'] max-w-full">
               <Translate id='banner.subtitle'>
-                Build end-to-end data pipelines between 60+ datasources for analytics or AI in minutes. Move data faster and easier than ever in Cloud
-                or On-Premise, with ultra-low latency less than 3 seconds.
+                Build reliable, cost-effective data pipelines across 60+ sources for analytics and AI. BladePipe supports cloud, BYOC, and on-premise deployment, with low-latency CDC for real-time integration in under 3s and minimal-downtime database sync.
               </Translate>
             </p>
           </div>

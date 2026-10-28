@@ -84,7 +84,7 @@ const getFunctionData = (siteBrand: string) => {
     ],
     detailDesc: [
       [
-        translate({id: 'product.function.incremental.detail1', message: 'Capture and deliver data changes in real time.'}),
+        translate({id: 'product.function.incremental.detail1', message: 'Load existing data first, then continuously capture and deliver database changes with CDC.'}),
         translate({id: 'product.function.incremental.detail2', message: 'Adjust max rate to prevent peak pressure.'}),
         translate({id: 'product.function.incremental.detail3', message: 'Support heterogeneous sources.'})
       ],

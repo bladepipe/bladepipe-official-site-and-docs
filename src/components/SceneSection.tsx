@@ -9,10 +9,10 @@ const SceneSection: React.FC = () => {
   
   const sceneCards = [
     {
-      title: translate({id: 'scene.card1.title', message: 'Re-architect Traditional Big Data for Real-time Data Analytics'}),
+      title: translate({id: 'scene.card1.title', message: 'Re-architect Big Data for Real-Time Analytics'}),
       desc: siteBrand === 'clougence' 
         ? translate({id: 'scene.card1.desc.clougence', message: 'CloudCanal makes it easy to integrate data into modern real-time data warehouses without delay, ensuring freshness and unlocking greater data value.'})
-        : translate({id: 'scene.card1.desc', message: 'BladePipe makes it easy to integrate data into modern real-time data warehouses without delay, ensuring freshness and unlocking greater data value.'}),
+        : translate({id: 'scene.card1.desc', message: 'BladePipe modernizes legacy big data stacks and syncs data into real-time warehouses with minimal downtime—ensuring freshness and unlocking data value.'}),
       btn: translate({id: 'scene.card1.btn', message: 'Learn More'}),
       btnHref: '/real-time-analytics',
       border: 'border border-[#0000001A]',

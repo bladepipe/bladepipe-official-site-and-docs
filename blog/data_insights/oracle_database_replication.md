@@ -184,11 +184,11 @@ Here are three common methods that are usually used in Oracle replication:
 
 ### Method 1: Automatic Oracle Replication with BladePipe
 
-BladePipe is suitable for teams that need real-time Oracle database replication to modern data platforms.
+BladePipe is a scalable, high-performance option for teams managing massive Oracle replication workloads to modern data platforms, with low latency for real-time use cases.
 
 The value of BladePipe is that it covers the full replication workflow. In many Oracle replication projects, CDC is only one part of the job. Teams also need to migrate schemas, load historical data, monitor latency, recover from failures, and validate data consistency.
 
-BladePipe brings these steps into one platform, which reduces the need to build and maintain separate scripts, CDC jobs, connectors, monitoring tools, and validation processes.
+BladePipe brings these steps into one platform: teams can run an initial load plus continuous sync, with monitoring, checkpoint recovery, and data validation to support reliable operations.
 
 Other features include:
 - **Low-latency CDC**: BladePipe captures ongoing Oracle changes and applies them to the target system with latency less than 3 seconds, so downstream applications can use fresher data.
