@@ -62,8 +62,12 @@ description: 本文档主要介绍如何升级 TGZ 方式部署的 CloudCanal �
     ```
 #### 升级控制台（Console）
 
-- 执行升级脚本 
+- 从新下载的安装包中解压控制台安装包，再执行升级脚本。
     ```shell
+    cd ~/tar_gz
+
+    tar -zxvf cloudcanal.tgz cloudcanal-console.tar.gz
+
     bash ~/tar_gz/scripts/upgrade_console.sh
     ```
 - （**可选**）如果升级出现错误且无法提供正常服务，执行 **回滚** 脚本即可。

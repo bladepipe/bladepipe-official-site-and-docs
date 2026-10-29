@@ -60,7 +60,7 @@ description: 本文档主要介绍如何以 TGZ 方式来安装部署 CloudCanal
     ```bash
     mkdir -p /home/clougence/{logs,backup,tar_gz}
     
-    chown clougence:clougence /home/clougence/*
+    chown -R clougence:clougence /home/clougence/*
     ```
 
 6. （可选）关闭系统防火墙, 并设置 selinux=disabled。
@@ -111,7 +111,7 @@ description: 本文档主要介绍如何以 TGZ 方式来安装部署 CloudCanal
     ```
    
     ```bash 
-    ALTER USER 'root'@'localhost' IDENTIFIED BY '你的密码'
+    ALTER USER 'root'@'localhost' IDENTIFIED BY '你的密码';
     ```
 
 3. 创建元数据库。
@@ -153,7 +153,11 @@ description: 本文档主要介绍如何以 TGZ 方式来安装部署 CloudCanal
 
 ## 安装控制台
 
-1. 进入 [官网](https://www.clougence.com)，在页面右上角点击 **下载 CloudCanal 私有部署版** > **Binary Package** > **下载 Cross-platform 版本** (兼容 X86/ARM64)。
+:::info
+社区版、商业试用版、商业版均为同一个安装包，使用不同类型的激活码即可激活或者升级到对应版本。
+:::
+
+1. 进入 [官网](https://www.clougence.com)，点击首页 **免费社区版** > **二进制包** > **跨平台**（兼容 X86/ARM64），登录后获取安装包下载地址。
 
 2. 下载安装包到指定目录。
     ```bash
@@ -179,13 +183,10 @@ description: 本文档主要介绍如何以 TGZ 方式来安装部署 CloudCanal
     vi business-output.properties
     ```
 
-4. **设置必要参数**。
+5. **设置必要参数**。
   
     | 参数名      | 说明                                                                                               |      
     | ------------------------------|--------------------------------------------------------------------------------------------------| 
-    | spring.datasource.url         | 元数据库 cloudcanal_console 地址，修改 host:port, 数据库名称, 时区配置（如有变化）                                       |
-    | spring.datasource.username   | 元数据库 cloudcanal_console 用户名                                                                      |
-    | spring.datasource.password   | 元数据库 cloudcanal_console 密码                                                                       |
     | spring.datasource-cc.url     | 元数据库 cloudcanal_console 地址，修改 host:port, 数据库名称, 时区配置（如有变化）                                       |
     | spring.datasource-cc.username | 元数据库 cloudcanal_console 用户名                                                                      |
     | spring.datasource-cc.password | 元数据库 cloudcanal_console 密码                                                                       |
@@ -197,7 +198,7 @@ description: 本文档主要介绍如何以 TGZ 方式来安装部署 CloudCanal
     | console.rsocket.dns          | 部署机器内网 host (不带端口)                                                                               |
     | prometheus.host                | 部署机器内网 host (带端口，e.g. http://127.0.0.1:9090)                                                     |
 
-5. 启动控制台 (Console)。
+6. 启动控制台 (Console)。
     ```bash
     cd ~/cloudcanal/console/bin
 

@@ -255,7 +255,7 @@ AWS DMS follows a pay-as-you-go model. The primary cost is based on the compute 
 
 **Overview**
 
-[Matillion](https://www.matillion.com/) is a cloud-native data integration platform designed for ETL and ELT workflows. It is built specifically for modern cloud data warehouses such as Snowflake, BigQuery, Databricks, and Amazon Redshift. Matillion is commonly used for cloud data migration, transformation-heavy analytics projects, and teams standardizing their data stack on major cloud platforms including AWS, Azure, and Google Cloud.
+[Matillion](https://www.matillion.com/) is a cloud-native data integration platform designed for ETL and ELT workflows. It is built specifically for modern cloud data warehouses such as Snowflake, BigQuery, Databricks, and Amazon Redshift. Matillion is commonly used for [cloud data migration](/blog/data_insights/cloud_data_migration.md), transformation-heavy analytics projects, and teams standardizing their data stack on major cloud platforms including AWS, Azure, and Google Cloud.
 
 **Best for:** Cloud-first analytics teams migrating data into modern warehouses and doing substantial in-warehouse transformation.
 

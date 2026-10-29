@@ -11,6 +11,10 @@ Please make sure that the BladePipe Console has been installed via Binary.
 
 If not, please install the Console following the doc [Install All-in-One (Binary)](./install_all_in_one_binary.md).
 
+:::info
+Set the Console's `console.rsocket.dns` parameter to its private IP address. Make sure that the target machine can access the RSocket TCP port at this IP address (default: `7007`).
+:::
+
 ## Procedure
 
 ### Deploy Automatically
@@ -35,6 +39,8 @@ If not, please install the Console following the doc [Install All-in-One (Binary
 
 
 ### Deploy Manually
+
+Prepare the target machine by following [Set up the Environment](./install_all_in_one_binary.md#set-up-the-environment), then continue the manual deployment as the `bladepipe` user.
 
 1. Make sure that there are the SSH access rights to the Console and the Worker.
 2. In the top navigation bar, click **Sync Settings** > **Sync Worker**.

@@ -121,7 +121,11 @@ Log in to the machine to deploy BladePipe as the root user.
 
 ## Install BladePipe Console
 
-1. Go to [BladePipe](https://www.bladepipe.com). Click **Enterprise Edition** > **Download** (compatible with X86/ARM64) to get the download link.
+:::info
+The Community Edition and the Enterprise Edition use the same installation package. Use the corresponding activation code to activate or upgrade to the desired edition.
+:::
+
+1. Go to [BladePipe](https://www.bladepipe.com). Click **Try Community Free** > **Binary Package** > **Cross-platform** (compatible with X86/ARM64), then log in to get the download link.
 
 2. Download the package to the specified path.
     ```bash
@@ -168,7 +172,7 @@ Log in to the machine to deploy BladePipe as the root user.
     | spring.datasource-rdp.password | Password of the metadata database bladepipe_rdp                          |
     | jwt.secret                      |  The secret key of the system login authentication algorithm. It can be a 64-bit random code.                 |
     | console.rsocket.dns             |  Private network host of the machine (without port)               |
-    | prometheus.host                 |  Private network host of the machine (without port)               |
+    | prometheus.host                 |  Prometheus URL, including the protocol and port, e.g. http://127.0.0.1:9090               |
 
 8. Start the Console.
     ```bash
@@ -188,6 +192,8 @@ Log in to the machine to deploy BladePipe as the root user.
     wget -c "https://github.com/prometheus/prometheus/releases/download/v2.53.4/prometheus-2.53.4.linux-amd64.tar.gz" -Oprometheus.tar.gz
 
     tar -zxvf prometheus.tar.gz -C /home/bladepipe
+
+    mv /home/bladepipe/prometheus-2.53.4.linux-amd64 /home/bladepipe/prometheus
     ```
 
 2. Edit `prometheus.yml`.

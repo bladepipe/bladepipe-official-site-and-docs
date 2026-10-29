@@ -11,6 +11,10 @@ description: 本文档主要介绍如何使用TGZ包来添加CloudCanal节点
 已通过 TGZ 方式部署 CloudCanal 控制台。   
 如还未安装, 请先按 [全新安装(TGZ Linux)](firstinstall_with_tgz) 文档进行安装。
 
+:::info
+确保控制台（Console）的 `console.rsocket.dns` 参数为控制台（Console）的内网 IP，且目标机器可访问该 IP 的 RSocket TCP 端口（默认 `7007`）。
+:::
+
 ## 操作步骤
 
 ### 自动部署
@@ -36,12 +40,14 @@ description: 本文档主要介绍如何使用TGZ包来添加CloudCanal节点
 
 ### 手动部署
 
+在目标机器上参考 [安装基础环境](firstinstall_with_tgz#安装基础环境) 完成环境准备后，使用 `clougence` 用户继续手动部署流程。
+
 1. 打通控制台（Console）所在服务和添加机器节点的 ssh 访问权限。
 2. 点击 **同步设置** > **同步机器**，进入集群列表页。
 3. 点击列表右侧操作栏中的 **机器列表**，进入机器列表页。
 4. 点击页面右上角 **新增机器**，并选择 **手动部署**。
 5. 点击 **生成机器唯一标识**。
-6. 在 [官网](https://www/clougence.com) 获取安装包下载地址。
+6. 在 [官网](https://www.clougence.com) 获取安装包下载地址。
 7. 下载到指定目录。
     ```bash
     cd /home/clougence/tar_gz
