@@ -1,4 +1,4 @@
-const MySQL = {
+const MySQLCommon = {
     main_function: [
         {
             key: 'Schema Migration',
@@ -60,8 +60,34 @@ const MySQL = {
     faq: []
 }
 
-const MariaDB = MySQL;
-const AuroraForMySQL = MySQL;
+const MySQL = {
+    ...MySQLCommon,
+    notice: [
+        {
+            key: 'DDL Sync Limitations',
+            desc: [
+                '- `CREATE TABLE` (including `CREATE TABLE IF NOT EXISTS`) is filtered out by default.',
+                '- `ALTER COLUMN ... TYPE ...`, `SET DATA TYPE` (including changes to length, precision, and scale), `SET NOT NULL`, and `DROP NOT NULL` are not supported.',
+                '- Setting, replacing, or clearing column comments with `COMMENT ON COLUMN`, including clearing them with an empty string or `NULL`, is not supported.',
+                '- `DROP CONSTRAINT`, adding CHECK constraints, adding foreign keys, `VALIDATE CONSTRAINT`, and `UNIQUE NULLS NOT DISTINCT` are not supported.',
+                '- Replacing an existing target primary key with `DROP CONSTRAINT ..., ADD CONSTRAINT ... PRIMARY KEY ...` is not supported.',
+                '- `DROP INDEX` (including the `IF EXISTS` and `CONCURRENTLY` forms) is not supported.',
+                '- Expression indexes and currently unsupported index sort-order and operator-class options are not supported.',
+                '- Synchronizing `USING gin(...)` indexes to MySQL is not supported.',
+                '- The `WHERE` predicate of a partial index is not preserved. The index may be converted to a regular index covering all rows.',
+                '- `USING` expressions that perform additional data calculations, such as `USING amount::bigint + 100`, are not supported.',
+                '- `SET EXPRESSION AS (...)` for generated columns and `RESTART WITH ...` for identity columns are not supported.',
+                '- Creating or modifying objects such as FUNCTION, PROCEDURE, and TRIGGER is not captured. Synchronizing comments on functions, indexes, constraints, and similar objects is not supported.',
+                '- Synchronizing source-specific attributes such as `ALTER COLUMN ... SET STATISTICS` and table-level `SET (fillfactor=...)` is not supported.',
+                '- Subscriptions do not automatically follow renamed tables. Subsequent DDL/DML is not synchronized if the new table name is not subscribed.',
+                '- Reliable synchronization is not supported when DDL and `ROLLBACK TO SAVEPOINT` are combined in a single multi-statement request.'
+            ].join('\n')
+        }
+    ]
+};
+
+const MariaDB = { ...MySQLCommon };
+const AuroraForMySQL = { ...MySQLCommon };
 
 export {
     MySQL,

@@ -1,4 +1,4 @@
-const MySQL = {
+const MySQLCommon = {
     main_function: [
         {
             key: '结构迁移',
@@ -262,8 +262,34 @@ const MySQL = {
     ]
 }
 
-const MariaDB = MySQL;
-const AuroraForMySQL = MySQL;
+const MySQL = {
+    ...MySQLCommon,
+    notice: [
+        {
+            key: 'DDL 同步限制',
+            desc: [
+                '- 默认过滤 `CREATE TABLE`（包括 `CREATE TABLE IF NOT EXISTS`）。',
+                '- 不支持 `ALTER COLUMN ... TYPE ...`、`SET DATA TYPE`（包括长度、精度和标度调整）以及 `SET NOT NULL`、`DROP NOT NULL`。',
+                '- 不支持 `COMMENT ON COLUMN` 的设置、覆盖以及使用空串或 `NULL` 清除注释。',
+                '- 不支持 `DROP CONSTRAINT`、添加 CHECK、添加外键、`VALIDATE CONSTRAINT` 和 `UNIQUE NULLS NOT DISTINCT`。',
+                '- 不支持通过 `DROP CONSTRAINT ..., ADD CONSTRAINT ... PRIMARY KEY ...` 替换目标已有主键。',
+                '- 不支持 `DROP INDEX`（包括 `IF EXISTS`、`CONCURRENTLY` 形式）。',
+                '- 不支持表达式索引及当前未覆盖的索引排序、操作符类选项。',
+                '- 不支持 `USING gin(...)` 索引同步到 MySQL。',
+                '- 不保留部分索引的 `WHERE` 条件，可能转换为覆盖全部行的普通索引。',
+                '- 不支持包含额外数据计算的 `USING` 表达式，例如 `USING amount::bigint + 100`。',
+                '- 不支持生成列的 `SET EXPRESSION AS (...)` 和 identity 列的 `RESTART WITH ...`。',
+                '- 不采集 FUNCTION、PROCEDURE、TRIGGER 等对象的创建和修改；不支持函数、索引、约束等对象的注释同步。',
+                '- 不支持 `ALTER COLUMN ... SET STATISTICS`、表级 `SET (fillfactor=...)` 等源端专用属性同步。',
+                '- 不支持表重命名后自动延续原订阅，新表名未被订阅时，后续 DDL/DML 不会同步。',
+                '- 不支持在同一次多语句请求中混合 DDL 与 `ROLLBACK TO SAVEPOINT` 的可靠同步。'
+            ].join('\n')
+        }
+    ]
+};
+
+const MariaDB = { ...MySQLCommon };
+const AuroraForMySQL = { ...MySQLCommon };
 
 export {
     MySQL,

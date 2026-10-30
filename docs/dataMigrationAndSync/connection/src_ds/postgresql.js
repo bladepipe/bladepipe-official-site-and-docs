@@ -6,7 +6,7 @@ const PostgreSQL = {
             desc: 'Required permissions (taking a self-managed database as an example): \n- <b>GRANT ALL PRIVILEGES ON DATABASE sync_db TO sync_user</b> (or SELECT permission on all views in the sync_db information_schema, and SELECT permission on tables, indexes, constraints to be synchronized) \n- <b>ALTER USER sync_user REPLICATION</b>'
         },
         {
-            key: 'Incremental Data Sync Preparation',
+            key: 'Incremental Preparation',
             desc: 'Prepare as follows: \n- Modify postgresql.conf, set <b>wal_level=logical and wal_log_hints=on</b> \n- Modify pg_hba.conf, set <b>host replication sync_user CIDR netmask md5</b>, <b>host sync_db sync_user CIDR netmask md5</b>, <b>host postgres sync_user CIDR netmask md5</b> \n- Restart PostgreSQL'
         },
         {

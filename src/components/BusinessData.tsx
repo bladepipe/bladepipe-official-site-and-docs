@@ -23,15 +23,15 @@ export default function BusinessData() {
 
   // 目标数字
   const clients = 100;
-  const downloads = 10000;
-  const members = 5000;
+  const activations = 14792;
+  const members = 12538;
 
   // 优化：所有数字递增动画共用一个 requestAnimationFrame 循环
-  const [count, setCount] = useState({ clients: 0, downloads: 0, members: 0 });
+  const [count, setCount] = useState({ clients: 0, activations: 0, members: 0 });
   useEffect(() => {
     if (!visible) return;
-    let start = { clients: 0, downloads: 0, members: 0 };
-    const end = { clients, downloads, members };
+    let start = { clients: 0, activations: 0, members: 0 };
+    const end = { clients, activations, members };
     const duration = 1200;
     let startTime: number | null = null;
     let frame: number;
@@ -40,7 +40,7 @@ export default function BusinessData() {
       const progress = Math.min((ts - startTime) / duration, 1);
       setCount({
         clients: Math.floor(progress * (end.clients - start.clients) + start.clients),
-        downloads: Math.floor(progress * (end.downloads - start.downloads) + start.downloads),
+        activations: Math.floor(progress * (end.activations - start.activations) + start.activations),
         members: Math.floor(progress * (end.members - start.members) + start.members),
       });
       if (progress < 1) {
@@ -51,7 +51,7 @@ export default function BusinessData() {
     }
     frame = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(frame);
-  }, [visible, clients, downloads, members]);
+  }, [visible, clients, activations, members]);
 
   return (
     <section ref={sectionRef} className="w-full flex justify-center items-center bg-white py-8 md:py-16">
@@ -91,9 +91,9 @@ export default function BusinessData() {
             />
           </div>
           <div className="flex flex-col justify-start items-start ml-2 md:ml-4">
-            <span translate="no" className="text-[36px] md:text-[48px] font-bold leading-[44px] md:leading-[60px] text-black font-['Plus Jakarta Sans']">{count.downloads.toLocaleString()}+</span>
+            <span translate="no" className="text-[36px] md:text-[48px] font-bold leading-[44px] md:leading-[60px] text-black font-['Plus Jakarta Sans']">{count.activations.toLocaleString()}</span>
             <span className="text-[14px] md:text-[16px] font-bold leading-[20px] md:leading-[24px] text-[#18181a] font-['Plus Jakarta Sans']">
-              <Translate id="business.downloads">downloads</Translate>
+              <Translate id="business.activations">activations</Translate>
             </span>
           </div>
         </div>
@@ -113,7 +113,7 @@ export default function BusinessData() {
             />
           </div>
           <div className="flex flex-col justify-start items-start ml-2 md:ml-4">
-            <span translate="no" className="text-[36px] md:text-[48px] font-bold leading-[44px] md:leading-[60px] text-black font-['Plus Jakarta Sans']">{count.members.toLocaleString()}+</span>
+            <span translate="no" className="text-[36px] md:text-[48px] font-bold leading-[44px] md:leading-[60px] text-black font-['Plus Jakarta Sans']">{count.members.toLocaleString()}</span>
             <span className="text-[14px] md:text-[16px] font-bold leading-[20px] md:leading-[24px] text-[#18181a] font-['Plus Jakarta Sans']">
               <Translate id="business.members">community members</Translate>
             </span>

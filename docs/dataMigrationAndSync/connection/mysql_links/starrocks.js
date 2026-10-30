@@ -29,7 +29,7 @@ export const StarRocks = {
             desc: 'Support the mapping rules, namely, <b>keeping the name the same as that in Source</b>, <b>converting the text to lowercase</b>, <b>converting the text to uppercase</b>, <b>truncating the name by "_digit" suffix</b>.'
         },
         {
-            key: 'DDL Synchronization',
+            key: 'DDL Sync',
             desc: '\n- ALTER TABLE ADD COLUMN, MODIFY COLUMN, DROP COLUMN \n- CREATE TABLE (Whole Database Sync) \n- RENAME TABLE (Whole Database Sync) \n- DROP TABLE (Whole Database Sync)'
         },
         {
@@ -75,7 +75,23 @@ export const StarRocks = {
             desc: 'Support data filtering using WHERE conditions, with SQL-92 as the SQL language. For more information, see [Data Filtering](../../../operation/job_manage/create_job/create_data_filter_job).'
         }
     ],
-    notice: [],
+    notice: [
+        {
+            key: 'DDL Sync Limitations',
+            desc: [
+                '- Adding, dropping, and renaming secondary indexes are not synchronized, including regular, unique, and composite indexes. Examples: `ADD INDEX idx_name(name)`, `ADD UNIQUE INDEX uk_code(code)`, `DROP INDEX idx_name`, and `RENAME INDEX idx_name TO idx_name_v2`.',
+                '- `ALTER TABLE ... ADD PRIMARY KEY (...)` and `ALTER TABLE ... DROP PRIMARY KEY` are not synchronized.',
+                '- Column position options `FIRST` and `AFTER` are ignored. For example, `ADD COLUMN code VARCHAR(32) AFTER id` does not guarantee the same column order on the target.',
+                '- Regular non-primary-key columns are mapped as nullable. For example, `MODIFY COLUMN name VARCHAR(100) NOT NULL` does not make a regular target column `NOT NULL`. Target primary key and partition columns have separate constraints.',
+                '- Standalone default changes are not synchronized, such as `ALTER TABLE t ALTER COLUMN qty SET DEFAULT 9` and `ALTER TABLE t ALTER COLUMN qty DROP DEFAULT`. Constant defaults in `CREATE TABLE`, `ADD COLUMN`, and `MODIFY COLUMN` are preserved according to the mapping.',
+                '- Function defaults are omitted, such as `DEFAULT CURRENT_TIMESTAMP`, `DEFAULT CURRENT_TIMESTAMP(6)`, `DEFAULT NOW()`, and `DEFAULT (UUID_TO_BIN(UUID()))`.',
+                '- When a column change returns `Can not change default value` or `Cannot shorten string length` on the target, a warning is logged and that target DDL statement is skipped. Type, length, and other changes in the skipped statement do not take effect.',
+                '- Type, length, and precision changes depend on the target version and column usage. Not all conversions can be executed. For example, expanding `VARCHAR(100)` to `VARCHAR(200)` and shortening it to `VARCHAR(50)` may have different results.',
+                '- Adding or modifying `MEDIUMBLOB` and `LONGBLOB` columns is filtered out, such as `ADD COLUMN payload MEDIUMBLOB`. `TINYBLOB` and `BLOB` map to `VARBINARY` and require StarRocks 3.0 or later.',
+                '- An `ALTER TABLE` with multiple operations may be split into multiple target DDL statements, each executed or filtered separately. Atomic execution of the entire source statement is not guaranteed. Example: `ADD COLUMN enabled BOOLEAN, MODIFY COLUMN name VARCHAR(100), DROP COLUMN obsolete`.'
+            ].join('\n')
+        }
+    ],
     examples: [],
     faq: []
 }

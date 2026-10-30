@@ -1,5 +1,6 @@
 import React from 'react';
 import siteConfig from '@generated/docusaurus.config';
+import Translate from '@docusaurus/Translate';
 
 interface LoginSidebarProps {
   title: React.ReactNode;
@@ -9,6 +10,7 @@ interface LoginSidebarProps {
 
 const LoginSidebar: React.FC<LoginSidebarProps> = ({ title, description, features }) => {
   const siteBrand = siteConfig.customFields?.siteBrand as string;
+  const isReplicationBrand = siteBrand === 'clougence' || siteBrand === 'bladepipe';
   
   // 根据 siteBrand 选择 logo
   const getLogoSrc = () => {
@@ -38,12 +40,17 @@ const LoginSidebar: React.FC<LoginSidebarProps> = ({ title, description, feature
   
   // 根据 siteBrand 选择特性列表
   const getFeatures = () => {
-    if (siteBrand === 'clougence') {
+    if (isReplicationBrand) {
       return [
-        '代金券',
-        '所有数据源都可用',
-        '全功能开放',
-        '云端和私有部署可选'
+        <Translate id="loginSidebar.feature.community" key="community">Free Community Edition, renewable forever</Translate>,
+        ...(siteBrand === 'clougence' ? [
+          <Translate id="loginSidebar.feature.trial.clougence" key="trial">商业试用版功能全开放</Translate>,
+        ] : []),
+        <Translate id="loginSidebar.feature.infrastructure" key="infrastructure">Deploy in your own infrastructure</Translate>,
+        ...(siteBrand === 'bladepipe' ? [
+          <Translate id="loginSidebar.feature.connectors" key="connectors">Connect 60+ data sources</Translate>,
+        ] : []),
+        <Translate id="loginSidebar.feature.cdc" key="cdc">Full data migration and real-time CDC</Translate>,
       ];
     } else if (siteBrand === 'clouddm') {
       return [
@@ -76,17 +83,23 @@ const LoginSidebar: React.FC<LoginSidebarProps> = ({ title, description, feature
           <img src={logoSrc} alt={logoAlt} className="w-[200px]" />
         </a>
         <p className="w-full text-[14px] xl:text-[16px] font-medium leading-[20px] xl:leading-[24px] text-white">
-          {description}
+          {isReplicationBrand ? (
+            <Translate id="loginSidebar.description">Real-time data replication with self-hosted and fully managed Cloud options.</Translate>
+          ) : description}
         </p>
         <h1 className="w-full text-[36px] xl:text-[48px] 2xl:text-[60px] font-bold leading-[100%] text-white">
-          {siteBrand === 'clouddm' ? '免费社区版开放中' : title}
+          {isReplicationBrand ? (
+            <span className="whitespace-nowrap">
+              <Translate id="loginSidebar.title">Start for free</Translate>
+            </span>
+          ) : siteBrand === 'clouddm' ? '免费社区版开放中' : title}
         </h1>
       </div>
 
       {/* 特性列表区域 */}
       <div className="relative z-10 w-full max-w-[600px] h-auto flex flex-col gap-[10px] justify-start items-start">
         {displayFeatures.map((feature, index) => (
-          <div key={index} className="w-full h-[26px] flex gap-[10px] justify-start items-start">
+          <div key={index} className="w-full min-h-[26px] flex gap-[10px] justify-start items-start">
             <div className="w-[14px] h-[26px] flex justify-start items-center py-[6px] flex-shrink-0">
               <img 
                 src="/img/home/icon/check.svg" 
@@ -94,7 +107,7 @@ const LoginSidebar: React.FC<LoginSidebarProps> = ({ title, description, feature
                 className="w-[14px] h-[14px]"
               />
             </div>
-            <p className="flex-1 h-[24px] text-[14px] xl:text-[16px] font-medium leading-[20px] xl:leading-[24px] text-white">
+            <p className="flex-1 m-0 text-[14px] xl:text-[16px] font-medium leading-[20px] xl:leading-[24px] text-white">
               {feature}
             </p>
           </div>

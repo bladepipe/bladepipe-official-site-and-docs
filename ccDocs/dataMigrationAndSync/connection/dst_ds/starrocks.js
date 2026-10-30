@@ -9,12 +9,6 @@ export const StarRocks = {
             desc: '不支持 **无主键表** 迁移同步'
         },
         {
-            key: 'DDL 同步报错',
-            desc: '\n- 同一张表连续几个 DDL 将报错（因 StarRocks 对端是异步 DDL) ' +
-                '\n- 修改字段约束或者部分类型的 DDL 报错 ' +
-                '\n- 如遇到 DDL 报错，可在对端变更好表结构，然后通过设置任务参数跳过，文档：[跳过 DDL 异常](../../param_and_func/skip_ddl_error)'
-        },
-        {
             key: '增量写入冲突策略',
             desc: 'Stream Load 写入以主键进行整行替换'
         },

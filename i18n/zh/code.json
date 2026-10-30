@@ -30,7 +30,7 @@
     "message": "加载中..."
   },
   "banner.buyLicense": {
-    "message": "获取许可证"
+    "message": "获取免费许可证"
   },
   "banner.downloadError": {
     "message": "获取下载信息失败，请稍后重试"
@@ -40,6 +40,9 @@
   },
   "banner.tryCommunityFreeBtn": {
     "message": "免费社区版"
+  },
+  "banner.tryCommunityBtn": {
+    "message": "下载私有部署版"
   },
   "banner.communityModalTitle": {
     "message": "BladePipe 免费社区版"
@@ -122,8 +125,8 @@
   "business.clients": {
     "message": "客户数"
   },
-  "business.downloads": {
-    "message": "下载和激活数"
+  "business.activations": {
+    "message": "激活数"
   },
   "business.members": {
     "message": "活跃的社区用户数"
@@ -892,6 +895,27 @@
   },
   "login.policy.period": {
     "message": "。"
+  },
+  "loginSidebar.title": {
+    "message": "免费开启数据同步"
+  },
+  "loginSidebar.description": {
+    "message": "实时数据同步工具，支持私有部署与 SaaS 云服务。"
+  },
+  "loginSidebar.feature.community": {
+    "message": "免费社区版，可永久续签"
+  },
+  "loginSidebar.feature.trial.clougence": {
+    "message": "商业试用版功能全开放"
+  },
+  "loginSidebar.feature.infrastructure": {
+    "message": "部署在自有环境，自主管理"
+  },
+  "loginSidebar.feature.connectors": {
+    "message": "连接 60+ 种数据源"
+  },
+  "loginSidebar.feature.cdc": {
+    "message": "支持全量迁移与实时增量同步"
   },
   "login.sidebar.title": {
     "message": "商业版 90 天免费试用"

@@ -71,7 +71,7 @@ export default function Home(): ReactNode {
         <title>{homeMeta.title}</title>
       </Head>
       <JsonLd data={getHomeStructuredData(siteBrand as string, homeMeta)} />
-      <FadeInSection><Banner /></FadeInSection>
+      <FadeInSection immediate><Banner /></FadeInSection>
       <FadeInSection><UserLogos /></FadeInSection>
       <FadeInSection><BusinessData /></FadeInSection>
       <FadeInSection><CompareSection showLearnMore={true} /></FadeInSection>
