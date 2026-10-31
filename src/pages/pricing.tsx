@@ -142,7 +142,7 @@ const getPricingPlans = (siteBrand: string, priceMeta?: any) => {
         subTitle: translate({ id: 'pricing.enterprise.subtitle', message: '(On-Premise)' }),
         price: "",
         priceUnit: "",
-        buttonText: translate({ id: 'pricing.enterprise.button.cc', message: 'Try 90 Days Free' }),
+        buttonText: translate({ id: 'pricing.enterprise.button.cc', message: 'Try 30 Days Free' }),
         buttonType: "solid",
         badge: translate({ id: 'pricing.badge.mostPopular', message: 'Most popular' }),
         extraText:  translate({ id: 'pricing.trial.extraText', message: 'All Cloud (SaaS Managed & BYOC) features, plus:' }),
@@ -253,7 +253,7 @@ const PricingCard = ({ plan, onDownloadClick, onCommunityModalOpen, siteBrand })
                 window.location.href = getCloudUrl();
               }, 'try_cloud_free');
             } else if (plan.id === 3) {
-              // CloudCanal Enterprise 版本 - 试用 90 天
+              // CloudCanal Enterprise 版本 - 试用 30 天
               loginCheckAndRedirect(() => {
                 window.location.href = getCloudUrl();
               }, 'try_enterprise_free');

@@ -125,8 +125,8 @@ FROM `console`.`worker_stats` final;
 
 You can use BladePipe in three ways:
 
-1. **SaaS (Fully Managed)** – 90-day free trial. Just log in and start using it. See [Quick Start (SaaS)](https://www.bladepipe.com/docs/quick/quick_start_mgr/).
-2. **BYOC (Bring Your Own Cloud)** – 90-day free trial. Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
+1. **SaaS (Fully Managed)** – 30-day free trial. Just log in and start using it. See [Quick Start (SaaS)](https://www.bladepipe.com/docs/quick/quick_start_mgr/).
+2. **BYOC (Bring Your Own Cloud)** – 30-day free trial. Follow the instructions in [Install Worker (Docker)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_docker/) or [Install Worker (Binary)](https://www.bladepipe.com/docs/productOP/byoc/installation/install_worker_binary/) to download and install a BladePipe Worker.
 3. **On-premise (Local Deployment)** – Free community edition. Click **Try Community Free** on the homepage for one-click deployment. See [Quick Start (On-premise)](https://www.bladepipe.com/docs/quick/quick_start/).
 
 ### Step 2: Add DataSources

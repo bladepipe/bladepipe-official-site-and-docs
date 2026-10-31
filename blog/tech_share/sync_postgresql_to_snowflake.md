@@ -116,7 +116,7 @@ Grant privileges according to [Required Privileges for PostgreSQL](https://www.b
 
 You can choose [Cloud](https://www.bladepipe.com/docs/quick/quick_start_mgr/) version or [Community](https://www.bladepipe.com/docs/quick/quick_start/) version.
 
-+ Cloud: fully managed. 90-day free trial.
++ Cloud: fully managed. 30-day free trial.
 + Community: self-hosted and fully free. [One-command deployment](https://www.bladepipe.com/docs/productOP/onPremise/installation/install_all_in_one_docker/).
 
 ### Step 1: Add DataSources
@@ -221,7 +221,7 @@ It helps teams move data into Snowflake and keep it updated with less operationa
 
 For teams that want fresh PostgreSQL data in Snowflake for analytics, reporting, or AI workloads, this can be a practical choice.
 
-If you want to try it, you can choose what works for you. the [Cloud](https://www.bladepipe.com/login/) has a 90-day free trial. The [Community Edition](https://www.bladepipe.com/pricing/) is fully free and runs in Docker, Kubernetes or through binary package.
+If you want to try it, you can choose what works for you. the [Cloud](https://www.bladepipe.com/login/) has a 30-day free trial. The [Community Edition](https://www.bladepipe.com/pricing/) is fully free and runs in Docker, Kubernetes or through binary package.
 
 ## FAQ
 **Q: What is the best way to migrate PostgreSQL to Snowflake?**

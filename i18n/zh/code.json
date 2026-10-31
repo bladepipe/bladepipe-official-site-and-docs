@@ -207,7 +207,7 @@
     "message": "获取许可证"
   },
   "pricing.enterprise.button.cc": {
-    "message": "试用 90 天"
+    "message": "试用 30 天"
   },
   "pricing.enterprise.linkText": {
     "message": "查看定价"
@@ -303,7 +303,7 @@
     "message": "免费"
   },
   "pricing.trial.priceUnit": {
-    "message": "（3 个月试用期）"
+    "message": "（1 个月试用期）"
   },
   "pricing.trial.button": {
     "message": "立即开始"
@@ -918,7 +918,7 @@
     "message": "支持全量迁移与实时增量同步"
   },
   "login.sidebar.title": {
-    "message": "商业版 90 天免费试用"
+    "message": "商业版 30 天免费试用"
   },
   "login.sidebar.description": {
     "message": "专注于实时增量更新的数据复制工具，让您更深入地了解数据。"
@@ -3285,10 +3285,10 @@
     "message": "重置失败"
   },
   "resetPwd.sidebar.title": {
-    "message": "您的 90 天免费试用包括"
+    "message": "您的 30 天免费试用包括"
   },
   "resetPwd.sidebar.title.clougence": {
-    "message": "商业版 90 天免费试用"
+    "message": "商业版 30 天免费试用"
   },
   "wechatFloat.title": {
     "message": "联系我们"
@@ -3432,10 +3432,10 @@
     "message": "注册失败"
   },
   "register.sidebar.title": {
-    "message": "您的 90 天免费试用包括"
+    "message": "您的 30 天免费试用包括"
   },
   "register.sidebar.title.clougence": {
-    "message": "商业版 90 天免费试用"
+    "message": "商业版 30 天免费试用"
   },
   "register.sidebar.description": {
     "message": "专注于实时增量更新的数据复制工具，让您更深入地了解数据。"

@@ -183,7 +183,7 @@ So how do you bring your database changes into a modern data lake in real time?
 
 That’s where [BladePipe](https://www.bladepipe.com/) comes in.
 
-BladePipe is a real-time data integration platform that can continuously sync database changes into Paimon, Iceberg, or Delta Lake. The platform recently launched [SaaS Managed](../announcement/saas_mode.md) mode, which comes with a 90-day free trial. With it, you can start moving data after logging in. No deployment or maintenance is required.
+BladePipe is a real-time data integration platform that can continuously sync database changes into Paimon, Iceberg, or Delta Lake. The platform recently launched [SaaS Managed](../announcement/saas_mode.md) mode, which comes with a 30-day free trial. With it, you can start moving data after logging in. No deployment or maintenance is required.
 
 Next, we'll set up a real-time data lake using BladePipe SaaS Managed and DeltaLake.
 

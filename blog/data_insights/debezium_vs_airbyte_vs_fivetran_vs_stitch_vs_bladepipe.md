@@ -35,7 +35,7 @@ Before we dive into the details, here's a quick overview of how Debezium, Airbyt
 | **Best for**                | Kafka-centric teams needing sub-second CDC and fan-out to multiple consumers | Teams wanting 600+ connectors and open source flexibility; warehouse ingestion | Analytics ELT with minimal ops; 700+ connectors; SOC 2 certified | Lightweight batch ELT; simple pipelines; budget-conscious teams | Low-latency replication without Kafka ops; built-in verification/correction; predictable pricing |
 | **Not ideal for**           | Teams without Kafka expertise; "no-ops" environments; single-destination use cases | Sub-second latency requirements; real-time streaming; teams needing strict SLAs on every source | Cost-sensitive high-volume sync; teams needing sub-minute latency; open source requirements | Large-scale enterprise CDC; delete detection; real-time use cases; sub-hour sync frequencies | Teams needing 600+ SaaS/API connectors; pure batch ELT without CDC requirements |
 | **CDC method**              | Log-based (native) — reads WAL/binlog directly               | Log-based (embedded Debezium) — but scheduled batches        | Log-based (via HVR) — but batched delivery                   | Timestamp-based polling — **no log-based CDC**; cannot detect deletes | Log-based — captures, verifies, corrects continuously        |
-| **Free version**            | Full open source | Open source (self-hosted) / 14-day cloud trial               | Free tier (500K MAR) — 14-day trial                          | Free tier (5M rows/month) + 14-day trial                     | Community (self-hosted, free) / 90-day cloud trial (no CC required) |
+| **Free version**            | Full open source | Open source (self-hosted) / 14-day cloud trial               | Free tier (500K MAR) — 14-day trial                          | Free tier (5M rows/month) + 14-day trial                     | Community (self-hosted, free) / 30-day cloud trial (no CC required) |
 | **Monthly Cost (10M rows)*** | $100–500+7k+ engineering                                     | $1,000–3,000                                                 | $1,350+                                                      | $500–900                                                     | $100–1,000                                                   |
 | **Connector count**         | 10+ databases (PostgreSQL, MySQL, MongoDB, Oracle, SQL Server, etc.) | 350–600+ connectors (includes SaaS and databases)            | 700+ pre-built connectors                                    | Limited (Singer.io taps, not maintained by Stitch) | 60+ connectors (focused on databases + messaging)            |
 
@@ -203,7 +203,7 @@ Pricing models change frequently, so focus on the cost drivers:
 #### [**BladePipe Pricing**](https://www.bladepipe.com/pricing/)
 
 - **Pricing Model:** Based on rows processed ($0.01 per 1 million rows for full data, $10 per 1 million rows for incremental data) or per pipeline for Enterprise.
-- **Free Version**: [Community edition (self-hosted, free)](https://www.bladepipe.com/docs/quick/quick_start/); [90-day free trial](https://www.bladepipe.com/register/) for managed cloud (no credit card required).
+- **Free Version**: [Community edition (self-hosted, free)](https://www.bladepipe.com/docs/quick/quick_start/); [30-day free trial](https://www.bladepipe.com/register/) for managed cloud (no credit card required).
 - **Estimated Monthly Cost** (10M rows/month with CDC): **$100–1,000**.
 - **Key Trade-off**: More cost-efficient than Fivetran — ideal for high-volume, fixed-table-count scenarios. CDC latency close to Debezium (sub-5 seconds) without Kafka operational overhead. Fewer SaaS/API connectors than Airbyte.
 
@@ -425,7 +425,7 @@ Not sure which data integration/CDC tool fits your situation? Here’s a decisio
 **Why BladePipe SaaS**:
 
 - **No-code UI** — visual pipeline builder 
-- **90-day free trial** — no credit card required 
+- **30-day free trial** — no credit card required 
 - Trade-off: CDC requires source DB configuration (DBA involvement) 
 
 **Not recommended for non-technical teams**: Debezium (requires Kafka expertise), Airbyte OSS (self-hosting requires DevOps).

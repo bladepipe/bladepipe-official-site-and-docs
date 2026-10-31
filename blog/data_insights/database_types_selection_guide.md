@@ -171,7 +171,7 @@ BladePipe doesn't just "list" these technologies; it enables [**Cross-Type Trans
 Managing data across multiple database types doesn't have to be complex. BladePipe handles the integration layer so you can focus on building, not plumbing. Just start [syncing](https://www.bladepipe.com/docs/quick/quick_start_mgr/) your first database in **under 5 minutes**.
 
 - [**Free Community Edition**](https://www.bladepipe.com/pricing/) — full-featured, self-hosted, no limits
-- [**Cloud Trial**](https://www.bladepipe.com/register/) — 90 days, no credit card required, includes managed [CDC pipelines](build_ai_data_pipeline_production.md)
+- [**Cloud Trial**](https://www.bladepipe.com/register/) — 30 days, no credit card required, includes managed [CDC pipelines](build_ai_data_pipeline_production.md)
 
 Need any help? Click the [**"Book Demo"**](https://cal.com/bladepipe-xxypci/30min)—we'll walk you through it step by step.
 

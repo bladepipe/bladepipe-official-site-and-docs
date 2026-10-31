@@ -131,9 +131,9 @@ export default function Register() {
         <div className="w-full min-h-screen flex overflow-hidden">
             <LoginSidebar
                 title={siteBrand === 'clougence' ? (
-                    <Translate id="register.sidebar.title.clougence">Commercial Edition 90-day Free Trial</Translate>
+                    <Translate id="register.sidebar.title.clougence">Commercial Edition 30-day Free Trial</Translate>
                 ) : (
-                    <Translate id="register.sidebar.title">Your Free 90-day Trial Includes</Translate>
+                    <Translate id="register.sidebar.title">Your Free 30-day Trial Includes</Translate>
                 )}
                 description={siteBrand === 'clouddm' ? (
                     <Translate id="register.sidebar.description.clouddm">专注于多数据源安全访问与管控，提高协作效率，让您更放心地使用数据。</Translate>

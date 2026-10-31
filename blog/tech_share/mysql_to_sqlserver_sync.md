@@ -184,7 +184,7 @@ Yes. A full-load plus CDC workflow first migrates the existing data and then con
 
 ### What affects MySQL to SQL Server pricing?
 
-Pricing usually depends on data volume, change rate, deployment model, and how much operational work your team wants to absorb. If you want to evaluate BladePipe, there are currently [three options](https://www.bladepipe.com/pricing/) to try: a **free** Community edition, a Cloud plan starting at **$0.01/million rows of data**, and an Enterprise edition with a **90-day trial**.
+Pricing usually depends on data volume, change rate, deployment model, and how much operational work your team wants to absorb. If you want to evaluate BladePipe, there are currently [three options](https://www.bladepipe.com/pricing/) to try: a **free** Community edition, a Cloud plan starting at **$0.01/million rows of data**, and an Enterprise edition with a **30-day trial**.
 
 ### What is the easiest way to migrate MySQL to SQL Server with low downtime?
 

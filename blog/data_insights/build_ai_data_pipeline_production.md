@@ -289,7 +289,7 @@ No cron jobs. No manual exports. No "please wait 24 hours for search to reflect 
 
 **Cost of using a platform:** configuration and maybe a credit card.
 
-**Try BladePipe:** the cloud version gives you a [**90-day trial**-**no credit card**](https://www.bladepipe.com/register/) required. Prefer to keep things local? The Community Edition [deploys in one click](https://www.bladepipe.com/docs/productOP/onPremise/installation/install_all_in_one_docker/) and stays **free**. Either way, you're running in minutes, not weeks.
+**Try BladePipe:** the cloud version gives you a [**30-day trial**-**no credit card**](https://www.bladepipe.com/register/) required. Prefer to keep things local? The Community Edition [deploys in one click](https://www.bladepipe.com/docs/productOP/onPremise/installation/install_all_in_one_docker/) and stays **free**. Either way, you're running in minutes, not weeks.
 
 ## What Actually Breaks in Production
 
