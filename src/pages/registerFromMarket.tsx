@@ -174,7 +174,7 @@ export default function RegisterFromMarket() {
         </Head>
         <div className="w-full min-h-screen flex overflow-hidden">
             <LoginSidebar 
-                title="Your Free 90-day Trial Includes"
+                title="Your Free 30-day Trial Includes"
                 description="A data replication tool focused on real-time incremental updates, giving you deeper insights into your data."
                 features={[
                     "$300 credits",

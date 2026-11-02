@@ -75,7 +75,23 @@ export const StarRocks = {
             desc: '支持 WHERE 条件进行数据过滤，内容为 SQL 92 子集，文档：[创建数据过滤任务](../../../operation/job_manage/create_job/create_data_filter_job)'
         }
     ],
-    notice: [],
+    notice: [
+        {
+            key: 'DDL 同步限制',
+            desc: [
+                '- 不同步二级索引的新增、删除和重命名，包括普通、唯一和联合索引。例如 `ADD INDEX idx_name(name)`、`ADD UNIQUE INDEX uk_code(code)`、`DROP INDEX idx_name`、`RENAME INDEX idx_name TO idx_name_v2`。',
+                '- 不同步 `ALTER TABLE ... ADD PRIMARY KEY (...)` 和 `ALTER TABLE ... DROP PRIMARY KEY`。',
+                '- 忽略列顺序选项 `FIRST`、`AFTER`，例如 `ADD COLUMN code VARCHAR(32) AFTER id` 不保证目标列顺序与源端一致。',
+                '- 普通非主键列按可空方式转换。例如 `MODIFY COLUMN name VARCHAR(100) NOT NULL` 不会将目标普通列改为 `NOT NULL`；目标主键、分区列另受其约束。',
+                '- 不同步独立的默认值设置和删除，例如 `ALTER TABLE t ALTER COLUMN qty SET DEFAULT 9`、`ALTER TABLE t ALTER COLUMN qty DROP DEFAULT`。`CREATE TABLE`、`ADD COLUMN`、`MODIFY COLUMN` 中的常量默认值按映射保留。',
+                '- 过滤函数默认值，例如 `DEFAULT CURRENT_TIMESTAMP`、`DEFAULT CURRENT_TIMESTAMP(6)`、`DEFAULT NOW()`、`DEFAULT (UUID_TO_BIN(UUID()))`。',
+                '- 修改列时，目标返回 `Can not change default value` 或 `Cannot shorten string length`，会记录警告并跳过该条目标 DDL；该条语句中的类型、长度等修改也不会生效。',
+                '- 类型、长度和精度变更受目标版本及列用途限制，不保证所有转换均可执行。例如 `VARCHAR(100)` 扩为 `VARCHAR(200)` 与缩为 `VARCHAR(50)` 的执行结果可能不同。',
+                '- 过滤 `MEDIUMBLOB`、`LONGBLOB` 字段的加列、改列操作，例如 `ADD COLUMN payload MEDIUMBLOB`。`TINYBLOB`、`BLOB` 映射为 `VARBINARY`，目标版本需为 StarRocks 3.0 及以上。',
+                '- 一条包含多个操作的 `ALTER TABLE` 可能拆成多条目标 DDL，分别执行或过滤，不保证整条源端语句原子生效。例如 `ADD COLUMN enabled BOOLEAN, MODIFY COLUMN name VARCHAR(100), DROP COLUMN obsolete`。'
+            ].join('\n')
+        }
+    ],
     examples: [],
     faq: [],
     mapping: [

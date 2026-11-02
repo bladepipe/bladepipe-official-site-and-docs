@@ -9,12 +9,6 @@ export const StarRocks = {
             desc: 'Migration and sync of **tables without primary keys** are not supported.'
         },
         {
-            key: 'DDL Synchronization Errors',
-            desc: '\n- Continuous DDLs on the same table will cause errors (because asynchronous DDLs are executed on a target StarRocks instance).' +
-                '\n- Errors may occur when modifying field constraints or some types of DDL.' +
-                '\n- If DDL errors occur, you can change the target table schema and then skip the errors by setting DataJob parameters.'
-        },
-        {
             key: 'Incremental Data Write Conflict Resolution Rule',
             desc: 'Using Stream Load method, the primary key is used for full row replacement.'
         }

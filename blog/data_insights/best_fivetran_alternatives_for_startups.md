@@ -90,7 +90,7 @@ Here are the strongest alternatives based on startup affordability, implementati
 
 **Pricing Model:** Based on rows processed ($0.01 per 1 million rows for full data, $10 per 1 million rows for incremental data) or per pipeline for Enterprise. See [BladePipe Pricing](https://www.bladepipe.com/pricing/).
 
-**Free Version:** Free Community edition available for [self-hosted deployments](https://www.bladepipe.com/docs/quick/quick_start/), plus a 90-day cloud(SaaS/BYOC) [free trial](https://www.bladepipe.com/register/).
+**Free Version:** Free Community edition available for [self-hosted deployments](https://www.bladepipe.com/docs/quick/quick_start/), plus a 30-day cloud(SaaS/BYOC) [free trial](https://www.bladepipe.com/register/).
 
 **Estimated Monthly Cost (10M rows/month with CDC):** $100–$1,000 depending on sync requirements.
 

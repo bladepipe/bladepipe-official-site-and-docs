@@ -188,7 +188,7 @@ Airbyte has more SaaS/API connectors. BladePipe wins on CDC behavior, operationa
 
 **Why it is an Airbyte alternative:**
 
-If Airbyte feels too ELT-oriented or batch-heavy, BladePipe delivers always-on CDC with less glue code. Try the [free community edition](https://www.bladepipe.com/) or a [90-day free fully-managed trial](https://www.bladepipe.com/register/), no credit card required.
+If Airbyte feels too ELT-oriented or batch-heavy, BladePipe delivers always-on CDC with less glue code. Try the [free community edition](https://www.bladepipe.com/) or a [30-day free fully-managed trial](https://www.bladepipe.com/register/), no credit card required.
 
 ### 2. Fivetran
 

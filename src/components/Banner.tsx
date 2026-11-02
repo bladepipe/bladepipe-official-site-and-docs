@@ -69,7 +69,7 @@ export default function Banner() {
     }
   }, []);
 
-  // Try Cloud Free / Try Community Free 按钮点击逻辑
+  // Try Cloud Free / Try Community 按钮点击逻辑
   const handleTryCloudFree = () => {
     if (siteBrand === 'bladepipe' || siteBrand === 'clougence') {
       if (siteBrand === 'bladepipe') {
@@ -148,13 +148,13 @@ export default function Banner() {
           </div>
           {/* 按钮组 */}
           <div className='flex flex-col sm:flex-row gap-3 md:gap-4 lg:gap-[21px] w-full h-auto md:h-[54px] items-start sm:items-center'>
-            {/* Try Cloud Free / Try Community Free 主按钮 */}
+            {/* Try Cloud Free / Try Community 主按钮 */}
             <button
               className="cursor-pointer h-[48px] md:h-[54px] flex items-center justify-center gap-[10px] rounded-full bg-[#0087c7] text-white text-[14px] sm:text-[15px] md:text-[16px] font-bold font-['Plus Jakarta Sans'] px-4 sm:px-6 md:px-7 py-3 md:py-[15px] shadow-none border-none transition hover:bg-[#0070a6] focus:outline-none w-full sm:w-auto whitespace-nowrap"
               style={{ boxShadow: '0px 2px 8px 0px rgba(0,135,199,0.10)' }}
               onClick={handleTryCloudFree}>
               {siteBrand === 'bladepipe' || siteBrand === 'clougence' ? (
-                <Translate id='banner.tryCommunityFreeBtn'>Try Community Free</Translate>
+                <Translate id='banner.tryCommunityBtn'>Try Community</Translate>
               ) : (
                 <Translate id='banner.tryCloudBtn'>Try Cloud Free</Translate>
               )}
@@ -168,7 +168,7 @@ export default function Banner() {
                 <Translate id='banner.quickstartBtn'>Quick Start</Translate>
               </button>
             )}
-            {/* Get a License 按钮 - 和 Quick Start 一样的样式 */}
+            {/* Get a Free License 按钮 - 和 Quick Start 一样的样式 */}
             <button
               className="cursor-pointer h-[48px] md:h-[54px] flex items-center justify-center gap-[10px] rounded-full border border-1 border-solid border-[#0087c7] text-[#0087c7] text-[14px] sm:text-[15px] md:text-[16px] font-bold font-['Plus Jakarta Sans'] bg-white px-4 sm:px-6 md:px-7 py-3 md:py-[15px] shadow-none transition hover:bg-[#f0faff] focus:outline-none w-full sm:w-auto whitespace-nowrap"
               style={{ boxShadow: '0px 2px 8px 0px rgba(0,135,199,0.10)' }}
@@ -177,7 +177,7 @@ export default function Banner() {
                   window.location.href = getCloudUrl() + '/#/system/license';
                 }, 'buy_a_license');
               }}>
-              <Translate id="banner.buyLicense">Get a License</Translate>
+              <Translate id="banner.buyLicense">Get a Free License</Translate>
             </button>
           </div>
         </div>

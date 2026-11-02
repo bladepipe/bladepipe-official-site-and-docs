@@ -109,12 +109,12 @@ import TabItem from '@theme/TabItem';
     SECURITY INVOKER
   AS $$
     declare ddl text;
-    begin if (tg_tag in ('DROP INDEX','ALTER TABLE','DROP TABLE','CREATE INDEX','CREATE TABLE')) then
+    begin if (tg_tag in ('DROP INDEX','ALTER TABLE','DROP TABLE','CREATE INDEX','CREATE TABLE','COMMENT')) then
       select current_query() into ddl;
       insert into public.cc_pg_ddl_capture_tab(biz_ddl,biz_user,biz_txid,biz_tag,biz_db,biz_schema,biz_client_addr,biz_client_port,biz_event_time) values (ddl,current_user,cast(txid_current() as varchar(16)),tg_tag,current_database(),current_schema,inet_client_addr(),inet_client_port(),current_timestamp);
     end if;
   end;
-  $$
+  $$;
           
   -- 开启相关权限
   GRANT USAGE ON SCHEMA public TO public;
