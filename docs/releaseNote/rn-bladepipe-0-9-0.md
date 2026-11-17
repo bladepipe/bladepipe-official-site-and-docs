@@ -54,7 +54,7 @@ For BYOC deployment, please [upgrade to the latest version](../productOP/byoc/in
 - Improved Dameng DSC incremental DataJob handling, disabling table-level offsets during initialization to avoid errors.
 - Locked Dameng parameter *isDscNode* after DataJob creation to prevent accidental modification.
 - Enhanced Dameng offset submission to prevent data latency when subscribed tables have no changes.
-- Improved TiDB partitioned table sync, ensuring compatibility with parallel consumption in DataJob groups.
+- Improved TiDB partitioned table sync, ensuring compatibility with parallel consumption in [DataJob groups](/docs/operation/job_manage/job_op/job_group/).
 - Added detailed TiDB logging when *printDetailLog* is enabled for easier troubleshooting.
 - Improved PostgreSQL BYTEA > MySQL/OceanBase LONGBLOB type mapping.
 - Optimized OceanBase MySQL & Oracle tenant DDL execution timeout, setting the default timeout to 8 hours.

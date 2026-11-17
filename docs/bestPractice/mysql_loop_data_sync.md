@@ -4,7 +4,7 @@ description: It guides you to build MySQL bidirectional synchronization pipeline
 title: MySQL Two-Way Sync
 ---
 
-Real-time MySQL-to-MySQL two-way data sync is essential for high availability, seamless disaster recovery and active-active data architectures. It helps keep data consistent and up-to-date across various systems, regardless of where changes occur. 
+[Real-time MySQL-to-MySQL two-way data sync](/blog/tech_share/how_to_sync_mysql_databases/) is essential for high availability, seamless disaster recovery and active-active data architectures. It helps keep data consistent and up-to-date across various systems, regardless of where changes occur. 
 
 However, it's not that easy to always keep data updated and consistent in a two-way MySQL pipeline. Replication loop is one of the biggest challenges. In this page, we'll explain how to perform MySQL bidirectional data sync, preventing infinite data replication loops.
 

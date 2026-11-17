@@ -23,7 +23,7 @@ If you want the short version first, start with the workload you need to solve:
 | Real-time CDC and database replication | BladePipe, Qlik, Estuary, Striim | Capture inserts, updates, and deletes with low latency. |
 | Managed warehouse ELT | Fivetran, Hevo, Matillion, Skyvia | Load SaaS and application data into Snowflake, BigQuery, Redshift, or Databricks with less setup. |
 | Open-source connector flexibility | Airbyte | Broad connector ecosystem and customizable ingestion. |
-| Enterprise ETL and governance | Informatica PowerCenter, Qlik, Boomi | Strong fit for controlled enterprise environments with metadata, lineage, and security needs. |
+| [Enterprise ETL and governance](top_7_talend_alternatives.md) | Informatica PowerCenter, Qlik, Boomi | Strong fit for controlled enterprise environments with metadata, lineage, and security needs. |
 | Application and API integration | Boomi | Better fit when data movement is tied to application workflows and APIs. |
 | Source-to-target migration and sync | CDC tools, ELT tools, lakehouse ingestion tools | Match the tool to the exact source and target route before shortlisting. |
 

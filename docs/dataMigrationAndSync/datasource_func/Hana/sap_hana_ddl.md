@@ -28,8 +28,8 @@ ADD ("COL_4" INTEGER NOT NULL);
 ALTER TABLE `SYSTEMDB`.`TEST`
 ADD COLUMN `COL_5` INT NOT NULL;
 ```
-2. [Modify the subscription](https://www.bladepipe.com/docs/operation/job_manage/job_op/edit_job/) to delete the source table with the added column.
-3. [Modify the subscription](https://www.bladepipe.com/docs/operation/job_manage/job_op/edit_job/) again to add the source table with the added column, and select **Full Data**.
+2. [Modify the subscription](../../../../operation/job_manage/job_op/edit_job/) to delete the source table with the added column.
+3. [Modify the subscription](../../../../operation/job_manage/job_op/edit_job/) again to add the source table with the added column, and select **Full Data**.
 
 ### Delete a Column
 When **deleting a column** in a source SAP HANA instance, follow the steps below: 
@@ -47,8 +47,8 @@ ALTER TABLE "SYSTEM"."SYSTEMDB_SYSTEM_TEST_CDC_TABLE"
 ALTER TABLE `SYSTEMDB`.`TEST`
   DROP COLUMN `COL_5`;
 ```
-2. [Modify the subscription](../../../operation/job_manage/job_op/edit_job) to delete the source table with the deleted column.
-3. [Modify the subscription](../../../operation/job_manage/job_op/edit_job) again to add the source table with the deleted column, and select **Full Data**.
+2. [Modify the subscription](../../../../operation/job_manage/job_op/edit_job/) to delete the source table with the deleted column.
+3. [Modify the subscription](../../../../operation/job_manage/job_op/edit_job/) again to add the source table with the deleted column, and select **Full Data**.
 
 ### Modify a Column Name
 When **modifying a column name** in a source SAP HANA instance, follow the steps below: 
@@ -66,8 +66,8 @@ RENAME COLUMN "SYSTEM"."SYSTEMDB_SYSTEM_TEST_CDC_TABLE"."COL_4"
 ALTER TABLE `SYSTEM`.`TEST` 
   CHANGE COLUMN `COL_4` `COL_4_NEW` INT NOT NULL;
 ```
-2. [Modify the subscription](../../../operation/job_manage/job_op/edit_job) to delete the source table with the modified column.
-3. [Modify the subscription](../../../operation/job_manage/job_op/edit_job) again to add the source table with the modified column, and select **Full Data**.
+2. [Modify the subscription](../../../../operation/job_manage/job_op/edit_job/) to delete the source table with the modified column.
+3. [Modify the subscription](../../../../operation/job_manage/job_op/edit_job/) again to add the source table with the modified column, and select **Full Data**.
 
 ### Modify a Data Type/Length
 When **modifying a data type/length** in a source SAP HANA instance, follow the steps below: 
@@ -88,8 +88,8 @@ ALTER TABLE `SYSTEM`.`TEST`
 ```
 
 ### Modify a Table Name
-1. [Modify the subscription](../../../operation/job_manage/job_op/edit_job) to delete the source table.
-2. After the table name is modified, [modify the subscription](../../../operation/job_manage/job_op/edit_job) again to add the modified source table, and select **Full Data**.  
+1. [Modify the subscription](../../../../operation/job_manage/job_op/edit_job/) to delete the source table.
+2. After the table name is modified, [modify the subscription](../../../../operation/job_manage/job_op/edit_job/) again to add the modified source table, and select **Full Data**.  
 
 :::info
 If an Incremental DataTask associated with a source SAP HANA instance is deleted, or a table is deleted via subscription modification, BladePipe will not automatically delete the CDC table.

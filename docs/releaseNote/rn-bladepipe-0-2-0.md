@@ -21,7 +21,7 @@ Version: 0.2.0
 - Support for data sync at Auto mode of a source PolarDB-X 2.0 instance.
 - Support ClickHouse Cloud (modify the parameter value of *useSSL* to true when adding a ClickHouse DataSource).
 - Support for primary key mapping from MongoDB to MySQL/StarRocks (map _id to a column with a specified  string type), facilitating to create target tables.
-- Support virtual columns when moving data from Oracle/MySQL/SQL Server to Kafka.
+- Support virtual columns when moving data from Oracle, MySQL, or SQL Server to Kafka, including [Oracle-to-Kafka pipelines](/blog/tech_share/stream_data_from_oracle_to_kafka/).
 - Allow to add databases to be created when modifying subscription in a MySQL -> StarRocks connection.
 - Support a data transformation expression as the value in virtual column. 
 - Allow to modify subscription in a sub-DataJob of data verification and correction. 

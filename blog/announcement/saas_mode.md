@@ -64,7 +64,7 @@ Billing is managed through **prepaid credits**, preventing unexpected charges an
 For small teams, short-term projects, cross-cloud migrations, or multi-environment syncs, this model offers exceptional cost efficiency.
 
 ## Making Data Flow Effortless
-With security and control built in, BladePipe SaaS Managed turns cross-cloud and cross-region data sync into a ready-to-use service.
+With security and control built in, BladePipe SaaS Managed turns cross-cloud and [cross-region data sync](../data_insights/best_practice_in_intercontinental_data_sync.md) into a ready-to-use service.
 
 Now, any team can get started in minutes.
 

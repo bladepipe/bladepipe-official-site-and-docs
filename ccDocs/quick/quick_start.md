@@ -1,6 +1,6 @@
 ---
 id: quick_start
-title: 快速开始(私有部署)
+title: 快速开始
 ---
 
 CloudCanal 私有部署版 **将完整产品安装于用户私有环境中**。

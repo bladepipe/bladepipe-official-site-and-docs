@@ -1,6 +1,6 @@
 ---
 id: quick_start_mgr
-title: 快速开始(SaaS 全托管)
+title: 全托管模式
 ---
 
 CloudCanal SaaS 支持 **全托管** 模式，**运维平台和数据迁移同步客户端均使用产品自运维机器**，用户只需进行页面操作即可。
@@ -16,7 +16,7 @@ CloudCanal SaaS 支持 **全托管** 模式，**运维平台和数据迁移同�
 ## 添加数据源
 
 1. 从以下 3 种方式中任选一种，让 CloudCanal 连接到你的数据库。
-     - 以 [SSH 隧道方式添加数据源](../operation/datasource_manage/set_ssh_tunnel.md)。
+     - 以 [SSH 隧道方式添加数据源](../../operation/datasource_manage/set_ssh_tunnel.md)。
      - 开通数据源公网访问，并通过 **同步设置** > **同步机器** > **机器 IP 列表** 获取迁移同步机器 IP 列表，添加 IP 白名单。
      - 通过公共云 Private Link 进行连接。
 

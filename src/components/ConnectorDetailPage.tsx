@@ -100,9 +100,15 @@ const CONNECTION_DOC_SOURCES: Record<string, { sourceType: string; sourceSlug: s
 
 const getConnectionDocHref = (connector: Connector, siteBrand: string) => {
   const source = CONNECTION_DOC_SOURCES[connector.slug];
+  const fallbackHref = normalizeLinkForSiteBrand(
+    siteBrand === 'clougence'
+      ? '/docs/operation/saas_operation/quick_start_mgr'
+      : '/docs/quick/quick_start_mgr/',
+    siteBrand
+  );
 
   if (!source || !connector.supportsSource) {
-    return normalizeLinkForSiteBrand('/docs/quick/quick_start_mgr/', siteBrand);
+    return fallbackHref;
   }
 
   try {
@@ -112,13 +118,13 @@ const getConnectionDocHref = (connector: Connector, siteBrand: string) => {
     const target = targets.includes(source.sourceType) ? source.sourceType : targets[0];
 
     if (!target) {
-      return normalizeLinkForSiteBrand('/docs/quick/quick_start_mgr/', siteBrand);
+      return fallbackHref;
     }
 
     const href = `/docs/dataMigrationAndSync/connection/${source.sourceSlug}-to-${slugifyConnectionTarget(target)}/`;
     return normalizeLinkForSiteBrand(href, siteBrand);
   } catch {
-    return normalizeLinkForSiteBrand('/docs/quick/quick_start_mgr/', siteBrand);
+    return fallbackHref;
   }
 };
 
@@ -600,7 +606,12 @@ export default function ConnectorDetailPage({ slug }: ConnectorDetailPageProps):
   const relatedBlogs = getRelatedBlogs(connector, siteBrand);
   const startDocHref = getConnectionDocHref(connector, siteBrand);
   const trialHref = siteBrand === 'bladepipe' ? '/login/' : '/login';
-  const quickStartHref = normalizeLinkForSiteBrand('/docs/quick/quick_start_byoc/', siteBrand);
+  const quickStartHref = normalizeLinkForSiteBrand(
+    siteBrand === 'clougence'
+      ? '/docs/operation/saas_operation/quick_start_byoc'
+      : '/docs/quick/quick_start_byoc/',
+    siteBrand
+  );
   const categorySummary = getCategorySummary(connector, productName);
   const [openFaqId, setOpenFaqId] = useState<number | null>(null);
   const [communityModalVisible, setCommunityModalVisible] = useState(false);

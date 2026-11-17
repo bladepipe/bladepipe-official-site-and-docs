@@ -92,7 +92,7 @@ AWS DMS is a capable tool for specific scenarios, but it is not a "one-size-fits
 - **Complex Schema Evolution:** Your application team frequently updates table structures. If you can't afford to manually restart tasks every time a column is added, DMS will become a bottleneck.
 - **Production-Grade Observability:** You need to know *exactly* why a row failed to sync without performing an "ablation test" on your JSON configuration.
 - **Large-Scale CDC (300GB+ Tables):** If you are replicating high-velocity transaction logs from large production databases, the memory constraints and "sync lag" of DMS replication instances often lead to silent failures or WAL bloat on your source.
-- **Multi-Cloud or Hybrid Strategy:** You need to move data across different cloud providers (e.g., Oracle on-prem to Snowflake on Azure) or maintain a vendor-neutral data architecture.
+- **Multi-Cloud or Hybrid Strategy:** You need to [move data across different cloud providers](what_is_cloud_data_integration.md) (e.g., Oracle on-prem to Snowflake on Azure) or maintain a vendor-neutral data architecture.
 
 ## Technical Deep Dive: Comparing the Architectures
 

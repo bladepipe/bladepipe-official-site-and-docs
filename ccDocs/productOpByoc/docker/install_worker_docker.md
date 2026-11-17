@@ -1,6 +1,6 @@
 ---
 id: install_worker_docker
-title: 安装 SaaS BYOC 客户端
+title: 安装客户端
 description: 安装 CloudCanal SaaS BYOC 客户端到私有环境机器
 ---
 

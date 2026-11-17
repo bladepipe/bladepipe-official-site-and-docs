@@ -11,6 +11,8 @@ image: /img/blog/data_insights/best_oracle_to_postgresql_migration_tools.png
 
 [Oracle to PostgreSQL migration](../tech_share/migrate_oracle_to_postgresql.md) is usually harder than it looks. Moving rows is only part of the job. The bigger risks are often **schema conversion, Oracle-specific SQL and PL/SQL logic, low-downtime cutover planning, CDC continuity, and post-migration validation**.
 
+If you have not settled on PostgreSQL yet, compare [Oracle database alternatives](../data_insights/oracle_database_alternatives.md) before choosing a migration tool.
+
 **The best Oracle to PostgreSQL migration tool depends on whether you care most about low downtime, open-source control, Oracle-native replication, or enterprise governance**. For most live production migrations, tools that support **initial load + ongoing CDC + validation** are usually safer than export/import-only approaches.
 
 If you only want the shortlist first, start with this table:

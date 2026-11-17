@@ -56,7 +56,7 @@ This pattern is usually useful when you need:
 
 ### Step 1: Install BladePipe
 
-Follow the [instructions](/docs/productOP/onPremise/installation/install_all_in_one_docker.mdx) to install BladePipe.
+Follow the [instructions](/docs/productOP/onPremise/installation/install_all_in_one_docker/) to install BladePipe.
 
 ### Step 2: Add DataSources
 

@@ -1,6 +1,6 @@
 ---
 id: upgrade_worker_docker
-title: 升级 SaaS BYOC 客户端
+title: 升级客户端
 description: 升级私有环境部署的 CloudCanal SaaS BYOC 客户端
 ---
 

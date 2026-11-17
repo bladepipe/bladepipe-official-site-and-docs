@@ -48,7 +48,7 @@ DROP ("COL_4");
   
 -- 目标端删除列（以 MySQL 为例）
 ALTER TABLE `SYSTEMDB`.`TEST`
-DROP COLUMN `COL_5`;
+DROP COLUMN `COL_4`;
 ```
 2. [修改订阅](../../../operation/job_manage/job_op/edit_job.md)，剔除对应表。
 3. [修改订阅](../../../operation/job_manage/job_op/edit_job.md)，新增对应表，并勾选 **全量数据初始化**。

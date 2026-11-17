@@ -103,7 +103,7 @@ window.aiBotConfig = {
 
   **部署方式：**
   - [私有部署](https://www.clougence.com/docs/quick/quick_start) 
-  - [CLOUD](https://www.clougence.com/docs/quick/quick_start_byoc) 
+  - [CLOUD](https://www.clougence.com/docs/operation/saas_operation/quick_start_byoc)
 
   点击上方链接查看详细文档，或告诉我您想了解的具体内容！`;
 

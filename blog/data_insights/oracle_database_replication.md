@@ -60,9 +60,9 @@ Common Oracle-to-non-Oracle replication scenarios include:
 - Oracle to [Kafka](https://www.bladepipe.com/connector/kafka/) for event-driven systems
 - Oracle to [StarRocks](https://www.bladepipe.com/connector/starrocks/), [ClickHouse](https://www.bladepipe.com/connector/clickhouse/), or [Doris](https://www.bladepipe.com/connector/doris/) for [real-time analytics](https://www.bladepipe.com/real-time-analytics/)
 - Oracle to [Iceberg](https://www.bladepipe.com/connector/iceberg/), [Paimon](https://www.bladepipe.com/connector/paimon/), or Delta Lake for lakehouse architecture
-- Oracle to [PostgreSQL](https://www.bladepipe.com/connector/postgresql/) or [MySQL](https://www.bladepipe.com/connector/mysql/) for migration or application modernization
+- Oracle to [PostgreSQL](https://www.bladepipe.com/connector/postgresql/) or [MySQL](https://www.bladepipe.com/connector/mysql/) for [migration or application modernization](../tech_share/migrate_oracle_to_postgresql.md)
 
-This kind of replication is more complex than copying data between two Oracle databases. The tool needs to handle schema conversion, data type mapping, full loading, incremental changes and more. That is why teams often choose dedicated Oracle replication tools instead of writing custom scripts.
+This kind of replication is more complex than copying data between two Oracle databases. The tool needs to handle schema conversion, data type mapping, full loading, incremental changes and more. That is why teams often compare [Oracle replication tools](best_data_replication_tools_for_sql_database.md) instead of writing custom scripts.
 
 ## Main Types of Oracle Replication
 

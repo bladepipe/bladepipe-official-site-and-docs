@@ -43,7 +43,7 @@ The term sounds simple, but people use it in three different ways.
 
 First, some people mean the warehouse itself: the database or cloud service where analytical data is stored and queried.
 
-Second, some people mean tools around the warehouse: [ETL/ELT](/blog/data_insights/etl_vs_elt.md), CDC, reverse ETL, transformation, orchestration, testing, and data cataloging.
+Second, some people mean tools around the warehouse: [ETL/ELT](/blog/data_insights/etl_vs_elt.md), CDC, [reverse ETL](/blog/tech_share/redshift_to_mysql_reverse_etl/), transformation, orchestration, testing, and data cataloging.
 
 Third, some comparison articles mix both groups together. That is why you may see Snowflake, Fivetran, dbt, Airflow, and Tableau in the same list even though they solve different problems.
 

@@ -11,7 +11,7 @@ image:  /img/blog/data_insights/best_sql_server_to_redshift_migration_tools.png
 
 You have decided to move your analytics workloads from [SQL Server](https://www.bladepipe.com/connector/sql-server/) to [Amazon Redshift](https://www.bladepipe.com/connector/redshift/). The next question usually comes quickly: **what is the best way to migrate the data without disrupting existing systems?**
 
-At first glance, SQL Server to Redshift migration may look like a simple data transfer task. Export the tables, load them into Redshift, and you are done, at least that is how it looks on paper.
+At first glance, [SQL Server to Redshift migration](sql_server_database_migration.md) may look like a simple data transfer task. Export the tables, load them into Redshift, and you are done, at least that is how it looks on paper.
 
 In real production environments, things are usually more complicated. Large databases may take hours or even days to migrate, business applications continue generating new data, and differences between SQL Server and Redshift can create unexpected issues.
 

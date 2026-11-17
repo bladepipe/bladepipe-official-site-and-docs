@@ -72,8 +72,17 @@ function toSourcePage(routeData: ConnectionRouteData): SourcePage {
 // Docusaurus registers routes without locale prefixes; on non-default locales the
 // pathname from useLocation() includes e.g. '/zh' which we must strip for matching.
 function stripLocalePrefix(pathname: string, currentLocale: string, defaultLocale: string) {
-  if (currentLocale !== defaultLocale && pathname.startsWith(`/${currentLocale}/`)) {
-    return pathname.slice(currentLocale.length + 1); // remove '/zh'
+  if (currentLocale !== defaultLocale) {
+    let normalizedPath = pathname;
+    const localePrefix = `/${currentLocale}`;
+
+    // Route data can already include the localized baseUrl. Remove repeated
+    // locale prefixes so URLs such as /zh/zh/docs/... normalize to /docs/.
+    while (normalizedPath === localePrefix || normalizedPath.startsWith(`${localePrefix}/`)) {
+      normalizedPath = normalizedPath.slice(localePrefix.length) || '/';
+    }
+
+    return normalizedPath;
   }
   return pathname;
 }
@@ -124,14 +133,24 @@ export default function ConnectionRoutePage({ routeData }: Props) {
   const productName = siteBrand === 'clougence' ? 'CloudCanal' : siteBrand === 'clouddm' ? 'CloudDM' : 'BladePipe';
   const isChinese = i18n.currentLocale === 'zh';
   const DataSourceSelect = isChinese ? DataSourceSelectZh : DataSourceSelectForEn;
-  const sourcePages = useMemo(() => routeData.sourcePages?.length ? routeData.sourcePages : [toSourcePage(routeData)], [routeData]);
-  const connectionBasePath = useMemo(() => getConnectionBasePath(routeData.routePath), [routeData.routePath]);
+  const sourcePages = useMemo(() => {
+    const pages = routeData.sourcePages?.length ? routeData.sourcePages : [toSourcePage(routeData)];
+    return pages.map((page) => ({
+      ...page,
+      href: stripLocalePrefix(page.href, i18n.currentLocale, i18n.defaultLocale),
+    }));
+  }, [routeData, i18n.currentLocale, i18n.defaultLocale]);
+  const connectionBasePath = useMemo(
+    () => getConnectionBasePath(stripLocalePrefix(routeData.routePath, i18n.currentLocale, i18n.defaultLocale)),
+    [routeData.routePath, i18n.currentLocale, i18n.defaultLocale],
+  );
   const fallbackRoute = useMemo<ActiveRoute>(() => ({
     ...toSourcePage(routeData),
     target: routeData.target,
     targetSlug: routeData.targetSlug,
-    routePath: routeData.routePath,
-  }), [routeData]);
+    routePath: stripLocalePrefix(routeData.routePath, i18n.currentLocale, i18n.defaultLocale),
+    href: stripLocalePrefix(routeData.routePath, i18n.currentLocale, i18n.defaultLocale),
+  }), [routeData, i18n.currentLocale, i18n.defaultLocale]);
   const [activeRoute, setActiveRoute] = useState<ActiveRoute>(() =>
     findRouteFromPath(sourcePages, connectionBasePath, location.pathname, fallbackRoute, i18n.currentLocale, i18n.defaultLocale)
   );
@@ -144,8 +163,12 @@ export default function ConnectionRoutePage({ routeData }: Props) {
     ? `${productName} 支持从 ${activeRoute.sourceTitle} 到 ${activeRoute.target} 的数据迁移、实时同步、CDC、数据校验和异构链路能力，查看链路功能、前置条件、限制和 FAQ。`
     : `${productName} supports ${activeRoute.sourceTitle} to ${activeRoute.target} data pipelines for migration, real-time sync, CDC, verification, and heterogeneous integration. View capabilities, prerequisites, limits, and FAQ.`;
   // Build the full browser URL for a route path, preserving the current locale prefix.
-  const localePath = (path: string) =>
-    i18n.currentLocale !== i18n.defaultLocale ? `/${i18n.currentLocale}${path}` : path;
+  const localePath = (path: string) => {
+    const localeFreePath = stripLocalePrefix(path, i18n.currentLocale, i18n.defaultLocale);
+    return i18n.currentLocale !== i18n.defaultLocale
+      ? `/${i18n.currentLocale}${localeFreePath}`
+      : localeFreePath;
+  };
 
   // Route path used for sidebar active-detection (locale-free, matches generated item hrefs).
   // DocSidebarItems compares item.href against activePath via isSamePath which expects
@@ -158,14 +181,13 @@ export default function ConnectionRoutePage({ routeData }: Props) {
   const sidebarNavRef = useRef<HTMLElement>(null);
   const sidebarAsideRef = useRef<HTMLElement>(null);
 
-  // Internal SPA navigation for connection-route links — uses pushState + state
-  // update so the component stays mounted (no React Router route change).
-  const navigateInPage = (href: string) => {
-    const nextRoute = findRouteFromPath(sourcePages, connectionBasePath, href, activeRoute, i18n.currentLocale, i18n.defaultLocale);
-    setActiveRoute(nextRoute);
-    const nextUrl = localePath(nextRoute.routePath);
+  // Connection routes are also translated in-place by Google Translate on some
+  // docs pages. A full navigation avoids reconciling React nodes that the
+  // translator may have replaced in the DOM.
+  const navigateToRoute = (href: string) => {
+    const nextUrl = localePath(href);
     if (typeof window !== 'undefined' && normalizePath(window.location.pathname) !== normalizePath(nextUrl)) {
-      window.history.pushState({}, '', nextUrl);
+      window.location.assign(nextUrl);
     }
   };
 
@@ -181,7 +203,7 @@ export default function ConnectionRoutePage({ routeData }: Props) {
     if (normalizedHref.startsWith(`${connectionBasePath}/`)) {
       e.preventDefault();
       e.stopPropagation();
-      navigateInPage(href);
+      navigateToRoute(href);
     }
   };
 
@@ -270,7 +292,7 @@ export default function ConnectionRoutePage({ routeData }: Props) {
                   targetSlug: slugifyConnectionTarget(target),
                   routePath: getRoutePath(connectionBasePath, currentRoute.sourceSlug, target),
                 }))}
-                onTargetNavigate={(target) => navigateInPage(getRoutePath(connectionBasePath, activeRoute.sourceSlug, target))}
+                onTargetNavigate={(target) => navigateToRoute(getRoutePath(connectionBasePath, activeRoute.sourceSlug, target))}
               />
             </article>
             </div>

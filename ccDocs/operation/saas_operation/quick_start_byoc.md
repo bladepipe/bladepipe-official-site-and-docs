@@ -1,6 +1,6 @@
 ---
 id: quick_start_byoc
-title: 快速开始(SaaS BYOC)
+title: BYOC 模式
 ---
 
 CloudCanal SaaS 支持 BYOC(Bring Your Own Cloud) 模式，**运维平台共享，数据迁移同步客户端部署于用户环境中**。
@@ -9,7 +9,7 @@ CloudCanal SaaS 支持 BYOC(Bring Your Own Cloud) 模式，**运维平台共享�
 
 ## 安装客户端
 
-[安装 SaaS 客户端](../productOpByoc/docker/install_worker_docker.md) 并运行。
+[安装 SaaS 客户端](../../productOpByoc/docker/install_worker_docker.md) 并运行。
 
 ## 添加数据源
 1. 登录 [CloudCanal SaaS 平台](https://cloudcanal.clougence.com)。
