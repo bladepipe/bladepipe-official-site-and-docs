@@ -47,18 +47,9 @@ const sidebars: SidebarsConfig = {
       "id": "quick/quick_start"
     },
     {
-      "type": "doc",
-      "id": "quick/quick_start_mgr"
-    },
-    {
-      "type": "doc",
-      "id": "quick/quick_start_byoc"
-    },
-    {
       "type": "category",
       "label": "使用手册",
       "items": [
-
         {
           "type": "category",
           "label": "同步任务",
@@ -176,8 +167,23 @@ const sidebars: SidebarsConfig = {
             "operation/system_manage/preference",
             "operation/system_manage/third_party_setting"
           ]
-        }
-
+        },
+                {
+          "type": "category",
+          "label": "SaaS 使用指南",
+          "items": [
+            {
+              "type": "doc",
+              "id": "operation/saas_operation/quick_start_mgr",
+              "label": "全托管模式"
+            },
+            {
+              "type": "doc",
+              "id": "operation/saas_operation/quick_start_byoc",
+              "label": "BYOC 模式"
+            }
+          ]
+        },
       ]
     },
     {
@@ -452,7 +458,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       "type": "category",
-      "label": "产品运维(私有部署)",
+      "label": "产品运维",
       "items": [
         {
           "type": "category",
@@ -492,9 +498,9 @@ const sidebars: SidebarsConfig = {
           "type": "category",
           "label": "日常运维",
           "items": [
-              "productOP/dailyOP/minimal_docker_for_centos",
-              "productOP/dailyOP/minimal_k8s_for_centos",
-              "productOP/dailyOP/minimal_k8s_for_cc",
+            "productOP/dailyOP/minimal_docker_for_centos",
+            "productOP/dailyOP/minimal_k8s_for_centos",
+            "productOP/dailyOP/minimal_k8s_for_cc",
             "productOP/dailyOP/change_mysql",
             "productOP/dailyOP/change_mysql_on_k8s",
             "productOP/dailyOP/change_on_premise_password",
@@ -527,31 +533,31 @@ const sidebars: SidebarsConfig = {
             "productOP/platform/extend_clouddm_team",
             "productOP/platform/add_job_grafana_dashbord"
           ]
-        }
-      ]
-    },
-    {
-      "type": "category",
-      "label": "产品运维(SaaS BYOC)",
-      "items": [
-        {
-          "type": "category",
-          "label": "客户端部署",
-          "items": [
-            "productOpByoc/docker/install_worker_docker",
-            "productOpByoc/docker/upgrade_worker_docker",
-            "productOpByoc/docker/uninstall_worker_docker"
-          ]
         },
         {
           "type": "category",
-          "label": "日常运维",
+          "label": "SaaS BYOC 运维",
           "items": [
-            "productOpByoc/dailyOp/get_log",
-            "productOpByoc/dailyOp/clear_worker_log",
-            "productOpByoc/dailyOp/change_worker_mem"
-          ],
-        }
+            {
+              "type": "category",
+              "label": "客户端部署",
+              "items": [
+                "productOpByoc/docker/install_worker_docker",
+                "productOpByoc/docker/upgrade_worker_docker",
+                "productOpByoc/docker/uninstall_worker_docker"
+              ]
+            },
+            {
+              "type": "category",
+              "label": "日常运维",
+              "items": [
+                "productOpByoc/dailyOp/get_log",
+                "productOpByoc/dailyOp/clear_worker_log",
+                "productOpByoc/dailyOp/change_worker_mem"
+              ],
+            }
+          ]
+        },
       ]
     },
     {

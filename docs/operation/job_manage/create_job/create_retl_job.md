@@ -18,7 +18,7 @@ description: This topic describes how to create a scheduled scan (rETL) sync Dat
 | StarRocks -> Kafka | Scheduled Scan | / | `DATETIME` |
 | Doris -> MySQL | Scheduled Scan | Truncate Target, Rename and Create | `DATETIME`, `DATETIMEV2` |
 | Doris -> Oracle | Scheduled Scan | Truncate Target | `DATETIME`, `DATETIMEV2` |
-| Redshift -> MySQL | Scheduled Scan | Truncate Target | `TIMESTAMP` |
+| [Redshift -> MySQL](/blog/tech_share/redshift_to_mysql_reverse_etl/) | Scheduled Scan | Truncate Target | `TIMESTAMP` |
 | Hana -> PostgreSQL | Scheduled Scan | Truncate Target | `TIMESTAMP`, `SECONDDATE` |
 | Hana -> MySQL | Scheduled Scan | Truncate Target | `TIMESTAMP`, `SECONDDATE` |
 | PostgreSQL -> Redshift | Scheduled Scan | / | `DATE`, `TIMESTAMP WITHOUT TIME ZONE`, `TIMESTAMP WITH TIME ZONE` |

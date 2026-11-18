@@ -53,7 +53,7 @@ Version: 1.4.0
 - Fixed an issue where verification DataJobs failed when parsing the MONEY type in Vastbase.
 - Fixed SQL compatibility issues when retrieving OID mappings in Vastbase.
 - Fixed an issue where modifying subscriptions failed after deleting source tables when DDL replication was disabled for HANA / SQL Server / PostgreSQL / Dameng / TDengine sources.
-- Fixed an issue where DDL operations on the source side caused failures in parallel DataJob groups.
+- Fixed an issue where DDL operations on the source side caused failures in [parallel DataJob groups](/docs/operation/job_manage/job_op/job_group/).
 - Fixed DataJob group user isolation issues, preventing users from viewing or operating DataJob groups across permissions.
 - Fixed checkbox style issues in Firefox.
 - Fixed an issue where previously unchecked columns were automatically reselected during subscription modification.

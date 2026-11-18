@@ -33,5 +33,5 @@ The DataJob import function is important for BladePipe upgrade and system migrat
 4. Click **Submit** to import the DataJob.
 
 :::tip
-The DataJob will not start automatically after being imported, so please check the configuration and do a system switchover (and ensure position continuity).
+The DataJob will not [start automatically](job_life_cycle_manage.md) after being imported, so please check the configuration and do a system switchover (and ensure position continuity).
 :::

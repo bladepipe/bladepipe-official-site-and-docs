@@ -91,12 +91,12 @@ const DataSourceSelect = ({data, sourceType, sourceSlug, mapping, initialTarget,
     }, [])
 
     const handleTargetChange = (value) => {
-        setTarget(value)
-        onTargetChange?.(value);
         if (onTargetNavigate) {
             onTargetNavigate(value);
             return;
         }
+        setTarget(value)
+        onTargetChange?.(value);
         if (typeof window !== 'undefined') {
             window.history.pushState({}, '', getConnectionTargetPath(value, sourceSlug || sourceType));
         }

@@ -16,7 +16,7 @@ CloudCanal 提供 **4** 个版本，功能差别请参考 [**产品版本**](../
 | [**功能限制**](../intro/product_version.md) | 有限制                                   | 无                                                                                      | 无            | 无           |
 | **计费方式**                                | 许可证<br/>(任务数和时间)                      | 按量<br/>(数据条数)                                                                          | 许可证<br/>(任务数和时间)  | 许可证<br/>(任务数和时间) |
 | **许可证获取方式**                           | 官网申请                                  | 无                                                                                      | 官网申请         | 官网购买 / 线下交付 |
-| **软件部署方式**                             | 私有部署                                  | [全托管](../quick/quick_start_mgr.md) 或 [BYOC](../quick/quick_start_byoc.md) <sup>2</sup> | 私有部署         |  私有部署   |
+| **软件部署方式**                             | 私有部署                                  | [全托管](../operation/saas_operation/quick_start_mgr.md) 或 [BYOC](../operation/saas_operation/quick_start_byoc.md) <sup>2</sup> | 私有部署         |  私有部署   |
 | **软件获取方式**                             | 自助下载                                  | -                                                                                      | 自助下载         | 自助下载 / 线下提供     |
 | **获取软件历史版本**                             | 不支持                                   | -                                                                                      | 不支持          | 支持          |
 | **授权时长**       | 3 个月<br/>(**手动续时长**<b><sup>3</sup></b>) | 无                                                                                      | 1 个月<sup>4</sup> | 订单 / 合同约定       |

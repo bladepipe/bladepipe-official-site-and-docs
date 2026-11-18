@@ -149,7 +149,7 @@ END;
 ## 用 CloudCanal 做 SAP HANA 到 Doris 同步演示
 
 ### 准备动作
-- 登录 CloudCanal SaaS 版本，或下载安装商业版私有部署。可以参见快速上手文档：[快速开始（私有部署）](https://www.clougence.com/docs/quick/quick_start)，[快速开始（SaaS）](https://www.clougence.com/docs/quick/quick_start_mgr)。
+- 登录 CloudCanal SaaS 版本，或下载安装商业版私有部署。可以参见快速上手文档：[快速开始（私有部署）](https://www.clougence.com/docs/quick/quick_start)，[快速开始（SaaS）](https://www.clougence.com/docs/operation/saas_operation/quick_start_mgr)。
 - 准备好源端和目标端数据库及对应数据
 - 参考 [HANA 权限准备](https://www.clougence.com/docs/dataMigrationAndSync/datasource_func/Hana/privs_for_hana) 做账号授权
 

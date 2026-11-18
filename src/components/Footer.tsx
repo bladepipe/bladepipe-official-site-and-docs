@@ -87,7 +87,7 @@ const clougenceFooterLinks = [
     title: translate({id: 'footer.resources', message: 'Resources'}),
     links: [
       { name: translate({id: 'footer.resources.intro', message: 'Introduction'}), href: '/docs/intro/product_intro' },
-      { name: translate({id: 'footer.resources.quickstart', message: 'Quick Start'}), href: '/docs/quick/quick_start_byoc' },
+      { name: translate({id: 'footer.resources.quickstart', message: 'Quick Start'}), href: '/docs/quick/quick_start' },
       { name: translate({id: 'footer.resources.license', message: 'Get a License'}), href: '/docs/license/license_use' },
       { name: translate({id: 'footer.resources.spec', message: 'Granularity & Specifications'}), href: '/docs/reference/service_difference' },
       { name: translate({id: 'footer.resources.blog', message: 'Blog'}), href: '/blog' },

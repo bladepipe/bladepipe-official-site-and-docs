@@ -233,6 +233,8 @@ If you want to see how this works in practice, here are a few examples of moving
 
 - [Move data from MySQL to StarRocks](https://www.bladepipe.com/blog/tech_share/mysql_starrocks_sync/)
 
+- [Move analytics from Google Spanner to StarRocks](https://www.bladepipe.com/blog/tech_share/sync_spanner_to_starrocks/)
+
 - [Move data from MySQL to ClickHouse](https://www.bladepipe.com/blog/tech_share/mysql_clickhouse_sync/)
 
 ## Popular OLTP and OLAP Databases

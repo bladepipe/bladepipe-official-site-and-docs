@@ -94,7 +94,7 @@ Rushing into a migration without proper preparation is the number one reason pro
 +  All tables, indexes, and constraints
 +  Views, triggers, and stored procedures
 +  Sequences and identity columns
-+  Large objects (CLOB/BLOB)
++  Large objects (CLOB/[BLOB](../data_insights/oracle_blob.md))
 
 **Identify your dependencies:**
 

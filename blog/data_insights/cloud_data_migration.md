@@ -20,7 +20,7 @@ This guide explains the cloud data migration process, compares common approaches
 Common projects include:
 
 - Moving an on-premises database to a managed cloud database.
-- Moving data between cloud providers or regions.
+- [Moving data between cloud providers or regions](what_is_cloud_data_integration.md).
 - Loading operational data into a cloud data warehouse or lake for analytics.
 - Replacing a legacy database while keeping applications available during the transition.
 

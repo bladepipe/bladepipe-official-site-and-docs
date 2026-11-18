@@ -12,7 +12,7 @@ BYOC 部署用户请[升级到最新版](../productOpByoc/docker/upgrade_worker_
 
 ## 亮点
 
-- 支持 [SaaS 全托管模式](../quick/quick_start_mgr.md)，无需部署任何组件，登录网站即可使用。当前开放上海 、深圳两区域，可就近选择使用
+- 支持 [SaaS 全托管模式](../operation/saas_operation/quick_start_mgr.md)，无需部署任何组件，登录网站即可使用。当前开放上海 、深圳两区域，可就近选择使用
 - 支持 MySQL、PostgreSQL、StarRocks、Doris、ClickHouse 等数据源[通过 SSH 隧道连接](../operation/datasource_manage/set_ssh_tunnel.md)，方便跨互联网数据互联
 - 开放 PolarDB PostgreSQL -> MySQL/PostgreSQL/Doris/SelectDB/StarRocks 结构迁移、全量迁移、增量同步、数据校验、数据订正、DDL 同步（加列/减列/modify/rename/truncate）
 

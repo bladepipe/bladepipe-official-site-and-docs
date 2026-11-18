@@ -108,7 +108,7 @@ BladePipe is often the strongest option for early-stage teams looking for the ea
 
 ![airbyte](../assets/blog/data_insights/best_fivetran_alternatives/airbyte_ELT_platform.png)
 
-Airbyte has become one of the most recognized **open-source alternatives to Fivetran**. Its extensibility makes it attractive for engineering-heavy startups. Its large connector library and active community also make it attractive for teams experimenting with varied data sources.
+Airbyte has become one of the most recognized [**open-source alternatives to Fivetran**](/blog/data_insights/debezium_vs_airbyte_vs_fivetran_vs_stitch_vs_bladepipe.md). Its extensibility makes it attractive for engineering-heavy startups. Its large connector library and active community also make it attractive for teams experimenting with varied data sources.
 
 **Best for:** Technical startups that want flexibility, open-source control, and scalable connector coverage.
 

@@ -13,7 +13,7 @@ Then, another challenge arises:
 ## BladePipe's Solution
 A common and effective approach is to transfer data to a publicly accessible server, and use third-party tools for data migration. In this solution, the efficiency and reliability of the third-party tool count.
 
-BladePipe developed a virtual data source called Tunnel. With Tunnel, we can sync data across the network securely and efficiently, simplifying cross-cloud or cross-region data migration.
+BladePipe developed a virtual data source called Tunnel. With Tunnel, we can sync data across the network securely and efficiently, simplifying [cross-cloud or cross-region data migration](/blog/data_insights/best_practice_in_intercontinental_data_sync/).
 
 BladePipe's solution for cross-network data movement presents the following features:
 

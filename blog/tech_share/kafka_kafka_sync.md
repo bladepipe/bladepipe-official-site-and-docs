@@ -48,7 +48,7 @@ Please refer to [Permissions Required for Kafka](https://www.bladepipe.com/docs/
 
 ### Step 2: Install BladePipe
 
-Follow the [instructions](/docs/productOP/onPremise/installation/install_all_in_one_docker.mdx) to install BladePipe.
+Follow the [instructions](/docs/productOP/onPremise/installation/install_all_in_one_docker/) to install BladePipe.
 
 ### Step 3: Add DataSources
 

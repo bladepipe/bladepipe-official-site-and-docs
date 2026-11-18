@@ -220,9 +220,9 @@ CloudCanal 是一款面向生产的无需写代码的数据迁移与同步平台
 
 - **SaaS 全托管**：无需部署组件，注册/登录后即可创建任务开始同步  
   - 注册入口：https://www.clougence.com/register  
-  - 快速开始：https://www.clougence.com/docs/quick/quick_start_mgr  
+  - 快速开始：https://www.clougence.com/docs/operation/saas_operation/quick_start_mgr  
 - **BYOC（Bring Your Own Cloud）**：控制台在云上托管，数据面 Worker 部署在你们自有云/IDC，更便于满足网络与合规要求  
-  - 快速开始：https://www.clougence.com/docs/quick/quick_start_byoc  
+  - 快速开始：https://www.clougence.com/docs/operation/saas_operation/quick_start_byoc  
   - Worker 安装（Docker）：https://www.clougence.com/docs/productOpByoc/docker/install_worker_docker  
 - **私有化/本地部署**：在自有环境部署控制台与 Worker，适合对内网隔离/合规要求更高的场景  
   - 快速开始：https://www.clougence.com/docs/quick/quick_start  

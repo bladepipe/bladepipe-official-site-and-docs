@@ -127,7 +127,7 @@ Cons:
 - adds read load to source tables
 - struggles with exact ordering and replays
 
-This can work for lightweight internal jobs, but it is usually not the best long-term answer for **real-time mysql replication**.
+This can work for lightweight internal jobs, but it is usually not the best long-term answer for [**real-time MySQL replication**](/blog/tech_share/how_to_sync_mysql_databases/).
 
 ### 2. Trigger-Based CDC
 

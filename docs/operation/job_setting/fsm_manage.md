@@ -11,7 +11,7 @@ BladePipe controls the automatic flow of DataTasks by virtue of a finite-state m
 
 ## Activate/Inactivate FSMs
 
-If you click **Stop** for a DataJob, but the state of the DataJob doesn't change to Stop and cannot be deleted, you can click **Inactivate** in the Operation column to inactivate the FSM so that you can delete the DataJob if you confirm that there is no other problem. If you need to resume the automatic flow, click **Activation** to do so.
+If you click [**Stop**](../job_manage/job_op/job_life_cycle_manage.md) for a DataJob, but the state of the DataJob doesn't change to Stop and cannot be deleted, you can click **Inactivate** in the Operation column to inactivate the FSM so that you can delete the DataJob if you confirm that there is no other problem. If you need to resume the automatic flow, click **Activation** to do so.
 
 :::warning
 This function is usually used when there is an abnormality in the **automatic flow of DataTasks**. Proceed with caution, as it may affect the automatic scheduling of DataTasks.

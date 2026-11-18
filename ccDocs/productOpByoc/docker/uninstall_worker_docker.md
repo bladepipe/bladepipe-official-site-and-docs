@@ -1,6 +1,6 @@
 ---
 id: uninstall_worker_docker
-title: 卸载 SaaS BYOC 客户端
+title: 卸载客户端
 ---
 
 本文简要介绍如何 **卸载** 通过 Docker 安装的 CloudCanal SaaS BYOC 客户端。

@@ -155,7 +155,7 @@ However, it is a complex middleware solution that requires specialized engineeri
 **Features:**
 + **Managed AWS Service:** Native integration with IAM, networking, monitoring, and target services.
 + **Migration plus Replication:** Supports full migration, continuous replication, and phased modernization.
-+ **Heterogeneous Paths:** Useful for moves such as Oracle to Aurora PostgreSQL or SQL Server to Amazon RDS.
++ **Heterogeneous Paths:** Useful for moves such as [Oracle to Aurora PostgreSQL](../tech_share/migrate_oracle_to_postgresql.md) or SQL Server to Amazon RDS.
 
 **Pricing:**  
 AWS DMS pricing depends on the replication instance, storage, logs, and related AWS resources. Cost is usually reasonable for AWS-centered projects but can rise once multiple services are involved.

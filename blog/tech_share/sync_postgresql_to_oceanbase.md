@@ -237,7 +237,7 @@ What happens if you add a column to a PostgreSQL table while the job is running?
 BladePipe picks it up. It supports automatic DDL sync for `ALTER TABLE`, `ADD COLUMN`, and similar changes. For PostgreSQL, DDL sync uses triggers. Make sure the sync user has trigger permissions before you start. See the [Required Privileges for PostgreSQL](https://www.bladepipe.com/docs/dataMigrationAndSync/datasource_func/PostgreSQL/privs_for_pg/) for details.
 
 ### Replication Slot Management
-BladePipe uses a PostgreSQL replication slot to track its position in the WAL. This stops PostgreSQL from discarding WAL data that BladePipe hasn't read yet.
+BladePipe uses a [PostgreSQL replication slot](../data_insights/postgresql_change_data_capture.md) to track its position in the WAL. This stops PostgreSQL from discarding WAL data that BladePipe hasn't read yet.
 
 If BladePipe is paused for a long time, WAL data piles up and eats disk space. Keep an eye on it:
 
