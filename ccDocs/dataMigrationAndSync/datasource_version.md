@@ -42,6 +42,7 @@ description: CloudCanal 支持的数据源版本支持
 | Pulsar                | 3.x, 4.x     |
 | Greptime              | 0.7, 0.8, 0.9, 0.10, 0.11                        |
 | TDengine              | 3.x         |
+| IoTDB                 | 1.x         |
 | Dameng                | 5.x       |
 | TDSQL-C MySQL         | 5.7, 8.0      |
 | TDSQL MySQL           | 5.7     |
@@ -64,5 +65,6 @@ description: CloudCanal 支持的数据源版本支持
 
 - ClickHouse 目标端建表依赖 `ReplacingMergeTree(_version, _sign)` 语法。该语法自 23.2 引入，CloudCanal 最低支持版本设为 23.3。
 - 支持的版本仅代表 CloudCanal 团队或用户测试、使用过，但并不一定涵盖所有功能或者特性。
-- 支持的版本可用于 CloudCanal 任务源端或者对端，无特定区分。
+- 数据源可用作源端还是目标端，以对应链路的支持范围为准。
+- IoTDB 目前支持从 Kafka 增量同步，已在 IoTDB 1.3.7 上验证。配置步骤见[消息自定义解析任务](../operation/job_manage/create_job/create_mq_parse_job.md)。
 - 支持的版本更新有一定的滞后性，如遇到本表格未提及的版本，可做一定的尝试，并欢迎反馈。

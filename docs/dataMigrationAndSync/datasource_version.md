@@ -42,6 +42,7 @@ description: BladePipe supports 60+ connectors, like MySQL, PostgreSQL, SQL Serv
 | Pulsar                | 3.x, 4.x                                                                                           |
 | Greptime              | 0.7, 0.8, 0.9, 0.10, 0.11                                                                          |
 | TDengine              | 3.x                                                                                                |
+| IoTDB                 | 1.x                                                                                                |
 | Vastbase              | G100V3.0                                                                                           |
 | OssFile               | ~                                                                                                  |
 | S3File                | ~                                                                                                  |
@@ -59,5 +60,6 @@ description: BladePipe supports 60+ connectors, like MySQL, PostgreSQL, SQL Serv
 
 - ClickHouse target table creation relies on the `ReplacingMergeTree(_version, _sign)` syntax, which was introduced in 23.2. The minimum version supported by BladePipe is 23.3.
 - Supported versions represent only those tested or used by BladePipe team or users. They may not cover all functions or features.
-- The supported versions are applicable to both Source and Target.
+- Whether a data source can serve as the source or target depends on the supported source and target combinations.
+- IoTDB supports incremental synchronization from Kafka. This combination was tested with IoTDB 1.3.7. For setup instructions, see [Custom Message Parsing](../operation/job_manage/create_job/create_mq_parse_job.md).
 - There is a certain lag in the supported version updates. If you encounter a version not mentioned in this table, you can try it and welcome feedback.
