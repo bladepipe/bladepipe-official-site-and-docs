@@ -6,6 +6,7 @@ import { Redirect } from '@docusaurus/router';
 import Layout from '@theme/Layout';
 import Footer from '@site/src/components/Footer';
 import CommunityInstallModal from '@site/src/components/CommunityInstallModal';
+import BladepipeCustomerCasePage from '@site/src/components/BladepipeCustomerCasePage';
 import { clougenceCustomerCaseLogos } from '@site/src/components/UserLogos';
 import { getCloudUrl } from '@site/src/utils/api';
 import { isUserLogin } from '@site/src/store/user';
@@ -83,6 +84,10 @@ export default function CustomerCasePage() {
   const { siteConfig } = useDocusaurusContext();
   const siteBrand = siteConfig.customFields?.siteBrand as string;
   const [communityModalVisible, setCommunityModalVisible] = useState(false);
+
+  if (siteBrand === 'bladepipe') {
+    return <BladepipeCustomerCasePage />;
+  }
 
   if (siteBrand !== 'clougence') {
     return <Redirect to="/" />;

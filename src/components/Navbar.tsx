@@ -188,7 +188,7 @@ export default function Navbar() {
 
   // 根据当前路径自动设置选中的导航项
   useEffect(() => {
-    const pathname = location.pathname;
+    const pathname = location.pathname.replace(/^\/(zh|en)(?=\/|$)/, '') || '/';
 
     if (pathname === '/' || pathname.startsWith('/product') || pathname.startsWith('/why') || pathname.startsWith('/connector')) {
       setActiveNav('product');
@@ -638,9 +638,9 @@ export default function Navbar() {
               </div>
             </Dropdown>
           </div>
-          {siteBrand === 'clougence' && (
+          {(siteBrand === 'clougence' || siteBrand === 'bladepipe') && (
             <Link
-              to="/customer-case"
+              to={siteBrand === 'bladepipe' ? '/customer-case/' : '/customer-case'}
               data-desktop-nav-item
               data-nav-key="customer-case"
               className={`no-underline flex-shrink-0 flex items-center px-3 lg:px-4 xl:px-5 h-10 rounded-full transition-all duration-200 ${activeNav === 'customer-case'
@@ -649,7 +649,9 @@ export default function Navbar() {
                 }`}
               onClick={() => setActiveNav('customer-case')}
             >
-              <span className="text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#262728]">用户案例</span>
+              <span className="text-sm lg:text-[15px] xl:text-[16px] font-bold text-[#262728]">
+                {siteBrand === 'clougence' ? '用户案例' : <Translate id="navbar.customerCases">Customers</Translate>}
+              </span>
             </Link>
           )}
           {/* Resources 下拉 */}
@@ -856,6 +858,20 @@ export default function Navbar() {
                             onClick={() => setActiveNav('solutions')}
                           >
                             <Translate id="navbar.solutions">Solutions</Translate>
+                          </Link>
+                        ),
+                      };
+                    }
+                    if (key === 'customer-case') {
+                      return {
+                        key: 'more-customer-case',
+                        label: (
+                          <Link
+                            to={siteBrand === 'bladepipe' ? '/customer-case/' : '/customer-case'}
+                            className="no-underline text-[16px] text-[#262728] hover:text-[#0087c7] transition-colors"
+                            onClick={() => setActiveNav('customer-case')}
+                          >
+                            {siteBrand === 'clougence' ? '用户案例' : <Translate id="navbar.customerCases">Customers</Translate>}
                           </Link>
                         ),
                       };
@@ -1235,11 +1251,13 @@ export default function Navbar() {
               </div>
               <div className='h-px bg-black/[0.08] w-full' />
 
-              {siteBrand === 'clougence' && (
+              {(siteBrand === 'clougence' || siteBrand === 'bladepipe') && (
                 <>
-                  <Link to="/customer-case" onClick={() => setMobileOpen(false)} className="no-underline">
+                  <Link to={siteBrand === 'bladepipe' ? '/customer-case/' : '/customer-case'} onClick={() => setMobileOpen(false)} className="no-underline">
                     <div className="flex items-center justify-between px-5 h-[50px] cursor-pointer hover:bg-gray-100">
-                      <span className="text-[16px] font-bold text-[#262728]">用户案例</span>
+                      <span className="text-[16px] font-bold text-[#262728]">
+                        {siteBrand === 'clougence' ? '用户案例' : <Translate id="navbar.customerCases">Customers</Translate>}
+                      </span>
                     </div>
                   </Link>
                   <div className='h-px bg-black/[0.08] w-full' />

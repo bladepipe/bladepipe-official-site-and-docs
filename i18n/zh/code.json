@@ -2360,6 +2360,9 @@
   "footer.resources.blog": {
     "message": "博客"
   },
+  "navbar.customerCases": {
+    "message": "用户案例"
+  },
   "footer.partners": {
     "message": "合作伙伴"
   },

@@ -5,6 +5,8 @@ description: Upload custom code in BladePipe for complex data transformation. Th
 ---
 This page briefly introduces BladePipe **Custom Code**, covering coding, DataJob creation, code updating and troubleshooting.
 
+To parse raw messages and sync the resulting records to a structured database, see [Custom Message Parsing](./create_mq_parse_job.md).
+
 ## Overview
 
 **Custom code** allows you to write Java code with data processing logic. By uploading Java jar files to BladePipe, BladePipe can automatically call these codes during Full Data and Incremental DataTasks to transform and process data in various ways.

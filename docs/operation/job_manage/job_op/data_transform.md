@@ -27,24 +27,32 @@ return @fun.str.maskAfter(@params['col'],'-')
 
 ### String Conversion
 
-| Script| Description|
-| --- | --- |
-|return @fun.str.trim(@params['col'],' ') | Remove leading and trailing spaces from the string|
-|return @fun.str.trimEnd(@params['col'],' ') | Remove trailing spaces from the string|
-|return @fun.str.trimStart(@params['col'],' ') | Remove leading spaces from the string|
-|return @fun.str.upperCase(@params['col']) | Convert the string to uppercase|
-|return @fun.str.lowerCase(@params['col']) | Convert the string to lowercase|
-|return @fun.str.subStringAfter(@params['col'],'-') |Extract the substring after the '-' character|
-|return @fun.str.subStringBefore(@params['col'],'-') | Extract the substring before the '-' character|
-|return @fun.str.maskAfter(@params['col'],'-') | Mask the substring after the '-' character, defaulting to *|
-|return @fun.str.maskBefore(@params['col'],'@') | Mask the substring before the '@' character, defaulting to * |
-|return @fun.str.maskBetweenIdx(@params['col'],2,8) | Mask the substring between indices 2 and 8, inclusive of the start and exclusive of the end, with indices starting at 0|
-|return @fun.str.stringFormat(@params['col'],'prefix_%s_suffix') | Format the value with specified text expression|
-|return @fun.str.join([@params['col1'],@params['col2'],...]) | Concatenate the values of multiple fields|
-|return @fun.str.castToDateTimeWithFormat(@params['col'],'yyyy-MM-dd HH:mm:ss') | Convert strings to date and time in a specified format |
-|return @fun.str.castToDateWithFormat(@params['col'],'yyyy-MM-dd') | Convert strings to date in a specified format |
-|return @fun.str.castToTimeWithFormat(@params['col'],'HH:mm:ss') | Convert strings to time in a specified format |
-| return @fun.str.regexReplaceAll(@params['col'],'regex','replacement')    | Match and replace target strings using regular expressions   |
+| Script                                                                          | Description|
+|---------------------------------------------------------------------------------| --- |
+| return @fun.str.trim(@params['col'],' ')                                        | Remove leading and trailing spaces from the string|
+| return @fun.str.trimEnd(@params['col'],' ')                                     | Remove trailing spaces from the string|
+| return @fun.str.trimStart(@params['col'],' ')                                   | Remove leading spaces from the string|
+| return @fun.str.upperCase(@params['col'])                                       | Convert the string to uppercase|
+| return @fun.str.lowerCase(@params['col'])                                       | Convert the string to lowercase|
+| return @fun.str.subStringAfter(@params['col'],'-')                              |Extract the substring after the '-' character|
+| return @fun.str.subStringBefore(@params['col'],'-')                             | Extract the substring before the '-' character|
+| return @fun.str.maskAfter(@params['col'],'-')                                   | Mask the substring after the '-' character, defaulting to *|
+| return @fun.str.maskBefore(@params['col'],'@')                                  | Mask the substring before the '@' character, defaulting to * |
+| return @fun.str.maskBetweenIdx(@params['col'],2,8)                              | Mask the substring between indices 2 and 8, inclusive of the start and exclusive of the end, with indices starting at 0|
+| return @fun.str.stringFormat(@params['col'],'prefix_%s_suffix')                 | Format the value with specified text expression|
+| return @fun.str.join([@params['col1'],@params['col2'],...])                     | Concatenate the values of multiple fields|
+| return @fun.str.castToDateTimeWithFormat(@params['col'], 'yyyy-MM-dd HH:mm:ss') | Convert strings to date and time in a specified format |
+| return @fun.str.castToDateWithFormat(@params['col'], 'yyyy-MM-dd')              | Convert strings to date in a specified format |
+| return @fun.str.castToTimeWithFormat(@params['col'], 'HH:mm:ss')                | Convert strings to time in a specified format |
+| return @fun.str.regexReplaceAll(@params['col'], 'regex','replacement')          | Match and replace target strings using regular expressions   |
+
+### Data Fingerprinting
+
+| Script                                                                 | Description                                                              |
+|------------------------------------------------------------------------|--------------------------------------------------------------------------|
+| return @fun.str.md5(@params['col'])                                    | Compute an MD5 digest and return 32 lowercase hexadecimal characters     |
+| return @fun.str.sha256(@params['col'])                                 | Compute a SHA-256 digest and return 64 lowercase hexadecimal characters  |
+| return @fun.str.sm3(@params['col'])                                    | Compute an SM3 digest and return 64 lowercase hexadecimal characters     |
 
 ### Data Type Conversion
 
@@ -57,11 +65,11 @@ return @fun.str.maskAfter(@params['col'],'-')
 
 ### Condition-based Replacement
 
-| Script                                                                        | Description                      |
-|----------------------------------------------------------------------------|--------------------------|
-| return @fun.rep.ifNullReplace(@params['col'],'replace_val','replace_type')                | Replace null to the target value      |
-| return @fun.rep.timestampReplace(@params['col'],'ts_format','relation','compare_val','replace_val')  | Compare with the reference timestamp, and replace it with the specified value when the condition is satisfied   |
-| return @fun.rep.numberReplace(@params['col'],'relation','compare_val','replace_val','replace_type')  | Compare with the reference value, and replace it with the specified value when the condition is satisfied    |
+| Script                                                                                               | Description                      |
+|------------------------------------------------------------------------------------------------------|--------------------------|
+| return @fun.rep.ifNullReplace(@params['col'], 'replace_val','replace_type')                          | Replace null to the target value      |
+| return @fun.rep.timestampReplace(@params['col'], 'ts_format','relation','compare_val','replace_val') | Compare with the reference timestamp, and replace it with the specified value when the condition is satisfied   |
+| return @fun.rep.numberReplace(@params['col'], 'relation','compare_val','replace_val','replace_type') | Compare with the reference value, and replace it with the specified value when the condition is satisfied    |
 :::info
 **Supported replacement value types(replace_type)**: BOOLEAN / INTEGER / LONG / FLOAT / DOUBLE / DECIMAL / LOCAL_DATETIME / STRING / JSON      
 **ts_format**: The timestamp format, such as yyyy-MM-dd HH:mm:ss     

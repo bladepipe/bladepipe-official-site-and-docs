@@ -65,6 +65,7 @@ const sidebars: SidebarsConfig = {
               "items": [
                 "operation/job_manage/create_job/create_full_incre_task",
                 "operation/job_manage/create_job/create_process_job",
+                "operation/job_manage/create_job/create_mq_parse_job",
                 "operation/job_manage/create_job/create_data_filter_job",
                 "operation/job_manage/create_job/create_period_full_job",
                 "operation/job_manage/create_job/create_virtual_col_job",
@@ -599,6 +600,7 @@ const sidebars: SidebarsConfig = {
             "openCenter/openApi/dataTaskApi/api_datajob_precheckbasic",
             "openCenter/openApi/dataTaskApi/api_datajob_precheckdetail",
             "openCenter/openApi/dataTaskApi/api_datajob_create",
+            "openCenter/openApi/dataTaskApi/api_datajob_createwithpackage",
             "openCenter/openApi/dataTaskApi/api_datajob_updatedesc",
             "openCenter/openApi/dataTaskApi/api_datajob_updatelevel",
             "openCenter/openApi/dataTaskApi/api_datajob_updatetransferobjnew",
