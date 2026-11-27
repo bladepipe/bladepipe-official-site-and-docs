@@ -21,6 +21,7 @@ const logoUrlTable: Record<string, string> = {
   '/img/home/logo/citic-futures.jpg': 'https://www.citicsf.com/e-futures/',
   '/img/home/logo/ziroom.jpg': 'https://www.ziroom.com/',
   '/img/home/logo/meituan.png': 'https://www.meituan.com/',
+  '/img/home/logo/clougence-users/ctrip.png': 'https://www.ctrip.com/',
   '/img/home/logo/li-auto-alt.png': 'https://www.lixiang.com/',
   '/img/home/logo/faw-volkswagen.png': 'https://vw.faw-vw.com/',
   '/img/home/logo/kostal.svg': 'https://www.kostal.com/en/',
@@ -86,6 +87,7 @@ const logoSizeTable: Record<string, Partial<Pick<LogoItem, 'width' | 'height'>>>
   '/img/home/logo/bindolabs.png': { width: 110 },
   '/img/home/logo/flashexpress.png': { width: 90 },
   '/img/home/logo/meituan.png': { width: 102 },
+  '/img/home/logo/clougence-users/ctrip.png': { width: 138, height: 24 },
   '/img/home/logo/faw-volkswagen.png': { width: 120 },
   '/img/home/logo/kostal.svg': { width: 84 },
   '/img/home/logo/dragonpass.webp': { width: 84, height: 24 },
@@ -146,18 +148,20 @@ const sharedBrandLogos = [
   '/img/home/logo/clougence-users/sea.webp',
 ];
 
-// 所有 logo（logo1 到 logo35）
+// 国内 CloudCanal 客户 Logo
 const logos: LogoItem[] = [
   '/img/home/logo/china-mobile.jpg',
   '/img/home/logo/ecovacs.png',
   '/img/home/logo/ziroom.jpg',
   '/img/home/logo/meituan.png',
+  '/img/home/logo/clougence-users/ctrip.png',
   '/img/home/logo/li-auto-alt.png',
   '/img/home/logo/faw-volkswagen.png',
   '/img/home/logo/kostal.svg',
   '/img/home/logo/gtland.png',
   '/img/home/logo/deepway.svg',
   '/img/home/logo/inman.jpg',
+  '/img/home/logo/clougence-users/miiow.png',
   '/img/home/logo/cheersyou.webp',
   '/img/home/logo/clougence-users/bluemoon.png',
   '/img/home/logo/clougence-users/lingrui.png',
@@ -190,7 +194,6 @@ const logos: LogoItem[] = [
   '/img/home/logo/clougence-users/mlily.png',
   '/img/home/logo/clougence-users/autostreets.png',
   '/img/home/logo/clougence-users/fanruan.png',
-  '/img/home/logo/clougence-users/miiow.png',
   ...sharedBrandLogos,
 ].map(toLogoItem);
 
