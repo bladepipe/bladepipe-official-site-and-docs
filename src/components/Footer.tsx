@@ -21,6 +21,7 @@ const footerLinks = [
       { name: translate({id: 'footer.resources.license', message: 'Get a License'}), href: '/docs/license/license_use/' },
       { name: translate({id: 'footer.resources.spec', message: 'Granularity & Specifications'}), href: '/docs/reference/service_difference/' },
       { name: translate({id: 'footer.resources.blog', message: 'Blog'}), href: '/blog/' },
+      { name: translate({id: 'navbar.customerCases', message: 'Customers'}), href: '/customer-case/' },
     ],
   },
   {

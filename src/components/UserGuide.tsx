@@ -1,5 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import Translate from '@docusaurus/Translate';
+import ScrollCtaBackground from './ScrollCtaBackground';
 import { getCloudUrl } from '@site/src/utils/api';
 import { isUserLogin } from '@site/src/store/user';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -7,51 +8,12 @@ import CommunityInstallModal, { type CommunityInstallInitialTab } from './Commun
 import { trackCommunityEditionDownloadClick } from '@site/src/utils/analytics';
 
 export default function UserGuide() {
-  const [offsetY, setOffsetY] = useState(0);
-  const [section, setSection] = useState(false);
   const [communityModalVisible, setCommunityModalVisible] = useState(false);
   const [communityModalInitialTab, setCommunityModalInitialTab] = useState<CommunityInstallInitialTab>('docker');
-  const sectionRef = useRef(null);
-  const startScrollY = useRef<number | null>(null);
-  const startOffset = 500;
+  const sectionRef = useRef<HTMLElement>(null);
   //初始化sitebrand
   const { siteConfig } = useDocusaurusContext();
   const siteBrand = siteConfig.customFields?.siteBrand;
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setSection(true);
-            if (startScrollY.current === null) {
-              startScrollY.current = window.scrollY;
-            }
-          } else {
-            setSection(false);
-          }
-        });
-      },
-      { threshold: 0 }
-    );
-
-    observer.observe(sectionRef.current);
-
-    const handleScroll = () => {
-      if (section && startScrollY.current !== null) {
-        const relativeY = window.scrollY - startScrollY.current;
-        setOffsetY(relativeY);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      observer.disconnect();
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [section]);
 
   const handleTryCommunityFree = () => {
     if (siteBrand !== 'bladepipe' && siteBrand !== 'clougence') {
@@ -75,34 +37,7 @@ export default function UserGuide() {
     <section
       ref={sectionRef}
       className='w-full min-h-[464px] flex justify-center items-center bg-gradient-to-b from-[#0064c7] to-[#0087c7] py-24 relative overflow-hidden'>
-      {/* 背景图层1 */}
-      <div
-        className='absolute inset-0 w-full h-full z-0 pointer-events-none'
-        style={{
-          backgroundImage: section ? 'url(/img/home/guideBack.svg)' : 'none',
-          backgroundRepeat: 'repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: 'bottom',
-          transform: `translateY(${startOffset - offsetY}px)`,
-          willChange: 'transform',
-          transition: 'transform 0.1s linear'
-        }}
-      />
-
-      {/* 背景图层2 */}
-      <div
-        className='absolute inset-0 w-full h-full z-0 pointer-events-none'
-        style={{
-          backgroundImage: section ? 'url(/img/home/guideBack.svg)' : 'none',
-          backgroundRepeat: 'repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: 'bottom',
-          transform: `translateY(${startOffset - offsetY * 0.5}px)`,
-          willChange: 'transform',
-          transition: 'transform 0.1s linear',
-          opacity: 0.5
-        }}
-      />
+      <ScrollCtaBackground sectionRef={sectionRef} />
 
       {/* 主体内容 */}
       <div className='w-[1320px] flex flex-col items-center justify-center gap-12 relative z-10'>

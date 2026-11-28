@@ -34,6 +34,7 @@ const logoUrlTable: Record<string, string> = {
   '/img/home/logo/alphaess.svg': 'https://www.alphaess.com/ ',
   '/img/home/logo/peppr.avif': 'https://www.peppr.com/',
   '/img/home/logo/bindolabs.png': 'https://bindolabs.com/',
+  '/img/home/logo/cavan.png': 'https://www.cavanauto.com/home',
   '/img/home/logo/flashexpress.png': 'https://www.flashexpress.com/',
   '/img/home/logo/li-auto.png': 'https://www.liauto.com/',
   '/img/home/logo/dragonpass-alt.svg': 'https://www.dragonpass.com/',
@@ -73,6 +74,7 @@ const logoUrlTable: Record<string, string> = {
   '/img/home/logo/clougence-users/autostreets.png': 'https://www.autostreets.com/',
   '/img/home/logo/clougence-users/fanruan.png': 'https://www.fanruan.com/',
   '/img/home/logo/clougence-users/miiow.png': 'https://www.miiow.com.cn/',
+  '/img/home/logo/clougence-users/shanghai-electric.png': 'https://www.shanghai-electric.com/group/',
 };
 
 const logoSizeTable: Record<string, Partial<Pick<LogoItem, 'width' | 'height'>>> = {
@@ -85,6 +87,7 @@ const logoSizeTable: Record<string, Partial<Pick<LogoItem, 'width' | 'height'>>>
   '/img/home/logo/alphaess.svg': { width: 92 },
   '/img/home/logo/peppr.avif': { width: 96, height: 24 },
   '/img/home/logo/bindolabs.png': { width: 110 },
+  '/img/home/logo/cavan.png': { width: 116, height: 30 },
   '/img/home/logo/flashexpress.png': { width: 90 },
   '/img/home/logo/meituan.png': { width: 102 },
   '/img/home/logo/clougence-users/ctrip.png': { width: 138, height: 24 },
@@ -134,6 +137,7 @@ const logoSizeTable: Record<string, Partial<Pick<LogoItem, 'width' | 'height'>>>
   '/img/home/logo/clougence-users/autostreets.png': { width: 138, height: 40 },
   '/img/home/logo/clougence-users/fanruan.png': { width: 102, height: 34 },
   '/img/home/logo/clougence-users/miiow.png': { width: 76, height: 48 },
+  '/img/home/logo/clougence-users/shanghai-electric.png': { width: 136, height: 40 },
 };
 
 const toLogoItem = (src: string): LogoItem => ({
@@ -151,6 +155,7 @@ const sharedBrandLogos = [
 // 国内 CloudCanal 客户 Logo
 const logos: LogoItem[] = [
   '/img/home/logo/china-mobile.jpg',
+  '/img/home/logo/clougence-users/shanghai-electric.png',
   '/img/home/logo/ecovacs.png',
   '/img/home/logo/ziroom.jpg',
   '/img/home/logo/meituan.png',
@@ -211,6 +216,7 @@ const bpLogos: LogoItem[] = [
   '/img/home/logo/ecovacs.png',
   '/img/home/logo/kostal.svg',
   '/img/home/logo/li-auto.png',
+  '/img/home/logo/cavan.png',
   '/img/home/logo/bindolabs.png',
   '/img/home/logo/clougence-users/microtech.svg',
   '/img/home/logo/clougence-users/garena.png',
@@ -218,6 +224,8 @@ const bpLogos: LogoItem[] = [
   '/img/home/logo/clougence-users/balance.png',
   ...sharedBrandLogos,
 ].map(toLogoItem);
+
+export const bladepipeCustomerLogos = bpLogos;
 
 export function UserLogoShowcase() {
   const { siteConfig } = useDocusaurusContext();

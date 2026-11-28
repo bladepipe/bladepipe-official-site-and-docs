@@ -241,6 +241,7 @@ const config: Config = {
   } satisfies Preset.ThemeConfig,
 
   scripts: [
+    '/iconfont/datasource.js',
     { src: 'https://hm.baidu.com/hm.js?9a18d2c0bad7c7472febb245db950168', async: true },
     // 仅在非 development 环境加载 GA4，避免本地 start 产生统计数据
     ...(!isDevelopment
